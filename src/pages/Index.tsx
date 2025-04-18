@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import UserForm from '@/components/UserForm';
 import Questionnaire from '@/components/Questionnaire';
@@ -12,7 +11,7 @@ import {
   processFollowUpQuestionnaire, 
   createAssessmentResults 
 } from '@/utils/assessmentAnalyzer';
-import { saveResultsToSheet, mockSaveResults, getExerciseLink } from '@/utils/googleSheets';
+import { mockSaveResults, getExerciseLink } from '@/utils/googleSheets';
 import { 
   UserInfo, 
   PainMechanism, 
@@ -50,7 +49,6 @@ const Index = () => {
   const handleGeneralQuestionnaireComplete = (answers: Record<string, any>) => {
     setGeneralAnswers(answers);
     
-    // Process general questionnaire to determine primary mechanism and SIN group
     const { scores: newScores, primaryMechanism: newMechanism, sinGroup: newSinGroup } = 
       processGeneralQuestionnaire(answers);
     
@@ -58,7 +56,6 @@ const Index = () => {
     setPrimaryMechanism(newMechanism);
     setSINGroup(newSinGroup);
     
-    // Move to follow-up questionnaire based on primary mechanism
     setStage(AssessmentStage.FollowUpQuestionnaire);
   };
 
@@ -71,7 +68,6 @@ const Index = () => {
       return;
     }
     
-    // Process follow-up questionnaire to determine primary differential
     const { scores: updatedScores, primaryDifferential: newDifferential } = 
       processFollowUpQuestionnaire(
         primaryMechanism as 'nociceptive' | 'neuropathic' | 'central',
@@ -82,7 +78,6 @@ const Index = () => {
     setScores(updatedScores);
     setPrimaryDifferential(newDifferential);
     
-    // Create final assessment results
     const assessmentResults = createAssessmentResults(
       userInfo,
       primaryMechanism,
@@ -93,7 +88,6 @@ const Index = () => {
     
     setResults(assessmentResults);
     
-    // Get exercise link based on results
     const link = getExerciseLink(
       primaryMechanism,
       sinGroup,
@@ -102,14 +96,11 @@ const Index = () => {
     );
     setExerciseLink(link);
     
-    // Save results to Google Sheets (using mock for now)
     try {
-      // In production, switch to saveResultsToSheet
       await mockSaveResults(assessmentResults);
       setStage(AssessmentStage.Results);
     } catch (error) {
       console.error('Error saving results:', error);
-      // Still show results even if saving fails
       setStage(AssessmentStage.Results);
     } finally {
       setIsSubmitting(false);
@@ -117,7 +108,6 @@ const Index = () => {
   };
 
   const handleRestart = () => {
-    // Reset state and go back to the beginning
     setStage(AssessmentStage.UserInfo);
     setUserInfo(null);
     setGeneralAnswers({});
