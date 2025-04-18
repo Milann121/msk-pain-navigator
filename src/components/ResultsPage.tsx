@@ -56,6 +56,14 @@ const ResultsPage = ({ results, exerciseLink, onRestart }: ResultsPageProps) => 
     return translations[differential] || differential;
   };
 
+  // Get the exercise recommendation based on the assessment results
+  const exerciseRecommendation = getExerciseRecommendation(
+    primaryMechanism,
+    sinGroup,
+    primaryDifferential,
+    userInfo.painArea
+  );
+
   return (
     <Card className="w-full max-w-2xl mx-auto">
       <CardHeader className="text-center bg-blue-50">
@@ -98,7 +106,7 @@ const ResultsPage = ({ results, exerciseLink, onRestart }: ResultsPageProps) => 
           </p>
           
           <div className="bg-blue-50 p-3 rounded-md mb-4">
-            <p className="text-blue-700">{getDescription()}</p>
+            <p className="text-blue-700">{exerciseRecommendation}</p>
           </div>
           
           <a 
@@ -129,4 +137,3 @@ const ResultsPage = ({ results, exerciseLink, onRestart }: ResultsPageProps) => 
 };
 
 export default ResultsPage;
-
