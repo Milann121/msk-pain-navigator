@@ -18,7 +18,7 @@ export const getExerciseLink = (
   painArea: string
 ): string => {
   // Use a single valid Google Drive folder as fallback
-  const defaultDriveLink = "https://drive.google.com/drive/folders/1yDN14x8kyOfIA5upAijGPp60Mipfby0Q";
+  const defaultDriveLink = "https://drive.google.com/drive/folders/1fjA_DO4N2zaM-cT6R0JJwnQWL_6roN3b?usp=sharing";
   
   // Create mapping of specific combinations to real Google Drive folders
   // Since we need working links, we'll use the default link for all combinations for now
