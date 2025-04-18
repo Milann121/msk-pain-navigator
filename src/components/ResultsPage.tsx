@@ -79,7 +79,7 @@ const ResultsPage = ({ results, exerciseLink, onRestart }: ResultsPageProps) => 
           <h3 className="font-semibold text-blue-700 mb-2">Váš personalizovaný cvičebný plán</h3>
           <p className="mb-4">
             Na základe vášho hodnotenia sme pripravili personalizovaný cvičebný program
-            špeciálne navrhnutý pre váš stav.
+            špeciálne navrhnutý pre váš stav. Prosím, berte na vedomie, že tento program aj tak nemusí byť pre vás vhodný a v žiadnom prípade nenahrádza návštevu lekára alebo fyzioterapeuta. V prípade akéhokoľvek pocitu diskomfortu alebo zhoršenia stavu, okamžite prestaňte s cvičením!
           </p>
           
           <div className="bg-blue-50 p-3 rounded-md mb-4">
@@ -92,7 +92,7 @@ const ResultsPage = ({ results, exerciseLink, onRestart }: ResultsPageProps) => 
             rel="noopener noreferrer" 
             className="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
           >
-            Pristúpiť k vášmu kompletnému cvičebnému programu
+            Pristúpiť k vášmu kompletnému cvičebnému programu: OTVORIŤ
           </a>
         </div>
         
