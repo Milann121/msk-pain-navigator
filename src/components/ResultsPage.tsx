@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { AssessmentResults, PainMechanism, SINGroup, Differential } from '@/utils/types';
@@ -15,22 +14,22 @@ const ResultsPage = ({ results, exerciseLink, onRestart }: ResultsPageProps) => 
   
   const getMechanismLabel = (mechanism: PainMechanism): string => {
     const labels: Record<PainMechanism, string> = {
-      'nociceptive': 'Nociceptive Pain',
-      'neuropathic': 'Neuropathic Pain',
-      'central': 'Central Sensitization',
-      'none': 'Undefined Pain Mechanism'
+      'nociceptive': 'Nociceptívna bolesť',
+      'neuropathic': 'Neuropatická bolesť',
+      'central': 'Centrálna senzitizácia',
+      'none': 'Nedefinovaný mechanizmus bolesti'
     };
-    return labels[mechanism] || 'Unknown';
+    return labels[mechanism] || 'Neznámy';
   };
   
   const getSINLabel = (sin: SINGroup): string => {
     const labels: Record<SINGroup, string> = {
-      'low SIN': 'Low Severity, Irritability, and Nature',
-      'mid SIN': 'Moderate Severity, Irritability, and Nature',
-      'high SIN': 'High Severity, Irritability, and Nature',
-      'none': 'Undefined SIN Level'
+      'low SIN': 'Nízka závažnosť, dráždivosť a povaha',
+      'mid SIN': 'Stredná závažnosť, dráždivosť a povaha',
+      'high SIN': 'Vysoká závažnosť, dráždivosť a povaha',
+      'none': 'Nedefinovaná úroveň SIN'
     };
-    return labels[sin] || 'Unknown';
+    return labels[sin] || 'Neznámy';
   };
   
   const formatDifferential = (differential: Differential): string => {
@@ -45,42 +44,42 @@ const ResultsPage = ({ results, exerciseLink, onRestart }: ResultsPageProps) => 
   return (
     <Card className="w-full max-w-2xl mx-auto">
       <CardHeader className="text-center bg-blue-50">
-        <CardTitle className="text-2xl font-bold text-blue-700">Assessment Results</CardTitle>
+        <CardTitle className="text-2xl font-bold text-blue-700">Výsledky hodnotenia</CardTitle>
         <CardDescription>
-          Thank you for completing the MSK Pain Navigator assessment
+          Ďakujeme za vyplnenie MSK Navigátora bolesti
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-6 py-6">
         <div className="space-y-1">
-          <h3 className="text-lg font-medium">Hello, {userInfo.firstName}</h3>
-          <p className="text-gray-500">We've analyzed your responses for your {userInfo.painArea} pain.</p>
+          <h3 className="text-lg font-medium">Dobrý deň, {userInfo.firstName}</h3>
+          <p className="text-gray-500">Analyzovali sme vaše odpovede ohľadom bolesti {userInfo.painArea}.</p>
         </div>
         
         <div className="space-y-4 mt-6">
           <div className="bg-blue-50 p-4 rounded-lg">
-            <h4 className="font-semibold text-blue-800">Primary Pain Mechanism</h4>
+            <h4 className="font-semibold text-blue-800">Primárny mechanizmus bolesti</h4>
             <p className="text-blue-700 font-medium">{getMechanismLabel(primaryMechanism)}</p>
             <p className="text-blue-600 mt-2 text-sm">{painMechanismDescriptions[primaryMechanism]}</p>
           </div>
           
           <div className="bg-green-50 p-4 rounded-lg">
-            <h4 className="font-semibold text-green-800">Pain Sensitivity Level</h4>
+            <h4 className="font-semibold text-green-800">Úroveň citlivosti na bolesť</h4>
             <p className="text-green-700 font-medium">{getSINLabel(sinGroup)}</p>
             <p className="text-green-600 mt-2 text-sm">{sinGroupDescriptions[sinGroup]}</p>
           </div>
           
           <div className="bg-purple-50 p-4 rounded-lg">
-            <h4 className="font-semibold text-purple-800">Differential Assessment</h4>
+            <h4 className="font-semibold text-purple-800">Diferenciálne hodnotenie</h4>
             <p className="text-purple-700 font-medium">{formatDifferential(primaryDifferential)}</p>
             <p className="text-purple-600 mt-2 text-sm">{differentialDescriptions[primaryDifferential]}</p>
           </div>
         </div>
         
         <div className="mt-8 p-4 border border-blue-200 rounded-lg">
-          <h3 className="font-semibold text-blue-700 mb-2">Your Personalized Exercise Plan</h3>
+          <h3 className="font-semibold text-blue-700 mb-2">Váš personalizovaný cvičebný plán</h3>
           <p className="mb-4">
-            Based on your assessment, we've prepared a personalized exercise program specifically 
-            designed for your condition.
+            Na základe vášho hodnotenia sme pripravili personalizovaný cvičebný program
+            špeciálne navrhnutý pre váš stav.
           </p>
           
           <div className="bg-blue-50 p-3 rounded-md mb-4">
@@ -93,12 +92,12 @@ const ResultsPage = ({ results, exerciseLink, onRestart }: ResultsPageProps) => 
             rel="noopener noreferrer" 
             className="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
           >
-            Access Your Complete Exercise Program
+            Pristúpiť k vášmu kompletnému cvičebnému programu
           </a>
         </div>
         
         <div className="text-sm text-gray-500 mt-6">
-          <p>This assessment is not a substitute for professional medical advice. Please consult with a healthcare provider for a complete diagnosis and treatment plan.</p>
+          <p>Toto hodnotenie nenahrádza odbornú lekársku pomoc. Pre kompletnú diagnózu a liečebný plán sa prosím poraďte so zdravotníckym pracovníkom.</p>
         </div>
       </CardContent>
       <CardFooter>
@@ -107,7 +106,7 @@ const ResultsPage = ({ results, exerciseLink, onRestart }: ResultsPageProps) => 
           variant="outline" 
           className="w-full"
         >
-          Start a New Assessment
+          Začať nové hodnotenie
         </Button>
       </CardFooter>
     </Card>

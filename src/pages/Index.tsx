@@ -126,9 +126,9 @@ const Index = () => {
       <div className="flex-1 bg-gradient-to-b from-blue-50 to-white py-10 px-4">
         <div className="container mx-auto">
           <header className="mb-10 text-center">
-            <h1 className="text-3xl font-bold text-blue-800 mb-2">MSK Pain Assessment</h1>
+            <h1 className="text-3xl font-bold text-blue-800 mb-2">Hodnotenie bolesti pohybového aparátu</h1>
             <p className="text-lg text-blue-600">
-              Complete the assessment to get personalized exercise recommendations
+              Vyplňte dotazník pre získanie personalizovaných cvičebných odporúčaní
             </p>
           </header>
           
@@ -163,16 +163,16 @@ const Index = () => {
           {isSubmitting && (
             <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
               <div className="bg-white p-6 rounded-lg shadow-lg">
-                <p className="text-lg font-medium">Processing your results...</p>
+                <p className="text-lg font-medium">Spracovávame vaše výsledky...</p>
               </div>
             </div>
           )}
         </div>
         
         <footer className="mt-16 text-center text-gray-500 text-sm">
-          <p>MSK Pain Navigator © {new Date().getFullYear()}</p>
+          <p>MSK Navigátor bolesti © {new Date().getFullYear()}</p>
           <p className="mt-1">
-            This application is for educational purposes only and is not a substitute for professional medical advice.
+            Táto aplikácia slúži len na vzdelávacie účely a nenahrádza odbornú lekársku pomoc.
           </p>
         </footer>
       </div>

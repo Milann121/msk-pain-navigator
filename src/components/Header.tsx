@@ -38,8 +38,8 @@ const Header = () => {
               </a>
             </li>
             <li>
-              <a href="#about" className="hover:text-blue-200 transition-colors">
-                About
+              <a href="#o-nas" className="hover:text-blue-200 transition-colors">
+                O nás
               </a>
             </li>
             <li>

@@ -32,20 +32,20 @@ const UserForm = ({ onSubmit }: UserFormProps) => {
     <Card className="w-full max-w-md mx-auto">
       <CardHeader>
         <CardTitle className="text-center text-2xl font-bold text-blue-700">
-          MSK Pain Navigator
+          MSK Navigátor bolesti
         </CardTitle>
         <CardDescription className="text-center">
-          Please provide your information to start the assessment
+          Pre začatie hodnotenia prosím vyplňte svoje údaje
         </CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div className="space-y-2">
-            <Label htmlFor="firstName">First Name</Label>
+            <Label htmlFor="firstName">Meno</Label>
             <Input
               id="firstName"
-              {...register('firstName', { required: 'First name is required' })}
-              placeholder="Enter your first name"
+              {...register('firstName', { required: 'Meno je povinné' })}
+              placeholder="Zadajte svoje meno"
               className={errors.firstName ? 'border-red-500' : ''}
             />
             {errors.firstName && (
@@ -54,18 +54,18 @@ const UserForm = ({ onSubmit }: UserFormProps) => {
           </div>
           
           <div className="space-y-2">
-            <Label htmlFor="email">Email Address</Label>
+            <Label htmlFor="email">Emailová adresa</Label>
             <Input
               id="email"
               type="email"
               {...register('email', { 
-                required: 'Email is required',
+                required: 'Email je povinný',
                 pattern: {
                   value: /^\S+@\S+$/i,
-                  message: 'Please enter a valid email'
+                  message: 'Prosím zadajte platný email'
                 }
               })}
-              placeholder="Enter your email"
+              placeholder="Zadajte svoj email"
               className={errors.email ? 'border-red-500' : ''}
             />
             {errors.email && (
@@ -74,22 +74,22 @@ const UserForm = ({ onSubmit }: UserFormProps) => {
           </div>
           
           <div className="space-y-2">
-            <Label htmlFor="age">Age</Label>
+            <Label htmlFor="age">Vek</Label>
             <Input
               id="age"
               type="number"
               {...register('age', { 
-                required: 'Age is required',
+                required: 'Vek je povinný',
                 min: {
                   value: 1,
-                  message: 'Age must be at least 1'
+                  message: 'Vek musí byť aspoň 1'
                 },
                 max: {
                   value: 120,
-                  message: 'Age must be at most 120'
+                  message: 'Vek musí byť maximálne 120'
                 }
               })}
-              placeholder="Enter your age"
+              placeholder="Zadajte svoj vek"
               className={errors.age ? 'border-red-500' : ''}
             />
             {errors.age && (
@@ -98,7 +98,7 @@ const UserForm = ({ onSubmit }: UserFormProps) => {
           </div>
           
           <div className="space-y-3">
-            <Label>Please specify the exact area of your pain</Label>
+            <Label>Prosím špecifikujte presnú oblasť vašej bolesti</Label>
             <RadioGroup 
               defaultValue="neck" 
               value={painArea}
@@ -107,21 +107,21 @@ const UserForm = ({ onSubmit }: UserFormProps) => {
             >
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="neck" id="neck" />
-                <Label htmlFor="neck" className="cursor-pointer">Neck</Label>
+                <Label htmlFor="neck" className="cursor-pointer">Krčná chrbtica</Label>
               </div>
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="middle back" id="middle-back" />
-                <Label htmlFor="middle-back" className="cursor-pointer">Middle Back</Label>
+                <Label htmlFor="middle-back" className="cursor-pointer">Hrudná chrbtica</Label>
               </div>
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="lower back" id="lower-back" />
-                <Label htmlFor="lower-back" className="cursor-pointer">Lower Back</Label>
+                <Label htmlFor="lower-back" className="cursor-pointer">Drieková chrbtica</Label>
               </div>
             </RadioGroup>
           </div>
           
           <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
-            Start Assessment
+            Začať hodnotenie
           </Button>
         </form>
       </CardContent>
