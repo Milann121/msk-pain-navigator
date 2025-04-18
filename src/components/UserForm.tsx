@@ -36,7 +36,7 @@ const UserForm = ({ onSubmit }: UserFormProps) => {
     <Card className="w-full max-w-md mx-auto">
       <CardHeader>
         <CardTitle className="text-center text-2xl font-bold text-blue-700">
-          MSK Navigátor bolesti
+          Dotazník bolesti
         </CardTitle>
         <CardDescription className="text-center">
           Pre začatie hodnotenia prosím vyplňte svoje údaje
@@ -85,12 +85,12 @@ const UserForm = ({ onSubmit }: UserFormProps) => {
               {...register('age', { 
                 required: 'Vek je povinný',
                 min: {
-                  value: 1,
-                  message: 'Vek musí byť aspoň 1'
+                  value: 18,
+                  message: 'Vek musí byť aspoň 18'
                 },
                 max: {
-                  value: 120,
-                  message: 'Vek musí byť maximálne 120'
+                  value: 100,
+                  message: 'Vek musí byť maximálne 100'
                 }
               })}
               placeholder="Zadajte svoj vek"
@@ -102,7 +102,7 @@ const UserForm = ({ onSubmit }: UserFormProps) => {
           </div>
           
           <div className="space-y-3">
-            <Label>Prosím špecifikujte presnú oblasť vašej bolesti</Label>
+            <Label>Prosím, špecifikujte presnú oblasť vašej bolesti</Label>
             <RadioGroup 
               defaultValue="neck" 
               value={painArea}
@@ -132,7 +132,7 @@ const UserForm = ({ onSubmit }: UserFormProps) => {
                 onCheckedChange={(checked) => setDisclaimerConsent(checked as boolean)}
               />
               <Label htmlFor="disclaimer" className="text-sm text-gray-600">
-                Súhlasím s tým, že táto aplikácia slúži len na vzdelávacie účely a nenahrádza odbornú lekársku pomoc
+                Súhlasím a plne si uvedomujem, že táto aplikácia slúži len na vzdelávacie účely a nenahrádza odbornú lekársku pomoc
               </Label>
             </div>
 
