@@ -1,11 +1,12 @@
-
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Link } from 'react-router-dom';
 import { UserInfo } from '@/utils/types';
 
 interface UserFormProps {
@@ -13,6 +14,9 @@ interface UserFormProps {
 }
 
 const UserForm = ({ onSubmit }: UserFormProps) => {
+  const [disclaimerConsent, setDisclaimerConsent] = useState(false);
+  const [privacyConsent, setPrivacyConsent] = useState(false);
+  
   const { register, handleSubmit, formState: { errors }, setValue, watch } = useForm<UserInfo>({
     defaultValues: {
       firstName: '',
@@ -120,7 +124,42 @@ const UserForm = ({ onSubmit }: UserFormProps) => {
             </RadioGroup>
           </div>
           
-          <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
+          <div className="space-y-4">
+            <div className="flex items-center space-x-2">
+              <Checkbox
+                id="disclaimer"
+                checked={disclaimerConsent}
+                onCheckedChange={(checked) => setDisclaimerConsent(checked as boolean)}
+              />
+              <Label htmlFor="disclaimer" className="text-sm text-gray-600">
+                Súhlasím s tým, že táto aplikácia slúži len na vzdelávacie účely a nenahrádza odbornú lekársku pomoc
+              </Label>
+            </div>
+
+            <div className="flex items-center space-x-2">
+              <Checkbox
+                id="privacy"
+                checked={privacyConsent}
+                onCheckedChange={(checked) => setPrivacyConsent(checked as boolean)}
+              />
+              <Label htmlFor="privacy" className="text-sm text-gray-600">
+                Súhlasím so{' '}
+                <Link
+                  to="/privacy-policy"
+                  className="text-blue-600 hover:text-blue-800 underline"
+                  target="_blank"
+                >
+                  spracovaním osobných údajov
+                </Link>
+              </Label>
+            </div>
+          </div>
+          
+          <Button 
+            type="submit" 
+            className="w-full bg-blue-600 hover:bg-blue-700"
+            disabled={!disclaimerConsent || !privacyConsent}
+          >
             Začať hodnotenie
           </Button>
         </form>
