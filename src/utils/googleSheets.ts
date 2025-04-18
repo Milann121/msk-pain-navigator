@@ -1,5 +1,5 @@
 
-import { AssessmentResults } from './types';
+import { AssessmentResults, PainMechanism, SINGroup, Differential } from './types';
 
 // For development/testing purposes only - this simulates saving to a spreadsheet
 export const mockSaveResults = (results: AssessmentResults): Promise<boolean> => {
@@ -17,34 +17,39 @@ export const getExerciseLink = (
   differential: string, 
   painArea: string
 ): string => {
-  // Structure follows: painArea/mechanism/differential
+  // Use a single valid Google Drive folder as fallback
+  const defaultDriveLink = "https://drive.google.com/drive/folders/1A2R8Mb9mQHWq0E9pbQsJmN14KPdGtyAv";
+  
+  // Create mapping of specific combinations to real Google Drive folders
+  // Since we need working links, we'll use the default link for all combinations for now
+  // In a real implementation, you would replace these with actual folder URLs
   const linkMap: Record<string, string> = {
     // Neck pain exercises
-    'nociceptive-neck-disc herniation': 'https://drive.google.com/drive/folders/neck-nociceptive-disc',
-    'nociceptive-neck-facet joint syndrome': 'https://drive.google.com/drive/folders/neck-nociceptive-facet',
-    'neuropathic-neck-Radicular Pain': 'https://drive.google.com/drive/folders/neck-neuropathic-radicular',
-    'neuropathic-neck-Radiculopathy': 'https://drive.google.com/drive/folders/neck-neuropathic-radiculopathy',
-    'central-neck-Central Sensitisation': 'https://drive.google.com/drive/folders/neck-central',
+    'nociceptive-neck-disc herniation': defaultDriveLink,
+    'nociceptive-neck-facet joint syndrome': defaultDriveLink,
+    'neuropathic-neck-Radicular Pain': defaultDriveLink,
+    'neuropathic-neck-Radiculopathy': defaultDriveLink,
+    'central-neck-Central Sensitisation': defaultDriveLink,
     
     // Middle back exercises
-    'nociceptive-middle back-disc herniation': 'https://drive.google.com/drive/folders/mid-nociceptive-disc',
-    'nociceptive-middle back-facet joint syndrome': 'https://drive.google.com/drive/folders/mid-nociceptive-facet',
-    'nociceptive-middle back-costovertebral joint syndrome': 'https://drive.google.com/drive/folders/mid-nociceptive-costo',
-    'neuropathic-middle back-Radicular Pain': 'https://drive.google.com/drive/folders/mid-neuropathic-radicular',
-    'central-middle back-Central Sensitisation': 'https://drive.google.com/drive/folders/mid-central',
+    'nociceptive-middle back-disc herniation': defaultDriveLink,
+    'nociceptive-middle back-facet joint syndrome': defaultDriveLink,
+    'nociceptive-middle back-costovertebral joint syndrome': defaultDriveLink,
+    'neuropathic-middle back-Radicular Pain': defaultDriveLink,
+    'central-middle back-Central Sensitisation': defaultDriveLink,
     
     // Lower back exercises
-    'nociceptive-lower back-disc herniation': 'https://drive.google.com/drive/folders/low-nociceptive-disc',
-    'nociceptive-lower back-facet joint syndrome': 'https://drive.google.com/drive/folders/low-nociceptive-facet',
-    'nociceptive-lower back-SIJ syndrome': 'https://drive.google.com/drive/folders/low-nociceptive-sij',
-    'neuropathic-lower back-Radicular Pain': 'https://drive.google.com/drive/folders/low-neuropathic-radicular',
-    'neuropathic-lower back-Radiculopathy': 'https://drive.google.com/drive/folders/low-neuropathic-radiculopathy',
-    'central-lower back-Central Sensitisation': 'https://drive.google.com/drive/folders/low-central',
+    'nociceptive-lower back-disc herniation': defaultDriveLink,
+    'nociceptive-lower back-facet joint syndrome': defaultDriveLink,
+    'nociceptive-lower back-SIJ syndrome': defaultDriveLink,
+    'neuropathic-lower back-Radicular Pain': defaultDriveLink,
+    'neuropathic-lower back-Radiculopathy': defaultDriveLink,
+    'central-lower back-Central Sensitisation': defaultDriveLink,
     
     // Default fallback links for each area
-    'default-neck': 'https://drive.google.com/drive/folders/neck-general',
-    'default-middle back': 'https://drive.google.com/drive/folders/mid-general',
-    'default-lower back': 'https://drive.google.com/drive/folders/low-general'
+    'default-neck': defaultDriveLink,
+    'default-middle back': defaultDriveLink,
+    'default-lower back': defaultDriveLink
   };
   
   // Create the key for lookup
@@ -57,6 +62,5 @@ export const getExerciseLink = (
   
   // If no specific program is found, return the default for that body area
   const defaultKey = `default-${painArea}`;
-  return linkMap[defaultKey] || linkMap['default-neck']; // Final fallback
+  return linkMap[defaultKey] || defaultDriveLink; // Final fallback
 };
-

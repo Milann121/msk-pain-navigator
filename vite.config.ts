@@ -6,19 +6,21 @@ import { componentTagger } from "lovable-tagger";
 import { nodePolyfills } from "./src/vite-node-polyfill";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
-  server: {
-    host: "::",
-    port: 8080,
-  },
-  plugins: [
-    react(),
-    nodePolyfills(),
-    mode === 'development' ? componentTagger() : false,
-  ].filter(Boolean),
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
+export default defineConfig(({ mode }) => {
+  return {
+    server: {
+      host: "::",
+      port: 8080,
     },
-  },
-}));
+    plugins: [
+      react(),
+      nodePolyfills(),
+      mode === 'development' ? componentTagger() : null,
+    ].filter(Boolean),
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "./src"),
+      },
+    },
+  };
+});
