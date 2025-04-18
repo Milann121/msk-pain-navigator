@@ -1,8 +1,8 @@
-
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { AssessmentResults, PainMechanism, SINGroup, Differential } from '@/utils/types';
 import { painMechanismDescriptions, sinGroupDescriptions, differentialDescriptions, getExerciseRecommendation } from '@/utils/scoreHelpers';
+import { getExerciseLink } from '@/utils/googleSheets';
 
 interface ResultsPageProps {
   results: AssessmentResults;
@@ -64,6 +64,14 @@ const ResultsPage = ({ results, exerciseLink, onRestart }: ResultsPageProps) => 
     userInfo.painArea
   );
 
+  // Get the correct Google Drive folder link
+  const driveLink = getExerciseLink(
+    primaryMechanism,
+    sinGroup,
+    primaryDifferential,
+    userInfo.painArea
+  );
+
   return (
     <Card className="w-full max-w-2xl mx-auto">
       <CardHeader className="text-center bg-blue-50">
@@ -110,7 +118,7 @@ const ResultsPage = ({ results, exerciseLink, onRestart }: ResultsPageProps) => 
           </div>
           
           <a 
-            href={exerciseLink} 
+            href={driveLink} 
             target="_blank" 
             rel="noopener noreferrer" 
             className="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
