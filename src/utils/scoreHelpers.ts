@@ -1,4 +1,3 @@
-
 import { Differential, PainMechanism, SINGroup } from './types';
 
 // Helper function to map pain intensity to SIN group
@@ -9,39 +8,39 @@ export const mapPainIntensityToSIN = (intensity: number): SINGroup => {
   return 'none';
 };
 
-// Human-readable mechanism descriptions
+// Human-readable mechanism descriptions in Slovak
 export const painMechanismDescriptions: Record<PainMechanism, string> = {
-  'nociceptive': 'Your pain appears to be primarily nociceptive, which means it originates from tissue damage or inflammation in muscles, joints, or other tissues.',
-  'neuropathic': 'Your pain appears to be primarily neuropathic, which means it is related to damage or dysfunction in your nervous system.',
-  'central': 'Your pain appears to involve central sensitization, which means your nervous system has become more sensitive to pain signals.',
-  'none': 'We were unable to determine a clear pain mechanism from your responses.'
+  'nociceptive': 'Vaša bolesť sa javí ako primárne nociceptívna, čo znamená, že pochádza z poškodenia tkaniva alebo zápalu v svaloch, kĺboch alebo iných tkanivách.',
+  'neuropathic': 'Vaša bolesť sa javí ako primárne neuropatická, čo znamená, že súvisí s poškodením alebo dysfunkciou vášho nervového systému.',
+  'central': 'Vaša bolesť zahŕňa centrálnu senzitizáciu, čo znamená, že váš nervový systém sa stal citlivejším na bolestivé signály.',
+  'none': 'Z vašich odpovedí sme nedokázali určiť jasný mechanizmus bolesti.'
 };
 
-// Human-readable SIN descriptions
+// Human-readable SIN descriptions in Slovak
 export const sinGroupDescriptions: Record<SINGroup, string> = {
-  'low SIN': 'Your pain has low severity, irritability, and nature, meaning it is generally mild, not easily provoked, and resolves quickly when aggravating factors are removed.',
-  'mid SIN': 'Your pain has moderate severity, irritability, and nature, meaning it is somewhat intense, can be provoked with specific activities, and takes some time to resolve.',
-  'high SIN': 'Your pain has high severity, irritability, and nature, meaning it is intense, easily provoked, and takes longer to resolve once triggered.',
-  'none': 'We were unable to determine the severity, irritability, and nature of your pain from your responses.'
+  'low SIN': 'Vaša bolesť má nízku závažnosť, dráždivosť a povahu, čo znamená, že je vo všeobecnosti mierna, nie ľahko vyvolateľná a rýchlo ustupuje po odstránení dráždivých faktorov.',
+  'mid SIN': 'Vaša bolesť má strednú závažnosť, dráždivosť a povahu, čo znamená, že je mierne intenzívna, môže byť vyvolaná špecifickými aktivitami a trvá určitý čas, kým ustúpi.',
+  'high SIN': 'Vaša bolesť má vysokú závažnosť, dráždivosť a povahu, čo znamená, že je intenzívna, ľahko vyvolateľná a trvá dlhšie, kým po spustení ustúpi.',
+  'none': 'Z vašich odpovedí sme nedokázali určiť závažnosť, dráždivosť a povahu vašej bolesti.'
 };
 
-// Human-readable differential descriptions
+// Human-readable differential descriptions in Slovak
 export const differentialDescriptions: Record<Differential, string> = {
-  'disc herniation': 'Your symptoms are consistent with a disc herniation, which involves protrusion of spinal disc material that may put pressure on nearby nerves.',
-  'facet joint syndrome': 'Your symptoms suggest facet joint syndrome, which involves inflammation or irritation of the small joints in your spine.',
-  'SIJ syndrome': 'Your symptoms align with sacroiliac joint (SIJ) syndrome, which involves dysfunction of the joint connecting your spine to your pelvis.',
-  'muscle pain': 'Your symptoms are consistent with muscle-related pain, which may involve strain, spasm, or tension in the muscles supporting your spine.',
-  'red flag': 'Some of your symptoms may require urgent medical attention. Please consult with a healthcare provider as soon as possible.',
-  'ventral spondylolisthesis': 'Your symptoms suggest ventral spondylolisthesis, where a vertebra slips forward relative to the vertebra below it.',
-  'dorsal spondylolisthesis': 'Your symptoms suggest dorsal spondylolisthesis, where a vertebra slips backward relative to the vertebra below it.',
-  'costovertebral joint syndrome': 'Your symptoms align with costovertebral joint syndrome, which involves dysfunction of the joints where your ribs connect to your spine.',
-  'Radicular Pain': 'Your symptoms suggest radicular pain, which is pain that radiates along the path of a nerve due to inflammation or irritation.',
-  'Radiculopathy': 'Your symptoms are consistent with radiculopathy, which is dysfunction of a nerve root resulting in weakness, altered sensation, or reflexes.',
-  'Central Sensitisation': 'Your symptoms suggest central sensitization, where your central nervous system has become hypersensitive to pain signals.',
-  'Central Sensitisation - Allodynia': 'Your symptoms include allodynia, which is pain from stimuli that would not normally cause pain, indicating central sensitization.',
-  'Central Sensitisation - Sensory Hypersensitivity': 'Your symptoms include sensory hypersensitivity, where environmental stimuli like light or sound become bothersome.',
-  'Central Sensitisation - Cognitive Symptoms': 'Your symptoms include cognitive effects like brain fog or fatigue, which can accompany central sensitization.',
-  'none': 'We were unable to identify a specific differential diagnosis from your responses.'
+  'disc herniation': 'Vaše príznaky zodpovedajú hernii medzistavcovej platničky, ktorá zahŕňa výhrez materiálu platničky, ktorý môže tlačiť na okolité nervy.',
+  'facet joint syndrome': 'Vaše príznaky naznačujú syndróm facetových kĺbov, ktorý zahŕňa zápal alebo podráždenie malých kĺbov v chrbtici.',
+  'SIJ syndrome': 'Vaše príznaky zodpovedajú syndrómu SI kĺbu, ktorý zahŕňa dysfunkciu kĺbu spájajúceho chrbticu s panvou.',
+  'muscle pain': 'Vaše príznaky zodpovedajú svalovej bolesti, ktorá môže zahŕňať napätie, spazmus alebo preťaženie svalov podporujúcich chrbticu.',
+  'red flag': 'Niektoré z vašich príznakov môžu vyžadovať urgentné lekárske ošetrenie. Prosím, navštívte čo najskôr zdravotníckeho pracovníka.',
+  'ventral spondylolisthesis': 'Vaše príznaky naznačujú ventrálnu spondylolistézu, kde sa stavec posúva dopredu vzhľadom na stavec pod ním.',
+  'dorsal spondylolisthesis': 'Vaše príznaky naznačujú dorzálnu spondylolistézu, kde sa stavec posúva dozadu vzhľadom na stavec pod ním.',
+  'costovertebral joint syndrome': 'Vaše príznaky zodpovedajú syndrómu kostovertebrálneho kĺbu, ktorý zahŕňa dysfunkciu kĺbov, kde sa rebrá pripájajú k chrbtici.',
+  'Radicular Pain': 'Vaše príznaky naznačujú radikulárnu bolesť, ktorá vyžaruje pozdĺž priebehu nervu v dôsledku zápalu alebo podráždenia.',
+  'Radiculopathy': 'Vaše príznaky zodpovedajú radikulopatii, čo je dysfunkcia nervového koreňa vedúca k slabosti, zmenenej citlivosti alebo reflexom.',
+  'Central Sensitisation': 'Vaše príznaky naznačujú centrálnu senzitizáciu, kde sa váš centrálny nervový systém stal precitlivený na bolestivé signály.',
+  'Central Sensitisation - Allodynia': 'Vaše príznaky zahŕňajú alodýniu, čo je bolesť z podnetov, ktoré by normálne nemali spôsobovať bolesť, čo naznačuje centrálnu senzitizáciu.',
+  'Central Sensitisation - Sensory Hypersensitivity': 'Vaše príznaky zahŕňajú zmyslovú precitlivenosť, kde sa environmentálne podnety ako svetlo alebo zvuk stávajú nepríjemnými.',
+  'Central Sensitisation - Cognitive Symptoms': 'Vaše príznaky zahŕňajú kognitívne efekty ako zahmlené myslenie alebo únavu, ktoré môžu sprevádzať centrálnu senzitizáciu.',
+  'none': 'Z vašich odpovedí sme nedokázali identifikovať špecifickú diferenciálnu diagnózu.'
 };
 
 // Exercise recommendations based on pain mechanism, SIN, and differential
@@ -51,36 +50,33 @@ export const getExerciseRecommendation = (
   differential: Differential,
   painArea: string
 ): string => {
-  // This would ideally be a more comprehensive mapping
-  // For now, returning general advice based on mechanism and SIN
-  
   const areaSpecific = painArea === 'neck' 
-    ? 'neck and upper back' 
+    ? 'krku a hornej časti chrbta' 
     : painArea === 'middle back' 
-      ? 'mid-back' 
-      : 'lower back and core';
+      ? 'strednej časti chrbta' 
+      : 'dolnej časti chrbta a drieku';
   
   if (mechanism === 'nociceptive') {
     if (sinGroup === 'high SIN') {
-      return `Rest and very gentle movement for your ${areaSpecific}. Focus on positions that reduce pain.`;
+      return `Oddych a veľmi jemný pohyb pre oblasť ${areaSpecific}. Zamerajte sa na pozície, ktoré zmierňujú bolesť.`;
     } else if (sinGroup === 'mid SIN') {
-      return `Gentle strengthening and mobility exercises for your ${areaSpecific}, staying within pain-free ranges.`;
+      return `Jemné posilňovacie a pohyblivostné cvičenia pre ${areaSpecific}, zostaňte v rozsahu bez bolesti.`;
     } else {
-      return `Progressive strengthening and mobility exercises for your ${areaSpecific} to improve function and prevent recurrence.`;
+      return `Progresívne posilňovacie a pohyblivostné cvičenia pre ${areaSpecific} na zlepšenie funkcie a prevenciu opakovania.`;
     }
   }
   
   if (mechanism === 'neuropathic') {
     if (sinGroup === 'high SIN') {
-      return `Nerve gliding exercises and gentle positioning for your ${areaSpecific} to reduce nerve irritation.`;
+      return `Cvičenia nervového kĺzania a jemné polohovanie pre ${areaSpecific} na zníženie podráždenia nervu.`;
     } else {
-      return `Nerve mobilization exercises and targeted strengthening for your ${areaSpecific} to support nerve health.`;
+      return `Cvičenia nervovej mobilizácie a cielené posilňovanie pre ${areaSpecific} na podporu zdravia nervov.`;
     }
   }
   
   if (mechanism === 'central') {
-    return `Graded exposure to movement, relaxation techniques, and paced activity for your ${areaSpecific} to desensitize your nervous system.`;
+    return `Postupné vystavovanie pohybu, relaxačné techniky a dávkovaná aktivita pre ${areaSpecific} na zníženie citlivosti nervového systému.`;
   }
   
-  return `Consult with a physical therapist for personalized guidance on exercises for your ${areaSpecific}.`;
+  return `Poraďte sa s fyzioterapeutom pre personalizované vedenie cvičení pre ${areaSpecific}.`;
 };

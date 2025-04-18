@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { AssessmentResults, PainMechanism, SINGroup, Differential } from '@/utils/types';
@@ -33,12 +34,26 @@ const ResultsPage = ({ results, exerciseLink, onRestart }: ResultsPageProps) => 
   };
   
   const formatDifferential = (differential: Differential): string => {
-    if (differential === 'none') return 'No specific differential identified';
-    return differential.replace(/([A-Z])/g, ' $1').replace(/^./, (str) => str.toUpperCase());
-  };
-  
-  const getDescription = (): string => {
-    return getExerciseRecommendation(primaryMechanism, sinGroup, primaryDifferential, userInfo.painArea);
+    if (differential === 'none') return 'Nebola identifikovaná žiadna špecifická diagnóza';
+    
+    const translations: Record<string, string> = {
+      'disc herniation': 'Hernia medzistavcovej platničky',
+      'facet joint syndrome': 'Syndróm facetových kĺbov',
+      'SIJ syndrome': 'Syndróm SI kĺbu',
+      'muscle pain': 'Svalová bolesť',
+      'red flag': 'Závažný stav vyžadujúci pozornosť',
+      'ventral spondylolisthesis': 'Ventrálna spondylolistéza',
+      'dorsal spondylolisthesis': 'Dorzálna spondylolistéza',
+      'costovertebral joint syndrome': 'Syndróm kostovertebrálneho kĺbu',
+      'Radicular Pain': 'Radikulárna bolesť',
+      'Radiculopathy': 'Radikulopatia',
+      'Central Sensitisation': 'Centrálna senzitizácia',
+      'Central Sensitisation - Allodynia': 'Centrálna senzitizácia - Alodýnia',
+      'Central Sensitisation - Sensory Hypersensitivity': 'Centrálna senzitizácia - Zmyslová precitlivenosť',
+      'Central Sensitisation - Cognitive Symptoms': 'Centrálna senzitizácia - Kognitívne symptómy'
+    };
+    
+    return translations[differential] || differential;
   };
 
   return (
@@ -114,3 +129,4 @@ const ResultsPage = ({ results, exerciseLink, onRestart }: ResultsPageProps) => 
 };
 
 export default ResultsPage;
+
