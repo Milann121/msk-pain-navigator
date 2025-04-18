@@ -1,29 +1,24 @@
 
-// This file provides browser polyfills for Node.js built-ins if needed in the future
-
+// This file contains polyfills for Node.js core modules in the browser.
 export function nodePolyfills() {
-  const processPolyfill = `
-    window.process = {
-      env: {},
-      nextTick: (fn) => setTimeout(fn, 0),
-      browser: true,
-      version: '',
-      versions: { node: '' }
-    };
-  `;
-
   return {
     name: 'vite:node-polyfills',
     transformIndexHtml: {
       enforce: 'pre',
-      transform(html) {
+      transform(html: string): {
+        html: string;
+        tags: { tag: string; children: string; injectTo: string }[];
+      } {
         return {
           html,
           tags: [
             {
               tag: 'script',
-              children: processPolyfill,
-              injectTo: 'head-prepend',
+              children: `
+                window.global = window;
+                window.process = { env: {} };
+              `,
+              injectTo: 'head',
             },
           ],
         };

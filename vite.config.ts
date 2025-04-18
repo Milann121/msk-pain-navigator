@@ -14,8 +14,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     nodePolyfills(),
-    mode === 'development' &&
-    componentTagger(),
+    mode === 'development' ? componentTagger() : false,
   ].filter(Boolean),
   resolve: {
     alias: {

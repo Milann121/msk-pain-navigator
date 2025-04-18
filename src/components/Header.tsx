@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { TooltipProvider } from '@/components/ui/tooltip';
 
 const Header = () => {
   const navigate = useNavigate();
