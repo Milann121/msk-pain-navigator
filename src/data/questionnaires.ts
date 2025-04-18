@@ -9,7 +9,7 @@ export const generalQuestionnaire: Questionnaire = {
   questions: [
     {
       id: 'pain-intensity',
-      text: 'Aká je vaša priemerná intenzita bolesti?',
+      text: 'Aká je vaša intenzita bolesti v priemere?',
       type: 'scale',
       scale: {
         min: 0,
@@ -30,7 +30,7 @@ export const generalQuestionnaire: Questionnaire = {
           followUp: [
             {
               id: 'pain-intensity-increase',
-              text: 'Ako intenzívnou sa stáva bolesť?',
+              text: 'Ako intenzívnou sa vtedy stáva vaša bolesť?',
               type: 'radio',
               options: [
                 {
@@ -52,7 +52,7 @@ export const generalQuestionnaire: Questionnaire = {
             },
             {
               id: 'pain-onset-timing',
-              text: 'Ako rýchlo sa bolesť objaví po pohyboch/aktivitách?',
+              text: 'Ako rýchlo sa bolesť objaví po týchto pohyboch/aktivitách?',
               type: 'radio',
               options: [
                 {
@@ -69,7 +69,7 @@ export const generalQuestionnaire: Questionnaire = {
             },
             {
               id: 'pain-subsiding',
-              text: 'Ako dlho trvá, kým bolesť ustúpi/zníži sa po ukončení aktivít/pohybu?',
+              text: 'Ako dlho trvá, kým bolesť ustúpi/zníži sa po ukončení týchto aktivít/pohybu?',
               type: 'radio',
               options: [
                 {
@@ -105,7 +105,7 @@ export const generalQuestionnaire: Questionnaire = {
         },
         {
           id: 'electric-shocks',
-          text: 'Ako elektrické šoky',
+          text: 'Elektrizujúca',
           mechanisms: ['neuropathic']
         },
         {
@@ -186,7 +186,7 @@ export const generalQuestionnaire: Questionnaire = {
     },
     {
       id: 'reflexes',
-      text: 'Boli ste informovaný/á zdravotníckym pracovníkom, že máte výrazne znížené alebo chýbajúce reflexy?',
+      text: 'Boli ste informovaný/á lekárom alebo fyzioterapeutom, že máte výrazne znížené alebo chýbajúce reflexy?',
       type: 'radio',
       options: [
         {
@@ -267,7 +267,7 @@ export const nociceptiveQuestionnaire: Questionnaire = {
     },
     {
       id: 'worst-time',
-      text: 'V ktorom čase dňa je bolesť najhoršia?',
+      text: 'V ktorej časti dňa je bolesť zvyčajne najhoršia?',
       type: 'radio',
       options: [
         {
@@ -277,7 +277,7 @@ export const nociceptiveQuestionnaire: Questionnaire = {
         },
         {
           id: 'daytime',
-          text: 'Počas dňa, pri aktivite',
+          text: 'Počas dňa, pri aktivitách',
           differentials: ['facet joint syndrome', 'SIJ syndrome', 'muscle pain']
         },
         {
@@ -330,7 +330,7 @@ export const nociceptiveQuestionnaire: Questionnaire = {
     },
     {
       id: 'chest-tightness',
-      text: 'Pociťovali ste nejakú stuhnutosť v hrudníku?',
+      text: 'Pociťujete nejakú stuhnutosť v hrudníku?',
       type: 'radio',
       options: [
         {
@@ -374,12 +374,12 @@ export const neuropathicQuestionnaire: Questionnaire = {
   questions: [
     {
       id: 'coughing-pain',
-      text: 'Zhoršuje sa vaša bolesť pri pohyboch ako kašeľ, kýchanie alebo napínanie?',
+      text: 'Zhoršuje sa vaša bolesť pri kašeľaní, kýchaní alebo napínaní sa?',
       type: 'radio',
       options: [
         {
           id: 'yes-coughing',
-          text: 'Áno, moja bolesť sa pri týchto pohyboch zvyšuje.',
+          text: 'Áno, moja bolesť sa pri týchto aktivitách zvyšuje.',
           differentials: ['Radicular Pain']
         },
         {
@@ -441,7 +441,7 @@ export const neuropathicQuestionnaire: Questionnaire = {
     },
     {
       id: 'reflex-loss',
-      text: 'Stratili ste reflexy v postihnutej končatine, ako to potvrdil zdravotnícky pracovník?',
+      text: 'Stratili ste reflexy v postihnutej končatine, ktorých stratu vám potvrdil zdravotnícky pracovník?',
       type: 'radio',
       options: [
         {
@@ -468,7 +468,7 @@ export const neuropathicQuestionnaire: Questionnaire = {
           followUp: [
             {
               id: 'lying-helps-neuro',
-              text: 'Zistili ste, že ľah na chrbte zmierňuje vaše príznaky?',
+              text: 'Máte pocit, že ľah na chrbte zmierňuje vaše príznaky?',
               type: 'radio',
               options: [
                 {
