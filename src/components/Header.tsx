@@ -28,13 +28,13 @@ const Header = () => {
               <path d="M17 21l-5-5 5-5" />
             </svg>
           </div>
-          <h1 className="text-xl font-bold">MSK Pain Navigator</h1>
+          <h1 className="text-xl font-bold">Dotazník bolestí chrbtice</h1>
         </div>
         <nav>
           <ul className="flex space-x-6">
             <li>
               <a href="/" className="hover:text-blue-200 transition-colors">
-                Home
+                Domov
               </a>
             </li>
             <li>
@@ -43,8 +43,8 @@ const Header = () => {
               </a>
             </li>
             <li>
-              <a href="#contact" className="hover:text-blue-200 transition-colors">
-                Contact
+              <a href="#kontakt" className="hover:text-blue-200 transition-colors">
+                Kontakt
               </a>
             </li>
           </ul>
