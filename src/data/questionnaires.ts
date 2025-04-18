@@ -4,82 +4,82 @@ import { Question, Questionnaire } from '@/utils/types';
 // General Pain Questionnaire (for all pain areas)
 export const generalQuestionnaire: Questionnaire = {
   id: 'general',
-  title: 'General Pain Assessment',
-  description: 'This questionnaire will help us understand the nature of your pain better.',
+  title: 'Základné hodnotenie bolesti',
+  description: 'Tento dotazník nám pomôže lepšie pochopiť povahu vašej bolesti.',
   questions: [
     {
       id: 'pain-intensity',
-      text: 'What is your pain intensity on average?',
+      text: 'Aká je vaša priemerná intenzita bolesti?',
       type: 'scale',
       scale: {
         min: 0,
         max: 10,
-        minLabel: 'No Pain',
-        maxLabel: 'Worst Pain Imaginable'
+        minLabel: 'Žiadna bolesť',
+        maxLabel: 'Najhoršia predstaviteľná bolesť'
       }
     },
     {
       id: 'pain-with-movement',
-      text: 'Does your pain increase with certain movements or activities?',
+      text: 'Zvyšuje sa vaša bolesť pri určitých pohyboch alebo aktivitách?',
       type: 'radio',
       options: [
         {
           id: 'yes-movement',
-          text: 'Yes',
+          text: 'Áno',
           mechanisms: ['nociceptive', 'neuropathic'],
           followUp: [
             {
               id: 'pain-intensity-increase',
-              text: 'How intense does the pain get?',
+              text: 'Ako intenzívnou sa stáva bolesť?',
               type: 'radio',
               options: [
                 {
                   id: 'significantly',
-                  text: 'Significantly',
+                  text: 'Výrazne',
                   sinGroups: ['high SIN']
                 },
                 {
                   id: 'moderately',
-                  text: 'Moderately',
+                  text: 'Stredne',
                   sinGroups: ['mid SIN']
                 },
                 {
                   id: 'minimally',
-                  text: 'Minimally',
+                  text: 'Minimálne',
                   sinGroups: ['low SIN']
                 }
               ]
             },
             {
               id: 'pain-onset-timing',
-              text: 'How quickly do you experience pain after movements/activities?',
+              text: 'Ako rýchlo sa bolesť objaví po pohyboch/aktivitách?',
               type: 'radio',
               options: [
                 {
                   id: 'immediately',
-                  text: 'Immediately',
+                  text: 'Okamžite',
                   sinGroups: ['high SIN']
                 },
                 {
                   id: 'later',
-                  text: 'Later',
+                  text: 'Neskôr',
                   sinGroups: ['mid SIN']
                 }
               ]
             },
             {
               id: 'pain-subsiding',
-              text: 'How long does it take for the pain to subside/reduce after stopping the aggravating activities/movement?',
+              text: 'Ako dlho trvá, kým bolesť ustúpi/zníži sa po ukončení aktivít/pohybu?',
               type: 'radio',
               options: [
                 {
                   id: 'immediately-subside',
-                  text: 'Immediately',
+                  text: 'Okamžite',
                   sinGroups: ['low SIN']
                 },
                 {
                   id: 'later-subside',
-                  text: 'Later',
+                  text: 'Neskôr',
                   sinGroups: ['mid SIN']
                 }
               ]
@@ -88,154 +88,154 @@ export const generalQuestionnaire: Questionnaire = {
         },
         {
           id: 'no-movement',
-          text: 'No',
+          text: 'Nie',
           mechanisms: ['none']
         }
       ]
     },
     {
       id: 'pain-description',
-      text: 'How would you describe your pain?',
+      text: 'Ako by ste opísali vašu bolesť?',
       type: 'multiple',
       options: [
         {
           id: 'burning',
-          text: 'Burning',
+          text: 'Pálivá',
           mechanisms: ['neuropathic']
         },
         {
           id: 'electric-shocks',
-          text: 'Electric shocks',
+          text: 'Ako elektrické šoky',
           mechanisms: ['neuropathic']
         },
         {
           id: 'shooting',
-          text: 'Shooting',
+          text: 'Vystreľujúca',
           mechanisms: ['neuropathic']
         },
         {
           id: 'dull',
-          text: 'Dull',
+          text: 'Tupá',
           mechanisms: ['nociceptive']
         },
         {
           id: 'pins-needles',
-          text: 'Pins & needles',
+          text: 'Pichanie a mravčenie',
           mechanisms: ['neuropathic']
         },
         {
           id: 'numbness',
-          text: 'Numbness',
+          text: 'Necitlivosť',
           mechanisms: ['neuropathic']
         },
         {
           id: 'toothache-like',
-          text: 'Toothache-like',
+          text: 'Ako bolesť zuba',
           mechanisms: ['nociceptive']
         },
         {
           id: 'diffuse',
-          text: 'Diffuse (hard to localize)',
+          text: 'Rozptýlená (ťažko lokalizovateľná)',
           mechanisms: ['central']
         },
         {
           id: 'stiffness',
-          text: 'Stiffness/tightness',
+          text: 'Stuhnutosť/napätie',
           mechanisms: ['nociceptive']
         },
         {
           id: 'changes',
-          text: 'Changes all the time',
+          text: 'Neustále sa mení',
           mechanisms: ['central']
         }
       ]
     },
     {
       id: 'injury-start',
-      text: 'Did your pain start after an injury or trauma?',
+      text: 'Začala sa vaša bolesť po zranení alebo úraze?',
       type: 'radio',
       options: [
         {
           id: 'yes-injury',
-          text: 'Yes',
+          text: 'Áno',
           mechanisms: ['nociceptive']
         },
         {
           id: 'no-injury',
-          text: 'No',
+          text: 'Nie',
           mechanisms: ['none']
         }
       ]
     },
     {
       id: 'activity-start',
-      text: 'Did your pain start after a specific activity/movement?',
+      text: 'Začala sa vaša bolesť po konkrétnej aktivite/pohybe?',
       type: 'radio',
       options: [
         {
           id: 'yes-activity',
-          text: 'Yes',
+          text: 'Áno',
           mechanisms: ['nociceptive', 'neuropathic']
         },
         {
           id: 'no-activity',
-          text: 'No',
+          text: 'Nie',
           mechanisms: ['central']
         }
       ]
     },
     {
       id: 'reflexes',
-      text: 'Have you been informed, by a medically trained professional, that you have significantly reduced or absent reflexes?',
+      text: 'Boli ste informovaný/á zdravotníckym pracovníkom, že máte výrazne znížené alebo chýbajúce reflexy?',
       type: 'radio',
       options: [
         {
           id: 'yes-reflexes',
-          text: 'Yes',
+          text: 'Áno',
           mechanisms: ['neuropathic']
         },
         {
           id: 'no-reflexes',
-          text: 'No',
+          text: 'Nie',
           mechanisms: ['neuropathic']
         },
         {
           id: 'not-visited',
-          text: 'I have not visited any medical professional',
+          text: 'Nenavštívil/a som zdravotníckeho pracovníka',
           mechanisms: ['none']
         }
       ]
     },
     {
       id: 'sensitivity',
-      text: 'Do you experience increased sensitivity to light, sound, or smell?',
+      text: 'Máte zvýšenú citlivosť na svetlo, zvuk alebo vône?',
       type: 'radio',
       options: [
         {
           id: 'yes-sensitivity',
-          text: 'Yes',
+          text: 'Áno',
           mechanisms: ['central']
         },
         {
           id: 'no-sensitivity',
-          text: 'No',
+          text: 'Nie',
           mechanisms: ['none']
         }
       ]
     },
     {
       id: 'variable-impact',
-      text: 'Do you find that the impact of movements/activities (same) on pain to be variable, unpredictable, or inconsistent?',
+      text: 'Je vplyv pohybov/aktivít (rovnakých) na bolesť premenlivý, nepredvídateľný alebo nekonzistentný?',
       type: 'radio',
       options: [
         {
           id: 'yes-variable',
-          text: 'Yes',
+          text: 'Áno',
           mechanisms: ['central']
         },
         {
           id: 'no-variable',
-          text: 'No',
+          text: 'Nie',
           mechanisms: ['none']
         }
       ]
@@ -246,70 +246,70 @@ export const generalQuestionnaire: Questionnaire = {
 // Nociceptive Follow-up Questionnaire
 export const nociceptiveQuestionnaire: Questionnaire = {
   id: 'nociceptive',
-  title: 'Nociceptive Pain Assessment',
-  description: 'This questionnaire will help us understand your pain better.',
+  title: 'Hodnotenie nociceptívnej bolesti',
+  description: 'Tento dotazník nám pomôže lepšie pochopiť vašu bolesť.',
   forMechanism: 'nociceptive',
   questions: [
     {
       id: 'rest-helps',
-      text: 'Does rest or avoiding aggravating movements help reduce your pain?',
+      text: 'Pomáha vám odpočinok alebo vyhýbanie sa pohybom, ktoré vyvolávajú bolesť?',
       type: 'radio',
       options: [
         {
           id: 'yes-rest',
-          text: 'Yes, my pain improves when I rest'
+          text: 'Áno, moja bolesť sa pri odpočinku zlepšuje'
         },
         {
           id: 'no-rest',
-          text: 'No'
+          text: 'Nie'
         }
       ]
     },
     {
       id: 'worst-time',
-      text: 'What time of the day is worst for you?',
+      text: 'V ktorom čase dňa je bolesť najhoršia?',
       type: 'radio',
       options: [
         {
           id: 'morning',
-          text: 'Morning, waking up',
+          text: 'Ráno, po prebudení',
           differentials: ['disc herniation']
         },
         {
           id: 'daytime',
-          text: 'Day time, when being active',
+          text: 'Počas dňa, pri aktivite',
           differentials: ['facet joint syndrome', 'SIJ syndrome', 'muscle pain']
         },
         {
           id: 'nighttime',
-          text: 'Night time',
+          text: 'V noci',
           differentials: ['red flag']
         }
       ]
     },
     {
       id: 'spine-abnormality',
-      text: 'Have you noticed some hole in your spine, or a vertebra seems to be sticking out?',
+      text: 'Všimli ste si nejakú priehlbinu v chrbtici alebo vystupujúci stavec?',
       type: 'radio',
       options: [
         {
           id: 'hole',
-          text: 'Yes, I have noticed a hole in my back',
+          text: 'Áno, spozoroval/a som priehlbinu v chrbte',
           differentials: ['ventral spondylolisthesis'],
           followUp: [
             {
               id: 'lying-helps',
-              text: 'Have you found lying on your back release your symptoms?',
+              text: 'Zistili ste, že ľah na chrbte zmierňuje vaše príznaky?',
               type: 'radio',
               options: [
                 {
                   id: 'yes-lying',
-                  text: 'Yes',
+                  text: 'Áno',
                   differentials: ['ventral spondylolisthesis']
                 },
                 {
                   id: 'no-lying',
-                  text: 'No',
+                  text: 'Nie',
                   differentials: ['none']
                 }
               ]
@@ -318,46 +318,46 @@ export const nociceptiveQuestionnaire: Questionnaire = {
         },
         {
           id: 'sticking-out',
-          text: 'Yes, my vertebra seems to be sticking out a bit',
+          text: 'Áno, zdá sa, že môj stavec mierne vystupuje',
           differentials: ['dorsal spondylolisthesis']
         },
         {
           id: 'no-abnormality',
-          text: 'No',
+          text: 'Nie',
           differentials: ['none']
         }
       ]
     },
     {
       id: 'chest-tightness',
-      text: 'Have you experienced any chest tightness?',
+      text: 'Pociťovali ste nejakú stuhnutosť v hrudníku?',
       type: 'radio',
       options: [
         {
           id: 'yes-tightness',
-          text: 'Yes',
+          text: 'Áno',
           differentials: ['costovertebral joint syndrome', 'facet joint syndrome']
         },
         {
           id: 'no-tightness',
-          text: 'No',
+          text: 'Nie',
           differentials: ['muscle pain']
         }
       ]
     },
     {
       id: 'breathing-pain',
-      text: 'Do you feel any pain or symptom when breathing in?',
+      text: 'Cítite pri nádychu bolesť alebo iné príznaky?',
       type: 'radio',
       options: [
         {
           id: 'yes-breathing',
-          text: 'Yes, breathing in reproduces pain',
+          text: 'Áno, nádych vyvoláva bolesť',
           differentials: ['costovertebral joint syndrome', 'facet joint syndrome', 'red flag']
         },
         {
           id: 'no-breathing',
-          text: 'No',
+          text: 'Nie',
           differentials: ['muscle pain']
         }
       ]
@@ -368,117 +368,117 @@ export const nociceptiveQuestionnaire: Questionnaire = {
 // Neuropathic Follow-up Questionnaire
 export const neuropathicQuestionnaire: Questionnaire = {
   id: 'neuropathic',
-  title: 'Neuropathic Pain Assessment',
-  description: 'This questionnaire will help us understand your nerve-related pain better.',
+  title: 'Hodnotenie neuropatickej bolesti',
+  description: 'Tento dotazník nám pomôže lepšie pochopiť vašu bolesť súvisiacu s nervami.',
   forMechanism: 'neuropathic',
   questions: [
     {
       id: 'coughing-pain',
-      text: 'Does your pain worsen with movements such as coughing, sneezing, or straining?',
+      text: 'Zhoršuje sa vaša bolesť pri pohyboch ako kašeľ, kýchanie alebo napínanie?',
       type: 'radio',
       options: [
         {
           id: 'yes-coughing',
-          text: 'Yes, my pain increases with these movements.',
+          text: 'Áno, moja bolesť sa pri týchto pohyboch zvyšuje.',
           differentials: ['Radicular Pain']
         },
         {
           id: 'no-coughing',
-          text: 'No'
+          text: 'Nie'
         }
       ]
     },
     {
       id: 'abnormal-sensations',
-      text: 'Do you feel abnormal sensations like tingling, burning, or "electric shocks" along the affected limb?',
+      text: 'Cítite nezvyčajné pocity ako mravčenie, pálenie alebo "elektrické šoky" pozdĺž postihnutej končatiny?',
       type: 'radio',
       options: [
         {
           id: 'yes-sensations',
-          text: 'Yes, I experience tingling, burning, or electric shock-like sensations along a specific path in my limb.',
+          text: 'Áno, pociťujem mravčenie, pálenie alebo pocity podobné elektrickým šokom pozdĺž špecifickej dráhy v končatine.',
           differentials: ['Radicular Pain']
         },
         {
           id: 'no-sensations',
-          text: 'No',
+          text: 'Nie',
           differentials: ['Radiculopathy']
         }
       ]
     },
     {
       id: 'numbness',
-      text: 'Do you experience numbness or reduced sensation in a specific area of your limb?',
+      text: 'Pociťujete znecitlivenie alebo zníženú citlivosť v konkrétnej oblasti končatiny?',
       type: 'radio',
       options: [
         {
           id: 'yes-numbness',
-          text: 'Yes, I feel numbness or a lack of sensation in a specific region of my limb.',
+          text: 'Áno, cítim znecitlivenie alebo nedostatok citlivosti v špecifickej oblasti končatiny.',
           differentials: ['Radiculopathy']
         },
         {
           id: 'no-numbness',
-          text: 'No',
+          text: 'Nie',
           differentials: ['Radicular Pain']
         }
       ]
     },
     {
       id: 'muscle-weakness',
-      text: 'Have you noticed muscle weakness in the affected limb, making it difficult to grip objects, lift your foot, or move normally?',
+      text: 'Všimli ste si svalovú slabosť v postihnutej končatine, ktorá sťažuje uchopenie predmetov, zdvihnutie nohy alebo normálny pohyb?',
       type: 'radio',
       options: [
         {
           id: 'yes-weakness',
-          text: 'Yes, I have muscle weakness that affects my ability to move or use my limb properly.',
+          text: 'Áno, mám svalovú slabosť, ktorá ovplyvňuje moju schopnosť hýbať sa alebo používať končatinu správne.',
           differentials: ['Radiculopathy']
         },
         {
           id: 'no-weakness',
-          text: 'No',
+          text: 'Nie',
           differentials: ['Radicular Pain']
         }
       ]
     },
     {
       id: 'reflex-loss',
-      text: 'Have you lost reflexes in your affected limb, as confirmed by a healthcare provider?',
+      text: 'Stratili ste reflexy v postihnutej končatine, ako to potvrdil zdravotnícky pracovník?',
       type: 'radio',
       options: [
         {
           id: 'yes-reflex-loss',
-          text: 'Yes, a healthcare provider has confirmed reduced or absent reflexes.',
+          text: 'Áno, zdravotnícky pracovník potvrdil znížené alebo chýbajúce reflexy.',
           differentials: ['Radiculopathy']
         },
         {
           id: 'no-reflex-loss',
-          text: 'No',
+          text: 'Nie',
           differentials: ['Radicular Pain']
         }
       ]
     },
     {
       id: 'spine-abnormality-neuro',
-      text: 'Have you noticed some hole in your spine, or a vertebra seems to be sticking out?',
+      text: 'Všimli ste si nejakú priehlbinu v chrbtici alebo vystupujúci stavec?',
       type: 'radio',
       options: [
         {
           id: 'hole-neuro',
-          text: 'Yes, I have noticed a hole in my back',
+          text: 'Áno, spozoroval/a som priehlbinu v chrbte',
           differentials: ['ventral spondylolisthesis'],
           followUp: [
             {
               id: 'lying-helps-neuro',
-              text: 'Have you found lying on your back release your symptoms?',
+              text: 'Zistili ste, že ľah na chrbte zmierňuje vaše príznaky?',
               type: 'radio',
               options: [
                 {
                   id: 'yes-lying-neuro',
-                  text: 'Yes',
+                  text: 'Áno',
                   differentials: ['ventral spondylolisthesis']
                 },
                 {
                   id: 'no-lying-neuro',
-                  text: 'No',
+                  text: 'Nie',
                   differentials: ['none']
                 }
               ]
@@ -487,12 +487,12 @@ export const neuropathicQuestionnaire: Questionnaire = {
         },
         {
           id: 'sticking-out-neuro',
-          text: 'Yes, my vertebra seems to be sticking out a bit',
+          text: 'Áno, zdá sa, že môj stavec mierne vystupuje',
           differentials: ['dorsal spondylolisthesis']
         },
         {
           id: 'no-abnormality-neuro',
-          text: 'No',
+          text: 'Nie',
           differentials: ['none']
         }
       ]
@@ -503,87 +503,87 @@ export const neuropathicQuestionnaire: Questionnaire = {
 // Central Follow-up Questionnaire
 export const centralQuestionnaire: Questionnaire = {
   id: 'central',
-  title: 'Central Sensitization Assessment',
-  description: 'This questionnaire will help us understand your pain processing symptoms better.',
+  title: 'Hodnotenie centrálnej senzitizácie',
+  description: 'Tento dotazník nám pomôže lepšie pochopiť vaše príznaky súvisiace so spracovaním bolesti.',
   forMechanism: 'central',
   questions: [
     {
       id: 'pain-spread',
-      text: 'Does your pain spread to areas that were not originally present?',
+      text: 'Šíri sa vaša bolesť do oblastí, ktoré pôvodne neboli postihnuté?',
       type: 'radio',
       options: [
         {
           id: 'yes-spread',
-          text: 'Yes, my pain has spread beyond the initial area.',
+          text: 'Áno, moja bolesť sa rozšírila za pôvodnú oblasť.',
           differentials: ['Central Sensitisation']
         },
         {
           id: 'no-spread',
-          text: 'No'
+          text: 'Nie'
         }
       ]
     },
     {
       id: 'allodynia',
-      text: 'Do you experience pain from things that shouldn\'t normally be painful (e.g., light touch, clothing, mild pressure)?',
+      text: 'Pociťujete bolesť pri podnetoch, ktoré by normálne nemali byť bolestivé (napr. ľahký dotyk, oblečenie, mierny tlak)?',
       type: 'radio',
       options: [
         {
           id: 'yes-allodynia',
-          text: 'Yes, even gentle touch or pressure causes pain.',
+          text: 'Áno, aj jemný dotyk alebo tlak spôsobuje bolesť.',
           differentials: ['Central Sensitisation - Allodynia']
         },
         {
           id: 'no-allodynia',
-          text: 'No'
+          text: 'Nie'
         }
       ]
     },
     {
       id: 'disproportionate',
-      text: 'Does your pain intensity seem out of proportion to your problem or condition?',
+      text: 'Zdá sa vám intenzita bolesti neprimeraná vášmu problému alebo stavu?',
       type: 'radio',
       options: [
         {
           id: 'yes-disproportionate',
-          text: 'Yes, my pain feels much worse than expected for my condition.',
+          text: 'Áno, moja bolesť sa zdá byť oveľa horšia, ako by som očakával/a pri mojom stave.',
           differentials: ['Central Sensitisation']
         },
         {
           id: 'no-disproportionate',
-          text: 'No'
+          text: 'Nie'
         }
       ]
     },
     {
       id: 'sensory-sensitivity',
-      text: 'Do you experience sensitivity to light, noise, or smells, along with your pain?',
+      text: 'Pociťujete spolu s bolesťou citlivosť na svetlo, hluk alebo vône?',
       type: 'radio',
       options: [
         {
           id: 'yes-sensory',
-          text: 'Yes, I am more sensitive to light, noise, or smells.',
+          text: 'Áno, som citlivejší/ia na svetlo, hluk alebo vône.',
           differentials: ['Central Sensitisation - Sensory Hypersensitivity']
         },
         {
           id: 'no-sensory',
-          text: 'No'
+          text: 'Nie'
         }
       ]
     },
     {
       id: 'cognitive-symptoms',
-      text: 'Do you have symptoms like poor concentration ("brain fog"), fatigue, or sleep disturbances along with your pain?',
+      text: 'Máte spolu s bolesťou príznaky ako zhoršená koncentrácia ("mozgová hmla"), únava alebo poruchy spánku?',
       type: 'radio',
       options: [
         {
           id: 'yes-cognitive',
-          text: 'Yes, I experience fatigue, brain fog, or poor sleep with my pain.',
+          text: 'Áno, pociťujem únavu, mozgovú hmlu alebo zhoršený spánok spolu s bolesťou.',
           differentials: ['Central Sensitisation - Cognitive Symptoms']
         },
         {
           id: 'no-cognitive',
-          text: 'No',
+          text: 'Nie',
           differentials: ['none']
         }
       ]
