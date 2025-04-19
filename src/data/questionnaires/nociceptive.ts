@@ -14,10 +14,12 @@ export const nociceptiveQuestionnaire: Questionnaire = {
         {
           id: 'yes-rest',
           text: 'Áno, moja bolesť sa pri odpočinku zlepšuje'
+          differentials: ['facet joint syndrome']
         },
         {
           id: 'no-rest',
           text: 'Nie'
+          differentials: ['disc herniation']
         }
       ]
     },
