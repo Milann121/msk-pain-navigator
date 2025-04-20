@@ -1,16 +1,16 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { AssessmentResults, PainMechanism, SINGroup, Differential } from '@/utils/types';
-import { painMechanismDescriptions, sinGroupDescriptions, differentialDescriptions, getExerciseRecommendation } from '@/utils/scoreHelpers';
-import { getExerciseLink } from '@/utils/googleSheets';
+import { painMechanismDescriptions, sinGroupDescriptions, differentialDescriptions } from '@/utils/scoreHelpers';
+import { useNavigate } from 'react-router-dom';
 
 interface ResultsPageProps {
   results: AssessmentResults;
-  exerciseLink: string;
   onRestart: () => void;
 }
 
-const ResultsPage = ({ results, exerciseLink, onRestart }: ResultsPageProps) => {
+const ResultsPage = ({ results, onRestart }: ResultsPageProps) => {
+  const navigate = useNavigate();
   const { userInfo, primaryMechanism, sinGroup, primaryDifferential } = results;
   
   const getMechanismLabel = (mechanism: PainMechanism): string => {
@@ -56,21 +56,9 @@ const ResultsPage = ({ results, exerciseLink, onRestart }: ResultsPageProps) => 
     return translations[differential] || differential;
   };
 
-  // Get the exercise recommendation based on the assessment results
-  const exerciseRecommendation = getExerciseRecommendation(
-    primaryMechanism,
-    sinGroup,
-    primaryDifferential,
-    userInfo.painArea
-  );
-
-  // Get the correct Google Drive folder link
-  const driveLink = getExerciseLink(
-    primaryMechanism,
-    sinGroup,
-    primaryDifferential,
-    userInfo.painArea
-  );
+  const handleExerciseClick = () => {
+    navigate('/exercise-plan', { state: { mechanism: primaryMechanism } });
+  };
 
   return (
     <Card className="w-full max-w-2xl mx-auto">
@@ -113,18 +101,12 @@ const ResultsPage = ({ results, exerciseLink, onRestart }: ResultsPageProps) => 
             špeciálne navrhnutý pre váš stav. Prosím, berte na vedomie, že tento program aj tak nemusí byť pre vás vhodný a v žiadnom prípade nenahrádza návštevu lekára alebo fyzioterapeuta. V prípade akéhokoľvek pocitu diskomfortu alebo zhoršenia stavu, okamžite prestaňte s cvičením!
           </p>
           
-          <div className="bg-blue-50 p-3 rounded-md mb-4">
-            <p className="text-blue-700">{exerciseRecommendation}</p>
-          </div>
-          
-          <a 
-            href={driveLink} 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
+          <Button 
+            onClick={handleExerciseClick}
+            className="w-full bg-blue-600 hover:bg-blue-700"
           >
             Pristúpiť k vášmu kompletnému cvičebnému programu: OTVORIŤ
-          </a>
+          </Button>
         </div>
         
         <div className="text-sm text-gray-500 mt-6">
