@@ -52,17 +52,17 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
         {
           videoId: 'tIZppe-RB0g',
           title: 'McKenzie záklony',
-          description: 'Postup:'\n'➜ uložte sa na brucho s rukami podľa videa'\n'➜ dlaňami odtlačte trup od podložky do záklonu'\n'➜ upozornenie: držte zadok uvoľnený, nezatínajte sedacie svaly!'\n'➜ zakláňajte sa iba do bodu, pokiaľ je pohyb komfortný a nespôsobuje vám viac bolesti\nOPAKOVANIA: 10x / 4-5x denne',
+          description: 'Postup:\n➜ uložte sa na brucho s rukami podľa videa\n➜ dlaňami odtlačte trup od podložky do záklonu\n➜ upozornenie: držte zadok uvoľnený, nezatínajte sedacie svaly!\n➜ zakláňajte sa iba do bodu, pokiaľ je pohyb komfortný a nespôsobuje vám viac bolesti\nOPAKOVANIA: 10x / 4-5x denne'
         },
         {
           videoId: '3A27NLPe2bs',
           title: 'Neurodynamika sedacieho nervu',
-          description: 'Popis vo videu.'\n'OPAKOVANIA: 15x / 3-5x denne'\n'UPOZORNENIE: ihneď po cvičení môžete pociťovať mierne trnutie nohy. Malo by prejsť do pól minúty, v opačnom prípade znížte počet opakovaní alebo cvik vynechajte.',
+          description: 'Popis vo videu.\nOPAKOVANIA: 15x / 3-5x denne\nUPOZORNENIE: ihneď po cvičení môžete pociťovať mierne trnutie nohy. Malo by prejsť do pól minúty, v opačnom prípade znížte počet opakovaní alebo cvik vynechajte.'
         },
         {
           videoId: 'PMJsVceAnnY',
           title:'Strečing sedacích svalov.',
-          description: 'Popis vo videu.\nOPAKOVANIA: 5x denne.',
+          description: 'Popis vo videu.\nOPAKOVANIA: 5x denne.'
         }
       ]
     },
@@ -71,10 +71,20 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
       description: 'Pokročilé cvičenia na posilnenie krčnej chrbtice a prevenciu ďaľšieho poškodenia vašich platiničiek.',
       videos: [
         {
-          videoId: '....',
-          title:'......',
-          description: '......'
-        }
+          videoId: 'Xp33YgPZgns',
+          title:'Mostík',
+          description: 'Ľahnite si na chrbát a uložte pokrčené nohy na šírku ramien.\n ➜ Ruky uložte pozdĺž tela. \n ➜ Zaprite sa chodidlami do podložky a zdvihnite zadok nad podložku, do výšky kedy vyrovnáte chrbát \n ➜ Následne pomaly spustite zadok tesne nad podložku a zopakujte znovu \n ➜ OPAKOVANIA: 8-12x /4 série / 1x denne'
+        },
+        {
+          videoId: 'dVjfUlXK93k',
+          title:'Drepy do 90 stupňov',
+          description: 'Postavte sa s nohami na na šírku ramien. \n ➜ Drep vykonávajte max. do 90 stupňov ohnutia kolien a bez prehýbania sa v chrtbte. \n ➜ OPAKOVANIA: 10x /3 série / 1x denne'
+        },
+        {
+          videoId: '',
+          title:'...',
+          description: '...'
+        },
       ]
     }
   ],
