@@ -1,9 +1,7 @@
-
 import { Exercise } from "@/types/exercise";
 
-// Exercise data organized by differential diagnosis and body part
-const exercisesByDifferential: Record<string, Exercise[]> = {
-  // Nociceptive - Disc Herniation
+export const nociceptiveExercises: Record<string, Exercise[]> = {
+  // Disc Herniation
   'nociceptive-disc herniation-neck': [
     {
       title: 'Program 0-3 týždeň',
@@ -44,7 +42,7 @@ const exercisesByDifferential: Record<string, Exercise[]> = {
     }
   ],
 
-  // LUMBAR SPINE - Fixed the syntax error here
+  // LUMBAR SPINE
   'nociceptive-disc herniation-lower back': [
     {
       title: 'Pogram cvičení 0-3 týždeň',
@@ -80,7 +78,7 @@ const exercisesByDifferential: Record<string, Exercise[]> = {
     }
   ],
 
-  // NOCICEPTIVE - Facet Joint Syndrome
+  // Facet Joint Syndrome
   'nociceptive-facet joint syndrome-neck': [
     {
       title: 'Jemná rotácia krku',
@@ -147,138 +145,6 @@ const exercisesByDifferential: Record<string, Exercise[]> = {
     }
   ],
 
-  // NEUROPATHIC - Radicular Pain
-  'neuropathic-Radicular Pain-neck': [
-    {
-      title: 'Nervové napínacie cvičenia pre krk',
-      description: 'Jemné cvičenia na uvoľnenie nervových koreňov v krčnej oblasti a zníženie neurologických príznakov.',
-      videos: [
-        {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
-        }
-      ]
-    }
-  ],
-  'neuropathic-Radicular Pain-middle back': [
-    {
-      title: 'Nervové mobilizačné cvičenia pre hrudnú chrbticu',
-      description: 'Cvičenia zamerané na mobilizáciu nervových koreňov v hrudnej oblasti.',
-      videos: [
-        {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
-        }
-      ]
-    }
-  ],
-  'neuropathic-Radicular Pain-lower back': [
-    {
-      title: 'Nervové napínacie cvičenia pre driek',
-      description: 'Cvičenia zamerané na jemnú mobilizáciu nervových štruktúr v driekovej oblasti.',
-      videos: [
-        {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
-        }
-      ]
-    }
-  ],
-
-  // NEUROPAHIC - Radiculopathy
-  'neuropathic-Radiculopathy-neck': [
-    {
-      title: 'Cvičenia na posilnenie krčných svalov',
-      description: 'Cvičenia zamerané na posilnenie svalov, ktoré podporujú krčnú chrbticu a znižujú tlak na nervové korene.',
-      videos: [
-        {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
-        }
-      ]
-    }
-  ],
-  'neuropathic-Radiculopathy-lower back': [
-    {
-      title: 'Cvičenia na posilnenie core',
-      description: 'Cvičenia zamerané na posilnenie core svalov na podporu driekovej chrbtice a zníženie tlaku na nervové korene.',
-      videos: [
-        {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
-        }
-      ]
-    }
-  ],
-
-  // CENTRAL - Central Sensitisation
-  'central-Central Sensitisation-neck': [
-    {
-      title: 'Relaxačné cvičenia pre krk',
-      description: 'Jemné cvičenia zamerané na relaxáciu a zníženie napätia v krčnej oblasti.',
-      videos: [
-        {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
-        }
-      ]
-    },
-    {
-      title: 'Dychové cvičenia',
-      description: 'Cvičenia zamerané na dychové techniky pomáhajúce znížiť stres a napätie, ktoré môžu prispievať k centrálnej senzitizácii.',
-      videos: [
-        {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
-        }
-      ]
-    }
-  ],
-  'central-Central Sensitisation-middle back': [
-    {
-      title: 'Joga pre hrudnú chrbticu',
-      description: 'Jemné jogové cvičenia pre relaxáciu hrudnej chrbtice a zníženie celkového napätia v tele.',
-      videos: [
-        {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
-        }
-      ]
-    }
-  ],
-  'central-Central Sensitisation-lower back': [
-    {
-      title: 'Relaxačné cvičenia pre driek',
-      description: 'Jemné cvičenia zamerané na relaxáciu a zníženie napätia v driekovej oblasti.',
-      videos: [
-        {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
-        }
-      ]
-    },
-    {
-      title: 'Meditatívne dychové techniky',
-      description: 'Techniky pre zníženie stresu a napätia, ktoré môžu prispievať k centrálnej senzitizácii bolesti.',
-      videos: [
-        {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
-        }
-      ]
-    }
-  ],
-
   // DEFAULT exercises for when specific combinations aren't found
   'nociceptive-default-neck': [
     {
@@ -329,84 +195,4 @@ const exercisesByDifferential: Record<string, Exercise[]> = {
       ]
     }
   ],
-  'neuropathic-default-neck': [
-    {
-      title: 'Základné neuropatické cvičenia pre krk',
-      description: 'Všeobecné cvičenia na mobilizáciu nervových štruktúr v krčnej oblasti.',
-      videos: [
-        {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
-        }
-      ]
-    }
-  ],
-  'neuropathic-default-middle back': [
-    {
-      title: 'Základné neuropatické cvičenia pre hrudník',
-      description: 'Všeobecné cvičenia na mobilizáciu nervových štruktúr v hrudnej oblasti.',
-      videos: [
-        {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
-        }
-      ]
-    }
-  ],
-  'neuropathic-default-lower back': [
-    {
-      title: 'Základné neuropatické cvičenia pre driek',
-      description: 'Všeobecné cvičenia na mobilizáciu nervových štruktúr v driekovej oblasti.',
-      videos: [
-        {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
-        }
-      ]
-    }
-  ],
-  'central-default-neck': [
-    {
-      title: 'Základné cvičenia pre centrálnu senzitizáciu - krk',
-      description: 'Relaxačné a dychové cvičenia pre zníženie citlivosti na bolesť v krčnej oblasti.',
-      videos: [
-        {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
-        }
-      ]
-    }
-  ],
-  'central-default-middle back': [
-    {
-      title: 'Základné cvičenia pre centrálnu senzitizáciu - hrudník',
-      description: 'Relaxačné a dychové cvičenia pre zníženie citlivosti na bolesť v hrudnej oblasti.',
-      videos: [
-        {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
-        }
-      ]
-    }
-  ],
-  'central-default-lower back': [
-    {
-      title: 'Základné cvičenia pre centrálnu senzitizáciu - driek',
-      description: 'Relaxačné a dychové cvičenia pre zníženie citlivosti na bolesť v driekovej oblasti.',
-      videos: [
-        {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
-        }
-      ]
-    }
-  ]
 };
-
-export default exercisesByDifferential;
