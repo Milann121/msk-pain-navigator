@@ -16,7 +16,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
         {
           videoId: '7WAoHWIxgEI',
           title: 'Neurodynamika horných končatín',
-          description: "Postup:\nPosaďte sa a uvoľnite trapézy\n ➜ upažte ruku s dlaňou smerujúcou hore\n ➜ ohnite dlaň do polohy od seba, spolu s vystretými prstami\nVráťte dlaň naspäť a pokrčte lakeť do 90 stupňov\n ➜ pohyb zopakujte\nOPAKOVANIA: zopakujte 10-15 x /5x denne",
+          description: 'Postup:'\n 'Posaďte sa a uvoľnite trapézy'\n'➜ upažte ruku s dlaňou smerujúcou hore'\n'➜ ohnite dlaň do polohy od seba, spolu s vystretými prstami\nVráťte dlaň naspäť a pokrčte lakeť do 90 stupňov'\n'➜ pohyb zopakujte\nOPAKOVANIA: zopakujte 10-15 x /5x denne',
         },
         {
           videoId: ' ',
@@ -52,12 +52,12 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
         {
           videoId: 'tIZppe-RB0g',
           title: 'McKenzie záklony',
-          description: 'Postup:\n➜ uložte sa na brucho s rukami podľa videa\n➜ dlaňami odtlačte trup od podložky do záklonu\n➜ upozornenie: držte zadok uvoľnený, nezatínajte sedacie svaly!\n➜ zakláňajte sa iba do bodu, pokiaľ je pohyb komfortný a nespôsobuje vám viac bolesti\nOPAKOVANIA: 10x / 4-5x denne',
+          description: 'Postup:\n➜ uložte sa na brucho s rukami podľa videa\n➜ dlaňami odtlačte trup od podložky do záklonu\n➜ upozornenie: držte zadok uvoľnený, nezatínajte sedacie svaly!\n➜ zakláňajte sa iba do bodu, pokiaľ je pohyb komfortný a nespôsobuje vám viac bolesti\nOPAKOVANIA: 10x / 4-5x denne'
         },
         {
           videoId: '3A27NLPe2bs',
           title: 'Neurodynamika sedacieho nervu',
-          description: 'Popis vo videu.\nOPAKOVANIA: 15x / 3-5x denne\nUPOZORNENIE: ihneď po cvičení môžete pociťovať mierne trnutie nohy. Malo by prejsť do pól minúty, v opačnom prípade znížte počet opakovaní alebo cvik vynechajte.',
+          description: 'Popis vo videu.\nOPAKOVANIA: 15x / 3-5x denne\nUPOZORNENIE: ihneď po cvičení môžete pociťovať mierne trnutie nohy. Malo by prejsť do pól minúty, v opačnom prípade znížte počet opakovaní alebo cvik vynechajte.'
         },
         {
           videoId: 'PMJsVceAnnY',
