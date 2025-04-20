@@ -13,10 +13,10 @@ const ExerciseItem = ({ exercise }: ExerciseItemProps) => {
       <div className="space-y-2">
         <h3 className="text-xl font-semibold">{exercise.title}</h3>
         <p className="text-gray-600">
-            {exercise.description.split('\n').map((line, index) => (
+          {exercise.description.split('\n').map((line, index) => (
             <span key={index}>
-            {line}
-            <br />
+              {line}
+              <br />
             </span>
           ))}
         </p>
