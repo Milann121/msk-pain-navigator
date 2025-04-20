@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import UserForm from '@/components/UserForm';
 import Questionnaire from '@/components/Questionnaire';
@@ -11,7 +12,7 @@ import {
   processFollowUpQuestionnaire, 
   createAssessmentResults 
 } from '@/utils/assessmentAnalyzer';
-import { mockSaveResults, getExerciseLink } from '@/utils/googleSheets';
+import { mockSaveResults } from '@/utils/googleSheets';
 import { 
   UserInfo, 
   PainMechanism, 
@@ -38,7 +39,6 @@ const Index = () => {
   const [scores, setScores] = useState<ScoreTracker | null>(null);
   const [primaryDifferential, setPrimaryDifferential] = useState<Differential>('none');
   const [results, setResults] = useState<AssessmentResults | null>(null);
-  const [exerciseLink, setExerciseLink] = useState<string>('');
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   const handleUserInfoSubmit = (data: UserInfo) => {
@@ -88,14 +88,6 @@ const Index = () => {
     
     setResults(assessmentResults);
     
-    const link = getExerciseLink(
-      primaryMechanism,
-      sinGroup,
-      newDifferential,
-      userInfo.painArea
-    );
-    setExerciseLink(link);
-    
     try {
       await mockSaveResults(assessmentResults);
       setStage(AssessmentStage.Results);
@@ -117,7 +109,6 @@ const Index = () => {
     setScores(null);
     setPrimaryDifferential('none');
     setResults(null);
-    setExerciseLink('');
   };
 
   return (
@@ -155,7 +146,6 @@ const Index = () => {
           {stage === AssessmentStage.Results && results && (
             <ResultsPage
               results={results}
-              exerciseLink={exerciseLink}
               onRestart={handleRestart}
             />
           )}

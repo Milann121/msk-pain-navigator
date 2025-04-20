@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { AssessmentResults, PainMechanism, SINGroup, Differential } from '@/utils/types';
@@ -57,7 +58,13 @@ const ResultsPage = ({ results, onRestart }: ResultsPageProps) => {
   };
 
   const handleExerciseClick = () => {
-    navigate('/exercise-plan', { state: { mechanism: primaryMechanism } });
+    navigate('/exercise-plan', { 
+      state: { 
+        mechanism: primaryMechanism,
+        differential: primaryDifferential,
+        painArea: userInfo.painArea
+      } 
+    });
   };
 
   return (
