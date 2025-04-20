@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useLocation } from 'react-router-dom';
@@ -10,41 +9,48 @@ import { Differential, PainMechanism } from '@/utils/types';
 interface Exercise {
   title: string;
   description: string;
-  videoId: string;
+  videos: Array<{
+    videoId: string;
+    title?: string;
+    description?: string;
+  }>;
 }
 
-// Organized exercises by differential diagnosis and body part
+// Updated exercises data structure with multiple videos per exercise
 const exercisesByDifferential: Record<string, Exercise[]> = {
   // Nociceptive - Disc Herniation
   'nociceptive-disc herniation-neck': [
     {
       title: 'Cvičenie na stabilizáciu krku',
       description: 'Jemné cvičenia na posilnenie hlbokých krčných svalov, ktoré pomáhajú stabilizovať krčnú chrbticu a znížiť tlak na medzistavcové platničky.',
-      videoId: 'dQw4w9WgXcQ'
+      videos: [
+        {
+          videoId: 'dQw4w9WgXcQ',
+          title: 'Základné cvičenie',
+          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+        },
+        {
+          videoId: 'dQw4w9WgXcQ',
+          title: 'Pokročilá variácia',
+          description: 'Po zvládnutí základného cvičenia môžete prejsť na túto náročnejšiu verziu.'
+        }
+      ]
     },
     {
       title: 'Trakčné cvičenia pre krčnú chrbticu',
       description: 'Cvičenia zamerané na jemné natiahnutie krčnej chrbtice na zníženie tlaku na nervové korene a zlepšenie mobility.',
-      videoId: 'dQw4w9WgXcQ'
-    }
-  ],
-  'nociceptive-disc herniation-middle back': [
-    {
-      title: 'Stabilizačné cvičenia pre hrudnú chrbticu',
-      description: 'Cvičenia na posilnenie svalov, ktoré podporujú hrudnú chrbticu a znižujú tlak na medzistavcové platničky.',
-      videoId: 'dQw4w9WgXcQ'
-    }
-  ],
-  'nociceptive-disc herniation-lower back': [
-    {
-      title: 'Mačací chrbát',
-      description: 'Mobilizačné cvičenie na zmiernenie tlaku na medzistavcové platničky v driekovej oblasti a predĺženie priestoru medzi stavcami.',
-      videoId: 'dQw4w9WgXcQ'
-    },
-    {
-      title: 'Stabilizačné cvičenia pre driekovú chrbticu',
-      description: 'Cvičenia na posilnenie core svalov, ktoré podporujú driekovú chrbticu a znižujú tlak na medzistavcové platničky.',
-      videoId: 'dQw4w9WgXcQ'
+      videos: [
+        {
+          videoId: 'dQw4w9WgXcQ',
+          title: 'Trakčné cvičenie v ľahu',
+          description: 'Vykonávajte toto cvičenie v ľahu na chrbte.'
+        },
+        {
+          videoId: 'dQw4w9WgXcQ',
+          title: 'Trakčné cvičenie v sede',
+          description: 'Alternatívna verzia cvičenia v sede.'
+        }
+      ]
     }
   ],
 
@@ -53,21 +59,39 @@ const exercisesByDifferential: Record<string, Exercise[]> = {
     {
       title: 'Jemná rotácia krku',
       description: 'Cvičenie na zlepšenie mobility facetových kĺbov v krčnej oblasti pri minimálnom zaťažení.',
-      videoId: 'dQw4w9WgXcQ'
+      videos: [
+        {
+          videoId: 'dQw4w9WgXcQ',
+          title: 'Základné cvičenie',
+          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+        }
+      ]
     }
   ],
   'nociceptive-facet joint syndrome-middle back': [
     {
       title: 'Rotačné cvičenia pre hrudnú chrbticu',
       description: 'Jemné rotačné pohyby pre zlepšenie mobility facetových kĺbov v hrudnej oblasti.',
-      videoId: 'dQw4w9WgXcQ'
+      videos: [
+        {
+          videoId: 'dQw4w9WgXcQ',
+          title: 'Základné cvičenie',
+          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+        }
+      ]
     }
   ],
   'nociceptive-facet joint syndrome-lower back': [
     {
       title: 'Rotačné cvičenia pre driek',
       description: 'Cvičenia zamerané na mobilizáciu facetových kĺbov v driekovej oblasti s dôrazom na kontrolovaný pohyb.',
-      videoId: 'dQw4w9WgXcQ'
+      videos: [
+        {
+          videoId: 'dQw4w9WgXcQ',
+          title: 'Základné cvičenie',
+          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+        }
+      ]
     }
   ],
 
@@ -76,12 +100,24 @@ const exercisesByDifferential: Record<string, Exercise[]> = {
     {
       title: 'Stabilizačné cvičenia pre SI kĺb',
       description: 'Cvičenia zamerané na stabilizáciu sakroiliakálneho kĺbu a zlepšenie jeho funkcie.',
-      videoId: 'dQw4w9WgXcQ'
+      videos: [
+        {
+          videoId: 'dQw4w9WgXcQ',
+          title: 'Základné cvičenie',
+          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+        }
+      ]
     },
     {
       title: 'Mobilizácia panvy',
       description: 'Jemné cvičenia na zlepšenie mobility panvy a sakroiliakálneho kĺbu.',
-      videoId: 'dQw4w9WgXcQ'
+      videos: [
+        {
+          videoId: 'dQw4w9WgXcQ',
+          title: 'Základné cvičenie',
+          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+        }
+      ]
     }
   ],
 
@@ -90,21 +126,39 @@ const exercisesByDifferential: Record<string, Exercise[]> = {
     {
       title: 'Nervové napínacie cvičenia pre krk',
       description: 'Jemné cvičenia na uvoľnenie nervových koreňov v krčnej oblasti a zníženie neurologických príznakov.',
-      videoId: 'dQw4w9WgXcQ'
+      videos: [
+        {
+          videoId: 'dQw4w9WgXcQ',
+          title: 'Základné cvičenie',
+          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+        }
+      ]
     }
   ],
   'neuropathic-Radicular Pain-middle back': [
     {
       title: 'Nervové mobilizačné cvičenia pre hrudnú chrbticu',
       description: 'Cvičenia zamerané na mobilizáciu nervových koreňov v hrudnej oblasti.',
-      videoId: 'dQw4w9WgXcQ'
+      videos: [
+        {
+          videoId: 'dQw4w9WgXcQ',
+          title: 'Základné cvičenie',
+          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+        }
+      ]
     }
   ],
   'neuropathic-Radicular Pain-lower back': [
     {
       title: 'Nervové napínacie cvičenia pre driek',
       description: 'Cvičenia zamerané na jemnú mobilizáciu nervových štruktúr v driekovej oblasti.',
-      videoId: 'dQw4w9WgXcQ'
+      videos: [
+        {
+          videoId: 'dQw4w9WgXcQ',
+          title: 'Základné cvičenie',
+          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+        }
+      ]
     }
   ],
 
@@ -113,14 +167,26 @@ const exercisesByDifferential: Record<string, Exercise[]> = {
     {
       title: 'Cvičenia na posilnenie krčných svalov',
       description: 'Cvičenia zamerané na posilnenie svalov, ktoré podporujú krčnú chrbticu a znižujú tlak na nervové korene.',
-      videoId: 'dQw4w9WgXcQ'
+      videos: [
+        {
+          videoId: 'dQw4w9WgXcQ',
+          title: 'Základné cvičenie',
+          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+        }
+      ]
     }
   ],
   'neuropathic-Radiculopathy-lower back': [
     {
       title: 'Cvičenia na posilnenie core',
       description: 'Cvičenia zamerané na posilnenie core svalov na podporu driekovej chrbtice a zníženie tlaku na nervové korene.',
-      videoId: 'dQw4w9WgXcQ'
+      videos: [
+        {
+          videoId: 'dQw4w9WgXcQ',
+          title: 'Základné cvičenie',
+          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+        }
+      ]
     }
   ],
 
@@ -129,31 +195,61 @@ const exercisesByDifferential: Record<string, Exercise[]> = {
     {
       title: 'Relaxačné cvičenia pre krk',
       description: 'Jemné cvičenia zamerané na relaxáciu a zníženie napätia v krčnej oblasti.',
-      videoId: 'dQw4w9WgXcQ'
+      videos: [
+        {
+          videoId: 'dQw4w9WgXcQ',
+          title: 'Základné cvičenie',
+          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+        }
+      ]
     },
     {
       title: 'Dychové cvičenia',
       description: 'Cvičenia zamerané na dychové techniky pomáhajúce znížiť stres a napätie, ktoré môžu prispievať k centrálnej senzitizácii.',
-      videoId: 'dQw4w9WgXcQ'
+      videos: [
+        {
+          videoId: 'dQw4w9WgXcQ',
+          title: 'Základné cvičenie',
+          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+        }
+      ]
     }
   ],
   'central-Central Sensitisation-middle back': [
     {
       title: 'Joga pre hrudnú chrbticu',
       description: 'Jemné jogové cvičenia pre relaxáciu hrudnej chrbtice a zníženie celkového napätia v tele.',
-      videoId: 'dQw4w9WgXcQ'
+      videos: [
+        {
+          videoId: 'dQw4w9WgXcQ',
+          title: 'Základné cvičenie',
+          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+        }
+      ]
     }
   ],
   'central-Central Sensitisation-lower back': [
     {
       title: 'Relaxačné cvičenia pre driek',
       description: 'Jemné cvičenia zamerané na relaxáciu a zníženie napätia v driekovej oblasti.',
-      videoId: 'dQw4w9WgXcQ'
+      videos: [
+        {
+          videoId: 'dQw4w9WgXcQ',
+          title: 'Základné cvičenie',
+          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+        }
+      ]
     },
     {
       title: 'Meditatívne dychové techniky',
       description: 'Techniky pre zníženie stresu a napätia, ktoré môžu prispievať k centrálnej senzitizácii bolesti.',
-      videoId: 'dQw4w9WgXcQ'
+      videos: [
+        {
+          videoId: 'dQw4w9WgXcQ',
+          title: 'Základné cvičenie',
+          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+        }
+      ]
     }
   ],
 
@@ -162,63 +258,117 @@ const exercisesByDifferential: Record<string, Exercise[]> = {
     {
       title: 'Základné cvičenia pre krčnú chrbticu',
       description: 'Všeobecné cvičenia na posilnenie a mobilizáciu krčnej chrbtice.',
-      videoId: 'dQw4w9WgXcQ'
+      videos: [
+        {
+          videoId: 'dQw4w9WgXcQ',
+          title: 'Základné cvičenie',
+          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+        }
+      ]
     }
   ],
   'nociceptive-default-middle back': [
     {
       title: 'Základné cvičenia pre hrudnú chrbticu',
       description: 'Všeobecné cvičenia na posilnenie a mobilizáciu hrudnej chrbtice.',
-      videoId: 'dQw4w9WgXcQ'
+      videos: [
+        {
+          videoId: 'dQw4w9WgXcQ',
+          title: 'Základné cvičenie',
+          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+        }
+      ]
     }
   ],
   'nociceptive-default-lower back': [
     {
       title: 'Základné cvičenia pre driekovú chrbticu',
       description: 'Všeobecné cvičenia na posilnenie a mobilizáciu driekovej chrbtice.',
-      videoId: 'dQw4w9WgXcQ'
+      videos: [
+        {
+          videoId: 'dQw4w9WgXcQ',
+          title: 'Základné cvičenie',
+          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+        }
+      ]
     }
   ],
   'neuropathic-default-neck': [
     {
       title: 'Základné neuropatické cvičenia pre krk',
       description: 'Všeobecné cvičenia na mobilizáciu nervových štruktúr v krčnej oblasti.',
-      videoId: 'dQw4w9WgXcQ'
+      videos: [
+        {
+          videoId: 'dQw4w9WgXcQ',
+          title: 'Základné cvičenie',
+          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+        }
+      ]
     }
   ],
   'neuropathic-default-middle back': [
     {
       title: 'Základné neuropatické cvičenia pre hrudník',
       description: 'Všeobecné cvičenia na mobilizáciu nervových štruktúr v hrudnej oblasti.',
-      videoId: 'dQw4w9WgXcQ'
+      videos: [
+        {
+          videoId: 'dQw4w9WgXcQ',
+          title: 'Základné cvičenie',
+          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+        }
+      ]
     }
   ],
   'neuropathic-default-lower back': [
     {
       title: 'Základné neuropatické cvičenia pre driek',
       description: 'Všeobecné cvičenia na mobilizáciu nervových štruktúr v driekovej oblasti.',
-      videoId: 'dQw4w9WgXcQ'
+      videos: [
+        {
+          videoId: 'dQw4w9WgXcQ',
+          title: 'Základné cvičenie',
+          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+        }
+      ]
     }
   ],
   'central-default-neck': [
     {
       title: 'Základné cvičenia pre centrálnu senzitizáciu - krk',
       description: 'Relaxačné a dychové cvičenia pre zníženie citlivosti na bolesť v krčnej oblasti.',
-      videoId: 'dQw4w9WgXcQ'
+      videos: [
+        {
+          videoId: 'dQw4w9WgXcQ',
+          title: 'Základné cvičenie',
+          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+        }
+      ]
     }
   ],
   'central-default-middle back': [
     {
       title: 'Základné cvičenia pre centrálnu senzitizáciu - hrudník',
       description: 'Relaxačné a dychové cvičenia pre zníženie citlivosti na bolesť v hrudnej oblasti.',
-      videoId: 'dQw4w9WgXcQ'
+      videos: [
+        {
+          videoId: 'dQw4w9WgXcQ',
+          title: 'Základné cvičenie',
+          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+        }
+      ]
     }
   ],
   'central-default-lower back': [
     {
       title: 'Základné cvičenia pre centrálnu senzitizáciu - driek',
       description: 'Relaxačné a dychové cvičenia pre zníženie citlivosti na bolesť v driekovej oblasti.',
-      videoId: 'dQw4w9WgXcQ'
+      videos: [
+        {
+          videoId: 'dQw4w9WgXcQ',
+          title: 'Základné cvičenie',
+          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+        }
+      ]
     }
   ]
 };
@@ -237,7 +387,13 @@ const ExercisePlan = () => {
                     [{
                       title: 'Odporúčané cvičenia neboli nájdené',
                       description: 'Pre vašu kombináciu diagnózy a oblasti bolesti nemáme špecifické cvičenia. Prosím, konzultujte s fyzioterapeutom.',
-                      videoId: 'dQw4w9WgXcQ'
+                      videos: [
+                        {
+                          videoId: 'dQw4w9WgXcQ',
+                          title: 'Základné cvičenie',
+                          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+                        }
+                      ]
                     }];
 
   // Helper function to format mechanism for display
@@ -315,20 +471,35 @@ const ExercisePlan = () => {
         <CardContent className="space-y-8">
           {exercises.map((exercise, index) => (
             <div key={index} className="space-y-4">
-              <div className="aspect-video w-full">
-                <iframe
-                  width="100%"
-                  height="100%"
-                  src={`https://www.youtube.com/embed/${exercise.videoId}`}
-                  title={exercise.title}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
               <div className="space-y-2">
                 <h3 className="text-xl font-semibold">{exercise.title}</h3>
                 <p className="text-gray-600">{exercise.description}</p>
+              </div>
+              
+              <div className="space-y-6">
+                {exercise.videos.map((video, videoIndex) => (
+                  <div key={videoIndex} className="space-y-4">
+                    {video.title && (
+                      <h4 className="text-lg font-medium text-gray-800">{video.title}</h4>
+                    )}
+                    <div className="aspect-video w-full">
+                      <iframe
+                        width="100%"
+                        height="100%"
+                        src={`https://www.youtube.com/embed/${video.videoId}`}
+                        title={video.title || exercise.title}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    </div>
+                    {video.description && (
+                      <p className="text-gray-600 ml-4 border-l-2 border-gray-200 pl-4">
+                        {video.description}
+                      </p>
+                    )}
+                  </div>
+                ))}
               </div>
             </div>
           ))}
