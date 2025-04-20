@@ -69,9 +69,14 @@ const exercisesByDifferential: Record<string, Exercise[]> = {
       videos: [
         {
           videoId: 'tIZppe-RB0g',
-          title: 'McKenzie záklony',
+          title: 'McKenzie záklony (varianta 1)',
           description: 'Postup:\n➜ uložte sa na brucho s rukami podľa videa\n➜ dlaňami odtlačte trup od podložky do záklonu\n➜ upozornenie: držte zadok uvoľnený, nezatínajte sedacie svaly!\n➜ zakláňajte sa iba do bodu, pokiaľ je pohyb komfortný a nespôsobuje vám viac bolesti\nOPAKOVANIA: 10x / 4-5x denne'
         },
+        {
+          videoId: 'P7vHOpDR8IE',        
+          title: 'McKenzie záklony v stoji (varianta 2)',
+          descriptoon: 'Postup:\n➜ vtaňte a uložte dlane na krížovú kosť, cez ktoré sa prehnete do záklonu\n➜ udržujte kolená vystreté a nezakláňajte zbytočne hlavu \n➜ upozornenie: snažte sa udržať zadok relatívne uvoľnený \n➜ zakláňajte sa iba do bodu, pokiaľ je pohyb komfortný a nespôsobuje vám viac bolesti\nOPAKOVANIA: 10x / 4-5x denne',
+        }
         {
           videoId: '3A27NLPe2bs',
           title: 'Neurodynamika sedacieho nervu',
