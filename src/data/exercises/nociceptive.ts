@@ -80,11 +80,6 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           title:'Drepy do 90 stupňov',
           description: 'Postavte sa s nohami na na šírku ramien. \n ➜ Drep vykonávajte max. do 90 stupňov ohnutia kolien a bez prehýbania sa v chrtbte. \n ➜ OPAKOVANIA: 10x /3 série / 1x denne'
         },
-        {
-          videoId: '',
-          title:'...',
-          description: '...'
-        },
       ]
     }
   ],
