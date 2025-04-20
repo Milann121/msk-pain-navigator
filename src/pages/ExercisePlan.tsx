@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Differential, PainMechanism } from '@/utils/types';
+import { Description, Title } from '@radix-ui/react-toast';
 
 interface Exercise {
   title: string;
@@ -21,18 +22,23 @@ const exercisesByDifferential: Record<string, Exercise[]> = {
   // Nociceptive - Disc Herniation
   'nociceptive-disc herniation-neck': [
     {
-      title: 'Cvičenie na stabilizáciu krku',
+      title: 'Program 0-3 týždeň',
       description: 'Jemné cvičenia na posilnenie hlbokých krčných svalov, ktoré pomáhajú stabilizovať krčnú chrbticu a znížiť tlak na medzistavcové platničky.',
       videos: [
         {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+          videoId: ' ',
+          title: '...',
+          description: '...'
         },
         {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Pokročilá variácia',
-          description: 'Po zvládnutí základného cvičenia môžete prejsť na túto náročnejšiu verziu.'
+          videoId: ' ',
+          title: '...',
+          description: '...'
+        },
+        {
+          videoId: ' ',
+          title: '...',
+          description: '...'
         }
       ]
     },
@@ -53,8 +59,31 @@ const exercisesByDifferential: Record<string, Exercise[]> = {
       ]
     }
   ],
+  'nociceptive-disc herniation-lower back': [
+    {
+      title: 'Pogram cvičení 0-3 týždeň',
+      description: 'Základné cvičenia pri pravdepodobnom poškodení platničiek s cieľom redukovať bolesť a zabrániť ďaľšiemu poškodeniu.',
+      videos: [
+        {
+          videoId: 'tIZppe-RB0g',
+          title: 'McKenzie záklony',
+          description: 'Postup:\n➜ uložte sa na brucho s rukami podľa videa\n➜ dlaňami odtlačte trup od podložky do záklonu\n➜ upozornenie: držte zadok uvoľnený, nezatínajte sedacie svaly!\n➜ zakláňajte sa iba do bodu, pokiaľ je pohyb komfortný a nespôsobuje vám viac bolesti\nOPAKOVANIA: 10x / 4-5x denne'
+        },
+        {
+          videoId: '3A27NLPe2bs',
+          title: 'Neurodynamika sedacieho nervu',
+          description: 'Popis vo videu.\nOPAOVANIA: 15x / 3-5x denne\nUPOZORNENIE: ihneď po cvičení môžete pociťovať mierne trnutie nohy. Malo by prejsť do pól minúty, v opačnom prípade znížte počet opakovaní alebo cvik vynechajte.'
+        },
+        {
+          videoId: 'PMJsVceAnnY',
+          title:'Strečing sedacích svalov.',
+          description: 'Popis vo videu.\nOPAKOVANIA: 5x denne.'
+        }
+      ]
+    }
+  ],
 
-  // Nociceptive - Facet Joint Syndrome
+  // NOCICEPTIVE - Facet Joint Syndrome
   'nociceptive-facet joint syndrome-neck': [
     {
       title: 'Jemná rotácia krku',
@@ -64,7 +93,7 @@ const exercisesByDifferential: Record<string, Exercise[]> = {
           videoId: 'dQw4w9WgXcQ',
           title: 'Základné cvičenie',
           description: 'Začnite s týmto základným cvičením pre správnu techniku.'
-        }
+        },
       ]
     }
   ],
@@ -121,7 +150,7 @@ const exercisesByDifferential: Record<string, Exercise[]> = {
     }
   ],
 
-  // Neuropathic - Radicular Pain
+  // NEUROPATHIC - Radicular Pain
   'neuropathic-Radicular Pain-neck': [
     {
       title: 'Nervové napínacie cvičenia pre krk',
@@ -162,7 +191,7 @@ const exercisesByDifferential: Record<string, Exercise[]> = {
     }
   ],
 
-  // Neuropathic - Radiculopathy
+  // NEUROPAHIC - Radiculopathy
   'neuropathic-Radiculopathy-neck': [
     {
       title: 'Cvičenia na posilnenie krčných svalov',
@@ -190,7 +219,7 @@ const exercisesByDifferential: Record<string, Exercise[]> = {
     }
   ],
 
-  // Central - Central Sensitisation
+  // CENTRAL - Central Sensitisation
   'central-Central Sensitisation-neck': [
     {
       title: 'Relaxačné cvičenia pre krk',
@@ -253,7 +282,7 @@ const exercisesByDifferential: Record<string, Exercise[]> = {
     }
   ],
 
-  // Default exercises for when specific combinations aren't found
+  // DEFAULT exercises for when specific combinations aren't found
   'nociceptive-default-neck': [
     {
       title: 'Základné cvičenia pre krčnú chrbticu',
@@ -280,15 +309,26 @@ const exercisesByDifferential: Record<string, Exercise[]> = {
       ]
     }
   ],
+
   'nociceptive-default-lower back': [
     {
-      title: 'Základné cvičenia pre driekovú chrbticu',
-      description: 'Všeobecné cvičenia na posilnenie a mobilizáciu driekovej chrbtice.',
+      title: 'Pogram cvičení 0-3 týždeň',
+      description: 'Základné cvičenia pri pravdepodobnom poškodení platničiek s cieľom redukovať bolesť a zabrániť ďaľšiemu poškodeniu.',
       videos: [
         {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+          videoId: 'tIZppe-RB0g',
+          title: 'McKenzie záklony',
+          description: 'Postup:\n➜ uložte sa na brucho s rukami podľa videa\n➜ dlaňami odtlačte trup od podložky do záklonu\n➜ upozornenie: držte zadok uvoľnený, nezatínajte sedacie svaly!\n➜ zakláňajte sa iba do bodu, pokiaľ je pohyb komfortný a nespôsobuje vám viac bolesti\nOPAKOVANIA: 10x / 4-5x denne'
+        },
+        {
+          videoId: '3A27NLPe2bs',
+          title: 'Neurodynamika sedacieho nervu',
+          description: 'Popis vo videu.\nOPAOVANIA: 15x / 3-5x denne\nUPOZORNENIE: ihneď po cvičení môžete pociťovať mierne trnutie nohy. Malo by prejsť do pól minúty, v opačnom prípade znížte počet opakovaní alebo cvik vynechajte.'
+        },
+        {
+          videoId: 'PMJsVceAnnY',
+          title:'Strečing sedacích svalov.',
+          description: 'Popis vo videu.\nOPAKOVANIA: 5x denne.'
         }
       ]
     }
