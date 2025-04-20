@@ -19,20 +19,20 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           description: "Postup:\nPosaďte sa a uvoľnite trapézy\n ➜ upažte ruku s dlaňou smerujúcou hore\n ➜ ohnite dlaň do polohy od seba, spolu s vystretými prstami\nVráťte dlaň naspäť a pokrčte lakeť do 90 stupňov\n ➜ pohyb zopakujte\nOPAKOVANIA: zopakujte 10-15 x /5x denne",
         },
         {
-          videoId: ' ',
-          title: '...',
-          description: '...',
+          videoId: '1PQmk7pE8',
+          title: 'Masáž loptičkou o stenu',
+          description: 'Na tento cvik použite ideálne tenisovú loptičku. Položte si loptičku na trapéz, oprite sa o stenu a masírujte svaly šije ako na videu. V prípade, že nájdete bolestivé miesta, môžete staticky zatlačiť po dobu 20-30 sekúnd. Premasírujte celú oblasť trapézov a medzilopatkového priestoru.',
         }
       ]
     },
     {
       title: 'Program 4-6 týždeň',
-      description: '.....',
+      description: 'Prejdite do pokročilejšieho programu na uvoľnenie krčnej chrbtice a zredukujte tlak na vaše platničky',
       videos: [
         {
-          videoId: 'dQw4w9WgXcQ',
-          title: '.........',
-          description: '......'
+          videoId: 'PK62xMsZfG0',
+          title: 'Modlenie - uvoľnenie krku a lopatiek',
+          description: 'Spojte dlane a lakte v 90 stupňovom uhle v lakti a ramenách. So sústavným spojením pomaly zdvíhajte lakte vyššie, ale stále DRŽTE SPOJENÉ lakte aj dlane. UPOZORNENIE: snažte sa, aby vám prsty stále smerovali do stropu. OPAKOVANIA: 20 sekúnd / 2x za sebou / 2x denne.'
         },
         {
           videoId: 'dQw4w9WgXcQ',
