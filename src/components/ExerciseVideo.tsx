@@ -27,7 +27,12 @@ const ExerciseVideo = ({ videoId, title, description, exerciseTitle }: ExerciseV
       </div>
       {description && (
         <p className="text-gray-600 ml-4 border-l-2 border-gray-200 pl-4">
-          {description}
+          {description.split('\n').map((line, index) => (
+            <span key={index}>
+              {line}
+              <br />
+            </span>
+          ))}
         </p>
       )}
     </div>
