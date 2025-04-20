@@ -28,17 +28,17 @@ const exercisesByDifferential: Record<string, Exercise[]> = {
         {
           videoId: 'eL5KxSe3c1g',
           title: 'McKenzie záklony krčnej chrbtice',
-          description: 'Postup:\n➜ posaďte sa a uvoľnite trapézy\n➜ vtiahnite bradu dnu (zásuvka), ale nezdvíhajte pri tom plecia, ani hlavu nepredkláňajte\n➜ zakloňte hlavu do rozsahu, ktorý je vám komfortný a nespôsobuje veľa bolesti\n➜ v záklone urobte krátke rotácie hlavy do oboch strán\n➜ OPAKOVANIA: záklon opakujte 5-10x za sebou s 3-5 rotáciami do každej strany ➜ 5x denne. '
+          description: 'Postup:\n➜ posaďte sa a uvoľnite trapézy\n➜ vtiahnite bradu dnu (zásuvka), ale nezdvíhajte pri tom plecia, ani hlavu nepredkláňajte\n➜ zakloňte hlavu do rozsahu, ktorý je vám komfortný a nespôsobuje veľa bolesti\n➜ v záklone urobte krátke rotácie hlavy do oboch strán\n➜ OPAKOVANIA: záklon opakujte 5-10x za sebou s 3-5 rotáciami do každej strany ➜ 5x denne. ',
         },
         {
           videoId: '7WAoHWIxgEI',
           title: 'Neurodynamika horných končatín',
-          description: 'Postup:\n➜posaďte sa a uvoľnite trapézy\n➜ upažte ruku s dlaňou smerujúcou hore\n➜ ohnite dlaň do polohy od seba, spolu s vystretými prstami\n➜ vráťte dlaň naspäť a pokrčte lakeť do 90 stupňov\n ➜ pohyb zopakujte \n➜ OPAKOVANIA: zopakujte 10-15 x /5x denne'
+          description: 'Postup:\n➜posaďte sa a uvoľnite trapézy\n➜ upažte ruku s dlaňou smerujúcou hore\n➜ ohnite dlaň do polohy od seba, spolu s vystretými prstami\n➜ vráťte dlaň naspäť a pokrčte lakeť do 90 stupňov\n ➜ pohyb zopakujte \n➜ OPAKOVANIA: zopakujte 10-15 x /5x denne',
         },
         {
           videoId: ' ',
           title: '...',
-          description: '...'
+          description: '...',
         }
       ]
     },
