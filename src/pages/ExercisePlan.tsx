@@ -23,7 +23,7 @@ const exercisesByDifferential: Record<string, Exercise[]> = {
   'nociceptive-disc herniation-neck': [
     {
       title: 'Program 0-3 týždeň',
-      description: 'Jemné cvičenia na posilnenie hlbokých krčných svalov, ktoré pomáhajú stabilizovať krčnú chrbticu a znížiť tlak na medzistavcové platničky.',
+      description: 'Cvičenia na redukciu bolesti, ktoré pomáhajú stabilizovať krčnú chrbticu a znížiť tlak na medzistavcové platničky.',
       videos: [
         {
           videoId: 'eL5KxSe3c1g',
@@ -43,22 +43,25 @@ const exercisesByDifferential: Record<string, Exercise[]> = {
       ]
     },
     {
-      title: 'Trakčné cvičenia pre krčnú chrbticu',
-      description: 'Cvičenia zamerané na jemné natiahnutie krčnej chrbtice na zníženie tlaku na nervové korene a zlepšenie mobility.',
+      title: 'Program 4-6 týždeň',
+      description: '.....',
       videos: [
         {
           videoId: 'dQw4w9WgXcQ',
-          title: 'Trakčné cvičenie v ľahu',
-          description: 'Vykonávajte toto cvičenie v ľahu na chrbte.'
+          title: '.........',
+          description: '......'
         },
         {
           videoId: 'dQw4w9WgXcQ',
-          title: 'Trakčné cvičenie v sede',
-          description: 'Alternatívna verzia cvičenia v sede.'
+          title: '.......',
+          description: '........'
         }
       ]
     }
   ],
+
+  // LUMBAR SPINE
+  
   'nociceptive-disc herniation-lower back': [
     {
       title: 'Pogram cvičení 0-3 týždeň',
@@ -81,6 +84,15 @@ const exercisesByDifferential: Record<string, Exercise[]> = {
         }
       ]
     }
+      title: 'Program cvičení 4-6 týždeň',
+      description: 'Pokročilé cvičenia na posilnenie krčnej chrbtice a prevenciu ďaľšieho poškodenia vašich platiničiek.',
+      videos: [
+        {
+          videoId: '....',
+          title:'......',
+          description: '......'
+        },
+      ]
   ],
 
   // NOCICEPTIVE - Facet Joint Syndrome
