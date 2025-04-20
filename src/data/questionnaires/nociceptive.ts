@@ -1,3 +1,4 @@
+
 import { Questionnaire } from '@/utils/types';
 
 export const nociceptiveQuestionnaire: Questionnaire = {
@@ -13,12 +14,12 @@ export const nociceptiveQuestionnaire: Questionnaire = {
       options: [
         {
           id: 'yes-rest',
-          text: 'Áno, moja bolesť sa pri odpočinku zlepšuje'
+          text: 'Áno, moja bolesť sa pri odpočinku zlepšuje',
           differentials: ['facet joint syndrome']
         },
         {
           id: 'no-rest',
-          text: 'Nie'
+          text: 'Nie',
           differentials: ['disc herniation']
         }
       ]

@@ -4,9 +4,10 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 import { nodePolyfills } from "./src/vite-node-polyfill";
+import type { Plugin, ConfigEnv } from "vite";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => {
+export default defineConfig(({ mode }: ConfigEnv) => {
   return {
     server: {
       host: "::",
@@ -14,7 +15,7 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [
       react(),
-      nodePolyfills(),
+      nodePolyfills() as Plugin,
       mode === 'development' ? componentTagger() : null,
     ].filter(Boolean),
     resolve: {
