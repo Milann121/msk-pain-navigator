@@ -26,13 +26,13 @@ const exercisesByDifferential: Record<string, Exercise[]> = {
       description: 'Jemné cvičenia na posilnenie hlbokých krčných svalov, ktoré pomáhajú stabilizovať krčnú chrbticu a znížiť tlak na medzistavcové platničky.',
       videos: [
         {
-          videoId: ' ',
-          title: '...',
-          description: '...'
+          videoId: 'eL5KxSe3c1g',
+          title: 'McKenzie záklony krčnej chrbtice',
+          description: 'Postup:\n➜posaďte sa a uvoľnite trapézy\n➜vtiahnite bradu dnu (zásuvka), ale nezdvíhajte pri tom plecia, ani hlavu nepredkláňajte\n➜zakloňte hlavu do rozsahu, ktorý je vám komfortný a nespôsobuje veľa bolesti\n➜v záklone urobte krátke rotácie hlavy do oboch strán\nOPAKOVANIA: záklon opakujte 5-10x za sebou s 3-5 rotáciami do každej strany ➜ 5x denne. '
         },
         {
-          videoId: ' ',
-          title: '...',
+          videoId: '7WAoHWIxgEI',
+          title: '',
           description: '...'
         },
         {
