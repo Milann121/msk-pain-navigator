@@ -155,6 +155,11 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           videoId: 'rhPOJA3S-IQ',
           title: 'Záklon hrudnej chrbtice',
           description: 'Zaprite dlane o stenu, odstúpte od nej aby ste boli v miernom predklone a s výdychom uvoľnite trup do záklonu. Snažte sa mať celý čas zrelaxované ramená, hlavu v predĺžení chrbtice a v polohe záklonu sa 1-2x nadýchnite.\n➜ OPAKOVANIA: Záklon zopakujte 3-4x, kedykoľvek v priebehu dňa. ',
+        },
+        {
+          videoId: '',
+          title: '',
+          description: '',
         }
       ]  
       }
