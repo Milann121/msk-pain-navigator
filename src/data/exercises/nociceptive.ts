@@ -138,10 +138,9 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
         },
         {
           videoId: 'JEUzW-C8Vik',
-          title: '',
-          description: '',
-          
-        }
+          title: 'Masáž hrudnej chrbtice loptičkou',
+          description: 'Uložte si loptičku do medzilopatkového priestoru a vertikálnym pohybom uvoľnite bolestivé a stuhnuté svaly.\n ➜ OPAKOVANIA: kedykoľvek v priebehu dňa.',
+        },
       ]
     }
   ],
