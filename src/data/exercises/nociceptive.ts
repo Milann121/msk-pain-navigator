@@ -137,7 +137,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           description: 'Posaďte sa a ruky uložte za hlavu.\n ➜ Pomaly sa vytočte v hrudnej chrbtici do strany do rozsahu, ktorý je vám komfortný. V tejto polohe sa zastavte a mierne zakloňte. Následne sa vráťte naspäť a zopakujte cvik do opačnej strany.\n ➜ OPAKOVANIA: zopakujte 5-8x do každej strany, kedykoľvek v priebehu dňa.',
         },
         {
-          videoId: 'JEUzW-C8Vik',
+          videoId: 'dxzegzGNdaU',
           title: 'Masáž hrudnej chrbtice loptičkou',
           description: 'Uložte si loptičku do medzilopatkového priestoru a vertikálnym pohybom uvoľnite bolestivé a stuhnuté svaly.\n ➜ OPAKOVANIA: kedykoľvek v priebehu dňa.',
         },
@@ -152,17 +152,14 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           description: 'Uchyťte odporovú gumu podľa videa. Tieto 3 cviky môžete striedať, alebo si vybrať ktorýkoľvek z nich. \n➜ UPOZORNENIE: pri týchto cvikoch nesmiete pociťovať namáhanie trapézov! Celý čas sa snažte tlačiť lopatky a ramená smerom dole od uší, aby pracovali medzilopatkové svaly. Dbajte na to, aby ste počas vykonávania cvikov viac cítili svaly medzi lopatkami, nie ramená a trapézy - to dosiahnete práve tlačením pliec dole. \n➜ OPAKOVANIA: 10-15x / 3 série / 1x denne.',
         },
         {
-          videoId: '',
-          title: '',
+          videoId: 'rhPOJA3S-IQ',
+          title: 'Záklon hrudnej chrbtice',
           description: '',
         }
       ]  
-        }
-      
-
-      ]
-    }
+      }
   ],
+    
   // LOWER BACK 
   'nociceptive-facet joint syndrome-lower back': [
     {
