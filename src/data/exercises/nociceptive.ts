@@ -123,8 +123,9 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           description: 'Posaďte sa a obe ruky uložte za hlavu. Snažte sa mať uvoľnené ramená.\n ➜ Zatlačte hlavou do dlaní a dlaňami do hlavy, tak aby sa napli svaly krku na zadnej časti krčnej chrbtice. Celý čas sa snažte udržiavať hlavu vzpriamenú. \n ➜ OPAKOVANIA: 10sek. tlak / 10sek. pauza / 5x za sebou. Cvik môžete zopakovať 2-3x denne.',
         },
       ]
-      }
+    }
   ],
+  
   // MIDDLE BACK ✅
   'nociceptive-facet joint syndrome-middle back': [
     {
