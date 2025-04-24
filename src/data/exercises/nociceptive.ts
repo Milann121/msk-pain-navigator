@@ -125,7 +125,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
       ]
       }
   ],
-  // MIDDLE BACK 
+  // MIDDLE BACK ✅
   'nociceptive-facet joint syndrome-middle back': [
     {
       title: '0-2 týždeň',
@@ -135,6 +135,12 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           videoId: 'oAxVF_ktAi0',
           title: 'Rotácia hrudníku so záklonom',
           description: 'Posaďte sa a ruky uložte za hlavu.\n ➜ Pomaly sa vytočte v hrudnej chrbtici do strany do rozsahu, ktorý je vám komfortný. V tejto polohe sa zastavte a mierne zakloňte. Následne sa vráťte naspäť a zopakujte cvik do opačnej strany.\n ➜ OPAKOVANIA: zopakujte 5-8x do každej strany, kedykoľvek v priebehu dňa.'
+        },
+        {
+          videoId: 'JEUzW-C8Vik',
+          title: '',
+          description: '',
+          
         }
       ]
     }
