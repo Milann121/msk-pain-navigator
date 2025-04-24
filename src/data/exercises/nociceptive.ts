@@ -2,7 +2,8 @@
 import { Exercise } from "@/types/exercise";
 
 export const nociceptiveExercises: Record<string, Exercise[]> = {
-  // Disc Herniation
+  // Disc Herniation ✅
+  // NECK ✅
   'nociceptive-disc herniation-neck': [
     {
       title: 'Program 0-3 týždeň',
@@ -43,7 +44,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
     }
   ],
 
-  // LUMBAR SPINE
+  // LUMBAR SPINE ✅
   'nociceptive-disc herniation-lower back': [
     {
       title: 'Pogram cvičení 0-3 týždeň',
@@ -85,6 +86,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
   ],
 
   // Facet Joint Syndrome
+  // NECK ✅
   'nociceptive-facet joint syndrome-neck': [
     {
       title: '0-2 týždeň',
@@ -123,6 +125,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
       ]
       }
   ],
+  // MIDDLE BACK 
   'nociceptive-facet joint syndrome-middle back': [
     {
       title: 'Rotačné cvičenia pre hrudnú chrbticu',
@@ -136,6 +139,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
       ]
     }
   ],
+  // LOWER BACK 
   'nociceptive-facet joint syndrome-lower back': [
     {
       title: 'Rotačné cvičenia pre driek',
