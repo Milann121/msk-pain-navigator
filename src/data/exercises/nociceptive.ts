@@ -128,12 +128,12 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
   // MIDDLE BACK 
   'nociceptive-facet joint syndrome-middle back': [
     {
-      title: 'Rotačné cvičenia pre hrudnú chrbticu',
-      description: 'Jemné rotačné pohyby pre zlepšenie mobility facetových kĺbov v hrudnej oblasti.',
+      title: '0-2 týždeň',
+      description: 'Jemné rotačné pohyby pre zlepšenie mobility v hrudnej oblasti a redukciu bolesti.',
       videos: [
         {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
+          videoId: 'oAxVF_ktAi0',
+          title: 'Rotácia hrudníku so záklonom',
           description: 'Začnite s týmto základným cvičením pre správnu techniku.'
         }
       ]
