@@ -168,14 +168,34 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
   // LOWER BACK 
   'nociceptive-facet joint syndrome-lower back': [
     {
-      title: 'Rotačné cvičenia pre driek',
-      description: 'Cvičenia zamerané na mobilizáciu facetových kĺbov v driekovej oblasti s dôrazom na kontrolovaný pohyb.',
+      title: '0-3 týždeň',
+      description: '',
       videos: [
         {
           videoId: 'dQw4w9WgXcQ',
           title: 'Základné cvičenie',
           description: 'Začnite s týmto základným cvičením pre správnu techniku.'
-        }
+        },
+        {
+          videoId: '',
+          title: '',
+          description: '',
+        },
+      ],
+      
+      title: '4-6 týždeň',
+      description: '',
+      videos: [
+        {
+          videoId: '',
+          title: '',
+          description: '',
+        },
+        {
+          videoId: '',
+          title: '',
+          description: '',
+        },
       ]
     }
   ],
