@@ -134,7 +134,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
         {
           videoId: 'oAxVF_ktAi0',
           title: 'Rotácia hrudníku so záklonom',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+          description: 'Posaďte sa a ruky uložte za hlavu.\n ➜ Pomaly sa vytočte v hrudnej chrbtici do strany do rozsahu, ktorý je vám komfortný. V tejto polohe sa zastavte a mierne zakloňte. Následne sa vráťte naspäť a zopakujte cvik do opačnej strany.\n ➜ OPAKOVANIA: zopakujte 5-8x do každej strany, kedykoľvek v priebehu dňa.'
         }
       ]
     }
