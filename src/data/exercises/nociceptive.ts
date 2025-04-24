@@ -91,9 +91,9 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
       description: 'Cvičenie na zlepšenie mobility facetových kĺbov v krčnej oblasti pri minimálnom zaťažení.',
       videos: [
         {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+          videoId: 'JJq8u5IGDb8',
+          title: 'Rotácia krčnej chrbtice s opaskom',
+          description: 'Tento cvik vám pomôže zvýšiť rozsah pohybu do rotácie. \n ➜ Uchopte uterák podľa videa - horná ruka určuje smer, do ktorého budete hlavu otáčať, spodná fixuje. Spodnou rukou zatiahnite smerom dole a udržujte ťah a súčasne hornou rukou zatiahnite smerom dopredu a hore s udržaním ťahu. Následne vykonajte rotáciu do smeru na strane hornej končatiny so sústavným ťahom oboch rúk. \n ➜ Počas tohoto cviku by ste mali pociťovať zvýšený rozsah pohybu a menej bolesti pri rotácii hlavy. \n ➜ OPAKOVANIA: 6x rotácia do jednej strany / kdykoľvek v priebehu dňa.'
         }
       ]
     }
