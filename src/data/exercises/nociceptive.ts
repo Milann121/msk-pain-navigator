@@ -97,10 +97,14 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
         },
         {
           videoId: '1PQmk7pE8',
-          title: 'Masáž loptičkou o stenu',
+          title: 'Masáž trapézov o stenu',
           description: 'Na tento cvik použite ideálne tenisovú loptičku. Položte si loptičku na trapéz, oprite sa o stenu a masírujte svaly šije ako na videu. V prípade, že nájdete bolestivé miesta, môžete staticky zatlačiť po dobu 20-30 sekúnd. Premasírujte celú oblasť trapézov a medzilopatkového priestoru.',
         },
-        
+        {
+          videoId: 'L94T55NiI34',
+          title: 'Masáž hornej krčnej chrbtice',
+          desctiption: 'Posaďte sa a nahmatajte si hranu lebky za a mierne pod uchom.\n ➜ Zatlačte palcami pod lebku a krúživými pohybmi masírujte záhlavie. Vždy keď sa po zakrúžení vrátite na hranu lebky, zatlačte do kosti a postupujte až ku stredu chrbtice. \n ➜ UPOZORNENIE: Tento cvik môže byť mierne bolestivý, preto je vhodné sedieť! Bolesť sa pri zatlačení môže šíriť do hlavy alebo za oko. \n ➜ Zopakujte podľa pocitu a potreby kedykoľvek v priebehu dňa, najmä ak pociťujete stuhnutie a bolesti hlavy a krku.'
+        }
       ]
     }
   ],
