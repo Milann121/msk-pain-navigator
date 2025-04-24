@@ -1,4 +1,3 @@
-
 import { Exercise } from "@/types/exercise";
 
 export const nociceptiveExercises: Record<string, Exercise[]> = {
@@ -80,7 +79,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           videoId: 'dVjfUlXK93k',
           title:'Drepy do 90 stupňov',
           description: 'Postavte sa s nohami na na šírku ramien. \n ➜ Drep vykonávajte max. do 90 stupňov ohnutia kolien a bez prehýbania sa v chrtbte. \n ➜ OPAKOVANIA: 10x /3 série / 1x denne',
-        },
+        }
       ]
     }
   ],
@@ -237,7 +236,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
     }
   ],
 
-  // DEFAULT exercises for when specific combinations aren't found
+  // DEFAULT exercises
   'nociceptive-default-neck': [
     {
       title: 'Základné cvičenia pre krčnú chrbticu',
