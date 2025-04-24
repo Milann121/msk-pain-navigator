@@ -159,22 +159,22 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
         {
           videoId: '',
           title: 'Otváranie knihy',
-          description: 'Týmto cvikom zvýšite mobilitu hrudníka. \n ➜ Uložte sa na bok, pokrčte nohy a spojte dlane pred seba. Spolu s končatinou uloženou na vrchu sa za výdychu vyrotujte do opačnej strany. Hlava by mala celý čas nasledovať ruku. V tejto polohe zotrvajte 3 sekundy.\n ➜ OPAKOVANIA: 5x do každej strany, kedykoľvek v priebehu dňa.',
+          description: 'Týmto cvikom zvýšite mobilitu hrudníka.\n ➜ Uložte sa na bok, pokrčte nohy a spojte dlane pred seba. Spolu s končatinou uloženou na vrchu sa za výdychu vyrotujte do opačnej strany. Hlava by mala celý čas nasledovať ruku. V tejto polohe zotrvajte 3 sekundy.\n ➜ OPAKOVANIA: 5x do každej strany, kedykoľvek v priebehu dňa.',
         }
       ]  
       }
   ],
     
-  // LOWER BACK 
+  // LOWER BACK ✅
   'nociceptive-facet joint syndrome-lower back': [
     {
       title: '0-3 týždeň',
       description: '',
       videos: [
         {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+          videoId: 'L1Mf3NxYwgY',
+          title: 'Prelápanie panve',
+          description: 'Kedykoľvek v priebehu dňa uľavte stuhnutým svalom drieku preklápaním panve. Rozsah pohybu vykonávaje len taký, ako je vám komfortný a nespôsobuje viac bolesti.\n ➜ OPAKOVANIA: Zopakujte 15x kedykoľvek v priebehu dňa. '
         },
         {
           videoId: '',
