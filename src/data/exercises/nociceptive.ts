@@ -158,8 +158,8 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
         },
         {
           videoId: '',
-          title: '',
-          description: '',
+          title: 'Otváranie knihy',
+          description: 'Týmto cvikom zvýšite mobilitu hrudníka. \n ➜ Uložte sa na bok, pokrčte nohy a spojte dlane pred seba. Spolu s končatinou uloženou na vrchu sa za výdychu vyrotujte do opačnej strany. Hlava by mala celý čas nasledovať ruku. V tejto polohe zotrvajte 3 sekundy.\n ➜ OPAKOVANIA: 5x do každej strany, kedykoľvek v priebehu dňa.',
         }
       ]  
       }
