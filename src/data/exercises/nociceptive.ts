@@ -142,7 +142,6 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           description: 'Uložte si loptičku do medzilopatkového priestoru a vertikálnym pohybom uvoľnite bolestivé a stuhnuté svaly.\n ➜ OPAKOVANIA: kedykoľvek v priebehu dňa.',
         },
       ],
-      
       title: '3-5 týždeň',
       description: 'Jemné rotačné pohyby pre zlepšenie mobility v hrudnej oblasti a redukciu bolesti.',
       videos: [
@@ -162,7 +161,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           description: 'Týmto cvikom zvýšite mobilitu hrudníka.\n ➜ Uložte sa na bok, pokrčte nohy a spojte dlane pred seba. Spolu s končatinou uloženou na vrchu sa za výdychu vyrotujte do opačnej strany. Hlava by mala celý čas nasledovať ruku. V tejto polohe zotrvajte 3 sekundy.\n ➜ OPAKOVANIA: 5x do každej strany, kedykoľvek v priebehu dňa.',
         }
       ]  
-      }
+    }
   ],
     
   // LOWER BACK ✅
