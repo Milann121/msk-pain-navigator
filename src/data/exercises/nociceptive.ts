@@ -169,7 +169,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
   'nociceptive-facet joint syndrome-lower back': [
     {
       title: '0-3 týždeň',
-      description: '',
+      description: 'Uvoľnenie svalov drieku a zvýšenie mobility',
       videos: [
         {
           videoId: 'L1Mf3NxYwgY',
