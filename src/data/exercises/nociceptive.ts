@@ -199,13 +199,13 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
         {
           videoId: 'dVjfUlXK93k',
           title:'Drepy do 90 stupňov',
-          description: 'Postavte sa s nohami na na šírku ramien. \n ➜ Drep vykonávajte max. do 90 stupňov ohnutia kolien a bez prehýbania sa v chrtbte. \n ➜ OPAKOVANIA: 10x /3 série / 1x denne'
+          description: 'Postavte sa s nohami na na šírku ramien.\n ➜ Drep vykonávajte max. do 90 stupňov ohnutia kolien a bez prehýbania sa v chrtbte. \n ➜ OPAKOVANIA: 10x /3 série / 1x denne'
         },
       ]
     }
   ],
 
-  // Nociceptive - SIJ Syndrome
+  // Nociceptive - SIJ Syndrome ✅
   'nociceptive-SIJ syndrome-lower back': [
     {
       title: '0-2 týždeň',
@@ -214,7 +214,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
         {
           videoId: 'Wan8QnjTmiQ',
           title: 'Mobilizácia SI kĺbu',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+          description: 'Uložte sa na štyri končatiny s kolenami na šírku ramien a chodilami smerujúcimi k sebe.\n ➜ Pomaly si sadajte na päty a počas pohybu zaoblujte chrbát s hlavou sklopenou dole. Pohyb vykonávajte s výdychom a v polohe sed na pätách zrelaxujte pár sekúnd.\n ➜ OPAKOVANIA: 5x za sebou, kedykoľvek v priebehu dňa.',
         }
       ]
     },
