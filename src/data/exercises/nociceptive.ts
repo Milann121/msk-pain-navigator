@@ -181,6 +181,11 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           title:'Strečing sedacích svalov.',
           description: 'Popis vo videu.\nOPAKOVANIA: 5x denne.'
         },
+        {
+          videoId: 'XspRg50nn30',
+          title: 'Strečing chrbtového svalstva',
+          description: 'Posaďte sa a uložte bradu na hrudnú kosť. Pomaly sa zaguľatením chrbta predklote a stále udržujte bradu na hrudnej kosti. V úplnom predklone sa 2-3x nadýchnite do brucha a následne sa pomaly vystrite. Ako posledný pohyb bude vystretie hlavy do neutrálnej polohy.\n ➜ UPOZORNENIE: Pri tomto cviku sa vám po vystretí z predklonu môže zatočiť hlava. Vždy majte otvorené oči a nevstavajte hneď to sedu. \n ➜ OPAKOVANIA: 2x za sebou, kedykoľvek v priebehu dňa.',
+        }
       ],
       
       title: '4-6 týždeň',
