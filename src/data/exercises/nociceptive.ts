@@ -87,14 +87,20 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
   // Facet Joint Syndrome
   'nociceptive-facet joint syndrome-neck': [
     {
-      title: 'Jemná rotácia krku',
+      title: 'Cviky na zvýšenie rozsahu pohybu v krku a zníženie bolesti.',
       description: 'Cvičenie na zlepšenie mobility facetových kĺbov v krčnej oblasti pri minimálnom zaťažení.',
       videos: [
         {
           videoId: 'JJq8u5IGDb8',
           title: 'Rotácia krčnej chrbtice s opaskom',
           description: 'Tento cvik vám pomôže zvýšiť rozsah pohybu do rotácie. \n ➜ Uchopte uterák podľa videa - horná ruka určuje smer, do ktorého budete hlavu otáčať, spodná fixuje. Spodnou rukou zatiahnite smerom dole a udržujte ťah a súčasne hornou rukou zatiahnite smerom dopredu a hore s udržaním ťahu. Následne vykonajte rotáciu do smeru na strane hornej končatiny so sústavným ťahom oboch rúk. \n ➜ Počas tohoto cviku by ste mali pociťovať zvýšený rozsah pohybu a menej bolesti pri rotácii hlavy. \n ➜ OPAKOVANIA: 6x rotácia do jednej strany / kdykoľvek v priebehu dňa.'
-        }
+        },
+        {
+          videoId: '1PQmk7pE8',
+          title: 'Masáž loptičkou o stenu',
+          description: 'Na tento cvik použite ideálne tenisovú loptičku. Položte si loptičku na trapéz, oprite sa o stenu a masírujte svaly šije ako na videu. V prípade, že nájdete bolestivé miesta, môžete staticky zatlačiť po dobu 20-30 sekúnd. Premasírujte celú oblasť trapézov a medzilopatkového priestoru.',
+        },
+        
       ]
     }
   ],
