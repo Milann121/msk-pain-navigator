@@ -208,12 +208,12 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
   // Nociceptive - SIJ Syndrome
   'nociceptive-SIJ syndrome-lower back': [
     {
-      title: 'Stabilizačné cvičenia pre SI kĺb',
-      description: 'Cvičenia zamerané na stabilizáciu sakroiliakálneho kĺbu a zlepšenie jeho funkcie.',
+      title: '0-2 týždeň',
+      description: 'Stabilizačné cvičenia pre SI kĺb.',
       videos: [
         {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
+          videoId: 'Wan8QnjTmiQ',
+          title: 'Mobilizácia SI kĺbu',
           description: 'Začnite s týmto základným cvičením pre správnu techniku.'
         }
       ]
