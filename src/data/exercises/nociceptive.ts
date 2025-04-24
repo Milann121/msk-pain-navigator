@@ -163,7 +163,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
         }
       ]  
     }
-  ]
+  ],
     
   // LOWER BACK ✅
   'nociceptive-facet joint syndrome-lower back': [
