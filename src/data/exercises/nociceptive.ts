@@ -87,8 +87,8 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
   // Facet Joint Syndrome
   'nociceptive-facet joint syndrome-neck': [
     {
-      title: 'Cviky na zvýšenie rozsahu pohybu v krku a zníženie bolesti.',
-      description: 'Cvičenie na zlepšenie mobility facetových kĺbov v krčnej oblasti pri minimálnom zaťažení.',
+      title: '0-2 týždeň',
+      description: 'Cviky na zvýšenie rozsahu pohybu v krku a zníženie bolesti.',
       videos: [
         {
           videoId: 'JJq8u5IGDb8',
@@ -105,7 +105,17 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           title: 'Masáž hornej krčnej chrbtice',
           desctiption: 'Posaďte sa a nahmatajte si hranu lebky za a mierne pod uchom.\n ➜ Zatlačte palcami pod lebku a krúživými pohybmi masírujte záhlavie. Vždy keď sa po zakrúžení vrátite na hranu lebky, zatlačte do kosti a postupujte až ku stredu chrbtice. \n ➜ UPOZORNENIE: Tento cvik môže byť mierne bolestivý, preto je vhodné sedieť! Bolesť sa pri zatlačení môže šíriť do hlavy alebo za oko. \n ➜ Zopakujte podľa pocitu a potreby kedykoľvek v priebehu dňa, najmä ak pociťujete stuhnutie a bolesti hlavy a krku.'
         }
+      ],
+    {
+      title: '3-5 týždeň',
+      description: "Cviky na posilnenie medzilopatkového priestoru a krku + dôraz na prevenciu.",
+      videos: [
+        {
+          videoId: ''
+        }
       ]
+      
+      }
     }
   ],
   'nociceptive-facet joint syndrome-middle back': [
