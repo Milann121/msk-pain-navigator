@@ -189,7 +189,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
       ],
       
       title: '4-6 týždeň',
-      description: '',
+      description: 'Posilnite oblasť sedacích svalov a predídite preťaženiu drieku.',
       videos: [
         {
           videoId: 'Xp33YgPZgns',
