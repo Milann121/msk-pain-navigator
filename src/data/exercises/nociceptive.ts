@@ -121,7 +121,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           videoId: 'D46W1uyK6Mg',
           title: 'Posilnenie svalov krku',
           description: 'Posaďte sa a obe ruky uložte za hlavu. Snažte sa mať uvoľnené ramená.\n ➜ Zatlačte hlavou do dlaní a dlaňami do hlavy, tak aby sa napli svaly krku na zadnej časti krčnej chrbtice. Celý čas sa snažte udržiavať hlavu vzpriamenú. \n ➜ OPAKOVANIA: 10sek. tlak / 10sek. pauza / 5x za sebou. Cvik môžete zopakovať 2-3x denne.',
-        }
+        },
       ]
       }
   ],
@@ -134,13 +134,32 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
         {
           videoId: 'oAxVF_ktAi0',
           title: 'Rotácia hrudníku so záklonom',
-          description: 'Posaďte sa a ruky uložte za hlavu.\n ➜ Pomaly sa vytočte v hrudnej chrbtici do strany do rozsahu, ktorý je vám komfortný. V tejto polohe sa zastavte a mierne zakloňte. Následne sa vráťte naspäť a zopakujte cvik do opačnej strany.\n ➜ OPAKOVANIA: zopakujte 5-8x do každej strany, kedykoľvek v priebehu dňa.'
+          description: 'Posaďte sa a ruky uložte za hlavu.\n ➜ Pomaly sa vytočte v hrudnej chrbtici do strany do rozsahu, ktorý je vám komfortný. V tejto polohe sa zastavte a mierne zakloňte. Následne sa vráťte naspäť a zopakujte cvik do opačnej strany.\n ➜ OPAKOVANIA: zopakujte 5-8x do každej strany, kedykoľvek v priebehu dňa.',
         },
         {
           videoId: 'JEUzW-C8Vik',
           title: 'Masáž hrudnej chrbtice loptičkou',
           description: 'Uložte si loptičku do medzilopatkového priestoru a vertikálnym pohybom uvoľnite bolestivé a stuhnuté svaly.\n ➜ OPAKOVANIA: kedykoľvek v priebehu dňa.',
         },
+      ],
+      
+      title: '3-5 týždeň',
+      description: 'Jemné rotačné pohyby pre zlepšenie mobility v hrudnej oblasti a redukciu bolesti.',
+      videos: [
+        {
+          videoId: 'oVJqu0FEw',
+          title: 'Posiľnenie medzilopatkových svalov',
+          description: 'Uchyťte odporovú gumu podľa videa. Tieto 3 cviky môžete striedať, alebo si vybrať ktorýkoľvek z nich. \n➜ UPOZORNENIE: pri týchto cvikoch nesmiete pociťovať namáhanie trapézov! Celý čas sa snažte tlačiť lopatky a ramená smerom dole od uší, aby pracovali medzilopatkové svaly. Dbajte na to, aby ste počas vykonávania cvikov viac cítili svaly medzi lopatkami, nie ramená a trapézy - to dosiahnete práve tlačením pliec dole. \n➜ OPAKOVANIA: 10-15x / 3 série / 1x denne.',
+        },
+        {
+          videoId: '',
+          title: '',
+          description: '',
+        }
+      ]  
+        }
+      
+
       ]
     }
   ],
