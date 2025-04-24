@@ -215,18 +215,23 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           videoId: 'Wan8QnjTmiQ',
           title: 'Mobilizácia SI kĺbu',
           description: 'Uložte sa na štyri končatiny s kolenami na šírku ramien a chodilami smerujúcimi k sebe.\n ➜ Pomaly si sadajte na päty a počas pohybu zaoblujte chrbát s hlavou sklopenou dole. Pohyb vykonávajte s výdychom a v polohe sed na pätách zrelaxujte pár sekúnd.\n ➜ OPAKOVANIA: 5x za sebou, kedykoľvek v priebehu dňa.',
+        },
+        {
+          videoId: '',
+          title: '',
+          description: '',
         }
-      ]
+      ],
     },
     {
-      title: 'Mobilizácia panvy',
-      description: 'Jemné cvičenia na zlepšenie mobility panvy a sakroiliakálneho kĺbu.',
+      title: '3-6 týždeň',
+      description: 'Posilnenie svalov zadku a chrbta.',
       videos: [
         {
           videoId: 'dQw4w9WgXcQ',
           title: 'Základné cvičenie',
           description: 'Začnite s týmto základným cvičením pre správnu techniku.'
-        }
+        },
       ]
     }
   ],
