@@ -23,9 +23,9 @@ const ExercisePlan = () => {
                       description: 'Pre vašu kombináciu diagnózy a oblasti bolesti nemáme špecifické cvičenia. Prosím, konzultujte s fyzioterapeutom.',
                       videos: [
                         {
-                          videoId: 'dQw4w9WgXcQ',
-                          title: 'Základné cvičenie',
-                          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+                          videoId: '',
+                          title: '',
+                          description: ''
                         }
                       ]
                     }];
@@ -50,7 +50,7 @@ const ExercisePlan = () => {
       'facet joint syndrome': 'Syndróm facetových kĺbov',
       'SIJ syndrome': 'Syndróm SI kĺbu',
       'muscle pain': 'Svalová bolesť',
-      'red flag': 'Závažný stav vyžadujúci pozornosť',
+      'red flag': 'Vyžaduje kontrolu u lekára/fyzioterapeuta.',
       'ventral spondylolisthesis': 'Ventrálna spondylolistéza',
       'dorsal spondylolisthesis': 'Dorzálna spondylolistéza',
       'costovertebral joint syndrome': 'Syndróm kostovertebrálneho kĺbu',
