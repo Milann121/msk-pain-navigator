@@ -237,9 +237,10 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
   ],
 
   // DEFAULT exercises ✅
+  // NECK ✅
   'nociceptive-default-neck': [
     {
-      title: '0-2 týždeň',
+      title: 'Základné cvičenia pre krčnú chrbticu',
       description: 'Všeobecné cvičenia na posilnenie a mobilizáciu krčnej chrbtice.',
       videos: [
         {
@@ -260,19 +261,33 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
       ]
     }
   ],
+  
+  //MIDDLE BACK ✅
   'nociceptive-default-middle back': [
     {
-      title: 'Základné cvičenia pre hrudnú chrbticu',
+      title: 'Základné cvičenia na hrudnú chrbticu',
       description: 'Všeobecné cvičenia na posilnenie a mobilizáciu hrudnej chrbtice.',
       videos: [
         {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+          videoId: 'PK62xMsZfG0',
+          title: 'Modlenie - uvoľnenie krku a lopatiek',
+          description: 'Spojte dlane a lakte v 90 stupňovom uhle v lakti a ramenách. So sústavným spojením pomaly zdvíhajte lakte vyššie, ale stále DRŽTE SPOJENÉ lakte aj dlane. UPOZORNENIE: snažte sa, aby vám prsty stále smerovali do stropu. OPAKOVANIA: 20 sekúnd / 2x za sebou / 2x denne.',
+        },
+        {
+          videoId: 'dxzegzGNdaU',
+          title: 'Masáž hrudnej chrbtice loptičkou',
+          description: 'Uložte si loptičku do medzilopatkového priestoru a vertikálnym pohybom uvoľnite bolestivé a stuhnuté svaly.\n ➜ OPAKOVANIA: kedykoľvek v priebehu dňa.',
+        },
+        {
+          videoId: 'OKsRn5e2VJY',
+          title: 'Otváranie knihy',
+          description: 'Týmto cvikom zvýšite mobilitu hrudníka.\n ➜ Uložte sa na bok, pokrčte nohy a spojte dlane pred seba. Spolu s končatinou uloženou na vrchu sa za výdychu vyrotujte do opačnej strany. Hlava by mala celý čas nasledovať ruku. V tejto polohe zotrvajte 3 sekundy.\n ➜ OPAKOVANIA: 5x do každej strany, kedykoľvek v priebehu dňa.',
         }
       ]
     }
   ],
+
+  //KRČNÁ CHRBTICA ✅
   'nociceptive-default-lower back': [
     {
       title: 'Pogram cvičení 0-3 týždeň',
