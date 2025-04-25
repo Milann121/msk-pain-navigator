@@ -2,6 +2,7 @@ import { Exercise } from "@/types/exercise";
 
 export const neuropathicExercises: Record<string, Exercise[]> = {
   // Radicular Pain
+  // NECK ✅
   'neuropathic-Radicular Pain-neck': [
     {
       title: '0-3 týžeň',
@@ -18,6 +19,17 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           description: "Postup:\nPosaďte sa a uvoľnite trapézy\n ➜ upažte ruku s dlaňou smerujúcou hore\n ➜ ohnite dlaň do polohy od seba, spolu s vystretými prstami\n Vráťte dlaň naspäť a pokrčte lakeť do 90 stupňov\n ➜ pohyb zopakujte\nOPAKOVANIA: zopakujte 10-15 x /5x denne",
         },
       ]
+    {
+      title: '4-6 týždeň',
+      description: '',
+      videos: [
+        {
+          videoId: '',
+          title: '',
+          description: '',
+        },
+      ]
+        }
     }
   ],
   'neuropathic-Radicular Pain-middle back': [
