@@ -251,6 +251,11 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           videoId: 'PK62xMsZfG0',
           title: 'Modlenie - uvoľnenie krku a lopatiek',
           description: 'Spojte dlane a lakte v 90 stupňovom uhle v lakti a ramenách. So sústavným spojením pomaly zdvíhajte lakte vyššie, ale stále DRŽTE SPOJENÉ lakte aj dlane. UPOZORNENIE: snažte sa, aby vám prsty stále smerovali do stropu. OPAKOVANIA: 20 sekúnd / 2x za sebou / 2x denne.',
+        },
+        {
+          videoId: 'L94T55NiI34',
+          title: 'Masáž hornej krčnej chrbtice',
+          desctiption: 'Posaďte sa a nahmatajte si hranu lebky za a mierne pod uchom.\n ➜ Zatlačte palcami pod lebku a krúživými pohybmi masírujte záhlavie. Vždy keď sa po zakrúžení vrátite na hranu lebky, zatlačte do kosti a postupujte až ku stredu chrbtice. \n ➜ UPOZORNENIE: Tento cvik môže byť mierne bolestivý, preto je vhodné sedieť! Bolesť sa pri zatlačení môže šíriť do hlavy alebo za oko. \n ➜ Zopakujte podľa pocitu a potreby kedykoľvek v priebehu dňa, najmä ak pociťujete stuhnutie a bolesti hlavy a krku.',
         }
       ]
     }
