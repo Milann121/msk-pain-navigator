@@ -4,14 +4,19 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
   // Radicular Pain
   'neuropathic-Radicular Pain-neck': [
     {
-      title: 'Nervové napínacie cvičenia pre krk',
+      title: '0-3 týžeň',
       description: 'Jemné cvičenia na uvoľnenie nervových koreňov v krčnej oblasti a zníženie neurologických príznakov.',
       videos: [
         {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
-        }
+          videoId: 'oaB4o_qeMdQ',
+          title: 'Zásuvka krku',
+          description: 'Posaďte sa a uvoľnite ramená. Uložte si ukazovák jednej ruky na bradu a pomaly zasuňte bradu smerom dnu (podľa videa). Rozsah zásuvky robte iba tak, aby vám bol komfortný, tento cvik by nemal produkovať žiadnu bolesť! Následne bradu opäť vysuňte mierne dopredu. Celý čas sa snažte mať uvoľené plecia, nenapínať ich a hlavu držať v rovine bez pohybov do predklonu alebo záklonu. \n ➜ OPAKOVANIA: 10x / kedykoľvek v priebehu dňa.',
+        },
+        {
+          videoId: '7WAoHWIxgEI',
+          title: 'Neurodynamika horných končatín',
+          description: "Postup:\nPosaďte sa a uvoľnite trapézy\n ➜ upažte ruku s dlaňou smerujúcou hore\n ➜ ohnite dlaň do polohy od seba, spolu s vystretými prstami\n Vráťte dlaň naspäť a pokrčte lakeť do 90 stupňov\n ➜ pohyb zopakujte\nOPAKOVANIA: zopakujte 10-15 x /5x denne",
+        },
       ]
     }
   ],
