@@ -32,7 +32,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
         {
           videoId: 'PK62xMsZfG0',
           title: 'Modlenie - uvoľnenie krku a lopatiek',
-          description: 'Spojte dlane a lakte v 90 stupňovom uhle v lakti a ramenách. So sústavným spojením pomaly zdvíhajte lakte vyššie, ale stále DRŽTE SPOJENÉ lakte aj dlane. UPOZORNENIE: snažte sa, aby vám prsty stále smerovali do stropu. OPAKOVANIA: 20 sekúnd / 2x za sebou / 2x denne.'
+          description: 'Spojte dlane a lakte v 90 stupňovom uhle v lakti a ramenách. So sústavným spojením pomaly zdvíhajte lakte vyššie, ale stále DRŽTE SPOJENÉ lakte aj dlane. UPOZORNENIE: snažte sa, aby vám prsty stále smerovali do stropu. OPAKOVANIA: 20 sekúnd / 2x za sebou / 2x denne.',
         },
         {
           videoId: 'oVJqu0FEw-Y',
@@ -236,16 +236,21 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
     }
   ],
 
-  // DEFAULT exercises
+  // DEFAULT exercises ✅
   'nociceptive-default-neck': [
     {
-      title: 'Základné cvičenia pre krčnú chrbticu',
+      title: '0-2 týždeň',
       description: 'Všeobecné cvičenia na posilnenie a mobilizáciu krčnej chrbtice.',
       videos: [
         {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+          videoId: '1PQmk7pE8',
+          title: 'Masáž loptičkou o stenu',
+          description: 'Na tento cvik použite ideálne tenisovú loptičku. Položte si loptičku na trapéz, oprite sa o stenu a masírujte svaly šije ako na videu. V prípade, že nájdete bolestivé miesta, môžete staticky zatlačiť po dobu 20-30 sekúnd. Premasírujte celú oblasť trapézov a medzilopatkového priestoru.',
+        },
+        {
+          videoId: 'PK62xMsZfG0',
+          title: 'Modlenie - uvoľnenie krku a lopatiek',
+          description: 'Spojte dlane a lakte v 90 stupňovom uhle v lakti a ramenách. So sústavným spojením pomaly zdvíhajte lakte vyššie, ale stále DRŽTE SPOJENÉ lakte aj dlane. UPOZORNENIE: snažte sa, aby vám prsty stále smerovali do stropu. OPAKOVANIA: 20 sekúnd / 2x za sebou / 2x denne.',
         }
       ]
     }
