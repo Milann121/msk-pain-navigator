@@ -287,26 +287,31 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
     }
   ],
 
-  //KRČNÁ CHRBTICA ✅
+  //LOWER BACK ✅
   'nociceptive-default-lower back': [
     {
-      title: 'Pogram cvičení 0-3 týždeň',
-      description: 'Základné cvičenia pri pravdepodobnom poškodení platničiek s cieľom redukovať bolesť a zabrániť ďaľšiemu poškodeniu.',
+      title: 'Základné cvičenia na drekovú chrbticu',
+      description: 'Základné cvičenia na posilnenie a mobilizáciu driekovej chrbtice',
       videos: [
         {
-          videoId: 'tIZppe-RB0g',
-          title: 'McKenzie záklony',
-          description: 'Postup:\n➜ uložte sa na brucho s rukami podľa videa\n➜ dlaňami odtlačte trup od podložky do záklonu\n➜ upozornenie: držte zadok uvoľnený, nezatínajte sedacie svaly!\n➜ zakláňajte sa iba do bodu, pokiaľ je pohyb komfortný a nespôsobuje vám viac bolesti\nOPAKOVANIA: 10x / 4-5x denne'
+          videoId: 'PMJsVceAnnY',
+          title:'Strečing sedacích svalov.',
+          description: 'Popis vo videu.\n➜ OPAKOVANIA: 5x denne.'
         },
         {
-          videoId: '3A27NLPe2bs',
-          title: 'Neurodynamika sedacieho nervu',
-          description: 'Popis vo videu.\nOPAKOVANIA: 15x / 3-5x denne\nUPOZORNENIE: ihneď po cvičení môžete pociťovať mierne trnutie nohy. Malo by prejsť do pól minúty, v opačnom prípade znížte počet opakovaní alebo cvik vynechajte.'
+          videoId: 'L1Mf3NxYwgY',
+          title: 'Prelápanie panve',
+          description: 'Kedykoľvek v priebehu dňa uľavte stuhnutým svalom drieku preklápaním panve. Rozsah pohybu vykonávaje len taký, ako je vám komfortný a nespôsobuje viac bolesti.\n ➜ OPAKOVANIA: Zopakujte 15x kedykoľvek v priebehu dňa. '
         },
         {
           videoId: 'PMJsVceAnnY',
           title:'Strečing sedacích svalov.',
-          description: 'Popis vo videu.\nOPAKOVANIA: 5x denne.'
+          description: 'Popis vo videu.\n➜ OPAKOVANIA: 5x denne.'
+        },
+        {
+          videoId: 'Xp33YgPZgns',
+          title:'Mostík',
+          description: 'Ľahnite si na chrbát a uložte pokrčené nohy na šírku ramien.\n ➜ Ruky uložte pozdĺž tela. \n ➜ Zaprite sa chodidlami do podložky a zdvihnite zadok nad podložku, do výšky kedy vyrovnáte chrbát \n ➜ Následne pomaly spustite zadok tesne nad podložku a zopakujte znovu \n ➜ OPAKOVANIA: 8-12x /4 série / 1x denne',
         }
       ]
     }
