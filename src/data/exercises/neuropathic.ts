@@ -211,13 +211,23 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
   // LOWER BACK ✅
   'neuropathic-default-lower back': [
     {
-      title: 'Základné neuropatické cvičenia pre driek',
-      description: 'Všeobecné cvičenia na mobilizáciu nervových štruktúr v driekovej oblasti.',
+      title: 'Základné cvičenia na drekovú chrbticu',
+      description: 'Základné cvičenia na posilnenie a mobilizáciu driekovej chrbtice',
       videos: [
         {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+          videoId: 'PMJsVceAnnY',
+          title:'Strečing sedacích svalov.',
+          description: 'Popis vo videu.\n➜ OPAKOVANIA: 5x denne.'
+        },
+        {
+          videoId: 'L1Mf3NxYwgY',
+          title: 'Prelápanie panve',
+          description: 'Kedykoľvek v priebehu dňa uľavte stuhnutým svalom drieku preklápaním panve. Rozsah pohybu vykonávaje len taký, ako je vám komfortný a nespôsobuje viac bolesti.\n ➜ OPAKOVANIA: Zopakujte 15x kedykoľvek v priebehu dňa.'
+        },
+        {
+         videoId: '7WAoHWIxgEI',
+          title: 'Neurodynamika horných končatín',
+          description: "Postup: Posaďte sa a uvoľnite trapézy\n ➜ upažte ruku s dlaňou smerujúcou hore\n ➜ ohnite dlaň do polohy od seba, spolu s vystretými prstami\n Vráťte dlaň naspäť a pokrčte lakeť do 90 stupňov\n ➜ pohyb zopakujte\nOPAKOVANIA: zopakujte 10-15 x /5x denne", 
         }
       ]
     }

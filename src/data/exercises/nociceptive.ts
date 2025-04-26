@@ -304,11 +304,6 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           description: 'Kedykoľvek v priebehu dňa uľavte stuhnutým svalom drieku preklápaním panve. Rozsah pohybu vykonávaje len taký, ako je vám komfortný a nespôsobuje viac bolesti.\n ➜ OPAKOVANIA: Zopakujte 15x kedykoľvek v priebehu dňa. '
         },
         {
-          videoId: 'PMJsVceAnnY',
-          title:'Strečing sedacích svalov.',
-          description: 'Popis vo videu.\n➜ OPAKOVANIA: 5x denne.'
-        },
-        {
           videoId: 'Xp33YgPZgns',
           title:'Mostík',
           description: 'Ľahnite si na chrbát a uložte pokrčené nohy na šírku ramien.\n ➜ Ruky uložte pozdĺž tela. \n ➜ Zaprite sa chodidlami do podložky a zdvihnite zadok nad podložku, do výšky kedy vyrovnáte chrbát \n ➜ Následne pomaly spustite zadok tesne nad podložku a zopakujte znovu \n ➜ OPAKOVANIA: 8-12x /4 série / 1x denne',
