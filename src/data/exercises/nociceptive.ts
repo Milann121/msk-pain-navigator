@@ -248,7 +248,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
       description: 'Všeobecné cvičenia na posilnenie a mobilizáciu krčnej chrbtice.',
       videos: [
         {
-          videoId: '1PQmk7pE8',
+          videoId: '844ILxo5xsA',
           title: 'Masáž loptičkou o stenu',
           description: 'Na tento cvik použite ideálne tenisovú loptičku. Položte si loptičku na trapéz, oprite sa o stenu a masírujte svaly šije ako na videu. V prípade, že nájdete bolestivé miesta, môžete staticky zatlačiť po dobu 20-30 sekúnd. Premasírujte celú oblasť trapézov a medzilopatkového priestoru.',
         },
