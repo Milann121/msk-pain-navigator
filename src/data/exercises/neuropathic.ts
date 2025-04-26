@@ -22,8 +22,9 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           videoId: 'AefUaX7yLGw',
           title: 'Úklony krku',
           description: 'Posaďte sa a začnite vykonávať úklony do strany. Rozsah úklonu vykonávajte maximálne po bolesť a nezotrvávajte v tejto polohe - hneď sa vráťte naspäť do neutrálnej polohy.\n ➜ OPAKOVANIA: 6-8x do každej strany.\n ➜ UPOZORNENIE: ak bude jedna strana bolestivejšia, obmedzte rozsah aj opakovania do tejto polohy. ',
-        },
+        }
       ]
+    },
     {
       title: '4-6 týždeň',
       description: 'Zvýšenie pohyblivosti v krčnej chrbtici',
@@ -37,9 +38,8 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           videoId: '1PQmk7pE8',
           title: 'Masáž loptičkou o stenu',
           description: 'Na tento cvik použite ideálne tenisovú loptičku. Položte si loptičku na trapéz, oprite sa o stenu a masírujte svaly šije ako na videu. V prípade, že nájdete bolestivé miesta, môžete staticky zatlačiť po dobu 20-30 sekúnd. Premasírujte celú oblasť trapézov a medzilopatkového priestoru.',
-        },
-      ]
         }
+      ]
     }
   ],
   'neuropathic-Radicular Pain-middle back': [
