@@ -1,3 +1,4 @@
+
 import { Exercise } from "@/types/exercise";
 
 export const neuropathicExercises: Record<string, Exercise[]> = {
@@ -63,8 +64,8 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           videoId: 'L1Mf3NxYwgY',
           title: 'Prelápanie panve',
           description: 'Kedykoľvek v priebehu dňa uľavte stuhnutým svalom drieku preklápaním panve. Rozsah pohybu vykonávaje len taký, ako je vám komfortný a nespôsobuje viac bolesti.\n ➜ OPAKOVANIA: Zopakujte 15x kedykoľvek v priebehu dňa. '
-        },
-      ],
+        }
+      ]
     },
     {
       title: '4-6 týždeň',
@@ -101,8 +102,8 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           videoId: 'eL5KxSe3c1g',
           title: 'McKenzie záklony krčnej chrbtice',
           description: 'Postup:\n➜ posaďte sa a uvoľnite trapézy\n➜ vtiahnite bradu dnu (zásuvka), ale nezdvíhajte pri tom plecia, ani hlavu nepredkláňajte\n➜ zakloňte hlavu do rozsahu, ktorý je vám komfortný a nespôsobuje veľa bolesti\n➜ v záklone urobte krátke rotácie hlavy do oboch strán\n➜ OPAKOVANIA: záklon opakujte 5-10x za sebou s 3-5 rotáciami do každej strany ➜ 5x denne. ',
-        },
-      ],
+        }
+      ]
     },
     {
       title: '3-5 týždeň',
@@ -117,7 +118,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           videoId: 'D46W1uyK6Mg',
           title: 'Posilnenie svalov krku',
           description: 'Posaďte sa a obe ruky uložte za hlavu. Snažte sa mať uvoľnené ramená.\n ➜ Zatlačte hlavou do dlaní a dlaňami do hlavy, tak aby sa napli svaly krku na zadnej časti krčnej chrbtice. Celý čas sa snažte udržiavať hlavu vzpriamenú. \n ➜ OPAKOVANIA: 10sek. tlak / 10sek. pauza / 5x za sebou. Cvik môžete zopakovať 2-3x denne.',
-        },
+        }
       ]
     }
   ],
@@ -138,7 +139,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           title: 'McKenzie záklony krčnej chrbtice',
           description: 'Postup:\n➜ posaďte sa a uvoľnite trapézy\n➜ vtiahnite bradu dnu (zásuvka), ale nezdvíhajte pri tom plecia, ani hlavu nepredkláňajte\n➜ zakloňte hlavu do rozsahu, ktorý je vám komfortný a nespôsobuje veľa bolesti\n➜ v záklone urobte krátke rotácie hlavy do oboch strán\n➜ OPAKOVANIA: záklon opakujte 5-10x za sebou s 3-5 rotáciami do každej strany ➜ 5x denne. ',
         }
-      ],
+      ]
     },
     {
       title: '3-5 týždeň',
