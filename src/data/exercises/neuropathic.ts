@@ -71,7 +71,8 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
         {
           
         },
-    },
+      ]
+    }
   ],
 
   // NEUROPAHIC - Radiculopathy
