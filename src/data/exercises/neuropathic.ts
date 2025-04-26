@@ -187,7 +187,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
   'neuropathic-default-middle back': [
     {
       title: 'Základné cvičenia na hrudnú chrbticu',
-      description: 'Všeobecné cvičenia na posilnenie a mobilizáciu hrudnej chrbtice.',
+      description: 'Všeobecné cvičenia na hrudnú chrbticu.',
       videos: [
         {
           videoId: 'PK62xMsZfG0',
