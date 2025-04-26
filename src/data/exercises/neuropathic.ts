@@ -18,15 +18,20 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           title: 'Neurodynamika horných končatín',
           description: "Postup:\nPosaďte sa a uvoľnite trapézy\n ➜ upažte ruku s dlaňou smerujúcou hore\n ➜ ohnite dlaň do polohy od seba, spolu s vystretými prstami\n Vráťte dlaň naspäť a pokrčte lakeť do 90 stupňov\n ➜ pohyb zopakujte\nOPAKOVANIA: zopakujte 10-15 x /5x denne",
         },
+        {
+          videoId: '1PQmk7pE8',
+          title: 'Masáž loptičkou o stenu',
+          description: 'Na tento cvik použite ideálne tenisovú loptičku. Položte si loptičku na trapéz, oprite sa o stenu a masírujte svaly šije ako na videu. V prípade, že nájdete bolestivé miesta, môžete staticky zatlačiť po dobu 20-30 sekúnd. Premasírujte celú oblasť trapézov a medzilopatkového priestoru.',
+        }
       ]
     {
       title: '4-6 týždeň',
-      description: '',
+      description: 'Zvýšenie pohyblivosti v krčnej chrbtici',
       videos: [
         {
-          videoId: '',
-          title: '',
-          description: '',
+          videoId: 'AefUaX7yLGw',
+          title: 'Úklony krku',
+          description: 'Posaďte sa a začnite vykonávať úklony do strany. Rozsah úklonu vykonávajte maximálne po bolesť a nezotrvávajte v tejto polohe - hneď sa vráťte naspäť do neutrálnej polohy.\n ➜ OPAKOVANIA: 6-8x do každej strany.\n ➜ UPOZORNENIE: ak bude jedna strana bolestivejšia, obmedzte rozsah aj opakovania do tejto polohy. ',
         },
       ]
         }
