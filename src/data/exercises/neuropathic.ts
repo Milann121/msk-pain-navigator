@@ -87,13 +87,18 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
   //NECK ✅
   'neuropathic-Radiculopathy-neck': [
     {
-      title: 'Cvičenia na posilnenie krčných svalov',
-      description: 'Cvičenia zamerané na posilnenie svalov, ktoré podporujú krčnú chrbticu a znižujú tlak na nervové korene.',
+      title: '0-2 týždne',
+      description: 'Cvičenia na zníženie neurologických symptómov a redukciu tlaku na koreň nervu.',
       videos: [
         {
           videoId: 'oFQwLC6iea4',
           title: 'Tenzná neurodynamika',
-            description: "Postup:\nPosaďte sa a uvoľnite trapézy\n ➜ upažte ruku s dlaňou smerujúcou hore\n ➜ ohnite dlaň do polohy od seba, spolu s vystretými prstami a odtiahnutím hlavy od ruky. \n Vráťte dlaň naspäť a pokrčte lakeť do 90 stupňov pohyb zopakujte\nOPAKOVANIA: zopakujte 10-15 x /5x denne.\n ➜ UPOZORNENIE: Odťahovanie hlavy robte iba po bolesť. Keď pocítite silný ťah v ruke alebo bolesť, hneď sa vráťte s hlavou aj rukou do neutrálnej polohy!",
+          description: "Postup:\nPosaďte sa a uvoľnite trapézy\n ➜ upažte ruku s dlaňou smerujúcou hore\n ➜ ohnite dlaň do polohy od seba, spolu s vystretými prstami a odtiahnutím hlavy od ruky. \n Vráťte dlaň naspäť a pokrčte lakeť do 90 stupňov pohyb zopakujte\nOPAKOVANIA: zopakujte 10-15 x /5x denne.\n ➜ UPOZORNENIE: Odťahovanie hlavy robte iba po bolesť. Keď pocítite silný ťah v ruke alebo bolesť, hneď sa vráťte s hlavou aj rukou do neutrálnej polohy!",
+        },
+        {
+          videoId: '',
+          title: '',
+          description: '',
         }
       ]
     }
