@@ -27,7 +27,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
     },
     {
       title: '4-6 týždeň',
-      description: 'Zvýšenie pohyblivosti v krčnej chrbtici',
+      description: 'Zvýšenie pohyblivosti v krčnej chrbtici a redukcia bolesti.',
       videos: [
         {
           videoId: 'PK62xMsZfG0',
@@ -42,19 +42,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
       ]
     }
   ],
-  'neuropathic-Radicular Pain-middle back': [
-    {
-      title: 'Nervové mobilizačné cvičenia pre hrudnú chrbticu',
-      description: 'Cvičenia zamerané na mobilizáciu nervových koreňov v hrudnej oblasti.',
-      videos: [
-        {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
-        }
-      ]
-    }
-  ],
+
   'neuropathic-Radicular Pain-lower back': [
     {
       title: 'Nervové napínacie cvičenia pre driek',
