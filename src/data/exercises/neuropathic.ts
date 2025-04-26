@@ -157,20 +157,33 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
     }
   ],
 
-  // Default exercises
+  // Default exercises ✅
+  // NECK ✅
   'neuropathic-default-neck': [
     {
-      title: 'Základné neuropatické cvičenia pre krk',
+      title: '0-2 týždeň',
       description: 'Všeobecné cvičenia na mobilizáciu nervových štruktúr v krčnej oblasti.',
       videos: [
         {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+          videoId: 'oaB4o_qeMdQ',
+          title: 'Zásuvka krku',
+          description: 'Posaďte sa a uvoľnite ramená. Uložte si ukazovák jednej ruky na bradu a pomaly zasuňte bradu smerom dnu (podľa videa). Rozsah zásuvky robte iba tak, aby vám bol komfortný, tento cvik by nemal produkovať žiadnu bolesť! Následne bradu opäť vysuňte mierne dopredu. Celý čas sa snažte mať uvoľené plecia, nenapínať ich a hlavu držať v rovine bez pohybov do predklonu alebo záklonu. \n ➜ OPAKOVANIA: 10x / kedykoľvek v priebehu dňa.',
+        },
+        {
+          videoId: '7WAoHWIxgEI',
+          title: 'Neurodynamika horných končatín',
+          description: "Postup: Posaďte sa a uvoľnite trapézy\n ➜ upažte ruku s dlaňou smerujúcou hore\n ➜ ohnite dlaň do polohy od seba, spolu s vystretými prstami\n Vráťte dlaň naspäť a pokrčte lakeť do 90 stupňov\n ➜ pohyb zopakujte\nOPAKOVANIA: zopakujte 10-15 x /5x denne",
+        },
+        {
+          videoId: 'PK62xMsZfG0',
+          title: 'Modlenie - uvoľnenie krku a lopatiek',
+          description: 'Spojte dlane a lakte v 90 stupňovom uhle v lakti a ramenách. So sústavným spojením pomaly zdvíhajte lakte vyššie, ale stále DRŽTE SPOJENÉ lakte aj dlane. UPOZORNENIE: snažte sa, aby vám prsty stále smerovali do stropu. OPAKOVANIA: 20 sekúnd / 2x za sebou / 2x denne.',
         }
       ]
     }
   ],
+
+  // MIDDLE BACK ✅
   'neuropathic-default-middle back': [
     {
       title: 'Základné neuropatické cvičenia pre hrudník',
