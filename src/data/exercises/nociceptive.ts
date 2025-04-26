@@ -20,7 +20,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           description: "Postup:\nPosaďte sa a uvoľnite trapézy\n ➜ upažte ruku s dlaňou smerujúcou hore\n ➜ ohnite dlaň do polohy od seba, spolu s vystretými prstami\n Vráťte dlaň naspäť a pokrčte lakeť do 90 stupňov\n ➜ pohyb zopakujte\nOPAKOVANIA: zopakujte 10-15 x /5x denne",
         },
         {
-          videoId: '1PQmk7pE8',
+          videoId: '844ILxo5xsA',
           title: 'Masáž loptičkou o stenu',
           description: 'Na tento cvik použite ideálne tenisovú loptičku. Položte si loptičku na trapéz, oprite sa o stenu a masírujte svaly šije ako na videu. V prípade, že nájdete bolestivé miesta, môžete staticky zatlačiť po dobu 20-30 sekúnd. Premasírujte celú oblasť trapézov a medzilopatkového priestoru.',
         }
@@ -98,7 +98,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           description: 'Tento cvik vám pomôže zvýšiť rozsah pohybu do rotácie. \n ➜ Uchopte uterák podľa videa - horná ruka určuje smer, do ktorého budete hlavu otáčať, spodná fixuje. Spodnou rukou zatiahnite smerom dole a udržujte ťah a súčasne hornou rukou zatiahnite smerom dopredu a hore s udržaním ťahu. Následne vykonajte rotáciu do smeru na strane hornej končatiny so sústavným ťahom oboch rúk. \n ➜ Počas tohoto cviku by ste mali pociťovať zvýšený rozsah pohybu a menej bolesti pri rotácii hlavy. \n ➜ OPAKOVANIA: 6x rotácia do jednej strany / kdykoľvek v priebehu dňa.'
         },
         {
-          videoId: '1PQmk7pE8',
+          videoId: '844ILxo5xsA',
           title: 'Masáž trapézov o stenu',
           description: 'Na tento cvik použite ideálne tenisovú loptičku. Položte si loptičku na trapéz, oprite sa o stenu a masírujte svaly šije ako na videu. V prípade, že nájdete bolestivé miesta, môžete staticky zatlačiť po dobu 20-30 sekúnd. Premasírujte celú oblasť trapézov a medzilopatkového priestoru.',
         },
