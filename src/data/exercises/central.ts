@@ -83,7 +83,8 @@ export const centralExercises: Record<string, Exercise[]> = {
   ],
 
   
-  // Default exercises
+  // Default exercises ✅
+  // NECK ✅
   'central-default-neck': [
     {
       title: 'Základné cvičenia pre centrálnu senzitizáciu - krk',
@@ -97,6 +98,8 @@ export const centralExercises: Record<string, Exercise[]> = {
       ]
     }
   ],
+
+  //MIDDLE BACK ✅
   'central-default-middle back': [
     {
       title: 'Základné cvičenia pre centrálnu senzitizáciu - hrudník',
@@ -110,6 +113,8 @@ export const centralExercises: Record<string, Exercise[]> = {
       ]
     }
   ],
+
+  //LUMBAR SPINE ✅
   'central-default-lower back': [
     {
       title: 'Základné cvičenia pre centrálnu senzitizáciu - driek',
