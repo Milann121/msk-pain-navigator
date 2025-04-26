@@ -20,7 +20,6 @@ const UserForm = ({ onSubmit }: UserFormProps) => {
   const { register, handleSubmit, formState: { errors }, setValue, watch } = useForm<UserInfo>({
     defaultValues: {
       firstName: '',
-      email: '',
       age: 0,
       painArea: 'neck'
     }
@@ -54,26 +53,6 @@ const UserForm = ({ onSubmit }: UserFormProps) => {
             />
             {errors.firstName && (
               <p className="text-red-500 text-sm mt-1">{errors.firstName.message}</p>
-            )}
-          </div>
-          
-          <div className="space-y-2">
-            <Label htmlFor="email">Emailová adresa</Label>
-            <Input
-              id="email"
-              type="email"
-              {...register('email', { 
-                required: 'Email je povinný',
-                pattern: {
-                  value: /^\S+@\S+$/i,
-                  message: 'Prosím zadajte platný email'
-                }
-              })}
-              placeholder="Zadajte svoj email"
-              className={errors.email ? 'border-red-500' : ''}
-            />
-            {errors.email && (
-              <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
             )}
           </div>
           

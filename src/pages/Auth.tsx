@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useToast } from '@/components/ui/use-toast';
@@ -35,16 +34,16 @@ const Auth = () => {
       if (isSignUp) {
         await signUp(email, password, firstName);
         toast({
-          title: "Registration Successful",
-          description: "Please check your email to verify your account.",
+          title: "Registrácia úspešná",
+          description: "Prosím skontrolujte svoj email pre overenie účtu.",
         });
       } else {
         await signIn(email, password);
       }
     } catch (error) {
       toast({
-        title: "Error",
-        description: error instanceof Error ? error.message : "An error occurred",
+        title: "Chyba",
+        description: error instanceof Error ? error.message : "Vyskytla sa chyba",
         variant: "destructive",
       });
     } finally {
@@ -56,18 +55,18 @@ const Auth = () => {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-50 to-white py-12 px-4 sm:px-6 lg:px-8">
       <Card className="w-full max-w-md">
         <CardHeader>
-          <CardTitle>{isSignUp ? 'Create Account' : 'Sign In'}</CardTitle>
+          <CardTitle>{isSignUp ? 'Vytvoriť účet' : 'Prihlásiť sa'}</CardTitle>
           <CardDescription>
             {isSignUp
-              ? 'Create a new account to get started'
-              : 'Sign in to your account'}
+              ? 'Vytvorte si nový účet pre začatie'
+              : 'Prihláste sa do svojho účtu'}
           </CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             {isSignUp && (
               <div className="space-y-1">
-                <Label htmlFor="firstName">First Name</Label>
+                <Label htmlFor="firstName">Meno</Label>
                 <Input
                   id="firstName"
                   type="text"
@@ -88,7 +87,7 @@ const Auth = () => {
               />
             </div>
             <div className="space-y-1">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password">Heslo</Label>
               <Input
                 id="password"
                 type="password"
@@ -99,10 +98,10 @@ const Auth = () => {
             </div>
             <Button type="submit" className="w-full" disabled={isLoading}>
               {isLoading
-                ? 'Loading...'
+                ? 'Načítava sa...'
                 : isSignUp
-                ? 'Create Account'
-                : 'Sign In'}
+                ? 'Vytvoriť účet'
+                : 'Prihlásiť sa'}
             </Button>
           </form>
           <div className="mt-4 text-center">
@@ -112,8 +111,8 @@ const Auth = () => {
               className="text-sm"
             >
               {isSignUp
-                ? 'Already have an account? Sign in'
-                : "Don't have an account? Sign up"}
+                ? 'Už máte účet? Prihláste sa'
+                : "Nemáte účet? Zaregistrujte sa"}
             </Button>
           </div>
         </CardContent>
