@@ -66,7 +66,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
         },
       ],
       title: '4-6 týždeň',
-      description: 'Cvičenia na posilnenie sedacích svalov a adaptáciu na záťaž.',
+      description: '...',
       videos: [
         {
           videoId: 'Xp33YgPZgns',
@@ -77,12 +77,13 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           videoId: 'dVjfUlXK93k',
           title:'Drepy do 90 stupňov',
           description: 'Postavte sa s nohami na na šírku ramien. \n ➜ Drep vykonávajte max. do 90 stupňov ohnutia kolien a bez prehýbania sa v chrtbte. \n ➜ OPAKOVANIA: 10x /3 série / 1x denne',
-        },
+        } 
       ]
     }
   ],
+  
 
-  // NEUROPAHIC - Radiculopathy
+  // NEUROPAHIC - Radiculopathy✅
   'neuropathic-Radiculopathy-neck': [
     {
       title: 'Cvičenia na posilnenie krčných svalov',
