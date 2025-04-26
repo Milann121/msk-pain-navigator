@@ -107,7 +107,8 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           desctiption: 'Posaďte sa a nahmatajte si hranu lebky za a mierne pod uchom.\n ➜ Zatlačte palcami pod lebku a krúživými pohybmi masírujte záhlavie. Vždy keď sa po zakrúžení vrátite na hranu lebky, zatlačte do kosti a postupujte až ku stredu chrbtice. \n ➜ UPOZORNENIE: Tento cvik môže byť mierne bolestivý, preto je vhodné sedieť! Bolesť sa pri zatlačení môže šíriť do hlavy alebo za oko. \n ➜ Zopakujte podľa pocitu a potreby kedykoľvek v priebehu dňa, najmä ak pociťujete stuhnutie a bolesti hlavy a krku.',
         },
       ],
-      
+    },
+    {
       title: '3-5 týždeň',
       description: "Cviky na posilnenie medzilopatkového priestoru a krku + dôraz na prevenciu.",
       videos: [
@@ -142,7 +143,8 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           description: 'Uložte si loptičku do medzilopatkového priestoru a vertikálnym pohybom uvoľnite bolestivé a stuhnuté svaly.\n ➜ OPAKOVANIA: kedykoľvek v priebehu dňa.',
         },
       ],
-      
+    },
+    {
       title: '3-5 týždeň',
       description: 'Jemné rotačné pohyby pre zlepšenie mobility v hrudnej oblasti a redukciu bolesti.',
       videos: [
@@ -187,7 +189,8 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           description: 'Posaďte sa a uložte bradu na hrudnú kosť. Pomaly sa zaguľatením chrbta predklote a stále udržujte bradu na hrudnej kosti. V úplnom predklone sa 2-3x nadýchnite do brucha a následne sa pomaly vystrite. Ako posledný pohyb bude vystretie hlavy do neutrálnej polohy.\n ➜ UPOZORNENIE: Pri tomto cviku sa vám po vystretí z predklonu môže zatočiť hlava. Vždy majte otvorené oči a nevstavajte hneď to sedu. \n ➜ OPAKOVANIA: 2x za sebou, kedykoľvek v priebehu dňa.',
         },
       ],
-      
+    },
+    {  
       title: '4-6 týždeň',
       description: 'Posilnite oblasť sedacích svalov a predídite preťaženiu drieku.',
       videos: [
