@@ -121,13 +121,17 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
   // LUMBAR SPINE ✅
   'neuropathic-Radiculopathy-lower back': [
     {
-      title: 'Cvičenia na posilnenie core',
-      description: 'Cvičenia zamerané na posilnenie core svalov na podporu driekovej chrbtice a zníženie tlaku na nervové korene.',
+      title: '0-2 týždeň',
+      description: 'Cvičenia zamerané na zníženie neurologických symptómov dolnej končatiny.',
       videos: [
         {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+          videoId: 'XP1yzpFR6ho',
+          title: 'Proximálna neurodynamika sedacieho nervu',
+          description: 'Uložte sa na chrbát a pokrčte nohy. Dolnú končatinu so symptómami zdvihnite a chyťte sa zo zadu pod kolenom. Opatrne pritihnite špičku k sebe a pomaly vystierajte koleno pokým zacítite ťah v nohe, následne sa okamžite vráťte do pôvodnej polohy.\n ➜ UPOZORNENIE: tento cvik môže spôsobiť po docvičení mierne tŕpnutie končatiny, ktoré by malo odísť do minútky - je to vporiadku. Ak by ste mali pocit, že vám symptómy pretvávajú dlhšie, prestaňte s týmto cvikom.\n ➜ OPAKOVANIA: 10-12 opakovaní / 4-5x denne.',
+        },
+        {
+          videoId: '',
+          
         }
       ]
     }
