@@ -30,9 +30,9 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
       description: 'Zvýšenie pohyblivosti v krčnej chrbtici',
       videos: [
         {
-          videoId: 'AefUaX7yLGw',
-          title: 'Úklony krku',
-          description: 'Posaďte sa a začnite vykonávať úklony do strany. Rozsah úklonu vykonávajte maximálne po bolesť a nezotrvávajte v tejto polohe - hneď sa vráťte naspäť do neutrálnej polohy.\n ➜ OPAKOVANIA: 6-8x do každej strany.\n ➜ UPOZORNENIE: ak bude jedna strana bolestivejšia, obmedzte rozsah aj opakovania do tejto polohy. ',
+          videoId: 'PK62xMsZfG0',
+          title: 'Modlenie - uvoľnenie krku a lopatiek',
+          description: 'Spojte dlane a lakte v 90 stupňovom uhle v lakti a ramenách. So sústavným spojením pomaly zdvíhajte lakte vyššie, ale stále DRŽTE SPOJENÉ lakte aj dlane. UPOZORNENIE: snažte sa, aby vám prsty stále smerovali do stropu. OPAKOVANIA: 20 sekúnd / 2x za sebou / 2x denne.',
         },
         {
           videoId: '1PQmk7pE8',
