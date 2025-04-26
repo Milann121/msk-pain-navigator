@@ -4,17 +4,26 @@ import { useNavigate } from 'react-router-dom';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { TooltipProvider } from '@/components/ui/tooltip';
+import { useAuth } from '@/contexts/AuthContext';
 
 const Header = () => {
   const navigate = useNavigate();
   const isMobile = useIsMobile();
+  const { user, signOut } = useAuth();
 
   const navigationLinks = [
     { href: '/', label: 'Domov' },
     { href: '#o-nas', label: 'O nás' },
     { href: '#kontakt', label: 'Kontakt' },
   ];
+
+  const handleAuthClick = () => {
+    if (user) {
+      signOut();
+    } else {
+      navigate('/auth');
+    }
+  };
 
   const MobileMenu = () => (
     <Sheet>
@@ -37,6 +46,15 @@ const Header = () => {
                 </a>
               </li>
             ))}
+            <li>
+              <Button
+                onClick={handleAuthClick}
+                variant="ghost"
+                className="w-full text-left justify-start px-4 py-2 text-lg"
+              >
+                {user ? 'Odhlásiť sa' : 'Prihlásiť sa'}
+              </Button>
+            </li>
           </ul>
         </nav>
       </SheetContent>
@@ -77,8 +95,8 @@ const Header = () => {
         {isMobile ? (
           <MobileMenu />
         ) : (
-          <nav>
-            <ul className="hidden md:flex space-x-6">
+          <nav className="flex items-center space-x-6">
+            <ul className="flex space-x-6">
               {navigationLinks.map((link) => (
                 <li key={link.label}>
                   <a href={link.href} className="hover:text-blue-200 transition-colors">
@@ -87,6 +105,13 @@ const Header = () => {
                 </li>
               ))}
             </ul>
+            <Button
+              onClick={handleAuthClick}
+              variant="outline"
+              className="bg-white text-blue-600 hover:bg-blue-50"
+            >
+              {user ? 'Odhlásiť sa' : 'Prihlásiť sa'}
+            </Button>
           </nav>
         )}
       </div>
