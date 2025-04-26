@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Button } from '@/components/ui/button';
@@ -21,14 +22,20 @@ const UserForm = ({ onSubmit }: UserFormProps) => {
     defaultValues: {
       firstName: '',
       age: 0,
-      painArea: 'neck'
+      painArea: 'neck',
+      gender: 'žena'
     }
   });
   
   const painArea = watch('painArea');
+  const gender = watch('gender');
   
   const handleRadioChange = (value: 'neck' | 'middle back' | 'lower back') => {
     setValue('painArea', value);
+  };
+
+  const handleGenderChange = (value: 'muž' | 'žena') => {
+    setValue('gender', value);
   };
 
   return (
@@ -78,6 +85,25 @@ const UserForm = ({ onSubmit }: UserFormProps) => {
             {errors.age && (
               <p className="text-red-500 text-sm mt-1">{errors.age.message}</p>
             )}
+          </div>
+
+          <div className="space-y-3">
+            <Label>Pohlavie</Label>
+            <RadioGroup 
+              defaultValue="žena" 
+              value={gender}
+              onValueChange={(value) => handleGenderChange(value as 'muž' | 'žena')}
+              className="flex space-x-4"
+            >
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="žena" id="zena" />
+                <Label htmlFor="zena" className="cursor-pointer">Žena</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="muž" id="muz" />
+                <Label htmlFor="muz" className="cursor-pointer">Muž</Label>
+              </div>
+            </RadioGroup>
           </div>
           
           <div className="space-y-3">
