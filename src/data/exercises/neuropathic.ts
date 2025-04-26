@@ -66,7 +66,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
         },
       ],
       title: '4-6 týždeň',
-      description: '...',
+      description: 'Cvičenia zamerané na posilnenie sedacích svalov a adaptáciu na záťaž.',
       videos: [
         {
           videoId: 'Xp33YgPZgns',
