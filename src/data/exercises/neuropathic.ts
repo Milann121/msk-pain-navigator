@@ -161,7 +161,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
   // NECK ✅
   'neuropathic-default-neck': [
     {
-      title: '0-2 týždeň',
+      title: 'Základné cvičenia na krčnú chrbticu',
       description: 'Všeobecné cvičenia na mobilizáciu nervových štruktúr v krčnej oblasti.',
       videos: [
         {
@@ -186,17 +186,29 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
   // MIDDLE BACK ✅
   'neuropathic-default-middle back': [
     {
-      title: 'Základné neuropatické cvičenia pre hrudník',
-      description: 'Všeobecné cvičenia na mobilizáciu nervových štruktúr v hrudnej oblasti.',
+      title: 'Základné cvičenia na hrudnú chrbticu',
+      description: 'Všeobecné cvičenia na posilnenie a mobilizáciu hrudnej chrbtice.',
       videos: [
         {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+          videoId: 'PK62xMsZfG0',
+          title: 'Modlenie - uvoľnenie krku a lopatiek',
+          description: 'Spojte dlane a lakte v 90 stupňovom uhle v lakti a ramenách. So sústavným spojením pomaly zdvíhajte lakte vyššie, ale stále DRŽTE SPOJENÉ lakte aj dlane. UPOZORNENIE: snažte sa, aby vám prsty stále smerovali do stropu. OPAKOVANIA: 20 sekúnd / 2x za sebou / 2x denne.',
+        },
+        {
+          videoId: 'dxzegzGNdaU',
+          title: 'Masáž hrudnej chrbtice loptičkou',
+          description: 'Uložte si loptičku do medzilopatkového priestoru a vertikálnym pohybom uvoľnite bolestivé a stuhnuté svaly.\n ➜ OPAKOVANIA: kedykoľvek v priebehu dňa.',
+        },
+        {
+          videoId: '7WAoHWIxgEI',
+          title: 'Neurodynamika horných končatín',
+          description: "Postup: Posaďte sa a uvoľnite trapézy\n ➜ upažte ruku s dlaňou smerujúcou hore\n ➜ ohnite dlaň do polohy od seba, spolu s vystretými prstami\n Vráťte dlaň naspäť a pokrčte lakeť do 90 stupňov\n ➜ pohyb zopakujte\nOPAKOVANIA: zopakujte 10-15 x /5x denne",
         }
       ]
     }
   ],
+
+  // LOWER BACK ✅
   'neuropathic-default-lower back': [
     {
       title: 'Základné neuropatické cvičenia pre driek',
