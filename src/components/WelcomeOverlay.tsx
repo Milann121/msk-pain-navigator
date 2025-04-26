@@ -8,11 +8,11 @@ const WelcomeOverlay = () => {
   return (
     <div className="min-h-[80vh] flex flex-col items-center justify-center px-4">
       <div className="max-w-4xl mx-auto text-center space-y-8">
-        <div className="relative rounded-2xl overflow-hidden shadow-xl">
+        <div className="relative rounded-2xl overflow-hidden shadow-xl max-h-[50vh]">
           <img 
             src="/lovable-uploads/f16c860e-232c-44b4-bdb8-7e9450cf73f8.png"
             alt="Žena cvičí jogu" 
-            className="w-full object-cover"
+            className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
         </div>
