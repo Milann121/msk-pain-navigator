@@ -21,7 +21,7 @@ export const centralExercises: Record<string, Exercise[]> = {
         {
           videoId: '5NPvv40gd3Q',
           title: 'Kliky o stenu',
-          description: 'Oprite ruky o stenu širšie ako sú vaše ramená. Odstúpte 1 krok od steny (čím budete ďalej od steny, tým budú kliky ťažšie). Dbajte, aby vaše ruky boli opreté v úrovni nižšie ako sú vaše ramená.\n➜ OPAKOVANIA: 8-15 klikov / 3 série.'
+          description: 'Oprite ruky o stenu širšie ako sú vaše ramená. Odstúpte 1 krok od steny (čím budete ďalej od steny, tým budú kliky ťažšie). Dbajte, aby vaše ruky boli opreté v úrovni nižšie ako sú vaše ramená.\n➜ UPOZORNENIE: Počas cviku sa neprehýbajte v driekovej chrbtici, ale držte pevný trup. Počas cviku nezdvíhajte ramená, aby vám netuhli trapézy, ale snažte sa tlačiť lopatky smerom dole.\n➜ OPAKOVANIA: 8-15 klikov / 3 série.'
         }
       ]
     }
