@@ -65,6 +65,8 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           description: 'Kedykoľvek v priebehu dňa uľavte stuhnutým svalom drieku preklápaním panve. Rozsah pohybu vykonávaje len taký, ako je vám komfortný a nespôsobuje viac bolesti.\n ➜ OPAKOVANIA: Zopakujte 15x kedykoľvek v priebehu dňa. '
         },
       ],
+    },
+    {
       title: '4-6 týždeň',
       description: 'Cvičenia zamerané na posilnenie sedacích svalov a adaptáciu na záťaž.',
       videos: [
@@ -101,6 +103,8 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           description: 'Postup:\n➜ posaďte sa a uvoľnite trapézy\n➜ vtiahnite bradu dnu (zásuvka), ale nezdvíhajte pri tom plecia, ani hlavu nepredkláňajte\n➜ zakloňte hlavu do rozsahu, ktorý je vám komfortný a nespôsobuje veľa bolesti\n➜ v záklone urobte krátke rotácie hlavy do oboch strán\n➜ OPAKOVANIA: záklon opakujte 5-10x za sebou s 3-5 rotáciami do každej strany ➜ 5x denne. ',
         },
       ],
+    },
+    {
       title: '3-5 týždeň',
       description: 'Posilnenie svalov v oblasti krku a medzilopatkového priestoru.',
       videos: [
@@ -135,6 +139,8 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           description: 'Postup:\n➜ posaďte sa a uvoľnite trapézy\n➜ vtiahnite bradu dnu (zásuvka), ale nezdvíhajte pri tom plecia, ani hlavu nepredkláňajte\n➜ zakloňte hlavu do rozsahu, ktorý je vám komfortný a nespôsobuje veľa bolesti\n➜ v záklone urobte krátke rotácie hlavy do oboch strán\n➜ OPAKOVANIA: záklon opakujte 5-10x za sebou s 3-5 rotáciami do každej strany ➜ 5x denne. ',
         }
       ],
+    },
+    {
       title: '3-5 týždeň',
       description: 'Cvičenia zamerané na zvyšovanie záťaže driekovej chrbtice a sedacích svalov.',
       videos: [
