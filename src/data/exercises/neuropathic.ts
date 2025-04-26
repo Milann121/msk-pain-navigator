@@ -96,10 +96,20 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           description: "Postup:\nPosaďte sa a uvoľnite trapézy\n ➜ upažte ruku s dlaňou smerujúcou hore\n ➜ ohnite dlaň do polohy od seba, spolu s vystretými prstami a odtiahnutím hlavy od ruky. \n Vráťte dlaň naspäť a pokrčte lakeť do 90 stupňov pohyb zopakujte\nOPAKOVANIA: zopakujte 10-15 x /5x denne.\n ➜ UPOZORNENIE: Odťahovanie hlavy robte iba po bolesť. Keď pocítite silný ťah v ruke alebo bolesť, hneď sa vráťte s hlavou aj rukou do neutrálnej polohy!",
         },
         {
+          videoId: 'eL5KxSe3c1g',
+          title: 'McKenzie záklony krčnej chrbtice',
+          description: 'Postup:\n➜ posaďte sa a uvoľnite trapézy\n➜ vtiahnite bradu dnu (zásuvka), ale nezdvíhajte pri tom plecia, ani hlavu nepredkláňajte\n➜ zakloňte hlavu do rozsahu, ktorý je vám komfortný a nespôsobuje veľa bolesti\n➜ v záklone urobte krátke rotácie hlavy do oboch strán\n➜ OPAKOVANIA: záklon opakujte 5-10x za sebou s 3-5 rotáciami do každej strany ➜ 5x denne. ',
+        },
+      ],
+      title: '',
+      description: '',
+      videos: [
+        {
           videoId: '',
           title: '',
           description: '',
-        }
+        },
+        
       ]
     }
   ],
