@@ -11,7 +11,7 @@ export default defineConfig(({ mode }: ConfigEnv) => {
   return {
     server: {
       host: "::",
-      port: 3000,
+      port: 8080,
     },
     plugins: [
       react(),
