@@ -117,6 +117,8 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
       ]
     }
   ],
+
+  // LUMBAR SPINE ✅
   'neuropathic-Radiculopathy-lower back': [
     {
       title: 'Cvičenia na posilnenie core',
