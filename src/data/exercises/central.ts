@@ -56,31 +56,33 @@ export const centralExercises: Record<string, Exercise[]> = {
       ]
     }
   ],
+
+  // LOWER BACK ✅
   'central-Central Sensitisation-lower back': [
     {
-      title: 'Relaxačné cvičenia pre driek',
-      description: 'Jemné cvičenia zamerané na relaxáciu a zníženie napätia v driekovej oblasti.',
+      title: 'Všeobecné cvičenie pre zníženie bolesti v driekovej chrbtici',
+      description: '',
       videos: [
         {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+        videoId: 'PMJsVceAnnY',
+        title:'Strečing sedacích svalov.',
+        description: 'Popis vo videu.\nOPAKOVANIA: 5x denne.'  
+        },
+        {
+          videoId: 'Xp33YgPZgns',
+          title:'Mostík',
+          description: 'Ľahnite si na chrbát a uložte pokrčené nohy na šírku ramien.\n ➜ Ruky uložte pozdĺž tela. \n ➜ Zaprite sa chodidlami do podložky a zdvihnite zadok nad podložku, do výšky kedy vyrovnáte chrbát \n ➜ Následne pomaly spustite zadok tesne nad podložku a zopakujte znovu \n ➜ OPAKOVANIA: 8-12x /4 série / 1x denne'
+        },
+        {
+          videoId: 'dVjfUlXK93k',
+          title:'Drepy do 90 stupňov',
+          description: 'Postavte sa s nohami na na šírku ramien. \n ➜ Drep vykonávajte max. do 90 stupňov ohnutia kolien a bez prehýbania sa v chrtbte. \n ➜ OPAKOVANIA: 10x /3 série / 1x denne',
         }
       ]
     },
-    {
-      title: 'Meditatívne dychové techniky',
-      description: 'Techniky pre zníženie stresu a napätia, ktoré môžu prispievať k centrálnej senzitizácii bolesti.',
-      videos: [
-        {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
-        }
-      ]
-    }
   ],
 
+  
   // Default exercises
   'central-default-neck': [
     {
