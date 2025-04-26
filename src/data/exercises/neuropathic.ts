@@ -45,7 +45,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
 
   'neuropathic-Radicular Pain-lower back': [
     {
-      title: 'Nervové napínacie cvičenia pre driek',
+      title: '0-3 týždeň',
       description: 'Cvičenia zamerané na jemnú mobilizáciu nervových štruktúr v driekovej oblasti.',
       videos: [
         {

@@ -57,7 +57,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
         {
           videoId: '3A27NLPe2bs',
           title: 'Neurodynamika sedacieho nervu',
-          description: 'Popis vo videu.\nOPAKOVANIA: 15x / 3-5x denne\nUPOZORNENIE: ihneď po cvičení môžete pociťovať mierne trnutie nohy. Malo by prejsť do pól minúty, v opačnom prípade znížte počet opakovaní alebo cvik vynechajte.'
+          description: 'Popis vo videu.\n ➜ OPAKOVANIA: 15x / 3-5x denne\n ➜ UPOZORNENIE: ihneď po cvičení môžete pociťovať mierne trnutie nohy. Malo by prejsť do pól minúty, v opačnom prípade znížte počet opakovaní alebo cvik vynechajte.'
         },
         {
           videoId: 'PMJsVceAnnY',
