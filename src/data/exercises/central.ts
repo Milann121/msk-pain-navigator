@@ -1,31 +1,32 @@
 import { Exercise } from "@/types/exercise";
 
 export const centralExercises: Record<string, Exercise[]> = {
-  // Central Sensitisation
+  // Central Sensitisation ✅
+  // NECK ✅
   'central-Central Sensitisation-neck': [
     {
-      title: 'Relaxačné cvičenia pre krk',
-      description: 'Jemné cvičenia zamerané na relaxáciu a zníženie napätia v krčnej oblasti.',
+      title: 'Všeobecné cvičenie na zníženie bolestí krčnej chrbtice',
+      description: '',
       videos: [
         {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
-        }
-      ]
-    },
-    {
-      title: 'Dychové cvičenia',
-      description: 'Cvičenia zamerané na dychové techniky pomáhajúce znížiť stres a napätie, ktoré môžu prispievať k centrálnej senzitizácii.',
-      videos: [
+          videoId: '1PQmk7pE8',
+          title: 'Masáž loptičkou o stenu',
+          description: 'Na tento cvik použite ideálne tenisovú loptičku. Položte si loptičku na trapéz, oprite sa o stenu a masírujte svaly šije ako na videu. V prípade, že nájdete bolestivé miesta, môžete staticky zatlačiť po dobu 20-30 sekúnd. Premasírujte celú oblasť trapézov a medzilopatkového priestoru.',
+        },
         {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
+         videoId: 'oVJqu0FEw-Y',
+          title: 'Posiľnenie medzilopatkových svalov',
+          description: 'Uchyťte odporovú gumu podľa videa. Tieto 3 cviky môžete striedať, alebo si vybrať ktorýkoľvek z nich.\n➜ UPOZORNENIE: pri týchto cvikoch nesmiete pociťovať namáhanie trapézov! Celý čas sa snažte tlačiť lopatky a ramená smerom dole od uší, aby pracovali medzilopatkové svaly. Dbajte na to, aby ste počas vykonávania cvikov viac cítili svaly medzi lopatkami, nie ramená a trapézy - to dosiahnete práve tlačením pliec dole. \n➜ OPAKOVANIA: 10-15x / 3 série / 1x denne. ' 
+        },
+        {
+          videoId: '5NPvv40gd3Q',
+          title: 'Kliky o stenu',
+          description: 'Oprite ruky o stenu širšie ako sú vaše ramená. Odstúpte 1 krok od steny (čím budete ďalej od steny, tým budú kliky ťažšie). Dbajte, aby vaše ruky boli opreté v úrovni nižšie ako sú vaše ramená.\n➜ OPAKOVANIA: 8-15 klikov / 3 série.'
         }
       ]
     }
   ],
+  
   'central-Central Sensitisation-middle back': [
     {
       title: 'Joga pre hrudnú chrbticu',
