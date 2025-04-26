@@ -1,7 +1,7 @@
 import { Exercise } from "@/types/exercise";
 
 export const neuropathicExercises: Record<string, Exercise[]> = {
-  // Radicular Pain
+  // Radicular Pain ✅
   // NECK ✅
   'neuropathic-Radicular Pain-neck': [
     {
@@ -43,17 +43,34 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
     }
   ],
 
+  //LUMBAR SPINE ✅
   'neuropathic-Radicular Pain-lower back': [
     {
       title: '0-3 týždeň',
       description: 'Cvičenia zamerané na jemnú mobilizáciu nervových štruktúr v driekovej oblasti.',
       videos: [
         {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'Základné cvičenie',
-          description: 'Začnite s týmto základným cvičením pre správnu techniku.'
-        }
-      ]
+          videoId: '3A27NLPe2bs',
+          title: 'Neurodynamika sedacieho nervu',
+          description: 'Popis vo videu.\n ➜ OPAKOVANIA: 15x / 3-5x denne\n ➜ UPOZORNENIE: ihneď po cvičení môžete pociťovať mierne trnutie nohy. Malo by prejsť do pól minúty, v opačnom prípade znížte počet opakovaní alebo cvik vynechajte.'
+        },
+        {
+          videoId: 'PMJsVceAnnY',
+          title:'Strečing sedacích svalov.',
+          description: 'Popis vo videu.\nOPAKOVANIA: 5x denne.'
+        },
+        {
+          videoId: 'L1Mf3NxYwgY',
+          title: 'Prelápanie panve',
+          description: 'Kedykoľvek v priebehu dňa uľavte stuhnutým svalom drieku preklápaním panve. Rozsah pohybu vykonávaje len taký, ako je vám komfortný a nespôsobuje viac bolesti.\n ➜ OPAKOVANIA: Zopakujte 15x kedykoľvek v priebehu dňa. '
+        },
+      ],
+      title: '4-6 týždeň',
+      description: '...',
+      videos: [
+        {
+          
+        },
     }
   ],
 
