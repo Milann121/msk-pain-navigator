@@ -130,8 +130,28 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           description: 'Uložte sa na chrbát a pokrčte nohy. Dolnú končatinu so symptómami zdvihnite a chyťte sa zo zadu pod kolenom. Opatrne pritihnite špičku k sebe a pomaly vystierajte koleno pokým zacítite ťah v nohe, následne sa okamžite vráťte do pôvodnej polohy.\n ➜ UPOZORNENIE: tento cvik môže spôsobiť po docvičení mierne tŕpnutie končatiny, ktoré by malo odísť do minútky - je to vporiadku. Ak by ste mali pocit, že vám symptómy pretvávajú dlhšie, prestaňte s týmto cvikom.\n ➜ OPAKOVANIA: 10-12 opakovaní / 4-5x denne.',
         },
         {
-          videoId: '',
-          
+          videoId: 'eL5KxSe3c1g',
+          title: 'McKenzie záklony krčnej chrbtice',
+          description: 'Postup:\n➜ posaďte sa a uvoľnite trapézy\n➜ vtiahnite bradu dnu (zásuvka), ale nezdvíhajte pri tom plecia, ani hlavu nepredkláňajte\n➜ zakloňte hlavu do rozsahu, ktorý je vám komfortný a nespôsobuje veľa bolesti\n➜ v záklone urobte krátke rotácie hlavy do oboch strán\n➜ OPAKOVANIA: záklon opakujte 5-10x za sebou s 3-5 rotáciami do každej strany ➜ 5x denne. ',
+        }
+      ],
+      title: '3-5 týždeň',
+      description: 'Cvičenia zamerané na zvyšovanie záťaže driekovej chrbtice a sedacích svalov.',
+      videos: [
+        {
+          videoId: 'UaG3eY_wNQg',
+          title: 'Masáž sedacích svalov',
+          description: 'Zoberte si tenisovú loptičku, uložte si ju na sedacie svaly a oprite sa o ňu o stenu (podľa videa).\n➜ Opatrne sa zaprite do loptičky a v horizontálnych pohyboch masírujte oblasť sedacích svalov tesne pod hranou panve.\n➜ OPAKOVANIA: pár minút denne.',
+        },
+        {
+          videoId: 'Xp33YgPZgns',
+          title:'Mostík',
+          description: 'Ľahnite si na chrbát a uložte pokrčené nohy na šírku ramien.\n ➜ Ruky uložte pozdĺž tela. \n ➜ Zaprite sa chodidlami do podložky a zdvihnite zadok nad podložku, do výšky kedy vyrovnáte chrbát \n ➜ Následne pomaly spustite zadok tesne nad podložku a zopakujte znovu \n ➜ OPAKOVANIA: 8-12x /4 série / 1x denne'
+        },
+        {
+          videoId: 'dVjfUlXK93k',
+          title:'Drepy do 90 stupňov',
+          description: 'Postavte sa s nohami na na šírku ramien. \n ➜ Drep vykonávajte max. do 90 stupňov ohnutia kolien a bez prehýbania sa v chrtbte. \n ➜ OPAKOVANIA: 10x /3 série / 1x denne',
         }
       ]
     }
