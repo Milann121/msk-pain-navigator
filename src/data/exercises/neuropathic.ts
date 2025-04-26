@@ -36,7 +36,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           description: 'Spojte dlane a lakte v 90 stupňovom uhle v lakti a ramenách. So sústavným spojením pomaly zdvíhajte lakte vyššie, ale stále DRŽTE SPOJENÉ lakte aj dlane. UPOZORNENIE: snažte sa, aby vám prsty stále smerovali do stropu. OPAKOVANIA: 20 sekúnd / 2x za sebou / 2x denne.',
         },
         {
-          videoId: '1PQmk7pE8',
+          videoId: '844ILxo5xsA',
           title: 'Masáž loptičkou o stenu',
           description: 'Na tento cvik použite ideálne tenisovú loptičku. Položte si loptičku na trapéz, oprite sa o stenu a masírujte svaly šije ako na videu. V prípade, že nájdete bolestivé miesta, môžete staticky zatlačiť po dobu 20-30 sekúnd. Premasírujte celú oblasť trapézov a medzilopatkového priestoru.',
         }
