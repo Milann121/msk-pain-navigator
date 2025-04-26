@@ -1,4 +1,3 @@
-
 import { Menu } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -13,8 +12,6 @@ const Header = () => {
 
   const navigationLinks = [
     { href: '/', label: 'Domov' },
-    { href: '#o-nas', label: 'O nás' },
-    { href: '#kontakt', label: 'Kontakt' },
   ];
 
   const handleAuthClick = () => {

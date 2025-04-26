@@ -1,5 +1,6 @@
+
 import { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, Link } from 'react-router-dom';
 import { useToast } from '@/components/ui/use-toast';
 import { useAuth } from '@/contexts/AuthContext';
 import {
@@ -12,6 +13,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Checkbox } from '@/components/ui/checkbox';
 
 const Auth = () => {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -19,6 +21,7 @@ const Auth = () => {
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [privacyConsent, setPrivacyConsent] = useState(false);
   const { signIn, signUp, user } = useAuth();
   const { toast } = useToast();
 
@@ -28,6 +31,16 @@ const Auth = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (isSignUp && !privacyConsent) {
+      toast({
+        title: "Chyba",
+        description: "Pre registráciu je potrebné súhlasiť so spracovaním osobných údajov",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsLoading(true);
 
     try {
@@ -96,7 +109,32 @@ const Auth = () => {
                 required
               />
             </div>
-            <Button type="submit" className="w-full" disabled={isLoading}>
+            
+            {isSignUp && (
+              <div className="flex items-center space-x-2">
+                <Checkbox
+                  id="privacy"
+                  checked={privacyConsent}
+                  onCheckedChange={(checked) => setPrivacyConsent(checked as boolean)}
+                />
+                <Label htmlFor="privacy" className="text-sm text-gray-600">
+                  Súhlasím so{' '}
+                  <Link
+                    to="/privacy-policy"
+                    className="text-blue-600 hover:text-blue-800 underline"
+                    target="_blank"
+                  >
+                    spracovaním osobných údajov
+                  </Link>
+                </Label>
+              </div>
+            )}
+
+            <Button 
+              type="submit" 
+              className="w-full" 
+              disabled={isLoading || (isSignUp && !privacyConsent)}
+            >
               {isLoading
                 ? 'Načítava sa...'
                 : isSignUp
