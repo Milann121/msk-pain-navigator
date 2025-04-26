@@ -66,10 +66,17 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
         },
       ],
       title: '4-6 týždeň',
-      description: '...',
+      description: 'Cvičenia na posilnenie sedacích svalov a adaptáciu na záťaž.',
       videos: [
         {
-          
+          videoId: 'Xp33YgPZgns',
+          title:'Mostík',
+          description: 'Ľahnite si na chrbát a uložte pokrčené nohy na šírku ramien.\n ➜ Ruky uložte pozdĺž tela. \n ➜ Zaprite sa chodidlami do podložky a zdvihnite zadok nad podložku, do výšky kedy vyrovnáte chrbát \n ➜ Následne pomaly spustite zadok tesne nad podložku a zopakujte znovu \n ➜ OPAKOVANIA: 8-12x /4 série / 1x denne'
+        },
+        {
+          videoId: 'dVjfUlXK93k',
+          title:'Drepy do 90 stupňov',
+          description: 'Postavte sa s nohami na na šírku ramien. \n ➜ Drep vykonávajte max. do 90 stupňov ohnutia kolien a bez prehýbania sa v chrtbte. \n ➜ OPAKOVANIA: 10x /3 série / 1x denne',
         },
       ]
     }
