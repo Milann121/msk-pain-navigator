@@ -1,3 +1,4 @@
+
 import { Menu } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -92,16 +93,7 @@ const Header = () => {
         {isMobile ? (
           <MobileMenu />
         ) : (
-          <nav className="flex items-center space-x-6">
-            <ul className="flex space-x-6">
-              {navigationLinks.map((link) => (
-                <li key={link.label}>
-                  <a href={link.href} className="hover:text-blue-200 transition-colors">
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+          <nav className="flex items-center">
             <Button
               onClick={handleAuthClick}
               variant="outline"

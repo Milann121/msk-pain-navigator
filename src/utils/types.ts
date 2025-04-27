@@ -1,9 +1,9 @@
+
 // Types for the MSK Pain Navigator application
 
 // User Information type
 export interface UserInfo {
   firstName: string;
-  email: string;
   age: number;
   painArea: 'neck' | 'middle back' | 'lower back';
   gender: 'muž' | 'žena';
