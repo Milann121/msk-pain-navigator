@@ -31,7 +31,19 @@ enum AssessmentStage {
 }
 
 const Index = () => {
-  const { user } = useAuth();
+  const { user, isLoading } = useAuth();
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex flex-col">
+        <Header />
+        <div className="flex-1 bg-gradient-to-b from-blue-50 to-white py-10 px-4 flex items-center justify-center">
+          <div className="text-blue-600">Načítava sa...</div>
+        </div>
+      </div>
+    );
+  }
+
   const [stage, setStage] = useState<AssessmentStage>(AssessmentStage.UserInfo);
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
   const [generalAnswers, setGeneralAnswers] = useState<Record<string, any>>({});
