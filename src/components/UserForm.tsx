@@ -29,7 +29,7 @@ const UserForm = ({ onSubmit }: UserFormProps) => {
   
   const painArea = watch('painArea');
   const gender = watch('gender');
-  
+
   const handleRadioChange = (value: 'neck' | 'middle back' | 'lower back') => {
     setValue('painArea', value);
   };
