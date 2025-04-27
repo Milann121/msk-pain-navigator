@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
         // Handle navigation based on auth state
         if (event === 'SIGNED_IN') {
-          navigate('/');
+          navigate('/assessment');
         } else if (event === 'SIGNED_OUT') {
           navigate('/auth');
         }
@@ -102,3 +102,4 @@ export const useAuth = () => {
   }
   return context;
 };
+
