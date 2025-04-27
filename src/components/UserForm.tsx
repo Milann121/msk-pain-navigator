@@ -2,13 +2,11 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Checkbox } from '@/components/ui/checkbox';
-import { Link } from 'react-router-dom';
 import { UserInfo } from '@/utils/types';
+import PersonalInfoSection from './form-sections/PersonalInfoSection';
+import PainAreaSection from './form-sections/PainAreaSection';
+import ConsentSection from './form-sections/ConsentSection';
 
 interface UserFormProps {
   onSubmit: (data: UserInfo) => void;
@@ -30,7 +28,7 @@ const UserForm = ({ onSubmit }: UserFormProps) => {
   const painArea = watch('painArea');
   const gender = watch('gender');
 
-  const handleRadioChange = (value: 'neck' | 'middle back' | 'lower back') => {
+  const handlePainAreaChange = (value: 'neck' | 'middle back' | 'lower back') => {
     setValue('painArea', value);
   };
 
@@ -50,115 +48,25 @@ const UserForm = ({ onSubmit }: UserFormProps) => {
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-          <div className="space-y-2">
-            <Label htmlFor="firstName">Meno</Label>
-            <Input
-              id="firstName"
-              {...register('firstName', { required: 'Meno je povinné' })}
-              placeholder="Zadajte svoje meno"
-              className={errors.firstName ? 'border-red-500' : ''}
-            />
-            {errors.firstName && (
-              <p className="text-red-500 text-sm mt-1">{errors.firstName.message}</p>
-            )}
-          </div>
+          <PersonalInfoSection
+            register={register}
+            errors={errors}
+            gender={gender}
+            handleGenderChange={handleGenderChange}
+          />
           
-          <div className="space-y-2">
-            <Label htmlFor="age">Vek</Label>
-            <Input
-              id="age"
-              type="number"
-              {...register('age', { 
-                required: 'Vek je povinný',
-                min: {
-                  value: 18,
-                  message: 'Vek musí byť aspoň 18'
-                },
-                max: {
-                  value: 100,
-                  message: 'Vek musí byť maximálne 100'
-                }
-              })}
-              placeholder="Zadajte svoj vek"
-              className={errors.age ? 'border-red-500' : ''}
-            />
-            {errors.age && (
-              <p className="text-red-500 text-sm mt-1">{errors.age.message}</p>
-            )}
-          </div>
-
-          <div className="space-y-3">
-            <Label>Pohlavie</Label>
-            <RadioGroup 
-              defaultValue="žena" 
-              value={gender}
-              onValueChange={(value) => handleGenderChange(value as 'muž' | 'žena')}
-              className="flex space-x-4"
-            >
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="žena" id="zena" />
-                <Label htmlFor="zena" className="cursor-pointer">Žena</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="muž" id="muz" />
-                <Label htmlFor="muz" className="cursor-pointer">Muž</Label>
-              </div>
-            </RadioGroup>
-          </div>
+          <PainAreaSection
+            painArea={painArea}
+            handlePainAreaChange={handlePainAreaChange}
+            register={register}
+          />
           
-          <div className="space-y-3">
-            <Label>Prosím, špecifikujte presnú oblasť vašej bolesti</Label>
-            <RadioGroup 
-              defaultValue="neck" 
-              value={painArea}
-              onValueChange={(value) => handleRadioChange(value as 'neck' | 'middle back' | 'lower back')}
-              className="flex flex-col space-y-2"
-            >
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="neck" id="neck" />
-                <Label htmlFor="neck" className="cursor-pointer">Krčná chrbtica</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="middle back" id="middle-back" />
-                <Label htmlFor="middle-back" className="cursor-pointer">Hrudná chrbtica</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="lower back" id="lower-back" />
-                <Label htmlFor="lower-back" className="cursor-pointer">Drieková chrbtica</Label>
-              </div>
-            </RadioGroup>
-          </div>
-          
-          <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <Checkbox
-                id="disclaimer"
-                checked={disclaimerConsent}
-                onCheckedChange={(checked) => setDisclaimerConsent(checked as boolean)}
-              />
-              <Label htmlFor="disclaimer" className="text-sm text-gray-600">
-                Súhlasím a plne si uvedomujem, že táto aplikácia slúži len na vzdelávacie účely a nenahrádza odbornú lekársku pomoc
-              </Label>
-            </div>
-
-            <div className="flex items-center space-x-2">
-              <Checkbox
-                id="privacy"
-                checked={privacyConsent}
-                onCheckedChange={(checked) => setPrivacyConsent(checked as boolean)}
-              />
-              <Label htmlFor="privacy" className="text-sm text-gray-600">
-                Súhlasím so{' '}
-                <Link
-                  to="/privacy-policy"
-                  className="text-blue-600 hover:text-blue-800 underline"
-                  target="_blank"
-                >
-                  spracovaním osobných údajov
-                </Link>
-              </Label>
-            </div>
-          </div>
+          <ConsentSection
+            disclaimerConsent={disclaimerConsent}
+            privacyConsent={privacyConsent}
+            setDisclaimerConsent={setDisclaimerConsent}
+            setPrivacyConsent={setPrivacyConsent}
+          />
           
           <Button 
             type="submit" 
