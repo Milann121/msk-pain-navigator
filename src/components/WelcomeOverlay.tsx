@@ -28,7 +28,7 @@ const WelcomeOverlay = () => {
           </p>
           <Button 
             onClick={() => navigate('/auth')}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg mb-8"
           >
             Prihlásiť sa
           </Button>
