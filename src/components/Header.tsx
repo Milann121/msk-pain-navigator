@@ -38,7 +38,7 @@ const Header = () => {
               <li key={link.label}>
                 <a
                   href={link.href}
-                  className="block px-4 py-2 text-lg hover:bg-blue-50 rounded-md transition-colors"
+                  className="block px-4 py-2 text-lg hover:bg-[#fff1eb] rounded-md transition-colors"
                 >
                   {link.label}
                 </a>
@@ -60,7 +60,7 @@ const Header = () => {
   );
 
   return (
-    <header className="bg-gradient-to-r from-blue-700 to-blue-500 text-white py-4 px-3 md:px-6 shadow-md">
+    <header className="bg-gradient-to-r from-[#ff4602] to-[#ff6c33] text-white py-4 px-3 md:px-6 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
         <div 
           className="flex items-center space-x-2 md:space-x-4" 
@@ -78,7 +78,7 @@ const Header = () => {
               strokeWidth="2" 
               strokeLinecap="round" 
               strokeLinejoin="round" 
-              className="text-blue-600 md:w-6 md:h-6"
+              className="text-[#ff4602] md:w-6 md:h-6"
             >
               <path d="M20 11c0-4.4-3.6-8-8-8s-8 3.6-8 8 3.6 8 8 8" />
               <path d="M2 15h8" />
@@ -97,7 +97,7 @@ const Header = () => {
             <Button
               onClick={handleAuthClick}
               variant="outline"
-              className="bg-white text-blue-600 hover:bg-blue-50"
+              className="bg-white text-[#ff4602] hover:bg-[#fff1eb]"
             >
               {user ? 'Odhlásiť sa' : 'Prihlásiť sa'}
             </Button>
