@@ -112,7 +112,7 @@ const ResultsPage = ({ results, onRestart }: ResultsPageProps) => {
             onClick={handleExerciseClick}
             className="w-full bg-blue-600 hover:bg-blue-700"
           >
-            Pristúpiť k vášmu kompletnému cvičebnému programu: OTVORIŤ
+            OTVORIŤ CVIČEBNÝ PROGRAM
           </Button>
         </div>
         
