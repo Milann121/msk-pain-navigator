@@ -20,7 +20,7 @@ const WelcomeOverlay = () => {
         </div>
         
         <div className="max-w-2xl mx-auto space-y-6">
-          <h2 className="text-3xl font-bold text-[#ff4602]">
+          <h2 className="text-3xl font-bold text-blue-800">
             Vitajte v našom dotazníku bolestí chrbtice
           </h2>
           <p className="text-lg text-gray-600">
@@ -28,7 +28,7 @@ const WelcomeOverlay = () => {
           </p>
           <Button 
             onClick={() => navigate('/auth')}
-            className="bg-[#ff4602] hover:bg-[#e03e00] text-white px-8 py-6 text-lg mb-8"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg mb-8"
           >
             Prihlásiť sa
           </Button>
