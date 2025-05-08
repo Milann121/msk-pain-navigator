@@ -30,6 +30,36 @@ export type Database = {
         }
         Relationships: []
       }
+      user_assessments: {
+        Row: {
+          id: string
+          pain_area: string
+          primary_differential: string
+          primary_mechanism: string
+          sin_group: string
+          timestamp: string
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          pain_area: string
+          primary_differential: string
+          primary_mechanism: string
+          sin_group: string
+          timestamp?: string
+          user_id: string
+        }
+        Update: {
+          id?: string
+          pain_area?: string
+          primary_differential?: string
+          primary_mechanism?: string
+          sin_group?: string
+          timestamp?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

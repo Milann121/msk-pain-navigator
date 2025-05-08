@@ -15,6 +15,13 @@ const Header = () => {
     { href: '/', label: 'Domov' },
   ];
 
+  if (user) {
+    navigationLinks.push(
+      { href: '/assessment', label: 'Hodnotenie' },
+      { href: '/my-exercises', label: 'Moje cviky' }
+    );
+  }
+
   const handleAuthClick = () => {
     if (user) {
       signOut();
@@ -93,7 +100,21 @@ const Header = () => {
         {isMobile ? (
           <MobileMenu />
         ) : (
-          <nav className="flex items-center">
+          <nav className="flex items-center space-x-6">
+            {user && (
+              <div className="flex space-x-4">
+                {navigationLinks.slice(1).map((link) => (
+                  <Button 
+                    key={link.label} 
+                    variant="ghost" 
+                    className="text-white hover:bg-blue-600"
+                    onClick={() => navigate(link.href)}
+                  >
+                    {link.label}
+                  </Button>
+                ))}
+              </div>
+            )}
             <Button
               onClick={handleAuthClick}
               variant="outline"

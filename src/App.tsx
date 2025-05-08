@@ -10,6 +10,7 @@ import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import ExercisePlan from "./pages/ExercisePlan";
 import Assessment from "./pages/Assessment";
+import MyExercises from "./pages/MyExercises";
 import CookieConsent from "./components/CookieConsent";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/auth" element={<Auth />} />
           <Route path="/assessment" element={<Assessment />} />
           <Route path="/exercise-plan" element={<ExercisePlan />} />
+          <Route path="/my-exercises" element={<MyExercises />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

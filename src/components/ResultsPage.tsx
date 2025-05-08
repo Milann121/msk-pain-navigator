@@ -4,6 +4,10 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { AssessmentResults, PainMechanism, SINGroup, Differential } from '@/utils/types';
 import { painMechanismDescriptions, sinGroupDescriptions, differentialDescriptions } from '@/utils/scoreHelpers';
 import { useNavigate } from 'react-router-dom';
+import { supabase } from '@/integrations/supabase/client';
+import { useEffect, useState } from 'react';
+import { useToast } from '@/hooks/use-toast';
+import { useAuth } from '@/contexts/AuthContext';
 
 interface ResultsPageProps {
   results: AssessmentResults;
@@ -12,6 +16,10 @@ interface ResultsPageProps {
 
 const ResultsPage = ({ results, onRestart }: ResultsPageProps) => {
   const navigate = useNavigate();
+  const { toast } = useToast();
+  const { user } = useAuth();
+  const [isSaving, setIsSaving] = useState(false);
+  const [isSaved, setIsSaved] = useState(false);
   const { userInfo, primaryMechanism, sinGroup, primaryDifferential } = results;
   
   const getMechanismLabel = (mechanism: PainMechanism): string => {
@@ -67,6 +75,50 @@ const ResultsPage = ({ results, onRestart }: ResultsPageProps) => {
     });
   };
 
+  const saveResultsToDatabase = async () => {
+    if (!user || isSaved) return;
+    
+    try {
+      setIsSaving(true);
+      
+      const { error } = await supabase
+        .from('user_assessments')
+        .insert([
+          { 
+            user_id: user.id,
+            primary_mechanism: primaryMechanism,
+            sin_group: sinGroup,
+            primary_differential: primaryDifferential,
+            pain_area: userInfo.painArea
+          }
+        ]);
+        
+      if (error) throw error;
+      
+      setIsSaved(true);
+      toast({
+        title: 'Výsledky boli uložené',
+        description: 'Vaše hodnotenie bolo úspešne uložené a nájdete ho v sekcii "Moje cviky".',
+      });
+    } catch (error) {
+      console.error('Error saving results:', error);
+      toast({
+        title: 'Chyba pri ukladaní',
+        description: 'Nepodarilo sa uložiť výsledky hodnotenia.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
+  // Save results automatically when component mounts if user is logged in
+  useEffect(() => {
+    if (user && !isSaved && !isSaving) {
+      saveResultsToDatabase();
+    }
+  }, [user]);
+
   return (
     <Card className="w-full max-w-2xl mx-auto">
       <CardHeader className="text-center bg-blue-50">
@@ -118,16 +170,34 @@ const ResultsPage = ({ results, onRestart }: ResultsPageProps) => {
         
         <div className="text-sm text-gray-500 mt-6">
           <p>Toto hodnotenie nenahrádza odbornú lekársku pomoc. Pre kompletnú diagnózu a liečebný plán sa prosím poraďte so zdravotníckym pracovníkom.</p>
+          {user && (
+            <p className="mt-2">
+              {isSaved ? 
+                '✓ Výsledky boli automaticky uložené. Nájdete ich v sekcii "Moje cviky".' : 
+                isSaving ? 
+                  'Ukladanie výsledkov...' : 
+                  'Automatické ukladanie výsledkov zlyhalo.'}
+            </p>
+          )}
         </div>
       </CardContent>
-      <CardFooter>
+      <CardFooter className="flex flex-wrap gap-2">
         <Button 
           onClick={onRestart} 
           variant="outline" 
-          className="w-full"
+          className="flex-1"
         >
           Začať nové hodnotenie
         </Button>
+        {user && (
+          <Button 
+            onClick={() => navigate('/my-exercises')} 
+            variant="secondary"
+            className="flex-1"
+          >
+            Moje cviky
+          </Button>
+        )}
       </CardFooter>
     </Card>
   );
