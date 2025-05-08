@@ -1,15 +1,17 @@
 
-import { UseFormRegister, FieldErrors } from 'react-hook-form';
+import { UseFormRegister, FieldErrors, UseFormSetValue } from 'react-hook-form';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { UserInfo } from '@/utils/types';
+import { useEffect } from 'react';
 
 interface PersonalInfoSectionProps {
   register: UseFormRegister<UserInfo>;
   errors: FieldErrors<UserInfo>;
   gender: 'muž' | 'žena';
   handleGenderChange: (value: 'muž' | 'žena') => void;
+  setValue: UseFormSetValue<UserInfo>;
 }
 
 const PersonalInfoSection = ({
@@ -17,7 +19,23 @@ const PersonalInfoSection = ({
   errors,
   gender,
   handleGenderChange,
+  setValue,
 }: PersonalInfoSectionProps) => {
+  
+  useEffect(() => {
+    // Load saved data from localStorage when component mounts
+    const savedFirstName = localStorage.getItem('user_firstName');
+    const savedAge = localStorage.getItem('user_age');
+    
+    if (savedFirstName) {
+      setValue('firstName', savedFirstName);
+    }
+    
+    if (savedAge) {
+      setValue('age', parseInt(savedAge, 10));
+    }
+  }, [setValue]);
+
   return (
     <div className="space-y-6">
       <div className="space-y-2">

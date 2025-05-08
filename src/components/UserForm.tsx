@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -28,12 +28,29 @@ const UserForm = ({ onSubmit }: UserFormProps) => {
   const painArea = watch('painArea');
   const gender = watch('gender');
 
+  // Save form data to localStorage when it changes
+  const saveToLocalStorage = (key: string, value: any) => {
+    if (value) {
+      localStorage.setItem(key, typeof value === 'string' ? value : value.toString());
+    }
+  };
+
   const handlePainAreaChange = (value: 'neck' | 'middle back' | 'lower back') => {
     setValue('painArea', value);
   };
 
   const handleGenderChange = (value: 'muž' | 'žena') => {
     setValue('gender', value);
+    saveToLocalStorage('user_gender', value);
+  };
+
+  const handleFormSubmit = (data: UserInfo) => {
+    // Save form data to localStorage before submitting
+    saveToLocalStorage('user_firstName', data.firstName);
+    saveToLocalStorage('user_age', data.age);
+    saveToLocalStorage('user_gender', data.gender);
+    
+    onSubmit(data);
   };
 
   return (
@@ -47,12 +64,13 @@ const UserForm = ({ onSubmit }: UserFormProps) => {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+        <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-6">
           <PersonalInfoSection
             register={register}
             errors={errors}
             gender={gender}
             handleGenderChange={handleGenderChange}
+            setValue={setValue}
           />
           
           <PainAreaSection
