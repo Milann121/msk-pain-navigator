@@ -5,6 +5,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/components/ui/use-toast';
 import { Button } from '@/components/ui/button';
 import { Check } from 'lucide-react';
+import { CelebrationAnimation } from './CelebrationAnimation';
 
 interface ExerciseCompletionCheckboxProps {
   exerciseTitle: string;
@@ -16,6 +17,7 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
   const [loading, setLoading] = useState(true);
   const [lastCompletedAt, setLastCompletedAt] = useState<Date | null>(null);
   const [cooldownActive, setCooldownActive] = useState(false);
+  const [showCelebration, setShowCelebration] = useState(false);
   const { user } = useAuth();
   const { toast } = useToast();
 
@@ -108,6 +110,9 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
       setLastCompletedAt(now);
       setCooldownActive(true);
       
+      // Show celebration animation
+      setShowCelebration(true);
+      
       toast({
         title: "Cvičenie označené ako odcvičené",
         description: "Váš pokrok bol úspešne uložený.",
@@ -138,27 +143,30 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
   };
 
   return (
-    <Button 
-      onClick={handleButtonClick}
-      className={`mt-4 ${
-        isCompleted 
-          ? cooldownActive 
-            ? 'bg-gray-400 cursor-not-allowed' 
-            : 'bg-green-600 hover:bg-green-700' 
-          : 'bg-green-600 hover:bg-green-700'
-      }`}
-      disabled={cooldownActive}
-      size="lg"
-    >
-      {cooldownActive ? (
-        getCooldownText()
-      ) : isCompleted ? (
-        <>
-          <Check className="mr-2 h-4 w-4" /> Odcvičené znovu
-        </>
-      ) : (
-        'Označiť ako odcvičené'
-      )}
-    </Button>
+    <>
+      <Button 
+        onClick={handleButtonClick}
+        className={`mt-4 ${
+          isCompleted 
+            ? cooldownActive 
+              ? 'bg-gray-400 cursor-not-allowed' 
+              : 'bg-green-600 hover:bg-green-700' 
+            : 'bg-green-600 hover:bg-green-700'
+        }`}
+        disabled={cooldownActive}
+        size="lg"
+      >
+        {cooldownActive ? (
+          getCooldownText()
+        ) : isCompleted ? (
+          <>
+            <Check className="mr-2 h-4 w-4" /> Odcvičené znovu
+          </>
+        ) : (
+          'Označiť ako odcvičené'
+        )}
+      </Button>
+      <CelebrationAnimation isActive={showCelebration} onComplete={() => setShowCelebration(false)} />
+    </>
   );
 };

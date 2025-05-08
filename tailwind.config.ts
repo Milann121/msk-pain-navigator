@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -73,26 +74,29 @@ export default {
         sm: 'calc(var(--radius) - 4px)'
       },
       keyframes: {
-        'accordion-down': {
-          from: {
-            height: '0'
-          },
-          to: {
-            height: 'var(--radix-accordion-content-height)'
-          }
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
-        'accordion-up': {
-          from: {
-            height: 'var(--radix-accordion-content-height)'
-          },
-          to: {
-            height: '0'
-          }
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "party": {
+          "0%": { transform: "translate(-50%, -50%) scale(0)", opacity: "0" },
+          "50%": { transform: "translate(-50%, -50%) scale(1.2)", opacity: "1" },
+          "100%": { transform: "translate(-50%, -50%) scale(1)", opacity: "0" },
+        },
+        "celebration-particle": {
+          "0%": { transform: "translate(0, 0)", opacity: "1" },
+          "100%": { transform: "translate(var(--tx, 50px), var(--ty, 50px))", opacity: "0" },
         }
       },
       animation: {
-        'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out'
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+        "party": "party 1.5s ease-out forwards",
+        "celebration-particle": "celebration-particle 1s ease-out forwards",
       }
     }
   },
