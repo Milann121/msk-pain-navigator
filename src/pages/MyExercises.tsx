@@ -1,155 +1,16 @@
-import { useEffect, useState } from 'react';
+
 import { useAuth } from '@/contexts/AuthContext';
 import { Navigate, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '@/components/ui/table';
-import { supabase } from '@/integrations/supabase/client';
-import { format } from 'date-fns';
-import { useToast } from '@/components/ui/use-toast';
-import { Trash2 } from 'lucide-react';
-
-interface UserAssessment {
-  id: string;
-  primary_mechanism: string;
-  sin_group: string;
-  primary_differential: string;
-  pain_area: string;
-  timestamp: string;
-  completed_exercises_count: number;
-}
+import { useAssessments } from '@/hooks/useAssessments';
+import { AssessmentTable } from '@/components/exercise-dashboard/AssessmentTable';
 
 const MyExercises = () => {
   const { user, isLoading } = useAuth();
   const navigate = useNavigate();
-  const { toast } = useToast();
-  const [assessments, setAssessments] = useState<UserAssessment[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchUserAssessments = async () => {
-      if (!user) return;
-
-      try {
-        setLoading(true);
-        
-        // Get assessments with completed exercise counts
-        const { data, error } = await supabase
-          .from('user_assessments')
-          .select(`
-            *,
-            completed_exercises:completed_exercises(count)
-          `)
-          .order('timestamp', { ascending: false });
-
-        if (error) throw error;
-        
-        // Transform the data to include the completed exercises count
-        const assessmentsWithCounts = (data || []).map(assessment => {
-          const completedCount = assessment.completed_exercises?.length || 0;
-          return {
-            ...assessment,
-            completed_exercises_count: completedCount
-          };
-        });
-        
-        setAssessments(assessmentsWithCounts);
-      } catch (error) {
-        console.error('Error fetching user assessments:', error);
-        toast({
-          title: 'Chyba pri načítaní cvikov',
-          description: 'Nepodarilo sa načítať vaše hodnotenia a cviky.',
-          variant: 'destructive',
-        });
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchUserAssessments();
-  }, [user, toast]);
-
-  // Helper functions for formatting data
-  const formatPainArea = (area: string): string => {
-    const translations: Record<string, string> = {
-      'neck': 'krčnej chrbtice',
-      'middle back': 'hrudnej chrbtice',
-      'lower back': 'driekovej chrbtice'
-    };
-    
-    return translations[area] || area;
-  };
-
-  const formatMechanism = (mechanism: string): string => {
-    const translations: Record<string, string> = {
-      'nociceptive': 'Nociceptívna bolesť',
-      'neuropathic': 'Neuropatická bolesť',
-      'central': 'Centrálna senzitizácia',
-      'none': 'Nedefinovaný mechanizmus bolesti'
-    };
-    return translations[mechanism] || mechanism;
-  };
-
-  const formatDifferential = (differential: string): string => {
-    if (differential === 'none') return 'Nebola identifikovaná žiadna špecifická diagnóza';
-    
-    const translations: Record<string, string> = {
-      'disc herniation': 'Hernia medzistavcovej platničky',
-      'facet joint syndrome': 'Syndróm facetových kĺbov',
-      'SIJ syndrome': 'Syndróm SI kĺbu',
-      'muscle pain': 'Svalová bolesť',
-      'red flag': 'Závažný stav vyžadujúci pozornosť',
-      'ventral spondylolisthesis': 'Ventrálna spondylolistéza',
-      'dorsal spondylolisthesis': 'Dorzálna spondylolistéza',
-      'costovertebral joint syndrome': 'Syndróm kostovertebrálneho kĺbu',
-      'Radicular Pain': 'Radikulárna bolesť',
-      'Radiculopathy': 'Radikulopatia',
-      'Central Sensitisation': 'Centrálna senzitizácia',
-      'Central Sensitisation - Allodynia': 'Centrálna senzitizácia - Alodýnia',
-      'Central Sensitisation - Sensory Hypersensitivity': 'Centrálna senzitizácia - Zmyslová precitlivenosť',
-      'Central Sensitisation - Cognitive Symptoms': 'Centrálna senzitizácia - Kognitívne symptómy'
-    };
-    
-    return translations[differential] || differential;
-  };
-
-  const handleViewExercises = (assessment: UserAssessment) => {
-    navigate('/exercise-plan', { 
-      state: { 
-        mechanism: assessment.primary_mechanism,
-        differential: assessment.primary_differential,
-        painArea: assessment.pain_area,
-        assessmentId: assessment.id
-      } 
-    });
-  };
-  
-  const handleDeleteAssessment = async (id: string) => {
-    try {
-      const { error } = await supabase
-        .from('user_assessments')
-        .delete()
-        .eq('id', id);
-        
-      if (error) throw error;
-      
-      // Update the local state to remove the deleted assessment
-      setAssessments(assessments.filter(assessment => assessment.id !== id));
-      
-      toast({
-        title: 'Hodnotenie odstránené',
-        description: 'Hodnotenie bolo úspešne odstránené.',
-      });
-    } catch (error) {
-      console.error('Error deleting assessment:', error);
-      toast({
-        title: 'Chyba pri odstraňovaní hodnotenia',
-        description: 'Nepodarilo sa odstrániť hodnotenie.',
-        variant: 'destructive',
-      });
-    }
-  };
+  const { assessments, loading, handleDeleteAssessment } = useAssessments();
 
   if (isLoading) {
     return (
@@ -181,62 +42,11 @@ const MyExercises = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              {loading ? (
-                <div className="text-center py-8">Načítavanie hodnotení...</div>
-              ) : assessments.length === 0 ? (
-                <div className="text-center py-8">
-                  <p className="text-gray-500 mb-4">Zatiaľ nemáte žiadne uložené hodnotenia.</p>
-                  <Button onClick={() => navigate('/assessment')}>
-                    Vytvoriť nové hodnotenie
-                  </Button>
-                </div>
-              ) : (
-                <div className="overflow-x-auto">
-                  <Table>
-                    <TableHeader>
-                      <TableRow>
-                        <TableHead>Dátum</TableHead>
-                        <TableHead>Oblasť</TableHead>
-                        <TableHead>Mechanizmus</TableHead>
-                        <TableHead>Diagnóza</TableHead>
-                        <TableHead className="text-center">Odcvičené</TableHead>
-                        <TableHead>Akcie</TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {assessments.map((assessment) => (
-                        <TableRow key={assessment.id}>
-                          <TableCell className="font-medium">
-                            {format(new Date(assessment.timestamp), 'dd.MM.yyyy')}
-                          </TableCell>
-                          <TableCell>{formatPainArea(assessment.pain_area)}</TableCell>
-                          <TableCell>{formatMechanism(assessment.primary_mechanism)}</TableCell>
-                          <TableCell>{formatDifferential(assessment.primary_differential)}</TableCell>
-                          <TableCell className="text-center font-medium">
-                            {assessment.completed_exercises_count > 0 ? `${assessment.completed_exercises_count}x` : '0x'}
-                          </TableCell>
-                          <TableCell className="flex gap-2">
-                            <Button 
-                              onClick={() => handleViewExercises(assessment)}
-                              size="sm"
-                            >
-                              Zobraziť cviky
-                            </Button>
-                            <Button 
-                              variant="destructive" 
-                              size="sm"
-                              onClick={() => handleDeleteAssessment(assessment.id)}
-                              title="Odstrániť hodnotenie"
-                            >
-                              <Trash2 className="h-4 w-4" />
-                            </Button>
-                          </TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </div>
-              )}
+              <AssessmentTable
+                assessments={assessments}
+                loading={loading}
+                onDeleteAssessment={handleDeleteAssessment}
+              />
             </CardContent>
             <CardFooter className="flex justify-between">
               <Button variant="outline" onClick={() => navigate('/')}>
