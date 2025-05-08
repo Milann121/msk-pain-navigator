@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useLocation } from 'react-router-dom';
@@ -6,10 +7,19 @@ import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Differential, PainMechanism } from '@/utils/types';
 import exercisesByDifferential from '@/data/exercises';
+import { useAuth } from '@/contexts/AuthContext';
+import { ExerciseCompletionCheckbox } from '@/components/ExerciseCompletionCheckbox';
+import { Navigate } from 'react-router-dom';
 
 const ExercisePlan = () => {
+  const { user } = useAuth();
   const location = useLocation();
-  const { mechanism = 'nociceptive', differential = 'none', painArea = 'lower back' } = location.state || {};
+  const { mechanism = 'nociceptive', differential = 'none', painArea = 'lower back', assessmentId } = location.state || {};
+  
+  // Redirect to login if not authenticated
+  if (!user) {
+    return <Navigate to="/auth" replace />;
+  }
   
   // Create key for exercise lookup
   const specificKey = `${mechanism}-${differential}-${painArea}`;
@@ -108,6 +118,12 @@ const ExercisePlan = () => {
               <div className="space-y-2">
                 <h3 className="text-xl font-semibold">{exercise.title}</h3>
                 <p className="text-gray-600">{exercise.description}</p>
+                {assessmentId && (
+                  <ExerciseCompletionCheckbox 
+                    exerciseTitle={exercise.title}
+                    assessmentId={assessmentId}
+                  />
+                )}
               </div>
               
               <div className="space-y-6">

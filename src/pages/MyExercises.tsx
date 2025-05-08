@@ -18,6 +18,7 @@ interface UserAssessment {
   primary_differential: string;
   pain_area: string;
   timestamp: string;
+  completed_exercises_count: number;
 }
 
 const MyExercises = () => {
@@ -33,13 +34,28 @@ const MyExercises = () => {
 
       try {
         setLoading(true);
+        
+        // Get assessments with completed exercise counts
         const { data, error } = await supabase
           .from('user_assessments')
-          .select('*')
+          .select(`
+            *,
+            completed_exercises:completed_exercises(count)
+          `)
           .order('timestamp', { ascending: false });
 
         if (error) throw error;
-        setAssessments(data || []);
+        
+        // Transform the data to include the completed exercises count
+        const assessmentsWithCounts = (data || []).map(assessment => {
+          const completedCount = assessment.completed_exercises?.length || 0;
+          return {
+            ...assessment,
+            completed_exercises_count: completedCount
+          };
+        });
+        
+        setAssessments(assessmentsWithCounts);
       } catch (error) {
         console.error('Error fetching user assessments:', error);
         toast({
@@ -104,7 +120,8 @@ const MyExercises = () => {
       state: { 
         mechanism: assessment.primary_mechanism,
         differential: assessment.primary_differential,
-        painArea: assessment.pain_area
+        painArea: assessment.pain_area,
+        assessmentId: assessment.id
       } 
     });
   };
@@ -183,6 +200,7 @@ const MyExercises = () => {
                         <TableHead>Oblasť</TableHead>
                         <TableHead>Mechanizmus</TableHead>
                         <TableHead>Diagnóza</TableHead>
+                        <TableHead>Odcvičené</TableHead>
                         <TableHead>Akcie</TableHead>
                       </TableRow>
                     </TableHeader>
@@ -195,6 +213,9 @@ const MyExercises = () => {
                           <TableCell>{formatPainArea(assessment.pain_area)}</TableCell>
                           <TableCell>{formatMechanism(assessment.primary_mechanism)}</TableCell>
                           <TableCell>{formatDifferential(assessment.primary_differential)}</TableCell>
+                          <TableCell className="text-center font-medium">
+                            {assessment.completed_exercises_count}
+                          </TableCell>
                           <TableCell className="flex gap-2">
                             <Button 
                               onClick={() => handleViewExercises(assessment)}
