@@ -2,13 +2,14 @@
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 const WelcomeOverlay = () => {
   const navigate = useNavigate();
   const isMobile = useIsMobile();
 
   return (
-    <div className="min-h-[80vh] flex flex-col items-center justify-center px-4">
+    <div className="min-h-[80vh] flex flex-col items-center justify-center px-4 py-20">
       <div className="max-w-4xl mx-auto text-center space-y-8">
         <div className={`relative rounded-2xl overflow-hidden shadow-xl ${!isMobile ? 'max-w-md mx-auto' : ''}`}>
           <img 
