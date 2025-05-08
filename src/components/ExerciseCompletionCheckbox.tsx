@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
@@ -21,7 +20,7 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
   const { user } = useAuth();
   const { toast } = useToast();
 
-  const COOLDOWN_MINUTES = 30; // 30-minute cooldown
+  const COOLDOWN_MINUTES = 1; // Changed from 30 to 1 minute
 
   useEffect(() => {
     const checkCompletionStatus = async () => {
