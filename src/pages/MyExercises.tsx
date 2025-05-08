@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from '@/components/ui/button';
 import { useAssessments } from '@/hooks/useAssessments';
 import { AssessmentTable } from '@/components/exercise-dashboard/AssessmentTable';
+import { StatsBar } from '@/components/exercise-dashboard/StatsBar';
 
 const MyExercises = () => {
   const { user, isLoading } = useAuth();
@@ -26,6 +27,9 @@ const MyExercises = () => {
   if (!user) {
     return <Navigate to="/auth" replace />;
   }
+  
+  // Get the latest assessment ID for the stats bar
+  const latestAssessmentId = assessments.length > 0 ? assessments[0].id : undefined;
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -33,6 +37,8 @@ const MyExercises = () => {
       <div className="flex-1 bg-gradient-to-b from-blue-50 to-white py-10 px-4">
         <div className="container mx-auto max-w-4xl">
           <h1 className="text-3xl font-bold text-blue-800 mb-6">Moje cviky</h1>
+          
+          <StatsBar assessmentId={latestAssessmentId} />
           
           <Card>
             <CardHeader>
