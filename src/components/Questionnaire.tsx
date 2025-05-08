@@ -80,14 +80,14 @@ const Questionnaire = ({ questionnaire, onComplete, onBack }: QuestionnaireProps
           variant="outline" 
           onClick={handleBack}
         >
-          Back
+          Späť
         </Button>
         <Button 
           onClick={handleNext}
           disabled={!canProceed}
           className="bg-blue-600 hover:bg-blue-700"
         >
-          {currentQuestionIndex < questions.length - 1 ? 'Next' : 'Complete'}
+          {currentQuestionIndex < questions.length - 1 ? 'Ďalej' : 'Dokončiť'}
         </Button>
       </CardFooter>
     </Card>
