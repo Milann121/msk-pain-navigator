@@ -17,7 +17,7 @@ const Header = () => {
 
   if (user) {
     navigationLinks.push(
-      { href: '/assessment', label: 'Hodnotenie' },
+      { href: '/assessment', label: 'Dotazník bolesti' },
       { href: '/my-exercises', label: 'Moje cviky' }
     );
   }
