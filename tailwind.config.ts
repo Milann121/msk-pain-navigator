@@ -85,18 +85,31 @@ export default {
         "party": {
           "0%": { transform: "translate(-50%, -50%) scale(0)", opacity: "0" },
           "50%": { transform: "translate(-50%, -50%) scale(1.2)", opacity: "1" },
-          "100%": { transform: "translate(-50%, -50%) scale(1)", opacity: "0" },
+          "100%": { transform: "translate(-50%, -50%) scale(1)", opacity: "0.8" },
         },
         "celebration-particle": {
           "0%": { transform: "translate(0, 0)", opacity: "1" },
-          "100%": { transform: "translate(var(--tx, 50px), var(--ty, 50px))", opacity: "0" },
+          "50%": { transform: "translate(var(--tx, 50px), var(--ty, 50px))", opacity: "0.7" },
+          "100%": { transform: "translate(0, 0)", opacity: "0" },
+        },
+        "sparkle": {
+          "0%": { transform: "translate(-50%, -50%) scale(0.8) rotate(0deg)", opacity: "0.5" },
+          "50%": { transform: "translate(-50%, -50%) scale(1.2) rotate(180deg)", opacity: "1" },
+          "100%": { transform: "translate(-50%, -50%) scale(0.8) rotate(360deg)", opacity: "0.5" },
+        },
+        "star-fade": {
+          "0%": { opacity: "0", transform: "scale(0.5)" },
+          "50%": { opacity: "1", transform: "scale(1.2)" },
+          "100%": { opacity: "0", transform: "scale(0.5)" },
         }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "party": "party 1.5s ease-out forwards",
-        "celebration-particle": "celebration-particle 1s ease-out forwards",
+        "party": "party 1.5s ease-out infinite",
+        "celebration-particle": "celebration-particle 1.5s ease-out infinite",
+        "sparkle": "sparkle 2s ease-in-out infinite",
+        "star-fade": "star-fade 1.5s ease-in-out infinite",
       }
     }
   },
