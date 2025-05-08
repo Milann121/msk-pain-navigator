@@ -9,6 +9,7 @@ import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '@
 import { supabase } from '@/integrations/supabase/client';
 import { format } from 'date-fns';
 import { useToast } from '@/components/ui/use-toast';
+import { Trash2 } from 'lucide-react';
 
 interface UserAssessment {
   id: string;
@@ -107,6 +108,32 @@ const MyExercises = () => {
       } 
     });
   };
+  
+  const handleDeleteAssessment = async (id: string) => {
+    try {
+      const { error } = await supabase
+        .from('user_assessments')
+        .delete()
+        .eq('id', id);
+        
+      if (error) throw error;
+      
+      // Update the local state to remove the deleted assessment
+      setAssessments(assessments.filter(assessment => assessment.id !== id));
+      
+      toast({
+        title: 'Hodnotenie odstránené',
+        description: 'Hodnotenie bolo úspešne odstránené.',
+      });
+    } catch (error) {
+      console.error('Error deleting assessment:', error);
+      toast({
+        title: 'Chyba pri odstraňovaní hodnotenia',
+        description: 'Nepodarilo sa odstrániť hodnotenie.',
+        variant: 'destructive',
+      });
+    }
+  };
 
   if (isLoading) {
     return (
@@ -168,12 +195,20 @@ const MyExercises = () => {
                           <TableCell>{formatPainArea(assessment.pain_area)}</TableCell>
                           <TableCell>{formatMechanism(assessment.primary_mechanism)}</TableCell>
                           <TableCell>{formatDifferential(assessment.primary_differential)}</TableCell>
-                          <TableCell>
+                          <TableCell className="flex gap-2">
                             <Button 
                               onClick={() => handleViewExercises(assessment)}
                               size="sm"
                             >
                               Zobraziť cviky
+                            </Button>
+                            <Button 
+                              variant="destructive" 
+                              size="sm"
+                              onClick={() => handleDeleteAssessment(assessment.id)}
+                              title="Odstrániť hodnotenie"
+                            >
+                              <Trash2 className="h-4 w-4" />
                             </Button>
                           </TableCell>
                         </TableRow>
