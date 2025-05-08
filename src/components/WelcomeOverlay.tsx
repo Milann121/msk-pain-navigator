@@ -9,7 +9,7 @@ const WelcomeOverlay = () => {
   const isMobile = useIsMobile();
 
   return (
-    <div className="min-h-[80vh] flex flex-col items-center justify-center px-4 py-20">
+    <div className="min-h-[80vh] flex flex-col items-center justify-center px-4 py-10">
       <div className="max-w-4xl mx-auto text-center space-y-8">
         <div className={`relative rounded-2xl overflow-hidden shadow-xl ${!isMobile ? 'max-w-md mx-auto' : ''}`}>
           <img 
