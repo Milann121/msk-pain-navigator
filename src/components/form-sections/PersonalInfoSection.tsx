@@ -26,6 +26,7 @@ const PersonalInfoSection = ({
     // Load saved data from localStorage when component mounts
     const savedFirstName = localStorage.getItem('user_firstName');
     const savedAge = localStorage.getItem('user_age');
+    const savedGender = localStorage.getItem('user_gender');
     
     if (savedFirstName) {
       setValue('firstName', savedFirstName);
@@ -34,7 +35,12 @@ const PersonalInfoSection = ({
     if (savedAge) {
       setValue('age', parseInt(savedAge, 10));
     }
-  }, [setValue]);
+    
+    if (savedGender && (savedGender === 'muž' || savedGender === 'žena')) {
+      setValue('gender', savedGender);
+      handleGenderChange(savedGender);
+    }
+  }, [setValue, handleGenderChange]);
 
   return (
     <div className="space-y-6">

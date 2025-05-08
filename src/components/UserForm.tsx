@@ -34,6 +34,13 @@ const UserForm = ({ onSubmit }: UserFormProps) => {
       localStorage.setItem(key, typeof value === 'string' ? value : value.toString());
     }
   };
+  
+  // Watch for changes to gender and save to localStorage
+  useEffect(() => {
+    if (gender) {
+      saveToLocalStorage('user_gender', gender);
+    }
+  }, [gender]);
 
   const handlePainAreaChange = (value: 'neck' | 'middle back' | 'lower back') => {
     setValue('painArea', value);
