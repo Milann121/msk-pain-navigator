@@ -118,12 +118,6 @@ const ExercisePlan = () => {
               <div className="space-y-2">
                 <h3 className="text-xl font-semibold">{exercise.title}</h3>
                 <p className="text-gray-600">{exercise.description}</p>
-                {assessmentId && (
-                  <ExerciseCompletionCheckbox 
-                    exerciseTitle={exercise.title}
-                    assessmentId={assessmentId}
-                  />
-                )}
               </div>
               
               <div className="space-y-6">
@@ -153,6 +147,16 @@ const ExercisePlan = () => {
               </div>
             </div>
           ))}
+          
+          {/* Exercise completion button placed below all exercises */}
+          {assessmentId && (
+            <div className="flex justify-center mt-8">
+              <ExerciseCompletionCheckbox 
+                exerciseTitle={exercises[0]?.title}
+                assessmentId={assessmentId}
+              />
+            </div>
+          )}
           
           <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-lg">
             <h3 className="font-semibold text-amber-800 mb-2">Dôležité upozornenie</h3>

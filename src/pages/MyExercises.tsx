@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Navigate, useNavigate } from 'react-router-dom';
@@ -200,7 +199,7 @@ const MyExercises = () => {
                         <TableHead>Oblasť</TableHead>
                         <TableHead>Mechanizmus</TableHead>
                         <TableHead>Diagnóza</TableHead>
-                        <TableHead>Odcvičené</TableHead>
+                        <TableHead className="text-center">Odcvičené</TableHead>
                         <TableHead>Akcie</TableHead>
                       </TableRow>
                     </TableHeader>
@@ -214,7 +213,7 @@ const MyExercises = () => {
                           <TableCell>{formatMechanism(assessment.primary_mechanism)}</TableCell>
                           <TableCell>{formatDifferential(assessment.primary_differential)}</TableCell>
                           <TableCell className="text-center font-medium">
-                            {assessment.completed_exercises_count}
+                            {assessment.completed_exercises_count > 0 ? `${assessment.completed_exercises_count}x` : '0x'}
                           </TableCell>
                           <TableCell className="flex gap-2">
                             <Button 

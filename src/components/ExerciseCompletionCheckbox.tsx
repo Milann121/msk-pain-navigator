@@ -2,8 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
-import { Checkbox } from '@/components/ui/checkbox';
 import { useToast } from '@/components/ui/use-toast';
+import { Button } from '@/components/ui/button';
+import { Check } from 'lucide-react';
 
 interface ExerciseCompletionCheckboxProps {
   exerciseTitle: string;
@@ -44,13 +45,14 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
     checkCompletionStatus();
   }, [user, exerciseTitle, assessmentId]);
 
-  const handleCheckboxChange = async (checked: boolean) => {
+  const handleButtonClick = async () => {
     if (!user) return;
     
-    setIsCompleted(checked);
+    const newCompletionStatus = !isCompleted;
+    setIsCompleted(newCompletionStatus);
     
     try {
-      if (checked) {
+      if (newCompletionStatus) {
         // Add completion record
         const { error } = await supabase
           .from('completed_exercises')
@@ -88,7 +90,7 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
       }
     } catch (error) {
       console.error('Error updating completion status:', error);
-      setIsCompleted(!checked); // Revert UI state on error
+      setIsCompleted(!newCompletionStatus); // Revert UI state on error
       toast({
         title: "Chyba pri ukladaní",
         description: "Nepodarilo sa uložiť zmenu stavu cvičenia.",
@@ -98,22 +100,22 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
   };
 
   if (loading) {
-    return <div className="h-5 w-5 animate-pulse bg-gray-200 rounded" />;
+    return <div className="h-10 w-32 animate-pulse bg-gray-200 rounded" />;
   }
 
   return (
-    <div className="flex items-center space-x-2 mt-2">
-      <Checkbox 
-        id={`exercise-${exerciseTitle}`}
-        checked={isCompleted}
-        onCheckedChange={handleCheckboxChange}
-      />
-      <label 
-        htmlFor={`exercise-${exerciseTitle}`}
-        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-      >
-        Odcvičené
-      </label>
-    </div>
+    <Button 
+      onClick={handleButtonClick}
+      className={`mt-4 ${isCompleted ? 'bg-green-600 hover:bg-green-700' : 'bg-gray-200 hover:bg-gray-300 text-gray-800'}`}
+      size="lg"
+    >
+      {isCompleted ? (
+        <>
+          <Check className="mr-2 h-4 w-4" /> Odcvičené
+        </>
+      ) : (
+        'Označiť ako odcvičené'
+      )}
+    </Button>
   );
 };
