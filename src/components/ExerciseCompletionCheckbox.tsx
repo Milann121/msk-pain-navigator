@@ -21,7 +21,7 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
   const { user } = useAuth();
   const { toast } = useToast();
 
-  const COOLDOWN_MINUTES = 1; // Changed from 30 to 1 minute
+  const COOLDOWN_MINUTES = 1; // 1 minute cooldown
 
   useEffect(() => {
     const checkCompletionStatus = async () => {
@@ -91,23 +91,8 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
     }
     
     try {
-      const now = new Date();
-      
-      // First delete any existing entries to avoid unique constraint error
-      if (isCompleted) {
-        const { error: deleteError } = await supabase
-          .from('completed_exercises')
-          .delete()
-          .eq('user_id', user.id)
-          .eq('assessment_id', assessmentId)
-          .eq('exercise_title', exerciseTitle);
-          
-        if (deleteError) {
-          console.error('Error deleting existing completion record:', deleteError);
-        }
-      }
-      
-      // Then add new completion record
+      // Create new completion record - don't delete existing ones
+      // This way we can count total completions properly
       const { error } = await supabase
         .from('completed_exercises')
         .insert({
@@ -120,12 +105,16 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
         throw error;
       }
       
+      const now = new Date();
       setIsCompleted(true);
       setLastCompletedAt(now);
       setCooldownActive(true);
       
-      // Show celebration animation
+      // Show celebration animation for 3 seconds
       setShowCelebration(true);
+      setTimeout(() => {
+        setShowCelebration(false);
+      }, 3000);
       
       toast({
         title: "Cvičenie označené ako odcvičené",

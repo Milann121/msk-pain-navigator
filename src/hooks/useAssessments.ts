@@ -21,65 +21,86 @@ export const useAssessments = () => {
   const { user } = useAuth();
   const { toast } = useToast();
 
-  useEffect(() => {
-    const fetchUserAssessments = async () => {
-      if (!user) return;
+  const fetchUserAssessments = async () => {
+    if (!user) return;
 
-      try {
-        setLoading(true);
-        
-        // Get assessments
-        const { data: assessmentsData, error: assessmentsError } = await supabase
-          .from('user_assessments')
-          .select('*')
-          .order('timestamp', { ascending: false });
+    try {
+      setLoading(true);
+      
+      // Get assessments
+      const { data: assessmentsData, error: assessmentsError } = await supabase
+        .from('user_assessments')
+        .select('*')
+        .order('timestamp', { ascending: false });
 
-        if (assessmentsError) throw assessmentsError;
-        
-        // For each assessment, get completed exercises count and latest completion date
-        const assessmentsWithData = await Promise.all(
-          (assessmentsData || []).map(async (assessment) => {
-            // Get completed exercises for this assessment
-            const { data: completionsData, error: completionsError } = await supabase
-              .from('completed_exercises')
-              .select('completed_at')
-              .eq('assessment_id', assessment.id)
-              .order('completed_at', { ascending: false });
-              
-            if (completionsError) {
-              console.error('Error fetching completions:', completionsError);
-              return {
-                ...assessment,
-                completed_exercises_count: 0,
-                last_completed_at: undefined
-              };
-            }
+      if (assessmentsError) throw assessmentsError;
+      
+      // For each assessment, get completed exercises count and latest completion date
+      const assessmentsWithData = await Promise.all(
+        (assessmentsData || []).map(async (assessment) => {
+          // Get completed exercises for this assessment
+          const { data: completionsData, error: completionsError } = await supabase
+            .from('completed_exercises')
+            .select('completed_at')
+            .eq('assessment_id', assessment.id)
+            .order('completed_at', { ascending: false });
             
+          if (completionsError) {
+            console.error('Error fetching completions:', completionsError);
             return {
               ...assessment,
-              completed_exercises_count: completionsData?.length || 0,
-              last_completed_at: completionsData && completionsData.length > 0 
-                ? completionsData[0].completed_at 
-                : undefined
+              completed_exercises_count: 0,
+              last_completed_at: undefined
             };
-          })
-        );
-        
-        setAssessments(assessmentsWithData);
-      } catch (error) {
-        console.error('Error fetching user assessments:', error);
-        toast({
-          title: 'Chyba pri načítaní cvikov',
-          description: 'Nepodarilo sa načítať vaše hodnotenia a cviky.',
-          variant: 'destructive',
-        });
-      } finally {
-        setLoading(false);
-      }
-    };
+          }
+          
+          return {
+            ...assessment,
+            completed_exercises_count: completionsData?.length || 0,
+            last_completed_at: completionsData && completionsData.length > 0 
+              ? completionsData[0].completed_at 
+              : undefined
+          };
+        })
+      );
+      
+      setAssessments(assessmentsWithData);
+    } catch (error) {
+      console.error('Error fetching user assessments:', error);
+      toast({
+        title: 'Chyba pri načítaní cvikov',
+        description: 'Nepodarilo sa načítať vaše hodnotenia a cviky.',
+        variant: 'destructive',
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  useEffect(() => {
     fetchUserAssessments();
-  }, [user, toast]);
+
+    // Set up realtime subscription to update when new exercises are completed
+    const channel = supabase
+      .channel('completed_exercises_changes')
+      .on(
+        'postgres_changes',
+        {
+          event: '*',
+          schema: 'public',
+          table: 'completed_exercises'
+        },
+        () => {
+          // Refetch data when completions change
+          fetchUserAssessments();
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, [user]);
   
   const handleDeleteAssessment = async (id: string) => {
     try {
@@ -110,6 +131,7 @@ export const useAssessments = () => {
   return {
     assessments,
     loading,
-    handleDeleteAssessment
+    handleDeleteAssessment,
+    refreshAssessments: fetchUserAssessments
   };
 };
