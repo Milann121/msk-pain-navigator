@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
@@ -92,7 +93,21 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
     try {
       const now = new Date();
       
-      // Add new completion record
+      // First delete any existing entries to avoid unique constraint error
+      if (isCompleted) {
+        const { error: deleteError } = await supabase
+          .from('completed_exercises')
+          .delete()
+          .eq('user_id', user.id)
+          .eq('assessment_id', assessmentId)
+          .eq('exercise_title', exerciseTitle);
+          
+        if (deleteError) {
+          console.error('Error deleting existing completion record:', deleteError);
+        }
+      }
+      
+      // Then add new completion record
       const { error } = await supabase
         .from('completed_exercises')
         .insert({
