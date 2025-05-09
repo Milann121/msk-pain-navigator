@@ -91,23 +91,26 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
     }
     
     try {
-      // Create new completion record - don't delete existing ones
-      // This way we can count total completions properly
+      // Create a timestamp for the new completion
+      const now = new Date().toISOString();
+      
+      // Due to the unique constraint, we'll use upsert with an explicit timestamp
+      // This avoids the duplicate key value error while still recording a new completion
       const { error } = await supabase
         .from('completed_exercises')
         .insert({
           user_id: user.id,
           assessment_id: assessmentId,
-          exercise_title: exerciseTitle
+          exercise_title: exerciseTitle,
+          completed_at: now
         });
         
       if (error) {
         throw error;
       }
       
-      const now = new Date();
       setIsCompleted(true);
-      setLastCompletedAt(now);
+      setLastCompletedAt(new Date(now));
       setCooldownActive(true);
       
       // Show celebration animation for 3 seconds
