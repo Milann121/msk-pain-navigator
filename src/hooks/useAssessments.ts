@@ -12,6 +12,7 @@ interface UserAssessment {
   pain_area: string;
   timestamp: string;
   completed_exercises_count: number;
+  last_completed_at?: string;
 }
 
 export const useAssessments = () => {
@@ -27,27 +28,44 @@ export const useAssessments = () => {
       try {
         setLoading(true);
         
-        // Get assessments with completed exercise counts
-        const { data, error } = await supabase
+        // Get assessments
+        const { data: assessmentsData, error: assessmentsError } = await supabase
           .from('user_assessments')
-          .select(`
-            *,
-            completed_exercises:completed_exercises(count)
-          `)
+          .select('*')
           .order('timestamp', { ascending: false });
 
-        if (error) throw error;
+        if (assessmentsError) throw assessmentsError;
         
-        // Transform the data to include the completed exercises count
-        const assessmentsWithCounts = (data || []).map(assessment => {
-          const completedCount = assessment.completed_exercises?.length || 0;
-          return {
-            ...assessment,
-            completed_exercises_count: completedCount
-          };
-        });
+        // For each assessment, get completed exercises count and latest completion date
+        const assessmentsWithData = await Promise.all(
+          (assessmentsData || []).map(async (assessment) => {
+            // Get completed exercises for this assessment
+            const { data: completionsData, error: completionsError } = await supabase
+              .from('completed_exercises')
+              .select('completed_at')
+              .eq('assessment_id', assessment.id)
+              .order('completed_at', { ascending: false });
+              
+            if (completionsError) {
+              console.error('Error fetching completions:', completionsError);
+              return {
+                ...assessment,
+                completed_exercises_count: 0,
+                last_completed_at: undefined
+              };
+            }
+            
+            return {
+              ...assessment,
+              completed_exercises_count: completionsData?.length || 0,
+              last_completed_at: completionsData && completionsData.length > 0 
+                ? completionsData[0].completed_at 
+                : undefined
+            };
+          })
+        );
         
-        setAssessments(assessmentsWithCounts);
+        setAssessments(assessmentsWithData);
       } catch (error) {
         console.error('Error fetching user assessments:', error);
         toast({

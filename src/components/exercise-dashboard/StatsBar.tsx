@@ -30,7 +30,7 @@ export const StatsBar = ({ assessmentId }: StatsBarProps) => {
   
   useEffect(() => {
     const fetchCompletedExercises = async () => {
-      if (!user || !assessmentId) {
+      if (!user) {
         setLoading(false);
         return;
       }
@@ -62,6 +62,27 @@ export const StatsBar = ({ assessmentId }: StatsBarProps) => {
     };
     
     fetchCompletedExercises();
+    
+    // Set up a listener for realtime updates
+    const channel = supabase
+      .channel('completed_exercises_changes')
+      .on(
+        'postgres_changes',
+        {
+          event: '*',
+          schema: 'public',
+          table: 'completed_exercises'
+        },
+        () => {
+          // Refetch data when completions change
+          fetchCompletedExercises();
+        }
+      )
+      .subscribe();
+    
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, [user, assessmentId]);
   
   return (

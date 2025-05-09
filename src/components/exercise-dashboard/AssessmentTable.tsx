@@ -16,6 +16,7 @@ interface UserAssessment {
   pain_area: string;
   timestamp: string;
   completed_exercises_count: number;
+  last_completed_at?: string;
 }
 
 interface AssessmentTableProps {
@@ -63,6 +64,7 @@ export const AssessmentTable = ({ assessments, loading, onDeleteAssessment }: As
             <TableHead>Mechanizmus</TableHead>
             <TableHead>Diagnóza</TableHead>
             <TableHead className="text-center">Odcvičené</TableHead>
+            <TableHead>Posledné cvičenie</TableHead>
             <TableHead>Akcie</TableHead>
           </TableRow>
         </TableHeader>
@@ -77,6 +79,11 @@ export const AssessmentTable = ({ assessments, loading, onDeleteAssessment }: As
               <TableCell>{formatDifferential(assessment.primary_differential)}</TableCell>
               <TableCell className="text-center font-medium">
                 {assessment.completed_exercises_count > 0 ? `${assessment.completed_exercises_count}x` : '0x'}
+              </TableCell>
+              <TableCell>
+                {assessment.last_completed_at ? 
+                  format(new Date(assessment.last_completed_at), 'dd.MM.yyyy') : 
+                  '—'}
               </TableCell>
               <TableCell className="flex gap-2">
                 <Button 
