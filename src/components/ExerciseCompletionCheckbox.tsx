@@ -21,7 +21,7 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
   const { user } = useAuth();
   const { toast } = useToast();
 
-  const COOLDOWN_MINUTES = 1; // 1 minute cooldown
+  const COOLDOWN_MINUTES = 1; // Changed from 30 to 1 minute
 
   useEffect(() => {
     const checkCompletionStatus = async () => {
@@ -91,18 +91,29 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
     }
     
     try {
-      // Create a timestamp for the new completion
-      const now = new Date().toISOString();
+      const now = new Date();
       
-      // Due to the unique constraint, we'll use upsert with an explicit timestamp
-      // This avoids the duplicate key value error while still recording a new completion
+      // First delete any existing entries to avoid unique constraint error
+      if (isCompleted) {
+        const { error: deleteError } = await supabase
+          .from('completed_exercises')
+          .delete()
+          .eq('user_id', user.id)
+          .eq('assessment_id', assessmentId)
+          .eq('exercise_title', exerciseTitle);
+          
+        if (deleteError) {
+          console.error('Error deleting existing completion record:', deleteError);
+        }
+      }
+      
+      // Then add new completion record
       const { error } = await supabase
         .from('completed_exercises')
         .insert({
           user_id: user.id,
           assessment_id: assessmentId,
-          exercise_title: exerciseTitle,
-          completed_at: now
+          exercise_title: exerciseTitle
         });
         
       if (error) {
@@ -110,14 +121,11 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
       }
       
       setIsCompleted(true);
-      setLastCompletedAt(new Date(now));
+      setLastCompletedAt(now);
       setCooldownActive(true);
       
-      // Show celebration animation for 3 seconds
+      // Show celebration animation
       setShowCelebration(true);
-      setTimeout(() => {
-        setShowCelebration(false);
-      }, 3000);
       
       toast({
         title: "Cvičenie označené ako odcvičené",
