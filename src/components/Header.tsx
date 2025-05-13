@@ -18,7 +18,12 @@ const Header = () => {
   if (user) {
     navigationLinks.push(
       { href: '/assessment', label: 'Dotazník bolesti' },
-      { href: '/my-exercises', label: 'Moje cviky' }
+      { href: '/my-exercises', label: 'Moje cviky' },
+      { href: '/blog', label: 'Blog' }
+    );
+  } else {
+    navigationLinks.push(
+      { href: '/blog', label: 'Blog' }
     );
   }
 
@@ -101,20 +106,16 @@ const Header = () => {
           <MobileMenu />
         ) : (
           <nav className="flex items-center space-x-6">
-            {user && (
-              <div className="flex space-x-4">
-                {navigationLinks.slice(1).map((link) => (
-                  <Button 
-                    key={link.label} 
-                    variant="ghost" 
-                    className="text-white hover:bg-blue-600"
-                    onClick={() => navigate(link.href)}
-                  >
-                    {link.label}
-                  </Button>
-                ))}
-              </div>
-            )}
+            {navigationLinks.slice(1).map((link) => (
+              <Button 
+                key={link.label} 
+                variant="ghost" 
+                className="text-white hover:bg-blue-600"
+                onClick={() => navigate(link.href)}
+              >
+                {link.label}
+              </Button>
+            ))}
             <Button
               onClick={handleAuthClick}
               variant="outline"
