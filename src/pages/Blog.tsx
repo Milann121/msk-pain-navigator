@@ -23,7 +23,7 @@ const sampleBlogs: BlogPost[] = [
     id: '1',
     title: 'Neurodynamické cvičenia: čo? prečo? kedy?',
     description: 'Už ste niekedy počuli o „flossingu“ nervov? Ak máte bolesť spôsobenú podráždením alebo útlakom nervu (napríklad pri ischiase alebo syndróme karpálneho tunela), nervový flossing — typ cvičenia, ktorý znižuje bolestivosť nervu — je niečo, čo by ste mali vyskúšať.',
-    imageUrl: '/placeholder.svg',
+    imageUrl: 'https://images.squarespace-cdn.com/content/v1/60b7c37ac6320a77cc078aaf/1716065389319-CSTLSEJRJFAUQDN3VF3O/dwexs.png?format=2500w',
     link: 'https://www.alphafyzio.sk/blog/jef2w0ea7mgks0kmvb3zqmylbhibwq',
     isExternal: true
   },
