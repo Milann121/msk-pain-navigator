@@ -21,10 +21,10 @@ interface BlogPost {
 const sampleBlogs: BlogPost[] = [
   {
     id: '1',
-    title: 'Ako správne cvičiť pri bolesti chrbta',
-    description: 'Správne techniky na cvičenie pri rôznych typoch bolestí chrbta a ich účinnosť pri každodenných činnostiach.',
+    title: 'Neurodynamické cvičenia: čo? prečo? kedy?',
+    description: 'Už ste niekedy počuli o „flossingu“ nervov? Ak máte bolesť spôsobenú podráždením alebo útlakom nervu (napríklad pri ischiase alebo syndróme karpálneho tunela), nervový flossing — typ cvičenia, ktorý znižuje bolestivosť nervu — je niečo, čo by ste mali vyskúšať.',
     imageUrl: '/placeholder.svg',
-    link: 'https://example.com/blog/back-pain-exercises',
+    link: 'https://www.alphafyzio.sk/blog/jef2w0ea7mgks0kmvb3zqmylbhibwq',
     isExternal: true
   },
   {
