@@ -53,7 +53,7 @@ export const useAssessments = () => {
           let initialPainLevel = undefined;
           try {
             initialPainLevel = await safeDatabase.getInitialPainLevel(assessment.id, user.id);
-            console.log('Initial pain level:', initialPainLevel);
+            console.log('Initial pain level for assessment', assessment.id, ':', initialPainLevel);
           } catch (error) {
             console.error('Error getting initial pain level:', error);
           }
@@ -63,7 +63,7 @@ export const useAssessments = () => {
           try {
             // First try using an RPC function
             const { data: followUpData, error: followUpError } = await supabase.rpc(
-              'get_latest_pain_level',
+              'get_latest_pain_level', 
               { assessment_id_param: assessment.id, user_id_param: user.id }
             ) as any;
             

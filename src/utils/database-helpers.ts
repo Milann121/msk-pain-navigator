@@ -93,9 +93,11 @@ export const safeDatabase = {
       }
       
       // Extract pain intensity from answers if available
-      const answers = generalQuestionnaire.answers;
-      if (answers && answers['pain-intensity']) {
-        return Number(answers['pain-intensity']);
+      if (generalQuestionnaire && typeof generalQuestionnaire.answers === 'object') {
+        const answers = generalQuestionnaire.answers as Record<string, any>;
+        if (answers && answers['pain-intensity']) {
+          return Number(answers['pain-intensity']);
+        }
       }
       
       return undefined;
