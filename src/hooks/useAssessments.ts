@@ -13,6 +13,8 @@ interface UserAssessment {
   timestamp: string;
   completed_exercises_count: number;
   last_completed_at?: string;
+  initial_pain_level?: number;
+  latest_pain_level?: number;
 }
 
 export const useAssessments = () => {
@@ -30,7 +32,7 @@ export const useAssessments = () => {
       // Get assessments
       const { data: assessmentsData, error: assessmentsError } = await supabase
         .from('user_assessments')
-        .select('*')
+        .select('*, initial_pain_level, assessment_answers(pain_level)')
         .eq('user_id', user.id)
         .order('timestamp', { ascending: false });
 
@@ -56,11 +58,27 @@ export const useAssessments = () => {
             };
           }
           
+          // Get the latest follow-up pain assessment if it exists
+          const { data: followUpData, error: followUpError } = await supabase
+            .from('follow_up_responses')
+            .select('pain_level')
+            .eq('assessment_id', assessment.id)
+            .eq('user_id', user.id)
+            .order('created_at', { ascending: false })
+            .limit(1);
+            
+          if (followUpError) {
+            console.error('Error fetching follow-up data:', followUpError);
+          }
+          
           return {
             ...assessment,
             completed_exercises_count: completionsData?.length || 0,
             last_completed_at: completionsData && completionsData.length > 0 
               ? completionsData[0].completed_at 
+              : undefined,
+            latest_pain_level: followUpData && followUpData.length > 0 
+              ? followUpData[0].pain_level
               : undefined
           };
         })
@@ -82,9 +100,9 @@ export const useAssessments = () => {
   useEffect(() => {
     fetchUserAssessments();
     
-    // Set up subscription to listen for changes to the completed_exercises table
-    const channel = supabase
-      .channel('completed_exercises_changes')
+    // Set up subscription to listen for changes to the completed_exercises and follow_up_responses tables
+    const exercisesChannel = supabase
+      .channel('exercises_changes')
       .on('postgres_changes', 
         {
           event: '*',
@@ -99,8 +117,25 @@ export const useAssessments = () => {
       )
       .subscribe();
       
+    const followUpChannel = supabase
+      .channel('follow_up_changes')
+      .on('postgres_changes', 
+        {
+          event: '*',
+          schema: 'public',
+          table: 'follow_up_responses',
+          filter: `user_id=eq.${user?.id}`,
+        }, 
+        (payload) => {
+          console.log('Follow-up response change detected:', payload);
+          fetchUserAssessments();
+        }
+      )
+      .subscribe();
+      
     return () => {
-      supabase.removeChannel(channel);
+      supabase.removeChannel(exercisesChannel);
+      supabase.removeChannel(followUpChannel);
     };
   }, [user]);
   

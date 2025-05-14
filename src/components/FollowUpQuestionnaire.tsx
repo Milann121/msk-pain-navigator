@@ -9,6 +9,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import { Progress } from '@/components/ui/progress';
+import { useAuth } from '@/contexts/AuthContext';
 
 interface UserAssessment {
   id: string;
@@ -19,6 +20,8 @@ interface UserAssessment {
   timestamp: string;
   completed_exercises_count: number;
   last_completed_at?: string;
+  initial_pain_level?: number;
+  latest_pain_level?: number;
 }
 
 interface FollowUpQuestionnaireProps {
@@ -44,6 +47,7 @@ interface FollowUpQuestion {
 
 const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaireProps) => {
   const { toast } = useToast();
+  const { user } = useAuth();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, any>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -58,8 +62,8 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
         scale: {
           min: 0,
           max: 10,
-          minLabel: 'Výrazne lepšie',
-          maxLabel: 'Výrazne horšie'
+          minLabel: 'Žiadna bolesť',
+          maxLabel: 'Najhoršia predstaviteľná bolesť'
         }
       },
       {
@@ -75,6 +79,17 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
     ],
     neuropathic: [
       {
+        id: 'pain-level-change',
+        text: 'Ako by ste hodnotili vašu bolesť v porovnaní s posledným hodnotením?',
+        type: 'scale',
+        scale: {
+          min: 0,
+          max: 10,
+          minLabel: 'Žiadna bolesť',
+          maxLabel: 'Najhoršia predstaviteľná bolesť'
+        }
+      },
+      {
         id: 'nerve-symptoms',
         text: 'Zmenili sa vaše príznaky mravčenia alebo necitlivosti?',
         type: 'single',
@@ -86,6 +101,17 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
       }
     ],
     central: [
+      {
+        id: 'pain-level-change',
+        text: 'Ako by ste hodnotili vašu bolesť v porovnaní s posledným hodnotením?',
+        type: 'scale',
+        scale: {
+          min: 0,
+          max: 10,
+          minLabel: 'Žiadna bolesť',
+          maxLabel: 'Najhoršia predstaviteľná bolesť'
+        }
+      },
       {
         id: 'sensitivity-change',
         text: 'Zmenila sa vaša citlivosť na dotyky, svetlo alebo zvuky?',
@@ -146,11 +172,22 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
   };
   
   const handleSubmit = async () => {
+    if (!user) return;
+    
     try {
       setIsSubmitting(true);
       
-      // Here you would save the answers to the database
-      // This is a placeholder for future implementation
+      // Save the follow-up responses to the database
+      const { error } = await supabase
+        .from('follow_up_responses')
+        .insert({
+          user_id: user.id,
+          assessment_id: assessment.id,
+          pain_level: answers['pain-level-change'],
+          responses: answers
+        });
+        
+      if (error) throw error;
       
       toast({
         title: "Pokrok zaznamenaný",

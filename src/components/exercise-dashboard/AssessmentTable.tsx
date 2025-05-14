@@ -1,3 +1,4 @@
+
 import { format } from 'date-fns';
 import { useNavigate } from 'react-router-dom';
 import { useToast } from '@/hooks/use-toast';
@@ -25,6 +26,8 @@ interface UserAssessment {
   timestamp: string;
   completed_exercises_count: number;
   last_completed_at?: string;
+  initial_pain_level?: number;
+  latest_pain_level?: number;
 }
 
 interface AssessmentTableProps {
@@ -123,6 +126,18 @@ export const AssessmentTable = ({ assessments, loading, onDeleteAssessment }: As
                       <Badge className={getDifferentialBadgeStyle(assessment.primary_differential)}>
                         {formatDifferential(assessment.primary_differential)}
                       </Badge>
+                    </div>
+                  </div>
+                  <div className="mt-3">
+                    <span className="font-medium text-gray-500">Vaša bolesť na začiatku:</span>
+                    <div className="mt-1 font-medium text-blue-700">
+                      {assessment.initial_pain_level !== undefined ? `${assessment.initial_pain_level}/10` : '–'}
+                    </div>
+                  </div>
+                  <div>
+                    <span className="font-medium text-gray-500">Vaša posledná zaznamenaná bolesť:</span>
+                    <div className="mt-1 font-medium text-blue-700">
+                      {assessment.latest_pain_level !== undefined ? `${assessment.latest_pain_level}/10` : '–'}
                     </div>
                   </div>
                 </div>
