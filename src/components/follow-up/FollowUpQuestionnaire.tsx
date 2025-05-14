@@ -59,7 +59,7 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
       const responseData: FollowUpResponse = {
         user_id: user.id,
         assessment_id: assessment.id,
-        pain_level: answers['pain-level-change'],
+        pain_level: answers['pain-level-change'] || 0,
         responses: answers
       };
 
@@ -69,7 +69,7 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
         const { error } = await supabase.rpc('insert_follow_up_response', {
           user_id_param: user.id,
           assessment_id_param: assessment.id,
-          pain_level_param: answers['pain-level-change'],
+          pain_level_param: answers['pain-level-change'] || 0,
           responses_param: answers
         });
         
