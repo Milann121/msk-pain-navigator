@@ -117,9 +117,12 @@ export const safeDatabase = {
       // Try to get the general questionnaire result which includes the initial pain level
       const { data: generalQuestionnaire, error } = await supabase
         .from('general_questionnaire_results' as any)
-        .select('answers') as any;
+        .select('answers')
+        .eq('assessment_id', assessmentId)
+        .eq('user_id', userId)
+        .single() as any;
       
-      if (error || !generalQuestionnaire || generalQuestionnaire.length === 0) {
+      if (error || !generalQuestionnaire) {
         console.log('Could not find general questionnaire results, trying alternative approach');
         // Fallback solution: try to get it from follow up responses sorted by timestamp
         const { data: firstFollowUp, error: followUpError } = await safeDatabase.followUpResponses.select({
@@ -137,13 +140,10 @@ export const safeDatabase = {
       }
       
       // Extract pain intensity from answers if available
-      if (generalQuestionnaire && generalQuestionnaire.length > 0) {
-        const questionnaire = generalQuestionnaire[0];
-        if (questionnaire && questionnaire.answers && typeof questionnaire.answers === 'object') {
-          const answers = questionnaire.answers as Record<string, any>;
-          if (answers && answers['pain-intensity']) {
-            return Number(answers['pain-intensity']);
-          }
+      if (generalQuestionnaire && typeof generalQuestionnaire.answers === 'object') {
+        const answers = generalQuestionnaire.answers as Record<string, any>;
+        if (answers && answers['pain-intensity'] !== undefined) {
+          return Number(answers['pain-intensity']);
         }
       }
       

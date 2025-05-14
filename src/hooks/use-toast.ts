@@ -1,7 +1,5 @@
 
-import { Toast, ToastActionElement, ToastProps, ToasterToast } from "@/components/ui/toast";
-import { useToast as useToastOriginal } from "@/components/ui/use-toast";
+import { useToaster, ToasterToast } from "@/components/ui/toast-hook";
 
-export { Toast };
-export type { ToastActionElement, ToastProps, ToasterToast };
-export const useToast = useToastOriginal;
+export { useToaster, type ToasterToast };
+export const useToast = useToaster;

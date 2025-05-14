@@ -1,13 +1,13 @@
 
-import { Toast, ToastActionElement, ToastProps } from "@/components/ui/toast";
+import { Toast, ToastProps } from "@/components/ui/toast";
 import * as React from "react";
 
 export interface ToasterToast extends Omit<ToastProps, "title" | "description"> {
   id: string;
   title?: React.ReactNode;
   description?: React.ReactNode;
-  action?: ToastActionElement;
-  dismiss?: boolean;
+  action?: React.ReactElement;
+  dismiss?: boolean; // Changed from function to boolean
 }
 
 const actionTypes = {
@@ -118,16 +118,19 @@ export const useToaster = (defaultToasts: ToasterToast[] = []) => {
           type: actionTypes.UPDATE_TOAST,
           toast: { ...props, id },
         });
+      
       const dismiss = () => dispatch({ type: actionTypes.DISMISS_TOAST, toastId: id });
+
+      // Create a typed toastObj with the proper structure
+      const toastObj: ToasterToast = {
+        ...props,
+        id,
+        dismiss: false, // initialize as a boolean
+      };
 
       dispatch({
         type: actionTypes.ADD_TOAST,
-        toast: {
-          ...props,
-          id,
-          dismiss,
-          update,
-        } as ToasterToast,
+        toast: toastObj,
       });
 
       return {

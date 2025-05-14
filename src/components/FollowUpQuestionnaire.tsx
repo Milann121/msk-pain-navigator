@@ -139,10 +139,10 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
     }));
   };
 
-  const handleSliderChange = (questionId: string, value: number[]) => {
+  const handleSliderChange = (questionId: string, value: number) => {
     setAnswers(prev => ({
       ...prev,
-      [questionId]: value[0]
+      [questionId]: value
     }));
   };
   
@@ -262,7 +262,7 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
               min={currentQuestion.scale.min}
               step={1}
               value={answers[currentQuestion.id] !== undefined ? [answers[currentQuestion.id]] : [5]}
-              onValueChange={(value) => handleSliderChange(currentQuestion.id, value)}
+              onValueChange={(value) => handleSliderChange(currentQuestion.id, value[0])}
             />
             <div className="flex justify-between text-sm text-gray-500">
               <span>{currentQuestion.scale.minLabel} ({currentQuestion.scale.min})</span>

@@ -23,6 +23,7 @@ import {
 } from '@/utils/types';
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from '@/hooks/use-toast';
+import { safeDatabase } from '@/utils/database-helpers';
 
 enum AssessmentStage {
   UserInfo,
@@ -78,7 +79,7 @@ const Assessment = () => {
     setSINGroup(newSinGroup);
     
     // Store the general questionnaire results for later retrieval
-    if (user && answers['pain-intensity']) {
+    if (user && answers['pain-intensity'] !== undefined) {
       try {
         // Create assessment record first
         const { data: assessmentData, error: assessmentError } = await supabase

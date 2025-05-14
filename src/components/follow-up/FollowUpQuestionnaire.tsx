@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
@@ -34,10 +35,10 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
     }));
   };
   
-  const handleSliderChange = (questionId: string, value: number[]) => {
+  const handleSliderChange = (questionId: string, value: number) => {
     setAnswers(prev => ({
       ...prev,
-      [questionId]: value[0]
+      [questionId]: value
     }));
   };
   
@@ -124,6 +125,7 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
             question={currentQuestion}
             answer={answers[currentQuestion?.id]}
             onAnswerChange={handleAnswerChange}
+            onSliderChange={(value) => handleSliderChange(currentQuestion?.id, value)}
           />
         </div>
       </CardContent>
