@@ -12,6 +12,7 @@ import {
   AccordionItem,
   AccordionTrigger
 } from '@/components/ui/accordion';
+import { Badge } from '@/components/ui/badge';
 
 interface UserAssessment {
   id: string;
@@ -59,6 +60,22 @@ export const AssessmentTable = ({ assessments, loading, onDeleteAssessment }: As
     );
   }
   
+  // Helper functions for mechanism and differential badge styling
+  const getMechanismBadgeStyle = (mechanism: string) => {
+    const styles = {
+      'nociceptive': 'bg-blue-100 text-blue-800',
+      'neuropathic': 'bg-blue-100 text-blue-800',
+      'central': 'bg-blue-100 text-blue-800',
+      'none': 'bg-blue-100 text-blue-800'
+    };
+    
+    return styles[mechanism as keyof typeof styles] || 'bg-blue-100 text-blue-800';
+  };
+  
+  const getDifferentialBadgeStyle = (differential: string) => {
+    return 'bg-purple-100 text-purple-800';
+  };
+  
   return (
     <div className="space-y-2">
       <Accordion type="single" collapsible className="w-full">
@@ -85,11 +102,19 @@ export const AssessmentTable = ({ assessments, loading, onDeleteAssessment }: As
                 <div className="space-y-2">
                   <div>
                     <span className="font-medium text-gray-500">Mechanizmus bolesti:</span>
-                    <div className="mt-1">{formatMechanism(assessment.primary_mechanism)}</div>
+                    <div className="mt-1">
+                      <Badge className={getMechanismBadgeStyle(assessment.primary_mechanism)}>
+                        {formatMechanism(assessment.primary_mechanism)}
+                      </Badge>
+                    </div>
                   </div>
                   <div>
                     <span className="font-medium text-gray-500">Diagnóza:</span>
-                    <div className="mt-1">{formatDifferential(assessment.primary_differential)}</div>
+                    <div className="mt-1">
+                      <Badge className={getDifferentialBadgeStyle(assessment.primary_differential)}>
+                        {formatDifferential(assessment.primary_differential)}
+                      </Badge>
+                    </div>
                   </div>
                 </div>
                 <div className="space-y-2">
