@@ -7,11 +7,26 @@ import { Button } from '@/components/ui/button';
 import { useAssessments } from '@/hooks/useAssessments';
 import { AssessmentTable } from '@/components/exercise-dashboard/AssessmentTable';
 import { StatsBar } from '@/components/exercise-dashboard/StatsBar';
+import { useEffect } from 'react';
 
 const MyExercises = () => {
   const { user, isLoading } = useAuth();
   const navigate = useNavigate();
-  const { assessments, loading, handleDeleteAssessment } = useAssessments();
+  const { assessments, loading, handleDeleteAssessment, refreshAssessments } = useAssessments();
+
+  // Listen for exercise completion events
+  useEffect(() => {
+    const handleExerciseCompleted = () => {
+      console.log('Exercise completed event received in MyExercises');
+      refreshAssessments();
+    };
+
+    window.addEventListener('exercise-completed', handleExerciseCompleted);
+
+    return () => {
+      window.removeEventListener('exercise-completed', handleExerciseCompleted);
+    };
+  }, [refreshAssessments]);
 
   if (isLoading) {
     return (

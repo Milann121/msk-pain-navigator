@@ -28,40 +28,48 @@ export const StatsBar = ({ assessmentId }: StatsBarProps) => {
   // Calculate progress percentage
   const progressPercentage = Math.min((completedCount / targetExercises) * 100, 100);
   
-  useEffect(() => {
-    const fetchCompletedExercises = async () => {
-      if (!user) {
-        setLoading(false);
-        return;
-      }
+  const fetchCompletedExercises = async () => {
+    if (!user) {
+      setLoading(false);
+      return;
+    }
+    
+    try {
+      setLoading(true);
       
-      try {
-        setLoading(true);
+      // Get current month's first and last day
+      const now = new Date();
+      const firstDay = new Date(now.getFullYear(), now.getMonth(), 1);
+      const lastDay = new Date(now.getFullYear(), now.getMonth() + 1, 0, 23, 59, 59);
+      
+      // Get completed exercises for this month
+      const { data, error } = await supabase
+        .from('completed_exercises')
+        .select('completed_at')
+        .eq('user_id', user.id)
+        .gte('completed_at', firstDay.toISOString())
+        .lte('completed_at', lastDay.toISOString());
         
-        // Get current month's first and last day
-        const now = new Date();
-        const firstDay = new Date(now.getFullYear(), now.getMonth(), 1);
-        const lastDay = new Date(now.getFullYear(), now.getMonth() + 1, 0, 23, 59, 59);
-        
-        // Get completed exercises for this month
-        const { data, error } = await supabase
-          .from('completed_exercises')
-          .select('completed_at')
-          .eq('user_id', user.id)
-          .gte('completed_at', firstDay.toISOString())
-          .lte('completed_at', lastDay.toISOString());
-          
-        if (error) throw error;
-        
-        setCompletedCount(data?.length || 0);
-      } catch (error) {
-        console.error('Error fetching completed exercises:', error);
-      } finally {
-        setLoading(false);
-      }
+      if (error) throw error;
+      
+      setCompletedCount(data?.length || 0);
+    } catch (error) {
+      console.error('Error fetching completed exercises:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  
+  useEffect(() => {
+    fetchCompletedExercises();
+    
+    // Set up a listener for exercise completion events
+    const handleExerciseCompleted = () => {
+      console.log('Exercise completion event received in StatsBar');
+      fetchCompletedExercises();
     };
     
-    fetchCompletedExercises();
+    window.addEventListener('exercise-completed', handleExerciseCompleted);
     
     // Set up a listener for realtime updates
     const channel = supabase
@@ -83,6 +91,7 @@ export const StatsBar = ({ assessmentId }: StatsBarProps) => {
       .subscribe();
     
     return () => {
+      window.removeEventListener('exercise-completed', handleExerciseCompleted);
       supabase.removeChannel(channel);
     };
   }, [user]);

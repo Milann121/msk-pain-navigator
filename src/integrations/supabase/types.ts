@@ -65,6 +65,7 @@ export type Database = {
       user_assessments: {
         Row: {
           id: string
+          intial_pain_intensity: number | null
           pain_area: string
           primary_differential: string
           primary_mechanism: string
@@ -74,6 +75,7 @@ export type Database = {
         }
         Insert: {
           id?: string
+          intial_pain_intensity?: number | null
           pain_area: string
           primary_differential: string
           primary_mechanism: string
@@ -83,6 +85,7 @@ export type Database = {
         }
         Update: {
           id?: string
+          intial_pain_intensity?: number | null
           pain_area?: string
           primary_differential?: string
           primary_mechanism?: string
