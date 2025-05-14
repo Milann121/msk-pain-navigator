@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
-import { useToast } from '@/components/ui/use-toast';
+import { useToast } from '@/hooks/use-toast';
 import { Button } from '@/components/ui/button';
 import { Check } from 'lucide-react';
 import { CelebrationAnimation } from './CelebrationAnimation';
@@ -93,18 +93,35 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
     try {
       const now = new Date();
       
-      // Add new completion record without deleting old ones
-      // This allows us to count the total number of completions
+      // Use upsert with onConflict to handle duplicate records gracefully
       const { error } = await supabase
         .from('completed_exercises')
         .insert({
           user_id: user.id,
           assessment_id: assessmentId,
-          exercise_title: exerciseTitle
+          exercise_title: exerciseTitle,
+          completed_at: now.toISOString() // Explicitly set the completed_at to avoid conflicts
+        }, { 
+          count: 'exact' // Return proper error counts
         });
         
       if (error) {
-        throw error;
+        // If error is a unique constraint violation, we'll handle it gracefully
+        if (error.code === '23505') { // Postgres unique constraint violation code
+          // Try to update the existing record with a new timestamp instead
+          const { error: updateError } = await supabase
+            .from('completed_exercises')
+            .update({ completed_at: now.toISOString() })
+            .eq('user_id', user.id)
+            .eq('assessment_id', assessmentId)
+            .eq('exercise_title', exerciseTitle);
+            
+          if (updateError) {
+            throw updateError;
+          }
+        } else {
+          throw error;
+        }
       }
       
       setIsCompleted(true);
