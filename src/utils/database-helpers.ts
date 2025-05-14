@@ -24,6 +24,7 @@ export interface ExtendedUserAssessment {
   primary_mechanism: string;
   sin_group: string;
   timestamp: string;
+  intial_pain_intensity?: number; // Added the column from the database
   
   // Extended properties (not directly from the database)
   initial_pain_level?: number;
@@ -114,7 +115,19 @@ export const safeDatabase = {
   // Helper to get the initial pain level from a questionnaire
   getInitialPainLevel: async (assessmentId: string, userId: string): Promise<number | undefined> => {
     try {
-      // Try to get the general questionnaire result which includes the initial pain level
+      // First, check if the assessment has the initial pain level stored directly
+      const { data: assessment, error: assessmentError } = await supabase
+        .from('user_assessments')
+        .select('intial_pain_intensity')
+        .eq('id', assessmentId)
+        .eq('user_id', userId)
+        .single();
+      
+      if (!assessmentError && assessment && assessment.intial_pain_intensity !== null) {
+        return assessment.intial_pain_intensity;
+      }
+      
+      // If not available directly, try to get it from general questionnaire
       const { data: generalQuestionnaire, error } = await supabase
         .from('general_questionnaire_results' as any)
         .select('answers')

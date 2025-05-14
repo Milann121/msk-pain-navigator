@@ -44,20 +44,11 @@ export const useAssessments = () => {
               ...assessment,
               completed_exercises_count: 0,
               last_completed_at: undefined,
-              initial_pain_level: undefined,
+              initial_pain_level: assessment.intial_pain_intensity, // Use the field from the database
               latest_pain_level: undefined
             } as UserAssessment;
           }
           
-          // Try to get the initial pain level
-          let initialPainLevel = undefined;
-          try {
-            initialPainLevel = await safeDatabase.getInitialPainLevel(assessment.id, user.id);
-            console.log('Initial pain level for assessment', assessment.id, ':', initialPainLevel);
-          } catch (error) {
-            console.error('Error getting initial pain level:', error);
-          }
-
           // Try to get the latest pain level from follow-up responses
           let latestPainLevel = undefined;
           try {
@@ -65,7 +56,7 @@ export const useAssessments = () => {
             const { data: followUpData, error: followUpError } = await supabase.rpc(
               'get_latest_pain_level', 
               { assessment_id_param: assessment.id, user_id_param: user.id }
-            ) as any;
+            );
             
             if (followUpError) {
               // If RPC fails, try direct query using the safe helper
@@ -95,7 +86,7 @@ export const useAssessments = () => {
             last_completed_at: completionsData && completionsData.length > 0 
               ? completionsData[0].completed_at 
               : undefined,
-            initial_pain_level: initialPainLevel,
+            initial_pain_level: assessment.intial_pain_intensity, // Use the column directly
             latest_pain_level: latestPainLevel
           } as UserAssessment;
         })

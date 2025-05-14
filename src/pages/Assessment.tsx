@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Navigate } from 'react-router-dom';
@@ -81,7 +82,10 @@ const Assessment = () => {
     // Store the general questionnaire results for later retrieval
     if (user && answers['pain-intensity'] !== undefined) {
       try {
-        // Create assessment record first
+        // Get pain intensity value from answers
+        const painIntensity = answers['pain-intensity'];
+        
+        // Create assessment record first with pain intensity value
         const { data: assessmentData, error: assessmentError } = await supabase
           .from('user_assessments')
           .insert({
@@ -90,6 +94,7 @@ const Assessment = () => {
             primary_mechanism: newMechanism,
             sin_group: newSinGroup,
             primary_differential: 'none', // Will be updated later
+            intial_pain_intensity: painIntensity // Save pain intensity to the new column
           })
           .select('id')
           .single();
@@ -108,7 +113,7 @@ const Assessment = () => {
             
           if (questionnaireError) throw questionnaireError;
           
-          console.log('Successfully stored general questionnaire answers with pain intensity:', answers['pain-intensity']);
+          console.log('Successfully stored general questionnaire answers with pain intensity:', painIntensity);
         }
       } catch (error) {
         console.error('Error storing general questionnaire results:', error);
