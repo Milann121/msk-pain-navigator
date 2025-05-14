@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
-import { useToast } from '@/components/ui/use-toast';
+import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/contexts/AuthContext';
 
 interface UserAssessment {
@@ -31,6 +31,7 @@ export const useAssessments = () => {
       const { data: assessmentsData, error: assessmentsError } = await supabase
         .from('user_assessments')
         .select('*')
+        .eq('user_id', user.id)
         .order('timestamp', { ascending: false });
 
       if (assessmentsError) throw assessmentsError;
@@ -43,6 +44,7 @@ export const useAssessments = () => {
             .from('completed_exercises')
             .select('completed_at')
             .eq('assessment_id', assessment.id)
+            .eq('user_id', user.id)
             .order('completed_at', { ascending: false });
             
           if (completionsError) {
@@ -88,9 +90,10 @@ export const useAssessments = () => {
           event: '*',
           schema: 'public',
           table: 'completed_exercises',
+          filter: `user_id=eq.${user?.id}`,
         }, 
-        () => {
-          console.log('Exercise completion change detected!');
+        (payload) => {
+          console.log('Exercise completion change detected:', payload);
           fetchUserAssessments();
         }
       )

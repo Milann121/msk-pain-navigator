@@ -65,15 +65,17 @@ export const StatsBar = ({ assessmentId }: StatsBarProps) => {
     
     // Set up a listener for realtime updates
     const channel = supabase
-      .channel('completed_exercises_changes')
+      .channel('stats_completed_exercises_changes')
       .on(
         'postgres_changes',
         {
           event: '*',
           schema: 'public',
-          table: 'completed_exercises'
+          table: 'completed_exercises',
+          filter: `user_id=eq.${user?.id}`
         },
-        () => {
+        (payload) => {
+          console.log('Stats bar received update:', payload);
           // Refetch data when completions change
           fetchCompletedExercises();
         }
@@ -83,7 +85,7 @@ export const StatsBar = ({ assessmentId }: StatsBarProps) => {
     return () => {
       supabase.removeChannel(channel);
     };
-  }, [user, assessmentId]);
+  }, [user]);
   
   return (
     <Card className="mb-6">

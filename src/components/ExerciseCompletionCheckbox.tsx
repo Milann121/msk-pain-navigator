@@ -93,35 +93,37 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
     try {
       const now = new Date();
       
-      // Use upsert with onConflict to handle duplicate records gracefully
-      const { error } = await supabase
+      // First, check if a record already exists
+      const { data: existingData } = await supabase
         .from('completed_exercises')
-        .insert({
-          user_id: user.id,
-          assessment_id: assessmentId,
-          exercise_title: exerciseTitle,
-          completed_at: now.toISOString() // Explicitly set the completed_at to avoid conflicts
-        }, { 
-          count: 'exact' // Return proper error counts
-        });
-        
-      if (error) {
-        // If error is a unique constraint violation, we'll handle it gracefully
-        if (error.code === '23505') { // Postgres unique constraint violation code
-          // Try to update the existing record with a new timestamp instead
-          const { error: updateError } = await supabase
-            .from('completed_exercises')
-            .update({ completed_at: now.toISOString() })
-            .eq('user_id', user.id)
-            .eq('assessment_id', assessmentId)
-            .eq('exercise_title', exerciseTitle);
-            
-          if (updateError) {
-            throw updateError;
-          }
-        } else {
-          throw error;
-        }
+        .select('id')
+        .eq('user_id', user.id)
+        .eq('assessment_id', assessmentId)
+        .eq('exercise_title', exerciseTitle)
+        .single();
+      
+      let result;
+      
+      if (existingData) {
+        // Update existing record
+        result = await supabase
+          .from('completed_exercises')
+          .update({ completed_at: now.toISOString() })
+          .eq('id', existingData.id);
+      } else {
+        // Insert new record
+        result = await supabase
+          .from('completed_exercises')
+          .insert({
+            user_id: user.id,
+            assessment_id: assessmentId,
+            exercise_title: exerciseTitle,
+            completed_at: now.toISOString()
+          });
+      }
+      
+      if (result.error) {
+        throw result.error;
       }
       
       setIsCompleted(true);
@@ -135,6 +137,13 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
         title: "Cvičenie označené ako odcvičené",
         description: "Váš pokrok bol úspešne uložený.",
       });
+      
+      // Manually emit a custom event to signal the update
+      const event = new CustomEvent('exercise-completed', {
+        detail: { assessmentId, exerciseTitle }
+      });
+      window.dispatchEvent(event);
+      
     } catch (error) {
       console.error('Error updating completion status:', error);
       toast({
