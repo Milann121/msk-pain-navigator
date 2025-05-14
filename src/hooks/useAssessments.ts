@@ -69,10 +69,10 @@ export const useAssessments = () => {
                 orderBy: { column: 'created_at', ascending: false }
               });
                 
-              if (!error && data && data.length > 0) {
+              if (!error && data && Array.isArray(data) && data.length > 0) {
                 latestPainLevel = data[0].pain_level;
               }
-            } else if (followUpData && followUpData.length > 0) {
+            } else if (followUpData && Array.isArray(followUpData) && followUpData.length > 0) {
               latestPainLevel = followUpData[0].pain_level;
             }
           } catch (error) {

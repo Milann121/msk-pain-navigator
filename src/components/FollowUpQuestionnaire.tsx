@@ -12,19 +12,6 @@ import { useAuth } from '@/contexts/AuthContext';
 import { UserAssessment, FollowUpResponse } from '@/components/follow-up/types';
 import { safeDatabase } from '@/utils/database-helpers';
 
-interface UserAssessment {
-  id: string;
-  primary_mechanism: string;
-  sin_group: string;
-  primary_differential: string;
-  pain_area: string;
-  timestamp: string;
-  completed_exercises_count: number;
-  last_completed_at?: string;
-  initial_pain_level?: number;
-  latest_pain_level?: number;
-}
-
 interface FollowUpQuestionnaireProps {
   assessment: UserAssessment;
   onComplete: () => void;
