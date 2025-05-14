@@ -1,21 +1,9 @@
 
 import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
-import { useToast } from '@/components/ui/use-toast';
+import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/contexts/AuthContext';
-
-interface UserAssessment {
-  id: string;
-  primary_mechanism: string;
-  sin_group: string;
-  primary_differential: string;
-  pain_area: string;
-  timestamp: string;
-  completed_exercises_count: number;
-  last_completed_at?: string;
-  initial_pain_level?: number;
-  latest_pain_level?: number;
-}
+import { UserAssessment } from '@/components/follow-up/types';
 
 export const useAssessments = () => {
   const [assessments, setAssessments] = useState<UserAssessment[]>([]);
@@ -57,7 +45,7 @@ export const useAssessments = () => {
               last_completed_at: undefined,
               initial_pain_level: assessment.initial_pain_level || undefined,
               latest_pain_level: undefined // Default to undefined if no follow-up data
-            };
+            } as UserAssessment;
           }
 
           // Try to get the latest pain level from follow-up responses
@@ -70,10 +58,13 @@ export const useAssessments = () => {
             );
             
             if (followUpError) {
-              // If RPC fails, try direct query
+              // If RPC fails, try direct query using raw SQL
               console.log('RPC not available, trying direct query');
+              
+              // Since the follow_up_responses table might not be in TypeScript definitions,
+              // we'll use the query as any to bypass type checking
               const { data, error } = await supabase
-                .from('follow_up_responses')
+                .from('follow_up_responses' as any)
                 .select('pain_level')
                 .eq('assessment_id', assessment.id)
                 .eq('user_id', user.id)
@@ -97,9 +88,9 @@ export const useAssessments = () => {
             last_completed_at: completionsData && completionsData.length > 0 
               ? completionsData[0].completed_at 
               : undefined,
-            initial_pain_level: assessment.initial_pain_level || undefined,
+            initial_pain_level: assessment.initial_pain_level as number | undefined,
             latest_pain_level: latestPainLevel
-          };
+          } as UserAssessment;
         })
       );
       
@@ -136,27 +127,34 @@ export const useAssessments = () => {
       )
       .subscribe();
       
-    // We'll try to listen for follow-up responses changes
-    const followUpChannel = supabase
-      .channel('follow_up_changes')
-      .on('postgres_changes', 
-        {
-          event: '*',
-          schema: 'public',
-          table: 'follow_up_responses',
-          filter: `user_id=eq.${user?.id}`,
-        }, 
-        (payload) => {
-          console.log('Follow-up response change detected:', payload);
-          fetchUserAssessments();
-        }
-      )
-      .subscribe();
-      
-    return () => {
-      supabase.removeChannel(exercisesChannel);
-      supabase.removeChannel(followUpChannel);
-    };
+    // We'll try to listen for follow-up responses changes - this might fail if table doesn't exist
+    try {
+      const followUpChannel = supabase
+        .channel('follow_up_changes')
+        .on('postgres_changes', 
+          {
+            event: '*',
+            schema: 'public',
+            table: 'follow_up_responses',
+            filter: `user_id=eq.${user?.id}`,
+          } as any, 
+          (payload) => {
+            console.log('Follow-up response change detected:', payload);
+            fetchUserAssessments();
+          }
+        )
+        .subscribe();
+        
+      return () => {
+        supabase.removeChannel(exercisesChannel);
+        supabase.removeChannel(followUpChannel);
+      };
+    } catch (error) {
+      // If the follow-up responses table doesn't exist, just clean up the exercises channel
+      return () => {
+        supabase.removeChannel(exercisesChannel);
+      };
+    }
   }, [user]);
   
   const handleDeleteAssessment = async (id: string) => {

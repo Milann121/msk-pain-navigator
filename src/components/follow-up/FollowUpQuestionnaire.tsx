@@ -54,7 +54,8 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
     try {
       setIsSubmitting(true);
       
-      // Save the follow-up responses to the database using RPC
+      // Save the follow-up responses to the database
+      // First try using RPC function if available
       try {
         const { error } = await supabase.rpc('insert_follow_up_response', {
           user_id_param: user.id,
@@ -67,7 +68,8 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
       } catch (rpcError) {
         console.log('RPC function not available, falling back to direct insert:', rpcError);
         
-        // Try direct insert as fallback
+        // Try direct insert as fallback - using raw SQL query 
+        // since the table might not be in the TypeScript definitions
         const { error } = await supabase
           .from('follow_up_responses')
           .insert({
@@ -75,7 +77,7 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
             assessment_id: assessment.id,
             pain_level: answers['pain-level-change'],
             responses: answers
-          });
+          } as any);
           
         if (error) throw error;
       }
