@@ -5,8 +5,13 @@ import { useToast } from '@/components/ui/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import { formatPainArea, formatMechanism, formatDifferential } from './FormatHelpers';
 import { Button } from '@/components/ui/button';
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '@/components/ui/table';
-import { Trash2 } from 'lucide-react';
+import { ChevronDown, Trash2, ExternalLink } from 'lucide-react';
+import { 
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger
+} from '@/components/ui/accordion';
 
 interface UserAssessment {
   id: string;
@@ -55,56 +60,82 @@ export const AssessmentTable = ({ assessments, loading, onDeleteAssessment }: As
   }
   
   return (
-    <div className="overflow-x-auto">
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead>Dátum</TableHead>
-            <TableHead>Oblasť</TableHead>
-            <TableHead>Mechanizmus</TableHead>
-            <TableHead>Diagnóza</TableHead>
-            <TableHead className="text-center">Odcvičené</TableHead>
-            <TableHead>Posledné cvičenie</TableHead>
-            <TableHead>Akcie</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {assessments.map((assessment) => (
-            <TableRow key={assessment.id}>
-              <TableCell className="font-medium">
-                {format(new Date(assessment.timestamp), 'dd.MM.yyyy')}
-              </TableCell>
-              <TableCell>{formatPainArea(assessment.pain_area)}</TableCell>
-              <TableCell>{formatMechanism(assessment.primary_mechanism)}</TableCell>
-              <TableCell>{formatDifferential(assessment.primary_differential)}</TableCell>
-              <TableCell className="text-center font-medium">
-                {assessment.completed_exercises_count > 0 ? `${assessment.completed_exercises_count}x` : '0x'}
-              </TableCell>
-              <TableCell>
-                {assessment.last_completed_at ? 
-                  format(new Date(assessment.last_completed_at), 'dd.MM.yyyy') : 
-                  '—'}
-              </TableCell>
-              <TableCell className="flex gap-2">
+    <div className="space-y-2">
+      <Accordion type="single" collapsible className="w-full">
+        {assessments.map((assessment, index) => (
+          <AccordionItem key={assessment.id} value={assessment.id}>
+            <AccordionTrigger className="px-4 py-4 hover:bg-gray-50 rounded-lg">
+              <div className="flex flex-1 items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="font-medium">
+                    {format(new Date(assessment.timestamp), 'dd.MM.yyyy')}
+                  </span>
+                  <span className="text-gray-600 hidden sm:inline">–</span>
+                  <span className="text-gray-600 hidden sm:inline">
+                    {formatPainArea(assessment.pain_area)}
+                  </span>
+                </div>
+                <div className="sm:hidden text-sm text-gray-500">
+                  {formatPainArea(assessment.pain_area)}
+                </div>
+              </div>
+            </AccordionTrigger>
+            <AccordionContent className="px-4 pb-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div className="space-y-2">
+                  <div>
+                    <span className="font-medium text-gray-500">Mechanizmus bolesti:</span>
+                    <div className="mt-1">{formatMechanism(assessment.primary_mechanism)}</div>
+                  </div>
+                  <div>
+                    <span className="font-medium text-gray-500">Diagnóza:</span>
+                    <div className="mt-1">{formatDifferential(assessment.primary_differential)}</div>
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <div>
+                    <span className="font-medium text-gray-500">Odcvičené:</span>
+                    <div className="mt-1 font-medium">
+                      {assessment.completed_exercises_count > 0 ? `${assessment.completed_exercises_count}x` : '0x'}
+                    </div>
+                  </div>
+                  <div>
+                    <span className="font-medium text-gray-500">Posledné cvičenie:</span>
+                    <div className="mt-1">
+                      {assessment.last_completed_at ? 
+                        format(new Date(assessment.last_completed_at), 'dd.MM.yyyy') : 
+                        '—'}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="flex justify-end gap-2 mt-4">
                 <Button 
                   onClick={() => handleViewExercises(assessment)}
                   size="sm"
+                  className="flex items-center gap-1"
                 >
+                  <ExternalLink className="h-4 w-4" />
                   Zobraziť cviky
                 </Button>
                 <Button 
                   variant="destructive" 
                   size="sm"
-                  onClick={() => onDeleteAssessment(assessment.id)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onDeleteAssessment(assessment.id);
+                  }}
                   title="Odstrániť hodnotenie"
+                  className="flex items-center gap-1"
                 >
                   <Trash2 className="h-4 w-4" />
                 </Button>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
     </div>
   );
 };
