@@ -1,11 +1,10 @@
-
 import { format } from 'date-fns';
 import { useNavigate } from 'react-router-dom';
-import { useToast } from '@/components/ui/use-toast';
+import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import { formatPainArea, formatMechanism, formatDifferential } from './FormatHelpers';
 import { Button } from '@/components/ui/button';
-import { ChevronDown, Trash2, ExternalLink } from 'lucide-react';
+import { ChevronDown, Trash2, ExternalLink, ClipboardCheck } from 'lucide-react';
 import { 
   Accordion,
   AccordionContent,
@@ -13,6 +12,9 @@ import {
   AccordionTrigger
 } from '@/components/ui/accordion';
 import { Badge } from '@/components/ui/badge';
+import { useState } from 'react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import FollowUpQuestionnaire from '@/components/FollowUpQuestionnaire';
 
 interface UserAssessment {
   id: string;
@@ -33,6 +35,8 @@ interface AssessmentTableProps {
 
 export const AssessmentTable = ({ assessments, loading, onDeleteAssessment }: AssessmentTableProps) => {
   const navigate = useNavigate();
+  const [selectedAssessment, setSelectedAssessment] = useState<UserAssessment | null>(null);
+  const [followUpOpen, setFollowUpOpen] = useState(false);
   
   const handleViewExercises = (assessment: UserAssessment) => {
     navigate('/exercise-plan', { 
@@ -43,6 +47,11 @@ export const AssessmentTable = ({ assessments, loading, onDeleteAssessment }: As
         assessmentId: assessment.id
       } 
     });
+  };
+
+  const handleOpenFollowUp = (assessment: UserAssessment) => {
+    setSelectedAssessment(assessment);
+    setFollowUpOpen(true);
   };
   
   if (loading) {
@@ -135,7 +144,17 @@ export const AssessmentTable = ({ assessments, loading, onDeleteAssessment }: As
                 </div>
               </div>
               
-              <div className="flex justify-end gap-2 mt-4">
+              <div className="flex flex-wrap justify-end gap-2 mt-4">
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  onClick={() => handleOpenFollowUp(assessment)}
+                  className="flex items-center gap-1"
+                >
+                  <ClipboardCheck className="h-4 w-4" />
+                  Zaznamenať pokrok
+                </Button>
+                
                 <Button 
                   onClick={() => handleViewExercises(assessment)}
                   size="sm"
@@ -144,6 +163,7 @@ export const AssessmentTable = ({ assessments, loading, onDeleteAssessment }: As
                   <ExternalLink className="h-4 w-4" />
                   Zobraziť cviky
                 </Button>
+                
                 <Button 
                   variant="destructive" 
                   size="sm"
@@ -161,6 +181,23 @@ export const AssessmentTable = ({ assessments, loading, onDeleteAssessment }: As
           </AccordionItem>
         ))}
       </Accordion>
+
+      <Dialog open={followUpOpen} onOpenChange={setFollowUpOpen}>
+        <DialogContent className="max-w-3xl">
+          <DialogHeader>
+            <DialogTitle>Zaznamenať pokrok</DialogTitle>
+          </DialogHeader>
+          {selectedAssessment && (
+            <FollowUpQuestionnaire
+              assessment={selectedAssessment}
+              onComplete={() => {
+                setFollowUpOpen(false);
+                setSelectedAssessment(null);
+              }}
+            />
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
