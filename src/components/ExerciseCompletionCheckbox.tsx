@@ -28,8 +28,6 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
       if (!user) return;
       
       try {
-        setLoading(true);
-        
         const { data, error } = await supabase
           .from('completed_exercises')
           .select('*')
@@ -140,9 +138,9 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
         description: "Váš pokrok bol úspešne uložený.",
       });
       
-      // Dispatch a custom event to notify other components about the completion
+      // Manually emit a custom event to signal the update
       const event = new CustomEvent('exercise-completed', {
-        detail: { assessmentId, exerciseTitle, timestamp: now.toISOString() }
+        detail: { assessmentId, exerciseTitle }
       });
       window.dispatchEvent(event);
       
