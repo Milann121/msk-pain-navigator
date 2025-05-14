@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
@@ -178,16 +177,35 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
       setIsSubmitting(true);
       
       // Save the follow-up responses to the database
-      const { error } = await supabase
-        .from('follow_up_responses')
-        .insert({
-          user_id: user.id,
-          assessment_id: assessment.id,
-          pain_level: answers['pain-level-change'],
-          responses: answers
+      // We'll use a custom RPC function if available, otherwise insert directly
+      try {
+        const { error } = await supabase.rpc('insert_follow_up_response', {
+          user_id_param: user.id,
+          assessment_id_param: assessment.id,
+          pain_level_param: answers['pain-level-change'],
+          responses_param: answers
         });
         
-      if (error) throw error;
+        if (error) throw error;
+      } catch (rpcError) {
+        console.log('RPC function not available, falling back to direct insert:', rpcError);
+        
+        // Try direct insert as fallback
+        try {
+          // First check if the table exists by querying it
+          const { error } = await supabase.from('follow_up_responses').insert({
+            user_id: user.id,
+            assessment_id: assessment.id,
+            pain_level: answers['pain-level-change'],
+            responses: answers
+          });
+          
+          if (error) throw error;
+        } catch (insertError) {
+          console.error('Error inserting follow-up response:', insertError);
+          throw insertError;
+        }
+      }
       
       toast({
         title: "Pokrok zaznamenaný",

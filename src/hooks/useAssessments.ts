@@ -32,7 +32,7 @@ export const useAssessments = () => {
       // Get assessments
       const { data: assessmentsData, error: assessmentsError } = await supabase
         .from('user_assessments')
-        .select('*, initial_pain_level, assessment_answers(pain_level)')
+        .select('*')
         .eq('user_id', user.id)
         .order('timestamp', { ascending: false });
 
@@ -54,21 +54,28 @@ export const useAssessments = () => {
             return {
               ...assessment,
               completed_exercises_count: 0,
-              last_completed_at: undefined
+              last_completed_at: undefined,
+              initial_pain_level: assessment.initial_pain_level || undefined,
+              latest_pain_level: undefined // Default to undefined if no follow-up data
             };
           }
-          
-          // Get the latest follow-up pain assessment if it exists
-          const { data: followUpData, error: followUpError } = await supabase
-            .from('follow_up_responses')
-            .select('pain_level')
-            .eq('assessment_id', assessment.id)
-            .eq('user_id', user.id)
-            .order('created_at', { ascending: false })
-            .limit(1);
+
+          // Check if follow_up_responses table exists and query it
+          // We'll handle this carefully to avoid errors if the table doesn't exist yet
+          let latestPainLevel = undefined;
+          try {
+            const { data: followUpData } = await supabase.rpc(
+              'get_latest_pain_level',
+              { assessment_id_param: assessment.id, user_id_param: user.id }
+            );
             
-          if (followUpError) {
-            console.error('Error fetching follow-up data:', followUpError);
+            // If we get data back and it has a pain_level, use it
+            if (followUpData && followUpData.length > 0 && followUpData[0].pain_level !== null) {
+              latestPainLevel = followUpData[0].pain_level;
+            }
+          } catch (error) {
+            // Table might not exist yet or RPC function not available, which is fine
+            console.log('Follow-up data not available yet:', error);
           }
           
           return {
@@ -77,9 +84,8 @@ export const useAssessments = () => {
             last_completed_at: completionsData && completionsData.length > 0 
               ? completionsData[0].completed_at 
               : undefined,
-            latest_pain_level: followUpData && followUpData.length > 0 
-              ? followUpData[0].pain_level
-              : undefined
+            initial_pain_level: assessment.initial_pain_level || undefined,
+            latest_pain_level: latestPainLevel
           };
         })
       );
@@ -100,7 +106,7 @@ export const useAssessments = () => {
   useEffect(() => {
     fetchUserAssessments();
     
-    // Set up subscription to listen for changes to the completed_exercises and follow_up_responses tables
+    // Set up subscription to listen for changes to the completed_exercises table
     const exercisesChannel = supabase
       .channel('exercises_changes')
       .on('postgres_changes', 
@@ -117,6 +123,7 @@ export const useAssessments = () => {
       )
       .subscribe();
       
+    // We'll try to listen for follow-up responses changes if the table exists
     const followUpChannel = supabase
       .channel('follow_up_changes')
       .on('postgres_changes', 

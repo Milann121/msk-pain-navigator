@@ -137,7 +137,7 @@ export const AssessmentTable = ({ assessments, loading, onDeleteAssessment }: As
                   <div>
                     <span className="font-medium text-gray-500">Vaša posledná zaznamenaná bolesť:</span>
                     <div className="mt-1 font-medium text-blue-700">
-                      {assessment.latest_pain_level !== undefined ? `${assessment.latest_pain_level}/10` : '–'}
+                      {assessment.latest_pain_level !== undefined ? `${assessment.latest_pain_level}/10` : 'N/A'}
                     </div>
                   </div>
                 </div>
