@@ -1,5 +1,5 @@
 
-// This should import from the hooks directory
-import { useToast, toast } from "@/hooks/use-toast";
+// Import from the correct ui/toast component
+import { useToast, toast } from "@/components/ui/toast";
 
 export { useToast, toast };

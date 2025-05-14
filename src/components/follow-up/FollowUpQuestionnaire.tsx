@@ -2,14 +2,14 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
-import { useToast } from '@/components/ui/use-toast';
+import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import { Progress } from '@/components/ui/progress';
 import { useAuth } from '@/contexts/AuthContext';
 import QuestionRenderer from './QuestionRenderer';
 import { placeholderQuestions } from './PlaceholderQuestions';
-import { UserAssessment, FollowUpResponse } from './types';
-import { safeDatabase } from '@/utils/database-helpers';
+import { UserAssessment } from './types';
+import { safeDatabase, FollowUpResponse } from '@/utils/database-helpers';
 
 interface FollowUpQuestionnaireProps {
   assessment: UserAssessment;

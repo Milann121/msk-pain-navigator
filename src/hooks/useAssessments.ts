@@ -4,7 +4,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/contexts/AuthContext';
 import { UserAssessment } from '@/components/follow-up/types';
-import { safeDatabase } from '@/utils/database-helpers';
+import { safeDatabase, ExtendedUserAssessment } from '@/utils/database-helpers';
 
 export const useAssessments = () => {
   const [assessments, setAssessments] = useState<UserAssessment[]>([]);

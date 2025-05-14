@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
@@ -10,8 +9,8 @@ import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import { Progress } from '@/components/ui/progress';
 import { useAuth } from '@/contexts/AuthContext';
-import { UserAssessment, FollowUpResponse } from '@/components/follow-up/types';
-import { safeDatabase } from '@/utils/database-helpers';
+import { UserAssessment } from '@/components/follow-up/types';
+import { safeDatabase, FollowUpResponse } from '@/utils/database-helpers';
 
 interface FollowUpQuestionnaireProps {
   assessment: UserAssessment;
