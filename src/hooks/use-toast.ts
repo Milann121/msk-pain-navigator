@@ -1,6 +1,7 @@
 
-// Reexport toast components from the UI library
-import { useToast as useToastOriginal, toast as toastOriginal } from "@/components/ui/toast";
+// Import directly from the toast component
+import { toast as toastOriginal } from "@/components/ui/toast";
+import { useToast as useToastOriginal } from "@/components/ui/toast";
 
 export const useToast = useToastOriginal;
 export const toast = toastOriginal;
