@@ -93,21 +93,8 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
     try {
       const now = new Date();
       
-      // First delete any existing entries to avoid unique constraint error
-      if (isCompleted) {
-        const { error: deleteError } = await supabase
-          .from('completed_exercises')
-          .delete()
-          .eq('user_id', user.id)
-          .eq('assessment_id', assessmentId)
-          .eq('exercise_title', exerciseTitle);
-          
-        if (deleteError) {
-          console.error('Error deleting existing completion record:', deleteError);
-        }
-      }
-      
-      // Then add new completion record
+      // Add new completion record without deleting old ones
+      // This allows us to count the total number of completions
       const { error } = await supabase
         .from('completed_exercises')
         .insert({
