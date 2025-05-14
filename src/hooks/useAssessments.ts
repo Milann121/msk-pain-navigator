@@ -4,6 +4,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/contexts/AuthContext';
 import { UserAssessment } from '@/components/follow-up/types';
+import { safeDatabase } from '@/utils/database-helpers';
 
 export const useAssessments = () => {
   const [assessments, setAssessments] = useState<UserAssessment[]>([]);
@@ -43,8 +44,8 @@ export const useAssessments = () => {
               ...assessment,
               completed_exercises_count: 0,
               last_completed_at: undefined,
-              initial_pain_level: assessment.initial_pain_level || undefined,
-              latest_pain_level: undefined // Default to undefined if no follow-up data
+              initial_pain_level: undefined,
+              latest_pain_level: undefined
             } as UserAssessment;
           }
 
@@ -58,18 +59,15 @@ export const useAssessments = () => {
             );
             
             if (followUpError) {
-              // If RPC fails, try direct query using raw SQL
+              // If RPC fails, try direct query using the safe helper
               console.log('RPC not available, trying direct query');
               
-              // Since the follow_up_responses table might not be in TypeScript definitions,
-              // we'll use the query as any to bypass type checking
-              const { data, error } = await supabase
-                .from('follow_up_responses' as any)
-                .select('pain_level')
-                .eq('assessment_id', assessment.id)
-                .eq('user_id', user.id)
-                .order('created_at', { ascending: false })
-                .limit(1);
+              const { data, error } = await safeDatabase.followUpResponses.select({
+                assessment_id: assessment.id,
+                user_id: user.id,
+                limit: 1,
+                orderBy: { column: 'created_at', ascending: false }
+              });
                 
               if (!error && data && data.length > 0) {
                 latestPainLevel = data[0].pain_level;
@@ -88,7 +86,7 @@ export const useAssessments = () => {
             last_completed_at: completionsData && completionsData.length > 0 
               ? completionsData[0].completed_at 
               : undefined,
-            initial_pain_level: assessment.initial_pain_level as number | undefined,
+            initial_pain_level: undefined, // Since it's not in the database schema
             latest_pain_level: latestPainLevel
           } as UserAssessment;
         })

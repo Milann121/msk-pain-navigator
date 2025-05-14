@@ -15,6 +15,7 @@ export interface FollowUpQuestion {
   };
 }
 
+// User assessment with calculated properties
 export interface UserAssessment {
   id: string;
   primary_mechanism: string;
@@ -26,4 +27,11 @@ export interface UserAssessment {
   last_completed_at?: string;
   initial_pain_level?: number;
   latest_pain_level?: number;
+}
+
+export interface FollowUpResponse {
+  assessment_id: string;
+  user_id: string;
+  pain_level: number;
+  responses: Record<string, any>;
 }

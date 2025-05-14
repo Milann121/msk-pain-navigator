@@ -9,6 +9,8 @@ import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import { Progress } from '@/components/ui/progress';
 import { useAuth } from '@/contexts/AuthContext';
+import { UserAssessment, FollowUpResponse } from '@/components/follow-up/types';
+import { safeDatabase } from '@/utils/database-helpers';
 
 interface UserAssessment {
   id: string;
@@ -176,6 +178,14 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
     try {
       setIsSubmitting(true);
       
+      // Prepare data for submission
+      const responseData: FollowUpResponse = {
+        user_id: user.id,
+        assessment_id: assessment.id,
+        pain_level: answers['pain-level-change'],
+        responses: answers
+      };
+
       // Save the follow-up responses to the database
       // We'll use a custom RPC function if available, otherwise insert directly
       try {
@@ -190,21 +200,10 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
       } catch (rpcError) {
         console.log('RPC function not available, falling back to direct insert:', rpcError);
         
-        // Try direct insert as fallback
-        try {
-          // First check if the table exists by querying it
-          const { error } = await supabase.from('follow_up_responses').insert({
-            user_id: user.id,
-            assessment_id: assessment.id,
-            pain_level: answers['pain-level-change'],
-            responses: answers
-          });
-          
-          if (error) throw error;
-        } catch (insertError) {
-          console.error('Error inserting follow-up response:', insertError);
-          throw insertError;
-        }
+        // Try direct insert as fallback using our safe helper
+        const { error } = await safeDatabase.followUpResponses.insert(responseData);
+        
+        if (error) throw error;
       }
       
       toast({

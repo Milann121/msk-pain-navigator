@@ -8,7 +8,8 @@ import { Progress } from '@/components/ui/progress';
 import { useAuth } from '@/contexts/AuthContext';
 import QuestionRenderer from './QuestionRenderer';
 import { placeholderQuestions } from './PlaceholderQuestions';
-import { UserAssessment } from './types';
+import { UserAssessment, FollowUpResponse } from './types';
+import { safeDatabase } from '@/utils/database-helpers';
 
 interface FollowUpQuestionnaireProps {
   assessment: UserAssessment;
@@ -54,6 +55,14 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
     try {
       setIsSubmitting(true);
       
+      // Prepare data for submission
+      const responseData: FollowUpResponse = {
+        user_id: user.id,
+        assessment_id: assessment.id,
+        pain_level: answers['pain-level-change'],
+        responses: answers
+      };
+
       // Save the follow-up responses to the database
       // First try using RPC function if available
       try {
@@ -68,16 +77,8 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
       } catch (rpcError) {
         console.log('RPC function not available, falling back to direct insert:', rpcError);
         
-        // Try direct insert as fallback - using raw SQL query 
-        // since the table might not be in the TypeScript definitions
-        const { error } = await supabase
-          .from('follow_up_responses')
-          .insert({
-            user_id: user.id,
-            assessment_id: assessment.id,
-            pain_level: answers['pain-level-change'],
-            responses: answers
-          } as any);
+        // Try direct insert as fallback using our safe helper
+        const { error } = await safeDatabase.followUpResponses.insert(responseData);
           
         if (error) throw error;
       }
