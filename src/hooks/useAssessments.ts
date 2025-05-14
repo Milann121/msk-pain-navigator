@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
-import { useToast } from '@/hooks/use-toast';
+import { useToast } from '@/components/ui/use-toast';
 import { useAuth } from '@/contexts/AuthContext';
 
 interface UserAssessment {
@@ -60,21 +60,34 @@ export const useAssessments = () => {
             };
           }
 
-          // Check if follow_up_responses table exists and query it
-          // We'll handle this carefully to avoid errors if the table doesn't exist yet
+          // Try to get the latest pain level from follow-up responses
           let latestPainLevel = undefined;
           try {
-            const { data: followUpData } = await supabase.rpc(
+            // First try using an RPC function
+            const { data: followUpData, error: followUpError } = await supabase.rpc(
               'get_latest_pain_level',
               { assessment_id_param: assessment.id, user_id_param: user.id }
             );
             
-            // If we get data back and it has a pain_level, use it
-            if (followUpData && followUpData.length > 0 && followUpData[0].pain_level !== null) {
+            if (followUpError) {
+              // If RPC fails, try direct query
+              console.log('RPC not available, trying direct query');
+              const { data, error } = await supabase
+                .from('follow_up_responses')
+                .select('pain_level')
+                .eq('assessment_id', assessment.id)
+                .eq('user_id', user.id)
+                .order('created_at', { ascending: false })
+                .limit(1);
+                
+              if (!error && data && data.length > 0) {
+                latestPainLevel = data[0].pain_level;
+              }
+            } else if (followUpData && followUpData.length > 0) {
               latestPainLevel = followUpData[0].pain_level;
             }
           } catch (error) {
-            // Table might not exist yet or RPC function not available, which is fine
+            // Table might not exist yet, which is fine
             console.log('Follow-up data not available yet:', error);
           }
           
@@ -123,7 +136,7 @@ export const useAssessments = () => {
       )
       .subscribe();
       
-    // We'll try to listen for follow-up responses changes if the table exists
+    // We'll try to listen for follow-up responses changes
     const followUpChannel = supabase
       .channel('follow_up_changes')
       .on('postgres_changes', 

@@ -1,4 +1,3 @@
-
 import { format } from 'date-fns';
 import { useNavigate } from 'react-router-dom';
 import { useToast } from '@/hooks/use-toast';
@@ -15,20 +14,8 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import FollowUpQuestionnaire from '@/components/FollowUpQuestionnaire';
-
-interface UserAssessment {
-  id: string;
-  primary_mechanism: string;
-  sin_group: string;
-  primary_differential: string;
-  pain_area: string;
-  timestamp: string;
-  completed_exercises_count: number;
-  last_completed_at?: string;
-  initial_pain_level?: number;
-  latest_pain_level?: number;
-}
+import FollowUpQuestionnaire from '@/components/follow-up/FollowUpQuestionnaire';
+import { UserAssessment } from '@/components/follow-up/types';
 
 interface AssessmentTableProps {
   assessments: UserAssessment[];
