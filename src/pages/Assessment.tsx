@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Navigate } from 'react-router-dom';
@@ -21,6 +22,8 @@ import {
   ScoreTracker, 
   AssessmentResults 
 } from '@/utils/types';
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from '@/hooks/use-toast';
 
 enum AssessmentStage {
   UserInfo,
@@ -31,6 +34,7 @@ enum AssessmentStage {
 
 const Assessment = () => {
   const { user, isLoading } = useAuth();
+  const { toast } = useToast();
 
   if (isLoading) {
     return (
@@ -57,13 +61,14 @@ const Assessment = () => {
   const [primaryDifferential, setPrimaryDifferential] = useState<Differential>('none');
   const [results, setResults] = useState<AssessmentResults | null>(null);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [assessmentId, setAssessmentId] = useState<string | null>(null);
 
   const handleUserInfoSubmit = (data: UserInfo) => {
     setUserInfo(data);
     setStage(AssessmentStage.GeneralQuestionnaire);
   };
 
-  const handleGeneralQuestionnaireComplete = (answers: Record<string, any>) => {
+  const handleGeneralQuestionnaireComplete = async (answers: Record<string, any>) => {
     setGeneralAnswers(answers);
     
     const { scores: newScores, primaryMechanism: newMechanism, sinGroup: newSinGroup } = 
@@ -73,6 +78,50 @@ const Assessment = () => {
     setPrimaryMechanism(newMechanism);
     setSINGroup(newSinGroup);
     
+    // Store the general questionnaire results for later retrieval
+    if (user && answers['pain-intensity']) {
+      try {
+        // Create assessment record first
+        const { data: assessmentData, error: assessmentError } = await supabase
+          .from('user_assessments')
+          .insert({
+            user_id: user.id,
+            pain_area: userInfo?.painArea || '',
+            primary_mechanism: newMechanism,
+            sin_group: newSinGroup,
+            primary_differential: 'none', // Will be updated later
+          })
+          .select('id')
+          .single();
+
+        if (assessmentError) throw assessmentError;
+        
+        if (assessmentData?.id) {
+          setAssessmentId(assessmentData.id);
+          
+          // Store the general questionnaire results
+          const { error: questionnaireError } = await supabase
+            .from('general_questionnaire_results')
+            .insert({
+              user_id: user.id,
+              assessment_id: assessmentData.id,
+              answers: answers
+            });
+            
+          if (questionnaireError) throw questionnaireError;
+          
+          console.log('Successfully stored general questionnaire answers with pain intensity:', answers['pain-intensity']);
+        }
+      } catch (error) {
+        console.error('Error storing general questionnaire results:', error);
+        toast({
+          title: 'Chyba',
+          description: 'Nepodarilo sa uložiť vaše odpovede.',
+          variant: 'destructive'
+        });
+      }
+    }
+    
     setStage(AssessmentStage.FollowUpQuestionnaire);
   };
 
@@ -80,7 +129,7 @@ const Assessment = () => {
     setIsSubmitting(true);
     setFollowUpAnswers(answers);
     
-    if (!userInfo || !scores) {
+    if (!userInfo || !scores || !assessmentId) {
       setIsSubmitting(false);
       return;
     }
@@ -102,9 +151,22 @@ const Assessment = () => {
       newDifferential,
       updatedScores
     );
+
+    // Update the assessment record with the primary differential
+    try {
+      const { error } = await supabase
+        .from('user_assessments')
+        .update({
+          primary_differential: newDifferential
+        })
+        .eq('id', assessmentId);
+        
+      if (error) throw error;
+    } catch (error) {
+      console.error('Error updating assessment with differential:', error);
+    }
     
     setResults(assessmentResults);
-    
     setStage(AssessmentStage.Results);
     setIsSubmitting(false);
   };
@@ -119,6 +181,7 @@ const Assessment = () => {
     setScores(null);
     setPrimaryDifferential('none');
     setResults(null);
+    setAssessmentId(null);
   };
 
   return (
