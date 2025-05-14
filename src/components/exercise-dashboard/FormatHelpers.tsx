@@ -5,9 +5,9 @@
 
 export const formatPainArea = (area: string): string => {
   const translations: Record<string, string> = {
-    'neck': 'krčnej chrbtice',
-    'middle back': 'hrudnej chrbtice',
-    'lower back': 'driekovej chrbtice'
+    'neck': 'Krčná chrbtica',
+    'middle back': 'Hrudná chrbtica',
+    'lower back': 'Driekova chrbtica'
   };
   
   return translations[area] || area;

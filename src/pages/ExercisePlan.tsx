@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useLocation } from 'react-router-dom';
@@ -78,9 +77,9 @@ const ExercisePlan = () => {
   // Format pain area for display
   const formatPainArea = (area: string): string => {
     const translations: Record<string, string> = {
-      'neck': 'krčnej chrbtice',
-      'middle back': 'hrudnej chrbtice',
-      'lower back': 'driekovej chrbtice'
+      'neck': 'Krčná chrbtica',
+      'middle back': 'Hrudná chrbtica',
+      'lower back': 'Driekova chrbtica'
     };
     
     return translations[area] || area;
@@ -108,7 +107,7 @@ const ExercisePlan = () => {
               {formatDifferential(differential)}
             </span>
             <span className="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">
-              Oblasť: {formatPainArea(painArea)}
+              {formatPainArea(painArea)}
             </span>
           </div>
         </CardHeader>
