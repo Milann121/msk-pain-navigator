@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Navigate } from 'react-router-dom';
@@ -100,13 +99,11 @@ const Assessment = () => {
           setAssessmentId(assessmentData.id);
           
           // Store the general questionnaire results
-          const { error: questionnaireError } = await supabase
-            .from('general_questionnaire_results')
-            .insert({
-              user_id: user.id,
-              assessment_id: assessmentData.id,
-              answers: answers
-            });
+          const { error: questionnaireError } = await safeDatabase.generalQuestionnaire.insert({
+            user_id: user.id,
+            assessment_id: assessmentData.id,
+            answers: answers
+          });
             
           if (questionnaireError) throw questionnaireError;
           

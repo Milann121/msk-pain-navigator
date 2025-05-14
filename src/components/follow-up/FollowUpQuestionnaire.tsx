@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
@@ -32,6 +31,13 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
     setAnswers(prev => ({
       ...prev,
       [questionId]: answer
+    }));
+  };
+  
+  const handleSliderChange = (questionId: string, value: number[]) => {
+    setAnswers(prev => ({
+      ...prev,
+      [questionId]: value[0]
     }));
   };
   

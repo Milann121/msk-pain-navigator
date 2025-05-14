@@ -2,7 +2,7 @@
 import { Toast, ToastActionElement, ToastProps } from "@/components/ui/toast";
 import * as React from "react";
 
-export interface ToasterToast extends ToastProps {
+export interface ToasterToast extends Omit<ToastProps, "title" | "description"> {
   id: string;
   title?: React.ReactNode;
   description?: React.ReactNode;
@@ -96,7 +96,7 @@ const reducer = (state: State, action: Action): State => {
   }
 };
 
-const useToaster = (defaultToasts: ToasterToast[] = []) => {
+export const useToaster = (defaultToasts: ToasterToast[] = []) => {
   const [state, dispatch] = React.useReducer(reducer, {
     toasts: defaultToasts,
   });
@@ -113,7 +113,7 @@ const useToaster = (defaultToasts: ToasterToast[] = []) => {
     (props: Omit<ToasterToast, "id">) => {
       const id = genId();
 
-      const update = (props: ToasterToast) =>
+      const update = (props: Partial<ToasterToast>) =>
         dispatch({
           type: actionTypes.UPDATE_TOAST,
           toast: { ...props, id },
@@ -127,7 +127,7 @@ const useToaster = (defaultToasts: ToasterToast[] = []) => {
           id,
           dismiss,
           update,
-        },
+        } as ToasterToast,
       });
 
       return {
@@ -151,9 +151,7 @@ const useToaster = (defaultToasts: ToasterToast[] = []) => {
 };
 
 export function useToast() {
-  const { toast } = useToaster();
+  const toaster = useToaster();
   
-  return {
-    toast: toast,
-  };
+  return toaster;
 }
