@@ -4,7 +4,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/contexts/AuthContext';
 import { UserAssessment } from '@/components/follow-up/types';
-import { safeDatabase, ExtendedUserAssessment } from '@/utils/database-helpers';
+import { safeDatabase } from '@/utils/database-helpers';
 
 export const useAssessments = () => {
   const [assessments, setAssessments] = useState<UserAssessment[]>([]);
@@ -65,7 +65,7 @@ export const useAssessments = () => {
             const { data: followUpData, error: followUpError } = await supabase.rpc(
               'get_latest_pain_level', 
               { assessment_id_param: assessment.id, user_id_param: user.id }
-            ) as any;
+            );
             
             if (followUpError) {
               // If RPC fails, try direct query using the safe helper
@@ -144,7 +144,7 @@ export const useAssessments = () => {
             schema: 'public',
             table: 'follow_up_responses',
             filter: `user_id=eq.${user?.id}`,
-          } as any, 
+          }, 
           (payload) => {
             console.log('Follow-up response change detected:', payload);
             fetchUserAssessments();
