@@ -1,0 +1,70 @@
+
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { AssessmentResults } from '@/utils/types';
+import { useAuth } from '@/contexts/AuthContext';
+import { useState } from 'react';
+
+import UserInfoSection from './UserInfoSection';
+import MechanismSection from './MechanismSection';
+import SINSection from './SINSection';
+import DifferentialSection from './DifferentialSection';
+import ExercisePlanSection from './ExercisePlanSection';
+import ResultsFooter from './ResultsFooter';
+import SaveResultsManager from './SaveResultsManager';
+
+interface ResultsPageProps {
+  results: AssessmentResults;
+  onRestart: () => void;
+  assessmentId?: string | null;
+  assessmentSaved?: boolean;
+}
+
+const ResultsPage = ({ results, onRestart, assessmentId, assessmentSaved = false }: ResultsPageProps) => {
+  const { user } = useAuth();
+  const [isSaved, setIsSaved] = useState(assessmentSaved);
+  const { userInfo, primaryMechanism, sinGroup, primaryDifferential } = results;
+  
+  return (
+    <Card className="w-full max-w-2xl mx-auto">
+      <CardHeader className="text-center bg-blue-50">
+        <CardTitle className="text-2xl font-bold text-blue-700">Výsledky hodnotenia</CardTitle>
+        <CardDescription>
+          Ďakujeme za vyplnenie MSK Navigátora bolesti
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-6 py-6">
+        <UserInfoSection userInfo={userInfo} />
+        
+        <div className="space-y-4 mt-6">
+          <MechanismSection primaryMechanism={primaryMechanism} />
+          <SINSection sinGroup={sinGroup} />
+          <DifferentialSection primaryDifferential={primaryDifferential} />
+        </div>
+        
+        <ExercisePlanSection 
+          mechanismType={primaryMechanism}
+          differentialType={primaryDifferential}
+          painArea={userInfo.painArea}
+          assessmentId={assessmentId}
+        />
+        
+        <div className="text-sm text-gray-500 mt-6">
+          <p>Toto hodnotenie nenahrádza odbornú lekársku pomoc. Pre kompletnú diagnózu a liečebný plán sa prosím poraďte so zdravotníckym pracovníkom.</p>
+          {user && (
+            <SaveResultsManager 
+              results={results}
+              assessmentId={assessmentId}
+              assessmentSaved={isSaved}
+              setAssessmentSaved={setIsSaved}
+            />
+          )}
+        </div>
+      </CardContent>
+      <CardFooter>
+        <ResultsFooter onRestart={onRestart} userLoggedIn={!!user} />
+      </CardFooter>
+    </Card>
+  );
+};
+
+export default ResultsPage;

@@ -1,6 +1,6 @@
 
 import { useAssessment } from '@/contexts/AssessmentContext';
-import ResultsPage from '@/components/ResultsPage';
+import ResultsPage from '@/components/results/ResultsPage';
 
 const ResultsHandler = () => {
   const { results, handleRestart, assessmentId, assessmentSaved } = useAssessment();
