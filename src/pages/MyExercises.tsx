@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from '@/components/ui/button';
 import { useAssessments } from '@/hooks/useAssessments';
 import { AssessmentTable } from '@/components/exercise-dashboard/AssessmentTable';
-import { StatsBar } from '@/components/exercise-dashboard/StatsBar';
+import { ExerciseCalendar } from '@/components/exercise-dashboard/ExerciseCalendar';
 
 const MyExercises = () => {
   const { user, isLoading } = useAuth();
@@ -28,7 +28,7 @@ const MyExercises = () => {
     return <Navigate to="/auth" replace />;
   }
   
-  // Get the latest assessment ID for the stats bar
+  // Get the latest assessment ID for the calendar
   const latestAssessmentId = assessments.length > 0 ? assessments[0].id : undefined;
 
   return (
@@ -38,7 +38,7 @@ const MyExercises = () => {
         <div className="container mx-auto max-w-4xl">
           <h1 className="text-3xl font-bold text-blue-800 mb-6">Moje cviky</h1>
           
-          <StatsBar assessmentId={latestAssessmentId} />
+          <ExerciseCalendar assessmentId={latestAssessmentId} />
           
           <Card>
             <CardHeader>

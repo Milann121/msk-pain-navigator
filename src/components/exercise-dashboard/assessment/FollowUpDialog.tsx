@@ -1,7 +1,8 @@
 
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import FollowUpQuestionnaire from '@/components/follow-up/FollowUpQuestionnaire';
 import { UserAssessment } from '@/components/follow-up/types';
+import FollowUpQuestionnaire from '@/components/follow-up/FollowUpQuestionnaire';
+import { useToast } from '@/hooks/use-toast';
 
 interface FollowUpDialogProps {
   isOpen: boolean;
@@ -16,6 +17,16 @@ export const FollowUpDialog = ({
   selectedAssessment, 
   onComplete 
 }: FollowUpDialogProps) => {
+  const { toast } = useToast();
+  
+  const handleComplete = () => {
+    toast({
+      title: "Pokrok zaznamenaný",
+      description: "Vaše odpovede boli úspešne uložené",
+    });
+    onComplete();
+  };
+  
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-3xl">
@@ -25,7 +36,7 @@ export const FollowUpDialog = ({
         {selectedAssessment && (
           <FollowUpQuestionnaire
             assessment={selectedAssessment}
-            onComplete={onComplete}
+            onComplete={handleComplete}
           />
         )}
       </DialogContent>

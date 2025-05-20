@@ -93,37 +93,18 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
     try {
       const now = new Date();
       
-      // First, check if a record already exists
-      const { data: existingData } = await supabase
+      // Always insert a new record to track each completion
+      const { error } = await supabase
         .from('completed_exercises')
-        .select('id')
-        .eq('user_id', user.id)
-        .eq('assessment_id', assessmentId)
-        .eq('exercise_title', exerciseTitle)
-        .single();
+        .insert({
+          user_id: user.id,
+          assessment_id: assessmentId,
+          exercise_title: exerciseTitle,
+          completed_at: now.toISOString()
+        });
       
-      let result;
-      
-      if (existingData) {
-        // Update existing record
-        result = await supabase
-          .from('completed_exercises')
-          .update({ completed_at: now.toISOString() })
-          .eq('id', existingData.id);
-      } else {
-        // Insert new record
-        result = await supabase
-          .from('completed_exercises')
-          .insert({
-            user_id: user.id,
-            assessment_id: assessmentId,
-            exercise_title: exerciseTitle,
-            completed_at: now.toISOString()
-          });
-      }
-      
-      if (result.error) {
-        throw result.error;
+      if (error) {
+        throw error;
       }
       
       setIsCompleted(true);
