@@ -1,177 +1,322 @@
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { useAuth } from '@/contexts/AuthContext';
-import { supabase } from '@/integrations/supabase/client';
+import { Card, CardContent, CardFooter } from '@/components/ui/card';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Label } from '@/components/ui/label';
+import { Slider } from '@/components/ui/slider';
+import { Checkbox } from '@/components/ui/checkbox';
 import { useToast } from '@/hooks/use-toast';
-import { Card } from '@/components/ui/card';
-import { QuestionRenderer } from './QuestionRenderer';
-import { useAssessment } from '@/contexts/AssessmentContext';
+import { supabase } from '@/integrations/supabase/client';
+import { Progress } from '@/components/ui/progress';
+import { useAuth } from '@/contexts/AuthContext';
+import { UserAssessment } from '@/components/follow-up/types';
+import { safeDatabase, FollowUpResponse } from '@/utils/database-helpers';
 
 interface FollowUpQuestionnaireProps {
+  assessment: UserAssessment;
   onComplete: () => void;
 }
 
-export const FollowUpQuestionnaire = ({ onComplete }: FollowUpQuestionnaireProps) => {
-  const { assessmentId } = useAssessment();
-  const [painLevel, setPainLevel] = useState<number>(5);
-  const [responses, setResponses] = useState<Record<string, any>>({});
-  const [loading, setLoading] = useState(false);
-  const [currentStep, setCurrentStep] = useState(0);
-  const { user } = useAuth();
+interface FollowUpQuestion {
+  id: string;
+  text: string;
+  type: 'single' | 'multiple' | 'scale';
+  options?: Array<{
+    id: string;
+    text: string;
+  }>;
+  scale?: {
+    min: number;
+    max: number;
+    minLabel: string;
+    maxLabel: string;
+  };
+}
+
+const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaireProps) => {
   const { toast } = useToast();
+  const { user } = useAuth();
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [answers, setAnswers] = useState<Record<string, any>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
-  // Sample questions
-  const questions = [
-    {
-      id: 'current-pain',
-      type: 'scale',
-      text: 'Ako by ste ohodnotili svoju aktuálnu bolesť?',
-      min: 0,
-      max: 10,
-      minLabel: 'Žiadna bolesť',
-      maxLabel: 'Najhoršia predstaviteľná bolesť'
-    },
-    {
-      id: 'pain-frequency',
-      type: 'single-choice',
-      text: 'Ako často pociťujete bolesť?',
-      options: [
-        'Stále',
-        'Niekoľkokrát za deň',
-        'Raz denne',
-        'Niekoľkokrát za týždeň',
-        'Zriedkavo'
-      ]
-    },
-    {
-      id: 'activities',
-      type: 'multiple-choice',
-      text: 'Ktoré aktivity vám spôsobujú bolesť?',
-      options: [
-        'Chôdza',
-        'Sedenie',
-        'Státie',
-        'Predklon',
-        'Zdvíhanie predmetov',
-        'Otáčanie tela',
-        'Žiadne z uvedených'
-      ]
-    }
-  ];
+  // Placeholder questions based on mechanism - these will be replaced later
+  const placeholderQuestions: Record<string, FollowUpQuestion[]> = {
+    nociceptive: [
+      {
+        id: 'pain-level-change',
+        text: 'Ako by ste hodnotili vašu bolesť v porovnaní s posledným hodnotením?',
+        type: 'scale',
+        scale: {
+          min: 0,
+          max: 10,
+          minLabel: 'Žiadna bolesť',
+          maxLabel: 'Najhoršia predstaviteľná bolesť'
+        }
+      },
+      {
+        id: 'exercise-effectiveness',
+        text: 'Ako účinné sú cvičenia na zmiernenie vašej bolesti?',
+        type: 'single',
+        options: [
+          { id: 'very-effective', text: 'Veľmi účinné' },
+          { id: 'somewhat-effective', text: 'Čiastočne účinné' },
+          { id: 'not-effective', text: 'Neúčinné' }
+        ]
+      }
+    ],
+    neuropathic: [
+      {
+        id: 'pain-level-change',
+        text: 'Ako by ste hodnotili vašu bolesť v porovnaní s posledným hodnotením?',
+        type: 'scale',
+        scale: {
+          min: 0,
+          max: 10,
+          minLabel: 'Žiadna bolesť',
+          maxLabel: 'Najhoršia predstaviteľná bolesť'
+        }
+      },
+      {
+        id: 'nerve-symptoms',
+        text: 'Zmenili sa vaše príznaky mravčenia alebo necitlivosti?',
+        type: 'single',
+        options: [
+          { id: 'improved', text: 'Zlepšili sa' },
+          { id: 'unchanged', text: 'Bez zmeny' },
+          { id: 'worse', text: 'Zhoršili sa' }
+        ]
+      }
+    ],
+    central: [
+      {
+        id: 'pain-level-change',
+        text: 'Ako by ste hodnotili vašu bolesť v porovnaní s posledným hodnotením?',
+        type: 'scale',
+        scale: {
+          min: 0,
+          max: 10,
+          minLabel: 'Žiadna bolesť',
+          maxLabel: 'Najhoršia predstaviteľná bolesť'
+        }
+      },
+      {
+        id: 'sensitivity-change',
+        text: 'Zmenila sa vaša citlivosť na dotyky, svetlo alebo zvuky?',
+        type: 'single',
+        options: [
+          { id: 'less-sensitive', text: 'Menej citlivý/á' },
+          { id: 'same', text: 'Rovnako' },
+          { id: 'more-sensitive', text: 'Viac citlivý/á' }
+        ]
+      }
+    ]
+  };
   
-  const handleAnswerChange = (questionId: string, answer: any) => {
-    setResponses(prev => ({
+  // Default to nociceptive if mechanism not found
+  const questions = placeholderQuestions[assessment.primary_mechanism] || placeholderQuestions.nociceptive;
+  const currentQuestion = questions[currentQuestionIndex];
+  const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
+  
+  // Handle different answer types
+  const handleSingleOptionChange = (questionId: string, optionId: string) => {
+    setAnswers(prev => ({
       ...prev,
-      [questionId]: answer
+      [questionId]: optionId
+    }));
+  };
+
+  const handleMultipleOptionChange = (questionId: string, optionId: string, checked: boolean) => {
+    const prevSelected = answers[questionId] || [];
+    const newSelected = checked 
+      ? [...prevSelected, optionId] 
+      : prevSelected.filter((id: string) => id !== optionId);
+    
+    setAnswers(prev => ({
+      ...prev,
+      [questionId]: newSelected
+    }));
+  };
+
+  const handleSliderChange = (questionId: string, value: number) => {
+    setAnswers(prev => ({
+      ...prev,
+      [questionId]: value
     }));
   };
   
-  const handlePainLevelChange = (value: number) => {
-    setPainLevel(value);
-  };
-  
-  const handleSubmit = async () => {
-    if (!user || !assessmentId) return;
-    
-    try {
-      setLoading(true);
-      
-      const response = {
-        user_id: user.id,
-        assessment_id: assessmentId,
-        pain_level: painLevel,
-        responses
-      };
-      
-      const { error } = await supabase
-        .from('follow_up_responses')
-        .insert(response);
-      
-      if (error) throw error;
-      
-      toast({
-        title: 'Odpovede uložené',
-        description: 'Vaše odpovede boli úspešne uložené.',
-      });
-      
-      onComplete();
-      
-    } catch (error: any) {
-      console.error('Error saving follow-up responses:', error);
-      
-      if (error.message.includes('relation "follow_up_responses" does not exist')) {
-        // Table doesn't exist yet
-        toast({
-          title: 'Funkcia je v príprave',
-          description: 'Táto funkcia zatiaľ nie je dostupná. Skúste to znova neskôr.',
-          variant: 'destructive',
-        });
-      } else {
-        toast({
-          title: 'Chyba pri ukladaní odpovedí',
-          description: 'Nepodarilo sa uložiť vaše odpovede. Skúste to znova neskôr.',
-          variant: 'destructive',
-        });
-      }
-    } finally {
-      setLoading(false);
+  const handleNext = () => {
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex(prev => prev + 1);
+    } else {
+      handleSubmit();
     }
   };
   
-  const goToNextStep = () => {
-    setCurrentStep(prev => Math.min(prev + 1, questions.length));
+  const handleBack = () => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex(prev => prev - 1);
+    }
   };
   
-  const goToPrevStep = () => {
-    setCurrentStep(prev => Math.max(prev - 1, 0));
+  const handleSubmit = async () => {
+    if (!user) return;
+    
+    try {
+      setIsSubmitting(true);
+      
+      // Prepare data for submission
+      const responseData: FollowUpResponse = {
+        user_id: user.id,
+        assessment_id: assessment.id,
+        pain_level: answers['pain-level-change'],
+        responses: answers
+      };
+
+      // Save the follow-up responses to the database
+      // We'll use a custom RPC function if available, otherwise insert directly
+      try {
+        const { error } = await supabase.rpc('insert_follow_up_response', {
+          user_id_param: user.id,
+          assessment_id_param: assessment.id,
+          pain_level_param: answers['pain-level-change'],
+          responses_param: answers
+        });
+        
+        if (error) throw error;
+      } catch (rpcError) {
+        console.log('RPC function not available, falling back to direct insert:', rpcError);
+        
+        // Try direct insert as fallback using our safe helper
+        const { error } = await safeDatabase.followUpResponses.insert(responseData);
+        
+        if (error) throw error;
+      }
+      
+      toast({
+        title: "Pokrok zaznamenaný",
+        description: "Ďakujeme za vyplnenie dotazníka o vašom pokroku.",
+      });
+      
+      onComplete();
+    } catch (error) {
+      console.error('Error saving follow-up questionnaire:', error);
+      toast({
+        title: "Chyba",
+        description: "Nepodarilo sa uložiť vaše odpovede.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   
-  const currentQuestion = questions[currentStep];
-  const isLastStep = currentStep === questions.length - 1;
+  const renderQuestion = () => {
+    if (!currentQuestion) return null;
+    
+    switch (currentQuestion.type) {
+      case 'single':
+        return (
+          <RadioGroup 
+            value={answers[currentQuestion.id]}
+            onValueChange={(value) => handleSingleOptionChange(currentQuestion.id, value)}
+          >
+            <div className="space-y-3">
+              {currentQuestion.options?.map(option => (
+                <div key={option.id} className="flex items-center space-x-2">
+                  <RadioGroupItem value={option.id} id={option.id} />
+                  <Label htmlFor={option.id} className="cursor-pointer">{option.text}</Label>
+                </div>
+              ))}
+            </div>
+          </RadioGroup>
+        );
+        
+      case 'multiple':
+        return (
+          <div className="space-y-3">
+            {currentQuestion.options?.map(option => (
+              <div key={option.id} className="flex items-center space-x-2">
+                <Checkbox 
+                  id={option.id}
+                  checked={(answers[currentQuestion.id] || []).includes(option.id)}
+                  onCheckedChange={(checked) => 
+                    handleMultipleOptionChange(currentQuestion.id, option.id, checked as boolean)
+                  }
+                />
+                <Label htmlFor={option.id} className="cursor-pointer">{option.text}</Label>
+              </div>
+            ))}
+          </div>
+        );
+        
+      case 'scale':
+        if (!currentQuestion.scale) return null;
+        
+        return (
+          <div className="space-y-4">
+            <Slider
+              defaultValue={[5]}
+              max={currentQuestion.scale.max}
+              min={currentQuestion.scale.min}
+              step={1}
+              value={answers[currentQuestion.id] !== undefined ? [answers[currentQuestion.id]] : [5]}
+              onValueChange={(value) => handleSliderChange(currentQuestion.id, value[0])}
+            />
+            <div className="flex justify-between text-sm text-gray-500">
+              <span>{currentQuestion.scale.minLabel} ({currentQuestion.scale.min})</span>
+              <span>
+                Vybrané: <span className="font-medium text-blue-600">
+                  {answers[currentQuestion.id] !== undefined ? answers[currentQuestion.id] : 5}
+                </span>
+              </span>
+              <span>{currentQuestion.scale.maxLabel} ({currentQuestion.scale.max})</span>
+            </div>
+          </div>
+        );
+        
+      default:
+        return null;
+    }
+  };
+  
+  const canProceed = answers[currentQuestion?.id] !== undefined;
   
   return (
-    <Card className="p-6">
-      <h3 className="text-xl font-medium mb-6">Zaznamenať aktuálny stav</h3>
+    <Card>
+      <CardContent className="pt-6">
+        <div className="mb-6">
+          <Progress value={progress} className="h-2" />
+          <p className="text-sm text-gray-500 mt-1">
+            Otázka {currentQuestionIndex + 1} z {questions.length}
+          </p>
+        </div>
+        
+        <div className="space-y-6">
+          <h3 className="text-lg font-medium text-blue-700">{currentQuestion?.text}</h3>
+          {renderQuestion()}
+        </div>
+      </CardContent>
       
-      {currentQuestion && (
-        <QuestionRenderer 
-          question={currentQuestion}
-          response={responses[currentQuestion.id]}
-          onAnswerChange={(answer) => handleAnswerChange(currentQuestion.id, answer)}
-          onPainLevelChange={handlePainLevelChange}
-          currentPainLevel={painLevel}
-        />
-      )}
-      
-      <div className="flex justify-between mt-8">
+      <CardFooter className="flex justify-between">
         <Button 
           variant="outline" 
-          onClick={goToPrevStep} 
-          disabled={currentStep === 0 || loading}
+          onClick={handleBack}
+          disabled={currentQuestionIndex === 0 || isSubmitting}
         >
           Späť
         </Button>
-        
-        <div>
-          {isLastStep ? (
-            <Button 
-              onClick={handleSubmit} 
-              disabled={loading}
-              className="bg-blue-600 hover:bg-blue-700"
-            >
-              {loading ? 'Ukladám...' : 'Dokončiť'}
-            </Button>
-          ) : (
-            <Button 
-              onClick={goToNextStep} 
-              disabled={loading}
-            >
-              Ďalej
-            </Button>
-          )}
-        </div>
-      </div>
+        <Button 
+          onClick={handleNext}
+          disabled={!canProceed || isSubmitting}
+          className="bg-blue-600 hover:bg-blue-700"
+        >
+          {currentQuestionIndex < questions.length - 1 ? 'Ďalej' : 'Dokončiť'}
+        </Button>
+      </CardFooter>
     </Card>
   );
 };
+
+export default FollowUpQuestionnaire;

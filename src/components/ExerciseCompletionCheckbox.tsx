@@ -21,15 +21,13 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
   const { user } = useAuth();
   const { toast } = useToast();
 
-  const COOLDOWN_MINUTES = 1; // Changed from 30 to 1 minute for easier testing
+  const COOLDOWN_MINUTES = 1; // Changed from 30 to 1 minute
 
   useEffect(() => {
     const checkCompletionStatus = async () => {
       if (!user) return;
       
       try {
-        setLoading(true);
-        
         const { data, error } = await supabase
           .from('completed_exercises')
           .select('*')
@@ -95,15 +93,34 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
     try {
       const now = new Date();
       
-      // Always insert a new record when the button is clicked (to record each completion separately)
-      const result = await supabase
+      // First, check if a record already exists
+      const { data: existingData } = await supabase
         .from('completed_exercises')
-        .insert({
-          user_id: user.id,
-          assessment_id: assessmentId,
-          exercise_title: exerciseTitle,
-          completed_at: now.toISOString()
-        });
+        .select('id')
+        .eq('user_id', user.id)
+        .eq('assessment_id', assessmentId)
+        .eq('exercise_title', exerciseTitle)
+        .single();
+      
+      let result;
+      
+      if (existingData) {
+        // Update existing record
+        result = await supabase
+          .from('completed_exercises')
+          .update({ completed_at: now.toISOString() })
+          .eq('id', existingData.id);
+      } else {
+        // Insert new record
+        result = await supabase
+          .from('completed_exercises')
+          .insert({
+            user_id: user.id,
+            assessment_id: assessmentId,
+            exercise_title: exerciseTitle,
+            completed_at: now.toISOString()
+          });
+      }
       
       if (result.error) {
         throw result.error;

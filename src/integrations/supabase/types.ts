@@ -41,41 +41,6 @@ export type Database = {
           },
         ]
       }
-      follow_up_responses: {
-        Row: {
-          assessment_id: string
-          created_at: string
-          id: string
-          pain_level: number
-          responses: Json
-          user_id: string
-        }
-        Insert: {
-          assessment_id: string
-          created_at?: string
-          id?: string
-          pain_level: number
-          responses?: Json
-          user_id: string
-        }
-        Update: {
-          assessment_id?: string
-          created_at?: string
-          id?: string
-          pain_level?: number
-          responses?: Json
-          user_id?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "follow_up_responses_assessment_id_fkey"
-            columns: ["assessment_id"]
-            isOneToOne: false
-            referencedRelation: "user_assessments"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
       profiles: {
         Row: {
           created_at: string
@@ -135,13 +100,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      get_latest_pain_level: {
-        Args: { assessment_id_param: string; user_id_param: string }
-        Returns: {
-          pain_level: number
-          created_at: string
-        }[]
-      }
+      [_ in never]: never
     }
     Enums: {
       [_ in never]: never

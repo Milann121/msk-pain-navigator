@@ -1,6 +1,6 @@
 
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { FollowUpQuestionnaire } from '@/components/follow-up/FollowUpQuestionnaire';
+import FollowUpQuestionnaire from '@/components/follow-up/FollowUpQuestionnaire';
 import { UserAssessment } from '@/components/follow-up/types';
 
 interface FollowUpDialogProps {
@@ -24,7 +24,7 @@ export const FollowUpDialog = ({
         </DialogHeader>
         {selectedAssessment && (
           <FollowUpQuestionnaire
-            assessmentId={selectedAssessment.id}
+            assessment={selectedAssessment}
             onComplete={onComplete}
           />
         )}

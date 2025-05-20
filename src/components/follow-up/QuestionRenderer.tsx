@@ -1,72 +1,59 @@
 
-import React from 'react';
-import { SingleChoiceQuestion } from './SingleChoiceQuestion';
-import { MultipleChoiceQuestion } from './MultipleChoiceQuestion';
-import { ScaleQuestion } from './ScaleQuestion';
-
-// Define the types for the questions
-interface QuestionBase {
-  id: string;
-  text: string;
-  type: string;
-}
-
-interface ScaleQuestionType extends QuestionBase {
-  type: 'scale';
-  min: number;
-  max: number;
-  minLabel: string;
-  maxLabel: string;
-}
-
-interface ChoiceQuestionType extends QuestionBase {
-  type: 'single-choice' | 'multiple-choice';
-  options: string[];
-}
-
-export type FollowUpQuestionType = ScaleQuestionType | ChoiceQuestionType;
+import { FollowUpQuestion } from './types';
+import SingleChoiceQuestion from './SingleChoiceQuestion';
+import MultipleChoiceQuestion from './MultipleChoiceQuestion';
+import ScaleQuestion from './ScaleQuestion';
 
 interface QuestionRendererProps {
-  question: FollowUpQuestionType;
-  response: any;
-  onAnswerChange: (answer: any) => void;
-  onPainLevelChange: (value: number) => void;
-  currentPainLevel: number;
+  question: FollowUpQuestion;
+  answer: any;
+  onAnswerChange: (questionId: string, answer: any) => void;
+  onSliderChange: (questionId: string, value: number) => void;
 }
 
-const QuestionRenderer = ({ 
-  question, 
-  response, 
-  onAnswerChange, 
-  onPainLevelChange,
-  currentPainLevel 
-}: QuestionRendererProps) => {
-  
+const QuestionRenderer = ({ question, answer, onAnswerChange, onSliderChange }: QuestionRendererProps) => {
+  const handleSingleOptionChange = (value: string) => {
+    onAnswerChange(question.id, value);
+  };
+
+  const handleMultipleOptionChange = (optionId: string, checked: boolean) => {
+    const prevSelected = answer || [];
+    const newSelected = checked 
+      ? [...prevSelected, optionId] 
+      : prevSelected.filter((id: string) => id !== optionId);
+    
+    onAnswerChange(question.id, newSelected);
+  };
+
+  const handleSliderChange = (value: number) => {
+    onSliderChange(question.id, value);
+  };
+
   return (
     <div className="space-y-6 pt-4">
       <h3 className="text-lg font-medium text-blue-700">{question.text}</h3>
       
-      {question.type === 'single-choice' && (
+      {question.type === 'single' && (
         <SingleChoiceQuestion 
-          question={question as ChoiceQuestionType}
-          value={response} 
-          onChange={onAnswerChange}
+          question={question} 
+          value={answer} 
+          onChange={handleSingleOptionChange}
         />
       )}
       
-      {question.type === 'multiple-choice' && (
+      {question.type === 'multiple' && (
         <MultipleChoiceQuestion 
-          question={question as ChoiceQuestionType}
-          value={response} 
-          onChange={onAnswerChange}
+          question={question} 
+          value={answer} 
+          onChange={handleMultipleOptionChange}
         />
       )}
       
       {question.type === 'scale' && (
         <ScaleQuestion 
-          question={question as ScaleQuestionType}
-          value={currentPainLevel} 
-          onChange={onPainLevelChange}
+          question={question} 
+          value={answer} 
+          onChange={handleSliderChange}
         />
       )}
     </div>

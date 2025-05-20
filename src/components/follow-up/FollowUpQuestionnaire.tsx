@@ -1,143 +1,153 @@
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { useAuth } from '@/contexts/AuthContext';
-import { supabase } from '@/integrations/supabase/client';
+import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
-import { Card } from '@/components/ui/card';
+import { supabase } from '@/integrations/supabase/client';
+import { Progress } from '@/components/ui/progress';
+import { useAuth } from '@/contexts/AuthContext';
 import QuestionRenderer from './QuestionRenderer';
 import { placeholderQuestions } from './PlaceholderQuestions';
+import { UserAssessment } from './types';
+import { safeDatabase, FollowUpResponse } from '@/utils/database-helpers';
 
 interface FollowUpQuestionnaireProps {
-  assessmentId: string;
+  assessment: UserAssessment;
   onComplete: () => void;
 }
 
-export const FollowUpQuestionnaire = ({ assessmentId, onComplete }: FollowUpQuestionnaireProps) => {
-  const [painLevel, setPainLevel] = useState<number>(5);
-  const [responses, setResponses] = useState<Record<string, any>>({});
-  const [loading, setLoading] = useState(false);
-  const [currentStep, setCurrentStep] = useState(0);
-  const { user } = useAuth();
+const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaireProps) => {
   const { toast } = useToast();
+  const { user } = useAuth();
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [answers, setAnswers] = useState<Record<string, any>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
-  // Using placeholder questions
-  const questions = placeholderQuestions;
+  // Default to nociceptive if mechanism not found
+  const questions = placeholderQuestions[assessment.primary_mechanism] || placeholderQuestions.nociceptive;
+  const currentQuestion = questions[currentQuestionIndex];
+  const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
   
   const handleAnswerChange = (questionId: string, answer: any) => {
-    setResponses(prev => ({
+    setAnswers(prev => ({
       ...prev,
       [questionId]: answer
     }));
   };
   
-  const handlePainLevelChange = (value: number) => {
-    setPainLevel(value);
+  const handleSliderChange = (questionId: string, value: number) => {
+    setAnswers(prev => ({
+      ...prev,
+      [questionId]: value
+    }));
+  };
+  
+  const handleNext = () => {
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex(prev => prev + 1);
+    } else {
+      handleSubmit();
+    }
+  };
+  
+  const handleBack = () => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex(prev => prev - 1);
+    }
   };
   
   const handleSubmit = async () => {
     if (!user) return;
     
     try {
-      setLoading(true);
+      setIsSubmitting(true);
       
-      const response = {
+      // Prepare data for submission
+      const responseData: FollowUpResponse = {
         user_id: user.id,
-        assessment_id: assessmentId,
-        pain_level: painLevel,
-        responses
+        assessment_id: assessment.id,
+        pain_level: answers['pain-level-change'] || 0,
+        responses: answers
       };
-      
-      // Using the safeDatabase helper instead of direct supabase call
-      // to handle the table that might not be in the TypeScript definitions yet
-      const { error } = await supabase
-        .from('follow_up_responses')
-        .insert(response as any);
-      
-      if (error) throw error;
+
+      // Save the follow-up responses to the database
+      // First try using RPC function if available
+      try {
+        const { error } = await supabase.rpc('insert_follow_up_response', {
+          user_id_param: user.id,
+          assessment_id_param: assessment.id,
+          pain_level_param: answers['pain-level-change'] || 0,
+          responses_param: answers
+        });
+        
+        if (error) throw error;
+      } catch (rpcError) {
+        console.log('RPC function not available, falling back to direct insert:', rpcError);
+        
+        // Try direct insert as fallback using our safe helper
+        const { error } = await safeDatabase.followUpResponses.insert(responseData);
+          
+        if (error) throw error;
+      }
       
       toast({
-        title: 'Odpovede uložené',
-        description: 'Vaše odpovede boli úspešne uložené.',
+        title: "Pokrok zaznamenaný",
+        description: "Ďakujeme za vyplnenie dotazníka o vašom pokroku.",
       });
       
       onComplete();
-      
-    } catch (error: any) {
-      console.error('Error saving follow-up responses:', error);
-      
-      if (error.message.includes('relation "follow_up_responses" does not exist')) {
-        // Table doesn't exist yet
-        toast({
-          title: 'Funkcia je v príprave',
-          description: 'Táto funkcia zatiaľ nie je dostupná. Skúste to znova neskôr.',
-          variant: 'destructive',
-        });
-      } else {
-        toast({
-          title: 'Chyba pri ukladaní odpovedí',
-          description: 'Nepodarilo sa uložiť vaše odpovede. Skúste to znova neskôr.',
-          variant: 'destructive',
-        });
-      }
+    } catch (error) {
+      console.error('Error saving follow-up questionnaire:', error);
+      toast({
+        title: "Chyba",
+        description: "Nepodarilo sa uložiť vaše odpovede.",
+        variant: "destructive"
+      });
     } finally {
-      setLoading(false);
+      setIsSubmitting(false);
     }
   };
   
-  const goToNextStep = () => {
-    setCurrentStep(prev => Math.min(prev + 1, questions.length));
-  };
-  
-  const goToPrevStep = () => {
-    setCurrentStep(prev => Math.max(prev - 1, 0));
-  };
-  
-  const currentQuestion = questions[currentStep];
-  const isLastStep = currentStep === questions.length - 1;
+  const canProceed = answers[currentQuestion?.id] !== undefined;
   
   return (
-    <Card className="p-6 mb-6">
-      <h3 className="text-xl font-medium mb-6">Zaznamenať aktuálny stav</h3>
+    <Card>
+      <CardContent className="pt-6">
+        <div className="mb-6">
+          <Progress value={progress} className="h-2" />
+          <p className="text-sm text-gray-500 mt-1">
+            Otázka {currentQuestionIndex + 1} z {questions.length}
+          </p>
+        </div>
+        
+        <div className="space-y-6">
+          <QuestionRenderer 
+            question={currentQuestion}
+            answer={answers[currentQuestion?.id]}
+            onAnswerChange={handleAnswerChange}
+            onSliderChange={handleSliderChange}
+          />
+        </div>
+      </CardContent>
       
-      {currentQuestion && (
-        <QuestionRenderer 
-          question={currentQuestion}
-          response={responses[currentQuestion.id]}
-          onAnswerChange={(answer) => handleAnswerChange(currentQuestion.id, answer)}
-          onPainLevelChange={handlePainLevelChange}
-          currentPainLevel={painLevel}
-        />
-      )}
-      
-      <div className="flex justify-between mt-8">
+      <CardFooter className="flex justify-between">
         <Button 
           variant="outline" 
-          onClick={goToPrevStep} 
-          disabled={currentStep === 0 || loading}
+          onClick={handleBack}
+          disabled={currentQuestionIndex === 0 || isSubmitting}
         >
           Späť
         </Button>
-        
-        <div>
-          {isLastStep ? (
-            <Button 
-              onClick={handleSubmit} 
-              disabled={loading}
-              className="bg-blue-600 hover:bg-blue-700"
-            >
-              {loading ? 'Ukladám...' : 'Dokončiť'}
-            </Button>
-          ) : (
-            <Button 
-              onClick={goToNextStep} 
-              disabled={loading}
-            >
-              Ďalej
-            </Button>
-          )}
-        </div>
-      </div>
+        <Button 
+          onClick={handleNext}
+          disabled={!canProceed || isSubmitting}
+          className="bg-blue-600 hover:bg-blue-700"
+        >
+          {currentQuestionIndex < questions.length - 1 ? 'Ďalej' : 'Dokončiť'}
+        </Button>
+      </CardFooter>
     </Card>
   );
 };
+
+export default FollowUpQuestionnaire;
