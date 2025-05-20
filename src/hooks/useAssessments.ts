@@ -70,10 +70,10 @@ export const useAssessments = () => {
               });
                 
               if (!error && data && data.length > 0) {
-                latestPainLevel = data[0].pain_level;
+                latestPainLevel = data[0]?.pain_level;
               }
             } else if (followUpData && followUpData.length > 0) {
-              latestPainLevel = followUpData[0].pain_level;
+              latestPainLevel = followUpData[0]?.pain_level;
             }
           } catch (error) {
             // Table might not exist yet, which is fine

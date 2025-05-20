@@ -1,198 +1,26 @@
 
-import { useState } from 'react';
-import { useAuth } from '@/contexts/AuthContext';
 import { Navigate } from 'react-router-dom';
-import UserForm from '@/components/UserForm';
-import Questionnaire from '@/components/Questionnaire';
-import ResultsPage from '@/components/ResultsPage';
+import { useAuth } from '@/contexts/AuthContext';
 import Header from '@/components/Header';
-import { 
-  questionnaires,
-} from '@/data/questionnaires';
-import { 
-  processGeneralQuestionnaire, 
-  processFollowUpQuestionnaire, 
-  createAssessmentResults 
-} from '@/utils/assessmentAnalyzer';
-import { 
-  UserInfo, 
-  PainMechanism, 
-  SINGroup, 
-  Differential, 
-  ScoreTracker, 
-  AssessmentResults 
-} from '@/utils/types';
-import { supabase } from "@/integrations/supabase/client";
-import { useToast } from '@/hooks/use-toast';
-import { safeDatabase } from '@/utils/database-helpers';
+import { AssessmentProvider, useAssessment, AssessmentStage } from '@/contexts/AssessmentContext';
+import LoadingView from '@/components/assessment/LoadingView';
+import UserInfoHandler from '@/components/assessment/UserInfoHandler';
+import GeneralQuestionnaireHandler from '@/components/assessment/GeneralQuestionnaireHandler';
+import FollowUpQuestionnaireHandler from '@/components/assessment/FollowUpQuestionnaireHandler';
+import ResultsHandler from '@/components/assessment/ResultsHandler';
+import SubmittingOverlay from '@/components/assessment/SubmittingOverlay';
 
-enum AssessmentStage {
-  UserInfo,
-  GeneralQuestionnaire,
-  FollowUpQuestionnaire,
-  Results
-}
-
-const Assessment = () => {
+const AssessmentContent = () => {
   const { user, isLoading } = useAuth();
-  const { toast } = useToast();
-
+  const { stage, isSubmitting } = useAssessment();
+  
   if (isLoading) {
-    return (
-      <div className="min-h-screen flex flex-col">
-        <Header />
-        <div className="flex-1 bg-gradient-to-b from-blue-50 to-white py-10 px-4 flex items-center justify-center">
-          <div className="text-blue-600">Načítava sa...</div>
-        </div>
-      </div>
-    );
+    return <LoadingView />;
   }
 
   if (!user) {
     return <Navigate to="/auth" replace />;
   }
-
-  const [stage, setStage] = useState<AssessmentStage>(AssessmentStage.UserInfo);
-  const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
-  const [generalAnswers, setGeneralAnswers] = useState<Record<string, any>>({});
-  const [followUpAnswers, setFollowUpAnswers] = useState<Record<string, any>>({});
-  const [primaryMechanism, setPrimaryMechanism] = useState<PainMechanism>('none');
-  const [sinGroup, setSINGroup] = useState<SINGroup>('none');
-  const [scores, setScores] = useState<ScoreTracker | null>(null);
-  const [primaryDifferential, setPrimaryDifferential] = useState<Differential>('none');
-  const [results, setResults] = useState<AssessmentResults | null>(null);
-  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const [assessmentId, setAssessmentId] = useState<string | null>(null);
-  const [assessmentSaved, setAssessmentSaved] = useState<boolean>(false);
-
-  const handleUserInfoSubmit = (data: UserInfo) => {
-    setUserInfo(data);
-    setStage(AssessmentStage.GeneralQuestionnaire);
-  };
-
-  const handleGeneralQuestionnaireComplete = async (answers: Record<string, any>) => {
-    setGeneralAnswers(answers);
-    
-    const { scores: newScores, primaryMechanism: newMechanism, sinGroup: newSinGroup } = 
-      processGeneralQuestionnaire(answers);
-    
-    setScores(newScores);
-    setPrimaryMechanism(newMechanism);
-    setSINGroup(newSinGroup);
-    
-    // Store the general questionnaire results for later retrieval
-    if (user && answers['pain-intensity'] !== undefined) {
-      try {
-        // Get pain intensity value from answers
-        const painIntensity = answers['pain-intensity'];
-        
-        // Only create the assessment if it hasn't been created already
-        if (!assessmentId) {
-          // Create assessment record first with pain intensity value
-          const { data: assessmentData, error: assessmentError } = await supabase
-            .from('user_assessments')
-            .insert({
-              user_id: user.id,
-              pain_area: userInfo?.painArea || '',
-              primary_mechanism: newMechanism,
-              sin_group: newSinGroup,
-              primary_differential: 'none', // Will be updated later
-              intial_pain_intensity: painIntensity // Save pain intensity to the new column
-            })
-            .select('id')
-            .single();
-
-          if (assessmentError) throw assessmentError;
-          
-          if (assessmentData?.id) {
-            setAssessmentId(assessmentData.id);
-            setAssessmentSaved(true);
-            
-            // Store the general questionnaire results
-            const { error: questionnaireError } = await safeDatabase.generalQuestionnaire.insert({
-              user_id: user.id,
-              assessment_id: assessmentData.id,
-              answers: answers
-            });
-              
-            if (questionnaireError) throw questionnaireError;
-            
-            console.log('Successfully stored general questionnaire answers with pain intensity:', painIntensity);
-          }
-        }
-      } catch (error) {
-        console.error('Error storing general questionnaire results:', error);
-        toast({
-          title: 'Chyba',
-          description: 'Nepodarilo sa uložiť vaše odpovede.',
-          variant: 'destructive'
-        });
-      }
-    }
-    
-    setStage(AssessmentStage.FollowUpQuestionnaire);
-  };
-
-  const handleFollowUpQuestionnaireComplete = async (answers: Record<string, any>) => {
-    setIsSubmitting(true);
-    setFollowUpAnswers(answers);
-    
-    if (!userInfo || !scores || !assessmentId) {
-      setIsSubmitting(false);
-      return;
-    }
-    
-    const { scores: updatedScores, primaryDifferential: newDifferential } = 
-      processFollowUpQuestionnaire(
-        primaryMechanism as 'nociceptive' | 'neuropathic' | 'central',
-        answers,
-        scores
-      );
-    
-    setScores(updatedScores);
-    setPrimaryDifferential(newDifferential);
-    
-    const assessmentResults = createAssessmentResults(
-      userInfo,
-      primaryMechanism,
-      sinGroup,
-      newDifferential,
-      updatedScores
-    );
-
-    // Update the assessment record with the primary differential
-    try {
-      // Only update the differential, not create a new record
-      const { error } = await supabase
-        .from('user_assessments')
-        .update({
-          primary_differential: newDifferential
-        })
-        .eq('id', assessmentId);
-        
-      if (error) throw error;
-    } catch (error) {
-      console.error('Error updating assessment with differential:', error);
-    }
-    
-    setResults(assessmentResults);
-    setStage(AssessmentStage.Results);
-    setIsSubmitting(false);
-  };
-
-  const handleRestart = () => {
-    setStage(AssessmentStage.UserInfo);
-    setUserInfo(null);
-    setGeneralAnswers({});
-    setFollowUpAnswers({});
-    setPrimaryMechanism('none');
-    setSINGroup('none');
-    setScores(null);
-    setPrimaryDifferential('none');
-    setResults(null);
-    setAssessmentId(null);
-    setAssessmentSaved(false);
-  };
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -208,45 +36,26 @@ const Assessment = () => {
             </p>
           </header>
           
-          {stage === AssessmentStage.UserInfo && (
-            <UserForm onSubmit={handleUserInfoSubmit} />
-          )}
+          {stage === AssessmentStage.UserInfo && <UserInfoHandler />}
           
-          {stage === AssessmentStage.GeneralQuestionnaire && (
-            <Questionnaire
-              questionnaire={questionnaires.general}
-              onComplete={handleGeneralQuestionnaireComplete}
-              onBack={handleRestart}
-            />
-          )}
+          {stage === AssessmentStage.GeneralQuestionnaire && <GeneralQuestionnaireHandler />}
           
-          {stage === AssessmentStage.FollowUpQuestionnaire && primaryMechanism !== 'none' && (
-            <Questionnaire
-              questionnaire={questionnaires[primaryMechanism as 'nociceptive' | 'neuropathic' | 'central']}
-              onComplete={handleFollowUpQuestionnaireComplete}
-              onBack={() => setStage(AssessmentStage.GeneralQuestionnaire)}
-            />
-          )}
+          {stage === AssessmentStage.FollowUpQuestionnaire && <FollowUpQuestionnaireHandler />}
           
-          {stage === AssessmentStage.Results && results && (
-            <ResultsPage
-              results={results}
-              onRestart={handleRestart}
-              assessmentId={assessmentId}
-              assessmentSaved={assessmentSaved}
-            />
-          )}
+          {stage === AssessmentStage.Results && <ResultsHandler />}
           
-          {isSubmitting && (
-            <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-              <div className="bg-white p-6 rounded-lg shadow-lg">
-                <p className="text-lg font-medium">Spracovávame vaše výsledky...</p>
-              </div>
-            </div>
-          )}
+          {isSubmitting && <SubmittingOverlay />}
         </div>
       </div>
     </div>
+  );
+};
+
+const Assessment = () => {
+  return (
+    <AssessmentProvider>
+      <AssessmentContent />
+    </AssessmentProvider>
   );
 };
 
