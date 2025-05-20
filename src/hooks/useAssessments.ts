@@ -69,10 +69,10 @@ export const useAssessments = () => {
                 orderBy: { column: 'created_at', ascending: false }
               });
                 
-              if (!error && data && Array.isArray(data) && data.length > 0) {
+              if (!error && data && data.length > 0) {
                 latestPainLevel = data[0].pain_level;
               }
-            } else if (followUpData && Array.isArray(followUpData) && followUpData.length > 0) {
+            } else if (followUpData && followUpData.length > 0) {
               latestPainLevel = followUpData[0].pain_level;
             }
           } catch (error) {
@@ -137,7 +137,7 @@ export const useAssessments = () => {
             schema: 'public',
             table: 'follow_up_responses',
             filter: `user_id=eq.${user?.id}`,
-          } as any, 
+          }, 
           (payload) => {
             console.log('Follow-up response change detected:', payload);
             fetchUserAssessments();

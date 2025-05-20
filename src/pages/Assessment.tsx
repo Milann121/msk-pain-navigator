@@ -86,36 +86,39 @@ const Assessment = () => {
         // Get pain intensity value from answers
         const painIntensity = answers['pain-intensity'];
         
-        // Create assessment record first with pain intensity value
-        const { data: assessmentData, error: assessmentError } = await supabase
-          .from('user_assessments')
-          .insert({
-            user_id: user.id,
-            pain_area: userInfo?.painArea || '',
-            primary_mechanism: newMechanism,
-            sin_group: newSinGroup,
-            primary_differential: 'none', // Will be updated later
-            intial_pain_intensity: painIntensity // Save pain intensity to the new column
-          })
-          .select('id')
-          .single();
+        // Only create the assessment if it hasn't been created already
+        if (!assessmentId) {
+          // Create assessment record first with pain intensity value
+          const { data: assessmentData, error: assessmentError } = await supabase
+            .from('user_assessments')
+            .insert({
+              user_id: user.id,
+              pain_area: userInfo?.painArea || '',
+              primary_mechanism: newMechanism,
+              sin_group: newSinGroup,
+              primary_differential: 'none', // Will be updated later
+              intial_pain_intensity: painIntensity // Save pain intensity to the new column
+            })
+            .select('id')
+            .single();
 
-        if (assessmentError) throw assessmentError;
-        
-        if (assessmentData?.id) {
-          setAssessmentId(assessmentData.id);
-          setAssessmentSaved(true);
+          if (assessmentError) throw assessmentError;
           
-          // Store the general questionnaire results
-          const { error: questionnaireError } = await safeDatabase.generalQuestionnaire.insert({
-            user_id: user.id,
-            assessment_id: assessmentData.id,
-            answers: answers
-          });
+          if (assessmentData?.id) {
+            setAssessmentId(assessmentData.id);
+            setAssessmentSaved(true);
             
-          if (questionnaireError) throw questionnaireError;
-          
-          console.log('Successfully stored general questionnaire answers with pain intensity:', painIntensity);
+            // Store the general questionnaire results
+            const { error: questionnaireError } = await safeDatabase.generalQuestionnaire.insert({
+              user_id: user.id,
+              assessment_id: assessmentData.id,
+              answers: answers
+            });
+              
+            if (questionnaireError) throw questionnaireError;
+            
+            console.log('Successfully stored general questionnaire answers with pain intensity:', painIntensity);
+          }
         }
       } catch (error) {
         console.error('Error storing general questionnaire results:', error);
@@ -159,6 +162,7 @@ const Assessment = () => {
 
     // Update the assessment record with the primary differential
     try {
+      // Only update the differential, not create a new record
       const { error } = await supabase
         .from('user_assessments')
         .update({
