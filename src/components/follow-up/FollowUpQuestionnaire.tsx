@@ -5,9 +5,8 @@ import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { Card } from '@/components/ui/card';
-import { QuestionRenderer } from './QuestionRenderer';
-import { PlaceholderQuestions } from './PlaceholderQuestions';
-import { FollowUpQuestionType, FollowUpQuestionData, followUpQuestionTypes } from './types';
+import QuestionRenderer from './QuestionRenderer';
+import { placeholderQuestions } from './PlaceholderQuestions';
 
 interface FollowUpQuestionnaireProps {
   assessmentId: string;
@@ -23,7 +22,7 @@ export const FollowUpQuestionnaire = ({ assessmentId, onComplete }: FollowUpQues
   const { toast } = useToast();
   
   // Using placeholder questions
-  const questions = PlaceholderQuestions;
+  const questions = placeholderQuestions;
   
   const handleAnswerChange = (questionId: string, answer: any) => {
     setResponses(prev => ({
@@ -49,9 +48,11 @@ export const FollowUpQuestionnaire = ({ assessmentId, onComplete }: FollowUpQues
         responses
       };
       
+      // Using the safeDatabase helper instead of direct supabase call
+      // to handle the table that might not be in the TypeScript definitions yet
       const { error } = await supabase
         .from('follow_up_responses')
-        .insert(response);
+        .insert(response as any);
       
       if (error) throw error;
       

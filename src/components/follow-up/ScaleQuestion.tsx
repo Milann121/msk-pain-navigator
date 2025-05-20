@@ -1,35 +1,37 @@
 
+import React from 'react';
 import { Slider } from '@/components/ui/slider';
-import { FollowUpQuestion } from './types';
 
 interface ScaleQuestionProps {
-  question: FollowUpQuestion;
-  value: number | undefined;
+  question: {
+    min: number;
+    max: number;
+    minLabel: string;
+    maxLabel: string;
+  };
+  value: number;
   onChange: (value: number) => void;
 }
 
-const ScaleQuestion = ({ question, value = 5, onChange }: ScaleQuestionProps) => {
-  if (!question.scale) return null;
-  
+const ScaleQuestion = ({ question, value, onChange }: ScaleQuestionProps) => {
   return (
     <div className="space-y-4">
       <Slider
-        defaultValue={[5]}
-        max={question.scale.max}
-        min={question.scale.min}
-        step={1}
         value={[value]}
+        min={question.min}
+        max={question.max}
+        step={1}
         onValueChange={(values) => onChange(values[0])}
       />
       <div className="flex justify-between text-sm text-gray-500">
-        <span>{question.scale.minLabel} ({question.scale.min})</span>
+        <span>{question.minLabel} ({question.min})</span>
         <span>
-          Vybrané: <span className="font-medium text-blue-600">{value}</span>
+          Vybratá hodnota: <span className="font-medium text-blue-600">{value}</span>
         </span>
-        <span>{question.scale.maxLabel} ({question.scale.max})</span>
+        <span>{question.maxLabel} ({question.max})</span>
       </div>
     </div>
   );
 };
 
-export default ScaleQuestion;
+export { ScaleQuestion };

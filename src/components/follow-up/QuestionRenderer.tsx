@@ -1,59 +1,72 @@
 
-import { FollowUpQuestion } from './types';
-import SingleChoiceQuestion from './SingleChoiceQuestion';
-import MultipleChoiceQuestion from './MultipleChoiceQuestion';
-import ScaleQuestion from './ScaleQuestion';
+import React from 'react';
+import { SingleChoiceQuestion } from './SingleChoiceQuestion';
+import { MultipleChoiceQuestion } from './MultipleChoiceQuestion';
+import { ScaleQuestion } from './ScaleQuestion';
 
-interface QuestionRendererProps {
-  question: FollowUpQuestion;
-  answer: any;
-  onAnswerChange: (questionId: string, answer: any) => void;
-  onSliderChange: (questionId: string, value: number) => void;
+// Define the types for the questions
+interface QuestionBase {
+  id: string;
+  text: string;
+  type: string;
 }
 
-const QuestionRenderer = ({ question, answer, onAnswerChange, onSliderChange }: QuestionRendererProps) => {
-  const handleSingleOptionChange = (value: string) => {
-    onAnswerChange(question.id, value);
-  };
+interface ScaleQuestionType extends QuestionBase {
+  type: 'scale';
+  min: number;
+  max: number;
+  minLabel: string;
+  maxLabel: string;
+}
 
-  const handleMultipleOptionChange = (optionId: string, checked: boolean) => {
-    const prevSelected = answer || [];
-    const newSelected = checked 
-      ? [...prevSelected, optionId] 
-      : prevSelected.filter((id: string) => id !== optionId);
-    
-    onAnswerChange(question.id, newSelected);
-  };
+interface ChoiceQuestionType extends QuestionBase {
+  type: 'single-choice' | 'multiple-choice';
+  options: string[];
+}
 
-  const handleSliderChange = (value: number) => {
-    onSliderChange(question.id, value);
-  };
+export type FollowUpQuestionType = ScaleQuestionType | ChoiceQuestionType;
 
+interface QuestionRendererProps {
+  question: FollowUpQuestionType;
+  response: any;
+  onAnswerChange: (answer: any) => void;
+  onPainLevelChange: (value: number) => void;
+  currentPainLevel: number;
+}
+
+const QuestionRenderer = ({ 
+  question, 
+  response, 
+  onAnswerChange, 
+  onPainLevelChange,
+  currentPainLevel 
+}: QuestionRendererProps) => {
+  
   return (
     <div className="space-y-6 pt-4">
       <h3 className="text-lg font-medium text-blue-700">{question.text}</h3>
       
-      {question.type === 'single' && (
+      {question.type === 'single-choice' && (
         <SingleChoiceQuestion 
-          question={question} 
-          value={answer} 
-          onChange={handleSingleOptionChange}
+          question={question as ChoiceQuestionType}
+          value={response} 
+          onChange={onAnswerChange}
         />
       )}
       
-      {question.type === 'multiple' && (
+      {question.type === 'multiple-choice' && (
         <MultipleChoiceQuestion 
-          question={question} 
-          value={answer} 
-          onChange={handleMultipleOptionChange}
+          question={question as ChoiceQuestionType}
+          value={response} 
+          onChange={onAnswerChange}
         />
       )}
       
       {question.type === 'scale' && (
         <ScaleQuestion 
-          question={question} 
-          value={answer} 
-          onChange={handleSliderChange}
+          question={question as ScaleQuestionType}
+          value={currentPainLevel} 
+          onChange={onPainLevelChange}
         />
       )}
     </div>
