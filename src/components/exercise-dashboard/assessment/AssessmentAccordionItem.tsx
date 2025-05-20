@@ -143,7 +143,7 @@ const ExerciseCompletionInfo = ({ assessment }: DetailsSectionProps) => {
     <div className="space-y-2">
       <div>
         <span className="font-medium text-gray-500">Odcvičené:</span>
-        <div className="mt-1 font-medium">
+        <div className="mt-1 font-medium text-green-700">
           {assessment.completed_exercises_count > 0 ? `${assessment.completed_exercises_count}x` : '0x'}
         </div>
       </div>

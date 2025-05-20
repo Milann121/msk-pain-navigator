@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
@@ -61,14 +62,14 @@ export const useAssessments = () => {
               // If RPC fails, try direct query using the safe helper
               console.log('RPC not available, trying direct query');
               
-              const { data: followUpResponsesData, error: directQueryError } = await safeDatabase.followUpResponses.select({
+              const { data: followUpResponsesData } = await safeDatabase.followUpResponses.select({
                 assessment_id: assessment.id,
                 user_id: user.id,
                 limit: 1,
                 orderBy: { column: 'created_at', ascending: false }
               });
                 
-              if (!directQueryError && followUpResponsesData && Array.isArray(followUpResponsesData) && followUpResponsesData.length > 0) {
+              if (followUpResponsesData && Array.isArray(followUpResponsesData) && followUpResponsesData.length > 0) {
                 latestPainLevel = followUpResponsesData[0]?.pain_level;
               }
             } else if (followUpData && followUpData.length > 0) {
