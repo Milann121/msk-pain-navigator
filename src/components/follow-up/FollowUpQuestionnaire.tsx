@@ -125,7 +125,7 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
             question={currentQuestion}
             answer={answers[currentQuestion?.id]}
             onAnswerChange={handleAnswerChange}
-            onSliderChange={(value) => handleSliderChange(currentQuestion?.id, value)}
+            onSliderChange={handleSliderChange}
           />
         </div>
       </CardContent>

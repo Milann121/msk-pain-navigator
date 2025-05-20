@@ -8,7 +8,7 @@ interface QuestionRendererProps {
   question: FollowUpQuestion;
   answer: any;
   onAnswerChange: (questionId: string, answer: any) => void;
-  onSliderChange: (value: number) => void;
+  onSliderChange: (questionId: string, value: number) => void;
 }
 
 const QuestionRenderer = ({ question, answer, onAnswerChange, onSliderChange }: QuestionRendererProps) => {
@@ -26,7 +26,7 @@ const QuestionRenderer = ({ question, answer, onAnswerChange, onSliderChange }: 
   };
 
   const handleSliderChange = (value: number) => {
-    onSliderChange(value);
+    onSliderChange(question.id, value);
   };
 
   return (
