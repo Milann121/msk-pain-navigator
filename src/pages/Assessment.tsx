@@ -63,6 +63,7 @@ const Assessment = () => {
   const [results, setResults] = useState<AssessmentResults | null>(null);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [assessmentId, setAssessmentId] = useState<string | null>(null);
+  const [assessmentSaved, setAssessmentSaved] = useState<boolean>(false);
 
   const handleUserInfoSubmit = (data: UserInfo) => {
     setUserInfo(data);
@@ -103,6 +104,7 @@ const Assessment = () => {
         
         if (assessmentData?.id) {
           setAssessmentId(assessmentData.id);
+          setAssessmentSaved(true);
           
           // Store the general questionnaire results
           const { error: questionnaireError } = await safeDatabase.generalQuestionnaire.insert({
@@ -185,6 +187,7 @@ const Assessment = () => {
     setPrimaryDifferential('none');
     setResults(null);
     setAssessmentId(null);
+    setAssessmentSaved(false);
   };
 
   return (
@@ -225,6 +228,8 @@ const Assessment = () => {
             <ResultsPage
               results={results}
               onRestart={handleRestart}
+              assessmentId={assessmentId}
+              assessmentSaved={assessmentSaved}
             />
           )}
           

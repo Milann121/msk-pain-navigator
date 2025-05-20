@@ -106,6 +106,8 @@ export const useAssessments = () => {
   };
 
   useEffect(() => {
+    if (!user) return;
+    
     fetchUserAssessments();
     
     // Set up subscription to listen for changes to the completed_exercises table

@@ -12,14 +12,16 @@ import { useAuth } from '@/contexts/AuthContext';
 interface ResultsPageProps {
   results: AssessmentResults;
   onRestart: () => void;
+  assessmentId?: string | null;
+  assessmentSaved?: boolean;
 }
 
-const ResultsPage = ({ results, onRestart }: ResultsPageProps) => {
+const ResultsPage = ({ results, onRestart, assessmentId, assessmentSaved = false }: ResultsPageProps) => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const { user } = useAuth();
   const [isSaving, setIsSaving] = useState(false);
-  const [isSaved, setIsSaved] = useState(false);
+  const [isSaved, setIsSaved] = useState(assessmentSaved);
   const { userInfo, primaryMechanism, sinGroup, primaryDifferential } = results;
   
   const getMechanismLabel = (mechanism: PainMechanism): string => {
@@ -70,13 +72,15 @@ const ResultsPage = ({ results, onRestart }: ResultsPageProps) => {
       state: { 
         mechanism: primaryMechanism,
         differential: primaryDifferential,
-        painArea: userInfo.painArea
+        painArea: userInfo.painArea,
+        assessmentId
       } 
     });
   };
 
   const saveResultsToDatabase = async () => {
-    if (!user || isSaved) return;
+    // Skip saving if we already have an assessment ID or if it's already saved
+    if (!user || isSaved || assessmentId) return;
     
     try {
       setIsSaving(true);
@@ -112,12 +116,15 @@ const ResultsPage = ({ results, onRestart }: ResultsPageProps) => {
     }
   };
 
-  // Save results automatically when component mounts if user is logged in
+  // Only save results if no assessment ID was provided and not already saved
   useEffect(() => {
-    if (user && !isSaved && !isSaving) {
+    if (user && !isSaved && !isSaving && !assessmentId) {
       saveResultsToDatabase();
+    } else if (assessmentId) {
+      // If we already have an assessment ID, mark as saved
+      setIsSaved(true);
     }
-  }, [user]);
+  }, [user, assessmentId]);
 
   return (
     <Card className="w-full max-w-2xl mx-auto">
