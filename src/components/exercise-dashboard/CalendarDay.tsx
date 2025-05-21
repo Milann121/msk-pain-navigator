@@ -3,17 +3,20 @@ import React from 'react';
 import { format, isSameDay } from 'date-fns';
 import { CheckIcon } from 'lucide-react';
 import { CompletionDay } from '@/hooks/useCompletionData';
+import { Locale } from 'date-fns';
 
 interface CalendarDayProps {
   day: Date;
   completion?: CompletionDay;
   assessmentId?: string;
+  locale?: Locale;
 }
 
 export const CalendarDay: React.FC<CalendarDayProps> = ({ 
   day, 
   completion, 
-  assessmentId 
+  assessmentId,
+  locale
 }) => {
   const isCompleted = completion !== undefined;
   const completionCount = completion?.count || 0;
@@ -34,16 +37,16 @@ export const CalendarDay: React.FC<CalendarDayProps> = ({
       }`}
     >
       <div className="text-xs font-medium">
-        {format(day, 'EEE')}
+        {format(day, 'EEE', { locale })}
       </div>
       <div className={`
         text-base font-bold my-2 h-8 w-8 flex items-center justify-center rounded-full
         ${isSameDay(day, new Date()) ? 'bg-blue-100' : ''}
       `}>
-        {format(day, 'd')}
+        {format(day, 'd', { locale })}
       </div>
       <div className="text-xs text-gray-500 mb-1">
-        {format(day, 'MMM')}
+        {format(day, 'MMM', { locale })}
       </div>
       <div 
         className={`

@@ -8,6 +8,7 @@ import {
   subWeeks,
   format
 } from 'date-fns';
+import { sk } from 'date-fns/locale';
 import { 
   Card, 
   CardContent 
@@ -51,8 +52,8 @@ export const ExerciseCalendar = ({ assessmentId }: ExerciseCalendarProps) => {
     setCurrentDate(prevDate => addWeeks(prevDate, 1));
   };
 
-  // Format the date range for display (e.g., "May 20 - May 26, 2025")
-  const dateRangeText = `${format(startDate, 'MMM d')} - ${format(endDate, 'MMM d, yyyy')}`;
+  // Format the date range for display using Slovak locale (e.g., "20. máj - 26. máj 2025")
+  const dateRangeText = `${format(startDate, 'd. MMM', { locale: sk })} - ${format(endDate, 'd. MMM yyyy', { locale: sk })}`;
   
   return (
     <Card className="mb-6">
@@ -82,6 +83,7 @@ export const ExerciseCalendar = ({ assessmentId }: ExerciseCalendarProps) => {
                       daysToDisplay={daysToDisplay}
                       completionDays={completionDays}
                       assessmentId={assessmentId}
+                      locale={sk}
                     />
                   </CarouselItem>
                 </CarouselContent>
