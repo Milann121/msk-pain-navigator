@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useLocation } from 'react-router-dom';
@@ -90,9 +91,9 @@ const ExercisePlan = () => {
     <>
       <Header />
       <div className="container mx-auto py-8 px-4">
-        <Link to="/" className="inline-flex items-center gap-2 mb-6">
+        <Link to="/my-exercises" className="inline-flex items-center gap-2 mb-6">
           <ArrowLeft className="h-4 w-4" />
-          Späť na hodnotenie
+          Späť na moje cvičenia
         </Link>
         
         <Card>

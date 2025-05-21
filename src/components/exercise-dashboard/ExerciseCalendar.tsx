@@ -89,6 +89,17 @@ export const ExerciseCalendar = ({ assessmentId }: ExerciseCalendarProps) => {
     };
     
     fetchCompletionData();
+    
+    // Listen for exercise completion events to refresh the calendar
+    const handleExerciseCompleted = () => {
+      fetchCompletionData();
+    };
+    
+    window.addEventListener('exercise-completed', handleExerciseCompleted);
+    
+    return () => {
+      window.removeEventListener('exercise-completed', handleExerciseCompleted);
+    };
   }, [user]);
   
   // Get completion status for a specific date

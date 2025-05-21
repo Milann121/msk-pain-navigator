@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
@@ -125,6 +126,13 @@ export const useAssessments = () => {
         }
       )
       .subscribe();
+
+    // Listen for the custom exercise-completed event
+    const handleExerciseCompleted = () => {
+      fetchUserAssessments();
+    };
+    
+    window.addEventListener('exercise-completed', handleExerciseCompleted);
       
     // We'll try to listen for follow-up responses changes - this might fail if table doesn't exist
     try {
@@ -147,11 +155,13 @@ export const useAssessments = () => {
       return () => {
         supabase.removeChannel(exercisesChannel);
         supabase.removeChannel(followUpChannel);
+        window.removeEventListener('exercise-completed', handleExerciseCompleted);
       };
     } catch (error) {
       // If the follow-up responses table doesn't exist, just clean up the exercises channel
       return () => {
         supabase.removeChannel(exercisesChannel);
+        window.removeEventListener('exercise-completed', handleExerciseCompleted);
       };
     }
   }, [user]);

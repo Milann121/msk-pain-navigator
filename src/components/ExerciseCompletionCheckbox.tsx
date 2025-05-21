@@ -21,7 +21,8 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
   const { user } = useAuth();
   const { toast } = useToast();
 
-  const COOLDOWN_MINUTES = 1; // Changed from 30 to 1 minute
+  // Reduced cooldown to make the button repeatedly clickable
+  const COOLDOWN_SECONDS = 3; 
 
   useEffect(() => {
     const checkCompletionStatus = async () => {
@@ -47,8 +48,8 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
           
           // Check if the cooldown is still active
           const now = new Date();
-          const timeDiffMinutes = (now.getTime() - lastCompleted.getTime()) / (1000 * 60);
-          setCooldownActive(timeDiffMinutes < COOLDOWN_MINUTES);
+          const timeDiffSeconds = (now.getTime() - lastCompleted.getTime()) / 1000;
+          setCooldownActive(timeDiffSeconds < COOLDOWN_SECONDS);
         }
         
         setIsCompleted(!!data && data.length > 0);
@@ -65,10 +66,10 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
     const interval = setInterval(() => {
       if (lastCompletedAt) {
         const now = new Date();
-        const timeDiffMinutes = (now.getTime() - lastCompletedAt.getTime()) / (1000 * 60);
-        setCooldownActive(timeDiffMinutes < COOLDOWN_MINUTES);
+        const timeDiffSeconds = (now.getTime() - lastCompletedAt.getTime()) / 1000;
+        setCooldownActive(timeDiffSeconds < COOLDOWN_SECONDS);
       }
-    }, 60000); // Check every minute
+    }, 1000); // Check every second
     
     return () => clearInterval(interval);
   }, [user, exerciseTitle, assessmentId, lastCompletedAt]);
@@ -79,13 +80,13 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
     // If cooldown is active, show toast and return
     if (cooldownActive) {
       const now = new Date();
-      const timeDiffMinutes = (now.getTime() - lastCompletedAt!.getTime()) / (1000 * 60);
-      const minutesLeft = Math.ceil(COOLDOWN_MINUTES - timeDiffMinutes);
+      const timeDiffSeconds = (now.getTime() - lastCompletedAt!.getTime()) / 1000;
+      const secondsLeft = Math.ceil(COOLDOWN_SECONDS - timeDiffSeconds);
       
       toast({
-        title: "Cvičenie už bolo označené",
-        description: `Cvičenie môžete označiť znova za ${minutesLeft} minút.`,
-        variant: "destructive"
+        title: "Prosím, počkajte",
+        description: `Môžete odcvičiť znova za ${secondsLeft} sekúnd.`,
+        variant: "default"
       });
       return;
     }
@@ -113,6 +114,7 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
       
       // Show celebration animation
       setShowCelebration(true);
+      setTimeout(() => setShowCelebration(false), 3000); // Hide after 3 seconds
       
       toast({
         title: "Cvičenie označené ako odcvičené",
@@ -125,7 +127,7 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
       });
       window.dispatchEvent(event);
       
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error updating completion status:', error);
       toast({
         title: "Chyba pri ukladaní",
@@ -144,17 +146,17 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
     if (!lastCompletedAt || !cooldownActive) return '';
     
     const now = new Date();
-    const timeDiffMinutes = (now.getTime() - lastCompletedAt.getTime()) / (1000 * 60);
-    const minutesLeft = Math.ceil(COOLDOWN_MINUTES - timeDiffMinutes);
+    const timeDiffSeconds = (now.getTime() - lastCompletedAt.getTime()) / 1000;
+    const secondsLeft = Math.ceil(COOLDOWN_SECONDS - timeDiffSeconds);
     
-    return `Dostupné za ${minutesLeft} min`;
+    return `Dostupné za ${secondsLeft} s`;
   };
 
   return (
     <>
       <Button 
         onClick={handleButtonClick}
-        className={`mt-4 ${
+        className={`mt-4 relative ${
           isCompleted 
             ? cooldownActive 
               ? 'bg-gray-400 cursor-not-allowed' 
@@ -174,7 +176,9 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
           'Označiť ako odcvičené'
         )}
       </Button>
-      <CelebrationAnimation isActive={showCelebration} onComplete={() => setShowCelebration(false)} />
+      {showCelebration && (
+        <CelebrationAnimation isActive={showCelebration} onComplete={() => setShowCelebration(false)} />
+      )}
     </>
   );
 };

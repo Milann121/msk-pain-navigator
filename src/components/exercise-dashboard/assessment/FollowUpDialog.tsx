@@ -25,6 +25,10 @@ export const FollowUpDialog = ({
       description: "Vaše odpovede boli úspešne uložené",
     });
     onComplete();
+    
+    // Emit a custom event to refresh exercise counts
+    const event = new CustomEvent('exercise-completed');
+    window.dispatchEvent(event);
   };
   
   return (
