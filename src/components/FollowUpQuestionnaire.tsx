@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
@@ -175,24 +174,10 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
       };
 
       // Save the follow-up responses to the database
-      // We'll use a custom RPC function if available, otherwise insert directly
-      try {
-        const { error } = await supabase.rpc('insert_follow_up_response', {
-          user_id_param: user.id,
-          assessment_id_param: assessment.id,
-          pain_level_param: answers['pain-level-change'],
-          responses_param: answers
-        });
-        
-        if (error) throw error;
-      } catch (rpcError) {
-        console.log('RPC function not available, falling back to direct insert:', rpcError);
-        
-        // Try direct insert as fallback using our safe helper
-        const { error } = await safeDatabase.followUpResponses.insert(responseData);
-        
-        if (error) throw error;
-      }
+      // Use direct insert since the RPC approach has TypeScript issues
+      const { error } = await safeDatabase.followUpResponses.insert(responseData);
+      
+      if (error) throw error;
       
       toast({
         title: "Pokrok zaznamenaný",

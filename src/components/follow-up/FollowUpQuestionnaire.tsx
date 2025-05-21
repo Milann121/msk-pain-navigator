@@ -71,24 +71,10 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
       };
 
       // Save the follow-up responses to the database
-      // First try using RPC function if available
-      try {
-        const { error } = await supabase.rpc('insert_follow_up_response', {
-          user_id_param: user.id,
-          assessment_id_param: assessment.id,
-          pain_level_param: answers['pain-level-change'] || 0,
-          responses_param: answers
-        });
-        
-        if (error) throw error;
-      } catch (rpcError) {
-        console.log('RPC function not available, falling back to direct insert:', rpcError);
-        
-        // Try direct insert as fallback using our safe helper
-        const { error } = await safeDatabase.followUpResponses.insert(responseData);
+      // First try using direct insert since the RPC approach has TypeScript issues
+      const { error } = await safeDatabase.followUpResponses.insert(responseData);
           
-        if (error) throw error;
-      }
+      if (error) throw error;
       
       toast({
         title: "Pokrok zaznamenaný",

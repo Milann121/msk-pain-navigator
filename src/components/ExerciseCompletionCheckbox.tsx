@@ -38,7 +38,7 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
           .order('completed_at', { ascending: false })
           .limit(1);
           
-        if (error && error.code !== 'PGRST116') {
+        if (error) {
           console.error('Error checking completion status:', error);
         }
         
@@ -94,7 +94,8 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
     try {
       const now = new Date();
       
-      // Always insert a new record to track each completion
+      // Always insert a new record without a constraint
+      // We're not using upsert here - always creating a new record for each click
       const { error } = await supabase
         .from('completed_exercises')
         .insert({
