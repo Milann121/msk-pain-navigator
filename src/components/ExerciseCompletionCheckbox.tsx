@@ -4,7 +4,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { Button } from '@/components/ui/button';
-import { Check } from 'lucide-react';
+import { Check, Timer } from 'lucide-react';
 import { CelebrationAnimation } from './CelebrationAnimation';
 
 interface ExerciseCompletionCheckboxProps {
@@ -18,11 +18,12 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
   const [lastCompletedAt, setLastCompletedAt] = useState<Date | null>(null);
   const [cooldownActive, setCooldownActive] = useState(false);
   const [showCelebration, setShowCelebration] = useState(false);
+  const [secondsLeft, setSecondsLeft] = useState(0);
   const { user } = useAuth();
   const { toast } = useToast();
 
-  // Reduced cooldown to make the button more quickly clickable again
-  const COOLDOWN_SECONDS = 2; 
+  // Set cooldown to 60 seconds (1 minute)
+  const COOLDOWN_SECONDS = 60; 
 
   useEffect(() => {
     const checkCompletionStatus = async () => {
@@ -49,11 +50,15 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
           // Check if the cooldown is still active
           const now = new Date();
           const timeDiffSeconds = (now.getTime() - lastCompleted.getTime()) / 1000;
-          setCooldownActive(timeDiffSeconds < COOLDOWN_SECONDS);
+          const cooldownRemaining = Math.max(0, COOLDOWN_SECONDS - timeDiffSeconds);
+          
+          setCooldownActive(cooldownRemaining > 0);
+          setSecondsLeft(Math.ceil(cooldownRemaining));
         } else {
           // Reset states if no completion records found
           setLastCompletedAt(null);
           setCooldownActive(false);
+          setSecondsLeft(0);
         }
         
         setIsCompleted(!!data && data.length > 0);
@@ -66,16 +71,22 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
     
     checkCompletionStatus();
     
-    // Set up interval to check cooldown status
+    // Set up interval to check cooldown status and update countdown
     const interval = setInterval(() => {
       if (lastCompletedAt) {
         const now = new Date();
         const timeDiffSeconds = (now.getTime() - lastCompletedAt.getTime()) / 1000;
-        if (timeDiffSeconds >= COOLDOWN_SECONDS) {
+        const cooldownRemaining = Math.max(0, COOLDOWN_SECONDS - timeDiffSeconds);
+        
+        setSecondsLeft(Math.ceil(cooldownRemaining));
+        
+        if (cooldownRemaining <= 0) {
           setCooldownActive(false);
+        } else {
+          setCooldownActive(true);
         }
       }
-    }, 500); // Check more frequently to update the button state
+    }, 1000); // Check every second to update the countdown timer
     
     return () => clearInterval(interval);
   }, [user, exerciseTitle, assessmentId, lastCompletedAt]);
@@ -85,10 +96,6 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
     
     // If cooldown is active, show toast and return
     if (cooldownActive) {
-      const now = new Date();
-      const timeDiffSeconds = (now.getTime() - lastCompletedAt!.getTime()) / 1000;
-      const secondsLeft = Math.ceil(COOLDOWN_SECONDS - timeDiffSeconds);
-      
       toast({
         title: "Prosím, počkajte",
         description: `Môžete odcvičiť znova za ${secondsLeft} sekúnd.`,
@@ -118,6 +125,7 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
       setIsCompleted(true);
       setLastCompletedAt(now);
       setCooldownActive(true);
+      setSecondsLeft(COOLDOWN_SECONDS);
       
       // Show celebration animation
       setShowCelebration(true);
@@ -148,17 +156,6 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
     return <div className="h-10 w-32 animate-pulse bg-gray-200 rounded" />;
   }
 
-  // Format remaining cooldown time
-  const getCooldownText = () => {
-    if (!lastCompletedAt || !cooldownActive) return '';
-    
-    const now = new Date();
-    const timeDiffSeconds = (now.getTime() - lastCompletedAt.getTime()) / 1000;
-    const secondsLeft = Math.ceil(COOLDOWN_SECONDS - timeDiffSeconds);
-    
-    return `Dostupné za ${secondsLeft} s`;
-  };
-
   return (
     <>
       <Button 
@@ -174,7 +171,10 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
         size="lg"
       >
         {cooldownActive ? (
-          getCooldownText()
+          <div className="flex items-center gap-2">
+            <Timer className="h-4 w-4" />
+            <span>Dostupné za {secondsLeft} s</span>
+          </div>
         ) : isCompleted ? (
           <>
             <Check className="mr-2 h-4 w-4" /> Odcvičené znovu
