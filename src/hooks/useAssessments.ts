@@ -1,10 +1,10 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/contexts/AuthContext';
 import { UserAssessment } from '@/components/follow-up/types';
-import { safeDatabase, ExtendedUserAssessment } from '@/utils/database-helpers';
+import { safeDatabase } from '@/utils/database-helpers';
 
 export const useAssessments = () => {
   const [assessments, setAssessments] = useState<UserAssessment[]>([]);
@@ -12,8 +12,11 @@ export const useAssessments = () => {
   const { user } = useAuth();
   const { toast } = useToast();
 
-  const fetchUserAssessments = async () => {
-    if (!user) return;
+  const fetchUserAssessments = useCallback(async () => {
+    if (!user) {
+      setLoading(false);
+      return;
+    }
 
     try {
       setLoading(true);
@@ -25,70 +28,90 @@ export const useAssessments = () => {
         .eq('user_id', user.id)
         .order('timestamp', { ascending: false });
 
-      if (assessmentsError) throw assessmentsError;
+      if (assessmentsError) {
+        console.error('Error fetching assessments:', assessmentsError);
+        throw assessmentsError;
+      }
+      
+      if (!assessmentsData || assessmentsData.length === 0) {
+        setAssessments([]);
+        setLoading(false);
+        return;
+      }
       
       // For each assessment, get completed exercises count and latest completion date
       const assessmentsWithData = await Promise.all(
-        (assessmentsData || []).map(async (assessment) => {
-          // Get completed exercises for this assessment
-          const { data: completionsData, error: completionsError } = await supabase
-            .from('completed_exercises')
-            .select('completed_at')
-            .eq('assessment_id', assessment.id)
-            .eq('user_id', user.id)
-            .order('completed_at', { ascending: false });
+        assessmentsData.map(async (assessment) => {
+          try {
+            // Get completed exercises for this assessment
+            const { data: completionsData, error: completionsError } = await supabase
+              .from('completed_exercises')
+              .select('completed_at')
+              .eq('assessment_id', assessment.id)
+              .eq('user_id', user.id)
+              .order('completed_at', { ascending: false });
+              
+            if (completionsError) {
+              console.error('Error fetching completions:', completionsError);
+              return {
+                ...assessment,
+                completed_exercises_count: 0,
+                last_completed_at: undefined,
+                initial_pain_level: assessment.intial_pain_intensity, // Use the field from the database
+                latest_pain_level: undefined
+              } as UserAssessment;
+            }
             
-          if (completionsError) {
-            console.error('Error fetching completions:', completionsError);
+            // Try to get the latest pain level from follow-up responses
+            let latestPainLevel = undefined;
+            try {
+              // First try using an RPC function
+              const { data: followUpData, error: followUpError } = await supabase.rpc(
+                'get_latest_pain_level', 
+                { assessment_id_param: assessment.id, user_id_param: user.id }
+              );
+              
+              if (followUpError) {
+                // If RPC fails, try direct query using the safe helper
+                console.log('RPC not available, trying direct query');
+                
+                const { data: followUpResponsesData, error: directQueryError } = await safeDatabase.followUpResponses.select({
+                  assessment_id: assessment.id,
+                  user_id: user.id,
+                  limit: 1,
+                  orderBy: { column: 'created_at', ascending: false }
+                });
+                  
+                if (!directQueryError && followUpResponsesData && Array.isArray(followUpResponsesData) && followUpResponsesData.length > 0) {
+                  latestPainLevel = followUpResponsesData[0]?.pain_level;
+                }
+              } else if (followUpData && followUpData.length > 0) {
+                latestPainLevel = followUpData[0]?.pain_level;
+              }
+            } catch (error) {
+              // Table might not exist yet, which is fine
+              console.log('Follow-up data not available yet:', error);
+            }
+            
+            return {
+              ...assessment,
+              completed_exercises_count: completionsData?.length || 0,
+              last_completed_at: completionsData && completionsData.length > 0 
+                ? completionsData[0].completed_at 
+                : undefined,
+              initial_pain_level: assessment.intial_pain_intensity, // Use the column directly
+              latest_pain_level: latestPainLevel
+            } as UserAssessment;
+          } catch (error) {
+            console.error('Error processing assessment data:', error);
             return {
               ...assessment,
               completed_exercises_count: 0,
               last_completed_at: undefined,
-              initial_pain_level: assessment.intial_pain_intensity, // Use the field from the database
+              initial_pain_level: assessment.intial_pain_intensity,
               latest_pain_level: undefined
             } as UserAssessment;
           }
-          
-          // Try to get the latest pain level from follow-up responses
-          let latestPainLevel = undefined;
-          try {
-            // First try using an RPC function
-            const { data: followUpData, error: followUpError } = await supabase.rpc(
-              'get_latest_pain_level', 
-              { assessment_id_param: assessment.id, user_id_param: user.id }
-            );
-            
-            if (followUpError) {
-              // If RPC fails, try direct query using the safe helper
-              console.log('RPC not available, trying direct query');
-              
-              const { data: followUpResponsesData, error: directQueryError } = await safeDatabase.followUpResponses.select({
-                assessment_id: assessment.id,
-                user_id: user.id,
-                limit: 1,
-                orderBy: { column: 'created_at', ascending: false }
-              });
-                
-              if (!directQueryError && followUpResponsesData && Array.isArray(followUpResponsesData) && followUpResponsesData.length > 0) {
-                latestPainLevel = followUpResponsesData[0]?.pain_level;
-              }
-            } else if (followUpData && followUpData.length > 0) {
-              latestPainLevel = followUpData[0]?.pain_level;
-            }
-          } catch (error) {
-            // Table might not exist yet, which is fine
-            console.log('Follow-up data not available yet:', error);
-          }
-          
-          return {
-            ...assessment,
-            completed_exercises_count: completionsData?.length || 0,
-            last_completed_at: completionsData && completionsData.length > 0 
-              ? completionsData[0].completed_at 
-              : undefined,
-            initial_pain_level: assessment.intial_pain_intensity, // Use the column directly
-            latest_pain_level: latestPainLevel
-          } as UserAssessment;
         })
       );
       
@@ -100,10 +123,11 @@ export const useAssessments = () => {
         description: 'Nepodarilo sa načítať vaše hodnotenia a cviky.',
         variant: 'destructive',
       });
+      setAssessments([]);
     } finally {
       setLoading(false);
     }
-  };
+  }, [user, toast]);
 
   useEffect(() => {
     if (!user) return;
@@ -135,8 +159,9 @@ export const useAssessments = () => {
     window.addEventListener('exercise-completed', handleExerciseCompleted);
       
     // We'll try to listen for follow-up responses changes - this might fail if table doesn't exist
+    let followUpChannel;
     try {
-      const followUpChannel = supabase
+      followUpChannel = supabase
         .channel('follow_up_changes')
         .on('postgres_changes', 
           {
@@ -151,20 +176,18 @@ export const useAssessments = () => {
           }
         )
         .subscribe();
-        
-      return () => {
-        supabase.removeChannel(exercisesChannel);
-        supabase.removeChannel(followUpChannel);
-        window.removeEventListener('exercise-completed', handleExerciseCompleted);
-      };
     } catch (error) {
-      // If the follow-up responses table doesn't exist, just clean up the exercises channel
-      return () => {
-        supabase.removeChannel(exercisesChannel);
-        window.removeEventListener('exercise-completed', handleExerciseCompleted);
-      };
+      console.log('Could not subscribe to follow-up responses:', error);
     }
-  }, [user]);
+        
+    return () => {
+      supabase.removeChannel(exercisesChannel);
+      if (followUpChannel) {
+        supabase.removeChannel(followUpChannel);
+      }
+      window.removeEventListener('exercise-completed', handleExerciseCompleted);
+    };
+  }, [user, fetchUserAssessments]);
   
   const handleDeleteAssessment = async (id: string) => {
     try {

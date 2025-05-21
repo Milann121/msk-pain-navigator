@@ -31,7 +31,7 @@ export const AssessmentTable = ({ assessments, loading, onDeleteAssessment }: As
     return <LoadingState />;
   }
   
-  if (assessments.length === 0) {
+  if (!assessments || assessments.length === 0) {
     return <EmptyState />;
   }
   
