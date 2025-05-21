@@ -97,10 +97,27 @@ export const ExerciseCalendar = ({ assessmentId }: ExerciseCalendarProps) => {
     
     window.addEventListener('exercise-completed', handleExerciseCompleted);
     
+    // Set up a real-time subscription to completed_exercises changes
+    const channel = supabase
+      .channel('exercise_completions')
+      .on('postgres_changes', 
+        { 
+          event: '*', 
+          schema: 'public', 
+          table: 'completed_exercises',
+          filter: `user_id=eq.${user?.id}`
+        }, 
+        () => {
+          fetchCompletionData();
+        }
+      )
+      .subscribe();
+    
     return () => {
       window.removeEventListener('exercise-completed', handleExerciseCompleted);
+      supabase.removeChannel(channel);
     };
-  }, [user]);
+  }, [user, assessmentId]);
   
   // Get completion status for a specific date
   const getCompletionForDate = (date: Date): CompletionDay | undefined => {

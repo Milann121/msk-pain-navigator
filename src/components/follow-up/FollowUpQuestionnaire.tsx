@@ -70,8 +70,7 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
         responses: answers
       };
 
-      // Save the follow-up responses to the database
-      // First try using direct insert since the RPC approach has TypeScript issues
+      // Save the follow-up responses to the database using direct insert
       const { error } = await safeDatabase.followUpResponses.insert(responseData);
           
       if (error) throw error;

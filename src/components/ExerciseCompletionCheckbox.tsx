@@ -21,8 +21,8 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
   const { user } = useAuth();
   const { toast } = useToast();
 
-  // Reduced cooldown to make the button repeatedly clickable
-  const COOLDOWN_SECONDS = 3; 
+  // Reduced cooldown to make the button more quickly clickable again
+  const COOLDOWN_SECONDS = 2; 
 
   useEffect(() => {
     const checkCompletionStatus = async () => {
@@ -69,7 +69,7 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
         const timeDiffSeconds = (now.getTime() - lastCompletedAt.getTime()) / 1000;
         setCooldownActive(timeDiffSeconds < COOLDOWN_SECONDS);
       }
-    }, 1000); // Check every second
+    }, 500); // Check more frequently to update the button state
     
     return () => clearInterval(interval);
   }, [user, exerciseTitle, assessmentId, lastCompletedAt]);
@@ -94,8 +94,7 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
     try {
       const now = new Date();
       
-      // Always insert a new record without a constraint
-      // We're not using upsert here - always creating a new record for each click
+      // Always insert a new record without constraints
       const { error } = await supabase
         .from('completed_exercises')
         .insert({
@@ -106,6 +105,7 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
         });
       
       if (error) {
+        console.error('Error recording exercise completion:', error);
         throw error;
       }
       

@@ -11,7 +11,14 @@ import { ExerciseCalendar } from '@/components/exercise-dashboard/ExerciseCalend
 const MyExercises = () => {
   const { user, isLoading } = useAuth();
   const navigate = useNavigate();
-  const { assessments, loading, handleDeleteAssessment } = useAssessments();
+  const { assessments, loading, handleDeleteAssessment, refreshAssessments } = useAssessments();
+
+  // Add an effect to refresh data when the page loads
+  React.useEffect(() => {
+    if (user) {
+      refreshAssessments();
+    }
+  }, [user, refreshAssessments]);
 
   if (isLoading) {
     return (
