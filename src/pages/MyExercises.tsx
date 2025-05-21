@@ -1,4 +1,5 @@
 
+import React from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Navigate, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
