@@ -50,6 +50,10 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
           const now = new Date();
           const timeDiffSeconds = (now.getTime() - lastCompleted.getTime()) / 1000;
           setCooldownActive(timeDiffSeconds < COOLDOWN_SECONDS);
+        } else {
+          // Reset states if no completion records found
+          setLastCompletedAt(null);
+          setCooldownActive(false);
         }
         
         setIsCompleted(!!data && data.length > 0);
@@ -67,7 +71,9 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
       if (lastCompletedAt) {
         const now = new Date();
         const timeDiffSeconds = (now.getTime() - lastCompletedAt.getTime()) / 1000;
-        setCooldownActive(timeDiffSeconds < COOLDOWN_SECONDS);
+        if (timeDiffSeconds >= COOLDOWN_SECONDS) {
+          setCooldownActive(false);
+        }
       }
     }, 500); // Check more frequently to update the button state
     

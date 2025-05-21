@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -21,6 +20,11 @@ const ExercisePlan = () => {
   if (!user) {
     return <Navigate to="/auth" replace />;
   }
+
+  // Log state props on mount to help with debugging
+  useEffect(() => {
+    console.log("ExercisePlan props:", { mechanism, differential, painArea, assessmentId });
+  }, [mechanism, differential, painArea, assessmentId]);
   
   // Create key for exercise lookup
   const specificKey = `${mechanism}-${differential}-${painArea}`;
@@ -155,6 +159,7 @@ const ExercisePlan = () => {
             {assessmentId && (
               <div className="flex justify-center mt-8">
                 <ExerciseCompletionCheckbox 
+                  key={`exercise-${assessmentId}-${Date.now()}`} // Add key to force re-render
                   exerciseTitle={exercises[0]?.title}
                   assessmentId={assessmentId}
                 />

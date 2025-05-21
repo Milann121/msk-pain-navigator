@@ -153,6 +153,7 @@ export const useAssessments = () => {
 
     // Listen for the custom exercise-completed event
     const handleExerciseCompleted = () => {
+      console.log('Exercise completion event received');
       fetchUserAssessments();
     };
     
@@ -181,7 +182,9 @@ export const useAssessments = () => {
     }
         
     return () => {
-      supabase.removeChannel(exercisesChannel);
+      if (exercisesChannel) {
+        supabase.removeChannel(exercisesChannel);
+      }
       if (followUpChannel) {
         supabase.removeChannel(followUpChannel);
       }
