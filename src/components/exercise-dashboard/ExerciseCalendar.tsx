@@ -8,7 +8,7 @@ import {
   subWeeks,
   format
 } from 'date-fns';
-import { sk } from 'date-fns/locale';
+import { sk } from 'date-fns/locale/sk';
 import { 
   Card, 
   CardContent 
