@@ -5,7 +5,8 @@ import {
   startOfWeek, 
   endOfWeek, 
   addWeeks, 
-  subWeeks
+  subWeeks,
+  format
 } from 'date-fns';
 import { 
   Card, 
@@ -18,6 +19,8 @@ import {
   CarouselNext,
   CarouselPrevious
 } from '@/components/ui/carousel';
+import { Button } from '@/components/ui/button';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 import { CalendarWeek } from './CalendarWeek';
 import { useCompletionData } from '@/hooks/useCompletionData';
@@ -47,26 +50,54 @@ export const ExerciseCalendar = ({ assessmentId }: ExerciseCalendarProps) => {
   const handleNextWeek = () => {
     setCurrentDate(prevDate => addWeeks(prevDate, 1));
   };
+
+  // Format the date range for display (e.g., "May 20 - May 26, 2025")
+  const dateRangeText = `${format(startDate, 'MMM d')} - ${format(endDate, 'MMM d, yyyy')}`;
   
   return (
     <Card className="mb-6">
       <CardContent className="pt-6">
-        <div className="text-lg font-medium mb-4">Kalendár cvičení</div>
+        <div className="flex justify-between items-center mb-4">
+          <div className="text-lg font-medium">Kalendár cvičení</div>
+          <div className="text-sm text-muted-foreground">{dateRangeText}</div>
+        </div>
         <div className="relative">
-          <Carousel className="w-full">
-            <CarouselContent>
-              {/* Just show one week at a time */}
-              <CarouselItem className="basis-full">
-                <CalendarWeek
-                  daysToDisplay={daysToDisplay}
-                  completionDays={completionDays}
-                  assessmentId={assessmentId}
-                />
-              </CarouselItem>
-            </CarouselContent>
-            <CarouselPrevious onClick={handlePreviousWeek} />
-            <CarouselNext onClick={handleNextWeek} />
-          </Carousel>
+          <div className="flex items-center">
+            <Button 
+              variant="ghost" 
+              size="icon"
+              className="mr-1" 
+              onClick={handlePreviousWeek}
+              aria-label="Previous week"
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </Button>
+            
+            <div className="flex-1">
+              <Carousel className="w-full">
+                <CarouselContent>
+                  {/* Just show one week at a time */}
+                  <CarouselItem className="basis-full">
+                    <CalendarWeek
+                      daysToDisplay={daysToDisplay}
+                      completionDays={completionDays}
+                      assessmentId={assessmentId}
+                    />
+                  </CarouselItem>
+                </CarouselContent>
+              </Carousel>
+            </div>
+            
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="ml-1"
+              onClick={handleNextWeek}
+              aria-label="Next week"
+            >
+              <ChevronRight className="h-4 w-4" />
+            </Button>
+          </div>
         </div>
       </CardContent>
     </Card>
