@@ -9,7 +9,6 @@ import GeneralQuestionnaireHandler from '@/components/assessment/GeneralQuestion
 import FollowUpQuestionnaireHandler from '@/components/assessment/FollowUpQuestionnaireHandler';
 import ResultsHandler from '@/components/assessment/ResultsHandler';
 import SubmittingOverlay from '@/components/assessment/SubmittingOverlay';
-import BodyModelViewer from '@/components/assessment/BodyModelViewer';
 
 const AssessmentContent = () => {
   const { user, isLoading } = useAuth();
@@ -28,21 +27,13 @@ const AssessmentContent = () => {
       <Header />
       <div className="flex-1 bg-gradient-to-b from-blue-50 to-white py-10 px-4">
         <div className="container mx-auto">
-          <header className="mb-6 text-center">
+          <header className="mb-10 text-center">
             <h1 className="text-3xl font-bold text-blue-800 mb-2">
               Hodnotenie bolesti pohybového aparátu
             </h1>
-            <p className="text-lg text-blue-600 mb-6">
+            <p className="text-lg text-blue-600">
               Vyplňte dotazník pre získanie personalizovaných cvičebných odporúčaní
             </p>
-            
-            {/* 3D Body Model Viewer */}
-            <div className="max-w-lg mx-auto mb-10">
-              <BodyModelViewer />
-              <p className="text-sm text-gray-500 mt-2">
-                Použite myš pre otáčanie, približovanie a pohyb 3D modelu
-              </p>
-            </div>
           </header>
           
           {stage === AssessmentStage.UserInfo && <UserInfoHandler />}
