@@ -17,10 +17,10 @@ const Header = () => {
 
   if (user) {
     navigationLinks.push(
-      { href: '/assessment', label: 'Dotazník bolesti' },
-      { href: '/my-exercises', label: 'Moje cviky' },
       { href: '/profile', label: 'Môj profil' },
-      { href: '/blog', label: 'Blog' }
+      { href: '/my-exercises', label: 'Moje cviky' },
+      { href: '/blog', label: 'Blog' },
+      { href: '/assessment', label: 'Dotazník bolesti' }
     );
   } else {
     navigationLinks.push(
