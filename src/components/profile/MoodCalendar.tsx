@@ -5,7 +5,6 @@ import { sk } from 'date-fns/locale/sk';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
-import { Skeleton } from '@/components/ui/skeleton';
 
 interface MoodEntry {
   date: Date;
@@ -15,7 +14,6 @@ interface MoodEntry {
 export const MoodCalendar = () => {
   const [date, setDate] = useState<Date>(new Date());
   const [moodEntries, setMoodEntries] = useState<MoodEntry[]>([]);
-  const [currentMood, setCurrentMood] = useState<'happy' | 'neutral' | 'sad' | null>(null);
   
   const handleMoodSelection = (mood: 'happy' | 'neutral' | 'sad') => {
     // Create a new date with just the year, month, and day to avoid time issues
@@ -36,8 +34,6 @@ export const MoodCalendar = () => {
       // Add new entry
       setMoodEntries([...moodEntries, { date: dateKey, mood }]);
     }
-    
-    setCurrentMood(mood);
   };
   
   // Function to get mood for a specific date
@@ -104,9 +100,9 @@ export const MoodCalendar = () => {
                 sad: (date) => getMoodForDate(date) === 'sad',
               }}
               modifiersClassNames={{
-                happy: "bg-green-100 text-green-800",
-                neutral: "bg-yellow-100 text-yellow-800",
-                sad: "bg-red-100 text-red-800",
+                happy: "bg-green-500 text-white hover:bg-green-600",
+                neutral: "bg-yellow-500 text-white hover:bg-yellow-600",
+                sad: "bg-red-500 text-white hover:bg-red-600",
               }}
             />
           </div>
