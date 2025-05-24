@@ -47,27 +47,27 @@ export const ProfileInfo = () => {
     if (isEditing) {
       if (type === 'gender') {
         return (
-          <div className="col-span-2 space-y-2">
-            <Label>{label}:</Label>
+          <div className="col-span-2 space-y-3">
+            <Label className="text-base font-medium">{label}:</Label>
             <RadioGroup 
               value={tempValue as string}
               onValueChange={(value) => setTempValue(value)}
-              className="flex space-x-4"
+              className="flex space-x-6"
             >
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="Muž" id="muz-edit" />
-                <Label htmlFor="muz-edit" className="cursor-pointer">Muž</Label>
+                <Label htmlFor="muz-edit" className="cursor-pointer text-sm">Muž</Label>
               </div>
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="Žena" id="zena-edit" />
-                <Label htmlFor="zena-edit" className="cursor-pointer">Žena</Label>
+                <Label htmlFor="zena-edit" className="cursor-pointer text-sm">Žena</Label>
               </div>
             </RadioGroup>
-            <div className="flex space-x-2">
-              <Button size="sm" onClick={() => handleSave(field)}>
+            <div className="flex space-x-3 pt-2">
+              <Button size="sm" onClick={() => handleSave(field)} className="px-6">
                 Uložiť
               </Button>
-              <Button size="sm" variant="outline" onClick={handleCancel}>
+              <Button size="sm" variant="outline" onClick={handleCancel} className="px-6">
                 Zrušiť
               </Button>
             </div>
@@ -76,24 +76,25 @@ export const ProfileInfo = () => {
       }
 
       return (
-        <>
-          <div className="text-sm text-muted-foreground">{label}:</div>
-          <div className="flex items-center space-x-2">
+        <div className="col-span-2 space-y-3">
+          <Label className="text-base font-medium">{label}:</Label>
+          <div className="flex items-center space-x-3">
             <Input
               type={type}
               value={tempValue}
               onChange={(e) => setTempValue(type === 'number' ? Number(e.target.value) : e.target.value)}
-              className="flex-1"
+              className="flex-1 h-11 text-base"
               autoFocus
+              placeholder={`Zadajte ${label.toLowerCase()}`}
             />
-            <Button size="sm" onClick={() => handleSave(field)}>
+            <Button size="sm" onClick={() => handleSave(field)} className="px-6 h-11">
               Uložiť
             </Button>
-            <Button size="sm" variant="outline" onClick={handleCancel}>
+            <Button size="sm" variant="outline" onClick={handleCancel} className="px-6 h-11">
               Zrušiť
             </Button>
           </div>
-        </>
+        </div>
       );
     }
 
@@ -121,13 +122,17 @@ export const ProfileInfo = () => {
         <CardTitle>Osobné údaje</CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="space-y-4">
-          <div className="grid grid-cols-2 gap-2">
+        <div className="space-y-6">
+          <div className="grid grid-cols-2 gap-4">
             {renderEditableField('Meno', 'firstName', userData.firstName)}
+          </div>
+          <div className="grid grid-cols-2 gap-4">
             {renderEditableField('Priezvisko', 'lastName', userData.lastName)}
+          </div>
+          <div className="grid grid-cols-2 gap-4">
             {renderEditableField('Vek', 'age', userData.age, 'number')}
           </div>
-          <div className="grid grid-cols-1 gap-2">
+          <div className="grid grid-cols-1 gap-4">
             {renderEditableField('Pohlavie', 'gender', userData.gender, 'gender')}
           </div>
         </div>
