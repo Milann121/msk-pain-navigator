@@ -1,4 +1,3 @@
-
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import Header from '@/components/Header';
@@ -9,6 +8,7 @@ import GeneralQuestionnaireHandler from '@/components/assessment/GeneralQuestion
 import FollowUpQuestionnaireHandler from '@/components/assessment/FollowUpQuestionnaireHandler';
 import ResultsHandler from '@/components/assessment/ResultsHandler';
 import SubmittingOverlay from '@/components/assessment/SubmittingOverlay';
+import { BodyModelSection } from '@/components/assessment/BodyModelSection';
 
 const AssessmentContent = () => {
   const { user, isLoading } = useAuth();
@@ -35,6 +35,9 @@ const AssessmentContent = () => {
               Vyplňte dotazník pre získanie personalizovaných cvičebných odporúčaní
             </p>
           </header>
+          
+          {/* Add the 3D body model section */}
+          <BodyModelSection />
           
           {stage === AssessmentStage.UserInfo && <UserInfoHandler />}
           
