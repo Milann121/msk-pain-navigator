@@ -2,6 +2,7 @@
 import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
+import * as THREE from 'three';
 
 function HumanModel() {
   const { scene } = useGLTF('/lovable-uploads/MaleBaseMesh.glb');
