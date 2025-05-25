@@ -4,7 +4,7 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
 
 function HumanModel() {
-  const { scene } = useGLTF('/lovable-uploads/MaleBaseMesh.glb'); // Updated to use the correct model path
+  const { scene } = useGLTF('/lovable-uploads/MaleBaseMesh.glb');
   return <primitive object={scene} />;
 }
 
