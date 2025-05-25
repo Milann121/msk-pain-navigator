@@ -5,7 +5,7 @@ import { OrbitControls, useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
 
 function HumanModel() {
-  const { scene } = useGLTF('/lovable-uploads/MaleBaseMesh.glb');
+  const { scene } = useGLTF('/lovable-uploads/MaleBaseMesh1.glb');
   
   // Center the model and ensure it's properly scaled
   React.useEffect(() => {
