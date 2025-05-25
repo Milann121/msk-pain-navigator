@@ -24,18 +24,35 @@ function HumanModel() {
       // Ensure the model has proper materials and is visible
       scene.traverse((child) => {
         if (child instanceof THREE.Mesh) {
+          // Type assertion to ensure we can access material properties
+          const mesh = child as THREE.Mesh;
+          
           // Make sure the material is visible and not just a silhouette
-          if (child.material) {
-            child.material.side = THREE.DoubleSide;
-            child.material.transparent = false;
-            if (child.material instanceof THREE.MeshStandardMaterial) {
-              child.material.color.setHex(0xfdbcb4); // Skin tone color
-              child.material.roughness = 0.7;
-              child.material.metalness = 0.1;
+          if (mesh.material) {
+            if (Array.isArray(mesh.material)) {
+              // Handle multiple materials
+              mesh.material.forEach((mat) => {
+                mat.side = THREE.DoubleSide;
+                mat.transparent = false;
+                if (mat instanceof THREE.MeshStandardMaterial) {
+                  mat.color.setHex(0xfdbcb4); // Skin tone color
+                  mat.roughness = 0.7;
+                  mat.metalness = 0.1;
+                }
+              });
+            } else {
+              // Handle single material
+              mesh.material.side = THREE.DoubleSide;
+              mesh.material.transparent = false;
+              if (mesh.material instanceof THREE.MeshStandardMaterial) {
+                mesh.material.color.setHex(0xfdbcb4); // Skin tone color
+                mesh.material.roughness = 0.7;
+                mesh.material.metalness = 0.1;
+              }
             }
           }
-          child.castShadow = true;
-          child.receiveShadow = true;
+          mesh.castShadow = true;
+          mesh.receiveShadow = true;
         }
       });
     }
@@ -48,7 +65,7 @@ export default function ThreeBodyViewer() {
   return (
     <div style={{ height: '600px', width: '100%' }}>
       <Canvas 
-        camera={{ position: [2, 1, 3], fov: 50 }}
+        camera={{ position: [0, 1, 4], fov: 50 }}
         shadows
       >
         <ambientLight intensity={0.6} />
