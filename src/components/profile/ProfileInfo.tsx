@@ -1,11 +1,10 @@
+
 import React, { useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Edit } from 'lucide-react';
+import { EditableField } from './EditableField';
+import { GenderField } from './GenderField';
+import { JobField } from './JobField';
 
 export const ProfileInfo = () => {
   const { user } = useAuth();
@@ -56,192 +55,6 @@ export const ProfileInfo = () => {
     setTempJobSubtype('');
   };
 
-  const getJobSubtypeOptions = (jobType: string) => {
-    if (jobType === 'manuálna práca') {
-      return ['zdvíhanie ťažkých predmetov', 'práca v stoji na mieste', 'práca v neprirodzených polohách'];
-    } else if (jobType === 'sedavá práca') {
-      return ['práca v kancelárii', 'šofér'];
-    }
-    return [];
-  };
-
-  const renderEditableField = (label: string, field: string, value: string | number, type: 'text' | 'number' | 'gender' | 'job' = 'text') => {
-    const isEditing = editingField === field;
-
-    if (isEditing) {
-      if (type === 'gender') {
-        return (
-          <div className="col-span-2 space-y-3">
-            <Label className="text-base font-medium">{label}:</Label>
-            <RadioGroup 
-              value={tempValue as string}
-              onValueChange={(value) => setTempValue(value)}
-              className="flex space-x-6"
-            >
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="Muž" id="muz-edit" />
-                <Label htmlFor="muz-edit" className="cursor-pointer text-sm">Muž</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="Žena" id="zena-edit" />
-                <Label htmlFor="zena-edit" className="cursor-pointer text-sm">Žena</Label>
-              </div>
-            </RadioGroup>
-            <div className="flex space-x-3 pt-2">
-              <Button size="sm" onClick={() => handleSave(field)} className="px-6">
-                Uložiť
-              </Button>
-              <Button size="sm" variant="outline" onClick={handleCancel} className="px-6">
-                Zrušiť
-              </Button>
-            </div>
-          </div>
-        );
-      }
-
-      if (type === 'job') {
-        return (
-          <div className="col-span-2 space-y-4">
-            <Label className="text-base font-medium">{label}:</Label>
-            <RadioGroup 
-              value={tempValue as string}
-              onValueChange={(value) => {
-                setTempValue(value);
-                setTempJobSubtype(''); // Reset subtype when job type changes
-              }}
-              className="space-y-3"
-            >
-              <div className="space-y-2">
-                <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="manuálna práca" id="manual-job-edit" />
-                  <Label htmlFor="manual-job-edit" className="cursor-pointer text-sm">manuálna práca</Label>
-                </div>
-                {tempValue === 'manuálna práca' && (
-                  <div className="space-y-2 pl-6">
-                    <Label className="text-sm font-medium">Špecifikácia:</Label>
-                    <RadioGroup 
-                      value={tempJobSubtype}
-                      onValueChange={setTempJobSubtype}
-                      className="space-y-2"
-                    >
-                      <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="zdvíhanie ťažkých predmetov" id="heavy-lifting" />
-                        <Label htmlFor="heavy-lifting" className="cursor-pointer text-sm">zdvíhanie ťažkých predmetov</Label>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="práca v stoji na mieste" id="standing-work" />
-                        <Label htmlFor="standing-work" className="cursor-pointer text-sm">práca v stoji na mieste</Label>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="práca v neprirodzených polohách" id="awkward-positions" />
-                        <Label htmlFor="awkward-positions" className="cursor-pointer text-sm">práca v neprirodzených polohách</Label>
-                      </div>
-                    </RadioGroup>
-                  </div>
-                )}
-              </div>
-              
-              <div className="space-y-2">
-                <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="sedavá práca" id="desk-job-edit" />
-                  <Label htmlFor="desk-job-edit" className="cursor-pointer text-sm">sedavá práca</Label>
-                </div>
-                {tempValue === 'sedavá práca' && (
-                  <div className="space-y-2 pl-6">
-                    <Label className="text-sm font-medium">Špecifikácia:</Label>
-                    <RadioGroup 
-                      value={tempJobSubtype}
-                      onValueChange={setTempJobSubtype}
-                      className="space-y-2"
-                    >
-                      <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="práca v kancelárii" id="office-work" />
-                        <Label htmlFor="office-work" className="cursor-pointer text-sm">práca v kancelárii</Label>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="šofér" id="driver" />
-                        <Label htmlFor="driver" className="cursor-pointer text-sm">šofér</Label>
-                      </div>
-                    </RadioGroup>
-                  </div>
-                )}
-              </div>
-            </RadioGroup>
-            
-            <div className="flex space-x-3 pt-2">
-              <Button size="sm" onClick={() => handleSave(field)} className="px-6">
-                Uložiť
-              </Button>
-              <Button size="sm" variant="outline" onClick={handleCancel} className="px-6">
-                Zrušiť
-              </Button>
-            </div>
-          </div>
-        );
-      }
-
-      return (
-        <div className="col-span-2 space-y-3">
-          <Label className="text-base font-medium">{label}:</Label>
-          <div className="flex items-center space-x-3">
-            <Input
-              type={type}
-              value={tempValue}
-              onChange={(e) => setTempValue(type === 'number' ? Number(e.target.value) : e.target.value)}
-              className="flex-1 h-11 text-base"
-              autoFocus
-              placeholder={`Zadajte ${label.toLowerCase()}`}
-            />
-            <Button size="sm" onClick={() => handleSave(field)} className="px-6 h-11">
-              Uložiť
-            </Button>
-            <Button size="sm" variant="outline" onClick={handleCancel} className="px-6 h-11">
-              Zrušiť
-            </Button>
-          </div>
-        </div>
-      );
-    }
-
-    // Display mode
-    if (type === 'job') {
-      const displayValue = value ? `${value}${userData.jobSubtype ? ` - ${userData.jobSubtype}` : ''}` : '-';
-      return (
-        <>
-          <div className="text-sm text-muted-foreground">{label}:</div>
-          <div className="flex items-center justify-between">
-            <span className="font-medium">{displayValue}</span>
-            <Button
-              size="sm"
-              variant="ghost"
-              onClick={() => handleEdit(field, value)}
-              className="h-8 w-8 p-0"
-            >
-              <Edit className="h-4 w-4" />
-            </Button>
-          </div>
-        </>
-      );
-    }
-
-    return (
-      <>
-        <div className="text-sm text-muted-foreground">{label}:</div>
-        <div className="flex items-center justify-between">
-          <span className="font-medium">{value || '-'}</span>
-          <Button
-            size="sm"
-            variant="ghost"
-            onClick={() => handleEdit(field, value)}
-            className="h-8 w-8 p-0"
-          >
-            <Edit className="h-4 w-4" />
-          </Button>
-        </div>
-      </>
-    );
-  };
-
   return (
     <Card className="h-full">
       <CardHeader>
@@ -250,19 +63,73 @@ export const ProfileInfo = () => {
       <CardContent>
         <div className="space-y-6">
           <div className="grid grid-cols-2 gap-4">
-            {renderEditableField('Meno', 'firstName', userData.firstName)}
+            <EditableField
+              label="Meno"
+              field="firstName"
+              value={userData.firstName}
+              editingField={editingField}
+              tempValue={tempValue}
+              onEdit={handleEdit}
+              onSave={handleSave}
+              onCancel={handleCancel}
+              onTempValueChange={setTempValue}
+            />
           </div>
+          
           <div className="grid grid-cols-2 gap-4">
-            {renderEditableField('Priezvisko', 'lastName', userData.lastName)}
+            <EditableField
+              label="Priezvisko"
+              field="lastName"
+              value={userData.lastName}
+              editingField={editingField}
+              tempValue={tempValue}
+              onEdit={handleEdit}
+              onSave={handleSave}
+              onCancel={handleCancel}
+              onTempValueChange={setTempValue}
+            />
           </div>
+          
           <div className="grid grid-cols-2 gap-4">
-            {renderEditableField('Vek', 'age', userData.age, 'number')}
+            <EditableField
+              label="Vek"
+              field="age"
+              value={userData.age}
+              type="number"
+              editingField={editingField}
+              tempValue={tempValue}
+              onEdit={handleEdit}
+              onSave={handleSave}
+              onCancel={handleCancel}
+              onTempValueChange={setTempValue}
+            />
           </div>
+          
           <div className="grid grid-cols-2 gap-4">
-            {renderEditableField('Pohlavie', 'gender', userData.gender, 'gender')}
+            <GenderField
+              value={userData.gender}
+              editingField={editingField}
+              tempValue={tempValue}
+              onEdit={handleEdit}
+              onSave={handleSave}
+              onCancel={handleCancel}
+              onTempValueChange={setTempValue}
+            />
           </div>
+          
           <div className="grid grid-cols-2 gap-4">
-            {renderEditableField('Práca', 'job', userData.job, 'job')}
+            <JobField
+              value={userData.job}
+              jobSubtype={userData.jobSubtype}
+              editingField={editingField}
+              tempValue={tempValue}
+              tempJobSubtype={tempJobSubtype}
+              onEdit={handleEdit}
+              onSave={handleSave}
+              onCancel={handleCancel}
+              onTempValueChange={setTempValue}
+              onTempJobSubtypeChange={setTempJobSubtype}
+            />
           </div>
         </div>
       </CardContent>

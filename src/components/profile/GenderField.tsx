@@ -1,0 +1,75 @@
+
+import React from 'react';
+import { Button } from '@/components/ui/button';
+import { Label } from '@/components/ui/label';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Edit } from 'lucide-react';
+
+interface GenderFieldProps {
+  value: string;
+  editingField: string | null;
+  tempValue: string | number;
+  onEdit: (field: string, value: string | number) => void;
+  onSave: (field: string) => void;
+  onCancel: () => void;
+  onTempValueChange: (value: string | number) => void;
+}
+
+export const GenderField: React.FC<GenderFieldProps> = ({
+  value,
+  editingField,
+  tempValue,
+  onEdit,
+  onSave,
+  onCancel,
+  onTempValueChange
+}) => {
+  const isEditing = editingField === 'gender';
+
+  if (isEditing) {
+    return (
+      <div className="col-span-2 space-y-3">
+        <Label className="text-base font-medium">Pohlavie:</Label>
+        <RadioGroup 
+          value={tempValue as string}
+          onValueChange={(value) => onTempValueChange(value)}
+          className="flex space-x-6"
+        >
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="Muž" id="muz-edit" />
+            <Label htmlFor="muz-edit" className="cursor-pointer text-sm">Muž</Label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="Žena" id="zena-edit" />
+            <Label htmlFor="zena-edit" className="cursor-pointer text-sm">Žena</Label>
+          </div>
+        </RadioGroup>
+        <div className="flex space-x-3 pt-2">
+          <Button size="sm" onClick={() => onSave('gender')} className="px-6">
+            Uložiť
+          </Button>
+          <Button size="sm" variant="outline" onClick={onCancel} className="px-6">
+            Zrušiť
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <div className="text-sm text-muted-foreground">Pohlavie:</div>
+      <div className="flex items-center justify-between">
+        <span className="font-medium">{value || '-'}</span>
+        <Button
+          size="sm"
+          variant="ghost"
+          onClick={() => onEdit('gender', value)}
+          className="h-8 w-8 p-0"
+        >
+          <Edit className="h-4 w-4" />
+        </Button>
+      </div>
+    </>
+  );
+};
