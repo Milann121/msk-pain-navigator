@@ -8,7 +8,7 @@ interface UserInfoSectionProps {
 const UserInfoSection = ({ userInfo }: UserInfoSectionProps) => {
   return (
     <div className="space-y-1">
-      <h3 className="text-lg font-medium">Dobrý deň, {userInfo.firstName}</h3>
+      <h3 className="text-lg font-medium">Dobrý deň</h3>
       <p className="text-gray-500">Analyzovali sme vaše odpovede ohľadom bolesti {userInfo.painArea}.</p>
     </div>
   );
