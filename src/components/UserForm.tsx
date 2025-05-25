@@ -6,7 +6,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { UserInfo } from '@/utils/types';
 import PainAreaSection from './form-sections/PainAreaSection';
 import ConsentSection from './form-sections/ConsentSection';
-import BodyModel3D from './BodyModel3D';
 
 interface UserFormProps {
   onSubmit: (data: UserInfo) => void;
@@ -36,49 +35,40 @@ const UserForm = ({ onSubmit }: UserFormProps) => {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-6">
-      {/* 3D Body Model */}
-      <BodyModel3D 
-        onAreaClick={handlePainAreaChange}
-        selectedArea={painArea}
-      />
-      
-      {/* Form Card */}
-      <Card className="w-full max-w-md mx-auto">
-        <CardHeader>
-          <CardTitle className="text-center text-2xl font-bold text-blue-700">
-            Dotazník bolesti
-          </CardTitle>
-          <CardDescription className="text-center">
-            Pre začatie hodnotenia prosím vyberte oblasť bolesti
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-6">
-            <PainAreaSection
-              painArea={painArea}
-              handlePainAreaChange={handlePainAreaChange}
-              register={register}
-            />
-            
-            <ConsentSection
-              disclaimerConsent={disclaimerConsent}
-              privacyConsent={privacyConsent}
-              setDisclaimerConsent={setDisclaimerConsent}
-              setPrivacyConsent={setPrivacyConsent}
-            />
-            
-            <Button 
-              type="submit" 
-              className="w-full bg-blue-600 hover:bg-blue-700"
-              disabled={!disclaimerConsent || !privacyConsent}
-            >
-              Začať hodnotenie
-            </Button>
-          </form>
-        </CardContent>
-      </Card>
-    </div>
+    <Card className="w-full max-w-md mx-auto">
+      <CardHeader>
+        <CardTitle className="text-center text-2xl font-bold text-blue-700">
+          Dotazník bolesti
+        </CardTitle>
+        <CardDescription className="text-center">
+          Pre začatie hodnotenia prosím vyberte oblasť bolesti
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-6">
+          <PainAreaSection
+            painArea={painArea}
+            handlePainAreaChange={handlePainAreaChange}
+            register={register}
+          />
+          
+          <ConsentSection
+            disclaimerConsent={disclaimerConsent}
+            privacyConsent={privacyConsent}
+            setDisclaimerConsent={setDisclaimerConsent}
+            setPrivacyConsent={setPrivacyConsent}
+          />
+          
+          <Button 
+            type="submit" 
+            className="w-full bg-blue-600 hover:bg-blue-700"
+            disabled={!disclaimerConsent || !privacyConsent}
+          >
+            Začať hodnotenie
+          </Button>
+        </form>
+      </CardContent>
+    </Card>
   );
 };
 
