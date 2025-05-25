@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ModelViewer } from '@/components/ModelViewer';
+import ThreeBodyViewer from '@/components/ThreeBodyViewer';
 
 export const BodyModel = () => {
   return (
@@ -11,10 +11,7 @@ export const BodyModel = () => {
       </CardHeader>
       <CardContent className="flex items-center justify-center">
         <div className="h-64 w-48 relative">
-          <ModelViewer 
-            modelUrl="/lovable-uploads/MaleBaseMesh.glb"
-            className="w-full h-full rounded-md overflow-hidden"
-          />
+          <ThreeBodyViewer />
         </div>
       </CardContent>
     </Card>
