@@ -21,6 +21,9 @@ function HumanModel() {
       const scale = 2 / maxDim; // Adjust this value to make model bigger/smaller
       scene.scale.setScalar(scale);
       
+      // Rotate the model slightly to show both sides better
+      scene.rotation.y = Math.PI * 0.15; // Rotate 27 degrees to show more of the body
+      
       // Ensure the model has proper materials and is visible
       scene.traverse((child) => {
         if (child instanceof THREE.Mesh) {
@@ -65,10 +68,10 @@ export default function ThreeBodyViewer() {
   return (
     <div style={{ height: '600px', width: '100%' }}>
       <Canvas 
-        camera={{ position: [0, 1, 4], fov: 50 }}
+        camera={{ position: [-1, 1, 4], fov: 50 }}
         shadows
       >
-        <ambientLight intensity={0.6} />
+        <ambientLight intensity={0.7} />
         <directionalLight 
           position={[5, 5, 5]} 
           intensity={0.8}
@@ -76,7 +79,8 @@ export default function ThreeBodyViewer() {
           shadow-mapSize-width={1024}
           shadow-mapSize-height={1024}
         />
-        <directionalLight position={[-5, 5, 5]} intensity={0.4} />
+        <directionalLight position={[-5, 5, 5]} intensity={0.6} />
+        <directionalLight position={[0, 5, -5]} intensity={0.4} />
         <pointLight position={[0, 5, 0]} intensity={0.3} />
         <Suspense fallback={null}>
           <HumanModel />
