@@ -4,8 +4,8 @@ import { OrbitControls, useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
 
 function HumanModel() {
-  // Try MaleBaseMesh1.glb first as it's confirmed to be available
-  const { scene } = useGLTF('/lovable-uploads/MaleBaseMesh1.glb');
+  // Try MaleBaseMesh2.glb as requested
+  const { scene } = useGLTF('/lovable-uploads/MaleBaseMesh2.glb');
   
   // Center the model and ensure it's properly scaled
   React.useEffect(() => {
