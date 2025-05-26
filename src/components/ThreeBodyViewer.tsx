@@ -5,17 +5,17 @@ import { OrbitControls, useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
 
 function HumanModel() {
-  const { scene } = useGLTF('/lovable-uploads/MaleBaseMesh2.glb');
+  const { scene } = useGLTF('/lovable-uploads/MaleBaseMesh1.glb');
   
   // Center the model and ensure it's properly scaled
   React.useEffect(() => {
     if (scene) {
-      // Center the model using Box3
+      // Center the model
       const box = new THREE.Box3().setFromObject(scene);
       const center = box.getCenter(new THREE.Vector3());
       scene.position.sub(center);
       
-      // Uniformly scale the model to fit the viewport
+      // Scale the model if needed
       const size = box.getSize(new THREE.Vector3());
       const maxDim = Math.max(size.x, size.y, size.z);
       const scale = 2 / maxDim; // Adjust this value to make model bigger/smaller
@@ -24,13 +24,13 @@ function HumanModel() {
       // Rotate the model slightly to show both sides better
       scene.rotation.y = Math.PI * 0.15; // Rotate 27 degrees to show more of the body
       
-      // Ensure the model has proper materials and is visible from all sides
+      // Ensure the model has proper materials and is visible
       scene.traverse((child) => {
         if (child instanceof THREE.Mesh) {
           // Type assertion to ensure we can access material properties
           const mesh = child as THREE.Mesh;
           
-          // Make sure the material is visible from all sides
+          // Make sure the material is visible and not just a silhouette
           if (mesh.material) {
             if (Array.isArray(mesh.material)) {
               // Handle multiple materials
