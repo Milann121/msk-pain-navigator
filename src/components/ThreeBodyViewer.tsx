@@ -1,4 +1,3 @@
-
 import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
@@ -65,14 +64,6 @@ function HumanModel() {
   return <primitive object={scene} />;
 }
 
-function ErrorFallback() {
-  return (
-    <div className="flex items-center justify-center h-full">
-      <p className="text-gray-500">Unable to load 3D model</p>
-    </div>
-  );
-}
-
 export default function ThreeBodyViewer() {
   return (
     <div style={{ height: '600px', width: '100%' }}>
@@ -94,7 +85,7 @@ export default function ThreeBodyViewer() {
         <directionalLight position={[-5, 5, 5]} intensity={0.6} />
         <directionalLight position={[0, 5, -5]} intensity={0.4} />
         <pointLight position={[0, 5, 0]} intensity={0.3} />
-        <Suspense fallback={<ErrorFallback />}>
+        <Suspense fallback={null}>
           <HumanModel />
         </Suspense>
         <OrbitControls 
