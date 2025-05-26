@@ -5,7 +5,8 @@ import { OrbitControls, useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
 
 function HumanModel() {
-  const { scene } = useGLTF('/lovable-uploads/MaleBaseMesh2.glb');
+  // Try MaleBaseMesh1.glb first as it's confirmed to be available
+  const { scene } = useGLTF('/lovable-uploads/MaleBaseMesh1.glb');
   
   // Center the model and ensure it's properly scaled
   React.useEffect(() => {
@@ -64,12 +65,23 @@ function HumanModel() {
   return <primitive object={scene} />;
 }
 
+function ErrorFallback() {
+  return (
+    <div className="flex items-center justify-center h-full">
+      <p className="text-gray-500">Unable to load 3D model</p>
+    </div>
+  );
+}
+
 export default function ThreeBodyViewer() {
   return (
     <div style={{ height: '600px', width: '100%' }}>
       <Canvas 
         camera={{ position: [-1, 1, 4], fov: 50 }}
         shadows
+        onError={(error) => {
+          console.error('Canvas error:', error);
+        }}
       >
         <ambientLight intensity={0.7} />
         <directionalLight 
@@ -82,7 +94,7 @@ export default function ThreeBodyViewer() {
         <directionalLight position={[-5, 5, 5]} intensity={0.6} />
         <directionalLight position={[0, 5, -5]} intensity={0.4} />
         <pointLight position={[0, 5, 0]} intensity={0.3} />
-        <Suspense fallback={null}>
+        <Suspense fallback={<ErrorFallback />}>
           <HumanModel />
         </Suspense>
         <OrbitControls 
