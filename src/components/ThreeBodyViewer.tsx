@@ -64,7 +64,7 @@ export default function ThreeBodyViewer() {
           </div>
         </div>
       ) : (
-        /* Mobile: Stacked layout */
+        /* Mobile: Stacked layout with full width canvas */
         <div className="space-y-6">
           <ThreeCanvas 
             xRotation={xRotation} 
@@ -72,6 +72,7 @@ export default function ThreeBodyViewer() {
             zoom={zoom}
             verticalPosition={verticalPosition}
             height="500px" 
+            width="100%"
           />
           
           {/* Controls below the canvas for mobile */}
