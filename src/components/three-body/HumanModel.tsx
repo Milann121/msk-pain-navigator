@@ -1,4 +1,3 @@
-
 import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
@@ -12,8 +11,8 @@ interface HumanModelProps {
 }
 
 export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: HumanModelProps) {
-  // Try MaleBaseMesh3.glb as requested
-  const { scene } = useGLTF('/lovable-uploads/MaleBaseMesh3.glb');
+  // Updated to use MaleBaseMesh-bodyPartsDone.glb
+  const { scene } = useGLTF('/lovable-uploads/MaleBaseMesh-bodyPartsDone.glb');
   const modelRef = useRef<THREE.Group>(null);
   
   // Target values for smooth interpolation
