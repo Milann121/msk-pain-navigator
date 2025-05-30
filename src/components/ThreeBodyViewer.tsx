@@ -35,7 +35,7 @@ export default function ThreeBodyViewer() {
   };
 
   return (
-    <div className={`${isMobile ? 'w-full -mx-4 px-0' : 'w-full'}`}>
+    <div className="w-full">
       {/* Desktop: Side-by-side layout */}
       {!isMobile ? (
         <div className="flex gap-8 items-start">
@@ -64,33 +64,28 @@ export default function ThreeBodyViewer() {
           </div>
         </div>
       ) : (
-        /* Mobile: Stacked layout with full width canvas */
-        <div className="w-full space-y-6">
-          <div className="w-full -mx-0 px-0">
-            <ThreeCanvas 
-              xRotation={xRotation} 
-              yRotation={yRotation} 
-              zoom={zoom}
-              verticalPosition={verticalPosition}
-              height="500px" 
-              width="100%"
-            />
-          </div>
+        /* Mobile: Stacked layout */
+        <div className="space-y-6">
+          <ThreeCanvas 
+            xRotation={xRotation} 
+            yRotation={yRotation} 
+            zoom={zoom}
+            verticalPosition={verticalPosition}
+            height="500px" 
+          />
           
           {/* Controls below the canvas for mobile */}
-          <div className="px-4">
-            <RotationControls
-              xRotation={xRotation}
-              yRotation={yRotation}
-              zoom={zoom}
-              verticalPosition={verticalPosition}
-              onXRotationChange={handleXRotationChange}
-              onYRotationChange={handleYRotationChange}
-              onZoomChange={handleZoomChange}
-              onVerticalPositionChange={handleVerticalPositionChange}
-              onReset={resetRotation}
-            />
-          </div>
+          <RotationControls
+            xRotation={xRotation}
+            yRotation={yRotation}
+            zoom={zoom}
+            verticalPosition={verticalPosition}
+            onXRotationChange={handleXRotationChange}
+            onYRotationChange={handleYRotationChange}
+            onZoomChange={handleZoomChange}
+            onVerticalPositionChange={handleVerticalPositionChange}
+            onReset={resetRotation}
+          />
         </div>
       )}
     </div>
