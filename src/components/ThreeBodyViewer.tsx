@@ -7,6 +7,7 @@ import { RotationControls } from './three-body/RotationControls';
 export default function ThreeBodyViewer() {
   const [xRotation, setXRotation] = useState(0); // X-axis rotation in degrees
   const [yRotation, setYRotation] = useState(0); // Y-axis rotation in degrees
+  const [zoom, setZoom] = useState(1); // Zoom level (0.5 to 2, where 1 is default)
   const isMobile = useIsMobile();
 
   const handleXRotationChange = (value: number[]) => {
@@ -17,9 +18,14 @@ export default function ThreeBodyViewer() {
     setYRotation(value[0]);
   };
 
+  const handleZoomChange = (value: number[]) => {
+    setZoom(value[0]);
+  };
+
   const resetRotation = () => {
     setXRotation(0);
     setYRotation(0);
+    setZoom(1);
   };
 
   return (
@@ -30,6 +36,7 @@ export default function ThreeBodyViewer() {
           <ThreeCanvas 
             xRotation={xRotation} 
             yRotation={yRotation} 
+            zoom={zoom}
             height="600px" 
             width="65%" 
           />
@@ -39,8 +46,10 @@ export default function ThreeBodyViewer() {
             <RotationControls
               xRotation={xRotation}
               yRotation={yRotation}
+              zoom={zoom}
               onXRotationChange={handleXRotationChange}
               onYRotationChange={handleYRotationChange}
+              onZoomChange={handleZoomChange}
               onReset={resetRotation}
             />
           </div>
@@ -51,6 +60,7 @@ export default function ThreeBodyViewer() {
           <ThreeCanvas 
             xRotation={xRotation} 
             yRotation={yRotation} 
+            zoom={zoom}
             height="500px" 
           />
           
@@ -58,8 +68,10 @@ export default function ThreeBodyViewer() {
           <RotationControls
             xRotation={xRotation}
             yRotation={yRotation}
+            zoom={zoom}
             onXRotationChange={handleXRotationChange}
             onYRotationChange={handleYRotationChange}
+            onZoomChange={handleZoomChange}
             onReset={resetRotation}
           />
         </div>

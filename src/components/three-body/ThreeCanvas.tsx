@@ -7,11 +7,12 @@ import { HumanModel } from './HumanModel';
 interface ThreeCanvasProps {
   xRotation: number;
   yRotation: number;
+  zoom: number;
   height: string;
   width?: string;
 }
 
-export function ThreeCanvas({ xRotation, yRotation, height, width = '100%' }: ThreeCanvasProps) {
+export function ThreeCanvas({ xRotation, yRotation, zoom, height, width = '100%' }: ThreeCanvasProps) {
   return (
     <div style={{ height, width }} className="relative">
       <Canvas 
@@ -33,7 +34,7 @@ export function ThreeCanvas({ xRotation, yRotation, height, width = '100%' }: Th
         <directionalLight position={[0, 5, -5]} intensity={0.4} />
         <pointLight position={[0, 5, 0]} intensity={0.3} />
         <Suspense fallback={null}>
-          <HumanModel xRotation={xRotation} yRotation={yRotation} />
+          <HumanModel xRotation={xRotation} yRotation={yRotation} zoom={zoom} />
         </Suspense>
         <OrbitControls 
           enablePan={true}

@@ -6,9 +6,10 @@ import * as THREE from 'three';
 interface HumanModelProps {
   xRotation: number;
   yRotation: number;
+  zoom: number;
 }
 
-export function HumanModel({ xRotation, yRotation }: HumanModelProps) {
+export function HumanModel({ xRotation, yRotation, zoom }: HumanModelProps) {
   // Try MaleBaseMesh3.glb as requested
   const { scene } = useGLTF('/lovable-uploads/MaleBaseMesh3.glb');
   
@@ -20,11 +21,12 @@ export function HumanModel({ xRotation, yRotation }: HumanModelProps) {
       const center = box.getCenter(new THREE.Vector3());
       scene.position.sub(center);
       
-      // Scale the model if needed
+      // Scale the model based on zoom (zoom value is 0.5 to 2, where 1 is default)
       const size = box.getSize(new THREE.Vector3());
       const maxDim = Math.max(size.x, size.y, size.z);
-      const scale = 2 / maxDim; // Adjust this value to make model bigger/smaller
-      scene.scale.setScalar(scale);
+      const baseScale = 2 / maxDim; // Base scale to fit model properly
+      const finalScale = baseScale * zoom; // Apply zoom multiplier
+      scene.scale.setScalar(finalScale);
       
       // Apply rotation from sliders (convert degrees to radians) with smooth transition
       scene.rotation.x = (xRotation * Math.PI) / 180;
@@ -65,7 +67,7 @@ export function HumanModel({ xRotation, yRotation }: HumanModelProps) {
         }
       });
     }
-  }, [scene, xRotation, yRotation]);
+  }, [scene, xRotation, yRotation, zoom]);
   
   return <primitive object={scene} />;
 }

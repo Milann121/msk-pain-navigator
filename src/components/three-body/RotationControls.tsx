@@ -2,21 +2,25 @@
 import React from 'react';
 import { Slider } from '@/components/ui/slider';
 import { Label } from '@/components/ui/label';
-import { RotateCcw, RotateCw } from 'lucide-react';
+import { RotateCcw, RotateCw, ZoomIn, ZoomOut } from 'lucide-react';
 
 interface RotationControlsProps {
   xRotation: number;
   yRotation: number;
+  zoom: number;
   onXRotationChange: (value: number[]) => void;
   onYRotationChange: (value: number[]) => void;
+  onZoomChange: (value: number[]) => void;
   onReset: () => void;
 }
 
 export function RotationControls({
   xRotation,
   yRotation,
+  zoom,
   onXRotationChange,
   onYRotationChange,
+  onZoomChange,
   onReset
 }: RotationControlsProps) {
   return (
@@ -70,6 +74,26 @@ export function RotationControls({
             className="flex-1 cursor-pointer"
           />
           <RotateCw className="w-4 h-4 text-gray-400 flex-shrink-0" />
+        </div>
+      </div>
+
+      {/* Zoom control */}
+      <div className="space-y-3">
+        <div className="flex items-center justify-between">
+          <Label className="text-xs text-gray-600 font-medium">Zoom</Label>
+          <span className="text-xs text-gray-500 font-mono min-w-[3rem] text-right">{Math.round(zoom * 100)}%</span>
+        </div>
+        <div className="flex items-center gap-3">
+          <ZoomOut className="w-4 h-4 text-gray-400 flex-shrink-0" />
+          <Slider
+            value={[zoom]}
+            onValueChange={onZoomChange}
+            min={0.5}
+            max={2}
+            step={0.1}
+            className="flex-1 cursor-pointer"
+          />
+          <ZoomIn className="w-4 h-4 text-gray-400 flex-shrink-0" />
         </div>
       </div>
     </div>
