@@ -26,12 +26,12 @@ export default function ThreeBodyViewer() {
     <div className="w-full">
       {/* Desktop: Side-by-side layout with reduced left padding */}
       {!isMobile ? (
-        <div className="flex gap-4 items-start">
+        <div className="flex gap-2 items-start">
           <ThreeCanvas 
             xRotation={xRotation} 
             yRotation={yRotation} 
             height="600px" 
-            width="70%" 
+            width="75%" 
           />
           
           {/* Controls on the right side for desktop */}
