@@ -35,7 +35,7 @@ export default function ThreeBodyViewer() {
   };
 
   return (
-    <div className="w-full">
+    <div className={`${isMobile ? 'w-full' : 'w-full'}`}>
       {/* Desktop: Side-by-side layout */}
       {!isMobile ? (
         <div className="flex gap-8 items-start">
@@ -65,15 +65,17 @@ export default function ThreeBodyViewer() {
         </div>
       ) : (
         /* Mobile: Stacked layout with full width canvas */
-        <div className="space-y-6">
-          <ThreeCanvas 
-            xRotation={xRotation} 
-            yRotation={yRotation} 
-            zoom={zoom}
-            verticalPosition={verticalPosition}
-            height="500px" 
-            width="100%"
-          />
+        <div className="w-full space-y-6">
+          <div className="w-full">
+            <ThreeCanvas 
+              xRotation={xRotation} 
+              yRotation={yRotation} 
+              zoom={zoom}
+              verticalPosition={verticalPosition}
+              height="500px" 
+              width="100%"
+            />
+          </div>
           
           {/* Controls below the canvas for mobile */}
           <RotationControls
