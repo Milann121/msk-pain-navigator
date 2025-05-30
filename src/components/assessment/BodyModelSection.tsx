@@ -12,9 +12,9 @@ export const BodyModelSection = () => {
           Interaktívny 3D model pre vizualizáciu oblastí bolesti
         </p>
       </CardHeader>
-      <CardContent>
+      <CardContent className="p-8">
         <div className="flex justify-center">
-          <div className="w-full max-w-md">
+          <div className="w-full max-w-4xl">
             <ThreeBodyViewer />
           </div>
         </div>

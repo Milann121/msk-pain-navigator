@@ -94,7 +94,7 @@ export default function ThreeBodyViewer() {
   };
 
   const RotationControls = () => (
-    <div className="space-y-4 p-4 bg-white/90 backdrop-blur-sm rounded-lg border">
+    <div className="space-y-4 p-4 bg-white/90 backdrop-blur-sm rounded-lg border shadow-lg">
       <div className="flex items-center justify-between">
         <h3 className="text-sm font-medium text-gray-700">Model Rotation</h3>
         <button 
@@ -150,49 +150,87 @@ export default function ThreeBodyViewer() {
   );
 
   return (
-    <div style={{ height: '600px', width: '100%' }} className="relative">
-      {/* Desktop: Controls on the left side */}
-      {!isMobile && (
-        <div className="absolute left-4 top-4 z-10 w-64">
-          <RotationControls />
+    <div className="w-full">
+      {/* Desktop: Controls positioned to the right side */}
+      {!isMobile ? (
+        <div className="flex gap-6 items-start">
+          <div style={{ height: '600px', width: '70%' }} className="relative">
+            <Canvas 
+              camera={{ position: [-1, 1, 4], fov: 50 }}
+              shadows
+              onError={(error) => {
+                console.error('Canvas error:', error);
+              }}
+            >
+              <ambientLight intensity={0.7} />
+              <directionalLight 
+                position={[5, 5, 5]} 
+                intensity={0.8}
+                castShadow
+                shadow-mapSize-width={1024}
+                shadow-mapSize-height={1024}
+              />
+              <directionalLight position={[-5, 5, 5]} intensity={0.6} />
+              <directionalLight position={[0, 5, -5]} intensity={0.4} />
+              <pointLight position={[0, 5, 0]} intensity={0.3} />
+              <Suspense fallback={null}>
+                <HumanModel xRotation={xRotation} yRotation={yRotation} />
+              </Suspense>
+              <OrbitControls 
+                enablePan={true}
+                enableZoom={true}
+                enableRotate={true}
+                maxDistance={8}
+                minDistance={1}
+                target={[0, 0, 0]}
+                autoRotate={false}
+              />
+            </Canvas>
+          </div>
+          
+          {/* Controls on the right side for desktop */}
+          <div className="w-80 flex-shrink-0">
+            <RotationControls />
+          </div>
         </div>
-      )}
-
-      <Canvas 
-        camera={{ position: [-1, 1, 4], fov: 50 }}
-        shadows
-        onError={(error) => {
-          console.error('Canvas error:', error);
-        }}
-      >
-        <ambientLight intensity={0.7} />
-        <directionalLight 
-          position={[5, 5, 5]} 
-          intensity={0.8}
-          castShadow
-          shadow-mapSize-width={1024}
-          shadow-mapSize-height={1024}
-        />
-        <directionalLight position={[-5, 5, 5]} intensity={0.6} />
-        <directionalLight position={[0, 5, -5]} intensity={0.4} />
-        <pointLight position={[0, 5, 0]} intensity={0.3} />
-        <Suspense fallback={null}>
-          <HumanModel xRotation={xRotation} yRotation={yRotation} />
-        </Suspense>
-        <OrbitControls 
-          enablePan={true}
-          enableZoom={true}
-          enableRotate={true}
-          maxDistance={8}
-          minDistance={1}
-          target={[0, 0, 0]}
-          autoRotate={false}
-        />
-      </Canvas>
-
-      {/* Mobile: Controls below the canvas */}
-      {isMobile && (
-        <div className="mt-4">
+      ) : (
+        /* Mobile: Stacked layout */
+        <div className="space-y-4">
+          <div style={{ height: '500px', width: '100%' }} className="relative">
+            <Canvas 
+              camera={{ position: [-1, 1, 4], fov: 50 }}
+              shadows
+              onError={(error) => {
+                console.error('Canvas error:', error);
+              }}
+            >
+              <ambientLight intensity={0.7} />
+              <directionalLight 
+                position={[5, 5, 5]} 
+                intensity={0.8}
+                castShadow
+                shadow-mapSize-width={1024}
+                shadow-mapSize-height={1024}
+              />
+              <directionalLight position={[-5, 5, 5]} intensity={0.6} />
+              <directionalLight position={[0, 5, -5]} intensity={0.4} />
+              <pointLight position={[0, 5, 0]} intensity={0.3} />
+              <Suspense fallback={null}>
+                <HumanModel xRotation={xRotation} yRotation={yRotation} />
+              </Suspense>
+              <OrbitControls 
+                enablePan={true}
+                enableZoom={true}
+                enableRotate={true}
+                maxDistance={8}
+                minDistance={1}
+                target={[0, 0, 0]}
+                autoRotate={false}
+              />
+            </Canvas>
+          </div>
+          
+          {/* Controls below the canvas for mobile */}
           <RotationControls />
         </div>
       )}
