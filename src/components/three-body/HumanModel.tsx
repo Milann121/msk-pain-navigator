@@ -1,6 +1,7 @@
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
+import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
 interface HumanModelProps {
@@ -12,6 +13,11 @@ interface HumanModelProps {
 export function HumanModel({ xRotation, yRotation, zoom }: HumanModelProps) {
   // Try MaleBaseMesh3.glb as requested
   const { scene } = useGLTF('/lovable-uploads/MaleBaseMesh3.glb');
+  const modelRef = useRef<THREE.Group>(null);
+  
+  // Target rotations for smooth interpolation
+  const targetRotation = useRef({ x: 0, y: 0 });
+  const targetScale = useRef(1);
   
   // Center the model and ensure it's properly scaled
   React.useEffect(() => {
@@ -20,17 +26,6 @@ export function HumanModel({ xRotation, yRotation, zoom }: HumanModelProps) {
       const box = new THREE.Box3().setFromObject(scene);
       const center = box.getCenter(new THREE.Vector3());
       scene.position.sub(center);
-      
-      // Scale the model based on zoom (zoom value is 0.5 to 2, where 1 is default)
-      const size = box.getSize(new THREE.Vector3());
-      const maxDim = Math.max(size.x, size.y, size.z);
-      const baseScale = 2 / maxDim; // Base scale to fit model properly
-      const finalScale = baseScale * zoom; // Apply zoom multiplier
-      scene.scale.setScalar(finalScale);
-      
-      // Apply rotation from sliders (convert degrees to radians) with smooth transition
-      scene.rotation.x = (xRotation * Math.PI) / 180;
-      scene.rotation.y = (yRotation * Math.PI) / 180;
       
       // Ensure the model has proper materials and is visible
       scene.traverse((child) => {
@@ -67,7 +62,45 @@ export function HumanModel({ xRotation, yRotation, zoom }: HumanModelProps) {
         }
       });
     }
-  }, [scene, xRotation, yRotation, zoom]);
+  }, [scene]);
+
+  // Update target values when props change
+  React.useEffect(() => {
+    targetRotation.current.x = (xRotation * Math.PI) / 180;
+    targetRotation.current.y = (yRotation * Math.PI) / 180;
+    
+    // Calculate scale based on zoom
+    const box = new THREE.Box3().setFromObject(scene);
+    const size = box.getSize(new THREE.Vector3());
+    const maxDim = Math.max(size.x, size.y, size.z);
+    const baseScale = 2 / maxDim;
+    targetScale.current = baseScale * zoom;
+  }, [xRotation, yRotation, zoom, scene]);
+
+  // Smooth interpolation using useFrame
+  useFrame((state, delta) => {
+    if (modelRef.current && scene) {
+      // Smooth rotation interpolation
+      const lerpFactor = Math.min(delta * 8, 1); // Adjust speed here (8 = fast, 4 = medium, 2 = slow)
+      
+      modelRef.current.rotation.x = THREE.MathUtils.lerp(
+        modelRef.current.rotation.x,
+        targetRotation.current.x,
+        lerpFactor
+      );
+      
+      modelRef.current.rotation.y = THREE.MathUtils.lerp(
+        modelRef.current.rotation.y,
+        targetRotation.current.y,
+        lerpFactor
+      );
+      
+      // Smooth scale interpolation
+      const currentScale = modelRef.current.scale.x;
+      const newScale = THREE.MathUtils.lerp(currentScale, targetScale.current, lerpFactor);
+      modelRef.current.scale.setScalar(newScale);
+    }
+  });
   
-  return <primitive object={scene} />;
+  return <primitive ref={modelRef} object={scene} />;
 }

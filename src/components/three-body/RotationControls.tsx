@@ -50,8 +50,8 @@ export function RotationControls({
             onValueChange={onYRotationChange}
             min={-360}
             max={360}
-            step={1}
-            className="flex-1 cursor-pointer"
+            step={0.5}
+            className="flex-1 cursor-pointer transition-all duration-150 ease-out"
           />
           <RotateCw className="w-4 h-4 text-gray-400 flex-shrink-0" />
         </div>
@@ -70,8 +70,8 @@ export function RotationControls({
             onValueChange={onXRotationChange}
             min={-180}
             max={180}
-            step={1}
-            className="flex-1 cursor-pointer"
+            step={0.5}
+            className="flex-1 cursor-pointer transition-all duration-150 ease-out"
           />
           <RotateCw className="w-4 h-4 text-gray-400 flex-shrink-0" />
         </div>
@@ -90,8 +90,8 @@ export function RotationControls({
             onValueChange={onZoomChange}
             min={0.5}
             max={10}
-            step={0.1}
-            className="flex-1 cursor-pointer"
+            step={0.05}
+            className="flex-1 cursor-pointer transition-all duration-150 ease-out"
           />
           <ZoomIn className="w-4 h-4 text-gray-400 flex-shrink-0" />
         </div>
