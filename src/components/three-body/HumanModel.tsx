@@ -1,4 +1,3 @@
-
 import React, { useRef, useState } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useFrame, useThree } from '@react-three/fiber';
@@ -36,29 +35,28 @@ export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: Hum
       const center = box.getCenter(new THREE.Vector3());
       clonedScene.position.sub(center);
       
-      // Collect all meshes and setup materials with unique identification
+      // Collect all meshes and setup materials with proper identification
       const foundMeshes: THREE.Mesh[] = [];
-      let meshIndex = 0;
       
       clonedScene.traverse((child) => {
         if (child instanceof THREE.Mesh) {
-          // Give each mesh a unique identifier if it doesn't have one
-          if (!child.name || child.name === 'MaleBaseMesh') {
-            child.name = `BodyPart_${meshIndex}`;
-            meshIndex++;
+          // Keep original mesh names from Blender (spinalZone.*, MaleBaseMesh*, etc.)
+          // Only add index if the mesh doesn't have a meaningful name
+          if (!child.name || child.name === '' || child.name === 'Object') {
+            child.name = `BodyPart_${foundMeshes.length}`;
           }
           
           foundMeshes.push(child);
           console.log('Found mesh:', child.name);
           
-          // Setup material
+          // Setup material with default skin color
           if (child.material) {
             if (Array.isArray(child.material)) {
               child.material.forEach((mat) => {
                 mat.side = THREE.DoubleSide;
                 mat.transparent = false;
                 if (mat instanceof THREE.MeshStandardMaterial) {
-                  mat.color.setHex(0xfdbcb4);
+                  mat.color.setHex(0xfdbcb4); // Default skin color
                   mat.roughness = 0.7;
                   mat.metalness = 0.1;
                 }
@@ -67,7 +65,7 @@ export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: Hum
               child.material.side = THREE.DoubleSide;
               child.material.transparent = false;
               if (child.material instanceof THREE.MeshStandardMaterial) {
-                child.material.color.setHex(0xfdbcb4);
+                child.material.color.setHex(0xfdbcb4); // Default skin color
                 child.material.roughness = 0.7;
                 child.material.metalness = 0.1;
               }
@@ -79,6 +77,7 @@ export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: Hum
       });
       
       console.log('Total meshes found:', foundMeshes.length);
+      console.log('Mesh names:', foundMeshes.map(m => m.name));
       setMeshes(foundMeshes);
       
       // Clear and add the cloned scene
@@ -89,17 +88,43 @@ export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: Hum
     }
   }, [scene]);
 
-  // Handle mesh visibility based on selection
+  // Handle mesh visibility and highlighting based on selection
   React.useEffect(() => {
     console.log('Updating mesh visibility. Selected:', selectedMesh);
     meshes.forEach((mesh) => {
       if (selectedMesh === null) {
-        // Show all meshes
+        // Show all meshes with default color
         mesh.visible = true;
+        if (mesh.material) {
+          if (Array.isArray(mesh.material)) {
+            mesh.material.forEach((mat) => {
+              if (mat instanceof THREE.MeshStandardMaterial) {
+                mat.color.setHex(0xfdbcb4); // Default skin color
+                mat.emissive.setHex(0x000000); // No emission
+              }
+            });
+          } else if (mesh.material instanceof THREE.MeshStandardMaterial) {
+            mesh.material.color.setHex(0xfdbcb4); // Default skin color
+            mesh.material.emissive.setHex(0x000000); // No emission
+          }
+        }
       } else if (mesh.name === selectedMesh) {
-        // Show only selected mesh
+        // Show selected mesh with highlight
         mesh.visible = true;
-        console.log('Showing mesh:', mesh.name);
+        if (mesh.material) {
+          if (Array.isArray(mesh.material)) {
+            mesh.material.forEach((mat) => {
+              if (mat instanceof THREE.MeshStandardMaterial) {
+                mat.color.setHex(0xff6b6b); // Highlighted color (red)
+                mat.emissive.setHex(0x220000); // Slight red emission
+              }
+            });
+          } else if (mesh.material instanceof THREE.MeshStandardMaterial) {
+            mesh.material.color.setHex(0xff6b6b); // Highlighted color (red)
+            mesh.material.emissive.setHex(0x220000); // Slight red emission
+          }
+        }
+        console.log('Showing and highlighting mesh:', mesh.name);
       } else {
         // Hide other meshes
         mesh.visible = false;
@@ -108,7 +133,7 @@ export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: Hum
     });
   }, [selectedMesh, meshes]);
 
-  // Handle click events
+  // Handle click events with improved interaction
   const handleClick = (event: any) => {
     event.stopPropagation();
     
@@ -147,7 +172,8 @@ export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: Hum
         setSelectedMesh(meshName); // Show only clicked mesh
       }
     } else {
-      console.log('No intersections found');
+      console.log('No intersections found, showing all meshes');
+      setSelectedMesh(null); // Show all meshes when clicking empty space
     }
   };
 
