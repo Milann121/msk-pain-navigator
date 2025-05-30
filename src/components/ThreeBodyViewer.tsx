@@ -5,8 +5,8 @@ import { ThreeCanvas } from './three-body/ThreeCanvas';
 import { RotationControls } from './three-body/RotationControls';
 
 export default function ThreeBodyViewer() {
-  const [xRotation, setXRotation] = useState(0); // X-axis rotation in degrees
-  const [yRotation, setYRotation] = useState(0); // Y-axis rotation in degrees
+  const [xRotation, setXRotation] = useState(0);
+  const [yRotation, setYRotation] = useState(0);
   const isMobile = useIsMobile();
 
   const handleXRotationChange = (value: number[]) => {
@@ -24,14 +24,14 @@ export default function ThreeBodyViewer() {
 
   return (
     <div className="w-full">
-      {/* Desktop: Side-by-side layout */}
+      {/* Desktop: Side-by-side layout with reduced left padding */}
       {!isMobile ? (
-        <div className="flex gap-8 items-start">
+        <div className="flex gap-4 items-start">
           <ThreeCanvas 
             xRotation={xRotation} 
             yRotation={yRotation} 
             height="600px" 
-            width="65%" 
+            width="70%" 
           />
           
           {/* Controls on the right side for desktop */}
