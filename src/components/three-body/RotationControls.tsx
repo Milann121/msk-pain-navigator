@@ -89,7 +89,7 @@ export function RotationControls({
             value={[zoom]}
             onValueChange={onZoomChange}
             min={0.5}
-            max={2}
+            max={5}
             step={0.1}
             className="flex-1 cursor-pointer"
           />
