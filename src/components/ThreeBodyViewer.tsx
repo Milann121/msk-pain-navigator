@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { ThreeCanvas } from './three-body/ThreeCanvas';
@@ -11,6 +10,7 @@ export default function ThreeBodyViewer() {
   const [verticalPosition, setVerticalPosition] = useState(0); // Vertical position (-2 to 2, where 0 is center)
   const isMobile = useIsMobile();
 
+  // Keep all control handlers intact for future use
   const handleXRotationChange = (value: number[]) => {
     setXRotation(value[0]);
   };
@@ -34,6 +34,9 @@ export default function ThreeBodyViewer() {
     setVerticalPosition(0);
   };
 
+  // Controls are disabled/hidden for now - uncomment the sections below to re-enable
+  const showControls = false;
+
   return (
     <div className="w-full">
       {/* Desktop: Side-by-side layout */}
@@ -45,23 +48,25 @@ export default function ThreeBodyViewer() {
             zoom={zoom}
             verticalPosition={verticalPosition}
             height="600px" 
-            width="65%" 
+            width={showControls ? "65%" : "100%"} 
           />
           
-          {/* Controls on the right side for desktop */}
-          <div className="w-80 flex-shrink-0">
-            <RotationControls
-              xRotation={xRotation}
-              yRotation={yRotation}
-              zoom={zoom}
-              verticalPosition={verticalPosition}
-              onXRotationChange={handleXRotationChange}
-              onYRotationChange={handleYRotationChange}
-              onZoomChange={handleZoomChange}
-              onVerticalPositionChange={handleVerticalPositionChange}
-              onReset={resetRotation}
-            />
-          </div>
+          {/* Controls hidden for now - uncomment to re-enable */}
+          {showControls && (
+            <div className="w-80 flex-shrink-0">
+              <RotationControls
+                xRotation={xRotation}
+                yRotation={yRotation}
+                zoom={zoom}
+                verticalPosition={verticalPosition}
+                onXRotationChange={handleXRotationChange}
+                onYRotationChange={handleYRotationChange}
+                onZoomChange={handleZoomChange}
+                onVerticalPositionChange={handleVerticalPositionChange}
+                onReset={resetRotation}
+              />
+            </div>
+          )}
         </div>
       ) : (
         /* Mobile: Stacked layout with full width */
@@ -77,20 +82,22 @@ export default function ThreeBodyViewer() {
             />
           </div>
           
-          {/* Controls below the canvas for mobile */}
-          <div className="mx-4">
-            <RotationControls
-              xRotation={xRotation}
-              yRotation={yRotation}
-              zoom={zoom}
-              verticalPosition={verticalPosition}
-              onXRotationChange={handleXRotationChange}
-              onYRotationChange={handleYRotationChange}
-              onZoomChange={handleZoomChange}
-              onVerticalPositionChange={handleVerticalPositionChange}
-              onReset={resetRotation}
-            />
-          </div>
+          {/* Controls hidden for now - uncomment to re-enable */}
+          {showControls && (
+            <div className="mx-4">
+              <RotationControls
+                xRotation={xRotation}
+                yRotation={yRotation}
+                zoom={zoom}
+                verticalPosition={verticalPosition}
+                onXRotationChange={handleXRotationChange}
+                onYRotationChange={handleYRotationChange}
+                onZoomChange={handleZoomChange}
+                onVerticalPositionChange={handleVerticalPositionChange}
+                onReset={resetRotation}
+              />
+            </div>
+          )}
         </div>
       )}
     </div>
