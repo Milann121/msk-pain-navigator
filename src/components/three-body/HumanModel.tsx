@@ -1,3 +1,4 @@
+
 import React, { useRef, useState } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useFrame, useThree } from '@react-three/fiber';
@@ -23,6 +24,12 @@ export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: Hum
   const targetScale = useRef(1);
   const targetPosition = useRef({ y: 0 });
   
+  // Mouse interaction state
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+  const [rotationOffset, setRotationOffset] = useState({ x: 0, y: 0 });
+  const lastClickTime = useRef(0);
+  
   // Center the model and setup click interactions
   React.useEffect(() => {
     if (scene && !clonedSceneRef.current) {
@@ -35,17 +42,11 @@ export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: Hum
       const center = box.getCenter(new THREE.Vector3());
       clonedScene.position.sub(center);
       
-      // Collect all meshes and setup materials with proper identification
+      // Collect all meshes and setup materials
       const foundMeshes: THREE.Mesh[] = [];
       
       clonedScene.traverse((child) => {
         if (child instanceof THREE.Mesh) {
-          // Keep original mesh names from Blender (spinalZone.*, MaleBaseMesh*, etc.)
-          // Only add index if the mesh doesn't have a meaningful name
-          if (!child.name || child.name === '' || child.name === 'Object') {
-            child.name = `BodyPart_${foundMeshes.length}`;
-          }
-          
           foundMeshes.push(child);
           console.log('Found mesh:', child.name);
           
@@ -133,11 +134,64 @@ export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: Hum
     });
   }, [selectedMesh, meshes]);
 
-  // Handle click events with improved interaction
-  const handleClick = (event: any) => {
+  // Handle mouse down for both rotation and selection
+  const handlePointerDown = (event: any) => {
     event.stopPropagation();
     
-    console.log('Click detected');
+    const now = Date.now();
+    lastClickTime.current = now;
+    
+    // Start dragging
+    setIsDragging(true);
+    const rect = gl.domElement.getBoundingClientRect();
+    setDragStart({
+      x: event.clientX - rect.left,
+      y: event.clientY - rect.top
+    });
+  };
+
+  // Handle mouse move for rotation
+  const handlePointerMove = (event: any) => {
+    if (!isDragging) return;
+    
+    event.stopPropagation();
+    
+    const rect = gl.domElement.getBoundingClientRect();
+    const currentX = event.clientX - rect.left;
+    const currentY = event.clientY - rect.top;
+    
+    const deltaX = currentX - dragStart.x;
+    const deltaY = currentY - dragStart.y;
+    
+    // Update rotation offset based on mouse movement
+    const sensitivity = 0.5;
+    setRotationOffset(prev => ({
+      x: prev.x + deltaY * sensitivity,
+      y: prev.y + deltaX * sensitivity
+    }));
+    
+    // Update drag start for next frame
+    setDragStart({ x: currentX, y: currentY });
+  };
+
+  // Handle mouse up for both rotation end and selection
+  const handlePointerUp = (event: any) => {
+    event.stopPropagation();
+    
+    const dragDuration = Date.now() - lastClickTime.current;
+    const wasShortClick = dragDuration < 200; // Consider it a click if less than 200ms
+    
+    setIsDragging(false);
+    
+    // Only handle mesh selection if it was a short click (not a long drag)
+    if (wasShortClick) {
+      handleMeshSelection(event);
+    }
+  };
+
+  // Handle mesh selection with raycasting
+  const handleMeshSelection = (event: any) => {
+    console.log('Handling mesh selection');
     
     // Raycaster for detecting clicks
     const raycaster = new THREE.Raycaster();
@@ -179,8 +233,8 @@ export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: Hum
 
   // Update target values when props change
   React.useEffect(() => {
-    targetRotation.current.x = (xRotation * Math.PI) / 180;
-    targetRotation.current.y = (yRotation * Math.PI) / 180;
+    targetRotation.current.x = (xRotation * Math.PI) / 180 + (rotationOffset.x * Math.PI) / 180;
+    targetRotation.current.y = (yRotation * Math.PI) / 180 + (rotationOffset.y * Math.PI) / 180;
     
     // Calculate scale based on zoom
     if (scene) {
@@ -193,7 +247,7 @@ export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: Hum
     
     // Set vertical position target
     targetPosition.current.y = verticalPosition;
-  }, [xRotation, yRotation, zoom, verticalPosition, scene]);
+  }, [xRotation, yRotation, zoom, verticalPosition, scene, rotationOffset]);
 
   // Smooth interpolation using useFrame
   useFrame((state, delta) => {
@@ -230,8 +284,10 @@ export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: Hum
   return (
     <group 
       ref={modelRef} 
-      onClick={handleClick}
-      onPointerOver={() => gl.domElement.style.cursor = 'pointer'}
+      onPointerDown={handlePointerDown}
+      onPointerMove={handlePointerMove}
+      onPointerUp={handlePointerUp}
+      onPointerOver={() => gl.domElement.style.cursor = isDragging ? 'grabbing' : 'grab'}
       onPointerOut={() => gl.domElement.style.cursor = 'default'}
     />
   );
