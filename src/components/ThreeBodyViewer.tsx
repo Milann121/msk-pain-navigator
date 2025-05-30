@@ -1,4 +1,5 @@
 
+
 import React, { Suspense, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
@@ -111,7 +112,7 @@ export default function ThreeBodyViewer() {
       <div className="space-y-3">
         <div className="flex items-center justify-between">
           <Label className="text-xs text-gray-600 font-medium">Horizontal Rotation</Label>
-          <span className="text-xs text-gray-500 font-mono min-w-[3rem] text-right">{yRotation.toFixed(1)}°</span>
+          <span className="text-xs text-gray-500 font-mono min-w-[3rem] text-right">{Math.round(yRotation)}°</span>
         </div>
         <div className="flex items-center gap-3">
           <RotateCcw className="w-4 h-4 text-gray-400 flex-shrink-0" />
@@ -131,7 +132,7 @@ export default function ThreeBodyViewer() {
       <div className="space-y-3">
         <div className="flex items-center justify-between">
           <Label className="text-xs text-gray-600 font-medium">Vertical Rotation</Label>
-          <span className="text-xs text-gray-500 font-mono min-w-[3rem] text-right">{xRotation.toFixed(1)}°</span>
+          <span className="text-xs text-gray-500 font-mono min-w-[3rem] text-right">{Math.round(xRotation)}°</span>
         </div>
         <div className="flex items-center gap-3">
           <RotateCcw className="w-4 h-4 text-gray-400 flex-shrink-0" />
@@ -237,3 +238,4 @@ export default function ThreeBodyViewer() {
     </div>
   );
 }
+
