@@ -1,7 +1,7 @@
 
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useGLTF } from '@react-three/drei';
-import { useFrame } from '@react-three/fiber';
+import { useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 
 interface HumanModelProps {
@@ -12,59 +12,120 @@ interface HumanModelProps {
 }
 
 export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: HumanModelProps) {
-  // Updated to use MaleBaseMesh-bodyPartsDone.glb
   const { scene } = useGLTF('/lovable-uploads/MaleBaseMesh-bodyPartsDone.glb');
   const modelRef = useRef<THREE.Group>(null);
+  const { camera, gl } = useThree();
+  const [selectedMesh, setSelectedMesh] = useState<string | null>(null);
+  const [meshes, setMeshes] = useState<THREE.Mesh[]>([]);
   
   // Target values for smooth interpolation
   const targetRotation = useRef({ x: 0, y: 0 });
   const targetScale = useRef(1);
   const targetPosition = useRef({ y: 0 });
   
-  // Center the model and ensure it's properly scaled
+  // Center the model and setup click interactions
   React.useEffect(() => {
     if (scene) {
-      // Center the model
-      const box = new THREE.Box3().setFromObject(scene);
-      const center = box.getCenter(new THREE.Vector3());
-      scene.position.sub(center);
+      // Clone the scene to avoid modifying the original
+      const clonedScene = scene.clone();
       
-      // Ensure the model has proper materials and is visible
-      scene.traverse((child) => {
+      // Center the model
+      const box = new THREE.Box3().setFromObject(clonedScene);
+      const center = box.getCenter(new THREE.Vector3());
+      clonedScene.position.sub(center);
+      
+      // Collect all meshes and setup materials
+      const foundMeshes: THREE.Mesh[] = [];
+      clonedScene.traverse((child) => {
         if (child instanceof THREE.Mesh) {
-          // Type assertion to ensure we can access material properties
-          const mesh = child as THREE.Mesh;
+          foundMeshes.push(child);
           
-          // Make sure the material is visible and not just a silhouette
-          if (mesh.material) {
-            if (Array.isArray(mesh.material)) {
-              // Handle multiple materials
-              mesh.material.forEach((mat) => {
+          // Setup material
+          if (child.material) {
+            if (Array.isArray(child.material)) {
+              child.material.forEach((mat) => {
                 mat.side = THREE.DoubleSide;
                 mat.transparent = false;
                 if (mat instanceof THREE.MeshStandardMaterial) {
-                  mat.color.setHex(0xfdbcb4); // Skin tone color
+                  mat.color.setHex(0xfdbcb4);
                   mat.roughness = 0.7;
                   mat.metalness = 0.1;
                 }
               });
             } else {
-              // Handle single material
-              mesh.material.side = THREE.DoubleSide;
-              mesh.material.transparent = false;
-              if (mesh.material instanceof THREE.MeshStandardMaterial) {
-                mesh.material.color.setHex(0xfdbcb4); // Skin tone color
-                mesh.material.roughness = 0.7;
-                mesh.material.metalness = 0.1;
+              child.material.side = THREE.DoubleSide;
+              child.material.transparent = false;
+              if (child.material instanceof THREE.MeshStandardMaterial) {
+                child.material.color.setHex(0xfdbcb4);
+                child.material.roughness = 0.7;
+                child.material.metalness = 0.1;
               }
             }
           }
-          mesh.castShadow = true;
-          mesh.receiveShadow = true;
+          child.castShadow = true;
+          child.receiveShadow = true;
         }
       });
+      
+      setMeshes(foundMeshes);
+      
+      // Clear and add the cloned scene
+      if (modelRef.current) {
+        modelRef.current.clear();
+        modelRef.current.add(clonedScene);
+      }
     }
   }, [scene]);
+
+  // Handle mesh visibility based on selection
+  React.useEffect(() => {
+    meshes.forEach((mesh) => {
+      if (selectedMesh === null) {
+        // Show all meshes
+        mesh.visible = true;
+      } else if (mesh.name === selectedMesh) {
+        // Show only selected mesh
+        mesh.visible = true;
+      } else {
+        // Hide other meshes
+        mesh.visible = false;
+      }
+    });
+  }, [selectedMesh, meshes]);
+
+  // Handle click events
+  const handleClick = (event: any) => {
+    event.stopPropagation();
+    
+    // Raycaster for detecting clicks
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+    
+    // Calculate mouse position in normalized device coordinates
+    const rect = gl.domElement.getBoundingClientRect();
+    mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+    mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+    
+    raycaster.setFromCamera(mouse, camera);
+    
+    // Check for intersections with visible meshes
+    const visibleMeshes = meshes.filter(mesh => mesh.visible);
+    const intersects = raycaster.intersectObjects(visibleMeshes);
+    
+    if (intersects.length > 0) {
+      const clickedMesh = intersects[0].object as THREE.Mesh;
+      const meshName = clickedMesh.name;
+      
+      console.log('Clicked mesh:', meshName);
+      
+      // Toggle selection: if same mesh clicked, show all; otherwise show only clicked mesh
+      if (selectedMesh === meshName) {
+        setSelectedMesh(null); // Show all meshes
+      } else {
+        setSelectedMesh(meshName); // Show only clicked mesh
+      }
+    }
+  };
 
   // Update target values when props change
   React.useEffect(() => {
@@ -72,11 +133,13 @@ export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: Hum
     targetRotation.current.y = (yRotation * Math.PI) / 180;
     
     // Calculate scale based on zoom
-    const box = new THREE.Box3().setFromObject(scene);
-    const size = box.getSize(new THREE.Vector3());
-    const maxDim = Math.max(size.x, size.y, size.z);
-    const baseScale = 2 / maxDim;
-    targetScale.current = baseScale * zoom;
+    if (scene) {
+      const box = new THREE.Box3().setFromObject(scene);
+      const size = box.getSize(new THREE.Vector3());
+      const maxDim = Math.max(size.x, size.y, size.z);
+      const baseScale = 2 / maxDim;
+      targetScale.current = baseScale * zoom;
+    }
     
     // Set vertical position target
     targetPosition.current.y = verticalPosition;
@@ -84,9 +147,9 @@ export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: Hum
 
   // Smooth interpolation using useFrame
   useFrame((state, delta) => {
-    if (modelRef.current && scene) {
+    if (modelRef.current) {
       // Smooth rotation interpolation
-      const lerpFactor = Math.min(delta * 8, 1); // Adjust speed here (8 = fast, 4 = medium, 2 = slow)
+      const lerpFactor = Math.min(delta * 8, 1);
       
       modelRef.current.rotation.x = THREE.MathUtils.lerp(
         modelRef.current.rotation.x,
@@ -114,5 +177,12 @@ export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: Hum
     }
   });
   
-  return <primitive ref={modelRef} object={scene} />;
+  return (
+    <group 
+      ref={modelRef} 
+      onClick={handleClick}
+      onPointerOver={() => gl.domElement.style.cursor = 'pointer'}
+      onPointerOut={() => gl.domElement.style.cursor = 'default'}
+    />
+  );
 }
