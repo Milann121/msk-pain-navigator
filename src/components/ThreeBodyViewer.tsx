@@ -1,3 +1,4 @@
+
 import React, { Suspense, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
@@ -110,17 +111,17 @@ export default function ThreeBodyViewer() {
       <div className="space-y-3">
         <div className="flex items-center justify-between">
           <Label className="text-xs text-gray-600 font-medium">Horizontal Rotation</Label>
-          <span className="text-xs text-gray-500 font-mono min-w-[3rem] text-right">{yRotation}°</span>
+          <span className="text-xs text-gray-500 font-mono min-w-[3rem] text-right">{yRotation.toFixed(1)}°</span>
         </div>
         <div className="flex items-center gap-3">
           <RotateCcw className="w-4 h-4 text-gray-400 flex-shrink-0" />
           <Slider
             value={[yRotation]}
             onValueChange={handleYRotationChange}
-            min={-180}
-            max={180}
-            step={1}
-            className="flex-1 [&_.slider-track]:transition-all [&_.slider-track]:duration-75 [&_.slider-thumb]:transition-all [&_.slider-thumb]:duration-75"
+            min={-360}
+            max={360}
+            step={0.1}
+            className="flex-1"
           />
           <RotateCw className="w-4 h-4 text-gray-400 flex-shrink-0" />
         </div>
@@ -130,17 +131,17 @@ export default function ThreeBodyViewer() {
       <div className="space-y-3">
         <div className="flex items-center justify-between">
           <Label className="text-xs text-gray-600 font-medium">Vertical Rotation</Label>
-          <span className="text-xs text-gray-500 font-mono min-w-[3rem] text-right">{xRotation}°</span>
+          <span className="text-xs text-gray-500 font-mono min-w-[3rem] text-right">{xRotation.toFixed(1)}°</span>
         </div>
         <div className="flex items-center gap-3">
           <RotateCcw className="w-4 h-4 text-gray-400 flex-shrink-0" />
           <Slider
             value={[xRotation]}
             onValueChange={handleXRotationChange}
-            min={-90}
-            max={90}
-            step={1}
-            className="flex-1 [&_.slider-track]:transition-all [&_.slider-track]:duration-75 [&_.slider-thumb]:transition-all [&_.slider-thumb]:duration-75"
+            min={-180}
+            max={180}
+            step={0.1}
+            className="flex-1"
           />
           <RotateCw className="w-4 h-4 text-gray-400 flex-shrink-0" />
         </div>
