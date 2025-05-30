@@ -1,4 +1,3 @@
-
 import React, { Suspense, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
@@ -31,7 +30,7 @@ function HumanModel({ xRotation, yRotation }: HumanModelProps) {
       const scale = 2 / maxDim; // Adjust this value to make model bigger/smaller
       scene.scale.setScalar(scale);
       
-      // Apply rotation from sliders (convert degrees to radians)
+      // Apply rotation from sliders (convert degrees to radians) with smooth transition
       scene.rotation.x = (xRotation * Math.PI) / 180;
       scene.rotation.y = (yRotation * Math.PI) / 180;
       
@@ -94,12 +93,12 @@ export default function ThreeBodyViewer() {
   };
 
   const RotationControls = () => (
-    <div className="space-y-4 p-4 bg-white/90 backdrop-blur-sm rounded-lg border shadow-lg">
+    <div className="space-y-6 p-6 bg-white/95 backdrop-blur-sm rounded-lg border shadow-lg">
       <div className="flex items-center justify-between">
         <h3 className="text-sm font-medium text-gray-700">Model Rotation</h3>
         <button 
           onClick={resetRotation}
-          className="text-xs text-blue-600 hover:text-blue-800 flex items-center gap-1"
+          className="text-xs text-blue-600 hover:text-blue-800 flex items-center gap-1 transition-colors"
           title="Reset to neutral position"
         >
           <RotateCcw className="w-3 h-3" />
@@ -108,42 +107,42 @@ export default function ThreeBodyViewer() {
       </div>
       
       {/* Y-axis rotation (horizontal rotation) */}
-      <div className="space-y-2">
+      <div className="space-y-3">
         <div className="flex items-center justify-between">
-          <Label className="text-xs text-gray-600">Horizontal Rotation</Label>
-          <span className="text-xs text-gray-500">{yRotation}°</span>
+          <Label className="text-xs text-gray-600 font-medium">Horizontal Rotation</Label>
+          <span className="text-xs text-gray-500 font-mono min-w-[3rem] text-right">{yRotation}°</span>
         </div>
-        <div className="flex items-center gap-2">
-          <RotateCcw className="w-4 h-4 text-gray-400" />
+        <div className="flex items-center gap-3">
+          <RotateCcw className="w-4 h-4 text-gray-400 flex-shrink-0" />
           <Slider
             value={[yRotation]}
             onValueChange={handleYRotationChange}
             min={-180}
             max={180}
-            step={5}
-            className="flex-1"
+            step={1}
+            className="flex-1 [&_.slider-track]:transition-all [&_.slider-track]:duration-75 [&_.slider-thumb]:transition-all [&_.slider-thumb]:duration-75"
           />
-          <RotateCw className="w-4 h-4 text-gray-400" />
+          <RotateCw className="w-4 h-4 text-gray-400 flex-shrink-0" />
         </div>
       </div>
 
       {/* X-axis rotation (vertical rotation) */}
-      <div className="space-y-2">
+      <div className="space-y-3">
         <div className="flex items-center justify-between">
-          <Label className="text-xs text-gray-600">Vertical Rotation</Label>
-          <span className="text-xs text-gray-500">{xRotation}°</span>
+          <Label className="text-xs text-gray-600 font-medium">Vertical Rotation</Label>
+          <span className="text-xs text-gray-500 font-mono min-w-[3rem] text-right">{xRotation}°</span>
         </div>
-        <div className="flex items-center gap-2">
-          <RotateCcw className="w-4 h-4 text-gray-400" />
+        <div className="flex items-center gap-3">
+          <RotateCcw className="w-4 h-4 text-gray-400 flex-shrink-0" />
           <Slider
             value={[xRotation]}
             onValueChange={handleXRotationChange}
             min={-90}
             max={90}
-            step={5}
-            className="flex-1"
+            step={1}
+            className="flex-1 [&_.slider-track]:transition-all [&_.slider-track]:duration-75 [&_.slider-thumb]:transition-all [&_.slider-thumb]:duration-75"
           />
-          <RotateCw className="w-4 h-4 text-gray-400" />
+          <RotateCw className="w-4 h-4 text-gray-400 flex-shrink-0" />
         </div>
       </div>
     </div>
@@ -151,10 +150,10 @@ export default function ThreeBodyViewer() {
 
   return (
     <div className="w-full">
-      {/* Desktop: Controls positioned to the right side */}
+      {/* Desktop: Side-by-side layout */}
       {!isMobile ? (
-        <div className="flex gap-6 items-start">
-          <div style={{ height: '600px', width: '70%' }} className="relative">
+        <div className="flex gap-8 items-start">
+          <div style={{ height: '600px', width: '65%' }} className="relative">
             <Canvas 
               camera={{ position: [-1, 1, 4], fov: 50 }}
               shadows
@@ -195,7 +194,7 @@ export default function ThreeBodyViewer() {
         </div>
       ) : (
         /* Mobile: Stacked layout */
-        <div className="space-y-4">
+        <div className="space-y-6">
           <div style={{ height: '500px', width: '100%' }} className="relative">
             <Canvas 
               camera={{ position: [-1, 1, 4], fov: 50 }}
