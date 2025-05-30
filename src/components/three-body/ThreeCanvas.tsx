@@ -15,12 +15,7 @@ export function ThreeCanvas({ xRotation, yRotation, height, width = '100%' }: Th
   return (
     <div style={{ height, width }} className="relative">
       <Canvas 
-        camera={{ 
-          position: [0, 0, 4], 
-          fov: 50,
-          near: 0.1,
-          far: 1000
-        }}
+        camera={{ position: [-1, 1, 4], fov: 50 }}
         shadows
         onError={(error) => {
           console.error('Canvas error:', error);
@@ -41,17 +36,13 @@ export function ThreeCanvas({ xRotation, yRotation, height, width = '100%' }: Th
           <HumanModel xRotation={xRotation} yRotation={yRotation} />
         </Suspense>
         <OrbitControls 
-          enablePan={false}
+          enablePan={true}
           enableZoom={true}
           enableRotate={true}
-          maxDistance={6}
-          minDistance={2}
+          maxDistance={8}
+          minDistance={1}
           target={[0, 0, 0]}
           autoRotate={false}
-          enableDamping={true}
-          dampingFactor={0.05}
-          maxPolarAngle={Math.PI}
-          minPolarAngle={0}
         />
       </Canvas>
     </div>

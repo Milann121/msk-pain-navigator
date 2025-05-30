@@ -15,29 +15,23 @@ export function HumanModel({ xRotation, yRotation }: HumanModelProps) {
   // Center the model and ensure it's properly scaled
   React.useEffect(() => {
     if (scene) {
-      // Create a clone to avoid modifying the original
-      const clonedScene = scene.clone();
-      
       // Center the model
-      const box = new THREE.Box3().setFromObject(clonedScene);
+      const box = new THREE.Box3().setFromObject(scene);
       const center = box.getCenter(new THREE.Vector3());
-      clonedScene.position.sub(center);
+      scene.position.sub(center);
       
-      // Scale the model to fit nicely in the viewport
+      // Scale the model if needed
       const size = box.getSize(new THREE.Vector3());
       const maxDim = Math.max(size.x, size.y, size.z);
-      const scale = 1.8 / maxDim; // Slightly smaller to ensure it fits well
-      clonedScene.scale.setScalar(scale);
+      const scale = 2 / maxDim; // Adjust this value to make model bigger/smaller
+      scene.scale.setScalar(scale);
       
-      // Ensure the model is positioned at the origin
-      clonedScene.position.set(0, 0, 0);
-      
-      // Apply rotation from sliders (convert degrees to radians)
-      clonedScene.rotation.x = (xRotation * Math.PI) / 180;
-      clonedScene.rotation.y = (yRotation * Math.PI) / 180;
+      // Apply rotation from sliders (convert degrees to radians) with smooth transition
+      scene.rotation.x = (xRotation * Math.PI) / 180;
+      scene.rotation.y = (yRotation * Math.PI) / 180;
       
       // Ensure the model has proper materials and is visible
-      clonedScene.traverse((child) => {
+      scene.traverse((child) => {
         if (child instanceof THREE.Mesh) {
           // Type assertion to ensure we can access material properties
           const mesh = child as THREE.Mesh;
@@ -70,13 +64,6 @@ export function HumanModel({ xRotation, yRotation }: HumanModelProps) {
           mesh.receiveShadow = true;
         }
       });
-      
-      // Replace the current scene with the cloned and processed one
-      scene.clear();
-      scene.add(...clonedScene.children);
-      scene.position.copy(clonedScene.position);
-      scene.rotation.copy(clonedScene.rotation);
-      scene.scale.copy(clonedScene.scale);
     }
   }, [scene, xRotation, yRotation]);
   
