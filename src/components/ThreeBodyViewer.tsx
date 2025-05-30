@@ -64,28 +64,33 @@ export default function ThreeBodyViewer() {
           </div>
         </div>
       ) : (
-        /* Mobile: Stacked layout */
-        <div className="space-y-6">
-          <ThreeCanvas 
-            xRotation={xRotation} 
-            yRotation={yRotation} 
-            zoom={zoom}
-            verticalPosition={verticalPosition}
-            height="500px" 
-          />
+        /* Mobile: Stacked layout with full width */
+        <div className="space-y-6 -mx-4 px-0">
+          <div className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+            <ThreeCanvas 
+              xRotation={xRotation} 
+              yRotation={yRotation} 
+              zoom={zoom}
+              verticalPosition={verticalPosition}
+              height="500px" 
+              width="100vw"
+            />
+          </div>
           
           {/* Controls below the canvas for mobile */}
-          <RotationControls
-            xRotation={xRotation}
-            yRotation={yRotation}
-            zoom={zoom}
-            verticalPosition={verticalPosition}
-            onXRotationChange={handleXRotationChange}
-            onYRotationChange={handleYRotationChange}
-            onZoomChange={handleZoomChange}
-            onVerticalPositionChange={handleVerticalPositionChange}
-            onReset={resetRotation}
-          />
+          <div className="mx-4">
+            <RotationControls
+              xRotation={xRotation}
+              yRotation={yRotation}
+              zoom={zoom}
+              verticalPosition={verticalPosition}
+              onXRotationChange={handleXRotationChange}
+              onYRotationChange={handleYRotationChange}
+              onZoomChange={handleZoomChange}
+              onVerticalPositionChange={handleVerticalPositionChange}
+              onReset={resetRotation}
+            />
+          </div>
         </div>
       )}
     </div>
