@@ -8,11 +8,12 @@ interface ThreeCanvasProps {
   xRotation: number;
   yRotation: number;
   zoom: number;
+  verticalPosition: number;
   height: string;
   width?: string;
 }
 
-export function ThreeCanvas({ xRotation, yRotation, zoom, height, width = '100%' }: ThreeCanvasProps) {
+export function ThreeCanvas({ xRotation, yRotation, zoom, verticalPosition, height, width = '100%' }: ThreeCanvasProps) {
   return (
     <div style={{ height, width }} className="relative rounded-lg overflow-hidden">
       <Canvas 
@@ -34,7 +35,12 @@ export function ThreeCanvas({ xRotation, yRotation, zoom, height, width = '100%'
         <directionalLight position={[0, 5, -5]} intensity={0.4} />
         <pointLight position={[0, 5, 0]} intensity={0.3} />
         <Suspense fallback={null}>
-          <HumanModel xRotation={xRotation} yRotation={yRotation} zoom={zoom} />
+          <HumanModel 
+            xRotation={xRotation} 
+            yRotation={yRotation} 
+            zoom={zoom} 
+            verticalPosition={verticalPosition}
+          />
         </Suspense>
         <OrbitControls 
           enablePan={false}

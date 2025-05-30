@@ -2,15 +2,17 @@
 import React from 'react';
 import { Slider } from '@/components/ui/slider';
 import { Label } from '@/components/ui/label';
-import { RotateCcw, RotateCw, ZoomIn, ZoomOut } from 'lucide-react';
+import { RotateCcw, RotateCw, ZoomIn, ZoomOut, ArrowUp, ArrowDown } from 'lucide-react';
 
 interface RotationControlsProps {
   xRotation: number;
   yRotation: number;
   zoom: number;
+  verticalPosition: number;
   onXRotationChange: (value: number[]) => void;
   onYRotationChange: (value: number[]) => void;
   onZoomChange: (value: number[]) => void;
+  onVerticalPositionChange: (value: number[]) => void;
   onReset: () => void;
 }
 
@@ -18,15 +20,17 @@ export function RotationControls({
   xRotation,
   yRotation,
   zoom,
+  verticalPosition,
   onXRotationChange,
   onYRotationChange,
   onZoomChange,
+  onVerticalPositionChange,
   onReset
 }: RotationControlsProps) {
   return (
     <div className="space-y-6 p-6 bg-white/95 backdrop-blur-sm rounded-lg border shadow-lg">
       <div className="flex items-center justify-between">
-        <h3 className="text-sm font-medium text-gray-700">Model Rotation</h3>
+        <h3 className="text-sm font-medium text-gray-700">Model Controls</h3>
         <button 
           onClick={onReset}
           className="text-xs text-blue-600 hover:text-blue-800 flex items-center gap-1 transition-colors"
@@ -74,6 +78,26 @@ export function RotationControls({
             className="flex-1 cursor-pointer transition-all duration-150 ease-out"
           />
           <RotateCw className="w-4 h-4 text-gray-400 flex-shrink-0" />
+        </div>
+      </div>
+
+      {/* Vertical position control */}
+      <div className="space-y-3">
+        <div className="flex items-center justify-between">
+          <Label className="text-xs text-gray-600 font-medium">Vertical Position</Label>
+          <span className="text-xs text-gray-500 font-mono min-w-[3rem] text-right">{Math.round(verticalPosition * 100)}%</span>
+        </div>
+        <div className="flex items-center gap-3">
+          <ArrowDown className="w-4 h-4 text-gray-400 flex-shrink-0" />
+          <Slider
+            value={[verticalPosition]}
+            onValueChange={onVerticalPositionChange}
+            min={-2}
+            max={2}
+            step={0.05}
+            className="flex-1 cursor-pointer transition-all duration-150 ease-out"
+          />
+          <ArrowUp className="w-4 h-4 text-gray-400 flex-shrink-0" />
         </div>
       </div>
 

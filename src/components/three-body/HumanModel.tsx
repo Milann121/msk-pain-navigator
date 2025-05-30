@@ -8,16 +8,18 @@ interface HumanModelProps {
   xRotation: number;
   yRotation: number;
   zoom: number;
+  verticalPosition: number;
 }
 
-export function HumanModel({ xRotation, yRotation, zoom }: HumanModelProps) {
+export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: HumanModelProps) {
   // Try MaleBaseMesh3.glb as requested
   const { scene } = useGLTF('/lovable-uploads/MaleBaseMesh3.glb');
   const modelRef = useRef<THREE.Group>(null);
   
-  // Target rotations for smooth interpolation
+  // Target values for smooth interpolation
   const targetRotation = useRef({ x: 0, y: 0 });
   const targetScale = useRef(1);
+  const targetPosition = useRef({ y: 0 });
   
   // Center the model and ensure it's properly scaled
   React.useEffect(() => {
@@ -75,7 +77,10 @@ export function HumanModel({ xRotation, yRotation, zoom }: HumanModelProps) {
     const maxDim = Math.max(size.x, size.y, size.z);
     const baseScale = 2 / maxDim;
     targetScale.current = baseScale * zoom;
-  }, [xRotation, yRotation, zoom, scene]);
+    
+    // Set vertical position target
+    targetPosition.current.y = verticalPosition;
+  }, [xRotation, yRotation, zoom, verticalPosition, scene]);
 
   // Smooth interpolation using useFrame
   useFrame((state, delta) => {
@@ -99,6 +104,13 @@ export function HumanModel({ xRotation, yRotation, zoom }: HumanModelProps) {
       const currentScale = modelRef.current.scale.x;
       const newScale = THREE.MathUtils.lerp(currentScale, targetScale.current, lerpFactor);
       modelRef.current.scale.setScalar(newScale);
+      
+      // Smooth vertical position interpolation
+      modelRef.current.position.y = THREE.MathUtils.lerp(
+        modelRef.current.position.y,
+        targetPosition.current.y,
+        lerpFactor
+      );
     }
   });
   

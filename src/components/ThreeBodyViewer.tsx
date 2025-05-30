@@ -7,7 +7,8 @@ import { RotationControls } from './three-body/RotationControls';
 export default function ThreeBodyViewer() {
   const [xRotation, setXRotation] = useState(0); // X-axis rotation in degrees
   const [yRotation, setYRotation] = useState(0); // Y-axis rotation in degrees
-  const [zoom, setZoom] = useState(1); // Zoom level (0.5 to 2, where 1 is default)
+  const [zoom, setZoom] = useState(1); // Zoom level (0.5 to 10, where 1 is default)
+  const [verticalPosition, setVerticalPosition] = useState(0); // Vertical position (-2 to 2, where 0 is center)
   const isMobile = useIsMobile();
 
   const handleXRotationChange = (value: number[]) => {
@@ -22,10 +23,15 @@ export default function ThreeBodyViewer() {
     setZoom(value[0]);
   };
 
+  const handleVerticalPositionChange = (value: number[]) => {
+    setVerticalPosition(value[0]);
+  };
+
   const resetRotation = () => {
     setXRotation(0);
     setYRotation(0);
     setZoom(1);
+    setVerticalPosition(0);
   };
 
   return (
@@ -37,6 +43,7 @@ export default function ThreeBodyViewer() {
             xRotation={xRotation} 
             yRotation={yRotation} 
             zoom={zoom}
+            verticalPosition={verticalPosition}
             height="600px" 
             width="65%" 
           />
@@ -47,9 +54,11 @@ export default function ThreeBodyViewer() {
               xRotation={xRotation}
               yRotation={yRotation}
               zoom={zoom}
+              verticalPosition={verticalPosition}
               onXRotationChange={handleXRotationChange}
               onYRotationChange={handleYRotationChange}
               onZoomChange={handleZoomChange}
+              onVerticalPositionChange={handleVerticalPositionChange}
               onReset={resetRotation}
             />
           </div>
@@ -61,6 +70,7 @@ export default function ThreeBodyViewer() {
             xRotation={xRotation} 
             yRotation={yRotation} 
             zoom={zoom}
+            verticalPosition={verticalPosition}
             height="500px" 
           />
           
@@ -69,9 +79,11 @@ export default function ThreeBodyViewer() {
             xRotation={xRotation}
             yRotation={yRotation}
             zoom={zoom}
+            verticalPosition={verticalPosition}
             onXRotationChange={handleXRotationChange}
             onYRotationChange={handleYRotationChange}
             onZoomChange={handleZoomChange}
+            onVerticalPositionChange={handleVerticalPositionChange}
             onReset={resetRotation}
           />
         </div>
