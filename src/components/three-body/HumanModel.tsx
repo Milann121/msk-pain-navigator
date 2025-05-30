@@ -17,6 +17,7 @@ export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: Hum
   const { camera, gl } = useThree();
   const [selectedMesh, setSelectedMesh] = useState<string | null>(null);
   const [meshes, setMeshes] = useState<THREE.Mesh[]>([]);
+  const clonedSceneRef = useRef<THREE.Object3D | null>(null);
   
   // Target values for smooth interpolation
   const targetRotation = useRef({ x: 0, y: 0 });
@@ -25,20 +26,30 @@ export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: Hum
   
   // Center the model and setup click interactions
   React.useEffect(() => {
-    if (scene) {
+    if (scene && !clonedSceneRef.current) {
       // Clone the scene to avoid modifying the original
       const clonedScene = scene.clone();
+      clonedSceneRef.current = clonedScene;
       
       // Center the model
       const box = new THREE.Box3().setFromObject(clonedScene);
       const center = box.getCenter(new THREE.Vector3());
       clonedScene.position.sub(center);
       
-      // Collect all meshes and setup materials
+      // Collect all meshes and setup materials with unique identification
       const foundMeshes: THREE.Mesh[] = [];
+      let meshIndex = 0;
+      
       clonedScene.traverse((child) => {
         if (child instanceof THREE.Mesh) {
+          // Give each mesh a unique identifier if it doesn't have one
+          if (!child.name || child.name === 'MaleBaseMesh') {
+            child.name = `BodyPart_${meshIndex}`;
+            meshIndex++;
+          }
+          
           foundMeshes.push(child);
+          console.log('Found mesh:', child.name);
           
           // Setup material
           if (child.material) {
@@ -67,6 +78,7 @@ export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: Hum
         }
       });
       
+      console.log('Total meshes found:', foundMeshes.length);
       setMeshes(foundMeshes);
       
       // Clear and add the cloned scene
@@ -79,6 +91,7 @@ export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: Hum
 
   // Handle mesh visibility based on selection
   React.useEffect(() => {
+    console.log('Updating mesh visibility. Selected:', selectedMesh);
     meshes.forEach((mesh) => {
       if (selectedMesh === null) {
         // Show all meshes
@@ -86,9 +99,11 @@ export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: Hum
       } else if (mesh.name === selectedMesh) {
         // Show only selected mesh
         mesh.visible = true;
+        console.log('Showing mesh:', mesh.name);
       } else {
         // Hide other meshes
         mesh.visible = false;
+        console.log('Hiding mesh:', mesh.name);
       }
     });
   }, [selectedMesh, meshes]);
@@ -96,6 +111,8 @@ export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: Hum
   // Handle click events
   const handleClick = (event: any) => {
     event.stopPropagation();
+    
+    console.log('Click detected');
     
     // Raycaster for detecting clicks
     const raycaster = new THREE.Raycaster();
@@ -110,20 +127,27 @@ export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: Hum
     
     // Check for intersections with visible meshes
     const visibleMeshes = meshes.filter(mesh => mesh.visible);
-    const intersects = raycaster.intersectObjects(visibleMeshes);
+    console.log('Checking intersections with', visibleMeshes.length, 'visible meshes');
+    
+    const intersects = raycaster.intersectObjects(visibleMeshes, true);
     
     if (intersects.length > 0) {
-      const clickedMesh = intersects[0].object as THREE.Mesh;
-      const meshName = clickedMesh.name;
+      const clickedObject = intersects[0].object as THREE.Mesh;
+      const meshName = clickedObject.name;
       
       console.log('Clicked mesh:', meshName);
+      console.log('Current selected mesh:', selectedMesh);
       
       // Toggle selection: if same mesh clicked, show all; otherwise show only clicked mesh
       if (selectedMesh === meshName) {
+        console.log('Deselecting mesh, showing all');
         setSelectedMesh(null); // Show all meshes
       } else {
+        console.log('Selecting mesh:', meshName);
         setSelectedMesh(meshName); // Show only clicked mesh
       }
+    } else {
+      console.log('No intersections found');
     }
   };
 
