@@ -17,6 +17,7 @@ export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: Hum
   const { camera, gl } = useThree();
   const [selectedMesh, setSelectedMesh] = useState<string | null>(null);
   const [meshes, setMeshes] = useState<THREE.Mesh[]>([]);
+  const [bodyPartMeshes, setBodyPartMeshes] = useState<THREE.Mesh[]>([]);
   const clonedSceneRef = useRef<THREE.Object3D | null>(null);
   
   // Target values for smooth interpolation
@@ -38,11 +39,18 @@ export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: Hum
       
       // Collect all meshes and setup materials
       const foundMeshes: THREE.Mesh[] = [];
+      const foundBodyPartMeshes: THREE.Mesh[] = [];
       
       clonedScene.traverse((child) => {
         if (child instanceof THREE.Mesh) {
           foundMeshes.push(child);
-          console.log('Found mesh:', child.name);
+          
+          // Exclude the main body mesh from selectable parts
+          if (child.name !== 'MaleBaseMesh') {
+            foundBodyPartMeshes.push(child);
+          }
+          
+          console.log('Found mesh:', child.name, child.name === 'MaleBaseMesh' ? '(excluded from selection)' : '(selectable)');
           
           // Setup material with default skin color
           if (child.material) {
@@ -72,8 +80,10 @@ export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: Hum
       });
       
       console.log('Total meshes found:', foundMeshes.length);
-      console.log('Mesh names:', foundMeshes.map(m => m.name));
+      console.log('Selectable body part meshes:', foundBodyPartMeshes.length);
+      console.log('Body part mesh names:', foundBodyPartMeshes.map(m => m.name));
       setMeshes(foundMeshes);
+      setBodyPartMeshes(foundBodyPartMeshes);
       
       // Clear and add the cloned scene
       if (modelRef.current) {
@@ -86,9 +96,17 @@ export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: Hum
   // Handle mesh visibility and highlighting based on selection
   React.useEffect(() => {
     console.log('Updating mesh visibility. Selected:', selectedMesh);
-    meshes.forEach((mesh) => {
+    
+    // Handle the main body mesh separately - always hide it when a body part is selected
+    const mainBodyMesh = meshes.find(mesh => mesh.name === 'MaleBaseMesh');
+    if (mainBodyMesh) {
+      mainBodyMesh.visible = selectedMesh === null;
+    }
+    
+    // Handle body part meshes
+    bodyPartMeshes.forEach((mesh) => {
       if (selectedMesh === null) {
-        // Show all meshes with default color
+        // Show all body part meshes with default color
         mesh.visible = true;
         if (mesh.material) {
           if (Array.isArray(mesh.material)) {
@@ -121,12 +139,12 @@ export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: Hum
         }
         console.log('Showing and highlighting mesh:', mesh.name);
       } else {
-        // Hide other meshes
+        // Hide other body part meshes
         mesh.visible = false;
         console.log('Hiding mesh:', mesh.name);
       }
     });
-  }, [selectedMesh, meshes]);
+  }, [selectedMesh, meshes, bodyPartMeshes]);
 
   // Handle mesh selection with raycasting
   const handleClick = (event: any) => {
@@ -145,17 +163,17 @@ export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: Hum
     
     raycaster.setFromCamera(mouse, camera);
     
-    // Check for intersections with visible meshes
-    const visibleMeshes = meshes.filter(mesh => mesh.visible);
-    console.log('Checking intersections with', visibleMeshes.length, 'visible meshes');
+    // Check for intersections with visible body part meshes only (exclude MaleBaseMesh)
+    const visibleBodyPartMeshes = bodyPartMeshes.filter(mesh => mesh.visible);
+    console.log('Checking intersections with', visibleBodyPartMeshes.length, 'visible body part meshes');
     
-    const intersects = raycaster.intersectObjects(visibleMeshes, true);
+    const intersects = raycaster.intersectObjects(visibleBodyPartMeshes, true);
     
     if (intersects.length > 0) {
       const clickedObject = intersects[0].object as THREE.Mesh;
       const meshName = clickedObject.name;
       
-      console.log('Clicked mesh:', meshName);
+      console.log('Clicked body part mesh:', meshName);
       console.log('Current selected mesh:', selectedMesh);
       
       // Toggle selection: if same mesh clicked, show all; otherwise show only clicked mesh
