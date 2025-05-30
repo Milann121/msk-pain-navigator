@@ -37,9 +37,9 @@ export function ThreeCanvas({ xRotation, yRotation, zoom, height, width = '100%'
           <HumanModel xRotation={xRotation} yRotation={yRotation} zoom={zoom} />
         </Suspense>
         <OrbitControls 
-          enablePan={true}
-          enableZoom={true}
-          enableRotate={true}
+          enablePan={false}
+          enableZoom={false}
+          enableRotate={false}
           maxDistance={8}
           minDistance={1}
           target={[0, 0, 0]}
