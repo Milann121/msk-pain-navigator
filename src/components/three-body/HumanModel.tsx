@@ -1,7 +1,7 @@
 
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
-import { useFrame, useThree } from '@react-three/fiber';
+import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
 interface HumanModelProps {
@@ -15,10 +15,6 @@ export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: Hum
   // Updated to use MaleBaseMesh-bodyPartsDone.glb
   const { scene } = useGLTF('/lovable-uploads/MaleBaseMesh-bodyPartsDone.glb');
   const modelRef = useRef<THREE.Group>(null);
-  const { camera, raycaster, pointer } = useThree();
-  
-  // State to track which body part is selected (null means show all parts)
-  const [selectedBodyPart, setSelectedBodyPart] = useState<string | null>(null);
   
   // Target values for smooth interpolation
   const targetRotation = useRef({ x: 0, y: 0 });
@@ -70,55 +66,6 @@ export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: Hum
     }
   }, [scene]);
 
-  // Update visibility based on selected body part
-  React.useEffect(() => {
-    if (scene) {
-      scene.traverse((child) => {
-        if (child instanceof THREE.Mesh) {
-          if (selectedBodyPart === null) {
-            // Show all parts
-            child.visible = true;
-          } else {
-            // Show only the selected part
-            child.visible = child.name.toLowerCase().includes(selectedBodyPart.toLowerCase());
-          }
-        }
-      });
-    }
-  }, [selectedBodyPart, scene]);
-
-  // Handle clicks on body parts
-  const handleClick = (event: THREE.Event) => {
-    event.stopPropagation();
-    
-    if (modelRef.current) {
-      // Convert mouse position to normalized device coordinates
-      const rect = (event.target as HTMLCanvasElement).getBoundingClientRect();
-      const x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-      const y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
-      
-      // Update raycaster
-      raycaster.setFromCamera(new THREE.Vector2(x, y), camera);
-      
-      // Calculate objects intersecting the picking ray
-      const intersects = raycaster.intersectObjects(modelRef.current.children, true);
-      
-      if (intersects.length > 0) {
-        const clickedObject = intersects[0].object as THREE.Mesh;
-        const partName = clickedObject.name;
-        
-        console.log('Clicked body part:', partName);
-        
-        // Toggle selection: if already selected, show all parts; otherwise show only clicked part
-        if (selectedBodyPart === partName) {
-          setSelectedBodyPart(null);
-        } else {
-          setSelectedBodyPart(partName);
-        }
-      }
-    }
-  };
-
   // Update target values when props change
   React.useEffect(() => {
     targetRotation.current.x = (xRotation * Math.PI) / 180;
@@ -167,5 +114,5 @@ export function HumanModel({ xRotation, yRotation, zoom, verticalPosition }: Hum
     }
   });
   
-  return <primitive ref={modelRef} object={scene} onClick={handleClick} />;
+  return <primitive ref={modelRef} object={scene} />;
 }
