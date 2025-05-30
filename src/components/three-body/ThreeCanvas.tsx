@@ -15,7 +15,7 @@ interface ThreeCanvasProps {
 
 export function ThreeCanvas({ xRotation, yRotation, zoom, verticalPosition, height, width = '100%' }: ThreeCanvasProps) {
   return (
-    <div style={{ height, width }} className="relative rounded-lg overflow-hidden">
+    <div style={{ height, width }} className="relative rounded-lg overflow-hidden cursor-pointer">
       <Canvas 
         camera={{ position: [-1, 1, 4], fov: 50 }}
         shadows
