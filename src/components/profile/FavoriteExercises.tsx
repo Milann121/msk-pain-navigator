@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
+import { ExerciseVideoDialog } from './ExerciseVideoDialog';
 
 interface FavoriteExercise {
   id: string;
@@ -18,6 +19,8 @@ export const FavoriteExercises = () => {
   const [favoriteExercises, setFavoriteExercises] = useState<FavoriteExercise[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [selectedExercise, setSelectedExercise] = useState<FavoriteExercise | null>(null);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const { user } = useAuth();
 
   const exercisesPerPage = 4;
@@ -92,6 +95,16 @@ export const FavoriteExercises = () => {
     }
   };
 
+  const handleExerciseClick = (exercise: FavoriteExercise) => {
+    setSelectedExercise(exercise);
+    setIsDialogOpen(true);
+  };
+
+  const handleCloseDialog = () => {
+    setIsDialogOpen(false);
+    setSelectedExercise(null);
+  };
+
   const visibleExercises = favoriteExercises.slice(currentIndex, currentIndex + exercisesPerPage);
 
   if (loading) {
@@ -110,92 +123,111 @@ export const FavoriteExercises = () => {
   }
 
   return (
-    <Card className="mb-6">
-      <CardHeader>
-        <CardTitle>Obľúbené cviky</CardTitle>
-      </CardHeader>
-      <CardContent>
-        {favoriteExercises.length > 0 ? (
-          <div className="relative">
-            {/* Navigation arrows */}
-            {favoriteExercises.length > exercisesPerPage && (
-              <>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className={`absolute left-0 top-1/2 transform -translate-y-1/2 z-10 ${
-                    !canScrollLeft ? 'opacity-50 cursor-not-allowed' : ''
-                  }`}
-                  onClick={scrollLeft}
-                  disabled={!canScrollLeft}
-                >
-                  <ChevronLeft className="h-4 w-4" />
-                </Button>
-                
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className={`absolute right-0 top-1/2 transform -translate-y-1/2 z-10 ${
-                    !canScrollRight ? 'opacity-50 cursor-not-allowed' : ''
-                  }`}
-                  onClick={scrollRight}
-                  disabled={!canScrollRight}
-                >
-                  <ChevronRight className="h-4 w-4" />
-                </Button>
-              </>
-            )}
-            
-            {/* Exercises grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mx-8">
-              {visibleExercises.map((exercise) => (
-                <div key={exercise.id} className="border rounded-md p-4 space-y-2">
-                  {/* Thumbnail */}
-                  <div className="aspect-video w-full bg-gray-100 rounded overflow-hidden">
-                    <img
-                      src={`https://img.youtube.com/vi/${exercise.video_id}/mqdefault.jpg`}
-                      alt={exercise.exercise_title}
-                      className="w-full h-full object-cover"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.src = `https://img.youtube.com/vi/${exercise.video_id}/hqdefault.jpg`;
-                      }}
-                    />
-                  </div>
-                  
-                  {/* Exercise title */}
-                  <h4 className="font-medium text-sm text-center line-clamp-2">
-                    {exercise.exercise_title}
-                  </h4>
-                </div>
-              ))}
-            </div>
-            
-            {/* Page indicator */}
-            {favoriteExercises.length > exercisesPerPage && (
-              <div className="flex justify-center mt-4 gap-1">
-                {Array.from({ length: Math.ceil(favoriteExercises.length / exercisesPerPage) }).map((_, index) => (
-                  <div
-                    key={index}
-                    className={`w-2 h-2 rounded-full ${
-                      Math.floor(currentIndex / exercisesPerPage) === index
-                        ? 'bg-blue-600'
-                        : 'bg-gray-300'
+    <>
+      <Card className="mb-6">
+        <CardHeader>
+          <CardTitle>Obľúbené cviky</CardTitle>
+        </CardHeader>
+        <CardContent>
+          {favoriteExercises.length > 0 ? (
+            <div className="relative">
+              {/* Navigation arrows */}
+              {favoriteExercises.length > exercisesPerPage && (
+                <>
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className={`absolute left-0 top-1/2 transform -translate-y-1/2 z-10 ${
+                      !canScrollLeft ? 'opacity-50 cursor-not-allowed' : ''
                     }`}
-                  />
+                    onClick={scrollLeft}
+                    disabled={!canScrollLeft}
+                  >
+                    <ChevronLeft className="h-4 w-4" />
+                  </Button>
+                  
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className={`absolute right-0 top-1/2 transform -translate-y-1/2 z-10 ${
+                      !canScrollRight ? 'opacity-50 cursor-not-allowed' : ''
+                    }`}
+                    onClick={scrollRight}
+                    disabled={!canScrollRight}
+                  >
+                    <ChevronRight className="h-4 w-4" />
+                  </Button>
+                </>
+              )}
+              
+              {/* Exercises grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mx-8">
+                {visibleExercises.map((exercise) => (
+                  <div 
+                    key={exercise.id} 
+                    className="border rounded-md p-4 space-y-2 cursor-pointer hover:shadow-md transition-shadow"
+                    onClick={() => handleExerciseClick(exercise)}
+                  >
+                    {/* Thumbnail */}
+                    <div className="aspect-video w-full bg-gray-100 rounded overflow-hidden relative group">
+                      <img
+                        src={`https://img.youtube.com/vi/${exercise.video_id}/mqdefault.jpg`}
+                        alt={exercise.exercise_title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.src = `https://img.youtube.com/vi/${exercise.video_id}/hqdefault.jpg`;
+                        }}
+                      />
+                      {/* Play overlay */}
+                      <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all flex items-center justify-center">
+                        <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                          <div className="w-0 h-0 border-l-[8px] border-l-white border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent ml-1"></div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Exercise title */}
+                    <h4 className="font-medium text-sm text-center line-clamp-2">
+                      {exercise.exercise_title}
+                    </h4>
+                  </div>
                 ))}
               </div>
-            )}
-          </div>
-        ) : (
-          <div className="text-center py-8">
-            <p className="text-muted-foreground">
-              Zatiaľ nemáte žiadne obľúbené cviky. 
-              Môžete si ich pridať označením hviezdy pri cvikoch v pláne cvičení.
-            </p>
-          </div>
-        )}
-      </CardContent>
-    </Card>
+              
+              {/* Page indicator */}
+              {favoriteExercises.length > exercisesPerPage && (
+                <div className="flex justify-center mt-4 gap-1">
+                  {Array.from({ length: Math.ceil(favoriteExercises.length / exercisesPerPage) }).map((_, index) => (
+                    <div
+                      key={index}
+                      className={`w-2 h-2 rounded-full ${
+                        Math.floor(currentIndex / exercisesPerPage) === index
+                          ? 'bg-blue-600'
+                          : 'bg-gray-300'
+                      }`}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="text-center py-8">
+              <p className="text-muted-foreground">
+                Zatiaľ nemáte žiadne obľúbené cviky. 
+                Môžete si ich pridať označením hviezdy pri cvikoch v pláne cvičení.
+              </p>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+
+      {/* Exercise Video Dialog */}
+      <ExerciseVideoDialog
+        isOpen={isDialogOpen}
+        onClose={handleCloseDialog}
+        exercise={selectedExercise}
+      />
+    </>
   );
 };
