@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useLocation } from 'react-router-dom';
@@ -10,6 +11,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { ExerciseCompletionCheckbox } from '@/components/ExerciseCompletionCheckbox';
 import { Navigate } from 'react-router-dom';
 import Header from '@/components/Header';
+import { FavoriteExerciseButton } from '@/components/FavoriteExerciseButton';
 
 const ExercisePlan = () => {
   const { user } = useAuth();
@@ -122,33 +124,85 @@ const ExercisePlan = () => {
           <CardContent className="space-y-8">
             {exercises.map((exercise, index) => (
               <div key={index} className="space-y-4">
-                <div className="space-y-2">
-                  <h3 className="text-xl font-semibold">{exercise.title}</h3>
-                  <p className="text-gray-600">{exercise.description}</p>
-                </div>
+                {/* Period title with larger size */}
+                <h2 className="text-3xl font-bold text-gray-900">{exercise.title}</h2>
+                <p className="text-gray-600">{exercise.description}</p>
                 
                 <div className="space-y-6">
                   {exercise.videos.map((video, videoIndex) => (
                     <div key={videoIndex} className="space-y-4">
                       {video.title && (
-                        <h4 className="text-lg font-medium text-gray-800">{video.title}</h4>
+                        <h3 className="text-xl font-bold text-gray-800">{video.title}</h3>
                       )}
-                      <div className="aspect-video w-full">
-                        <iframe
-                          width="100%"
-                          height="100%"
-                          src={`https://www.youtube.com/embed/${video.videoId}`}
-                          title={video.title || exercise.title}
-                          frameBorder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
+                      
+                      {/* Desktop layout: video on left, description and favorite on right */}
+                      <div className="hidden md:flex gap-6">
+                        {/* Video - half size, aligned left */}
+                        <div className="w-1/2">
+                          <div className="aspect-video w-full">
+                            <iframe
+                              width="100%"
+                              height="100%"
+                              src={`https://www.youtube.com/embed/${video.videoId}`}
+                              title={video.title || exercise.title}
+                              frameBorder="0"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                              allowFullScreen
+                            />
+                          </div>
+                        </div>
+                        
+                        {/* Description and favorite button on right */}
+                        <div className="w-1/2 space-y-4">
+                          {video.description && (
+                            <p className="text-gray-600">
+                              {video.description.split('\n').map((line, index) => (
+                                <span key={index}>
+                                  {line}
+                                  <br />
+                                </span>
+                              ))}
+                            </p>
+                          )}
+                          
+                          <FavoriteExerciseButton
+                            exerciseTitle={video.title || exercise.title}
+                            videoId={video.videoId}
+                            description={video.description}
+                          />
+                        </div>
+                      </div>
+                      
+                      {/* Mobile layout: original stacked layout */}
+                      <div className="md:hidden space-y-4">
+                        <div className="aspect-video w-full">
+                          <iframe
+                            width="100%"
+                            height="100%"
+                            src={`https://www.youtube.com/embed/${video.videoId}`}
+                            title={video.title || exercise.title}
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                          />
+                        </div>
+                        {video.description && (
+                          <p className="text-gray-600 ml-4 border-l-2 border-gray-200 pl-4">
+                            {video.description.split('\n').map((line, index) => (
+                              <span key={index}>
+                                {line}
+                                <br />
+                              </span>
+                            ))}
+                          </p>
+                        )}
+                        
+                        <FavoriteExerciseButton
+                          exerciseTitle={video.title || exercise.title}
+                          videoId={video.videoId}
+                          description={video.description}
                         />
                       </div>
-                      {video.description && (
-                        <p className="text-gray-600 ml-4 border-l-2 border-gray-200 pl-4">
-                          {video.description}
-                        </p>
-                      )}
                     </div>
                   ))}
                 </div>
@@ -159,7 +213,7 @@ const ExercisePlan = () => {
             {assessmentId && (
               <div className="flex justify-center mt-8">
                 <ExerciseCompletionCheckbox 
-                  key={`exercise-${assessmentId}-${Date.now()}`} // Add key to force re-render
+                  key={`exercise-${assessmentId}-${Date.now()}`}
                   exerciseTitle={exercises[0]?.title}
                   assessmentId={assessmentId}
                 />
