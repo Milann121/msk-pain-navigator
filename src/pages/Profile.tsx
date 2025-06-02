@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Navigate } from 'react-router-dom';
@@ -6,7 +5,7 @@ import Header from '@/components/Header';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ExerciseCalendar } from '@/components/exercise-dashboard/ExerciseCalendar';
 import { ProfileInfo } from '@/components/profile/ProfileInfo';
-import { BodyModel } from '@/components/profile/BodyModel';
+// import { BodyModel } from '@/components/profile/BodyModel';
 import { MoodCalendar } from '@/components/profile/MoodCalendar';
 import { FavoriteExercises } from '@/components/profile/FavoriteExercises';
 import { SavedBlogs } from '@/components/profile/SavedBlogs';
@@ -43,12 +42,12 @@ const Profile = () => {
         <div className="container mx-auto max-w-4xl">
           <h1 className="text-3xl font-bold text-blue-800 mb-6">Môj profil</h1>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-            {/* User Profile Info */}
+          <div className="grid grid-cols-1 gap-6 mb-6">
+            {/* User Profile Info - now taking full width */}
             <ProfileInfo />
             
-            {/* Body Model */}
-            <BodyModel />
+            {/* Body Model - hidden for now, keeping code for later use */}
+            {/* <BodyModel /> */}
           </div>
           
           {/* Mood Calendar */}
