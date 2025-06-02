@@ -35,9 +35,9 @@ export const FavoriteExerciseButton = ({ exerciseTitle, videoId, description }: 
           .eq('user_id', user.id)
           .eq('exercise_title', exerciseTitle)
           .eq('video_id', videoId)
-          .single();
+          .maybeSingle();
           
-        if (error && error.code !== 'PGRST116') {
+        if (error) {
           console.error('Error checking favorite status:', error);
         }
         
@@ -152,7 +152,7 @@ export const FavoriteExerciseButton = ({ exerciseTitle, videoId, description }: 
       />
       {isProcessing 
         ? 'Spracováva sa...' 
-        : (isFavorite ? 'Odstániť z obľúbených' : 'Pridať ako obľúbené')
+        : (isFavorite ? 'Obľúbené' : 'Pridať ako obľúbené')
       }
     </Button>
   );

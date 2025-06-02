@@ -41,6 +41,33 @@ export type Database = {
           },
         ]
       }
+      favorite_exercises: {
+        Row: {
+          created_at: string
+          description: string | null
+          exercise_title: string
+          id: string
+          user_id: string
+          video_id: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          exercise_title: string
+          id?: string
+          user_id: string
+          video_id: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          exercise_title?: string
+          id?: string
+          user_id?: string
+          video_id?: string
+        }
+        Relationships: []
+      }
       follow_up_responses: {
         Row: {
           assessment_id: string
