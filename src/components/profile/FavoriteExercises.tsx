@@ -23,11 +23,16 @@ export const FavoriteExercises = () => {
 
   useEffect(() => {
     const fetchFavoriteExercises = async () => {
-      if (!user) return;
+      if (!user) {
+        setLoading(false);
+        return;
+      }
       
       try {
+        console.log('Fetching favorite exercises for user:', user.id);
+        
         const { data, error } = await supabase
-          .from('favorite_exercises' as any)
+          .from('favorite_exercises')
           .select('*')
           .eq('user_id', user.id)
           .order('created_at', { ascending: false });
@@ -36,6 +41,8 @@ export const FavoriteExercises = () => {
           console.error('Error fetching favorite exercises:', error);
           return;
         }
+        
+        console.log('Fetched favorite exercises:', data);
         
         // Safely cast the data to our interface
         const exercises = (data || []).map((item: any) => ({
@@ -67,7 +74,8 @@ export const FavoriteExercises = () => {
           table: 'favorite_exercises',
           filter: `user_id=eq.${user?.id}`
         },
-        () => {
+        (payload) => {
+          console.log('Real-time update received:', payload);
           fetchFavoriteExercises();
         }
       )
