@@ -130,6 +130,45 @@ export type Database = {
         }
         Relationships: []
       }
+      user_profiles: {
+        Row: {
+          age: number | null
+          created_at: string | null
+          first_name: string | null
+          gender: string | null
+          id: string
+          job: string | null
+          job_subtype: string | null
+          last_name: string | null
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          age?: number | null
+          created_at?: string | null
+          first_name?: string | null
+          gender?: string | null
+          id?: string
+          job?: string | null
+          job_subtype?: string | null
+          last_name?: string | null
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          age?: number | null
+          created_at?: string | null
+          first_name?: string | null
+          gender?: string | null
+          id?: string
+          job?: string | null
+          job_subtype?: string | null
+          last_name?: string | null
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

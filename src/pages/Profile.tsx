@@ -10,11 +10,18 @@ import { BodyModel } from '@/components/profile/BodyModel';
 import { MoodCalendar } from '@/components/profile/MoodCalendar';
 import { FavoriteExercises } from '@/components/profile/FavoriteExercises';
 import { SavedBlogs } from '@/components/profile/SavedBlogs';
+import { ProfileFormPopup } from '@/components/profile/ProfileFormPopup';
+import { useProfileCompletion } from '@/hooks/useProfileCompletion';
 
 const Profile = () => {
   const { user, isLoading } = useAuth();
+  const { 
+    showProfilePopup, 
+    isCheckingProfile, 
+    handleProfileCompleted 
+  } = useProfileCompletion();
 
-  if (isLoading) {
+  if (isLoading || isCheckingProfile) {
     return (
       <div className="min-h-screen flex flex-col">
         <Header />
@@ -54,6 +61,13 @@ const Profile = () => {
           <SavedBlogs />
         </div>
       </div>
+
+      {/* Post-signup profile completion popup */}
+      <ProfileFormPopup
+        isOpen={showProfilePopup}
+        onClose={handleProfileCompleted}
+        onProfileSaved={handleProfileCompleted}
+      />
     </div>
   );
 };
