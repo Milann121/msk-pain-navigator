@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -38,7 +37,16 @@ export const FavoriteExercises = () => {
           return;
         }
         
-        setFavoriteExercises(data as FavoriteExercise[] || []);
+        // Safely cast the data to our interface
+        const exercises = (data || []).map((item: any) => ({
+          id: item.id,
+          exercise_title: item.exercise_title,
+          video_id: item.video_id,
+          description: item.description,
+          created_at: item.created_at
+        })) as FavoriteExercise[];
+        
+        setFavoriteExercises(exercises);
       } catch (error) {
         console.error('Error fetching favorite exercises:', error);
       } finally {

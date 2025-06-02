@@ -47,7 +47,14 @@ export const FavoriteExerciseButton = ({ exerciseTitle, videoId, description }: 
   }, [user, exerciseTitle, videoId]);
 
   const handleToggleFavorite = async () => {
-    if (!user) return;
+    if (!user) {
+      toast({
+        title: "Chyba",
+        description: "Musíte sa prihlásiť, aby ste mohli pridávať obľúbené cvičenia.",
+        variant: "destructive"
+      });
+      return;
+    }
     
     try {
       if (isFavorite) {
