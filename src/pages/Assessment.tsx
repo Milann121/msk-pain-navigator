@@ -8,7 +8,7 @@ import GeneralQuestionnaireHandler from '@/components/assessment/GeneralQuestion
 import FollowUpQuestionnaireHandler from '@/components/assessment/FollowUpQuestionnaireHandler';
 import ResultsHandler from '@/components/assessment/ResultsHandler';
 import SubmittingOverlay from '@/components/assessment/SubmittingOverlay';
-import { BodyModelSection } from '@/components/assessment/BodyModelSection';
+// import { BodyModelSection } from '@/components/assessment/BodyModelSection';
 
 const AssessmentContent = () => {
   const { user, isLoading } = useAuth();
@@ -36,8 +36,8 @@ const AssessmentContent = () => {
             </p>
           </header>
           
-          {/* Add the 3D body model section */}
-          <BodyModelSection />
+          {/* Body Model Section - hidden for now, keeping code for later use */}
+          {/* <BodyModelSection /> */}
           
           {stage === AssessmentStage.UserInfo && <UserInfoHandler />}
           
