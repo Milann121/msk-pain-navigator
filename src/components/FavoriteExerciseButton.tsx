@@ -24,7 +24,7 @@ export const FavoriteExerciseButton = ({ exerciseTitle, videoId, description }: 
       
       try {
         const { data, error } = await supabase
-          .from('favorite_exercises')
+          .from('favorite_exercises' as any)
           .select('id')
           .eq('user_id', user.id)
           .eq('exercise_title', exerciseTitle)
@@ -53,7 +53,7 @@ export const FavoriteExerciseButton = ({ exerciseTitle, videoId, description }: 
       if (isFavorite) {
         // Remove from favorites
         const { error } = await supabase
-          .from('favorite_exercises')
+          .from('favorite_exercises' as any)
           .delete()
           .eq('user_id', user.id)
           .eq('exercise_title', exerciseTitle)
@@ -69,7 +69,7 @@ export const FavoriteExerciseButton = ({ exerciseTitle, videoId, description }: 
       } else {
         // Add to favorites
         const { error } = await supabase
-          .from('favorite_exercises')
+          .from('favorite_exercises' as any)
           .insert({
             user_id: user.id,
             exercise_title: exerciseTitle,

@@ -28,7 +28,7 @@ export const FavoriteExercises = () => {
       
       try {
         const { data, error } = await supabase
-          .from('favorite_exercises')
+          .from('favorite_exercises' as any)
           .select('*')
           .eq('user_id', user.id)
           .order('created_at', { ascending: false });
@@ -38,7 +38,7 @@ export const FavoriteExercises = () => {
           return;
         }
         
-        setFavoriteExercises(data || []);
+        setFavoriteExercises(data as FavoriteExercise[] || []);
       } catch (error) {
         console.error('Error fetching favorite exercises:', error);
       } finally {
