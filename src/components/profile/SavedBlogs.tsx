@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useAuth } from '@/contexts/AuthContext';
@@ -24,7 +23,7 @@ export const SavedBlogs = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const { user } = useAuth();
 
-  const blogsPerPage = 4;
+  const blogsPerPage = 3;
 
   useEffect(() => {
     const fetchFavoriteBlogs = async () => {
@@ -142,7 +141,7 @@ export const SavedBlogs = () => {
             )}
             
             {/* Blogs grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mx-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mx-8">
               {visibleBlogs.map((blog) => (
                 <FavoriteBlogCard 
                   key={blog.id} 

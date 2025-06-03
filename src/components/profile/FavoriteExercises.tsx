@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useAuth } from '@/contexts/AuthContext';
@@ -24,7 +23,7 @@ export const FavoriteExercises = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const { user } = useAuth();
 
-  const exercisesPerPage = 4;
+  const exercisesPerPage = 3;
 
   useEffect(() => {
     const fetchFavoriteExercises = async () => {
@@ -145,7 +144,7 @@ export const FavoriteExercises = () => {
               )}
               
               {/* Exercises grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mx-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mx-8">
                 {visibleExercises.map((exercise) => (
                   <FavoriteExerciseCard 
                     key={exercise.id} 

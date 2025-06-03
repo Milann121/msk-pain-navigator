@@ -17,7 +17,7 @@ interface FavoriteExerciseCardProps {
 export const FavoriteExerciseCard = ({ exercise, onClick }: FavoriteExerciseCardProps) => {
   return (
     <div 
-      className="border rounded-md p-4 space-y-2 cursor-pointer hover:shadow-md transition-shadow"
+      className="border rounded-md p-4 space-y-3 cursor-pointer hover:shadow-md transition-shadow"
       onClick={() => onClick(exercise)}
     >
       {/* Thumbnail */}
@@ -33,14 +33,14 @@ export const FavoriteExerciseCard = ({ exercise, onClick }: FavoriteExerciseCard
         />
         {/* Play overlay */}
         <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all flex items-center justify-center">
-          <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-            <div className="w-0 h-0 border-l-[8px] border-l-white border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent ml-1"></div>
+          <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="w-0 h-0 border-l-[12px] border-l-white border-t-[8px] border-t-transparent border-b-[8px] border-b-transparent ml-1"></div>
           </div>
         </div>
       </div>
       
       {/* Exercise title */}
-      <h4 className="font-medium text-sm text-center line-clamp-2">
+      <h4 className="font-medium text-base text-center line-clamp-2">
         {exercise.exercise_title}
       </h4>
     </div>

@@ -38,15 +38,15 @@ export const FavoriteBlogCard = ({ blog, onClick }: FavoriteBlogCardProps) => {
         {/* External link overlay */}
         {blog.is_external && (
           <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all flex items-center justify-center">
-            <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-              <ExternalLink className="h-6 w-6 text-white" />
+            <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <ExternalLink className="h-8 w-8 text-white" />
             </div>
           </div>
         )}
       </div>
       
       {/* Blog Title */}
-      <h4 className="font-medium text-sm text-center line-clamp-2">
+      <h4 className="font-medium text-base text-center line-clamp-2">
         {blog.blog_title}
       </h4>
     </div>
