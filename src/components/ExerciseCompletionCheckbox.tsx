@@ -173,7 +173,11 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
         </div>
       );
     } else if (completionCount > 0) {
-      return 'Odcvičené znovu';
+      return (
+        <>
+          <Check className="mr-2 h-4 w-4" /> Odcvičené znovu
+        </>
+      );
     } else {
       return 'Označiť ako odcvičené';
     }
