@@ -42,7 +42,7 @@ export const activityStartQuestion: Question = {
 export const reflexesQuestion: Question = {
   id: 'reflexes',
   text: 'Boli ste informovaný/á lekárom alebo fyzioterapeutom, že máte výrazne znížené alebo chýbajúce reflexy?',
-  description: 'Strata alebo výrazné zníženie reflexov nám vedia veľa povedať o vašom stave a jeho príčine. Ak ste navštívili lekára alebo fyzioterapeuta, pravdepodobne ste prešli testom reflexov. V prípade ich zníženia alebo straty, mali by ste byť okamžite upozornený/á. Ak vás zdravotník neupozornil na zemnu reflexov, veľmi pravdepodobne je to preto, že vyšetrenie dopadlo vporiadku - v takom prípade odpovedajte nie. Ako prebieha vyšetrenie reflexov? => Zvyčajne ide napr. o poklepkanie kladivkom o šľachu pod kolenom, alebo na achilovej ľache, alebo nad lakťom.', // Add description here later
+  description: 'Strata alebo výrazné zníženie reflexov nám vedia veľa povedať o vašom stave a jeho príčine. Ak ste navštívili lekára alebo fyzioterapeuta, pravdepodobne ste prešli testom reflexov. V prípade ich zníženia alebo straty, mali by ste byť okamžite upozornený/á. Ak vás zdravotník neupozornil na zemnu reflexov, veľmi pravdepodobne je to preto, že vyšetrenie dopadlo vporiadku - v takom prípade odpovedajte nie. AKO PREBIEHA VYŠETRENIE REFLEXOV? => Zvyčajne ide napr. o poklepkanie kladivkom o šľachu pod kolenom, alebo na achilovej ľache, alebo nad lakťom.', // Add description here later
   type: 'radio',
   options: [
     {
@@ -66,7 +66,7 @@ export const reflexesQuestion: Question = {
 export const sensitivityQuestion: Question = {
   id: 'sensitivity',
   text: 'Máte zvýšenú citlivosť na svetlo, zvuk alebo vône?',
-  description: '', // Add description here later
+    description: 'Na túto otázku odpovedajte KLADNE iba v prípade, ak sa táto citlivosť objavila od nástupu bolestí alebo v ich priebehu. Na otázku odpovedajte NEGATÍVNE, ak takúto citlivosť nemáte, alebo ste ju mali aj pred nástupom bolestí a nejako výrazne sa nezmenila. PREČO SA PÝTAME? Zvýšená citlivosť na senzorické vnemy môže znamenať precitlivenie nervového systému, čo má vplyv na prežívanie bolesti a taktiež na tvorbu vášho programu.', // Add description here later
   type: 'radio',
   options: [
     {
