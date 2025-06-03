@@ -42,7 +42,7 @@ export const activityStartQuestion: Question = {
 export const reflexesQuestion: Question = {
   id: 'reflexes',
   text: 'Boli ste informovaný/á lekárom alebo fyzioterapeutom, že máte výrazne znížené alebo chýbajúce reflexy?',
-  description: '', // Add description here later
+  description: 'Strata alebo výrazné zníženie reflexov nám vedia veľa povedať o vašom stave a jeho príčine. Ak ste navštívili lekára alebo fyzioterapeuta, pravdepodobne ste prešli testom reflexov. V prípade ich zníženia alebo straty, mali by ste byť okamžite upozornený/á. Ak vás zdravotník neupozornil na zemnu reflexov, veľmi pravdepodobne je to preto, že vyšetrenie dopadlo vporiadku - v takom prípade odpovedajte nie. Ako prebieha vyšetrenie reflexov? => Zvyčajne ide napr. o poklepkanie kladivkom o šľachu pod kolenom, alebo na achilovej ľache, alebo nad lakťom.', // Add description here later
   type: 'radio',
   options: [
     {
