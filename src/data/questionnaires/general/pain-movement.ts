@@ -4,7 +4,7 @@ import { Question } from '@/utils/types';
 export const painMovementQuestion: Question = {
   id: 'pain-with-movement',
   text: 'Zvyšuje sa vaša bolesť pri určitých pohyboch alebo aktivitách?',
-  description: '', // Add description here later
+  description: 'Odpovedajte KLADNE v prípade, ak poznáte konkrétny pohyb alebo aktivity, ktoré vám zvyšujú vašu bolesť v oblasti, ku ktorej vypĺňate dotazník. Rovnako odpovedajte aj na nasledujúce podotázky.', // Add description here later
   type: 'radio',
   options: [
     {
