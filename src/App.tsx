@@ -13,6 +13,7 @@ import Assessment from "./pages/Assessment";
 import MyExercises from "./pages/MyExercises";
 import Blog from "./pages/Blog";
 import Profile from "./pages/Profile";
+import Domov from "./pages/Domov";
 import CookieConsent from "./components/CookieConsent";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/auth" element={<Auth />} />
+          <Route path="/domov" element={<Domov />} />
           <Route path="/assessment" element={<Assessment />} />
           <Route path="/exercise-plan" element={<ExercisePlan />} />
           <Route path="/my-exercises" element={<MyExercises />} />

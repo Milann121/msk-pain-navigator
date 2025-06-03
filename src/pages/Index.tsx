@@ -19,7 +19,7 @@ const Index = () => {
   }
 
   if (user) {
-    return <Navigate to="/assessment" replace />;
+    return <Navigate to="/domov" replace />;
   }
 
   return (

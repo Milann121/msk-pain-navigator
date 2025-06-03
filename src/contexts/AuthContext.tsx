@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { User, Session } from '@supabase/supabase-js';
 import { supabase } from '@/integrations/supabase/client';
@@ -31,7 +30,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
         // Handle navigation based on auth state
         if (event === 'SIGNED_IN') {
-          navigate('/assessment');
+          navigate('/domov');
         } else if (event === 'SIGNED_OUT') {
           navigate('/auth');
         }
@@ -102,4 +101,3 @@ export const useAuth = () => {
   }
   return context;
 };
-

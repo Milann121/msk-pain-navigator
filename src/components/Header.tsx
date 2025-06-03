@@ -17,6 +17,7 @@ const Header = () => {
 
   if (user) {
     navigationLinks.push(
+      { href: '/domov', label: 'Domov' },
       { href: '/profile', label: 'Môj profil' },
       { href: '/my-exercises', label: 'Moje cviky' },
       { href: '/blog', label: 'Blog' },
