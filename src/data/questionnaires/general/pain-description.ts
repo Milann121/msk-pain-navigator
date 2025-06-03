@@ -4,7 +4,7 @@ import { Question } from '@/utils/types';
 export const painDescriptionQuestion: Question = {
   id: 'pain-description',
   text: 'Ako by ste opísali vašu bolesť?',
-  description: '', // Add description here later
+  description: 'Zamyslite sa, ako by ste opísali vašu bolesť/bolesti a zvolte najvhodnejší opis VŽDY IBA K JEDNEJ BOLESTI v danom mieste. Ak máte bolesť na viacerích miestach tela, najprv dokončite dotazník k jednej časti tela a potom vyplňte dotazník k druhej bolestivej časti tela. Týmto spôsobom výrazne zvýšite efektivitu dotazníka.', // Add description here later
   type: 'multiple',
   options: [
     {
