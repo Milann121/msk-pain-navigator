@@ -13,7 +13,7 @@ interface ExerciseCompletionCheckboxProps {
 }
 
 export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: ExerciseCompletionCheckboxProps) => {
-  const [isCompleted, setIsCompleted] = useState(false);
+  const [completionCount, setCompletionCount] = useState(0);
   const [loading, setLoading] = useState(true);
   const [lastCompletedAt, setLastCompletedAt] = useState<Date | null>(null);
   const [cooldownActive, setCooldownActive] = useState(false);
@@ -36,12 +36,15 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
           .eq('user_id', user.id)
           .eq('assessment_id', assessmentId)
           .eq('exercise_title', exerciseTitle)
-          .order('completed_at', { ascending: false })
-          .limit(1);
+          .order('completed_at', { ascending: false });
           
         if (error) {
           console.error('Error checking completion status:', error);
+          return;
         }
+        
+        const count = data ? data.length : 0;
+        setCompletionCount(count);
         
         if (data && data.length > 0) {
           const lastCompleted = new Date(data[0].completed_at);
@@ -55,13 +58,10 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
           setCooldownActive(cooldownRemaining > 0);
           setSecondsLeft(Math.ceil(cooldownRemaining));
         } else {
-          // Reset states if no completion records found
           setLastCompletedAt(null);
           setCooldownActive(false);
           setSecondsLeft(0);
         }
-        
-        setIsCompleted(!!data && data.length > 0);
       } catch (error) {
         console.error('Error checking completion status:', error);
       } finally {
@@ -86,7 +86,7 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
           setCooldownActive(true);
         }
       }
-    }, 1000); // Check every second to update the countdown timer
+    }, 1000);
     
     return () => clearInterval(interval);
   }, [user, exerciseTitle, assessmentId, lastCompletedAt]);
@@ -107,7 +107,7 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
     try {
       const now = new Date();
       
-      // Always insert a new record without constraints
+      // Insert a new completion record
       const { error } = await supabase
         .from('completed_exercises')
         .insert({
@@ -122,21 +122,22 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
         throw error;
       }
       
-      setIsCompleted(true);
+      // Update local state
+      setCompletionCount(prev => prev + 1);
       setLastCompletedAt(now);
       setCooldownActive(true);
       setSecondsLeft(COOLDOWN_SECONDS);
       
       // Show celebration animation
       setShowCelebration(true);
-      setTimeout(() => setShowCelebration(false), 3000); // Hide after 3 seconds
+      setTimeout(() => setShowCelebration(false), 3000);
       
       toast({
         title: "Cvičenie označené ako odcvičené",
         description: "Váš pokrok bol úspešne uložený.",
       });
       
-      // Manually emit a custom event to signal the update
+      // Emit custom event to signal the update
       const event = new CustomEvent('exercise-completed', {
         detail: { assessmentId, exerciseTitle }
       });
@@ -161,11 +162,11 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
       <Button 
         onClick={handleButtonClick}
         className={`mt-4 relative ${
-          isCompleted 
-            ? cooldownActive 
-              ? 'bg-gray-400 cursor-not-allowed' 
-              : 'bg-green-600 hover:bg-green-700' 
-            : 'bg-green-600 hover:bg-green-700'
+          cooldownActive 
+            ? 'bg-gray-400 cursor-not-allowed' 
+            : completionCount > 0
+              ? 'bg-green-600 hover:bg-green-700'
+              : 'bg-green-600 hover:bg-green-700'
         }`}
         disabled={cooldownActive}
         size="lg"
@@ -175,7 +176,7 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
             <Timer className="h-4 w-4" />
             <span>Dostupné za {secondsLeft} s</span>
           </div>
-        ) : isCompleted ? (
+        ) : completionCount > 0 ? (
           <>
             <Check className="mr-2 h-4 w-4" /> Odcvičené znovu
           </>

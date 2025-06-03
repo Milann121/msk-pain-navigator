@@ -21,12 +21,18 @@ export const useCompletionData = (assessmentId?: string) => {
     setLoading(true);
     
     try {
-      // Get all exercise completion records for the user
-      const { data, error } = await supabase
+      // Build query - filter by assessment if provided
+      let query = supabase
         .from('completed_exercises')
         .select('completed_at, assessment_id')
         .eq('user_id', user.id)
         .order('completed_at', { ascending: false });
+      
+      if (assessmentId) {
+        query = query.eq('assessment_id', assessmentId);
+      }
+      
+      const { data, error } = await query;
         
       if (error) throw error;
       
