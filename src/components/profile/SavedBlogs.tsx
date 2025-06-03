@@ -1,10 +1,11 @@
 
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
-import { ExternalLink } from 'lucide-react';
+import { BlogNavigation } from './BlogNavigation';
+import { FavoriteBlogCard } from './FavoriteBlogCard';
+import { BlogPaginationIndicator } from './BlogPaginationIndicator';
 
 interface FavoriteBlog {
   id: string;
@@ -20,7 +21,10 @@ interface FavoriteBlog {
 export const SavedBlogs = () => {
   const [favoriteBlogs, setFavoriteBlogs] = useState<FavoriteBlog[]>([]);
   const [loading, setLoading] = useState(true);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const { user } = useAuth();
+
+  const blogsPerPage = 4;
 
   useEffect(() => {
     const fetchFavoriteBlogs = async () => {
@@ -77,6 +81,21 @@ export const SavedBlogs = () => {
     };
   }, [user]);
 
+  const canScrollLeft = currentIndex > 0;
+  const canScrollRight = currentIndex + blogsPerPage < favoriteBlogs.length;
+
+  const scrollLeft = () => {
+    if (canScrollLeft) {
+      setCurrentIndex(Math.max(0, currentIndex - blogsPerPage));
+    }
+  };
+
+  const scrollRight = () => {
+    if (canScrollRight) {
+      setCurrentIndex(Math.min(favoriteBlogs.length - blogsPerPage, currentIndex + blogsPerPage));
+    }
+  };
+
   const handleBlogClick = (blog: FavoriteBlog) => {
     if (blog.is_external) {
       window.open(blog.blog_link, '_blank');
@@ -84,6 +103,10 @@ export const SavedBlogs = () => {
       window.location.href = blog.blog_link;
     }
   };
+
+  const visibleBlogs = favoriteBlogs.slice(currentIndex, currentIndex + blogsPerPage);
+  const totalPages = Math.ceil(favoriteBlogs.length / blogsPerPage);
+  const currentPage = Math.floor(currentIndex / blogsPerPage);
 
   if (loading) {
     return (
@@ -107,45 +130,35 @@ export const SavedBlogs = () => {
       </CardHeader>
       <CardContent>
         {favoriteBlogs.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {favoriteBlogs.map((blog) => (
-              <div 
-                key={blog.id} 
-                className="border rounded-md p-4 space-y-3 cursor-pointer hover:shadow-md transition-shadow"
-                onClick={() => handleBlogClick(blog)}
-              >
-                {/* Blog Image */}
-                <div className="aspect-video w-full bg-gray-100 rounded overflow-hidden">
-                  <img
-                    src={blog.blog_image_url}
-                    alt={blog.blog_title}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.src = '/placeholder.svg';
-                    }}
-                  />
-                </div>
-                
-                {/* Blog Title */}
-                <h4 className="font-medium text-lg line-clamp-2">
-                  {blog.blog_title}
-                </h4>
-                
-                {/* Blog Description */}
-                <p className="text-sm text-muted-foreground line-clamp-3">
-                  {blog.blog_description}
-                </p>
-                
-                {/* External Link Indicator */}
-                {blog.is_external && (
-                  <div className="flex items-center gap-1 text-xs text-blue-600">
-                    <ExternalLink className="h-3 w-3" />
-                    <span>Externý odkaz</span>
-                  </div>
-                )}
-              </div>
-            ))}
+          <div className="relative">
+            {/* Navigation arrows */}
+            {favoriteBlogs.length > blogsPerPage && (
+              <BlogNavigation
+                canScrollLeft={canScrollLeft}
+                canScrollRight={canScrollRight}
+                onScrollLeft={scrollLeft}
+                onScrollRight={scrollRight}
+              />
+            )}
+            
+            {/* Blogs grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mx-8">
+              {visibleBlogs.map((blog) => (
+                <FavoriteBlogCard 
+                  key={blog.id} 
+                  blog={blog}
+                  onClick={handleBlogClick}
+                />
+              ))}
+            </div>
+            
+            {/* Page indicator */}
+            {favoriteBlogs.length > blogsPerPage && (
+              <BlogPaginationIndicator
+                totalPages={totalPages}
+                currentPage={currentPage}
+              />
+            )}
           </div>
         ) : (
           <div className="text-center py-8">
