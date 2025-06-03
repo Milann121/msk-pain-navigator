@@ -41,6 +41,42 @@ export type Database = {
           },
         ]
       }
+      favorite_blogs: {
+        Row: {
+          blog_description: string | null
+          blog_id: string
+          blog_image_url: string | null
+          blog_link: string
+          blog_title: string
+          created_at: string
+          id: string
+          is_external: boolean
+          user_id: string
+        }
+        Insert: {
+          blog_description?: string | null
+          blog_id: string
+          blog_image_url?: string | null
+          blog_link: string
+          blog_title: string
+          created_at?: string
+          id?: string
+          is_external?: boolean
+          user_id: string
+        }
+        Update: {
+          blog_description?: string | null
+          blog_id?: string
+          blog_image_url?: string | null
+          blog_link?: string
+          blog_title?: string
+          created_at?: string
+          id?: string
+          is_external?: boolean
+          user_id?: string
+        }
+        Relationships: []
+      }
       favorite_exercises: {
         Row: {
           created_at: string

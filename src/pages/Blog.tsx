@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Header from '@/components/Header';
 import { Card, CardContent, CardDescription, CardFooter, CardTitle } from '@/components/ui/card';
@@ -6,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { ExternalLink } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
+import { FavoriteBlogButton } from '@/components/FavoriteBlogButton';
 
 // Blog data structure
 interface BlogPost {
@@ -83,7 +83,7 @@ const BlogCard: React.FC<{ blog: BlogPost }> = ({ blog }) => {
         <CardTitle className="text-xl mb-2">{blog.title}</CardTitle>
         <CardDescription className="text-sm">{blog.description}</CardDescription>
       </CardContent>
-      <CardFooter className="pt-0">
+      <CardFooter className="pt-0 flex flex-col gap-2">
         <Button 
           className="w-full"
           variant="outline"
@@ -98,6 +98,15 @@ const BlogCard: React.FC<{ blog: BlogPost }> = ({ blog }) => {
           Čítať viac
           {blog.isExternal && <ExternalLink className="ml-2 h-4 w-4" />}
         </Button>
+        
+        <FavoriteBlogButton
+          blogId={blog.id}
+          blogTitle={blog.title}
+          blogDescription={blog.description}
+          blogImageUrl={blog.imageUrl}
+          blogLink={blog.link}
+          isExternal={blog.isExternal}
+        />
       </CardFooter>
     </Card>
   );
