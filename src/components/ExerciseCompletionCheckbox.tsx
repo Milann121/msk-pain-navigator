@@ -55,8 +55,13 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
           const timeDiffSeconds = (now.getTime() - lastCompleted.getTime()) / 1000;
           const cooldownRemaining = Math.max(0, COOLDOWN_SECONDS - timeDiffSeconds);
           
-          setCooldownActive(cooldownRemaining > 0);
-          setSecondsLeft(Math.ceil(cooldownRemaining));
+          if (cooldownRemaining > 0) {
+            setCooldownActive(true);
+            setSecondsLeft(Math.ceil(cooldownRemaining));
+          } else {
+            setCooldownActive(false);
+            setSecondsLeft(0);
+          }
         } else {
           setLastCompletedAt(null);
           setCooldownActive(false);
@@ -82,6 +87,7 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
         
         if (cooldownRemaining <= 0) {
           setCooldownActive(false);
+          setSecondsLeft(0);
         } else {
           setCooldownActive(true);
         }
@@ -157,32 +163,43 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
     return <div className="h-10 w-32 animate-pulse bg-gray-200 rounded" />;
   }
 
+  // Determine button text and styling based on state
+  const getButtonContent = () => {
+    if (cooldownActive) {
+      return (
+        <div className="flex items-center gap-2">
+          <Timer className="h-4 w-4" />
+          <span>Dostupné za {secondsLeft} s</span>
+        </div>
+      );
+    } else if (completionCount > 0) {
+      return (
+        <>
+          <Check className="mr-2 h-4 w-4" /> Odcvičené znovu
+        </>
+      );
+    } else {
+      return 'Označiť ako odcvičené';
+    }
+  };
+
+  const getButtonStyle = () => {
+    if (cooldownActive) {
+      return 'bg-gray-400 cursor-not-allowed hover:bg-gray-400';
+    } else {
+      return 'bg-green-600 hover:bg-green-700';
+    }
+  };
+
   return (
     <>
       <Button 
         onClick={handleButtonClick}
-        className={`mt-4 relative ${
-          cooldownActive 
-            ? 'bg-gray-400 cursor-not-allowed' 
-            : completionCount > 0
-              ? 'bg-green-600 hover:bg-green-700'
-              : 'bg-green-600 hover:bg-green-700'
-        }`}
+        className={`mt-4 relative ${getButtonStyle()}`}
         disabled={cooldownActive}
         size="lg"
       >
-        {cooldownActive ? (
-          <div className="flex items-center gap-2">
-            <Timer className="h-4 w-4" />
-            <span>Dostupné za {secondsLeft} s</span>
-          </div>
-        ) : completionCount > 0 ? (
-          <>
-            <Check className="mr-2 h-4 w-4" /> Odcvičené znovu
-          </>
-        ) : (
-          'Označiť ako odcvičené'
-        )}
+        {getButtonContent()}
       </Button>
       {showCelebration && (
         <CelebrationAnimation isActive={showCelebration} onComplete={() => setShowCelebration(false)} />
