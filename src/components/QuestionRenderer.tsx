@@ -9,6 +9,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { Question } from '@/utils/types';
 import { cn } from '@/lib/utils';
 import { Info } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface QuestionRendererProps {
   question: Question;
@@ -19,6 +20,7 @@ const QuestionRenderer = ({ question, onAnswer }: QuestionRendererProps) => {
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
   const [followUpVisible, setFollowUpVisible] = useState<string | null>(null);
   const [sliderValue, setSliderValue] = useState<number[]>([0]);
+  const isMobile = useIsMobile();
 
   const handleSingleOptionChange = (optionId: string) => {
     setSelectedOptions([optionId]);
@@ -57,7 +59,7 @@ const QuestionRenderer = ({ question, onAnswer }: QuestionRendererProps) => {
               <Button
                 variant="ghost"
                 size="sm"
-                className="p-2 h-auto text-gray-500 hover:text-blue-600 hover:bg-blue-50"
+                className="p-2 h-auto text-gray-500 hover:text-blue-600 hover:bg-blue-50 flex-shrink-0"
                 title="Vysvetliť otázku"
               >
                 <Info className="h-4 w-4" />
@@ -65,9 +67,13 @@ const QuestionRenderer = ({ question, onAnswer }: QuestionRendererProps) => {
               </Button>
             </PopoverTrigger>
             <PopoverContent 
-              side="left" 
-              className="w-80 bg-white border border-gray-200 shadow-lg z-50"
-              align="start"
+              side={isMobile ? "bottom" : "left"} 
+              className={cn(
+                "bg-white border border-gray-200 shadow-lg z-50",
+                isMobile ? "w-[calc(100vw-2rem)] max-w-sm mx-4" : "w-80"
+              )}
+              align={isMobile ? "center" : "start"}
+              sideOffset={isMobile ? 8 : 4}
             >
               <div className="p-3">
                 <h4 className="font-medium text-blue-700 mb-2">Vysvetlenie otázky</h4>
