@@ -4,7 +4,7 @@ import { Question } from '@/utils/types';
 export const injuryStartQuestion: Question = {
   id: 'injury-start',
   text: 'Začala sa vaša bolesť po zranení alebo úraze?',
-  description: '', // Add description here later
+  description: 'Touto otázkou sa snažíme zistiť, či vaša bolesť vznikla priamo pri úraze ako napr. autohavária, pád na schodoch, pád z výšky, silný úder a podobne. Ak vaše bolesti začali pri zohnutí sa - toto NIE JE zranenie alebo úraz pre účel odpovede na túto otázku.',
   type: 'radio',
   options: [
     {
