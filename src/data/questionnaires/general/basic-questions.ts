@@ -23,7 +23,7 @@ export const injuryStartQuestion: Question = {
 export const activityStartQuestion: Question = {
   id: 'activity-start',
   text: 'Začala sa vaša bolesť po konkrétnej aktivite/pohybe?',
-  description: '', // Add description here later
+  description: 'Touto otázkou sa snažíme zistiť konkrétny pohyb alebo aktivitu, ktorá je príčinou vzniku vašich bolestí. Na otázku odpovedajte KLADNE, ak sa vaša bolesť začala napr. pri vystieraní sa z predklonu, alebo pri umývaní okien. Na otázku odpovedajte ZÁPORNE, ak si nie ste istý/á. Nesprávne odpovedanie na otázku môže byť aj v tedy, ak sa vaše bolesti zvýrazňujú napr. pri predklone, ale nejde o pohyb, ktorý vám bolesť spôsobil. ', // Add description here later
   type: 'radio',
   options: [
     {
