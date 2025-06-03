@@ -1,3 +1,4 @@
+
 import { Questionnaire } from '@/utils/types';
 
 export const centralQuestionnaire: Questionnaire = {
@@ -9,6 +10,7 @@ export const centralQuestionnaire: Questionnaire = {
     {
       id: 'pain-spread',
       text: 'Šíri sa vaša bolesť do oblastí, ktoré pôvodne neboli postihnuté?',
+      description: '', // Add description here later
       type: 'radio',
       options: [
         {
@@ -25,6 +27,7 @@ export const centralQuestionnaire: Questionnaire = {
     {
       id: 'allodynia',
       text: 'Pociťujete bolesť pri podnetoch, ktoré by normálne nemali byť bolestivé (napr. ľahký dotyk, oblečenie, mierny tlak)?',
+      description: '', // Add description here later
       type: 'radio',
       options: [
         {
@@ -41,6 +44,7 @@ export const centralQuestionnaire: Questionnaire = {
     {
       id: 'disproportionate',
       text: 'Zdá sa vám intenzita bolesti neprimeraná vášmu problému alebo stavu?',
+      description: '', // Add description here later
       type: 'radio',
       options: [
         {
@@ -57,6 +61,7 @@ export const centralQuestionnaire: Questionnaire = {
     {
       id: 'sensory-sensitivity',
       text: 'Pociťujete spolu s bolesťou citlivosť na svetlo, hluk alebo vône?',
+      description: '', // Add description here later
       type: 'radio',
       options: [
         {
@@ -73,6 +78,7 @@ export const centralQuestionnaire: Questionnaire = {
     {
       id: 'cognitive-symptoms',
       text: 'Máte spolu s bolesťou príznaky ako zhoršená koncentrácia ("mozgová hmla"), únava alebo poruchy spánku?',
+      description: '', // Add description here later
       type: 'radio',
       options: [
         {

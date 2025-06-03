@@ -1,3 +1,4 @@
+
 import { Questionnaire } from '@/utils/types';
 
 export const neuropathicQuestionnaire: Questionnaire = {
@@ -9,6 +10,7 @@ export const neuropathicQuestionnaire: Questionnaire = {
     {
       id: 'coughing-pain',
       text: 'Zhoršuje sa vaša bolesť pri kašeľaní, kýchaní alebo napínaní sa?',
+      description: '', // Add description here later
       type: 'radio',
       options: [
         {
@@ -25,6 +27,7 @@ export const neuropathicQuestionnaire: Questionnaire = {
     {
       id: 'abnormal-sensations',
       text: 'Cítite nezvyčajné pocity ako mravčenie, pálenie alebo "elektrické šoky" pozdĺž postihnutej končatiny?',
+      description: '', // Add description here later
       type: 'radio',
       options: [
         {
@@ -42,6 +45,7 @@ export const neuropathicQuestionnaire: Questionnaire = {
     {
       id: 'numbness',
       text: 'Pociťujete znecitlivenie alebo zníženú citlivosť v konkrétnej oblasti končatiny?',
+      description: '', // Add description here later
       type: 'radio',
       options: [
         {
@@ -59,6 +63,7 @@ export const neuropathicQuestionnaire: Questionnaire = {
     {
       id: 'muscle-weakness',
       text: 'Všimli ste si svalovú slabosť v postihnutej končatine, ktorá sťažuje uchopenie predmetov, zdvihnutie nohy alebo normálny pohyb?',
+      description: '', // Add description here later
       type: 'radio',
       options: [
         {
@@ -76,6 +81,7 @@ export const neuropathicQuestionnaire: Questionnaire = {
     {
       id: 'reflex-loss',
       text: 'Stratili ste reflexy v postihnutej končatine, ktorých stratu vám potvrdil zdravotnícky pracovník?',
+      description: '', // Add description here later
       type: 'radio',
       options: [
         {
@@ -93,6 +99,7 @@ export const neuropathicQuestionnaire: Questionnaire = {
     {
       id: 'spine-abnormality-neuro',
       text: 'Všimli ste si nejakú priehlbinu v chrbtici alebo vystupujúci stavec?',
+      description: '', // Add description here later
       type: 'radio',
       options: [
         {
@@ -103,6 +110,7 @@ export const neuropathicQuestionnaire: Questionnaire = {
             {
               id: 'lying-helps-neuro',
               text: 'Máte pocit, že ľah na chrbte zmierňuje vaše príznaky?',
+              description: '', // Add description here later
               type: 'radio',
               options: [
                 {

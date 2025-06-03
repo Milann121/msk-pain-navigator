@@ -2,6 +2,7 @@
 export interface FollowUpQuestion {
   id: string;
   text: string;
+  description?: string; // Added optional description field
   type: 'single' | 'multiple' | 'scale';
   options?: Array<{
     id: string;

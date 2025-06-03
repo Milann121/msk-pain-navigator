@@ -5,8 +5,10 @@ import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Slider } from '@/components/ui/slider';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { Question } from '@/utils/types';
 import { cn } from '@/lib/utils';
+import { Info } from 'lucide-react';
 
 interface QuestionRendererProps {
   question: Question;
@@ -47,7 +49,35 @@ const QuestionRenderer = ({ question, onAnswer }: QuestionRendererProps) => {
 
   return (
     <div className="space-y-6 py-4">
-      <h3 className="text-lg font-medium text-blue-700">{question.text}</h3>
+      <div className="flex items-start gap-2">
+        <h3 className="text-lg font-medium text-blue-700 flex-1">{question.text}</h3>
+        {question.description && (
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="p-1 h-auto text-gray-500 hover:text-blue-600"
+                >
+                  <Info className="h-4 w-4" />
+                  <span className="sr-only">Vysvetliť otázku</span>
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent 
+                side="left" 
+                className="max-w-xs bg-white border border-gray-200 shadow-lg z-50"
+              >
+                <div className="p-3">
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    {question.description}
+                  </p>
+                </div>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        )}
+      </div>
       
       {question.type === 'radio' && question.options && (
         <RadioGroup 

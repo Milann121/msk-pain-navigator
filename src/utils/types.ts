@@ -58,6 +58,7 @@ export interface AssessmentResults {
 export interface Question {
   id: string;
   text: string;
+  description?: string; // Added optional description field
   type: 'single' | 'multiple' | 'scale' | 'radio';
   options?: Array<{
     id: string;

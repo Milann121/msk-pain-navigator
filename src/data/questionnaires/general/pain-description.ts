@@ -4,6 +4,7 @@ import { Question } from '@/utils/types';
 export const painDescriptionQuestion: Question = {
   id: 'pain-description',
   text: 'Ako by ste opísali vašu bolesť?',
+  description: '', // Add description here later
   type: 'multiple',
   options: [
     {

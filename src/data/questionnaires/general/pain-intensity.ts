@@ -4,6 +4,7 @@ import { Question } from '@/utils/types';
 export const painIntensityQuestion: Question = {
   id: 'pain-intensity',
   text: 'Aká je vaša intenzita bolesti v priemere?',
+  description: '', // Add description here later
   type: 'scale',
   scale: {
     min: 0,

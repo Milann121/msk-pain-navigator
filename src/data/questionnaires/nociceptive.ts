@@ -10,6 +10,7 @@ export const nociceptiveQuestionnaire: Questionnaire = {
     {
       id: 'rest-helps',
       text: 'Pomáha vám odpočinok alebo vyhýbanie sa pohybom, ktoré vyvolávajú bolesť?',
+      description: '', // Add description here later
       type: 'radio',
       options: [
         {
@@ -27,6 +28,7 @@ export const nociceptiveQuestionnaire: Questionnaire = {
     {
       id: 'worst-time',
       text: 'V ktorej časti dňa je bolesť zvyčajne najhoršia?',
+      description: '', // Add description here later
       type: 'radio',
       options: [
         {
@@ -49,6 +51,7 @@ export const nociceptiveQuestionnaire: Questionnaire = {
     {
       id: 'spine-abnormality',
       text: 'Všimli ste si nejakú priehlbinu v chrbtici alebo vystupujúci stavec?',
+      description: '', // Add description here later
       type: 'radio',
       options: [
         {
@@ -59,6 +62,7 @@ export const nociceptiveQuestionnaire: Questionnaire = {
             {
               id: 'lying-helps',
               text: 'Zistili ste, že ľah na chrbte zmierňuje vaše príznaky?',
+              description: '', // Add description here later
               type: 'radio',
               options: [
                 {
@@ -90,6 +94,7 @@ export const nociceptiveQuestionnaire: Questionnaire = {
     {
       id: 'chest-tightness',
       text: 'Pociťujete nejakú stuhnutosť v hrudníku?',
+      description: '', // Add description here later
       type: 'radio',
       options: [
         {
@@ -107,6 +112,7 @@ export const nociceptiveQuestionnaire: Questionnaire = {
     {
       id: 'breathing-pain',
       text: 'Cítite pri nádychu bolesť alebo iné príznaky?',
+      description: '', // Add description here later
       type: 'radio',
       options: [
         {
