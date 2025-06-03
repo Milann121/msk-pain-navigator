@@ -22,8 +22,8 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
   const { user } = useAuth();
   const { toast } = useToast();
 
-  // Set cooldown to 60 seconds (1 minute)
-  const COOLDOWN_SECONDS = 60; 
+  // Set cooldown to 5 seconds
+  const COOLDOWN_SECONDS = 5; 
 
   useEffect(() => {
     const checkCompletionStatus = async () => {
