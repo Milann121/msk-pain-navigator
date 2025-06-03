@@ -3,7 +3,7 @@ import { FollowUpQuestion } from './types';
 import SingleChoiceQuestion from './SingleChoiceQuestion';
 import MultipleChoiceQuestion from './MultipleChoiceQuestion';
 import ScaleQuestion from './ScaleQuestion';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Button } from '@/components/ui/button';
 import { Info } from 'lucide-react';
 
@@ -34,33 +34,34 @@ const QuestionRenderer = ({ question, answer, onAnswerChange, onSliderChange }: 
 
   return (
     <div className="space-y-6 pt-4">
-      <div className="flex items-start gap-2">
+      <div className="flex items-start gap-3">
         <h3 className="text-lg font-medium text-blue-700 flex-1">{question.text}</h3>
         {question.description && (
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="p-1 h-auto text-gray-500 hover:text-blue-600"
-                >
-                  <Info className="h-4 w-4" />
-                  <span className="sr-only">Vysvetliť otázku</span>
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent 
-                side="left" 
-                className="max-w-xs bg-white border border-gray-200 shadow-lg z-50"
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="p-2 h-auto text-gray-500 hover:text-blue-600 hover:bg-blue-50"
+                title="Vysvetliť otázku"
               >
-                <div className="p-3">
-                  <p className="text-sm text-gray-700 leading-relaxed">
-                    {question.description}
-                  </p>
-                </div>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
+                <Info className="h-4 w-4" />
+                <span className="sr-only">Vysvetliť otázku</span>
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent 
+              side="left" 
+              className="w-80 bg-white border border-gray-200 shadow-lg z-50"
+              align="start"
+            >
+              <div className="p-3">
+                <h4 className="font-medium text-blue-700 mb-2">Vysvetlenie otázky</h4>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  {question.description}
+                </p>
+              </div>
+            </PopoverContent>
+          </Popover>
         )}
       </div>
       
