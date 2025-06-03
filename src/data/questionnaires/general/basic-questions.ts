@@ -85,7 +85,7 @@ export const sensitivityQuestion: Question = {
 export const variableImpactQuestion: Question = {
   id: 'variable-impact',
   text: 'Je vplyv pohybov/aktivít (rovnakých) na bolesť premenlivý, nepredvídateľný alebo nekonzistentný?',
-  description: 'Touto otázkou sa snažíme zistiť vzorec nekonzistentnosti, Odpovedajte KLADNE iba v prípade, ak nedokážete predpokladať nástup vašich bolestí (napr. niekedx bolesť vzniká pri predklone, inokedy nie, ale vzniká pri úplne inom pohybe).' // Add description here later
+  description: 'Touto otázkou sa snažíme zistiť vzorec nekonzistentnosti, Odpovedajte KLADNE iba v prípade, ak nedokážete predpokladať nástup vašich bolestí (napr. niekedx bolesť vzniká pri predklone, inokedy nie, ale vzniká pri úplne inom pohybe).', // Add description here later
   type: 'radio',
   options: [
     {
