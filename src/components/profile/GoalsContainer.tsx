@@ -15,6 +15,13 @@ export const GoalsContainer = () => {
   const exerciseOptions = Array.from({ length: 14 }, (_, i) => i + 1);
   const blogOptions = Array.from({ length: 10 }, (_, i) => i + 1);
 
+  // Function to get the correct word form for blogs
+  const getBlogWord = (count: number | null) => {
+    if (count === 1) return 'blog';
+    if (count === 2) return 'blogy';
+    return 'blogov';
+  };
+
   const handleEdit = (field: string, currentValue: number | null) => {
     setEditingField(field);
     setTempValue(currentValue);
@@ -50,12 +57,23 @@ export const GoalsContainer = () => {
   }) => {
     const isEditing = editingField === field;
 
+    // Handle dynamic text for blog reading goal
+    const getDisplayText = () => {
+      if (field === 'weeklyBlogGoal') {
+        const blogWord = isEditing ? getBlogWord(tempValue) : getBlogWord(goalValue);
+        return `Týždenne chcem prečítať {dropdown} ${blogWord}`;
+      }
+      return text;
+    };
+
+    const displayText = getDisplayText();
+
     if (isEditing) {
       return (
         <div className="flex items-center py-3 border-b border-gray-100 last:border-b-0">
           <div className="flex items-center gap-2 flex-1">
             <span className="text-base">
-              {text.split('{dropdown}')[0]}
+              {displayText.split('{dropdown}')[0]}
             </span>
             <Select value={tempValue?.toString() || ""} onValueChange={(value) => setTempValue(parseInt(value))}>
               <SelectTrigger className="w-20 h-8">
@@ -70,7 +88,7 @@ export const GoalsContainer = () => {
               </SelectContent>
             </Select>
             <span className="text-base">
-              {text.split('{dropdown}')[1]}
+              {displayText.split('{dropdown}')[1]}
             </span>
             <Button size="sm" onClick={() => handleSave(field)} className="ml-2 px-4 h-8">
               Uložiť
@@ -87,13 +105,13 @@ export const GoalsContainer = () => {
       <div className="flex items-center py-3 border-b border-gray-100 last:border-b-0">
         <div className="flex items-center gap-2 flex-1">
           <span className="text-base">
-            {text.split('{dropdown}')[0]}
+            {displayText.split('{dropdown}')[0]}
           </span>
           <div className="w-20 h-8 px-3 py-2 border rounded-md bg-muted text-sm flex items-center justify-center">
             {goalValue || '-'}
           </div>
           <span className="text-base">
-            {text.split('{dropdown}')[1]}
+            {displayText.split('{dropdown}')[1]}
           </span>
         </div>
         <Button
