@@ -4,7 +4,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { Button } from '@/components/ui/button';
-import { Check, Timer } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { CelebrationAnimation } from './CelebrationAnimation';
 
 interface ExerciseCompletionCheckboxProps {
@@ -19,7 +19,6 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId, videoI
   const [lastCompletedAt, setLastCompletedAt] = useState<Date | null>(null);
   const [cooldownActive, setCooldownActive] = useState(false);
   const [showCelebration, setShowCelebration] = useState(false);
-  const [secondsLeft, setSecondsLeft] = useState(0);
   const { user } = useAuth();
   const { toast } = useToast();
 
@@ -73,15 +72,12 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId, videoI
           
           if (cooldownRemaining > 0) {
             setCooldownActive(true);
-            setSecondsLeft(Math.ceil(cooldownRemaining));
           } else {
             setCooldownActive(false);
-            setSecondsLeft(0);
           }
         } else {
           setLastCompletedAt(null);
           setCooldownActive(false);
-          setSecondsLeft(0);
         }
       } catch (error) {
         console.error('Error checking completion status:', error);
@@ -92,18 +88,15 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId, videoI
     
     checkCompletionStatus();
     
-    // Set up interval to check cooldown status and update countdown
+    // Set up interval to check cooldown status
     const interval = setInterval(() => {
       if (lastCompletedAt) {
         const now = new Date();
         const timeDiffSeconds = (now.getTime() - lastCompletedAt.getTime()) / 1000;
         const cooldownRemaining = Math.max(0, COOLDOWN_SECONDS - timeDiffSeconds);
         
-        setSecondsLeft(Math.ceil(cooldownRemaining));
-        
         if (cooldownRemaining <= 0) {
           setCooldownActive(false);
-          setSecondsLeft(0);
         } else {
           setCooldownActive(true);
         }
@@ -116,7 +109,6 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId, videoI
         setCompletionCount(0);
         setLastCompletedAt(null);
         setCooldownActive(false);
-        setSecondsLeft(0);
       }
     }, 1000);
     
@@ -126,17 +118,63 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId, videoI
   const handleButtonClick = async () => {
     if (!user) return;
     
-    // If cooldown is active, show toast and return
+    // If cooldown is active, reset the state (unclick)
     if (cooldownActive) {
-      const minutes = Math.floor(secondsLeft / 60);
-      const seconds = secondsLeft % 60;
-      const timeText = minutes > 0 ? `${minutes}:${seconds.toString().padStart(2, '0')} minút` : `${secondsLeft} sekúnd`;
-      
-      toast({
-        title: "Prosím, počkajte",
-        description: `Môžete odcvičiť znova za ${timeText}.`,
-        variant: "default"
-      });
+      try {
+        // Delete the most recent completion for today
+        const todayStart = getTodayStart();
+        
+        const { data: recentCompletion, error: fetchError } = await supabase
+          .from('completed_exercises')
+          .select('id')
+          .eq('user_id', user.id)
+          .eq('assessment_id', assessmentId)
+          .eq('exercise_title', exerciseTitle)
+          .gte('completed_at', todayStart.toISOString())
+          .order('completed_at', { ascending: false })
+          .limit(1)
+          .single();
+          
+        if (fetchError) {
+          console.error('Error fetching recent completion:', fetchError);
+          return;
+        }
+        
+        if (recentCompletion) {
+          const { error: deleteError } = await supabase
+            .from('completed_exercises')
+            .delete()
+            .eq('id', recentCompletion.id);
+            
+          if (deleteError) {
+            console.error('Error deleting completion:', deleteError);
+            throw deleteError;
+          }
+          
+          // Update local state
+          setCompletionCount(prev => Math.max(0, prev - 1));
+          setLastCompletedAt(null);
+          setCooldownActive(false);
+          
+          toast({
+            title: "Cvičenie zrušené",
+            description: "Označenie cvičenia bolo zrušené.",
+          });
+          
+          // Emit custom event to signal the update
+          const event = new CustomEvent('exercise-completed', {
+            detail: { assessmentId, exerciseTitle }
+          });
+          window.dispatchEvent(event);
+        }
+      } catch (error: any) {
+        console.error('Error resetting completion status:', error);
+        toast({
+          title: "Chyba pri zrušení",
+          description: "Nepodarilo sa zrušiť označenie cvičenia.",
+          variant: "destructive"
+        });
+      }
       return;
     }
     
@@ -162,7 +200,6 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId, videoI
       setCompletionCount(prev => prev + 1);
       setLastCompletedAt(now);
       setCooldownActive(true);
-      setSecondsLeft(COOLDOWN_SECONDS);
       
       // Show celebration animation
       setShowCelebration(true);
@@ -190,43 +227,30 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId, videoI
   };
 
   if (loading) {
-    return <div className="h-8 w-32 animate-pulse bg-gray-200 rounded" />;
+    return <div className="h-10 w-48 animate-pulse bg-gray-200 rounded" />;
   }
 
   // Determine button text and styling based on state
   const getButtonContent = () => {
-    if (cooldownActive) {
-      const minutes = Math.floor(secondsLeft / 60);
-      const seconds = secondsLeft % 60;
-      const timeText = minutes > 0 ? `${minutes}:${seconds.toString().padStart(2, '0')}` : `${secondsLeft}s`;
-      
+    if (completionCount > 0) {
       return (
-        <div className="flex items-center gap-1">
-          <Timer className="h-3 w-3" />
-          <span className="text-xs">{timeText}</span>
-        </div>
-      );
-    } else if (completionCount > 0) {
-      return (
-        <div className="flex items-center gap-1">
-          <Check className="h-3 w-3" />
-          <span className="text-xs">Odcvičené dnes ({completionCount})</span>
+        <div className="flex items-center gap-2">
+          <Check className="h-4 w-4" />
+          <span>Odcvičené dnes ({completionCount})</span>
         </div>
       );
     } else {
       return (
-        <div className="flex items-center gap-1">
-          <Check className="h-3 w-3" />
-          <span className="text-xs">Odcvičené dnes</span>
+        <div className="flex items-center gap-2">
+          <Check className="h-4 w-4" />
+          <span>Odcvičené dnes</span>
         </div>
       );
     }
   };
 
   const getButtonStyle = () => {
-    if (cooldownActive) {
-      return 'bg-gray-400 cursor-not-allowed hover:bg-gray-400 text-white';
-    } else if (completionCount > 0) {
+    if (completionCount > 0) {
       return 'bg-green-600 hover:bg-green-700 text-white';
     } else {
       return 'bg-blue-600 hover:bg-blue-700 text-white';
@@ -237,9 +261,8 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId, videoI
     <>
       <Button 
         onClick={handleButtonClick}
-        className={`${getButtonStyle()} text-xs px-2 py-1 h-auto`}
-        disabled={cooldownActive}
-        size="sm"
+        className={`${getButtonStyle()} flex items-center gap-2`}
+        variant="outline"
       >
         {getButtonContent()}
       </Button>
