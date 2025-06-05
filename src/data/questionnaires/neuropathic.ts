@@ -27,7 +27,7 @@ export const neuropathicQuestionnaire: Questionnaire = {
     {
       id: 'abnormal-sensations',
       text: 'Cítite nezvyčajné pocity ako mravčenie, pálenie alebo "elektrické šoky" pozdĺž postihnutej končatiny?',
-      description: 'Touto otázkou sa snažíme zistiť, či aj vy prežívate silné elektrizujúce ostré bolesti v presne špecifikovanom mieste. Na otázku odpovedajte KLADNE, ak by ste vedeli presne ukázať, alebo nakresliť kadiaľ vám bolesť prejde. Odpovedajte ZÁPORNE, ak máte pocit, že bolesť alebo symptómy sú viac difúzne (rozptýlené), široké a ťažko lokalizovateľné., // Add description here later
+      description: 'Touto otázkou sa snažíme zistiť, či aj vy prežívate silné elektrizujúce ostré bolesti v presne špecifikovanom mieste. Na otázku odpovedajte KLADNE, ak by ste vedeli presne ukázať, alebo nakresliť kadiaľ vám bolesť prejde. Odpovedajte ZÁPORNE, ak máte pocit, že bolesť alebo symptómy sú viac difúzne (rozptýlené), široké a ťažko lokalizovateľné.',
       type: 'radio',
       options: [
         {
@@ -44,8 +44,8 @@ export const neuropathicQuestionnaire: Questionnaire = {
     },
     {
       id: 'numbness',
-      text: 'Pociťujete znecitlivenie alebo zníženú citlivosť v konkrétnej oblasti končatiny?',
-      description: '', // Add description here later
+      text: 'Pociťujete znecitlivenie, zníženú citlivosť alebo oťažievanie v konkrétnej oblasti končatiny?',
+      description: 'Ak sú vaše symptómy podobné mravenčeniu, tŕpnutiu alebo máte pocit že vaša končatina je nezvyčajne ťažká, odpovedajte KLADNE.',
       type: 'radio',
       options: [
         {
