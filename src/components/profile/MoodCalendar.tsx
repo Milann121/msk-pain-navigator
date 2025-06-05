@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
-import { BlogReadingStats } from './BlogReadingStats';
 
 interface MoodEntry {
   date: Date;
@@ -88,68 +87,60 @@ export const MoodCalendar = () => {
         <CardTitle>{headerTitle}</CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="lg:col-span-2">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <h3 className="text-lg font-medium mb-4">
-                  {currentDayAndDate}
-                </h3>
-                <div className="flex justify-around items-center mb-6">
-                  <Button 
-                    variant="outline" 
-                    onClick={() => handleMoodSelection('happy')}
-                    className={`flex flex-col items-center p-4 h-auto ${selectedDateMood === 'happy' ? 'bg-green-100 border-green-500' : ''}`}
-                  >
-                    <span className="text-4xl mb-2">😊</span>
-                    <span>Dobre</span>
-                  </Button>
-                  
-                  <Button 
-                    variant="outline" 
-                    onClick={() => handleMoodSelection('neutral')}
-                    className={`flex flex-col items-center p-4 h-auto ${selectedDateMood === 'neutral' ? 'bg-yellow-100 border-yellow-500' : ''}`}
-                  >
-                    <span className="text-4xl mb-2">😐</span>
-                    <span>Neutrálne</span>
-                  </Button>
-                  
-                  <Button 
-                    variant="outline" 
-                    onClick={() => handleMoodSelection('sad')}
-                    className={`flex flex-col items-center p-4 h-auto ${selectedDateMood === 'sad' ? 'bg-red-100 border-red-500' : ''}`}
-                  >
-                    <span className="text-4xl mb-2">😔</span>
-                    <span>Zle</span>
-                  </Button>
-                </div>
-              </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <h3 className="text-lg font-medium mb-4">
+              {currentDayAndDate}
+            </h3>
+            <div className="flex justify-around items-center mb-6">
+              <Button 
+                variant="outline" 
+                onClick={() => handleMoodSelection('happy')}
+                className={`flex flex-col items-center p-4 h-auto ${selectedDateMood === 'happy' ? 'bg-green-100 border-green-500' : ''}`}
+              >
+                <span className="text-4xl mb-2">😊</span>
+                <span>Dobre</span>
+              </Button>
               
-              <div>
-                <h3 className="text-lg font-medium mb-4">Kalendár nálad</h3>
-                <Calendar
-                  mode="single"
-                  selected={date}
-                  onSelect={(date) => date && setDate(date)}
-                  locale={sk}
-                  className="border rounded-md p-3"
-                  modifiers={{
-                    happy: (date) => getMoodForDate(date) === 'happy',
-                    neutral: (date) => getMoodForDate(date) === 'neutral',
-                    sad: (date) => getMoodForDate(date) === 'sad',
-                  }}
-                  modifiersClassNames={{
-                    happy: "bg-green-500 text-white hover:bg-green-600",
-                    neutral: "bg-yellow-500 text-white hover:bg-yellow-600",
-                    sad: "bg-red-500 text-white hover:bg-red-600",
-                  }}
-                />
-              </div>
+              <Button 
+                variant="outline" 
+                onClick={() => handleMoodSelection('neutral')}
+                className={`flex flex-col items-center p-4 h-auto ${selectedDateMood === 'neutral' ? 'bg-yellow-100 border-yellow-500' : ''}`}
+              >
+                <span className="text-4xl mb-2">😐</span>
+                <span>Neutrálne</span>
+              </Button>
+              
+              <Button 
+                variant="outline" 
+                onClick={() => handleMoodSelection('sad')}
+                className={`flex flex-col items-center p-4 h-auto ${selectedDateMood === 'sad' ? 'bg-red-100 border-red-500' : ''}`}
+              >
+                <span className="text-4xl mb-2">😔</span>
+                <span>Zle</span>
+              </Button>
             </div>
           </div>
           
           <div>
-            <BlogReadingStats />
+            <h3 className="text-lg font-medium mb-4">Kalendár nálad</h3>
+            <Calendar
+              mode="single"
+              selected={date}
+              onSelect={(date) => date && setDate(date)}
+              locale={sk}
+              className="border rounded-md p-3"
+              modifiers={{
+                happy: (date) => getMoodForDate(date) === 'happy',
+                neutral: (date) => getMoodForDate(date) === 'neutral',
+                sad: (date) => getMoodForDate(date) === 'sad',
+              }}
+              modifiersClassNames={{
+                happy: "bg-green-500 text-white hover:bg-green-600",
+                neutral: "bg-yellow-500 text-white hover:bg-yellow-600",
+                sad: "bg-red-500 text-white hover:bg-red-600",
+              }}
+            />
           </div>
         </div>
       </CardContent>

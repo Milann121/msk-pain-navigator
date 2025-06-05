@@ -4,6 +4,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { Navigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import { MoodCalendar } from '@/components/profile/MoodCalendar';
+import { ProgressContainer } from '@/components/profile/ProgressContainer';
 import { FavoriteExercises } from '@/components/profile/FavoriteExercises';
 import { SavedBlogs } from '@/components/profile/SavedBlogs';
 import { ProfileFormPopup } from '@/components/profile/ProfileFormPopup';
@@ -41,6 +42,9 @@ const Domov = () => {
           
           {/* Mood Calendar */}
           <MoodCalendar />
+          
+          {/* Progress Container */}
+          <ProgressContainer />
           
           {/* Favorite Exercises */}
           <FavoriteExercises />
