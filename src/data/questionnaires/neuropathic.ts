@@ -10,7 +10,7 @@ export const neuropathicQuestionnaire: Questionnaire = {
     {
       id: 'coughing-pain',
       text: 'Zhoršuje sa vaša bolesť pri kašeľaní, kýchaní alebo napínaní sa?',
-      description: 'Touto otázkou sa snažíme zistiť priamy súvis medzi bolesťou a kýchaním, kašľaním alebo napínaním sa. Ak máte pocit, že niektorá z menovaných činností vám prudko zhorší symptómy, odpovedajte KLADNE.', // Add description here later
+      description: 'Touto otázkou sa snažíme zistiť priamy súvis medzi bolesťou a kýchaním, kašľaním alebo napínaním sa. Ak máte pocit, že niektorá z menovaných činností vám prudko zhorší symptómy, odpovedajte KLADNE.',
       type: 'radio',
       options: [
         {
@@ -27,7 +27,7 @@ export const neuropathicQuestionnaire: Questionnaire = {
     {
       id: 'abnormal-sensations',
       text: 'Cítite nezvyčajné pocity ako mravčenie, pálenie alebo "elektrické šoky" pozdĺž postihnutej končatiny?',
-      description: '', // Add description here later
+      description: 'Touto otázkou sa snažíme zistiť, či aj vy prežívate silné elektrizujúce ostré bolesti v presne špecifikovanom mieste. Na otázku odpovedajte KLADNE, ak by ste vedeli presne ukázať, alebo nakresliť kadiaľ vám bolesť prejde. Odpovedajte ZÁPORNE, ak máte pocit, že bolesť alebo symptómy sú viac difúzne (rozptýlené), široké a ťažko lokalizovateľné., // Add description here later
       type: 'radio',
       options: [
         {
