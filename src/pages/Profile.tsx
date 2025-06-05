@@ -5,6 +5,7 @@ import { Navigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import { ProfileInfo } from '@/components/profile/ProfileInfo';
 import { ProfileFormPopup } from '@/components/profile/ProfileFormPopup';
+import { GoalsContainer } from '@/components/profile/GoalsContainer';
 import { useProfileCompletion } from '@/hooks/useProfileCompletion';
 
 const Profile = () => {
@@ -38,8 +39,11 @@ const Profile = () => {
           <h1 className="text-3xl font-bold text-blue-800 mb-6">Môj profil</h1>
           
           <div className="grid grid-cols-1 gap-6 mb-6">
-            {/* User Profile Info - now taking full width */}
+            {/* User Profile Info */}
             <ProfileInfo />
+            
+            {/* Goals Container */}
+            <GoalsContainer />
           </div>
         </div>
       </div>
