@@ -89,18 +89,9 @@ export const GoalsContainer = () => {
           <span className="text-base">
             {text.split('{dropdown}')[0]}
           </span>
-          <Select value={goalValue?.toString() || ""} onValueChange={onGoalChange}>
-            <SelectTrigger className="w-20 h-8">
-              <SelectValue placeholder="-" />
-            </SelectTrigger>
-            <SelectContent>
-              {options.map((option) => (
-                <SelectItem key={option} value={option.toString()}>
-                  {option}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          <div className="w-20 h-8 px-3 py-2 border rounded-md bg-muted text-sm flex items-center justify-center">
+            {goalValue || '-'}
+          </div>
           <span className="text-base">
             {text.split('{dropdown}')[1]}
           </span>
