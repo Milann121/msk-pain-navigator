@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -18,7 +17,7 @@ export const GoalsContainer = () => {
   // Function to get the correct word form for blogs
   const getBlogWord = (count: number | null) => {
     if (count === 1) return 'blog';
-    if (count === 2) return 'blogy';
+    if (count && count >= 2 && count <= 4) return 'blogy';
     return 'blogov';
   };
 
