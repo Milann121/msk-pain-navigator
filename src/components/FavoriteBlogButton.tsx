@@ -144,7 +144,7 @@ export const FavoriteBlogButton = ({
   };
 
   if (loading) {
-    return <div className="h-10 w-48 animate-pulse bg-gray-200 rounded" />;
+    return <div className="h-10 w-full animate-pulse bg-gray-200 rounded" />;
   }
 
   return (
@@ -152,7 +152,7 @@ export const FavoriteBlogButton = ({
       onClick={handleToggleFavorite}
       disabled={isProcessing}
       variant="outline"
-      className="flex items-center gap-2"
+      className="flex items-center gap-2 w-full"
     >
       <Star 
         className={`h-4 w-4 ${
@@ -163,7 +163,7 @@ export const FavoriteBlogButton = ({
       />
       {isProcessing 
         ? 'Spracováva sa...' 
-        : (isFavorite ? 'Obľúbené' : 'Pridať medzi obľúbené')
+        : 'Obľúbené'
       }
     </Button>
   );

@@ -152,7 +152,7 @@ export const ReadBlogButton = ({
       )}
       {isProcessing 
         ? 'Spracováva sa...' 
-        : (isRead ? 'Prečítané' : 'Označiť ako prečítané')
+        : 'Prečítané'
       }
     </Button>
   );
