@@ -62,7 +62,7 @@ export const nociceptiveQuestionnaire: Questionnaire = {
             {
               id: 'lying-helps',
               text: 'Zistili ste, že ľah na chrbte zmierňuje vaše príznaky?',
-              description: 'Ak si nie ste istý/á, požiadajte rodinného príslušníka o pomoc -> TEST č.1 = Ľahnite si na brucho na tvrdú zem a vyhrnutým tričkom aby bolo vidno krížovú oblasť chrbtice, s rukami vedľa seba a čelom opretým o zem. Požiadajte blízku osobu, aby sledovala váš chrbát, či v driekovej oblasti nevznikla výtazná priehlbina v jednom malom bode priamo v chrbtici. Ak áno, odpovedajte KLADNE. TEST č.2 = Postavte sa vzpriamene, vyhrňte si tričko a požiadajte blízku osobu, aby sledovala tvar vašej chrbtice v krížovej oblasti. Ak spozorujete vystupujúci stavec oproti ostatným, odpovedajte KLADNE.', // Add description here later
+              description: 'Ak si nie ste istý/á, požiadajte rodinného príslušníka o pomoc -> TEST č.1 = Ľahnite si na brucho na tvrdú zem a vyhrnutým tričkom aby bolo vidno krížovú oblasť chrbtice, s rukami vedľa seba a čelom opretým o zem. Požiadajte blízku osobu, aby sledovala váš chrbát, či v driekovej oblasti nevznikla výtazná priehlbina v jednom malom bode priamo v chrbtici. Ak áno, odpovedajte KLADNE. TEST č.2 = Postavte sa vzpriamene, vyhrňte si tričko a požiadajte blízku osobu, aby sledovala tvar vašej chrbtice v krížovej oblasti. Ak spozorujete vystupujúci stavec oproti ostatným, odpovedajte KLADNE.',
               type: 'radio',
               options: [
                 {
