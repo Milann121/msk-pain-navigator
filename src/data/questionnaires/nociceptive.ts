@@ -10,7 +10,7 @@ export const nociceptiveQuestionnaire: Questionnaire = {
     {
       id: 'rest-helps',
       text: 'Pomáha vám odpočinok alebo vyhýbanie sa pohybom, ktoré vyvolávajú bolesť?',
-      description: 'Má oddych priamo pozitívny vplyv na vašu bolesť alebo stav?',
+      description: 'Má oddych priamo pozitívny vplyv na vašu bolesť/stav?',
       type: 'radio',
       options: [
         {
@@ -28,7 +28,7 @@ export const nociceptiveQuestionnaire: Questionnaire = {
     {
       id: 'worst-time',
       text: 'V ktorej časti dňa je bolesť zvyčajne najhoršia?',
-      description: 'Ak máte bolesti počas celého dňa, skúste sa zamyslieť, kedy je pre vás najhoršia. Je to napríklad ráno, keď vstávate? Alebo počas dňa v práci? Snažte sa vybrať jednu časť dňa, ktorá je zvyčajne alebo častejšie najhoršia',
+      description: 'Snažte sa zamyslieť, ktorá časť dňa je pre vás najhoršia a odpovedajte čo najpresnejšie. Ak máte bolesti počas celého dňa, kedy je bolesť najčastejšie najhoršia? Napríklad, ráno pri vstávaní? Alebo počas dňa v práci? Dajte si záležať na odpovedi.', // Add description here later
       type: 'radio',
       options: [
         {
