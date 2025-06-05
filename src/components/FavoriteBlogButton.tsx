@@ -152,7 +152,7 @@ export const FavoriteBlogButton = ({
       onClick={handleToggleFavorite}
       disabled={isProcessing}
       variant="outline"
-      className="flex items-center gap-2 w-full"
+      className="flex items-center justify-center gap-1 w-full text-xs sm:text-sm"
     >
       <Star 
         className={`h-4 w-4 ${
