@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Header from '@/components/Header';
 import { Card, CardContent, CardDescription, CardFooter, CardTitle } from '@/components/ui/card';
@@ -101,7 +102,7 @@ const BlogCard: React.FC<{ blog: BlogPost }> = ({ blog }) => {
         </Button>
         
         <div className="flex gap-2 w-full">
-          <div className="w-1/3">
+          <div className="flex-1">
             <FavoriteBlogButton
               blogId={blog.id}
               blogTitle={blog.title}
@@ -112,7 +113,7 @@ const BlogCard: React.FC<{ blog: BlogPost }> = ({ blog }) => {
             />
           </div>
           
-          <div className="w-2/3">
+          <div className="flex-1">
             <ReadBlogButton
               blogId={blog.id}
               blogTitle={blog.title}
