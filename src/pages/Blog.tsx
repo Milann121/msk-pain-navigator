@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import Header from '@/components/Header';
 import { Card, CardContent, CardDescription, CardFooter, CardTitle } from '@/components/ui/card';
@@ -101,24 +102,26 @@ const BlogCard: React.FC<{ blog: BlogPost }> = ({ blog }) => {
           {blog.isExternal && <ExternalLink className="ml-2 h-4 w-4" />}
         </Button>
         
-        <div className="flex flex-col sm:flex-row gap-2 w-full">
-          <div className="w-full sm:w-[calc(50%-4px)]">
-            <FavoriteBlogButton
-              blogId={blog.id}
-              blogTitle={blog.title}
-              blogDescription={blog.description}
-              blogImageUrl={blog.imageUrl}
-              blogLink={blog.link}
-              isExternal={blog.isExternal}
-            />
-          </div>
-          
-          <div className="w-full sm:w-[calc(50%-4px)]">
-            <ReadBlogButton
-              blogId={blog.id}
-              blogTitle={blog.title}
-              blogLink={blog.link}
-            />
+        <div className="flex flex-col gap-2 w-full">
+          <div className="flex gap-2 w-full">
+            <div className="flex-1">
+              <FavoriteBlogButton
+                blogId={blog.id}
+                blogTitle={blog.title}
+                blogDescription={blog.description}
+                blogImageUrl={blog.imageUrl}
+                blogLink={blog.link}
+                isExternal={blog.isExternal}
+              />
+            </div>
+            
+            <div className="flex-1">
+              <ReadBlogButton
+                blogId={blog.id}
+                blogTitle={blog.title}
+                blogLink={blog.link}
+              />
+            </div>
           </div>
         </div>
       </CardFooter>
