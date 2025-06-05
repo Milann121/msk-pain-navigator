@@ -1,14 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
 import { Target, Edit } from 'lucide-react';
 
-export const GoalsContainer = () => {
+interface GoalsContainerProps {
+  onBlogGoalChange?: (goal: number | null) => void;
+}
+
+export const GoalsContainer = ({ onBlogGoalChange }: GoalsContainerProps) => {
   const [weeklyExerciseGoal, setWeeklyExerciseGoal] = useState<number | null>(null);
   const [weeklyBlogGoal, setWeeklyBlogGoal] = useState<number | null>(null);
   const [editingField, setEditingField] = useState<string | null>(null);
   const [tempValue, setTempValue] = useState<number | null>(null);
+
+  // Notify parent component when blog goal changes
+  useEffect(() => {
+    if (onBlogGoalChange) {
+      onBlogGoalChange(weeklyBlogGoal);
+    }
+  }, [weeklyBlogGoal, onBlogGoalChange]);
 
   // Generate options for dropdowns
   const exerciseOptions = Array.from({ length: 14 }, (_, i) => i + 1);

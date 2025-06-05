@@ -5,24 +5,28 @@ import { supabase } from '@/integrations/supabase/client';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
-import { BookOpen, CheckCircle } from 'lucide-react';
+import { BookOpen, CheckCircle, Target } from 'lucide-react';
+import { Progress } from '@/components/ui/progress';
 
 interface BlogReadingStatsProps {
   className?: string;
+  weeklyBlogGoal?: number | null;
 }
 
 interface BlogStats {
   totalBlogs: number;
   readBlogs: number;
   unreadBlogs: number;
+  weeklyReadBlogs: number;
 }
 
-export const BlogReadingStats = ({ className }: BlogReadingStatsProps) => {
+export const BlogReadingStats = ({ className, weeklyBlogGoal }: BlogReadingStatsProps) => {
   const { user } = useAuth();
   const [stats, setStats] = useState<BlogStats>({
     totalBlogs: 0,
     readBlogs: 0,
-    unreadBlogs: 0
+    unreadBlogs: 0,
+    weeklyReadBlogs: 0
   });
   const [isLoading, setIsLoading] = useState(true);
 
@@ -31,7 +35,7 @@ export const BlogReadingStats = ({ className }: BlogReadingStatsProps) => {
       if (!user) return;
 
       try {
-        // Get total number of favorite blogs (this represents available blogs to read)
+        // Get total number of favorite blogs
         const { data: favoriteBlogs, error: favoriteBlogsError } = await supabase
           .from('favorite_blogs')
           .select('blog_id')
@@ -42,16 +46,26 @@ export const BlogReadingStats = ({ className }: BlogReadingStatsProps) => {
           return;
         }
 
-        // Get reading activity
+        // Get all reading activity
         const { data: readingActivity, error: readingError } = await supabase
           .from('blog_read_activity')
-          .select('blog_id')
+          .select('blog_id, read_at')
           .eq('user_id', user.id);
 
         if (readingError) {
           console.error('Error loading reading activity:', readingError);
           return;
         }
+
+        // Get current week's reading activity
+        const now = new Date();
+        const startOfWeek = new Date(now.setDate(now.getDate() - now.getDay()));
+        startOfWeek.setHours(0, 0, 0, 0);
+        
+        const weeklyReadBlogs = readingActivity?.filter(activity => {
+          const readDate = new Date(activity.read_at);
+          return readDate >= startOfWeek;
+        }).length || 0;
 
         const totalBlogs = favoriteBlogs?.length || 0;
         const readBlogs = readingActivity?.length || 0;
@@ -60,7 +74,8 @@ export const BlogReadingStats = ({ className }: BlogReadingStatsProps) => {
         setStats({
           totalBlogs,
           readBlogs,
-          unreadBlogs
+          unreadBlogs,
+          weeklyReadBlogs
         });
       } catch (error) {
         console.error('Error loading blog statistics:', error);
@@ -101,6 +116,11 @@ export const BlogReadingStats = ({ className }: BlogReadingStatsProps) => {
     },
   };
 
+  // Calculate weekly progress
+  const weeklyProgressPercentage = weeklyBlogGoal && weeklyBlogGoal > 0 
+    ? Math.min((stats.weeklyReadBlogs / weeklyBlogGoal) * 100, 100) 
+    : 0;
+
   return (
     <Card className={className}>
       <CardHeader>
@@ -110,7 +130,22 @@ export const BlogReadingStats = ({ className }: BlogReadingStatsProps) => {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="space-y-4">
+        <div className="space-y-6">
+          {/* Weekly Goal Progress */}
+          {weeklyBlogGoal && weeklyBlogGoal > 0 && (
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <Target className="h-4 w-4 text-blue-500" />
+                <span className="text-sm font-medium">Týždenný cieľ</span>
+              </div>
+              <div className="mb-2 flex justify-between items-center">
+                <span className="text-sm text-gray-600">Pokrok tohto týždňa</span>
+                <span className="text-sm font-medium">{stats.weeklyReadBlogs} / {weeklyBlogGoal} blogov</span>
+              </div>
+              <Progress value={weeklyProgressPercentage} className="h-2 mb-4" />
+            </div>
+          )}
+
           {/* Summary Stats */}
           <div className="grid grid-cols-2 gap-4">
             <div className="text-center">
@@ -118,7 +153,7 @@ export const BlogReadingStats = ({ className }: BlogReadingStatsProps) => {
                 <CheckCircle className="h-4 w-4 text-green-500" />
                 <span className="text-2xl font-bold text-green-600">{stats.readBlogs}</span>
               </div>
-              <p className="text-sm text-gray-600">Prečítané</p>
+              <p className="text-sm text-gray-600">Prečítané celkom</p>
             </div>
             <div className="text-center">
               <div className="flex items-center justify-center gap-1 mb-1">

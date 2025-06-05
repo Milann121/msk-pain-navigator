@@ -4,7 +4,11 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { TrendingUp } from 'lucide-react';
 import { BlogReadingStats } from './BlogReadingStats';
 
-export const ProgressContainer = () => {
+interface ProgressContainerProps {
+  weeklyBlogGoal?: number | null;
+}
+
+export const ProgressContainer = ({ weeklyBlogGoal }: ProgressContainerProps) => {
   return (
     <Card className="mb-6">
       <CardHeader>
@@ -15,7 +19,7 @@ export const ProgressContainer = () => {
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <BlogReadingStats />
+          <BlogReadingStats weeklyBlogGoal={weeklyBlogGoal} />
           {/* Future progress statistics can be added here */}
         </div>
       </CardContent>
