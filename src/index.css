@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -22,54 +21,42 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    /* Updated primary colors using gradient 01 */
-    --primary: 32 69% 94%;
-    --primary-foreground: 32 69% 15%;
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 40% 98%;
 
-    /* Updated secondary colors using gradient 02 */
-    --secondary: 32 69% 87%;
-    --secondary-foreground: 32 69% 15%;
+    --secondary: 199 89% 48%;
+    --secondary-foreground: 210 40% 98%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    /* Updated accent using gradient 03 */
-    --accent: 178 58% 65%;
-    --accent-foreground: 178 58% 15%;
+    --accent: 199 89% 48%;
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 32 69% 94%;
+    --ring: 210 100% 50%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
 
-    /* Custom gradient colors from MindfulPalettes */
-    --gradient-01-start: 32 69% 94%; /* #FFF4EB */
-    --gradient-01-end: 32 69% 87%; /* #FFE2C7 */
-    
-    --gradient-02-start: 32 69% 87%; /* #FFE2C7 */
-    --gradient-02-end: 26 75% 77%; /* #FD8B60 */
-    
-    --gradient-03-start: 178 58% 65%; /* #59BBC2 */
-    --gradient-03-end: 26 75% 77%; /* #FD8B60 */
-    
-    --gradient-04-start: 178 58% 65%; /* #59BBC2 */
-    --gradient-04-end: 210 54% 45%; /* #5A4E8F */
-    
-    --gradient-05-start: 210 54% 45%; /* #5A4E8F */
-    --gradient-05-end: 171 40% 20%; /* #3A2732 */
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
@@ -82,7 +69,7 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 32 69% 87%;
+    --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -91,7 +78,7 @@
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 178 58% 65%;
+    --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
@@ -118,63 +105,5 @@
 
   body {
     @apply bg-background text-foreground;
-  }
-}
-
-/* Custom gradient utilities */
-@layer utilities {
-  .bg-gradient-mindful-01 {
-    background: linear-gradient(135deg, #FFF4EB 0%, #FFE2C7 100%);
-  }
-  
-  .bg-gradient-mindful-02 {
-    background: linear-gradient(135deg, #FFE2C7 0%, #FD8B60 100%);
-  }
-  
-  .bg-gradient-mindful-03 {
-    background: linear-gradient(135deg, #59BBC2 0%, #FD8B60 100%);
-  }
-  
-  .bg-gradient-mindful-04 {
-    background: linear-gradient(135deg, #59BBC2 0%, #5A4E8F 100%);
-  }
-  
-  .bg-gradient-mindful-05 {
-    background: linear-gradient(135deg, #5A4E8F 0%, #3A2732 100%);
-  }
-
-  .text-gradient-mindful-01 {
-    background: linear-gradient(135deg, #FFF4EB 0%, #FFE2C7 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  
-  .text-gradient-mindful-02 {
-    background: linear-gradient(135deg, #FFE2C7 0%, #FD8B60 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  
-  .text-gradient-mindful-03 {
-    background: linear-gradient(135deg, #59BBC2 0%, #FD8B60 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  
-  .text-gradient-mindful-04 {
-    background: linear-gradient(135deg, #59BBC2 0%, #5A4E8F 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  
-  .text-gradient-mindful-05 {
-    background: linear-gradient(135deg, #5A4E8F 0%, #3A2732 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
   }
 }

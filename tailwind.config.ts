@@ -66,29 +66,6 @@ export default {
           'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
           border: 'hsl(var(--sidebar-border))',
           ring: 'hsl(var(--sidebar-ring))'
-        },
-        // MindfulPalettes gradient colors
-        mindful: {
-          '01': {
-            start: '#FFF4EB',
-            end: '#FFE2C7'
-          },
-          '02': {
-            start: '#FFE2C7',
-            end: '#FD8B60'
-          },
-          '03': {
-            start: '#59BBC2',
-            end: '#FD8B60'
-          },
-          '04': {
-            start: '#59BBC2',
-            end: '#5A4E8F'
-          },
-          '05': {
-            start: '#5A4E8F',
-            end: '#3A2732'
-          }
         }
       },
       borderRadius: {
@@ -133,13 +110,6 @@ export default {
         "celebration-particle": "celebration-particle 1.5s ease-out infinite",
         "sparkle": "sparkle 2s ease-in-out infinite",
         "star-fade": "star-fade 1.5s ease-in-out infinite",
-      },
-      backgroundImage: {
-        'gradient-mindful-01': 'linear-gradient(135deg, #FFF4EB 0%, #FFE2C7 100%)',
-        'gradient-mindful-02': 'linear-gradient(135deg, #FFE2C7 0%, #FD8B60 100%)',
-        'gradient-mindful-03': 'linear-gradient(135deg, #59BBC2 0%, #FD8B60 100%)',
-        'gradient-mindful-04': 'linear-gradient(135deg, #59BBC2 0%, #5A4E8F 100%)',
-        'gradient-mindful-05': 'linear-gradient(135deg, #5A4E8F 0%, #3A2732 100%)',
       }
     }
   },
