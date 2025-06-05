@@ -10,9 +10,10 @@ import { CelebrationAnimation } from './CelebrationAnimation';
 interface ExerciseCompletionCheckboxProps {
   exerciseTitle: string;
   assessmentId: string;
+  videoId?: string;
 }
 
-export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: ExerciseCompletionCheckboxProps) => {
+export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId, videoId }: ExerciseCompletionCheckboxProps) => {
   const [completionCount, setCompletionCount] = useState(0);
   const [loading, setLoading] = useState(true);
   const [lastCompletedAt, setLastCompletedAt] = useState<Date | null>(null);
@@ -22,20 +23,35 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
   const { user } = useAuth();
   const { toast } = useToast();
 
-  // Set cooldown to 5 seconds
-  const COOLDOWN_SECONDS = 5; 
+  // Set cooldown to 1 minute (60 seconds)
+  const COOLDOWN_SECONDS = 60; 
+
+  // Helper function to check if it's a new day
+  const isNewDay = (lastDate: Date, currentDate: Date) => {
+    return lastDate.toDateString() !== currentDate.toDateString();
+  };
+
+  // Helper function to get today's start time (00:00)
+  const getTodayStart = () => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return today;
+  };
 
   useEffect(() => {
     const checkCompletionStatus = async () => {
       if (!user) return;
       
       try {
+        const todayStart = getTodayStart();
+        
         const { data, error } = await supabase
           .from('completed_exercises')
           .select('*')
           .eq('user_id', user.id)
           .eq('assessment_id', assessmentId)
           .eq('exercise_title', exerciseTitle)
+          .gte('completed_at', todayStart.toISOString())
           .order('completed_at', { ascending: false });
           
         if (error) {
@@ -92,6 +108,16 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
           setCooldownActive(true);
         }
       }
+      
+      // Check if it's a new day and reset if needed
+      const now = new Date();
+      const todayStart = getTodayStart();
+      if (lastCompletedAt && lastCompletedAt < todayStart) {
+        setCompletionCount(0);
+        setLastCompletedAt(null);
+        setCooldownActive(false);
+        setSecondsLeft(0);
+      }
     }, 1000);
     
     return () => clearInterval(interval);
@@ -102,9 +128,13 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
     
     // If cooldown is active, show toast and return
     if (cooldownActive) {
+      const minutes = Math.floor(secondsLeft / 60);
+      const seconds = secondsLeft % 60;
+      const timeText = minutes > 0 ? `${minutes}:${seconds.toString().padStart(2, '0')} minút` : `${secondsLeft} sekúnd`;
+      
       toast({
         title: "Prosím, počkajte",
-        description: `Môžete odcvičiť znova za ${secondsLeft} sekúnd.`,
+        description: `Môžete odcvičiť znova za ${timeText}.`,
         variant: "default"
       });
       return;
@@ -160,30 +190,46 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
   };
 
   if (loading) {
-    return <div className="h-10 w-32 animate-pulse bg-gray-200 rounded" />;
+    return <div className="h-8 w-32 animate-pulse bg-gray-200 rounded" />;
   }
 
   // Determine button text and styling based on state
   const getButtonContent = () => {
     if (cooldownActive) {
+      const minutes = Math.floor(secondsLeft / 60);
+      const seconds = secondsLeft % 60;
+      const timeText = minutes > 0 ? `${minutes}:${seconds.toString().padStart(2, '0')}` : `${secondsLeft}s`;
+      
       return (
-        <div className="flex items-center gap-2">
-          <Timer className="h-4 w-4" />
-          <span>Dostupné za {secondsLeft} s</span>
+        <div className="flex items-center gap-1">
+          <Timer className="h-3 w-3" />
+          <span className="text-xs">{timeText}</span>
         </div>
       );
     } else if (completionCount > 0) {
-      return 'Odcvičiť znovu';
+      return (
+        <div className="flex items-center gap-1">
+          <Check className="h-3 w-3" />
+          <span className="text-xs">Odcvičené dnes ({completionCount})</span>
+        </div>
+      );
     } else {
-      return 'Označiť ako odcvičené';
+      return (
+        <div className="flex items-center gap-1">
+          <Check className="h-3 w-3" />
+          <span className="text-xs">Odcvičené dnes</span>
+        </div>
+      );
     }
   };
 
   const getButtonStyle = () => {
     if (cooldownActive) {
-      return 'bg-gray-400 cursor-not-allowed hover:bg-gray-400';
+      return 'bg-gray-400 cursor-not-allowed hover:bg-gray-400 text-white';
+    } else if (completionCount > 0) {
+      return 'bg-green-600 hover:bg-green-700 text-white';
     } else {
-      return 'bg-green-600 hover:bg-green-700';
+      return 'bg-blue-600 hover:bg-blue-700 text-white';
     }
   };
 
@@ -191,9 +237,9 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId }: Exer
     <>
       <Button 
         onClick={handleButtonClick}
-        className={`mt-4 relative ${getButtonStyle()}`}
+        className={`${getButtonStyle()} text-xs px-2 py-1 h-auto`}
         disabled={cooldownActive}
-        size="lg"
+        size="sm"
       >
         {getButtonContent()}
       </Button>

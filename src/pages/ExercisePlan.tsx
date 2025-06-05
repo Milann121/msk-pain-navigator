@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useLocation } from 'react-router-dom';
@@ -152,17 +151,27 @@ const ExercisePlan = () => {
                           </div>
                         </div>
                         
-                        {/* Description and favorite button on right */}
+                        {/* Description, favorite button and completion button on right */}
                         <div className="w-1/2 space-y-4">
                           {video.description && (
-                            <p className="text-gray-600">
-                              {video.description.split('\n').map((line, index) => (
-                                <span key={index}>
-                                  {line}
-                                  <br />
-                                </span>
-                              ))}
-                            </p>
+                            <div className="space-y-2">
+                              <p className="text-gray-600">
+                                {video.description.split('\n').map((line, index) => (
+                                  <span key={index}>
+                                    {line}
+                                    <br />
+                                  </span>
+                                ))}
+                              </p>
+                              {/* Completion button next to description */}
+                              {assessmentId && (
+                                <ExerciseCompletionCheckbox 
+                                  exerciseTitle={video.title || exercise.title}
+                                  assessmentId={assessmentId}
+                                  videoId={video.videoId}
+                                />
+                              )}
+                            </div>
                           )}
                           
                           <FavoriteExerciseButton
@@ -187,14 +196,24 @@ const ExercisePlan = () => {
                           />
                         </div>
                         {video.description && (
-                          <p className="text-gray-600 ml-4 border-l-2 border-gray-200 pl-4">
-                            {video.description.split('\n').map((line, index) => (
-                              <span key={index}>
-                                {line}
-                                <br />
-                              </span>
-                            ))}
-                          </p>
+                          <div className="ml-4 border-l-2 border-gray-200 pl-4 space-y-2">
+                            <p className="text-gray-600">
+                              {video.description.split('\n').map((line, index) => (
+                                <span key={index}>
+                                  {line}
+                                  <br />
+                                </span>
+                              ))}
+                            </p>
+                            {/* Completion button next to description on mobile */}
+                            {assessmentId && (
+                              <ExerciseCompletionCheckbox 
+                                exerciseTitle={video.title || exercise.title}
+                                assessmentId={assessmentId}
+                                videoId={video.videoId}
+                              />
+                            )}
+                          </div>
                         )}
                         
                         <FavoriteExerciseButton
@@ -208,17 +227,6 @@ const ExercisePlan = () => {
                 </div>
               </div>
             ))}
-            
-            {/* Exercise completion button placed below all exercises */}
-            {assessmentId && (
-              <div className="flex justify-center mt-8">
-                <ExerciseCompletionCheckbox 
-                  key={`exercise-${assessmentId}-${Date.now()}`}
-                  exerciseTitle={exercises[0]?.title}
-                  assessmentId={assessmentId}
-                />
-              </div>
-            )}
             
             <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-lg">
               <h3 className="font-semibold text-amber-800 mb-2">Dôležité upozornenie</h3>
