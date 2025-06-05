@@ -63,7 +63,7 @@ export const neuropathicQuestionnaire: Questionnaire = {
     {
       id: 'muscle-weakness',
       text: 'Všimli ste si svalovú slabosť v postihnutej končatine, ktorá sťažuje uchopenie predmetov, zdvihnutie nohy alebo normálny pohyb?',
-      description: '', // Add description here later
+      description: 'Máte pocit, že vaša končatina oslabla, nedokážete vykonávať aktivity v rovnakej intezite alebo vám končatina oťažieva? Ak áno, odpovedajte KLADNE.',
       type: 'radio',
       options: [
         {
