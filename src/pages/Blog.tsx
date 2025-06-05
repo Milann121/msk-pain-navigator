@@ -6,6 +6,7 @@ import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { ExternalLink } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { FavoriteBlogButton } from '@/components/FavoriteBlogButton';
+import { ReadBlogButton } from '@/components/ReadBlogButton';
 
 // Blog data structure
 interface BlogPost {
@@ -99,14 +100,22 @@ const BlogCard: React.FC<{ blog: BlogPost }> = ({ blog }) => {
           {blog.isExternal && <ExternalLink className="ml-2 h-4 w-4" />}
         </Button>
         
-        <FavoriteBlogButton
-          blogId={blog.id}
-          blogTitle={blog.title}
-          blogDescription={blog.description}
-          blogImageUrl={blog.imageUrl}
-          blogLink={blog.link}
-          isExternal={blog.isExternal}
-        />
+        <div className="flex gap-2 w-full">
+          <FavoriteBlogButton
+            blogId={blog.id}
+            blogTitle={blog.title}
+            blogDescription={blog.description}
+            blogImageUrl={blog.imageUrl}
+            blogLink={blog.link}
+            isExternal={blog.isExternal}
+          />
+          
+          <ReadBlogButton
+            blogId={blog.id}
+            blogTitle={blog.title}
+            blogLink={blog.link}
+          />
+        </div>
       </CardFooter>
     </Card>
   );
