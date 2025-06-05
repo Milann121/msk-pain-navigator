@@ -10,7 +10,7 @@ export const nociceptiveQuestionnaire: Questionnaire = {
     {
       id: 'rest-helps',
       text: 'Pomáha vám odpočinok alebo vyhýbanie sa pohybom, ktoré vyvolávajú bolesť?',
-      description: '', // Add description here later
+      description: 'Má oddych priamo pozitívny vplyv na vašu bolesť/stav?',
       type: 'radio',
       options: [
         {
