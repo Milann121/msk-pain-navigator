@@ -110,7 +110,7 @@ export const neuropathicQuestionnaire: Questionnaire = {
             {
               id: 'lying-helps-neuro',
               text: 'Máte pocit, že ľah na chrbte zmierňuje vaše príznaky?',
-              description: '', // Add description here later
+              description: 'Overte si, či vám ľah na chrbte dopraje úľavu. Uložte sa na chrbát, pokrčte kolená a zrelaxujte. Počkajte aj 2 minúty a sledujte vývoj symptómov, potom odpovedajte na otázku.', // Add description here later
               type: 'radio',
               options: [
                 {

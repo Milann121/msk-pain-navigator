@@ -62,7 +62,7 @@ export const nociceptiveQuestionnaire: Questionnaire = {
             {
               id: 'lying-helps',
               text: 'Zistili ste, že ľah na chrbte zmierňuje vaše príznaky?',
-              description: '',
+              description: 'Overte si, či vám ľah na chrbte dopraje úľavu. Uložte sa na chrbát, pokrčte kolená a zrelaxujte. Počkajte aj 2 minúty a sledujte vývoj symptómov, potom odpovedajte na otázku.',
               type: 'radio',
               options: [
                 {
