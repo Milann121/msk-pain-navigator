@@ -10,7 +10,7 @@ export const neuropathicQuestionnaire: Questionnaire = {
     {
       id: 'coughing-pain',
       text: 'Zhoršuje sa vaša bolesť pri kašeľaní, kýchaní alebo napínaní sa?',
-      description: '', // Add description here later
+      description: 'Touto otázkou sa snažíme zistiť priamy súvis medzi bolesťou a kýchaním, kašľaním alebo napínaním sa. Ak máte pocit, že niektorá z menovaných činností vám prudko zhorší symptómy, odpovedajte KLADNE.', // Add description here later
       type: 'radio',
       options: [
         {
