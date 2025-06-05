@@ -1,10 +1,12 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { format } from 'date-fns';
 import { sk } from 'date-fns/locale/sk';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
+import { useAuth } from '@/contexts/AuthContext';
+import { supabase } from '@/integrations/supabase/client';
 
 interface MoodEntry {
   date: Date;
@@ -12,8 +14,33 @@ interface MoodEntry {
 }
 
 export const MoodCalendar = () => {
+  const { user } = useAuth();
   const [date, setDate] = useState<Date>(new Date());
   const [moodEntries, setMoodEntries] = useState<MoodEntry[]>([]);
+  const [firstName, setFirstName] = useState<string>('');
+  
+  // Load user's first name from profile
+  useEffect(() => {
+    const loadUserProfile = async () => {
+      if (!user) return;
+
+      try {
+        const { data, error } = await supabase
+          .from('user_profiles')
+          .select('first_name')
+          .eq('user_id', user.id)
+          .single();
+
+        if (data && data.first_name) {
+          setFirstName(data.first_name);
+        }
+      } catch (error) {
+        console.error('Error loading user profile:', error);
+      }
+    };
+
+    loadUserProfile();
+  }, [user]);
   
   const handleMoodSelection = (mood: 'happy' | 'neutral' | 'sad') => {
     // Use the selected date from the calendar instead of today
@@ -47,16 +74,23 @@ export const MoodCalendar = () => {
   // Get mood for the selected date (not just today)
   const selectedDateMood = getMoodForDate(date);
   
+  // Generate dynamic header based on first name
+  const headerTitle = firstName ? `${firstName}, ako sa dnes cítiš?` : 'Ako sa dnes cítiš?';
+  
+  // Get current day and date
+  const today = new Date();
+  const currentDayAndDate = format(today, 'EEEE, dd.MM.yyyy', { locale: sk });
+  
   return (
     <Card className="mb-6">
       <CardHeader>
-        <CardTitle>Môj denník nálady</CardTitle>
+        <CardTitle>{headerTitle}</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <h3 className="text-lg font-medium mb-4">
-              Ako sa cítite {format(date, 'dd.MM.yyyy', { locale: sk })}?
+              {currentDayAndDate}
             </h3>
             <div className="flex justify-around items-center mb-6">
               <Button 
