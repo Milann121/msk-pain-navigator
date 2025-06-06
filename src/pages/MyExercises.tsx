@@ -5,14 +5,20 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Accordion } from '@/components/ui/accordion';
 import { useAssessments } from '@/hooks/useAssessments';
-import { AssessmentTable } from '@/components/exercise-dashboard/AssessmentTable';
+import { AssessmentAccordionItem } from '@/components/exercise-dashboard/assessment/AssessmentAccordionItem';
+import { EmptyState } from '@/components/exercise-dashboard/assessment/EmptyState';
+import { LoadingState } from '@/components/exercise-dashboard/assessment/LoadingState';
+import { FollowUpDialog } from '@/components/exercise-dashboard/assessment/FollowUpDialog';
 import { ExerciseCalendar } from '@/components/exercise-dashboard/ExerciseCalendar';
+import { UserAssessment } from '@/components/follow-up/types';
 
 const MyExercises = () => {
   const { user, isLoading } = useAuth();
   const navigate = useNavigate();
   const { assessments, loading, handleDeleteAssessment, refreshAssessments } = useAssessments();
+  const [selectedAssessment, setSelectedAssessment] = React.useState<UserAssessment | null>(null);
 
   // Add an effect to refresh data when the page loads
   React.useEffect(() => {
@@ -20,6 +26,15 @@ const MyExercises = () => {
       refreshAssessments();
     }
   }, [user, refreshAssessments]);
+
+  const handleOpenFollowUp = (assessment: UserAssessment) => {
+    setSelectedAssessment(assessment);
+  };
+
+  const handleCloseFollowUp = () => {
+    setSelectedAssessment(null);
+    refreshAssessments();
+  };
 
   if (isLoading) {
     return (
@@ -56,11 +71,22 @@ const MyExercises = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <AssessmentTable
-                assessments={assessments}
-                loading={loading}
-                onDeleteAssessment={handleDeleteAssessment}
-              />
+              {loading ? (
+                <LoadingState />
+              ) : assessments.length === 0 ? (
+                <EmptyState />
+              ) : (
+                <Accordion type="single" collapsible className="w-full space-y-2">
+                  {assessments.map((assessment) => (
+                    <AssessmentAccordionItem
+                      key={assessment.id}
+                      assessment={assessment}
+                      onOpenFollowUp={handleOpenFollowUp}
+                      onDeleteAssessment={handleDeleteAssessment}
+                    />
+                  ))}
+                </Accordion>
+              )}
             </CardContent>
             <CardFooter className="flex justify-between">
               <Button variant="outline" onClick={() => navigate('/')}>
@@ -71,6 +97,13 @@ const MyExercises = () => {
               </Button>
             </CardFooter>
           </Card>
+
+          {selectedAssessment && (
+            <FollowUpDialog
+              assessment={selectedAssessment}
+              onClose={handleCloseFollowUp}
+            />
+          )}
         </div>
       </div>
     </div>
