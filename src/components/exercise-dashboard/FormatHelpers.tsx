@@ -1,37 +1,29 @@
 
-/**
- * Helper functions for formatting data in the exercise dashboard
- */
+import { format } from 'date-fns';
 
-export const formatPainArea = (area: string): string => {
-  const translations: Record<string, string> = {
-    'neck': 'Krčná chrbtica',
-    'middle back': 'Hrudná chrbtica',
-    'lower back': 'Driekova chrbtica'
-  };
-  
-  return translations[area] || area;
+export const formatDate = (dateString: string): string => {
+  return format(new Date(dateString), 'dd.MM.yyyy HH:mm');
 };
 
 export const formatMechanism = (mechanism: string): string => {
-  const translations: Record<string, string> = {
-    'nociceptive': 'Nociceptívna bolesť',
-    'neuropathic': 'Neuropatická bolesť',
+  const mechanisms: Record<string, string> = {
+    'nociceptive': 'Nociceptívna',
+    'neuropathic': 'Neuropatická', 
     'central': 'Centrálna senzitizácia',
-    'none': 'Nedefinovaný mechanizmus bolesti'
+    'none': 'Nedefinovaný'
   };
-  return translations[mechanism] || mechanism;
+  return mechanisms[mechanism] || mechanism;
 };
 
 export const formatDifferential = (differential: string): string => {
-  if (differential === 'none') return 'Nebola identifikovaná žiadna špecifická diagnóza';
+  if (differential === 'none') return 'Bez špecifickej diagnózy';
   
-  const translations: Record<string, string> = {
-    'disc herniation': 'Hernia medzistavcovej platničky',
+  const differentials: Record<string, string> = {
+    'disc herniation': 'Hernia platničky',
     'facet joint syndrome': 'Syndróm facetových kĺbov',
     'SIJ syndrome': 'Syndróm SI kĺbu',
     'muscle pain': 'Svalová bolesť',
-    'red flag': 'Závažný stav vyžadujúci pozornosť',
+    'red flag': 'Vyžaduje kontrolu',
     'ventral spondylolisthesis': 'Ventrálna spondylolistéza',
     'dorsal spondylolisthesis': 'Dorzálna spondylolistéza',
     'costovertebral joint syndrome': 'Syndróm kostovertebrálneho kĺbu',
@@ -43,5 +35,15 @@ export const formatDifferential = (differential: string): string => {
     'Central Sensitisation - Cognitive Symptoms': 'Centrálna senzitizácia - Kognitívne symptómy'
   };
   
-  return translations[differential] || differential;
+  return differentials[differential] || differential;
+};
+
+export const formatPainArea = (area: string): string => {
+  const areas: Record<string, string> = {
+    'neck': 'Krčná chrbtica',
+    'middle back': 'Hrudná chrbtica', 
+    'lower back': 'Driekova chrbtica'
+  };
+  
+  return areas[area] || area;
 };

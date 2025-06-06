@@ -12,7 +12,7 @@ interface Assessment {
   primary_differential: string;
   pain_area: string;
   timestamp: string;
-  intial_pain_intensity: number | null;
+  intial_pain_intensity?: number | null;
 }
 
 interface AssessmentTableProps {
