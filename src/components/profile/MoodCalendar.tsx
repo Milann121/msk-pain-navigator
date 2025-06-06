@@ -50,12 +50,22 @@ export const MoodCalendar = () => {
           </CardContent>
         </Card>
         
-        {/* Right Container - Money Savings */}
-        <Card>
-          <CardContent className="pt-6">
-            <MoneySavings />
-          </CardContent>
-        </Card>
+        {/* Right Column - Two stacked containers */}
+        <div className="flex flex-col gap-6 h-full">
+          {/* Top Container - Empty (1/3 height) */}
+          <Card className="flex-[1]">
+            <CardContent className="pt-6 h-full">
+              {/* Empty container */}
+            </CardContent>
+          </Card>
+          
+          {/* Bottom Container - Money Savings (2/3 height) */}
+          <Card className="flex-[2]">
+            <CardContent className="pt-6 h-full flex items-center justify-center">
+              <MoneySavings />
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   );
