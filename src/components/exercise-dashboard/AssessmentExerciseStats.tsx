@@ -8,7 +8,7 @@ interface AssessmentExerciseStatsProps {
 }
 
 export const AssessmentExerciseStats = ({ assessmentId }: AssessmentExerciseStatsProps) => {
-  const [totalCompletions, setTotalCompletions] = useState(0);
+  const [uniqueDaysCount, setUniqueDaysCount] = useState(0);
   const [lastCompletionDate, setLastCompletionDate] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const { user } = useAuth();
@@ -31,8 +31,20 @@ export const AssessmentExerciseStats = ({ assessmentId }: AssessmentExerciseStat
           return;
         }
         
-        setTotalCompletions(data?.length || 0);
-        setLastCompletionDate(data && data.length > 0 ? data[0].clicked_at : null);
+        if (data && data.length > 0) {
+          // Extract unique dates from clicked_at timestamps
+          const uniqueDates = new Set();
+          data.forEach(item => {
+            const date = new Date(item.clicked_at).toDateString();
+            uniqueDates.add(date);
+          });
+          
+          setUniqueDaysCount(uniqueDates.size);
+          setLastCompletionDate(data[0].clicked_at);
+        } else {
+          setUniqueDaysCount(0);
+          setLastCompletionDate(null);
+        }
       } catch (error) {
         console.error('Error fetching exercise stats:', error);
       } finally {
@@ -60,14 +72,14 @@ export const AssessmentExerciseStats = ({ assessmentId }: AssessmentExerciseStat
     return <div className="text-sm text-gray-500">Načítava sa...</div>;
   }
 
-  if (totalCompletions === 0) {
+  if (uniqueDaysCount === 0) {
     return <div className="text-sm text-gray-500">Žiadne cvičenia dnes</div>;
   }
 
   return (
     <div className="space-y-1">
       <div className="text-sm font-medium text-gray-700">
-        Odcvičené: {totalCompletions}x
+        Odcvičené: {uniqueDaysCount}x
       </div>
       {lastCompletionDate && (
         <div className="text-sm text-gray-600">
