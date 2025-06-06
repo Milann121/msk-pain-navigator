@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Navigate } from 'react-router-dom';
@@ -72,8 +71,6 @@ const Domov = () => {
       <Header />
       <div className="flex-1 bg-gradient-to-b from-blue-50 to-white py-10 px-2 md:px-4">
         <div className="container mx-auto w-full max-w-full md:max-w-4xl px-2 md:px-0">
-          <h1 className="text-3xl font-bold text-blue-800 mb-6 px-2 md:px-0">Domov</h1>
-          
           {/* Mood Calendar */}
           <MoodCalendar />
           
