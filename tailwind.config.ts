@@ -66,7 +66,35 @@ export default {
           'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
           border: 'hsl(var(--sidebar-border))',
           ring: 'hsl(var(--sidebar-ring))'
+        },
+        // Custom gradient color utilities
+        'gradient-1': {
+          'start': 'hsl(var(--gradient-1-start))',
+          'end': 'hsl(var(--gradient-1-end))'
+        },
+        'gradient-2': {
+          'start': 'hsl(var(--gradient-2-start))',
+          'end': 'hsl(var(--gradient-2-end))'
+        },
+        'gradient-3': {
+          'start': 'hsl(var(--gradient-3-start))',
+          'end': 'hsl(var(--gradient-3-end))'
+        },
+        'gradient-4': {
+          'start': 'hsl(var(--gradient-4-start))',
+          'end': 'hsl(var(--gradient-4-end))'
+        },
+        'gradient-5': {
+          'start': 'hsl(var(--gradient-5-start))',
+          'end': 'hsl(var(--gradient-5-end))'
         }
+      },
+      backgroundImage: {
+        'gradient-1': 'linear-gradient(135deg, hsl(var(--gradient-1-start)), hsl(var(--gradient-1-end)))',
+        'gradient-2': 'linear-gradient(135deg, hsl(var(--gradient-2-start)), hsl(var(--gradient-2-end)))',
+        'gradient-3': 'linear-gradient(135deg, hsl(var(--gradient-3-start)), hsl(var(--gradient-3-end)))',
+        'gradient-4': 'linear-gradient(135deg, hsl(var(--gradient-4-start)), hsl(var(--gradient-4-end)))',
+        'gradient-5': 'linear-gradient(135deg, hsl(var(--gradient-5-start)), hsl(var(--gradient-5-end)))',
       },
       borderRadius: {
         lg: 'var(--radius)',
