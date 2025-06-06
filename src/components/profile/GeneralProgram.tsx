@@ -13,6 +13,7 @@ export const GeneralProgram = () => {
   const navigate = useNavigate();
   const [generalProgram, setGeneralProgram] = useState<Exercise[]>([]);
   const [loading, setLoading] = useState(true);
+  const [assessmentCount, setAssessmentCount] = useState(0);
 
   useEffect(() => {
     if (user) {
@@ -26,6 +27,8 @@ export const GeneralProgram = () => {
     setLoading(true);
     
     try {
+      console.log('Loading general program for user:', user.id);
+      
       // Fetch user's assessments
       const { data: assessments, error } = await supabase
         .from('user_assessments')
@@ -35,6 +38,9 @@ export const GeneralProgram = () => {
 
       if (error) throw error;
 
+      console.log('Found assessments:', assessments?.length || 0, assessments);
+      setAssessmentCount(assessments?.length || 0);
+
       if (assessments && assessments.length > 1) {
         // Generate general program using the utility
         const program = generateGeneralProgram(
@@ -42,7 +48,10 @@ export const GeneralProgram = () => {
           assessments[0].pain_area,
           assessments
         );
+        console.log('Generated general program:', program);
         setGeneralProgram(program);
+      } else {
+        console.log('Not enough assessments for general program:', assessments?.length);
       }
     } catch (error) {
       console.error('Error loading general program:', error);
@@ -63,9 +72,23 @@ export const GeneralProgram = () => {
     );
   }
 
-  // Don't show if no general program exists (less than 2 assessments)
+  // Show debug info if no general program exists
   if (generalProgram.length === 0) {
-    return null;
+    return (
+      <div className="h-full flex flex-col justify-center items-center p-4 text-center">
+        <PlayCircle className="h-8 w-8 text-gray-400 mb-2" />
+        <h3 className="text-lg font-semibold text-gray-600 mb-2">Všeobecný program</h3>
+        <p className="text-sm text-gray-500 mb-2">
+          {assessmentCount < 2 
+            ? `Potrebujete aspoň 2 hodnotenia (máte ${assessmentCount})`
+            : 'Program sa generuje...'
+          }
+        </p>
+        <p className="text-xs text-gray-400">
+          Vyplňte viac dotazníkov bolesti pre vytvorenie personalizovaného programu
+        </p>
+      </div>
+    );
   }
 
   const program = generalProgram[0];
