@@ -12,7 +12,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           videoId: 'eL5KxSe3c1g',
           title: 'McKenzie záklony krčnej chrbtice',
           description: 'Postup:\n➜ posaďte sa a uvoľnite trapézy\n➜ vtiahnite bradu dnu (zásuvka), ale nezdvíhajte pri tom plecia, ani hlavu nepredkláňajte\n➜ zakloňte hlavu do rozsahu, ktorý je vám komfortný a nespôsobuje veľa bolesti\n➜ v záklone urobte krátke rotácie hlavy do oboch strán\n➜ OPAKOVANIA: záklon opakujte 5-10x za sebou s 3-5 rotáciami do každej strany ➜ 5x denne. ',
-          importance: 1
+          importance: 3
         },
         {
           videoId: '7WAoHWIxgEI',
@@ -24,7 +24,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           videoId: '844ILxo5xsA',
           title: 'Masáž loptičkou o stenu',
           description: 'Na tento cvik použite ideálne tenisovú loptičku. Položte si loptičku na trapéz, oprite sa o stenu a masírujte svaly šije ako na videu. V prípade, že nájdete bolestivé miesta, môžete staticky zatlačiť po dobu 20-30 sekúnd. Premasírujte celú oblasť trapézov a medzilopatkového priestoru.',
-          importance: 3
+          importance: 1
         }
       ]
     },
@@ -105,19 +105,19 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           videoId: 'JJq8u5IGDb8',
           title: 'Rotácia krčnej chrbtice s opaskom',
           description: 'Tento cvik vám pomôže zvýšiť rozsah pohybu do rotácie. \n ➜ Uchopte uterák podľa videa - horná ruka určuje smer, do ktorého budete hlavu otáčať, spodná fixuje. Spodnou rukou zatiahnite smerom dole a udržujte ťah a súčasne hornou rukou zatiahnite smerom dopredu a hore s udržaním ťahu. Následne vykonajte rotáciu do smeru na strane hornej končatiny so sústavným ťahom oboch rúk. \n ➜ Počas tohoto cviku by ste mali pociťovať zvýšený rozsah pohybu a menej bolesti pri rotácii hlavy. \n ➜ OPAKOVANIA: 6x rotácia do jednej strany / kdykoľvek v priebehu dňa.',
-          importance: 1
+          importance: 3
         },
         {
           videoId: '844ILxo5xsA',
           title: 'Masáž trapézov o stenu',
           description: 'Na tento cvik použite ideálne tenisovú loptičku. Položte si loptičku na trapéz, oprite sa o stenu a masírujte svaly šije ako na videu. V prípade, že nájdete bolestivé miesta, môžete staticky zatlačiť po dobu 20-30 sekúnd. Premasírujte celú oblasť trapézov a medzilopatkového priestoru.',
-          importance: 2
+          importance: 1
         },
         {
           videoId: 'L94T55NiI34',
           title: 'Masáž hornej krčnej chrbtice',
           description: 'Posaďte sa a nahmatajte si hranu lebky za a mierne pod uchom.\n ➜ Zatlačte palcami pod lebku a krúživými pohybmi masírujte záhlavie. Vždy keď sa po zakrúžení vrátite na hranu lebky, zatlačte do kosti a postupujte až ku stredu chrbtice. \n ➜ UPOZORNENIE: Tento cvik môže byť mierne bolestivý, preto je vhodné sedieť! Bolesť sa pri zatlačení môže šíriť do hlavy alebo za oko. \n ➜ Zopakujte podľa pocitu a potreby kedykoľvek v priebehu dňa, najmä ak pociťujete stuhnutie a bolesti hlavy a krku.',
-          importance: 3
+          importance: 2
         },
       ],
     },
@@ -151,13 +151,13 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           videoId: 'oAxVF_ktAi0',
           title: 'Rotácia hrudníku so záklonom',
           description: 'Posaďte sa a ruky uložte za hlavu.\n ➜ Pomaly sa vytočte v hrudnej chrbtici do strany do rozsahu, ktorý je vám komfortný. V tejto polohe sa zastavte a mierne zakloňte. Následne sa vráťte naspäť a zopakujte cvik do opačnej strany.\n ➜ OPAKOVANIA: zopakujte 5-8x do každej strany, kedykoľvek v priebehu dňa.',
-          importance: 1
+          importance: 2
         },
         {
           videoId: 'dxzegzGNdaU',
           title: 'Masáž hrudnej chrbtice loptičkou',
           description: 'Uložte si loptičku do medzilopatkového priestoru a vertikálnym pohybom uvoľnite bolestivé a stuhnuté svaly.\n ➜ OPAKOVANIA: kedykoľvek v priebehu dňa.',
-          importance: 2
+          importance: 1
         },
       ],
     },
@@ -169,19 +169,19 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           videoId: 'oVJqu0FEw-Y',
           title: 'Posiľnenie medzilopatkových svalov',
           description: 'Uchyťte odporovú gumu podľa videa. Tieto 3 cviky môžete striedať, alebo si vybrať ktorýkoľvek z nich. \n➜ UPOZORNENIE: pri týchto cvikoch nesmiete pociťovať namáhanie trapézov! Celý čas sa snažte tlačiť lopatky a ramená smerom dole od uší, aby pracovali medzilopatkové svaly. Dbajte na to, aby ste počas vykonávania cvikov viac cítili svaly medzi lopatkami, nie ramená a trapézy - to dosiahnete práve tlačením pliec dole. \n➜ OPAKOVANIA: 10-15x / 3 série / 1x denne.',
-          importance: 1
+          importance: 2
         },
         {
           videoId: 'rhPOJA3S-IQ',
           title: 'Záklon hrudnej chrbtice',
           description: 'Zaprite dlane o stenu, odstúpte od nej aby ste boli v miernom predklone a s výdychom uvoľnite trup do záklonu. Snažte sa mať celý čas zrelaxované ramená, hlavu v predĺžení chrbtice a v polohe záklonu sa 1-2x nadýchnite.\n➜ OPAKOVANIA: Záklon zopakujte 3-4x, kedykoľvek v priebehu dňa. ',
-          importance: 2
+          importance: 3
         },
         {
           videoId: 'OKsRn5e2VJY',
           title: 'Otváranie knihy',
           description: 'Týmto cvikom zvýšite mobilitu hrudníka.\n ➜ Uložte sa na bok, pokrčte nohy a spojte dlane pred seba. Spolu s končatinou uloženou na vrchu sa za výdychu vyrotujte do opačnej strany. Hlava by mala celý čas nasledovať ruku. V tejto polohe zotrvajte 3 sekundy.\n ➜ OPAKOVANIA: 5x do každej strany, kedykoľvek v priebehu dňa.',
-          importance: 3
+          importance: 1
         }
       ]  
     }
