@@ -41,7 +41,6 @@ export const MoodCalendar = () => {
           currentDayAndDate={currentDayAndDate}
         />
         
-        {/* Add the MoneySavings component here */}
         <MoneySavings />
         
         <MoodCalendarView 
