@@ -40,9 +40,9 @@ export const CalendarWeek: React.FC<CalendarWeekProps> = ({
   return (
     <ScrollArea className="w-full overflow-auto">
       <div className="relative">
-        {/* Connection lines between days */}
+        {/* Connection lines between days - positioned at circle level */}
         {weeklyGoal > 0 && (
-          <div className="absolute top-[4.5rem] left-0 right-0 flex justify-between items-center px-7 pointer-events-none">
+          <div className="absolute top-[5.75rem] left-0 right-0 flex justify-between items-center px-7 pointer-events-none">
             {daysToDisplay.slice(0, -1).map((day, index) => (
               <div
                 key={`line-${index}`}
