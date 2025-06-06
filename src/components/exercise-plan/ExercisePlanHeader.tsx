@@ -2,6 +2,7 @@
 import React from 'react';
 import { CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { PainMechanism } from '@/utils/types';
+import { PlayCircle } from 'lucide-react';
 
 interface ExercisePlanHeaderProps {
   showGeneral: boolean;
@@ -63,16 +64,29 @@ export const ExercisePlanHeader = ({
   };
 
   return (
-    <CardHeader>
-      <CardTitle>
-        {showGeneral ? 'Všeobecný cvičebný plán' : 'Váš cvičebný plán'}
+    <CardHeader className={showGeneral ? 'bg-gradient-to-r from-blue-50 to-indigo-50 border-b border-blue-200' : ''}>
+      <CardTitle className={showGeneral ? 'text-blue-800' : ''}>
+        {showGeneral && (
+          <div className="flex items-center gap-2 mb-2">
+            <PlayCircle className="h-6 w-6 text-blue-600" />
+            <span className="text-lg font-semibold text-blue-600">Všeobecný program</span>
+          </div>
+        )}
+        {showGeneral ? 'Personalizovaný cvičebný plán' : 'Váš cvičebný plán'}
       </CardTitle>
-      <CardDescription>
+      <CardDescription className={showGeneral ? 'text-blue-700' : ''}>
         {showGeneral 
           ? 'Personalizovaný program s najdôležitejšími cvičeniami z vašich programov. Postupujte podľa inštrukcií a v prípade bolesti cvičenie prerušte.'
           : `Cvičenia špecifické pre ${formatDifferential(differential)} v oblasti ${formatPainArea(painArea)}. Postupujte podľa inštrukcií a v prípade bolesti cvičenie prerušte.`
         }
       </CardDescription>
+      {showGeneral && (
+        <div className="mt-3 p-3 bg-blue-100 rounded-lg border border-blue-200">
+          <p className="text-sm text-blue-800 font-medium">
+            ✨ Tento program kombinuje najdôležitejšie cvičenia z vašich hodnotení pre maximálny efekt
+          </p>
+        </div>
+      )}
       {!showGeneral && (
         <div className="mt-2 flex flex-wrap gap-2">
           <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">
