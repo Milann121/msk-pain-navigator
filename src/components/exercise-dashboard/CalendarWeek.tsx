@@ -66,7 +66,7 @@ export const CalendarWeek: React.FC<CalendarWeekProps> = ({
       <div className="relative">
         {/* Connection lines between days - positioned at circle level */}
         {shouldShowGoalLine() && (
-          <div className="absolute top-[7rem] left-0 right-0 flex justify-between items-center px-7 pointer-events-none">
+          <div className="absolute top-[6.9rem] left-0 right-0 flex justify-between items-center px-7 pointer-events-none">
             {daysToDisplay.slice(0, -1).map((day, index) => (
               <div
                 key={`line-${index}`}
