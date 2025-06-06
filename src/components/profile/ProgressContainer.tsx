@@ -3,6 +3,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { TrendingUp } from 'lucide-react';
 import { BlogReadingStats } from './BlogReadingStats';
+import { ExerciseStats } from './ExerciseStats';
 
 export const ProgressContainer = () => {
   return (
@@ -15,8 +16,8 @@ export const ProgressContainer = () => {
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <ExerciseStats />
           <BlogReadingStats />
-          {/* Future progress statistics can be added here */}
         </div>
       </CardContent>
     </Card>
