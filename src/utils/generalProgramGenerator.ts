@@ -47,6 +47,10 @@ export const generateGeneralProgram = (
     index === self.findIndex(v => v.videoId === video.videoId)
   );
 
+  if (uniqueVideos.length === 0) {
+    return [];
+  }
+
   // Separate by importance
   const primaryVideos = uniqueVideos.filter(v => v.importance === 1);
   const secondaryVideos = uniqueVideos.filter(v => v.importance === 2);
@@ -73,11 +77,14 @@ export const generateGeneralProgram = (
     selectedVideos.push(...remaining.slice(0, targetTotal - selectedVideos.length));
   }
 
+  // Shuffle the selected videos for variety
+  const shuffledVideos = selectedVideos.sort(() => Math.random() - 0.5);
+
   // Create the general program exercise
   const generalProgram: Exercise = {
     title: 'Všeobecný program',
-    description: 'Personalizovaný program vytvorený na základe vašich hodnotení, obsahujúci najdôležitejšie cvičenia z rôznych programov.',
-    videos: selectedVideos.map(video => ({
+    description: 'Personalizovaný program vytvorený na základe vašich hodnotení, obsahujúci najdôležitejšie cvičenia z rôznych programov. Cvičenia sú vybrané v pomere 3:2:1 (primárne:sekundárne:terciárne) pre optimálny terapeutický efekt.',
+    videos: shuffledVideos.map(video => ({
       videoId: video.videoId,
       title: video.title,
       description: video.description ? 
@@ -87,5 +94,5 @@ export const generateGeneralProgram = (
     }))
   };
 
-  return selectedVideos.length > 0 ? [generalProgram] : [];
+  return shuffledVideos.length > 0 ? [generalProgram] : [];
 };

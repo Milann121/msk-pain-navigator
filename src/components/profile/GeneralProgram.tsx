@@ -61,7 +61,15 @@ export const GeneralProgram = () => {
   };
 
   const handleViewProgram = () => {
-    navigate('/my-exercises');
+    // Navigate to the general program
+    navigate('/exercise-plan', { 
+      state: { 
+        showGeneral: true,
+        mechanism: 'general',
+        differential: 'general',
+        painArea: 'general'
+      } 
+    });
   };
 
   if (loading) {
