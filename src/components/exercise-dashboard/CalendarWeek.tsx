@@ -96,7 +96,7 @@ export const CalendarWeek: React.FC<CalendarWeekProps> = ({
         {weeklyGoal > 0 && shouldShowGoalLine() && (
           <div className="mt-4 text-center">
             <div className={`text-sm font-medium ${goalMet ? 'text-green-600' : weekHasEnded ? 'text-red-500' : 'text-gray-600'}`}>
-              {totalWeeklyCompletions} / {weeklyGoal} cvičení tento týždeň
+              {totalWeeklyCompletions} / {weeklyGoal} odcvičených dní tento týždeň
               {goalMet && ' ✅'}
               {weekHasEnded && !goalMet && ' ❌'}
             </div>
