@@ -9,9 +9,10 @@ import { supabase } from '@/integrations/supabase/client';
 
 interface GoalsContainerProps {
   onBlogGoalChange?: (goal: number | null) => void;
+  onExerciseGoalChange?: (goal: number | null) => void;
 }
 
-export const GoalsContainer = ({ onBlogGoalChange }: GoalsContainerProps) => {
+export const GoalsContainer = ({ onBlogGoalChange, onExerciseGoalChange }: GoalsContainerProps) => {
   const { user } = useAuth();
   const [weeklyExerciseGoal, setWeeklyExerciseGoal] = useState<number | null>(null);
   const [weeklyBlogGoal, setWeeklyBlogGoal] = useState<number | null>(null);
@@ -55,6 +56,13 @@ export const GoalsContainer = ({ onBlogGoalChange }: GoalsContainerProps) => {
       onBlogGoalChange(weeklyBlogGoal);
     }
   }, [weeklyBlogGoal, onBlogGoalChange]);
+
+  // Notify parent component when exercise goal changes
+  useEffect(() => {
+    if (onExerciseGoalChange) {
+      onExerciseGoalChange(weeklyExerciseGoal);
+    }
+  }, [weeklyExerciseGoal, onExerciseGoalChange]);
 
   // Generate options for dropdowns
   const exerciseOptions = Array.from({ length: 14 }, (_, i) => i + 1);

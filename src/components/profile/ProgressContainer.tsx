@@ -1,11 +1,15 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { TrendingUp } from 'lucide-react';
 import { BlogReadingStats } from './BlogReadingStats';
 import { ExerciseStats } from './ExerciseStats';
 
-export const ProgressContainer = () => {
+interface ProgressContainerProps {
+  weeklyExerciseGoal?: number | null;
+}
+
+export const ProgressContainer = ({ weeklyExerciseGoal }: ProgressContainerProps) => {
   return (
     <Card className="mb-6">
       <CardHeader>
@@ -16,7 +20,7 @@ export const ProgressContainer = () => {
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <ExerciseStats />
+          <ExerciseStats weeklyExerciseGoal={weeklyExerciseGoal} />
           <BlogReadingStats />
         </div>
       </CardContent>

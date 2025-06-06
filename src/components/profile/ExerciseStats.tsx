@@ -6,10 +6,13 @@ import { Dumbbell } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
 
-export const ExerciseStats = () => {
+interface ExerciseStatsProps {
+  weeklyExerciseGoal?: number | null;
+}
+
+export const ExerciseStats = ({ weeklyExerciseGoal }: ExerciseStatsProps) => {
   const { user } = useAuth();
   const [exerciseCount, setExerciseCount] = useState(0);
-  const [weeklyExerciseGoal, setWeeklyExerciseGoal] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -19,18 +22,6 @@ export const ExerciseStats = () => {
       try {
         setLoading(true);
 
-        // Load weekly exercise goal
-        const { data: goalData } = await supabase
-          .from('user_goals')
-          .select('goal_value')
-          .eq('user_id', user.id)
-          .eq('goal_type', 'weekly_exercise')
-          .single();
-
-        if (goalData) {
-          setWeeklyExerciseGoal(goalData.goal_value);
-        }
-
         // Calculate start of current week (Monday)
         const now = new Date();
         const currentDay = now.getDay();
@@ -39,9 +30,24 @@ export const ExerciseStats = () => {
         startOfWeek.setDate(now.getDate() - daysFromMonday);
         startOfWeek.setHours(0, 0, 0, 0);
 
-        // For now, we'll use a placeholder count of 0 since the actual exercise tracking database will be created later
-        // TODO: Replace this with actual exercise completion data when database is implemented
-        setExerciseCount(0);
+        // Get completed exercises for this week
+        const { data, error } = await supabase
+          .from('completed_exercises')
+          .select('completed_at')
+          .eq('user_id', user.id)
+          .gte('completed_at', startOfWeek.toISOString());
+
+        if (error) throw error;
+
+        // Count unique days with exercises this week
+        const uniqueDays = new Set();
+        data?.forEach(exercise => {
+          const exerciseDate = new Date(exercise.completed_at);
+          const dateKey = exerciseDate.toDateString();
+          uniqueDays.add(dateKey);
+        });
+
+        setExerciseCount(uniqueDays.size);
       } catch (error) {
         console.error('Error loading exercise stats:', error);
       } finally {
