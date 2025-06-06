@@ -1,12 +1,10 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Navigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import { ProfileInfo } from '@/components/profile/ProfileInfo';
 import { ProfileFormPopup } from '@/components/profile/ProfileFormPopup';
-import { GoalsContainer } from '@/components/profile/GoalsContainer';
-import { ProgressContainer } from '@/components/profile/ProgressContainer';
 import { useProfileCompletion } from '@/hooks/useProfileCompletion';
 
 const Profile = () => {
@@ -16,8 +14,6 @@ const Profile = () => {
     isCheckingProfile, 
     handleProfileCompleted 
   } = useProfileCompletion();
-  
-  const [weeklyBlogGoal, setWeeklyBlogGoal] = useState<number | null>(null);
 
   if (isLoading || isCheckingProfile) {
     return (
@@ -44,12 +40,6 @@ const Profile = () => {
           <div className="grid grid-cols-1 gap-6 mb-6">
             {/* User Profile Info */}
             <ProfileInfo />
-            
-            {/* Goals Container */}
-            <GoalsContainer onBlogGoalChange={setWeeklyBlogGoal} />
-            
-            {/* Progress Container */}
-            <ProgressContainer weeklyBlogGoal={weeklyBlogGoal} />
           </div>
         </div>
       </div>
