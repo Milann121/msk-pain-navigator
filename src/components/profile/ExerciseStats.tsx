@@ -1,9 +1,11 @@
+
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Dumbbell } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
+import { startOfWeek, endOfWeek, format } from 'date-fns';
 
 interface ExerciseStatsProps {
   weeklyExerciseGoal?: number | null;
@@ -22,28 +24,27 @@ export const ExerciseStats = ({ weeklyExerciseGoal, onGoalUpdate }: ExerciseStat
       try {
         setLoading(true);
 
-        // Calculate start of current week (Monday)
+        // Calculate start and end of current week (Monday to Sunday)
         const now = new Date();
-        const currentDay = now.getDay();
-        const daysFromMonday = currentDay === 0 ? 6 : currentDay - 1; // Sunday is 0, adjust to make Monday the start
-        const startOfWeek = new Date(now);
-        startOfWeek.setDate(now.getDate() - daysFromMonday);
-        startOfWeek.setHours(0, 0, 0, 0);
+        const weekStart = startOfWeek(now, { weekStartsOn: 1 });
+        const weekEnd = endOfWeek(now, { weekStartsOn: 1 });
 
-        // Get completed exercises for this week
+        // Get exercise completion clicks for this week
         const { data, error } = await supabase
-          .from('completed_exercises')
-          .select('completed_at')
+          .from('exercise_completion_clicks')
+          .select('clicked_at')
           .eq('user_id', user.id)
-          .gte('completed_at', startOfWeek.toISOString());
+          .eq('is_active', true)
+          .gte('clicked_at', weekStart.toISOString())
+          .lte('clicked_at', weekEnd.toISOString());
 
         if (error) throw error;
 
         // Count unique days with exercises this week
         const uniqueDays = new Set();
         data?.forEach(exercise => {
-          const exerciseDate = new Date(exercise.completed_at);
-          const dateKey = exerciseDate.toDateString();
+          const exerciseDate = new Date(exercise.clicked_at);
+          const dateKey = format(exerciseDate, 'yyyy-MM-dd');
           uniqueDays.add(dateKey);
         });
 
@@ -56,6 +57,26 @@ export const ExerciseStats = ({ weeklyExerciseGoal, onGoalUpdate }: ExerciseStat
     };
 
     loadData();
+
+    // Set up real-time subscription to exercise completion clicks changes
+    const channel = supabase
+      .channel('exercise_stats_completion_clicks')
+      .on('postgres_changes', 
+        { 
+          event: '*', 
+          schema: 'public', 
+          table: 'exercise_completion_clicks',
+          filter: `user_id=eq.${user?.id}`
+        }, 
+        () => {
+          loadData();
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, [user]);
 
   if (loading) {
