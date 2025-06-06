@@ -15,6 +15,7 @@ export const useExerciseCompletion = ({ exerciseTitle, assessmentId }: UseExerci
   const [loading, setLoading] = useState(true);
   const [lastCompletedAt, setLastCompletedAt] = useState<Date | null>(null);
   const [cooldownActive, setCooldownActive] = useState(false);
+  const [latestClickId, setLatestClickId] = useState<string | null>(null);
   const { user } = useAuth();
   const { toast } = useToast();
 
@@ -28,14 +29,16 @@ export const useExerciseCompletion = ({ exerciseTitle, assessmentId }: UseExerci
       try {
         const todayStart = getTodayStart();
         
+        // Get all active clicks for today
         const { data, error } = await supabase
-          .from('completed_exercises')
+          .from('exercise_completion_clicks')
           .select('*')
           .eq('user_id', user.id)
           .eq('assessment_id', assessmentId)
           .eq('exercise_title', exerciseTitle)
-          .gte('completed_at', todayStart.toISOString())
-          .order('completed_at', { ascending: false });
+          .eq('is_active', true)
+          .gte('clicked_at', todayStart.toISOString())
+          .order('clicked_at', { ascending: false });
           
         if (error) {
           console.error('Error checking completion status:', error);
@@ -46,8 +49,10 @@ export const useExerciseCompletion = ({ exerciseTitle, assessmentId }: UseExerci
         setCompletionCount(count);
         
         if (data && data.length > 0) {
-          const lastCompleted = new Date(data[0].completed_at);
+          const lastClick = data[0];
+          const lastCompleted = new Date(lastClick.clicked_at);
           setLastCompletedAt(lastCompleted);
+          setLatestClickId(lastClick.id);
           
           // Check if the cooldown is still active
           const now = new Date();
@@ -61,6 +66,7 @@ export const useExerciseCompletion = ({ exerciseTitle, assessmentId }: UseExerci
           }
         } else {
           setLastCompletedAt(null);
+          setLatestClickId(null);
           setCooldownActive(false);
         }
       } catch (error) {
@@ -92,6 +98,7 @@ export const useExerciseCompletion = ({ exerciseTitle, assessmentId }: UseExerci
       if (lastCompletedAt && lastCompletedAt < todayStart) {
         setCompletionCount(0);
         setLastCompletedAt(null);
+        setLatestClickId(null);
         setCooldownActive(false);
       }
     }, 1000);
@@ -100,54 +107,37 @@ export const useExerciseCompletion = ({ exerciseTitle, assessmentId }: UseExerci
   }, [user, exerciseTitle, assessmentId, lastCompletedAt, COOLDOWN_SECONDS]);
 
   const resetCompletion = async () => {
-    if (!user) return;
+    if (!user || !latestClickId) return;
     
     try {
-      const todayStart = getTodayStart();
-      
-      const { data: recentCompletion, error: fetchError } = await supabase
-        .from('completed_exercises')
-        .select('id')
-        .eq('user_id', user.id)
-        .eq('assessment_id', assessmentId)
-        .eq('exercise_title', exerciseTitle)
-        .gte('completed_at', todayStart.toISOString())
-        .order('completed_at', { ascending: false })
-        .limit(1)
-        .single();
+      // Deactivate the latest click instead of deleting it
+      const { error } = await supabase
+        .from('exercise_completion_clicks')
+        .update({ is_active: false })
+        .eq('id', latestClickId);
         
-      if (fetchError) {
-        console.error('Error fetching recent completion:', fetchError);
-        return;
+      if (error) {
+        console.error('Error deactivating completion:', error);
+        throw error;
       }
       
-      if (recentCompletion) {
-        const { error: deleteError } = await supabase
-          .from('completed_exercises')
-          .delete()
-          .eq('id', recentCompletion.id);
-          
-        if (deleteError) {
-          console.error('Error deleting completion:', deleteError);
-          throw deleteError;
-        }
-        
-        // Update local state
-        setCompletionCount(prev => Math.max(0, prev - 1));
-        setLastCompletedAt(null);
-        setCooldownActive(false);
-        
-        toast({
-          title: "Cvičenie zrušené",
-          description: "Označenie cvičenia bolo zrušené.",
-        });
-        
-        // Emit custom event to signal the update
-        const event = new CustomEvent('exercise-completed', {
-          detail: { assessmentId, exerciseTitle }
-        });
-        window.dispatchEvent(event);
-      }
+      // Update local state
+      setCompletionCount(prev => Math.max(0, prev - 1));
+      setLastCompletedAt(null);
+      setLatestClickId(null);
+      setCooldownActive(false);
+      
+      toast({
+        title: "Cvičenie zrušené",
+        description: "Označenie cvičenia bolo zrušené.",
+      });
+      
+      // Emit custom event to signal the update
+      const event = new CustomEvent('exercise-completed', {
+        detail: { assessmentId, exerciseTitle }
+      });
+      window.dispatchEvent(event);
+      
     } catch (error: any) {
       console.error('Error resetting completion status:', error);
       toast({
@@ -159,20 +149,23 @@ export const useExerciseCompletion = ({ exerciseTitle, assessmentId }: UseExerci
   };
 
   const addCompletion = async () => {
-    if (!user) return;
+    if (!user) return false;
     
     try {
       const now = new Date();
       
-      // Insert a new completion record
-      const { error } = await supabase
-        .from('completed_exercises')
+      // Insert a new completion click
+      const { data, error } = await supabase
+        .from('exercise_completion_clicks')
         .insert({
           user_id: user.id,
           assessment_id: assessmentId,
           exercise_title: exerciseTitle,
-          completed_at: now.toISOString()
-        });
+          clicked_at: now.toISOString(),
+          is_active: true
+        })
+        .select()
+        .single();
       
       if (error) {
         console.error('Error recording exercise completion:', error);
@@ -182,6 +175,7 @@ export const useExerciseCompletion = ({ exerciseTitle, assessmentId }: UseExerci
       // Update local state
       setCompletionCount(prev => prev + 1);
       setLastCompletedAt(now);
+      setLatestClickId(data.id);
       setCooldownActive(true);
       
       toast({

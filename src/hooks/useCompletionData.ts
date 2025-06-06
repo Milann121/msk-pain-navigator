@@ -23,10 +23,11 @@ export const useCompletionData = (assessmentId?: string) => {
     try {
       // Build query - filter by assessment if provided
       let query = supabase
-        .from('completed_exercises')
-        .select('completed_at, assessment_id')
+        .from('exercise_completion_clicks')
+        .select('clicked_at, assessment_id')
         .eq('user_id', user.id)
-        .order('completed_at', { ascending: false });
+        .eq('is_active', true)
+        .order('clicked_at', { ascending: false });
       
       if (assessmentId) {
         query = query.eq('assessment_id', assessmentId);
@@ -40,7 +41,7 @@ export const useCompletionData = (assessmentId?: string) => {
       const completions: Record<string, CompletionDay> = {};
       
       (data || []).forEach(completion => {
-        const completionDate = new Date(completion.completed_at);
+        const completionDate = new Date(completion.clicked_at);
         const dateKey = format(completionDate, 'yyyy-MM-dd');
         
         if (!completions[dateKey]) {
@@ -76,14 +77,14 @@ export const useCompletionData = (assessmentId?: string) => {
     
     window.addEventListener('exercise-completed', handleExerciseCompleted);
     
-    // Set up a real-time subscription to completed_exercises changes
+    // Set up a real-time subscription to exercise completion clicks changes
     const channel = supabase
-      .channel('exercise_completions')
+      .channel('exercise_completion_clicks')
       .on('postgres_changes', 
         { 
           event: '*', 
           schema: 'public', 
-          table: 'completed_exercises',
+          table: 'exercise_completion_clicks',
           filter: `user_id=eq.${user?.id}`
         }, 
         () => {

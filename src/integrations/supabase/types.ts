@@ -71,6 +71,36 @@ export type Database = {
           },
         ]
       }
+      exercise_completion_clicks: {
+        Row: {
+          assessment_id: string
+          clicked_at: string
+          created_at: string
+          exercise_title: string
+          id: string
+          is_active: boolean
+          user_id: string
+        }
+        Insert: {
+          assessment_id: string
+          clicked_at?: string
+          created_at?: string
+          exercise_title: string
+          id?: string
+          is_active?: boolean
+          user_id: string
+        }
+        Update: {
+          assessment_id?: string
+          clicked_at?: string
+          created_at?: string
+          exercise_title?: string
+          id?: string
+          is_active?: boolean
+          user_id?: string
+        }
+        Relationships: []
+      }
       favorite_blogs: {
         Row: {
           blog_description: string | null
