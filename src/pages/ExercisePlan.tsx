@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -11,40 +11,80 @@ import { ExerciseCompletionCheckbox } from '@/components/ExerciseCompletionCheck
 import { Navigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import { FavoriteExerciseButton } from '@/components/FavoriteExerciseButton';
+import { generateGeneralProgram } from '@/utils/generalProgramGenerator';
+import { supabase } from '@/integrations/supabase/client';
 
 const ExercisePlan = () => {
   const { user } = useAuth();
   const location = useLocation();
-  const { mechanism = 'nociceptive', differential = 'none', painArea = 'lower back', assessmentId } = location.state || {};
+  const { mechanism = 'nociceptive', differential = 'none', painArea = 'lower back', assessmentId, showGeneral = false } = location.state || {};
+  const [userAssessments, setUserAssessments] = useState([]);
+  const [loading, setLoading] = useState(true);
   
   // Redirect to login if not authenticated
   if (!user) {
     return <Navigate to="/auth" replace />;
   }
 
+  // Fetch user assessments for general program
+  useEffect(() => {
+    const fetchUserAssessments = async () => {
+      if (!user) return;
+      
+      try {
+        const { data, error } = await supabase
+          .from('user_assessments')
+          .select('*')
+          .eq('user_id', user.id)
+          .order('timestamp', { ascending: false });
+          
+        if (error) {
+          console.error('Error fetching user assessments:', error);
+          return;
+        }
+        
+        setUserAssessments(data || []);
+      } catch (error) {
+        console.error('Error fetching user assessments:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchUserAssessments();
+  }, [user]);
+
   // Log state props on mount to help with debugging
   useEffect(() => {
-    console.log("ExercisePlan props:", { mechanism, differential, painArea, assessmentId });
-  }, [mechanism, differential, painArea, assessmentId]);
+    console.log("ExercisePlan props:", { mechanism, differential, painArea, assessmentId, showGeneral });
+  }, [mechanism, differential, painArea, assessmentId, showGeneral]);
   
-  // Create key for exercise lookup
-  const specificKey = `${mechanism}-${differential}-${painArea}`;
-  const defaultKey = `${mechanism}-default-${painArea}`;
+  // Determine which exercises to show
+  let exercises = [];
   
-  // Find the appropriate exercises, first try specific, then default
-  const exercises = exercisesByDifferential[specificKey] || 
-                    exercisesByDifferential[defaultKey] || 
-                    [{
-                      title: 'Odporúčané cvičenia neboli nájdené',
-                      description: 'Pre vašu kombináciu diagnózy a oblasti bolesti nemáme špecifické cvičenia. Prosím, konzultujte s fyzioterapeutom.',
-                      videos: [
-                        {
-                          videoId: '',
-                          title: '',
-                          description: ''
-                        }
-                      ]
-                    }];
+  if (showGeneral && !loading) {
+    // Show general program
+    exercises = generateGeneralProgram(mechanism, painArea, userAssessments);
+    if (exercises.length === 0) {
+      exercises = [{
+        title: 'Všeobecný program nie je k dispozícii',
+        description: 'Nemáte dostatok hodnotení na vytvorenie všeobecného programu alebo nie sú k dispozícii cvičenia s definovanou dôležitosťou.',
+        videos: []
+      }];
+    }
+  } else {
+    // Show specific program
+    const specificKey = `${mechanism}-${differential}-${painArea}`;
+    const defaultKey = `${mechanism}-default-${painArea}`;
+    
+    exercises = exercisesByDifferential[specificKey] || 
+                exercisesByDifferential[defaultKey] || 
+                [{
+                  title: 'Odporúčané cvičenia neboli nájdené',
+                  description: 'Pre vašu kombináciu diagnózy a oblasti bolesti nemáme špecifické cvičenia. Prosím, konzultujte s fyzioterapeutom.',
+                  videos: []
+                }];
+  }
 
   // Helper function to format mechanism for display
   const getMechanismLabel = (mechanism: PainMechanism): string => {
@@ -92,6 +132,17 @@ const ExercisePlan = () => {
     return translations[area] || area;
   };
 
+  if (loading) {
+    return (
+      <>
+        <Header />
+        <div className="container mx-auto py-8 px-4">
+          <div className="text-center">Načítava sa...</div>
+        </div>
+      </>
+    );
+  }
+
   return (
     <>
       <Header />
@@ -103,22 +154,29 @@ const ExercisePlan = () => {
         
         <Card>
           <CardHeader>
-            <CardTitle>Váš cvičebný plán</CardTitle>
+            <CardTitle>
+              {showGeneral ? 'Všeobecný cvičebný plán' : 'Váš cvičebný plán'}
+            </CardTitle>
             <CardDescription>
-              Cvičenia špecifické pre {formatDifferential(differential)} v oblasti {formatPainArea(painArea)}.
+              {showGeneral 
+                ? 'Personalizovaný program vytvorený na základe vašich hodnotení s najdôležitejšími cvičeniami.'
+                : `Cvičenia špecifické pre ${formatDifferential(differential)} v oblasti ${formatPainArea(painArea)}.`
+              }
               Postupujte podľa inštrukcií a v prípade bolesti cvičenie prerušte.
             </CardDescription>
-            <div className="mt-2 flex flex-wrap gap-2">
-              <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">
-                {getMechanismLabel(mechanism as PainMechanism)}
-              </span>
-              <span className="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">
-                {formatDifferential(differential)}
-              </span>
-              <span className="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">
-                {formatPainArea(painArea)}
-              </span>
-            </div>
+            {!showGeneral && (
+              <div className="mt-2 flex flex-wrap gap-2">
+                <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                  {getMechanismLabel(mechanism as PainMechanism)}
+                </span>
+                <span className="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                  {formatDifferential(differential)}
+                </span>
+                <span className="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                  {formatPainArea(painArea)}
+                </span>
+              </div>
+            )}
           </CardHeader>
           <CardContent className="space-y-8">
             {exercises.map((exercise, index) => (
@@ -131,7 +189,19 @@ const ExercisePlan = () => {
                   {exercise.videos.map((video, videoIndex) => (
                     <div key={videoIndex} className="space-y-4">
                       {video.title && (
-                        <h3 className="text-xl font-bold text-gray-800">{video.title}</h3>
+                        <div className="flex items-center gap-2">
+                          <h3 className="text-xl font-bold text-gray-800">{video.title}</h3>
+                          {video.importance && (
+                            <span className={`px-2 py-1 text-xs font-medium rounded ${
+                              video.importance === 1 ? 'bg-red-100 text-red-800' :
+                              video.importance === 2 ? 'bg-yellow-100 text-yellow-800' :
+                              'bg-green-100 text-green-800'
+                            }`}>
+                              {video.importance === 1 ? 'Primárne' :
+                               video.importance === 2 ? 'Sekundárne' : 'Terciárne'}
+                            </span>
+                          )}
+                        </div>
                       )}
                       
                       {/* Desktop layout: video on left, description and favorite on right */}
