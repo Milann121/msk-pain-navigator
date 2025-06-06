@@ -47,7 +47,7 @@ export const CalendarWeek: React.FC<CalendarWeekProps> = ({
               <div
                 key={`line-${index}`}
                 className={`h-0.5 flex-1 mx-1 ${
-                  goalMet ? 'bg-green-500' : 'bg-red-400'
+                  goalMet ? 'bg-green-500' : 'bg-red-500'
                 }`}
                 style={{
                   width: 'calc((100% - 56px) / 6)', // Distribute evenly between 7 days
