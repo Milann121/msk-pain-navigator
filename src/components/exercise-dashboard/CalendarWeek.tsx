@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { isSameDay, startOfWeek, endOfWeek } from 'date-fns';
+import { isSameDay, startOfWeek, endOfWeek, isAfter, endOfDay } from 'date-fns';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { CalendarDay } from './CalendarDay';
 import { CompletionDay } from '@/hooks/useCompletionData';
@@ -37,6 +37,17 @@ export const CalendarWeek: React.FC<CalendarWeekProps> = ({
   const totalWeeklyCompletions = weekCompletions.length;
   const goalMet = totalWeeklyCompletions >= weeklyGoal;
   
+  // Check if the week has ended (current time is after the end of Sunday)
+  const currentTime = new Date();
+  const weekHasEnded = isAfter(currentTime, endOfDay(weekEnd));
+  
+  // Determine line color: grey by default, green if goal met, red only if week ended and goal missed
+  const getLineColor = () => {
+    if (goalMet) return 'bg-green-500';
+    if (weekHasEnded && !goalMet) return 'bg-red-500';
+    return 'bg-gray-300'; // Default grey
+  };
+  
   return (
     <ScrollArea className="w-full overflow-auto">
       <div className="relative">
@@ -46,9 +57,7 @@ export const CalendarWeek: React.FC<CalendarWeekProps> = ({
             {daysToDisplay.slice(0, -1).map((day, index) => (
               <div
                 key={`line-${index}`}
-                className={`h-0.5 flex-1 mx-1 ${
-                  goalMet ? 'bg-green-500' : 'bg-red-500'
-                }`}
+                className={`h-0.5 flex-1 mx-1 ${getLineColor()}`}
                 style={{
                   width: 'calc((100% - 56px) / 6)', // Distribute evenly between 7 days
                 }}
@@ -73,9 +82,10 @@ export const CalendarWeek: React.FC<CalendarWeekProps> = ({
         {/* Goal status indicator */}
         {weeklyGoal > 0 && (
           <div className="mt-4 text-center">
-            <div className={`text-sm font-medium ${goalMet ? 'text-green-600' : 'text-red-500'}`}>
+            <div className={`text-sm font-medium ${goalMet ? 'text-green-600' : weekHasEnded ? 'text-red-500' : 'text-gray-600'}`}>
               {totalWeeklyCompletions} / {weeklyGoal} cvičení tento týždeň
               {goalMet && ' ✅'}
+              {weekHasEnded && !goalMet && ' ❌'}
             </div>
           </div>
         )}
