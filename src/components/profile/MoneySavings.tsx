@@ -97,7 +97,7 @@ export const MoneySavings = () => {
 
   if (loading) {
     return (
-      <div className="text-center">
+      <div className="h-full w-full flex flex-col items-center justify-center">
         <div className="flex items-center justify-center gap-2 mb-4">
           <Euro className="h-6 w-6 text-green-600" />
           <h3 className="text-xl font-semibold text-green-800">Ušetrené peniaze</h3>
@@ -108,15 +108,15 @@ export const MoneySavings = () => {
   }
 
   return (
-    <div className="text-center">
-      <div className="flex items-center justify-center gap-2 mb-4">
-        <Euro className="h-6 w-6 text-green-600" />
-        <h3 className="text-xl font-semibold text-green-800">Ušetrené peniaze</h3>
+    <div className="h-full w-full flex flex-col items-center justify-center">
+      <div className="flex items-center justify-center gap-2 mb-6">
+        <Euro className="h-8 w-8 text-green-600" />
+        <h3 className="text-2xl font-semibold text-green-800">Ušetrené peniaze</h3>
       </div>
-      <div className="text-6xl font-bold text-green-700 mb-4">
+      <div className="text-8xl font-bold text-green-700 mb-6">
         {totalSavings}€
       </div>
-      <p className="text-sm text-green-600">
+      <p className="text-base text-green-600 text-center px-4">
         *vypočítané na základe priemerných cien na Slovensku
       </p>
     </div>
