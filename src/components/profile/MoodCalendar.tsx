@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Calendar, Heart } from 'lucide-react';
+import { format } from 'date-fns';
+import { sk } from 'date-fns/locale/sk';
 import { UserGreeting } from './mood/UserGreeting';
 import { MoodSelector } from './mood/MoodSelector';
 import { MoodCalendarView } from './mood/MoodCalendarView';
@@ -10,7 +12,17 @@ import { MoneySavings } from './MoneySavings';
 
 export const MoodCalendar = () => {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
-  const { moodDays, selectedMood, updateMood, loading } = useMoodData();
+  const { moodEntries, firstName, loading, handleMoodSelection, getMoodForDate } = useMoodData();
+
+  // Get mood for the selected date
+  const selectedDateMood = getMoodForDate(selectedDate);
+
+  // Format current day and date
+  const currentDayAndDate = format(selectedDate, 'EEEE, d. MMMM yyyy', { locale: sk });
+
+  const handleMoodSelection = (mood: 'happy' | 'neutral' | 'sad') => {
+    handleMoodSelection(mood, selectedDate);
+  };
 
   return (
     <Card className="mb-6">
@@ -21,20 +33,21 @@ export const MoodCalendar = () => {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <UserGreeting />
+        <UserGreeting firstName={firstName} />
         <MoodSelector 
-          selectedMood={selectedMood} 
-          onMoodChange={updateMood}
+          selectedDateMood={selectedDateMood} 
+          onMoodSelection={handleMoodSelection}
           loading={loading}
+          currentDayAndDate={currentDayAndDate}
         />
         
         {/* Add the MoneySavings component here */}
         <MoneySavings />
         
         <MoodCalendarView 
-          moodDays={moodDays}
-          selectedDate={selectedDate}
+          date={selectedDate}
           onDateSelect={setSelectedDate}
+          getMoodForDate={getMoodForDate}
         />
       </CardContent>
     </Card>
