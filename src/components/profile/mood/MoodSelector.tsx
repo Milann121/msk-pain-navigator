@@ -20,30 +20,30 @@ export const MoodSelector = ({
         variant="outline" 
         onClick={() => onMoodSelection('happy')}
         disabled={loading}
-        className={`flex flex-col items-center p-4 h-auto ${selectedDateMood === 'happy' ? 'bg-green-100 border-green-500' : ''}`}
+        className={`flex flex-col items-center p-3 h-auto ${selectedDateMood === 'happy' ? 'bg-green-100 border-green-500' : ''}`}
       >
-        <span className="text-4xl mb-2">😊</span>
-        <span>Dobre</span>
+        <span className="text-2xl mb-1">😊</span>
+        <span className="text-sm">Dobre</span>
       </Button>
       
       <Button 
         variant="outline" 
         onClick={() => onMoodSelection('neutral')}
         disabled={loading}
-        className={`flex flex-col items-center p-4 h-auto ${selectedDateMood === 'neutral' ? 'bg-yellow-100 border-yellow-500' : ''}`}
+        className={`flex flex-col items-center p-3 h-auto ${selectedDateMood === 'neutral' ? 'bg-yellow-100 border-yellow-500' : ''}`}
       >
-        <span className="text-4xl mb-2">😐</span>
-        <span>Neutrálne</span>
+        <span className="text-2xl mb-1">😐</span>
+        <span className="text-sm">Neutrálne</span>
       </Button>
       
       <Button 
         variant="outline" 
         onClick={() => onMoodSelection('sad')}
         disabled={loading}
-        className={`flex flex-col items-center p-4 h-auto ${selectedDateMood === 'sad' ? 'bg-red-100 border-red-500' : ''}`}
+        className={`flex flex-col items-center p-3 h-auto ${selectedDateMood === 'sad' ? 'bg-red-100 border-red-500' : ''}`}
       >
-        <span className="text-4xl mb-2">😔</span>
-        <span>Zle</span>
+        <span className="text-2xl mb-1">😔</span>
+        <span className="text-sm">Zle</span>
       </Button>
     </div>
   );

@@ -23,7 +23,7 @@ export const MoodCalendarView = ({ date, onDateSelect, getMoodForDate }: MoodCal
         selected={date}
         onSelect={onDateSelect}
         locale={sk}
-        className="border rounded-md p-3"
+        className="border rounded-md p-3 w-full"
         modifiers={{
           happy: (date) => getMoodForDate(date) === 'happy',
           neutral: (date) => getMoodForDate(date) === 'neutral',
