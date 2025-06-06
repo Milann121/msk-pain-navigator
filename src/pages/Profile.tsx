@@ -5,6 +5,7 @@ import { Navigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import { ProfileInfo } from '@/components/profile/ProfileInfo';
 import { ProfileFormPopup } from '@/components/profile/ProfileFormPopup';
+import { GoalsContainer } from '@/components/profile/GoalsContainer';
 import { useProfileCompletion } from '@/hooks/useProfileCompletion';
 
 const Profile = () => {
@@ -40,6 +41,9 @@ const Profile = () => {
           <div className="grid grid-cols-1 gap-6 mb-6">
             {/* User Profile Info */}
             <ProfileInfo />
+            
+            {/* Goals Container */}
+            <GoalsContainer />
           </div>
         </div>
       </div>

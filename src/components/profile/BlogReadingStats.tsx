@@ -1,156 +1,107 @@
 
 import React, { useState, useEffect } from 'react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Progress } from '@/components/ui/progress';
+import { BookOpen } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { BookOpen, CheckCircle, Target } from 'lucide-react';
-import { Progress } from '@/components/ui/progress';
 
-interface BlogReadingStatsProps {
-  className?: string;
-  weeklyBlogGoal?: number | null;
-}
-
-interface BlogStats {
-  totalBlogs: number;
-  readBlogs: number;
-  unreadBlogs: number;
-  weeklyReadBlogs: number;
-}
-
-export const BlogReadingStats = ({ className, weeklyBlogGoal }: BlogReadingStatsProps) => {
+export const BlogReadingStats = () => {
   const { user } = useAuth();
-  const [stats, setStats] = useState<BlogStats>({
-    totalBlogs: 0,
-    readBlogs: 0,
-    unreadBlogs: 0,
-    weeklyReadBlogs: 0
-  });
-  const [isLoading, setIsLoading] = useState(true);
+  const [blogReadCount, setBlogReadCount] = useState(0);
+  const [weeklyBlogGoal, setWeeklyBlogGoal] = useState<number | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const loadBlogStats = async () => {
+    const loadData = async () => {
       if (!user) return;
 
       try {
-        // Get total number of favorite blogs
-        const { data: favoriteBlogs, error: favoriteBlogsError } = await supabase
-          .from('favorite_blogs')
-          .select('blog_id')
-          .eq('user_id', user.id);
+        setLoading(true);
 
-        if (favoriteBlogsError) {
-          console.error('Error loading favorite blogs:', favoriteBlogsError);
-          return;
+        // Load weekly blog goal
+        const { data: goalData } = await supabase
+          .from('user_goals')
+          .select('goal_value')
+          .eq('user_id', user.id)
+          .eq('goal_type', 'weekly_blog')
+          .single();
+
+        if (goalData) {
+          setWeeklyBlogGoal(goalData.goal_value);
         }
 
-        // Get all reading activity
-        const { data: readingActivity, error: readingError } = await supabase
-          .from('blog_read_activity')
-          .select('blog_id, read_at')
-          .eq('user_id', user.id);
-
-        if (readingError) {
-          console.error('Error loading reading activity:', readingError);
-          return;
-        }
-
-        // Get current week's reading activity
+        // Calculate start of current week (Monday)
         const now = new Date();
-        const startOfWeek = new Date(now.setDate(now.getDate() - now.getDay()));
+        const currentDay = now.getDay();
+        const daysFromMonday = currentDay === 0 ? 6 : currentDay - 1; // Sunday is 0, adjust to make Monday the start
+        const startOfWeek = new Date(now);
+        startOfWeek.setDate(now.getDate() - daysFromMonday);
         startOfWeek.setHours(0, 0, 0, 0);
-        
-        const weeklyReadBlogs = readingActivity?.filter(activity => {
-          const readDate = new Date(activity.read_at);
-          return readDate >= startOfWeek;
-        }).length || 0;
 
-        const totalBlogs = favoriteBlogs?.length || 0;
-        const readBlogs = readingActivity?.length || 0;
-        const unreadBlogs = Math.max(0, totalBlogs - readBlogs);
+        // Load blog reading activity for current week
+        const { data: readData } = await supabase
+          .from('blog_read_activity')
+          .select('id')
+          .eq('user_id', user.id)
+          .gte('read_at', startOfWeek.toISOString());
 
-        setStats({
-          totalBlogs,
-          readBlogs,
-          unreadBlogs,
-          weeklyReadBlogs
-        });
+        setBlogReadCount(readData?.length || 0);
       } catch (error) {
-        console.error('Error loading blog statistics:', error);
+        console.error('Error loading blog stats:', error);
       } finally {
-        setIsLoading(false);
+        setLoading(false);
       }
     };
 
-    loadBlogStats();
+    loadData();
   }, [user]);
 
-  if (isLoading) {
+  if (loading) {
     return (
-      <Card className={className}>
+      <Card>
         <CardHeader>
-          <CardTitle className="text-lg">Štatistiky čítania</CardTitle>
+          <CardTitle className="flex items-center gap-2">
+            <BookOpen className="h-5 w-5" />
+            Čítanie blogov
+          </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="text-center text-gray-500">Načítava sa...</div>
+          <div className="text-gray-500">Načítava sa...</div>
         </CardContent>
       </Card>
     );
   }
 
-  // Calculate weekly progress
-  const weeklyProgressPercentage = weeklyBlogGoal && weeklyBlogGoal > 0 
-    ? Math.min((stats.weeklyReadBlogs / weeklyBlogGoal) * 100, 100) 
-    : 0;
+  const progressPercentage = weeklyBlogGoal ? Math.min((blogReadCount / weeklyBlogGoal) * 100, 100) : 0;
+  const goalText = weeklyBlogGoal ? `${blogReadCount} / ${weeklyBlogGoal}` : `${blogReadCount} / -`;
 
   return (
-    <Card className={className}>
+    <Card>
       <CardHeader>
-        <CardTitle className="text-lg flex items-center gap-2">
+        <CardTitle className="flex items-center gap-2">
           <BookOpen className="h-5 w-5" />
-          Štatistiky čítania
+          Čítanie blogov
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="space-y-6">
-          {/* Weekly Goal Progress */}
-          {weeklyBlogGoal && weeklyBlogGoal > 0 && (
-            <div>
-              <div className="flex items-center gap-2 mb-2">
-                <Target className="h-4 w-4 text-blue-500" />
-                <span className="text-sm font-medium">Týždenný cieľ</span>
-              </div>
-              <div className="mb-2 flex justify-between items-center">
-                <span className="text-sm text-gray-600">Pokrok tohto týždňa</span>
-                <span className="text-sm font-medium">{stats.weeklyReadBlogs} / {weeklyBlogGoal} blogov</span>
-              </div>
-              <Progress value={weeklyProgressPercentage} className="h-2 mb-4" />
-            </div>
-          )}
-
-          {/* Summary Stats */}
-          <div className="grid grid-cols-2 gap-4">
-            <div className="text-center">
-              <div className="flex items-center justify-center gap-1 mb-1">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                <span className="text-2xl font-bold text-green-600">{stats.readBlogs}</span>
-              </div>
-              <p className="text-sm text-gray-600">Prečítané celkom</p>
-            </div>
-            <div className="text-center">
-              <div className="flex items-center justify-center gap-1 mb-1">
-                <Target className="h-4 w-4 text-blue-500" />
-                <span className="text-2xl font-bold text-blue-600">{weeklyBlogGoal || 0}</span>
-              </div>
-              <p className="text-sm text-gray-600">Týždenný cieľ</p>
-            </div>
+        <div className="space-y-4">
+          <div className="flex justify-between items-center">
+            <span className="text-sm text-gray-600">Týždenný pokrok</span>
+            <span className="text-sm font-medium">{goalText}</span>
           </div>
-
-          {/* No favorite blogs message */}
-          {stats.totalBlogs === 0 && (
-            <div className="text-center text-gray-500 text-sm py-4">
-              Žiadne obľúbené blogy na sledovanie
-            </div>
+          <Progress value={progressPercentage} className="h-2" />
+          {weeklyBlogGoal ? (
+            <p className="text-xs text-gray-500">
+              {blogReadCount >= weeklyBlogGoal 
+                ? "Gratulujeme! Splnili ste svoj týždenný cieľ."
+                : `Zostáva ${weeklyBlogGoal - blogReadCount} blogov do splnenia cieľa.`
+              }
+            </p>
+          ) : (
+            <p className="text-xs text-gray-500">
+              Nastavte si týždenný cieľ v sekcii "Moje ciele" na stránke profilu.
+            </p>
           )}
         </div>
       </CardContent>

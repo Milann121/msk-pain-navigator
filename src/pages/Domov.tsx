@@ -1,10 +1,9 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Navigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import { MoodCalendar } from '@/components/profile/MoodCalendar';
-import { GoalsContainer } from '@/components/profile/GoalsContainer';
 import { ProgressContainer } from '@/components/profile/ProgressContainer';
 import { FavoriteExercises } from '@/components/profile/FavoriteExercises';
 import { SavedBlogs } from '@/components/profile/SavedBlogs';
@@ -18,8 +17,6 @@ const Domov = () => {
     isCheckingProfile, 
     handleProfileCompleted 
   } = useProfileCompletion();
-  
-  const [weeklyBlogGoal, setWeeklyBlogGoal] = useState<number | null>(null);
 
   if (isLoading || isCheckingProfile) {
     return (
@@ -46,11 +43,8 @@ const Domov = () => {
           {/* Mood Calendar */}
           <MoodCalendar />
           
-          {/* Goals Container */}
-          <GoalsContainer onBlogGoalChange={setWeeklyBlogGoal} />
-          
           {/* Progress Container */}
-          <ProgressContainer weeklyBlogGoal={weeklyBlogGoal} />
+          <ProgressContainer />
           
           {/* Favorite Exercises */}
           <FavoriteExercises />
