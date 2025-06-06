@@ -22,7 +22,7 @@ export const MoodSelector = ({
         disabled={loading}
         className={`flex flex-col items-center p-3 h-auto ${selectedDateMood === 'happy' ? 'bg-green-100 border-green-500' : ''}`}
       >
-        <span className="text-2xl mb-1">😊</span>
+        <span className="text-3xl mb-1">😊</span>
         <span className="text-sm">Dobre</span>
       </Button>
       
@@ -32,7 +32,7 @@ export const MoodSelector = ({
         disabled={loading}
         className={`flex flex-col items-center p-3 h-auto ${selectedDateMood === 'neutral' ? 'bg-yellow-100 border-yellow-500' : ''}`}
       >
-        <span className="text-2xl mb-1">😐</span>
+        <span className="text-3xl mb-1">😐</span>
         <span className="text-sm">Neutrálne</span>
       </Button>
       
@@ -42,7 +42,7 @@ export const MoodSelector = ({
         disabled={loading}
         className={`flex flex-col items-center p-3 h-auto ${selectedDateMood === 'sad' ? 'bg-red-100 border-red-500' : ''}`}
       >
-        <span className="text-2xl mb-1">😔</span>
+        <span className="text-3xl mb-1">😔</span>
         <span className="text-sm">Zle</span>
       </Button>
     </div>
