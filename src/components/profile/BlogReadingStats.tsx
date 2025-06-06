@@ -74,7 +74,6 @@ export const BlogReadingStats = () => {
   }
 
   const progressPercentage = weeklyBlogGoal ? Math.min((blogReadCount / weeklyBlogGoal) * 100, 100) : 0;
-  const goalText = weeklyBlogGoal ? `${blogReadCount} / ${weeklyBlogGoal}` : `${blogReadCount} / -`;
 
   return (
     <Card>
@@ -86,20 +85,42 @@ export const BlogReadingStats = () => {
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
-          <div className="flex justify-between items-center">
-            <span className="text-sm text-gray-600">Týždenný pokrok</span>
-            <span className="text-sm font-medium">{goalText}</span>
-          </div>
-          <Progress value={progressPercentage} className="h-2" />
-          {weeklyBlogGoal ? (
-            <p className="text-xs text-gray-500">
-              {blogReadCount >= weeklyBlogGoal 
-                ? "Gratulujeme! Splnili ste svoj týždenný cieľ."
-                : `Zostáva ${weeklyBlogGoal - blogReadCount} blogov do splnenia cieľa.`
+          {/* Large number display */}
+          <div className="text-center">
+            <div className="text-4xl font-bold text-blue-600 mb-2">
+              {blogReadCount}
+              {weeklyBlogGoal && (
+                <span className="text-2xl text-gray-400 ml-1">/ {weeklyBlogGoal}</span>
+              )}
+            </div>
+            <p className="text-sm text-gray-600">
+              {weeklyBlogGoal 
+                ? "blogov prečítaných tento týždeň"
+                : "blogov prečítaných tento týždeň"
               }
             </p>
-          ) : (
-            <p className="text-xs text-gray-500">
+          </div>
+
+          {/* Progress bar */}
+          {weeklyBlogGoal && (
+            <>
+              <Progress value={progressPercentage} className="h-2" />
+              <div className="text-center">
+                {blogReadCount >= weeklyBlogGoal ? (
+                  <p className="text-sm text-green-600 font-medium">
+                    🎉 Gratulujeme! Splnili ste svoj týždenný cieľ.
+                  </p>
+                ) : (
+                  <p className="text-sm text-gray-500">
+                    Zostáva {weeklyBlogGoal - blogReadCount} blogov do splnenia cieľa.
+                  </p>
+                )}
+              </div>
+            </>
+          )}
+
+          {!weeklyBlogGoal && (
+            <p className="text-xs text-gray-500 text-center">
               Nastavte si týždenný cieľ v sekcii "Moje ciele" na stránke profilu.
             </p>
           )}
