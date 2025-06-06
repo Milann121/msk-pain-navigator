@@ -20,7 +20,7 @@ export const MoodCalendar = () => {
   // Format current day and date
   const currentDayAndDate = format(selectedDate, 'EEEE, d. MMMM yyyy', { locale: sk });
 
-  const handleMoodSelection = (mood: 'happy' | 'neutral' | 'sad') => {
+  const onMoodSelect = (mood: 'happy' | 'neutral' | 'sad') => {
     handleMoodSelection(mood, selectedDate);
   };
 
@@ -36,7 +36,7 @@ export const MoodCalendar = () => {
         <UserGreeting firstName={firstName} />
         <MoodSelector 
           selectedDateMood={selectedDateMood} 
-          onMoodSelection={handleMoodSelection}
+          onMoodSelection={onMoodSelect}
           loading={loading}
           currentDayAndDate={currentDayAndDate}
         />
