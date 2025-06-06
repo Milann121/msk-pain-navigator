@@ -21,32 +21,43 @@ export const MoodCalendar = () => {
   const currentDayAndDate = format(today, 'EEEE, dd.MM.yyyy', { locale: sk });
   
   return (
-    <Card className="mb-6">
-      <CardHeader>
-        <CardTitle>
-          <UserGreeting firstName={firstName} />
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <MoodSelector
-              selectedDateMood={selectedDateMood}
-              onMoodSelection={(mood) => handleMoodSelection(mood, date)}
-              loading={loading}
-              currentDayAndDate={currentDayAndDate}
-            />
-            
-            <MoneySavings />
-          </div>
+    <div className="mb-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* Left Container - Mood Calendar */}
+      <Card>
+        <CardHeader>
+          <CardTitle>
+            <UserGreeting firstName={firstName} />
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <h3 className="text-lg font-medium mb-4 mt-2">
+            {currentDayAndDate}
+          </h3>
+          
+          <MoodSelector
+            selectedDateMood={selectedDateMood}
+            onMoodSelection={(mood) => handleMoodSelection(mood, date)}
+            loading={loading}
+            currentDayAndDate={currentDayAndDate}
+          />
           
           <MoodCalendarView
             date={date}
             onDateSelect={(date) => date && setDate(date)}
             getMoodForDate={getMoodForDate}
           />
-        </div>
-      </CardContent>
-    </Card>
+        </CardContent>
+      </Card>
+      
+      {/* Right Container - Money Savings */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Finančné úspory</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <MoneySavings />
+        </CardContent>
+      </Card>
+    </div>
   );
 };

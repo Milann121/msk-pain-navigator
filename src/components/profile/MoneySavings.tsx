@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Euro } from 'lucide-react';
 
 export const MoneySavings = () => {
@@ -98,10 +97,10 @@ export const MoneySavings = () => {
 
   if (loading) {
     return (
-      <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
-        <div className="flex items-center gap-2 mb-2">
-          <Euro className="h-5 w-5 text-green-600" />
-          <h3 className="font-semibold text-green-800">Ušetrené peniaze</h3>
+      <div className="text-center">
+        <div className="flex items-center justify-center gap-2 mb-4">
+          <Euro className="h-6 w-6 text-green-600" />
+          <h3 className="text-xl font-semibold text-green-800">Ušetrené peniaze</h3>
         </div>
         <div className="text-green-600">Načítava sa...</div>
       </div>
@@ -109,15 +108,15 @@ export const MoneySavings = () => {
   }
 
   return (
-    <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
-      <div className="flex items-center gap-2 mb-2">
-        <Euro className="h-5 w-5 text-green-600" />
-        <h3 className="font-semibold text-green-800">Ušetrené peniaze</h3>
+    <div className="text-center">
+      <div className="flex items-center justify-center gap-2 mb-4">
+        <Euro className="h-6 w-6 text-green-600" />
+        <h3 className="text-xl font-semibold text-green-800">Ušetrené peniaze</h3>
       </div>
-      <div className="text-2xl font-bold text-green-700 mb-1">
+      <div className="text-4xl font-bold text-green-700 mb-4">
         {totalSavings}€
       </div>
-      <p className="text-xs text-green-600">
+      <p className="text-sm text-green-600">
         *vypočítané na základe priemerných cien na Slovensku
       </p>
     </div>

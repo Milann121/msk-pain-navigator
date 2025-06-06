@@ -12,45 +12,39 @@ interface MoodSelectorProps {
 export const MoodSelector = ({ 
   selectedDateMood, 
   onMoodSelection, 
-  loading, 
-  currentDayAndDate 
+  loading 
 }: MoodSelectorProps) => {
   return (
-    <div>
-      <h3 className="text-lg font-medium mb-4 mt-2">
-        {currentDayAndDate}
-      </h3>
-      <div className="flex justify-around items-center mb-6">
-        <Button 
-          variant="outline" 
-          onClick={() => onMoodSelection('happy')}
-          disabled={loading}
-          className={`flex flex-col items-center p-4 h-auto ${selectedDateMood === 'happy' ? 'bg-green-100 border-green-500' : ''}`}
-        >
-          <span className="text-4xl mb-2">😊</span>
-          <span>Dobre</span>
-        </Button>
-        
-        <Button 
-          variant="outline" 
-          onClick={() => onMoodSelection('neutral')}
-          disabled={loading}
-          className={`flex flex-col items-center p-4 h-auto ${selectedDateMood === 'neutral' ? 'bg-yellow-100 border-yellow-500' : ''}`}
-        >
-          <span className="text-4xl mb-2">😐</span>
-          <span>Neutrálne</span>
-        </Button>
-        
-        <Button 
-          variant="outline" 
-          onClick={() => onMoodSelection('sad')}
-          disabled={loading}
-          className={`flex flex-col items-center p-4 h-auto ${selectedDateMood === 'sad' ? 'bg-red-100 border-red-500' : ''}`}
-        >
-          <span className="text-4xl mb-2">😔</span>
-          <span>Zle</span>
-        </Button>
-      </div>
+    <div className="flex justify-around items-center mb-6">
+      <Button 
+        variant="outline" 
+        onClick={() => onMoodSelection('happy')}
+        disabled={loading}
+        className={`flex flex-col items-center p-4 h-auto ${selectedDateMood === 'happy' ? 'bg-green-100 border-green-500' : ''}`}
+      >
+        <span className="text-4xl mb-2">😊</span>
+        <span>Dobre</span>
+      </Button>
+      
+      <Button 
+        variant="outline" 
+        onClick={() => onMoodSelection('neutral')}
+        disabled={loading}
+        className={`flex flex-col items-center p-4 h-auto ${selectedDateMood === 'neutral' ? 'bg-yellow-100 border-yellow-500' : ''}`}
+      >
+        <span className="text-4xl mb-2">😐</span>
+        <span>Neutrálne</span>
+      </Button>
+      
+      <Button 
+        variant="outline" 
+        onClick={() => onMoodSelection('sad')}
+        disabled={loading}
+        className={`flex flex-col items-center p-4 h-auto ${selectedDateMood === 'sad' ? 'bg-red-100 border-red-500' : ''}`}
+      >
+        <span className="text-4xl mb-2">😔</span>
+        <span>Zle</span>
+      </Button>
     </div>
   );
 };
