@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Navigate } from 'react-router-dom';
 import Header from '@/components/Header';
@@ -9,6 +9,7 @@ import { FavoriteExercises } from '@/components/profile/FavoriteExercises';
 import { SavedBlogs } from '@/components/profile/SavedBlogs';
 import { ProfileFormPopup } from '@/components/profile/ProfileFormPopup';
 import { useProfileCompletion } from '@/hooks/useProfileCompletion';
+import { supabase } from '@/integrations/supabase/client';
 
 const Domov = () => {
   const { user, isLoading } = useAuth();
@@ -17,6 +18,39 @@ const Domov = () => {
     isCheckingProfile, 
     handleProfileCompleted 
   } = useProfileCompletion();
+
+  const [weeklyExerciseGoal, setWeeklyExerciseGoal] = useState<number | null>(null);
+  const [weeklyBlogGoal, setWeeklyBlogGoal] = useState<number | null>(null);
+
+  // Load goals from database
+  useEffect(() => {
+    const loadGoals = async () => {
+      if (!user) return;
+
+      try {
+        const { data, error } = await supabase
+          .from('user_goals')
+          .select('*')
+          .eq('user_id', user.id);
+
+        if (error) throw error;
+
+        if (data) {
+          data.forEach(goal => {
+            if (goal.goal_type === 'weekly_exercise') {
+              setWeeklyExerciseGoal(goal.goal_value);
+            } else if (goal.goal_type === 'weekly_blog') {
+              setWeeklyBlogGoal(goal.goal_value);
+            }
+          });
+        }
+      } catch (error) {
+        console.error('Error loading goals:', error);
+      }
+    };
+
+    loadGoals();
+  }, [user]);
 
   if (isLoading || isCheckingProfile) {
     return (
@@ -44,7 +78,10 @@ const Domov = () => {
           <MoodCalendar />
           
           {/* Progress Container */}
-          <ProgressContainer />
+          <ProgressContainer 
+            weeklyExerciseGoal={weeklyExerciseGoal} 
+            weeklyBlogGoal={weeklyBlogGoal}
+          />
           
           {/* Favorite Exercises */}
           <FavoriteExercises />

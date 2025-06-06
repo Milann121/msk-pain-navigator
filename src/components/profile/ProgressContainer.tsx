@@ -7,9 +7,10 @@ import { ExerciseStats } from './ExerciseStats';
 
 interface ProgressContainerProps {
   weeklyExerciseGoal?: number | null;
+  weeklyBlogGoal?: number | null;
 }
 
-export const ProgressContainer = ({ weeklyExerciseGoal }: ProgressContainerProps) => {
+export const ProgressContainer = ({ weeklyExerciseGoal, weeklyBlogGoal }: ProgressContainerProps) => {
   return (
     <Card className="mb-6">
       <CardHeader>
@@ -21,7 +22,7 @@ export const ProgressContainer = ({ weeklyExerciseGoal }: ProgressContainerProps
       <CardContent>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <ExerciseStats weeklyExerciseGoal={weeklyExerciseGoal} />
-          <BlogReadingStats />
+          <BlogReadingStats weeklyBlogGoal={weeklyBlogGoal} />
         </div>
       </CardContent>
     </Card>

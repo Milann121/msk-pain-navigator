@@ -6,7 +6,6 @@ import Header from '@/components/Header';
 import { ProfileInfo } from '@/components/profile/ProfileInfo';
 import { ProfileFormPopup } from '@/components/profile/ProfileFormPopup';
 import { GoalsContainer } from '@/components/profile/GoalsContainer';
-import { ProgressContainer } from '@/components/profile/ProgressContainer';
 import { useProfileCompletion } from '@/hooks/useProfileCompletion';
 
 const Profile = () => {
@@ -16,8 +15,6 @@ const Profile = () => {
     isCheckingProfile, 
     handleProfileCompleted 
   } = useProfileCompletion();
-
-  const [weeklyExerciseGoal, setWeeklyExerciseGoal] = useState<number | null>(null);
 
   if (isLoading || isCheckingProfile) {
     return (
@@ -46,10 +43,7 @@ const Profile = () => {
             <ProfileInfo />
             
             {/* Goals Container */}
-            <GoalsContainer onExerciseGoalChange={setWeeklyExerciseGoal} />
-
-            {/* Progress Container */}
-            <ProgressContainer weeklyExerciseGoal={weeklyExerciseGoal} />
+            <GoalsContainer />
           </div>
         </div>
       </div>
