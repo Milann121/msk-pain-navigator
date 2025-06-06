@@ -84,15 +84,39 @@ export const GoalsContainer = ({ onBlogGoalChange, onExerciseGoalChange }: Goals
     if (!user) return;
 
     try {
-      const { error } = await supabase
+      // First, check if a goal of this type already exists for the user
+      const { data: existingGoal, error: selectError } = await supabase
         .from('user_goals')
-        .upsert({
-          user_id: user.id,
-          goal_type: goalType,
-          goal_value: value
-        });
+        .select('id')
+        .eq('user_id', user.id)
+        .eq('goal_type', goalType)
+        .maybeSingle();
 
-      if (error) throw error;
+      if (selectError) throw selectError;
+
+      if (existingGoal) {
+        // Update existing goal
+        const { error: updateError } = await supabase
+          .from('user_goals')
+          .update({
+            goal_value: value,
+            updated_at: new Date().toISOString()
+          })
+          .eq('id', existingGoal.id);
+
+        if (updateError) throw updateError;
+      } else {
+        // Insert new goal
+        const { error: insertError } = await supabase
+          .from('user_goals')
+          .insert({
+            user_id: user.id,
+            goal_type: goalType,
+            goal_value: value
+          });
+
+        if (insertError) throw insertError;
+      }
     } catch (error) {
       console.error('Error saving goal:', error);
       throw error;
