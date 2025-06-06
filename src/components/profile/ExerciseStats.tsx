@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
@@ -8,9 +7,10 @@ import { supabase } from '@/integrations/supabase/client';
 
 interface ExerciseStatsProps {
   weeklyExerciseGoal?: number | null;
+  onGoalUpdate?: () => void;
 }
 
-export const ExerciseStats = ({ weeklyExerciseGoal }: ExerciseStatsProps) => {
+export const ExerciseStats = ({ weeklyExerciseGoal, onGoalUpdate }: ExerciseStatsProps) => {
   const { user } = useAuth();
   const [exerciseCount, setExerciseCount] = useState(0);
   const [loading, setLoading] = useState(true);

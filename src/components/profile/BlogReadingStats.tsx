@@ -6,10 +6,13 @@ import { BookOpen } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
 
-export const BlogReadingStats = () => {
+interface BlogReadingStatsProps {
+  weeklyBlogGoal?: number | null;
+}
+
+export const BlogReadingStats = ({ weeklyBlogGoal }: BlogReadingStatsProps) => {
   const { user } = useAuth();
-  const [blogReadCount, setBlogReadCount] = useState(0);
-  const [weeklyBlogGoal, setWeeklyBlogGoal] = useState<number | null>(null);
+  const [blogCount, setBlogCount] = useState(0);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -19,34 +22,24 @@ export const BlogReadingStats = () => {
       try {
         setLoading(true);
 
-        // Load weekly blog goal
-        const { data: goalData } = await supabase
-          .from('user_goals')
-          .select('goal_value')
-          .eq('user_id', user.id)
-          .eq('goal_type', 'weekly_blog')
-          .single();
-
-        if (goalData) {
-          setWeeklyBlogGoal(goalData.goal_value);
-        }
-
         // Calculate start of current week (Monday)
         const now = new Date();
         const currentDay = now.getDay();
-        const daysFromMonday = currentDay === 0 ? 6 : currentDay - 1; // Sunday is 0, adjust to make Monday the start
+        const daysFromMonday = currentDay === 0 ? 6 : currentDay - 1;
         const startOfWeek = new Date(now);
         startOfWeek.setDate(now.getDate() - daysFromMonday);
         startOfWeek.setHours(0, 0, 0, 0);
 
-        // Load blog reading activity for current week
-        const { data: readData } = await supabase
-          .from('blog_read_activity')
-          .select('id')
+        // Get read blogs for this week
+        const { data, error } = await supabase
+          .from('user_blog_reads')
+          .select('read_at')
           .eq('user_id', user.id)
           .gte('read_at', startOfWeek.toISOString());
 
-        setBlogReadCount(readData?.length || 0);
+        if (error) throw error;
+
+        setBlogCount(data?.length || 0);
       } catch (error) {
         console.error('Error loading blog stats:', error);
       } finally {
@@ -73,7 +66,7 @@ export const BlogReadingStats = () => {
     );
   }
 
-  const progressPercentage = weeklyBlogGoal ? Math.min((blogReadCount / weeklyBlogGoal) * 100, 100) : 0;
+  const progressPercentage = weeklyBlogGoal ? Math.min((blogCount / weeklyBlogGoal) * 100, 100) : 0;
 
   return (
     <Card>
@@ -88,7 +81,7 @@ export const BlogReadingStats = () => {
           {/* Large number display */}
           <div className="text-center">
             <div className="text-4xl font-bold text-blue-600 mb-2">
-              {blogReadCount}
+              {blogCount}
               {weeklyBlogGoal && (
                 <span className="text-2xl text-gray-400 ml-1">/ {weeklyBlogGoal}</span>
               )}
@@ -106,13 +99,13 @@ export const BlogReadingStats = () => {
             <>
               <Progress value={progressPercentage} className="h-2" />
               <div className="text-center">
-                {blogReadCount >= weeklyBlogGoal ? (
+                {blogCount >= weeklyBlogGoal ? (
                   <p className="text-sm text-green-600 font-medium">
                     🎉 Gratulujeme! Splnili ste svoj týždenný cieľ.
                   </p>
                 ) : (
                   <p className="text-sm text-gray-500">
-                    Zostáva {weeklyBlogGoal - blogReadCount} blogov do splnenia cieľa.
+                    Zostáva {weeklyBlogGoal - blogCount} blogov do splnenia cieľa.
                   </p>
                 )}
               </div>
