@@ -20,6 +20,7 @@ const ExercisePlan = () => {
   const { mechanism = 'nociceptive', differential = 'none', painArea = 'lower back', assessmentId, showGeneral = false } = location.state || {};
   const [userAssessments, setUserAssessments] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [effectiveAssessmentId, setEffectiveAssessmentId] = useState<string | undefined>(assessmentId);
   
   // Redirect to login if not authenticated
   if (!user) {
@@ -44,6 +45,11 @@ const ExercisePlan = () => {
         }
         
         setUserAssessments(data || []);
+        
+        // For general program, use the latest assessment ID for completion tracking
+        if (showGeneral && data && data.length > 0) {
+          setEffectiveAssessmentId(data[0].id);
+        }
       } catch (error) {
         console.error('Error fetching user assessments:', error);
       } finally {
@@ -52,7 +58,7 @@ const ExercisePlan = () => {
     };
     
     fetchUserAssessments();
-  }, [user]);
+  }, [user, showGeneral]);
 
   // Log state props on mount to help with debugging
   useEffect(() => {
@@ -120,7 +126,7 @@ const ExercisePlan = () => {
                 exercise={exercise}
                 index={index}
                 showGeneral={showGeneral}
-                assessmentId={assessmentId}
+                assessmentId={effectiveAssessmentId}
               />
             ))}
             

@@ -28,16 +28,6 @@ export const ExerciseVideoSection = ({
       {video.title && (
         <div className="flex items-center gap-2">
           <h3 className="text-xl font-bold text-gray-800">{video.title}</h3>
-          {!showGeneral && video.importance && (
-            <span className={`px-2 py-1 text-xs font-medium rounded ${
-              video.importance === 1 ? 'bg-red-100 text-red-800' :
-              video.importance === 2 ? 'bg-yellow-100 text-yellow-800' :
-              'bg-green-100 text-green-800'
-            }`}>
-              {video.importance === 1 ? 'Primárne' :
-               video.importance === 2 ? 'Sekundárne' : 'Terciárne'}
-            </span>
-          )}
         </div>
       )}
       
@@ -70,12 +60,14 @@ export const ExerciseVideoSection = ({
                   </span>
                 ))}
               </p>
-              {/* Completion button for all programs */}
-              <ExerciseCompletionCheckbox 
-                exerciseTitle={video.title || exerciseTitle}
-                assessmentId={showGeneral ? 'general' : (assessmentId || 'default')}
-                videoId={video.videoId}
-              />
+              {/* Completion button for all programs - use assessmentId directly */}
+              {assessmentId && (
+                <ExerciseCompletionCheckbox 
+                  exerciseTitle={video.title || exerciseTitle}
+                  assessmentId={assessmentId}
+                  videoId={video.videoId}
+                />
+              )}
             </div>
           )}
           
@@ -110,12 +102,14 @@ export const ExerciseVideoSection = ({
                 </span>
               ))}
             </p>
-            {/* Completion button for all programs on mobile */}
-            <ExerciseCompletionCheckbox 
-              exerciseTitle={video.title || exerciseTitle}
-              assessmentId={showGeneral ? 'general' : (assessmentId || 'default')}
-              videoId={video.videoId}
-            />
+            {/* Completion button for all programs on mobile - use assessmentId directly */}
+            {assessmentId && (
+              <ExerciseCompletionCheckbox 
+                exerciseTitle={video.title || exerciseTitle}
+                assessmentId={assessmentId}
+                videoId={video.videoId}
+              />
+            )}
           </div>
         )}
         
