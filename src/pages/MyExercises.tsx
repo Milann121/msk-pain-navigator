@@ -98,12 +98,16 @@ const MyExercises = () => {
             </CardFooter>
           </Card>
 
-          {selectedAssessment && (
-            <FollowUpDialog
-              assessment={selectedAssessment}
-              onClose={handleCloseFollowUp}
-            />
-          )}
+          <FollowUpDialog
+            isOpen={selectedAssessment !== null}
+            onOpenChange={(open) => {
+              if (!open) {
+                handleCloseFollowUp();
+              }
+            }}
+            selectedAssessment={selectedAssessment}
+            onComplete={handleCloseFollowUp}
+          />
         </div>
       </div>
     </div>
