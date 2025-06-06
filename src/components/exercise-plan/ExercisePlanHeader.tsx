@@ -69,10 +69,9 @@ export const ExercisePlanHeader = ({
       </CardTitle>
       <CardDescription>
         {showGeneral 
-          ? 'Personalizovaný program s najdôležitejšími cvičeniami z vašich programov.'
-          : `Cvičenia špecifické pre ${formatDifferential(differential)} v oblasti ${formatPainArea(painArea)}.`
+          ? 'Personalizovaný program s najdôležitejšími cvičeniami z vašich programov. Postupujte podľa inštrukcií a v prípade bolesti cvičenie prerušte.'
+          : `Cvičenia špecifické pre ${formatDifferential(differential)} v oblasti ${formatPainArea(painArea)}. Postupujte podľa inštrukcií a v prípade bolesti cvičenie prerušte.`
         }
-        Postupujte podľa inštrukcií a v prípade bolesti cvičenie prerušte.
       </CardDescription>
       {!showGeneral && (
         <div className="mt-2 flex flex-wrap gap-2">
