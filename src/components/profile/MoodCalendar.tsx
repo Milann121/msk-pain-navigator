@@ -7,6 +7,7 @@ import { UserGreeting } from './mood/UserGreeting';
 import { MoodSelector } from './mood/MoodSelector';
 import { MoodCalendarView } from './mood/MoodCalendarView';
 import { MoneySavings } from './MoneySavings';
+import { GeneralProgram } from './GeneralProgram';
 import { useMoodData } from './mood/useMoodData';
 
 export const MoodCalendar = () => {
@@ -52,10 +53,10 @@ export const MoodCalendar = () => {
         
         {/* Right Column - Two stacked containers */}
         <div className="flex flex-col gap-6 h-full">
-          {/* Top Container - Empty (1/3 height) */}
+          {/* Top Container - General Program (1/3 height) */}
           <Card className="flex-[1]">
             <CardContent className="pt-6 h-full">
-              {/* Empty container */}
+              <GeneralProgram />
             </CardContent>
           </Card>
           
