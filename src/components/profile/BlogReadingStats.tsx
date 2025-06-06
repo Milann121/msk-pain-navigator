@@ -30,9 +30,9 @@ export const BlogReadingStats = ({ weeklyBlogGoal }: BlogReadingStatsProps) => {
         startOfWeek.setDate(now.getDate() - daysFromMonday);
         startOfWeek.setHours(0, 0, 0, 0);
 
-        // Get read blogs for this week
+        // Get read blogs for this week from blog_read_activity table
         const { data, error } = await supabase
-          .from('user_blog_reads')
+          .from('blog_read_activity')
           .select('read_at')
           .eq('user_id', user.id)
           .gte('read_at', startOfWeek.toISOString());
