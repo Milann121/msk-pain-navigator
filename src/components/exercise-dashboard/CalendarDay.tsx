@@ -62,11 +62,6 @@ export const CalendarDay: React.FC<CalendarDayProps> = ({
       >
         {isCompleted && <CheckIcon className="h-4 w-4 text-white" />}
       </div>
-      {completionCount > 0 && (
-        <div className={`text-xs font-medium mt-1 ${specialHighlight ? 'text-green-600' : 'text-gray-600'}`}>
-          {completionCount}x
-        </div>
-      )}
     </div>
   );
 };
