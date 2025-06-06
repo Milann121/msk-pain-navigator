@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { UserGreeting } from './mood/UserGreeting';
 import { MoodSelector } from './mood/MoodSelector';
 import { MoodCalendarView } from './mood/MoodCalendarView';
+import { MoneySavings } from './MoneySavings';
 import { useMoodData } from './mood/useMoodData';
 
 export const MoodCalendar = () => {
@@ -28,12 +29,16 @@ export const MoodCalendar = () => {
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <MoodSelector
-            selectedDateMood={selectedDateMood}
-            onMoodSelection={(mood) => handleMoodSelection(mood, date)}
-            loading={loading}
-            currentDayAndDate={currentDayAndDate}
-          />
+          <div>
+            <MoodSelector
+              selectedDateMood={selectedDateMood}
+              onMoodSelection={(mood) => handleMoodSelection(mood, date)}
+              loading={loading}
+              currentDayAndDate={currentDayAndDate}
+            />
+            
+            <MoneySavings />
+          </div>
           
           <MoodCalendarView
             date={date}
