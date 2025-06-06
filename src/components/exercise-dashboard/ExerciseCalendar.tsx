@@ -35,6 +35,7 @@ interface ExerciseCalendarProps {
 export const ExerciseCalendar = ({ assessmentId }: ExerciseCalendarProps) => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [weeklyGoal, setWeeklyGoal] = useState<number>(0);
+  const [goalCreatedAt, setGoalCreatedAt] = useState<string | undefined>(undefined);
   const { user } = useAuth();
   const { completionDays, loading } = useCompletionData(assessmentId);
   
@@ -55,7 +56,7 @@ export const ExerciseCalendar = ({ assessmentId }: ExerciseCalendarProps) => {
       try {
         const { data, error } = await supabase
           .from('user_goals')
-          .select('goal_value')
+          .select('goal_value, created_at')
           .eq('user_id', user.id)
           .eq('goal_type', 'weekly_exercise')
           .single();
@@ -63,12 +64,15 @@ export const ExerciseCalendar = ({ assessmentId }: ExerciseCalendarProps) => {
         if (error) {
           console.log('No weekly goal set:', error);
           setWeeklyGoal(0);
+          setGoalCreatedAt(undefined);
         } else {
           setWeeklyGoal(data?.goal_value || 0);
+          setGoalCreatedAt(data?.created_at || undefined);
         }
       } catch (error) {
         console.error('Error fetching weekly goal:', error);
         setWeeklyGoal(0);
+        setGoalCreatedAt(undefined);
       }
     };
 
@@ -133,6 +137,7 @@ export const ExerciseCalendar = ({ assessmentId }: ExerciseCalendarProps) => {
                       assessmentId={assessmentId}
                       locale={sk}
                       weeklyGoal={weeklyGoal}
+                      goalCreatedAt={goalCreatedAt}
                     />
                   </CarouselItem>
                 </CarouselContent>

@@ -12,6 +12,7 @@ interface CalendarWeekProps {
   assessmentId?: string;
   locale?: Locale;
   weeklyGoal?: number;
+  goalCreatedAt?: string;
 }
 
 export const CalendarWeek: React.FC<CalendarWeekProps> = ({
@@ -19,7 +20,8 @@ export const CalendarWeek: React.FC<CalendarWeekProps> = ({
   completionDays,
   assessmentId,
   locale,
-  weeklyGoal = 0
+  weeklyGoal = 0,
+  goalCreatedAt
 }) => {
   // Get completion status for a specific date
   const getCompletionForDate = (date: Date): CompletionDay | undefined => {
@@ -41,6 +43,17 @@ export const CalendarWeek: React.FC<CalendarWeekProps> = ({
   const currentTime = new Date();
   const weekHasEnded = isAfter(currentTime, endOfDay(weekEnd));
   
+  // Check if this week should show the goal line (goal was set before or during this week)
+  const shouldShowGoalLine = () => {
+    if (!goalCreatedAt || weeklyGoal === 0) return false;
+    
+    const goalCreatedDate = new Date(goalCreatedAt);
+    const goalCreatedWeekStart = startOfWeek(goalCreatedDate, { weekStartsOn: 1 });
+    
+    // Show line if current week starts from the week when goal was created or later
+    return weekStart >= goalCreatedWeekStart;
+  };
+  
   // Determine line color: grey by default, green if goal met, red only if week ended and goal missed
   const getLineColor = () => {
     if (goalMet) return 'bg-green-500';
@@ -52,7 +65,7 @@ export const CalendarWeek: React.FC<CalendarWeekProps> = ({
     <ScrollArea className="w-full overflow-auto">
       <div className="relative">
         {/* Connection lines between days - positioned at circle level */}
-        {weeklyGoal > 0 && (
+        {shouldShowGoalLine() && (
           <div className="absolute top-[5.95rem] left-0 right-0 flex justify-between items-center px-7 pointer-events-none">
             {daysToDisplay.slice(0, -1).map((day, index) => (
               <div
@@ -80,7 +93,7 @@ export const CalendarWeek: React.FC<CalendarWeekProps> = ({
         </div>
         
         {/* Goal status indicator */}
-        {weeklyGoal > 0 && (
+        {weeklyGoal > 0 && shouldShowGoalLine() && (
           <div className="mt-4 text-center">
             <div className={`text-sm font-medium ${goalMet ? 'text-green-600' : weekHasEnded ? 'text-red-500' : 'text-gray-600'}`}>
               {totalWeeklyCompletions} / {weeklyGoal} cvičení tento týždeň
