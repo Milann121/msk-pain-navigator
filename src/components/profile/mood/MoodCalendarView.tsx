@@ -16,8 +16,7 @@ interface MoodCalendarViewProps {
 
 export const MoodCalendarView = ({ date, onDateSelect, getMoodForDate }: MoodCalendarViewProps) => {
   return (
-    <div>
-      <h3 className="text-lg font-medium mb-4">Kalendár nálad</h3>
+    <div className="w-full">
       <Calendar
         mode="single"
         selected={date}
