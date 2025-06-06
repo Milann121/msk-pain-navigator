@@ -39,12 +39,12 @@ export const MoneySavings = () => {
 
       // Set up real-time subscription for assessment completions
       const assessmentChannel = supabase
-        .channel('assessments')
+        .channel('user_assessments')
         .on('postgres_changes', 
           { 
             event: '*', 
             schema: 'public', 
-            table: 'assessments',
+            table: 'user_assessments',
             filter: `user_id=eq.${user.id}`
           }, 
           () => {
@@ -78,10 +78,9 @@ export const MoneySavings = () => {
 
       // Count completed assessments (50€ each)
       const { data: assessments, error: assessmentError } = await supabase
-        .from('assessments')
+        .from('user_assessments')
         .select('id')
-        .eq('user_id', user.id)
-        .eq('status', 'completed');
+        .eq('user_id', user.id);
 
       if (assessmentError) throw assessmentError;
 
