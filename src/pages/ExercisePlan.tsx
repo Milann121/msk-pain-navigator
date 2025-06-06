@@ -159,7 +159,7 @@ const ExercisePlan = () => {
             </CardTitle>
             <CardDescription>
               {showGeneral 
-                ? 'Personalizovaný program vytvorený na základe vašich hodnotení s najdôležitejšími cvičeniami.'
+                ? 'Personalizovaný program s najdôležitejšími cvičeniami z vašich programov.'
                 : `Cvičenia špecifické pre ${formatDifferential(differential)} v oblasti ${formatPainArea(painArea)}.`
               }
               Postupujte podľa inštrukcií a v prípade bolesti cvičenie prerušte.
@@ -191,7 +191,7 @@ const ExercisePlan = () => {
                       {video.title && (
                         <div className="flex items-center gap-2">
                           <h3 className="text-xl font-bold text-gray-800">{video.title}</h3>
-                          {video.importance && (
+                          {!showGeneral && video.importance && (
                             <span className={`px-2 py-1 text-xs font-medium rounded ${
                               video.importance === 1 ? 'bg-red-100 text-red-800' :
                               video.importance === 2 ? 'bg-yellow-100 text-yellow-800' :
@@ -233,14 +233,12 @@ const ExercisePlan = () => {
                                   </span>
                                 ))}
                               </p>
-                              {/* Completion button next to description */}
-                              {assessmentId && (
-                                <ExerciseCompletionCheckbox 
-                                  exerciseTitle={video.title || exercise.title}
-                                  assessmentId={assessmentId}
-                                  videoId={video.videoId}
-                                />
-                              )}
+                              {/* Completion button for all programs */}
+                              <ExerciseCompletionCheckbox 
+                                exerciseTitle={video.title || exercise.title}
+                                assessmentId={showGeneral ? 'general' : (assessmentId || 'default')}
+                                videoId={video.videoId}
+                              />
                             </div>
                           )}
                           
@@ -275,14 +273,12 @@ const ExercisePlan = () => {
                                 </span>
                               ))}
                             </p>
-                            {/* Completion button next to description on mobile */}
-                            {assessmentId && (
-                              <ExerciseCompletionCheckbox 
-                                exerciseTitle={video.title || exercise.title}
-                                assessmentId={assessmentId}
-                                videoId={video.videoId}
-                              />
-                            )}
+                            {/* Completion button for all programs on mobile */}
+                            <ExerciseCompletionCheckbox 
+                              exerciseTitle={video.title || exercise.title}
+                              assessmentId={showGeneral ? 'general' : (assessmentId || 'default')}
+                              videoId={video.videoId}
+                            />
                           </div>
                         )}
                         

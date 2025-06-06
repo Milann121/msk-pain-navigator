@@ -83,14 +83,11 @@ export const generateGeneralProgram = (
   // Create the general program exercise
   const generalProgram: Exercise = {
     title: 'Všeobecný program',
-    description: 'Personalizovaný program vytvorený na základe vašich hodnotení, obsahujúci najdôležitejšie cvičenia z rôznych programov. Cvičenia sú vybrané v pomere 3:2:1 (primárne:sekundárne:terciárne) pre optimálny terapeutický efekt.',
+    description: 'Personalizovaný program s najdôležitejšími cvičeniami z vašich programov.',
     videos: shuffledVideos.map(video => ({
       videoId: video.videoId,
       title: video.title,
-      description: video.description ? 
-        `${video.description}\n\n➜ ZDROJ: ${video.sourceProgram}` : 
-        `➜ ZDROJ: ${video.sourceProgram}`,
-      importance: video.importance
+      description: video.description
     }))
   };
 
