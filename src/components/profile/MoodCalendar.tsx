@@ -132,9 +132,6 @@ export const MoodCalendar = () => {
   // Get mood for the selected date (not just today)
   const selectedDateMood = getMoodForDate(date);
   
-  // Generate dynamic header based on first name
-  const headerTitle = firstName ? `${firstName}, ako sa dnes cítiš?` : 'Ako sa dnes cítiš?';
-  
   // Get current day and date
   const today = new Date();
   const currentDayAndDate = format(today, 'EEEE, dd.MM.yyyy', { locale: sk });
@@ -142,7 +139,16 @@ export const MoodCalendar = () => {
   return (
     <Card className="mb-6">
       <CardHeader>
-        <CardTitle>{headerTitle}</CardTitle>
+        <CardTitle>
+          <div className="space-y-1">
+            <div className="text-3xl font-bold">
+              Ahoj {firstName ? `${firstName},` : ''}
+            </div>
+            <div className="text-xl font-medium">
+              ako sa dnes cítiš?
+            </div>
+          </div>
+        </CardTitle>
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
