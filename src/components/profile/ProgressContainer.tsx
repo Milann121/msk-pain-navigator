@@ -1,9 +1,11 @@
 
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { TrendingUp } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { TrendingUp, Settings } from 'lucide-react';
 import { BlogReadingStats } from './BlogReadingStats';
 import { ExerciseStats } from './ExerciseStats';
+import { useNavigate } from 'react-router-dom';
 
 interface ProgressContainerProps {
   weeklyExerciseGoal?: number | null;
@@ -12,6 +14,12 @@ interface ProgressContainerProps {
 }
 
 export const ProgressContainer = ({ weeklyExerciseGoal, weeklyBlogGoal, onGoalUpdate }: ProgressContainerProps) => {
+  const navigate = useNavigate();
+
+  const handleNavigateToGoals = () => {
+    navigate('/profile');
+  };
+
   return (
     <Card className="mb-6">
       <CardHeader>
@@ -24,6 +32,17 @@ export const ProgressContainer = ({ weeklyExerciseGoal, weeklyBlogGoal, onGoalUp
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <ExerciseStats weeklyExerciseGoal={weeklyExerciseGoal} onGoalUpdate={onGoalUpdate} />
           <BlogReadingStats weeklyBlogGoal={weeklyBlogGoal} />
+        </div>
+        
+        <div className="mt-6 flex justify-center">
+          <Button 
+            variant="outline" 
+            onClick={handleNavigateToGoals}
+            className="flex items-center gap-2"
+          >
+            <Settings className="h-4 w-4" />
+            Nastaviť osobné ciele
+          </Button>
         </div>
       </CardContent>
     </Card>
