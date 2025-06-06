@@ -1,18 +1,18 @@
+
 import React, { useEffect, useState } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { useLocation } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Differential, PainMechanism } from '@/utils/types';
 import exercisesByDifferential from '@/data/exercises';
 import { useAuth } from '@/contexts/AuthContext';
-import { ExerciseCompletionCheckbox } from '@/components/ExerciseCompletionCheckbox';
 import { Navigate } from 'react-router-dom';
 import Header from '@/components/Header';
-import { FavoriteExerciseButton } from '@/components/FavoriteExerciseButton';
 import { generateGeneralProgram } from '@/utils/generalProgramGenerator';
 import { supabase } from '@/integrations/supabase/client';
+import { ExercisePlanHeader } from '@/components/exercise-plan/ExercisePlanHeader';
+import { ExercisePeriodSection } from '@/components/exercise-plan/ExercisePeriodSection';
+import { ImportantNotice } from '@/components/exercise-plan/ImportantNotice';
 
 const ExercisePlan = () => {
   const { user } = useAuth();
@@ -86,52 +86,6 @@ const ExercisePlan = () => {
                 }];
   }
 
-  // Helper function to format mechanism for display
-  const getMechanismLabel = (mechanism: PainMechanism): string => {
-    const labels: Record<PainMechanism, string> = {
-      'nociceptive': 'Nociceptívna bolesť',
-      'neuropathic': 'Neuropatická bolesť',
-      'central': 'Centrálna senzitizácia',
-      'none': 'Nedefinovaný mechanizmus bolesti'
-    };
-    return labels[mechanism as PainMechanism] || 'Neznámy';
-  };
-  
-  // Helper function to format differential for display
-  const formatDifferential = (differential: string): string => {
-    if (differential === 'none') return 'Nebola identifikovaná žiadna špecifická diagnóza';
-    
-    const translations: Record<string, string> = {
-      'disc herniation': 'Hernia medzistavcovej platničky',
-      'facet joint syndrome': 'Syndróm facetových kĺbov',
-      'SIJ syndrome': 'Syndróm SI kĺbu',
-      'muscle pain': 'Svalová bolesť',
-      'red flag': 'Vyžaduje kontrolu u lekára/fyzioterapeuta.',
-      'ventral spondylolisthesis': 'Ventrálna spondylolistéza',
-      'dorsal spondylolisthesis': 'Dorzálna spondylolistéza',
-      'costovertebral joint syndrome': 'Syndróm kostovertebrálneho kĺbu',
-      'Radicular Pain': 'Radikulárna bolesť',
-      'Radiculopathy': 'Radikulopatia',
-      'Central Sensitisation': 'Centrálna senzitizácia',
-      'Central Sensitisation - Allodynia': 'Centrálna senzitizácia - Alodýnia',
-      'Central Sensitisation - Sensory Hypersensitivity': 'Centrálna senzitizácia - Zmyslová precitlivenosť',
-      'Central Sensitisation - Cognitive Symptoms': 'Centrálna senzitizácia - Kognitívne symptómy'
-    };
-    
-    return translations[differential] || differential;
-  };
-
-  // Format pain area for display
-  const formatPainArea = (area: string): string => {
-    const translations: Record<string, string> = {
-      'neck': 'Krčná chrbtica',
-      'middle back': 'Hrudná chrbtica',
-      'lower back': 'Driekova chrbtica'
-    };
-    
-    return translations[area] || area;
-  };
-
   if (loading) {
     return (
       <>
@@ -153,155 +107,24 @@ const ExercisePlan = () => {
         </Link>
         
         <Card>
-          <CardHeader>
-            <CardTitle>
-              {showGeneral ? 'Všeobecný cvičebný plán' : 'Váš cvičebný plán'}
-            </CardTitle>
-            <CardDescription>
-              {showGeneral 
-                ? 'Personalizovaný program s najdôležitejšími cvičeniami z vašich programov.'
-                : `Cvičenia špecifické pre ${formatDifferential(differential)} v oblasti ${formatPainArea(painArea)}.`
-              }
-              Postupujte podľa inštrukcií a v prípade bolesti cvičenie prerušte.
-            </CardDescription>
-            {!showGeneral && (
-              <div className="mt-2 flex flex-wrap gap-2">
-                <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">
-                  {getMechanismLabel(mechanism as PainMechanism)}
-                </span>
-                <span className="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">
-                  {formatDifferential(differential)}
-                </span>
-                <span className="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">
-                  {formatPainArea(painArea)}
-                </span>
-              </div>
-            )}
-          </CardHeader>
+          <ExercisePlanHeader
+            showGeneral={showGeneral}
+            differential={differential}
+            painArea={painArea}
+            mechanism={mechanism}
+          />
           <CardContent className="space-y-8">
             {exercises.map((exercise, index) => (
-              <div key={index} className="space-y-4">
-                {/* Period title with larger size */}
-                <h2 className="text-3xl font-bold text-gray-900">{exercise.title}</h2>
-                <p className="text-gray-600">{exercise.description}</p>
-                
-                <div className="space-y-6">
-                  {exercise.videos.map((video, videoIndex) => (
-                    <div key={videoIndex} className="space-y-4">
-                      {video.title && (
-                        <div className="flex items-center gap-2">
-                          <h3 className="text-xl font-bold text-gray-800">{video.title}</h3>
-                          {!showGeneral && video.importance && (
-                            <span className={`px-2 py-1 text-xs font-medium rounded ${
-                              video.importance === 1 ? 'bg-red-100 text-red-800' :
-                              video.importance === 2 ? 'bg-yellow-100 text-yellow-800' :
-                              'bg-green-100 text-green-800'
-                            }`}>
-                              {video.importance === 1 ? 'Primárne' :
-                               video.importance === 2 ? 'Sekundárne' : 'Terciárne'}
-                            </span>
-                          )}
-                        </div>
-                      )}
-                      
-                      {/* Desktop layout: video on left, description and favorite on right */}
-                      <div className="hidden md:flex gap-6">
-                        {/* Video - half size, aligned left */}
-                        <div className="w-1/2">
-                          <div className="aspect-video w-full">
-                            <iframe
-                              width="100%"
-                              height="100%"
-                              src={`https://www.youtube.com/embed/${video.videoId}`}
-                              title={video.title || exercise.title}
-                              frameBorder="0"
-                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                              allowFullScreen
-                            />
-                          </div>
-                        </div>
-                        
-                        {/* Description, favorite button and completion button on right */}
-                        <div className="w-1/2 space-y-4">
-                          {video.description && (
-                            <div className="space-y-2">
-                              <p className="text-gray-600">
-                                {video.description.split('\n').map((line, index) => (
-                                  <span key={index}>
-                                    {line}
-                                    <br />
-                                  </span>
-                                ))}
-                              </p>
-                              {/* Completion button for all programs */}
-                              <ExerciseCompletionCheckbox 
-                                exerciseTitle={video.title || exercise.title}
-                                assessmentId={showGeneral ? 'general' : (assessmentId || 'default')}
-                                videoId={video.videoId}
-                              />
-                            </div>
-                          )}
-                          
-                          <FavoriteExerciseButton
-                            exerciseTitle={video.title || exercise.title}
-                            videoId={video.videoId}
-                            description={video.description}
-                          />
-                        </div>
-                      </div>
-                      
-                      {/* Mobile layout: original stacked layout */}
-                      <div className="md:hidden space-y-4">
-                        <div className="aspect-video w-full">
-                          <iframe
-                            width="100%"
-                            height="100%"
-                            src={`https://www.youtube.com/embed/${video.videoId}`}
-                            title={video.title || exercise.title}
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                          />
-                        </div>
-                        {video.description && (
-                          <div className="ml-4 border-l-2 border-gray-200 pl-4 space-y-2">
-                            <p className="text-gray-600">
-                              {video.description.split('\n').map((line, index) => (
-                                <span key={index}>
-                                  {line}
-                                  <br />
-                                </span>
-                              ))}
-                            </p>
-                            {/* Completion button for all programs on mobile */}
-                            <ExerciseCompletionCheckbox 
-                              exerciseTitle={video.title || exercise.title}
-                              assessmentId={showGeneral ? 'general' : (assessmentId || 'default')}
-                              videoId={video.videoId}
-                            />
-                          </div>
-                        )}
-                        
-                        <FavoriteExerciseButton
-                          exerciseTitle={video.title || exercise.title}
-                          videoId={video.videoId}
-                          description={video.description}
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <ExercisePeriodSection
+                key={index}
+                exercise={exercise}
+                index={index}
+                showGeneral={showGeneral}
+                assessmentId={assessmentId}
+              />
             ))}
             
-            <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-lg">
-              <h3 className="font-semibold text-amber-800 mb-2">Dôležité upozornenie</h3>
-              <p className="text-amber-700">
-                Tieto cvičenia slúžia len ako všeobecné odporúčania a nenahrádzajú návštevu fyzioterapeuta 
-                alebo lekára. Ak počas cvičenia pocítite zvýšenú bolesť, závraty alebo akýkoľvek diskomfort, 
-                okamžite cvičenie prerušte a vyhľadajte odbornú pomoc.
-              </p>
-            </div>
+            <ImportantNotice />
           </CardContent>
         </Card>
       </div>
