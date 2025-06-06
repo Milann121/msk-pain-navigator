@@ -2,14 +2,14 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
-import { getTodayStart } from '@/components/exercise-completion/dateUtils';
 
 interface AssessmentExerciseStatsProps {
   assessmentId: string;
 }
 
 export const AssessmentExerciseStats = ({ assessmentId }: AssessmentExerciseStatsProps) => {
-  const [exerciseStats, setExerciseStats] = useState<Record<string, number>>({});
+  const [totalCompletions, setTotalCompletions] = useState(0);
+  const [lastCompletionDate, setLastCompletionDate] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const { user } = useAuth();
 
@@ -18,28 +18,21 @@ export const AssessmentExerciseStats = ({ assessmentId }: AssessmentExerciseStat
       if (!user) return;
       
       try {
-        const todayStart = getTodayStart();
-        
         const { data, error } = await supabase
           .from('exercise_completion_clicks')
-          .select('exercise_title')
+          .select('clicked_at')
           .eq('user_id', user.id)
           .eq('assessment_id', assessmentId)
           .eq('is_active', true)
-          .gte('clicked_at', todayStart.toISOString());
+          .order('clicked_at', { ascending: false });
           
         if (error) {
           console.error('Error fetching exercise stats:', error);
           return;
         }
         
-        // Count clicks per exercise
-        const stats: Record<string, number> = {};
-        (data || []).forEach(item => {
-          stats[item.exercise_title] = (stats[item.exercise_title] || 0) + 1;
-        });
-        
-        setExerciseStats(stats);
+        setTotalCompletions(data?.length || 0);
+        setLastCompletionDate(data && data.length > 0 ? data[0].clicked_at : null);
       } catch (error) {
         console.error('Error fetching exercise stats:', error);
       } finally {
@@ -67,22 +60,20 @@ export const AssessmentExerciseStats = ({ assessmentId }: AssessmentExerciseStat
     return <div className="text-sm text-gray-500">Načítava sa...</div>;
   }
 
-  const totalExercises = Object.values(exerciseStats).reduce((sum, count) => sum + count, 0);
-  
-  if (totalExercises === 0) {
+  if (totalCompletions === 0) {
     return <div className="text-sm text-gray-500">Žiadne cvičenia dnes</div>;
   }
 
   return (
     <div className="space-y-1">
       <div className="text-sm font-medium text-gray-700">
-        Odcvičené: {totalExercises}x dnes
+        Odcvičené: {totalCompletions}x
       </div>
-      {Object.entries(exerciseStats).map(([exerciseTitle, count]) => (
-        <div key={exerciseTitle} className="text-xs text-gray-600 ml-2">
-          • {exerciseTitle}: {count}x
+      {lastCompletionDate && (
+        <div className="text-sm text-gray-600">
+          Posledné cvičenie: {new Date(lastCompletionDate).toLocaleDateString('sk-SK')}
         </div>
-      ))}
+      )}
     </div>
   );
 };

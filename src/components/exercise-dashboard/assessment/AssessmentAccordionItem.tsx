@@ -12,6 +12,7 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { UserAssessment } from '@/components/follow-up/types';
 import { BadgeStyles } from './BadgeStyles';
+import { AssessmentExerciseStats } from '../AssessmentExerciseStats';
 
 interface AssessmentAccordionItemProps {
   assessment: UserAssessment;
@@ -58,7 +59,7 @@ export const AssessmentAccordionItem = ({
       <AccordionContent className="px-4 pb-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
           <AssessmentDetails assessment={assessment} />
-          <ExerciseCompletionInfo assessment={assessment} />
+          <ExerciseCompletionInfo assessmentId={assessment.id} />
         </div>
         
         <div className="flex flex-wrap justify-end gap-2 mt-4">
@@ -138,23 +139,14 @@ const AssessmentDetails = ({ assessment }: DetailsSectionProps) => {
   );
 };
 
-const ExerciseCompletionInfo = ({ assessment }: DetailsSectionProps) => {
+interface ExerciseCompletionInfoProps {
+  assessmentId: string;
+}
+
+const ExerciseCompletionInfo = ({ assessmentId }: ExerciseCompletionInfoProps) => {
   return (
     <div className="space-y-2">
-      <div>
-        <span className="font-medium text-gray-500">Odcvičené:</span>
-        <div className="mt-1 font-medium">
-          {assessment.completed_exercises_count > 0 ? `${assessment.completed_exercises_count}x` : '0x'}
-        </div>
-      </div>
-      <div>
-        <span className="font-medium text-gray-500">Posledné cvičenie:</span>
-        <div className="mt-1">
-          {assessment.last_completed_at ? 
-            format(new Date(assessment.last_completed_at), 'dd.MM.yyyy') : 
-            '—'}
-        </div>
-      </div>
+      <AssessmentExerciseStats assessmentId={assessmentId} />
     </div>
   );
 };
