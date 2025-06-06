@@ -147,7 +147,7 @@ const QuestionRenderer = ({ question, onAnswer }: QuestionRendererProps) => {
           <div className="flex justify-between text-sm text-gray-500">
             <span>{question.scale.minLabel} ({question.scale.min})</span>
             <span>
-              Selected: <span className="font-medium text-blue-600">{sliderValue[0]}</span>
+              Vybrané: <span className="font-medium text-blue-600">{sliderValue[0]}</span>
             </span>
             <span>{question.scale.maxLabel} ({question.scale.max})</span>
           </div>

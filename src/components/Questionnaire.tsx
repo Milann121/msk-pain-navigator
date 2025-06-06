@@ -63,7 +63,7 @@ const Questionnaire = ({ questionnaire, onComplete, onBack }: QuestionnaireProps
         <div className="mt-4">
           <Progress value={progress} className="h-2" />
           <p className="text-sm text-gray-500 mt-1">
-            Question {currentQuestionIndex + 1} of {questions.length}
+            Otázka {currentQuestionIndex + 1} z {questions.length}
           </p>
         </div>
       </CardHeader>
