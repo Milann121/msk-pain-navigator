@@ -1,18 +1,53 @@
+
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
 import { Target, Edit } from 'lucide-react';
+import { useAuth } from '@/contexts/AuthContext';
+import { supabase } from '@/integrations/supabase/client';
 
 interface GoalsContainerProps {
   onBlogGoalChange?: (goal: number | null) => void;
 }
 
 export const GoalsContainer = ({ onBlogGoalChange }: GoalsContainerProps) => {
+  const { user } = useAuth();
   const [weeklyExerciseGoal, setWeeklyExerciseGoal] = useState<number | null>(null);
   const [weeklyBlogGoal, setWeeklyBlogGoal] = useState<number | null>(null);
   const [editingField, setEditingField] = useState<string | null>(null);
   const [tempValue, setTempValue] = useState<number | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  // Load goals from database
+  useEffect(() => {
+    const loadGoals = async () => {
+      if (!user) return;
+
+      try {
+        const { data, error } = await supabase
+          .from('user_goals')
+          .select('*')
+          .eq('user_id', user.id);
+
+        if (error) throw error;
+
+        if (data) {
+          data.forEach(goal => {
+            if (goal.goal_type === 'weekly_exercise') {
+              setWeeklyExerciseGoal(goal.goal_value);
+            } else if (goal.goal_type === 'weekly_blog') {
+              setWeeklyBlogGoal(goal.goal_value);
+            }
+          });
+        }
+      } catch (error) {
+        console.error('Error loading goals:', error);
+      }
+    };
+
+    loadGoals();
+  }, [user]);
 
   // Notify parent component when blog goal changes
   useEffect(() => {
@@ -37,14 +72,44 @@ export const GoalsContainer = ({ onBlogGoalChange }: GoalsContainerProps) => {
     setTempValue(currentValue);
   };
 
-  const handleSave = (field: string) => {
-    if (field === 'weeklyExerciseGoal') {
-      setWeeklyExerciseGoal(tempValue);
-    } else if (field === 'weeklyBlogGoal') {
-      setWeeklyBlogGoal(tempValue);
+  const saveGoalToDatabase = async (goalType: 'weekly_exercise' | 'weekly_blog', value: number) => {
+    if (!user) return;
+
+    try {
+      const { error } = await supabase
+        .from('user_goals')
+        .upsert({
+          user_id: user.id,
+          goal_type: goalType,
+          goal_value: value
+        });
+
+      if (error) throw error;
+    } catch (error) {
+      console.error('Error saving goal:', error);
+      throw error;
     }
-    setEditingField(null);
-    setTempValue(null);
+  };
+
+  const handleSave = async (field: string) => {
+    if (!user || loading || tempValue === null) return;
+
+    setLoading(true);
+    try {
+      if (field === 'weeklyExerciseGoal') {
+        await saveGoalToDatabase('weekly_exercise', tempValue);
+        setWeeklyExerciseGoal(tempValue);
+      } else if (field === 'weeklyBlogGoal') {
+        await saveGoalToDatabase('weekly_blog', tempValue);
+        setWeeklyBlogGoal(tempValue);
+      }
+    } catch (error) {
+      console.error('Error saving goal:', error);
+    } finally {
+      setLoading(false);
+      setEditingField(null);
+      setTempValue(null);
+    }
   };
 
   const handleCancel = () => {
@@ -100,10 +165,21 @@ export const GoalsContainer = ({ onBlogGoalChange }: GoalsContainerProps) => {
             <span className="text-base">
               {displayText.split('{dropdown}')[1]}
             </span>
-            <Button size="sm" onClick={() => handleSave(field)} className="ml-2 px-4 h-8">
+            <Button 
+              size="sm" 
+              onClick={() => handleSave(field)} 
+              className="ml-2 px-4 h-8"
+              disabled={loading}
+            >
               Uložiť
             </Button>
-            <Button size="sm" variant="outline" onClick={handleCancel} className="px-4 h-8">
+            <Button 
+              size="sm" 
+              variant="outline" 
+              onClick={handleCancel} 
+              className="px-4 h-8"
+              disabled={loading}
+            >
               Zrušiť
             </Button>
           </div>
@@ -129,6 +205,7 @@ export const GoalsContainer = ({ onBlogGoalChange }: GoalsContainerProps) => {
           variant="ghost"
           onClick={() => handleEdit(field, goalValue)}
           className="h-8 w-8 p-0"
+          disabled={loading}
         >
           <Edit className="h-4 w-4" />
         </Button>

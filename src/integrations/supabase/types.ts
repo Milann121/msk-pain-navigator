@@ -169,6 +169,33 @@ export type Database = {
           },
         ]
       }
+      mood_entries: {
+        Row: {
+          created_at: string
+          id: string
+          mood_date: string
+          mood_type: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          mood_date: string
+          mood_type: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          mood_date?: string
+          mood_type?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string
@@ -219,6 +246,33 @@ export type Database = {
           primary_mechanism?: string
           sin_group?: string
           timestamp?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      user_goals: {
+        Row: {
+          created_at: string
+          goal_type: string
+          goal_value: number
+          id: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          goal_type: string
+          goal_value: number
+          id?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          goal_type?: string
+          goal_value?: number
+          id?: string
+          updated_at?: string
           user_id?: string
         }
         Relationships: []

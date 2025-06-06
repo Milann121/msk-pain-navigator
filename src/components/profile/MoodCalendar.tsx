@@ -18,6 +18,7 @@ export const MoodCalendar = () => {
   const [date, setDate] = useState<Date>(new Date());
   const [moodEntries, setMoodEntries] = useState<MoodEntry[]>([]);
   const [firstName, setFirstName] = useState<string>('');
+  const [loading, setLoading] = useState(false);
   
   // Load user's first name from profile
   useEffect(() => {
@@ -41,25 +42,82 @@ export const MoodCalendar = () => {
 
     loadUserProfile();
   }, [user]);
+
+  // Load mood entries from database
+  useEffect(() => {
+    const loadMoodEntries = async () => {
+      if (!user) return;
+
+      try {
+        const { data, error } = await supabase
+          .from('mood_entries')
+          .select('*')
+          .eq('user_id', user.id);
+
+        if (error) throw error;
+
+        if (data) {
+          const entries: MoodEntry[] = data.map(entry => ({
+            date: new Date(entry.mood_date),
+            mood: entry.mood_type as 'happy' | 'neutral' | 'sad'
+          }));
+          setMoodEntries(entries);
+        }
+      } catch (error) {
+        console.error('Error loading mood entries:', error);
+      }
+    };
+
+    loadMoodEntries();
+  }, [user]);
   
-  const handleMoodSelection = (mood: 'happy' | 'neutral' | 'sad') => {
-    // Use the selected date from the calendar instead of today
+  const handleMoodSelection = async (mood: 'happy' | 'neutral' | 'sad') => {
+    if (!user || loading) return;
+
+    setLoading(true);
     const selectedDate = date;
     const dateKey = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate());
+    const formattedDate = format(dateKey, 'yyyy-MM-dd');
     
-    // Check if we already have an entry for the selected date
-    const existingEntryIndex = moodEntries.findIndex(
-      entry => format(entry.date, 'yyyy-MM-dd') === format(dateKey, 'yyyy-MM-dd')
-    );
-    
-    if (existingEntryIndex >= 0) {
-      // Update existing entry
-      const updatedEntries = [...moodEntries];
-      updatedEntries[existingEntryIndex] = { date: dateKey, mood };
-      setMoodEntries(updatedEntries);
-    } else {
-      // Add new entry
-      setMoodEntries([...moodEntries, { date: dateKey, mood }]);
+    try {
+      // Check if we already have an entry for the selected date
+      const existingEntryIndex = moodEntries.findIndex(
+        entry => format(entry.date, 'yyyy-MM-dd') === formattedDate
+      );
+      
+      if (existingEntryIndex >= 0) {
+        // Update existing entry in database
+        const { error } = await supabase
+          .from('mood_entries')
+          .update({ mood_type: mood })
+          .eq('user_id', user.id)
+          .eq('mood_date', formattedDate);
+
+        if (error) throw error;
+
+        // Update local state
+        const updatedEntries = [...moodEntries];
+        updatedEntries[existingEntryIndex] = { date: dateKey, mood };
+        setMoodEntries(updatedEntries);
+      } else {
+        // Insert new entry in database
+        const { error } = await supabase
+          .from('mood_entries')
+          .insert({
+            user_id: user.id,
+            mood_date: formattedDate,
+            mood_type: mood
+          });
+
+        if (error) throw error;
+
+        // Add to local state
+        setMoodEntries([...moodEntries, { date: dateKey, mood }]);
+      }
+    } catch (error) {
+      console.error('Error saving mood entry:', error);
+    } finally {
+      setLoading(false);
     }
   };
   
@@ -96,6 +154,7 @@ export const MoodCalendar = () => {
               <Button 
                 variant="outline" 
                 onClick={() => handleMoodSelection('happy')}
+                disabled={loading}
                 className={`flex flex-col items-center p-4 h-auto ${selectedDateMood === 'happy' ? 'bg-green-100 border-green-500' : ''}`}
               >
                 <span className="text-4xl mb-2">😊</span>
@@ -105,6 +164,7 @@ export const MoodCalendar = () => {
               <Button 
                 variant="outline" 
                 onClick={() => handleMoodSelection('neutral')}
+                disabled={loading}
                 className={`flex flex-col items-center p-4 h-auto ${selectedDateMood === 'neutral' ? 'bg-yellow-100 border-yellow-500' : ''}`}
               >
                 <span className="text-4xl mb-2">😐</span>
@@ -114,6 +174,7 @@ export const MoodCalendar = () => {
               <Button 
                 variant="outline" 
                 onClick={() => handleMoodSelection('sad')}
+                disabled={loading}
                 className={`flex flex-col items-center p-4 h-auto ${selectedDateMood === 'sad' ? 'bg-red-100 border-red-500' : ''}`}
               >
                 <span className="text-4xl mb-2">😔</span>
