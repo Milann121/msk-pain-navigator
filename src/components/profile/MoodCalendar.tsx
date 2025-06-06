@@ -140,11 +140,11 @@ export const MoodCalendar = () => {
     <Card className="mb-6">
       <CardHeader>
         <CardTitle>
-          <div className="space-y-1">
+          <div className="space-y-2">
             <div className="text-3xl font-bold">
               Ahoj {firstName ? `${firstName},` : ''}
             </div>
-            <div className="text-xl font-medium">
+            <div className="text-xl font-medium mb-4">
               ako sa dnes cítiš?
             </div>
           </div>
@@ -153,7 +153,7 @@ export const MoodCalendar = () => {
       <CardContent>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <h3 className="text-lg font-medium mb-4">
+            <h3 className="text-lg font-medium mb-4 mt-2">
               {currentDayAndDate}
             </h3>
             <div className="flex justify-around items-center mb-6">
