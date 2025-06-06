@@ -16,6 +16,14 @@ const Profile = () => {
     handleProfileCompleted 
   } = useProfileCompletion();
 
+  const [popupGoals, setPopupGoals] = useState<{
+    weeklyExerciseGoal: number | null;
+    weeklyBlogGoal: number | null;
+  }>({
+    weeklyExerciseGoal: null,
+    weeklyBlogGoal: null
+  });
+
   if (isLoading || isCheckingProfile) {
     return (
       <div className="min-h-screen flex flex-col">
@@ -31,6 +39,19 @@ const Profile = () => {
     return <Navigate to="/auth" replace />;
   }
 
+  const handleGoalsChangeFromPopup = (goals: { weeklyExerciseGoal: number | null; weeklyBlogGoal: number | null }) => {
+    setPopupGoals(goals);
+  };
+
+  const handleProfileSaved = () => {
+    // Reset popup goals after saving
+    setPopupGoals({
+      weeklyExerciseGoal: null,
+      weeklyBlogGoal: null
+    });
+    handleProfileCompleted();
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -43,7 +64,9 @@ const Profile = () => {
             <ProfileInfo />
             
             {/* Goals Container */}
-            <GoalsContainer />
+            <GoalsContainer 
+              externalGoals={showProfilePopup ? popupGoals : undefined}
+            />
           </div>
         </div>
       </div>
@@ -52,7 +75,8 @@ const Profile = () => {
       <ProfileFormPopup
         isOpen={showProfilePopup}
         onClose={handleProfileCompleted}
-        onProfileSaved={handleProfileCompleted}
+        onProfileSaved={handleProfileSaved}
+        onGoalsChange={handleGoalsChangeFromPopup}
       />
     </div>
   );

@@ -14,6 +14,11 @@ interface ProfileFormPopupProps {
   isOpen: boolean;
   onClose: () => void;
   onProfileSaved?: () => void;
+  initialGoals?: {
+    weeklyExerciseGoal: number | null;
+    weeklyBlogGoal: number | null;
+  };
+  onGoalsChange?: (goals: { weeklyExerciseGoal: number | null; weeklyBlogGoal: number | null }) => void;
 }
 
 interface ProfileData {
@@ -33,7 +38,9 @@ interface GoalsData {
 export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
   isOpen,
   onClose,
-  onProfileSaved
+  onProfileSaved,
+  initialGoals,
+  onGoalsChange
 }) => {
   const { user } = useAuth();
   const { toast } = useToast();
@@ -66,11 +73,18 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         jobSubtype: ''
       });
       setGoalsData({
-        weeklyExerciseGoal: null,
-        weeklyBlogGoal: null
+        weeklyExerciseGoal: initialGoals?.weeklyExerciseGoal || null,
+        weeklyBlogGoal: initialGoals?.weeklyBlogGoal || null
       });
     }
-  }, [isOpen, user]);
+  }, [isOpen, user, initialGoals]);
+
+  // Notify parent component when goals change
+  useEffect(() => {
+    if (onGoalsChange) {
+      onGoalsChange(goalsData);
+    }
+  }, [goalsData, onGoalsChange]);
 
   const handleInputChange = (field: keyof ProfileData, value: string | number) => {
     setProfileData(prev => ({

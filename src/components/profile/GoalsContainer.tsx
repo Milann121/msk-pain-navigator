@@ -6,14 +6,20 @@ import { Button } from '@/components/ui/button';
 import { Target, Edit } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/hooks/use-toast';
 
 interface GoalsContainerProps {
   onBlogGoalChange?: (goal: number | null) => void;
   onExerciseGoalChange?: (goal: number | null) => void;
+  externalGoals?: {
+    weeklyExerciseGoal: number | null;
+    weeklyBlogGoal: number | null;
+  };
 }
 
-export const GoalsContainer = ({ onBlogGoalChange, onExerciseGoalChange }: GoalsContainerProps) => {
+export const GoalsContainer = ({ onBlogGoalChange, onExerciseGoalChange, externalGoals }: GoalsContainerProps) => {
   const { user } = useAuth();
+  const { toast } = useToast();
   const [weeklyExerciseGoal, setWeeklyExerciseGoal] = useState<number | null>(null);
   const [weeklyBlogGoal, setWeeklyBlogGoal] = useState<number | null>(null);
   const [editingField, setEditingField] = useState<string | null>(null);
@@ -47,8 +53,18 @@ export const GoalsContainer = ({ onBlogGoalChange, onExerciseGoalChange }: Goals
       }
     };
 
-    loadGoals();
-  }, [user]);
+    if (!externalGoals) {
+      loadGoals();
+    }
+  }, [user, externalGoals]);
+
+  // Update goals when external goals change (from popup)
+  useEffect(() => {
+    if (externalGoals) {
+      setWeeklyExerciseGoal(externalGoals.weeklyExerciseGoal);
+      setWeeklyBlogGoal(externalGoals.weeklyBlogGoal);
+    }
+  }, [externalGoals]);
 
   // Notify parent component when blog goal changes
   useEffect(() => {
@@ -131,12 +147,25 @@ export const GoalsContainer = ({ onBlogGoalChange, onExerciseGoalChange }: Goals
       if (field === 'weeklyExerciseGoal') {
         await saveGoalToDatabase('weekly_exercise', tempValue);
         setWeeklyExerciseGoal(tempValue);
+        toast({
+          title: 'Úspech',
+          description: 'Cieľ pre cvičenie bol úspešne uložený.',
+        });
       } else if (field === 'weeklyBlogGoal') {
         await saveGoalToDatabase('weekly_blog', tempValue);
         setWeeklyBlogGoal(tempValue);
+        toast({
+          title: 'Úspech',
+          description: 'Cieľ pre čítanie bol úspešne uložený.',
+        });
       }
     } catch (error) {
       console.error('Error saving goal:', error);
+      toast({
+        title: 'Chyba',
+        description: 'Nepodarilo sa uložiť cieľ.',
+        variant: 'destructive',
+      });
     } finally {
       setLoading(false);
       setEditingField(null);

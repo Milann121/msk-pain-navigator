@@ -2,13 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { EditableField } from './EditableField';
 import { GenderField } from './GenderField';
 import { JobField } from './JobField';
-import { ProfileFormPopup } from './ProfileFormPopup';
 import { supabase } from '@/integrations/supabase/client';
-import { Settings } from 'lucide-react';
 
 interface UserProfileData {
   firstName: string;
@@ -34,7 +31,6 @@ export const ProfileInfo = () => {
   const [editingField, setEditingField] = useState<string | null>(null);
   const [tempValue, setTempValue] = useState<string | number>('');
   const [tempJobSubtype, setTempJobSubtype] = useState<string>('');
-  const [showPopup, setShowPopup] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   // Load user profile data from database
@@ -144,10 +140,6 @@ export const ProfileInfo = () => {
     setTempJobSubtype('');
   };
 
-  const handleProfileSaved = () => {
-    loadUserProfile(); // Reload profile data after popup save
-  };
-
   if (isLoading) {
     return (
       <Card className="h-full">
@@ -162,101 +154,83 @@ export const ProfileInfo = () => {
   }
 
   return (
-    <>
-      <Card className="h-full">
-        <CardHeader className="flex flex-row items-center justify-between">
-          <CardTitle>Osobné údaje</CardTitle>
-          {/* Development trigger button */}
-          <Button
-            size="sm"
-            variant="ghost"
-            onClick={() => setShowPopup(true)}
-            className="h-8 w-8 p-0"
-            title="Otvoriť popup formulár (dev)"
-          >
-            <Settings className="h-4 w-4" />
-          </Button>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-6">
-            <div className="grid grid-cols-2 gap-4">
-              <EditableField
-                label="Meno"
-                field="firstName"
-                value={userData.firstName}
-                editingField={editingField}
-                tempValue={tempValue}
-                onEdit={handleEdit}
-                onSave={handleSave}
-                onCancel={handleCancel}
-                onTempValueChange={setTempValue}
-              />
-            </div>
-            
-            <div className="grid grid-cols-2 gap-4">
-              <EditableField
-                label="Priezvisko"
-                field="lastName"
-                value={userData.lastName}
-                editingField={editingField}
-                tempValue={tempValue}
-                onEdit={handleEdit}
-                onSave={handleSave}
-                onCancel={handleCancel}
-                onTempValueChange={setTempValue}
-              />
-            </div>
-            
-            <div className="grid grid-cols-2 gap-4">
-              <EditableField
-                label="Vek"
-                field="age"
-                value={userData.age}
-                type="number"
-                editingField={editingField}
-                tempValue={tempValue}
-                onEdit={handleEdit}
-                onSave={handleSave}
-                onCancel={handleCancel}
-                onTempValueChange={setTempValue}
-              />
-            </div>
-            
-            <div className="grid grid-cols-2 gap-4">
-              <GenderField
-                value={userData.gender}
-                editingField={editingField}
-                tempValue={tempValue}
-                onEdit={handleEdit}
-                onSave={handleSave}
-                onCancel={handleCancel}
-                onTempValueChange={setTempValue}
-              />
-            </div>
-            
-            <div className="grid grid-cols-2 gap-4">
-              <JobField
-                value={userData.job}
-                jobSubtype={userData.jobSubtype}
-                editingField={editingField}
-                tempValue={tempValue}
-                tempJobSubtype={tempJobSubtype}
-                onEdit={handleEdit}
-                onSave={handleSave}
-                onCancel={handleCancel}
-                onTempValueChange={setTempValue}
-                onTempJobSubtypeChange={setTempJobSubtype}
-              />
-            </div>
+    <Card className="h-full">
+      <CardHeader>
+        <CardTitle>Osobné údaje</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="space-y-6">
+          <div className="grid grid-cols-2 gap-4">
+            <EditableField
+              label="Meno"
+              field="firstName"
+              value={userData.firstName}
+              editingField={editingField}
+              tempValue={tempValue}
+              onEdit={handleEdit}
+              onSave={handleSave}
+              onCancel={handleCancel}
+              onTempValueChange={setTempValue}
+            />
           </div>
-        </CardContent>
-      </Card>
-
-      <ProfileFormPopup
-        isOpen={showPopup}
-        onClose={() => setShowPopup(false)}
-        onProfileSaved={handleProfileSaved}
-      />
-    </>
+          
+          <div className="grid grid-cols-2 gap-4">
+            <EditableField
+              label="Priezvisko"
+              field="lastName"
+              value={userData.lastName}
+              editingField={editingField}
+              tempValue={tempValue}
+              onEdit={handleEdit}
+              onSave={handleSave}
+              onCancel={handleCancel}
+              onTempValueChange={setTempValue}
+            />
+          </div>
+          
+          <div className="grid grid-cols-2 gap-4">
+            <EditableField
+              label="Vek"
+              field="age"
+              value={userData.age}
+              type="number"
+              editingField={editingField}
+              tempValue={tempValue}
+              onEdit={handleEdit}
+              onSave={handleSave}
+              onCancel={handleCancel}
+              onTempValueChange={setTempValue}
+            />
+          </div>
+          
+          <div className="grid grid-cols-2 gap-4">
+            <GenderField
+              value={userData.gender}
+              editingField={editingField}
+              tempValue={tempValue}
+              onEdit={handleEdit}
+              onSave={handleSave}
+              onCancel={handleCancel}
+              onTempValueChange={setTempValue}
+            />
+          </div>
+          
+          <div className="grid grid-cols-2 gap-4">
+            <JobField
+              value={userData.job}
+              jobSubtype={userData.jobSubtype}
+              editingField={editingField}
+              tempValue={tempValue}
+              tempJobSubtype={tempJobSubtype}
+              onEdit={handleEdit}
+              onSave={handleSave}
+              onCancel={handleCancel}
+              onTempValueChange={setTempValue}
+              onTempJobSubtypeChange={setTempJobSubtype}
+            />
+          </div>
+        </div>
+      </CardContent>
+    </Card>
   );
 };
