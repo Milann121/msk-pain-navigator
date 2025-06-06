@@ -66,24 +66,7 @@ export default {
           'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
           border: 'hsl(var(--sidebar-border))',
           ring: 'hsl(var(--sidebar-ring))'
-        },
-        // MindfulPalettes gradient colors
-        'palette-cream': '#FFF4EB',
-        'palette-peach': '#FFE2C7',
-        'palette-orange': '#FD8B60',
-        'palette-teal': '#59BBC2',
-        'palette-purple': '#5A4E8F',
-        'palette-dark': '#3A2732'
-      },
-      backgroundImage: {
-        'gradient-mindful-1': 'linear-gradient(135deg, var(--gradient-1-start) 0%, var(--gradient-1-end) 100%)',
-        'gradient-mindful-2': 'linear-gradient(135deg, var(--gradient-2-start) 0%, var(--gradient-2-end) 100%)',
-        'gradient-mindful-3': 'linear-gradient(135deg, var(--gradient-3-start) 0%, var(--gradient-3-end) 100%)',
-        'gradient-mindful-4': 'linear-gradient(135deg, var(--gradient-4-start) 0%, var(--gradient-4-mid) 50%, var(--gradient-4-end) 100%)',
-        'gradient-mindful-5': 'linear-gradient(135deg, var(--gradient-5-start) 0%, var(--gradient-5-end) 100%)',
-        'gradient-primary': 'linear-gradient(135deg, #59BBC2 0%, #5A4E8F 100%)',
-        'gradient-secondary': 'linear-gradient(135deg, #FFE2C7 0%, #FD8B60 100%)',
-        'gradient-accent': 'linear-gradient(135deg, #FFF4EB 0%, #59BBC2 100%)'
+        }
       },
       borderRadius: {
         lg: 'var(--radius)',
