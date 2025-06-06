@@ -113,7 +113,7 @@ export const MoneySavings = () => {
         <Euro className="h-6 w-6 text-green-600" />
         <h3 className="text-xl font-semibold text-green-800">Ušetrené peniaze</h3>
       </div>
-      <div className="text-4xl font-bold text-green-700 mb-4">
+      <div className="text-6xl font-bold text-green-700 mb-4">
         {totalSavings}€
       </div>
       <p className="text-sm text-green-600">
