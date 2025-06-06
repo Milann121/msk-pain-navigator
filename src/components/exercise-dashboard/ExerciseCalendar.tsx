@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { 
   eachDayOfInterval, 
   startOfWeek, 
@@ -22,6 +22,8 @@ import {
 } from '@/components/ui/carousel';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight, CalendarDays } from 'lucide-react';
+import { useAuth } from '@/contexts/AuthContext';
+import { supabase } from '@/integrations/supabase/client';
 
 import { CalendarWeek } from './CalendarWeek';
 import { useCompletionData } from '@/hooks/useCompletionData';
@@ -32,6 +34,8 @@ interface ExerciseCalendarProps {
 
 export const ExerciseCalendar = ({ assessmentId }: ExerciseCalendarProps) => {
   const [currentDate, setCurrentDate] = useState(new Date());
+  const [weeklyGoal, setWeeklyGoal] = useState<number>(0);
+  const { user } = useAuth();
   const { completionDays, loading } = useCompletionData(assessmentId);
   
   const startDate = startOfWeek(currentDate, { weekStartsOn: 1 }); // Start on Monday
@@ -42,6 +46,34 @@ export const ExerciseCalendar = ({ assessmentId }: ExerciseCalendarProps) => {
     start: startDate,
     end: endDate
   });
+
+  // Fetch weekly exercise goal
+  useEffect(() => {
+    const fetchWeeklyGoal = async () => {
+      if (!user) return;
+
+      try {
+        const { data, error } = await supabase
+          .from('user_goals')
+          .select('goal_value')
+          .eq('user_id', user.id)
+          .eq('goal_type', 'weekly_exercise')
+          .single();
+
+        if (error) {
+          console.log('No weekly goal set:', error);
+          setWeeklyGoal(0);
+        } else {
+          setWeeklyGoal(data?.goal_value || 0);
+        }
+      } catch (error) {
+        console.error('Error fetching weekly goal:', error);
+        setWeeklyGoal(0);
+      }
+    };
+
+    fetchWeeklyGoal();
+  }, [user]);
   
   // Handle week navigation
   const handlePreviousWeek = () => {
@@ -100,6 +132,7 @@ export const ExerciseCalendar = ({ assessmentId }: ExerciseCalendarProps) => {
                       completionDays={completionDays}
                       assessmentId={assessmentId}
                       locale={sk}
+                      weeklyGoal={weeklyGoal}
                     />
                   </CarouselItem>
                 </CarouselContent>

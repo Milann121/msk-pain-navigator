@@ -50,12 +50,12 @@ export const CalendarDay: React.FC<CalendarDayProps> = ({
       </div>
       <div 
         className={`
-          h-6 w-6 rounded-full border flex items-center justify-center
+          h-6 w-6 rounded-full border flex items-center justify-center relative z-20
           ${isCompleted 
             ? specialHighlight
-              ? 'bg-green-500 border-green-600' 
+              ? 'bg-green-500 border-green-600 shadow-lg' 
               : 'bg-green-200 border-green-300'
-            : 'border-gray-300'
+            : 'border-gray-300 bg-white'
           }
         `}
         title={`${completionCount} cvičení${completionCount === 0 ? '' : isForCurrentAssessment ? ' (aktuálne hodnotenie)' : ''}`}
@@ -63,7 +63,7 @@ export const CalendarDay: React.FC<CalendarDayProps> = ({
         {isCompleted && <CheckIcon className="h-4 w-4 text-white" />}
       </div>
       {completionCount > 0 && (
-        <div className="text-xs font-medium mt-1">
+        <div className={`text-xs font-medium mt-1 ${specialHighlight ? 'text-green-600' : 'text-gray-600'}`}>
           {completionCount}x
         </div>
       )}
