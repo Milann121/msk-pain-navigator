@@ -25,7 +25,7 @@ export const ConnectionLines: React.FC<ConnectionLinesProps> = ({
           <div
             key={`mobile-line-${index}`}
             className={`h-0.5 flex-1 ${lineColor}`}
-            style={{ marginLeft: '1.5rem', marginRight: '1.5rem' }}
+            style={{ marginLeft: '1.rem', marginRight: '1.rem' }}
           />
         ))}
       </div>
