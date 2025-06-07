@@ -107,7 +107,7 @@ const Header = () => {
           <MobileMenu />
         ) : (
           <nav className="flex items-center space-x-6">
-            {navigationLinks.slice(1).map((link) => (
+            {navigationLinks.map((link) => (
               <Button 
                 key={link.label} 
                 variant="ghost" 
