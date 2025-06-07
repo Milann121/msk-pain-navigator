@@ -20,11 +20,12 @@ export const ConnectionLines: React.FC<ConnectionLinesProps> = ({
 
   if (isMobile) {
     return (
-      <div className="absolute top-[6.97rem] left-12 right-12 flex justify-between items-center pointer-events-none">
+      <div className="absolute top-[7.5rem] left-0 right-0 flex items-center pointer-events-none px-12">
         {mobileDisplayDays.slice(0, -1).map((day, index) => (
           <div
             key={`mobile-line-${index}`}
-            className={`h-0.5 flex-1 mx-2 ${lineColor}`}
+            className={`h-0.5 flex-1 ${lineColor}`}
+            style={{ marginLeft: '1.5rem', marginRight: '1.5rem' }}
           />
         ))}
       </div>
@@ -32,11 +33,12 @@ export const ConnectionLines: React.FC<ConnectionLinesProps> = ({
   }
 
   return (
-    <div className="absolute top-[6.97rem] left-12 right-12 flex justify-between items-center pointer-events-none">
+    <div className="absolute top-[7.5rem] left-0 right-0 flex items-center pointer-events-none px-12">
       {daysToDisplay.slice(0, -1).map((day, index) => (
         <div
           key={`line-${index}`}
-          className={`h-0.5 flex-1 mx-2 ${lineColor}`}
+          className={`h-0.5 flex-1 ${lineColor}`}
+          style={{ marginLeft: '1.5rem', marginRight: '1.5rem' }}
         />
       ))}
     </div>
