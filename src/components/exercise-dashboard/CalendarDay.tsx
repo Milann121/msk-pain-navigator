@@ -30,10 +30,10 @@ export const CalendarDay: React.FC<CalendarDayProps> = ({
   return (
     <div 
       key={format(day, 'yyyy-MM-dd')}
-      className={`flex flex-col items-center min-w-[3.5rem] ${
+      className={`flex flex-col items-center flex-1 max-w-[4rem] ${
         isSameDay(day, new Date()) 
-          ? 'bg-blue-50 rounded-lg px-3 py-4'
-          : 'px-3 py-4'
+          ? 'bg-blue-50 rounded-lg px-2 py-4'
+          : 'px-2 py-4'
       }`}
     >
       <div className="text-xs font-medium">

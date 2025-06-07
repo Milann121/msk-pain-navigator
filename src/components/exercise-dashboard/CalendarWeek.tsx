@@ -76,36 +76,21 @@ export const CalendarWeek: React.FC<CalendarWeekProps> = ({
         
         {/* Calendar days with navigation arrows */}
         <div className="relative">
-          <div className={`flex ${isMobile ? 'justify-center space-x-1' : 'justify-between space-x-2'} relative z-10`}>
-            {/* Left arrow for mobile */}
-            {isMobile && (
-              <Button 
-                variant="ghost" 
-                size="icon"
-                className="absolute left-0 top-1/2 -translate-y-1/2 z-20 h-8 w-8" 
-                onClick={handleScrollLeft}
-                disabled={!canScrollLeft}
-                aria-label="Previous dates"
-              >
-                <ChevronLeft className="h-4 w-4" />
-              </Button>
-            )}
+          <div className={`flex ${isMobile ? 'justify-between items-center px-4' : 'justify-between items-center'} relative z-10`}>
+            {/* Left arrow */}
+            <Button 
+              variant="ghost" 
+              size="icon"
+              className={`${isMobile ? 'h-8 w-8' : 'mr-2'} flex-shrink-0`}
+              onClick={handleScrollLeft}
+              disabled={!canScrollLeft}
+              aria-label={isMobile ? "Previous dates" : "Previous week"}
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </Button>
             
-            {/* Desktop left arrow */}
-            {!isMobile && (
-              <Button 
-                variant="ghost" 
-                size="icon"
-                className="mr-1" 
-                onClick={handleScrollLeft}
-                aria-label="Previous week"
-              >
-                <ChevronLeft className="h-4 w-4" />
-              </Button>
-            )}
-            
-            {/* Calendar days */}
-            <div className={`flex ${isMobile ? 'space-x-1' : 'space-x-2'}`}>
+            {/* Calendar days - full width container */}
+            <div className={`flex-1 flex ${isMobile ? 'justify-evenly' : 'justify-between px-4'}`}>
               {mobileDisplayDays.map(day => (
                 <CalendarDay
                   key={day.toISOString()}
@@ -117,32 +102,17 @@ export const CalendarWeek: React.FC<CalendarWeekProps> = ({
               ))}
             </div>
             
-            {/* Right arrow for mobile */}
-            {isMobile && (
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                className="absolute right-0 top-1/2 -translate-y-1/2 z-20 h-8 w-8"
-                onClick={handleScrollRight}
-                disabled={!canScrollRight}
-                aria-label="Next dates"
-              >
-                <ChevronRight className="h-4 w-4" />
-              </Button>
-            )}
-            
-            {/* Desktop right arrow */}
-            {!isMobile && (
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                className="ml-1"
-                onClick={handleScrollRight}
-                aria-label="Next week"
-              >
-                <ChevronRight className="h-4 w-4" />
-              </Button>
-            )}
+            {/* Right arrow */}
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className={`${isMobile ? 'h-8 w-8' : 'ml-2'} flex-shrink-0`}
+              onClick={handleScrollRight}
+              disabled={!canScrollRight}
+              aria-label={isMobile ? "Next dates" : "Next week"}
+            >
+              <ChevronRight className="h-4 w-4" />
+            </Button>
           </div>
         </div>
         
