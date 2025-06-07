@@ -20,19 +20,16 @@ export const useMobileNavigation = ({
   const mobileDisplayDays = isMobile ? daysToDisplay.slice(mobileStartIndex, mobileStartIndex + 4) : daysToDisplay;
   
   // Mobile navigation - move by 4 days within the current week
-  const canScrollLeft = isMobile ? mobileStartIndex > 0 : true;
-  const canScrollRight = isMobile ? mobileStartIndex + 4 < daysToDisplay.length : true;
+  const canScrollLeft = isMobile ? (mobileStartIndex > 0 || !!onPreviousWeek) : true;
+  const canScrollRight = isMobile ? (mobileStartIndex + 4 < daysToDisplay.length || !!onNextWeek) : true;
   
   const handleScrollLeft = () => {
     if (isMobile) {
-      if (mobileStartIndex >= 4) {
+      if (mobileStartIndex > 0) {
         // Move back by 4 days within current week
-        setMobileStartIndex(prev => prev - 4);
-      } else if (mobileStartIndex > 0) {
-        // Move to beginning of current week
-        setMobileStartIndex(0);
+        setMobileStartIndex(prev => Math.max(0, prev - 4));
       } else {
-        // Move to previous week and show last 4 days (3,4,5,6 indices)
+        // Move to previous week and show last 4 days (indices 3,4,5,6)
         if (onPreviousWeek) {
           onPreviousWeek();
           setMobileStartIndex(3);
@@ -47,9 +44,10 @@ export const useMobileNavigation = ({
   
   const handleScrollRight = () => {
     if (isMobile) {
-      if (mobileStartIndex + 4 < daysToDisplay.length) {
+      const maxStartIndex = daysToDisplay.length - 4;
+      if (mobileStartIndex < maxStartIndex) {
         // Move forward by 4 days within current week
-        setMobileStartIndex(prev => prev + 4);
+        setMobileStartIndex(prev => Math.min(maxStartIndex, prev + 4));
       } else {
         // Move to next week and show first 4 days
         if (onNextWeek) {
