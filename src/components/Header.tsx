@@ -11,9 +11,7 @@ const Header = () => {
   const isMobile = useIsMobile();
   const { user, signOut } = useAuth();
 
-  const navigationLinks = [
-    { href: '/', label: 'Domov' },
-  ];
+  const navigationLinks = [];
 
   if (user) {
     navigationLinks.push(
@@ -25,6 +23,7 @@ const Header = () => {
     );
   } else {
     navigationLinks.push(
+      { href: '/', label: 'Domov' },
       { href: '/blog', label: 'Blog' }
     );
   }
