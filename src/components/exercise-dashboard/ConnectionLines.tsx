@@ -7,6 +7,8 @@ interface ConnectionLinesProps {
   daysToDisplay: Date[];
   mobileDisplayDays: Date[];
   lineColor: string;
+  goalMet: boolean;
+  weekHasEnded: boolean;
 }
 
 export const ConnectionLines: React.FC<ConnectionLinesProps> = ({
@@ -14,31 +16,27 @@ export const ConnectionLines: React.FC<ConnectionLinesProps> = ({
   isMobile,
   daysToDisplay,
   mobileDisplayDays,
-  lineColor
+  lineColor,
+  goalMet,
+  weekHasEnded
 }) => {
-  if (!shouldShowGoalLine) return null;
+  // Only show rectangle if goal is set and week has ended
+  if (!shouldShowGoalLine || !weekHasEnded) return null;
 
-  if (isMobile) {
-    return (
-      <div className="absolute top-[6.97rem] left-12 right-12 flex justify-between items-center pointer-events-none">
-        {mobileDisplayDays.slice(0, -1).map((day, index) => (
-          <div
-            key={`mobile-line-${index}`}
-            className={`h-0.5 flex-1 mx-2 ${lineColor}`}
-          />
-        ))}
-      </div>
-    );
-  }
+  // Determine background color based on goal achievement
+  const backgroundColor = goalMet ? 'bg-green-100' : 'bg-red-100';
+  const borderColor = goalMet ? 'border-green-300' : 'border-red-300';
 
   return (
-    <div className="absolute top-[6.97rem] left-12 right-12 flex justify-between items-center pointer-events-none">
-      {daysToDisplay.slice(0, -1).map((day, index) => (
-        <div
-          key={`line-${index}`}
-          className={`h-0.5 flex-1 mx-2 ${lineColor}`}
-        />
-      ))}
+    <div className="absolute inset-0 pointer-events-none">
+      {/* Background rectangle wrapping all dates */}
+      <div 
+        className={`
+          absolute top-4 left-8 right-8 bottom-4
+          ${backgroundColor} ${borderColor}
+          border rounded-lg opacity-50
+        `}
+      />
     </div>
   );
 };

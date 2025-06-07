@@ -65,18 +65,20 @@ export const CalendarWeek: React.FC<CalendarWeekProps> = ({
   return (
     <ScrollArea className="w-full overflow-auto">
       <div className="relative">
-        {/* Connection lines between days - positioned at circle level */}
+        {/* Background rectangle for completed weeks */}
         <ConnectionLines
           shouldShowGoalLine={shouldShowGoalLine}
           isMobile={isMobile}
           daysToDisplay={daysToDisplay}
           mobileDisplayDays={mobileDisplayDays}
           lineColor={lineColor}
+          goalMet={goalMet}
+          weekHasEnded={weekHasEnded}
         />
         
         {/* Calendar days with navigation arrows */}
-        <div className="relative">
-          <div className={`flex ${isMobile ? 'justify-between items-center px-4' : 'justify-between items-center'} relative z-10`}>
+        <div className="relative z-10">
+          <div className={`flex ${isMobile ? 'justify-between items-center px-4' : 'justify-between items-center'} relative`}>
             {/* Left arrow */}
             <Button 
               variant="ghost" 
