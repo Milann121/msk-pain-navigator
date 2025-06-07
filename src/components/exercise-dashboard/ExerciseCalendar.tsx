@@ -16,12 +16,10 @@ import {
 import {
   Carousel,
   CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious
+  CarouselItem
 } from '@/components/ui/carousel';
 import { Button } from '@/components/ui/button';
-import { ChevronLeft, ChevronRight, CalendarDays } from 'lucide-react';
+import { CalendarDays } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
 
@@ -115,45 +113,23 @@ export const ExerciseCalendar = ({ assessmentId }: ExerciseCalendarProps) => {
         </div>
         
         <div className="relative">
-          <div className="flex items-center">
-            <Button 
-              variant="ghost" 
-              size="icon"
-              className="mr-1" 
-              onClick={handlePreviousWeek}
-              aria-label="Previous week"
-            >
-              <ChevronLeft className="h-4 w-4" />
-            </Button>
-            
-            <div className="flex-1">
-              <Carousel className="w-full">
-                <CarouselContent>
-                  {/* Just show one week at a time */}
-                  <CarouselItem className="basis-full">
-                    <CalendarWeek
-                      daysToDisplay={daysToDisplay}
-                      completionDays={completionDays}
-                      assessmentId={assessmentId}
-                      locale={sk}
-                      weeklyGoal={weeklyGoal}
-                      goalCreatedAt={goalCreatedAt}
-                    />
-                  </CarouselItem>
-                </CarouselContent>
-              </Carousel>
-            </div>
-            
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              className="ml-1"
-              onClick={handleNextWeek}
-              aria-label="Next week"
-            >
-              <ChevronRight className="h-4 w-4" />
-            </Button>
-          </div>
+          <Carousel className="w-full">
+            <CarouselContent>
+              {/* Just show one week at a time */}
+              <CarouselItem className="basis-full">
+                <CalendarWeek
+                  daysToDisplay={daysToDisplay}
+                  completionDays={completionDays}
+                  assessmentId={assessmentId}
+                  locale={sk}
+                  weeklyGoal={weeklyGoal}
+                  goalCreatedAt={goalCreatedAt}
+                  onPreviousWeek={handlePreviousWeek}
+                  onNextWeek={handleNextWeek}
+                />
+              </CarouselItem>
+            </CarouselContent>
+          </Carousel>
         </div>
       </CardContent>
     </Card>

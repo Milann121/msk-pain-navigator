@@ -16,6 +16,8 @@ interface CalendarWeekProps {
   locale?: Locale;
   weeklyGoal?: number;
   goalCreatedAt?: string;
+  onPreviousWeek?: () => void;
+  onNextWeek?: () => void;
 }
 
 export const CalendarWeek: React.FC<CalendarWeekProps> = ({
@@ -24,7 +26,9 @@ export const CalendarWeek: React.FC<CalendarWeekProps> = ({
   assessmentId,
   locale,
   weeklyGoal = 0,
-  goalCreatedAt
+  goalCreatedAt,
+  onPreviousWeek,
+  onNextWeek
 }) => {
   const isMobile = useIsMobile();
   const [mobileStartIndex, setMobileStartIndex] = useState(0);
@@ -32,19 +36,43 @@ export const CalendarWeek: React.FC<CalendarWeekProps> = ({
   // Mobile view shows 4 days at a time
   const mobileDisplayDays = isMobile ? daysToDisplay.slice(mobileStartIndex, mobileStartIndex + 4) : daysToDisplay;
   
-  // Mobile navigation
+  // Mobile navigation - move by 4 days
   const canScrollLeft = mobileStartIndex > 0;
   const canScrollRight = mobileStartIndex + 4 < daysToDisplay.length;
   
   const handleScrollLeft = () => {
-    if (canScrollLeft) {
-      setMobileStartIndex(prev => Math.max(0, prev - 1));
+    if (isMobile) {
+      if (mobileStartIndex >= 4) {
+        setMobileStartIndex(prev => prev - 4);
+      } else {
+        // Move to previous week and reset mobile index
+        if (onPreviousWeek) {
+          onPreviousWeek();
+          setMobileStartIndex(3); // Start from the last 4 days of previous week
+        }
+      }
+    } else {
+      if (onPreviousWeek) {
+        onPreviousWeek();
+      }
     }
   };
   
   const handleScrollRight = () => {
-    if (canScrollRight) {
-      setMobileStartIndex(prev => Math.min(daysToDisplay.length - 4, prev + 1));
+    if (isMobile) {
+      if (mobileStartIndex + 8 <= daysToDisplay.length) {
+        setMobileStartIndex(prev => prev + 4);
+      } else {
+        // Move to next week and reset mobile index
+        if (onNextWeek) {
+          onNextWeek();
+          setMobileStartIndex(0); // Start from the beginning of next week
+        }
+      }
+    } else {
+      if (onNextWeek) {
+        onNextWeek();
+      }
     }
   };
 
@@ -89,33 +117,6 @@ export const CalendarWeek: React.FC<CalendarWeekProps> = ({
   return (
     <ScrollArea className="w-full overflow-auto">
       <div className="relative">
-        {/* Mobile navigation arrows */}
-        {isMobile && (
-          <div className="flex justify-between items-center mb-2 px-2">
-            <Button 
-              variant="ghost" 
-              size="sm"
-              onClick={handleScrollLeft}
-              disabled={!canScrollLeft}
-              className="h-8 w-8 p-0"
-            >
-              <ChevronLeft className="h-4 w-4" />
-            </Button>
-            <div className="text-xs text-gray-500">
-              {mobileStartIndex + 1}-{Math.min(mobileStartIndex + 4, daysToDisplay.length)} z {daysToDisplay.length}
-            </div>
-            <Button 
-              variant="ghost" 
-              size="sm"
-              onClick={handleScrollRight}
-              disabled={!canScrollRight}
-              className="h-8 w-8 p-0"
-            >
-              <ChevronRight className="h-4 w-4" />
-            </Button>
-          </div>
-        )}
-
         {/* Connection lines between days - positioned at circle level */}
         {shouldShowGoalLine() && !isMobile && (
           <div className="absolute top-[6.97rem] left-0 right-0 flex justify-between items-center px-7 pointer-events-none">
@@ -148,17 +149,76 @@ export const CalendarWeek: React.FC<CalendarWeekProps> = ({
           </div>
         )}
         
-        {/* Calendar days */}
-        <div className={`flex ${isMobile ? 'justify-center space-x-1' : 'justify-between space-x-2'} relative z-10`}>
-          {mobileDisplayDays.map(day => (
-            <CalendarDay
-              key={day.toISOString()}
-              day={day}
-              completion={getCompletionForDate(day)}
-              assessmentId={assessmentId}
-              locale={locale}
-            />
-          ))}
+        {/* Calendar days with navigation arrows */}
+        <div className="relative">
+          <div className={`flex ${isMobile ? 'justify-center space-x-1' : 'justify-between space-x-2'} relative z-10`}>
+            {/* Left arrow for mobile */}
+            {isMobile && (
+              <Button 
+                variant="ghost" 
+                size="icon"
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-20 h-8 w-8" 
+                onClick={handleScrollLeft}
+                disabled={!canScrollLeft && mobileStartIndex === 0}
+                aria-label="Previous dates"
+              >
+                <ChevronLeft className="h-4 w-4" />
+              </Button>
+            )}
+            
+            {/* Desktop left arrow */}
+            {!isMobile && (
+              <Button 
+                variant="ghost" 
+                size="icon"
+                className="mr-1" 
+                onClick={handleScrollLeft}
+                aria-label="Previous week"
+              >
+                <ChevronLeft className="h-4 w-4" />
+              </Button>
+            )}
+            
+            {/* Calendar days */}
+            <div className={`flex ${isMobile ? 'space-x-1' : 'space-x-2'}`}>
+              {mobileDisplayDays.map(day => (
+                <CalendarDay
+                  key={day.toISOString()}
+                  day={day}
+                  completion={getCompletionForDate(day)}
+                  assessmentId={assessmentId}
+                  locale={locale}
+                />
+              ))}
+            </div>
+            
+            {/* Right arrow for mobile */}
+            {isMobile && (
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-20 h-8 w-8"
+                onClick={handleScrollRight}
+                disabled={!canScrollRight && mobileStartIndex + 4 >= daysToDisplay.length}
+                aria-label="Next dates"
+              >
+                <ChevronRight className="h-4 w-4" />
+              </Button>
+            )}
+            
+            {/* Desktop right arrow */}
+            {!isMobile && (
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="ml-1"
+                onClick={handleScrollRight}
+                aria-label="Next week"
+              >
+                <ChevronRight className="h-4 w-4" />
+              </Button>
+            )}
+          </div>
         </div>
         
         {/* Goal status indicator */}
