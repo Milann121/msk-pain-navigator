@@ -18,30 +18,29 @@ export const ConnectionLines: React.FC<ConnectionLinesProps> = ({
 }) => {
   if (!shouldShowGoalLine) return null;
 
-  const displayDays = isMobile ? mobileDisplayDays : daysToDisplay;
-
-  return (
-    <div className="absolute top-[7rem] left-0 right-0 flex items-center pointer-events-none">
-      {/* Left padding to align with first circle */}
-      <div className="w-4" />
-      
-      {/* Container for circles and lines */}
-      <div className="flex-1 flex items-center justify-between relative">
-        {displayDays.map((day, index) => (
-          <React.Fragment key={`connection-${index}`}>
-            {/* Circle placeholder to maintain spacing */}
-            <div className="w-6 h-6 flex-shrink-0" />
-            
-            {/* Connection line (except after the last circle) */}
-            {index < displayDays.length - 1 && (
-              <div className={`h-0.5 flex-1 ${lineColor}`} />
-            )}
-          </React.Fragment>
+  if (isMobile) {
+    return (
+      <div className="absolute top-[6.9rem] left-0 right-0 flex items-center pointer-events-none px-12">
+        {mobileDisplayDays.slice(0, -1).map((day, index) => (
+          <div
+            key={`mobile-line-${index}`}
+            className={`h-0.5 flex-1 ${lineColor}`}
+            style={{ marginLeft: '1.5rem', marginRight: '1.5rem' }}
+          />
         ))}
       </div>
-      
-      {/* Right padding to align with last circle */}
-      <div className="w-4" />
+    );
+  }
+
+  return (
+    <div className="absolute top-[6.9rem] left-0 right-0 flex items-center pointer-events-none px-12">
+      {daysToDisplay.slice(0, -1).map((day, index) => (
+        <div
+          key={`line-${index}`}
+          className={`h-0.5 flex-1 ${lineColor}`}
+          style={{ marginLeft: '1.5rem', marginRight: '1.5rem' }}
+        />
+      ))}
     </div>
   );
 };
