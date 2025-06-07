@@ -101,7 +101,7 @@ export const ExerciseCalendar = ({ assessmentId }: ExerciseCalendarProps) => {
       <CardContent className="pt-6">
         <div className="text-lg font-medium mb-4">Kalendár cvičení</div>
         
-        <div className="flex justify-center items-center gap-2 mb-4">
+        <div className="flex items-center gap-2 mb-4">
           <Button 
             onClick={handleGoToToday} 
             variant="outline" 
