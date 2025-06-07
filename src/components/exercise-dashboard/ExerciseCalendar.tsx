@@ -99,21 +99,21 @@ export const ExerciseCalendar = ({ assessmentId }: ExerciseCalendarProps) => {
   return (
     <Card className="mb-6">
       <CardContent className="pt-6">
-        <div className="flex justify-between items-center mb-4">
-          <div className="text-lg font-medium">Kalendár cvičení</div>
-          <div className="flex items-center gap-2">
-            <Button 
-              onClick={handleGoToToday} 
-              variant="outline" 
-              size="sm" 
-              className="flex items-center gap-1 px-3 py-1 text-xs rounded-md border-blue-300 bg-blue-50 text-blue-600 hover:bg-blue-100"
-            >
-              <CalendarDays className="h-3 w-3" />
-              Dnes
-            </Button>
-            <div className="text-sm text-muted-foreground">{dateRangeText}</div>
-          </div>
+        <div className="text-lg font-medium mb-4">Kalendár cvičení</div>
+        
+        <div className="flex justify-center items-center gap-2 mb-4">
+          <Button 
+            onClick={handleGoToToday} 
+            variant="outline" 
+            size="sm" 
+            className="flex items-center gap-1 px-3 py-1 text-xs rounded-md border-blue-300 bg-blue-50 text-blue-600 hover:bg-blue-100"
+          >
+            <CalendarDays className="h-3 w-3" />
+            Dnes
+          </Button>
+          <div className="text-sm text-muted-foreground">{dateRangeText}</div>
         </div>
+        
         <div className="relative">
           <div className="flex items-center">
             <Button 

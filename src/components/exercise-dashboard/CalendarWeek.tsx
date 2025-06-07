@@ -133,21 +133,23 @@ export const CalendarWeek: React.FC<CalendarWeekProps> = ({
         
         {/* Mobile connection lines for 4 days */}
         {shouldShowGoalLine() && isMobile && (
-          <div className="absolute top-[6.97rem] left-0 right-0 flex justify-between items-center px-7 pointer-events-none">
-            {mobileDisplayDays.slice(0, -1).map((day, index) => (
-              <div
-                key={`mobile-line-${index}`}
-                className={`h-0.5 flex-1 mx-1 ${getLineColor()}`}
-                style={{
-                  width: 'calc((100% - 56px) / 3)', // Distribute evenly between 4 days (3 lines)
-                }}
-              />
-            ))}
+          <div className="absolute top-[6.97rem] left-0 right-0 flex justify-center items-center pointer-events-none">
+            <div className="flex">
+              {mobileDisplayDays.slice(0, -1).map((day, index) => (
+                <div
+                  key={`mobile-line-${index}`}
+                  className={`h-0.5 mx-1 ${getLineColor()}`}
+                  style={{
+                    width: '3.5rem', // Match the day width
+                  }}
+                />
+              ))}
+            </div>
           </div>
         )}
         
         {/* Calendar days */}
-        <div className={`flex justify-between relative z-10 ${isMobile ? 'space-x-1' : 'space-x-2'}`}>
+        <div className={`flex ${isMobile ? 'justify-center space-x-1' : 'justify-between space-x-2'} relative z-10`}>
           {mobileDisplayDays.map(day => (
             <CalendarDay
               key={day.toISOString()}
