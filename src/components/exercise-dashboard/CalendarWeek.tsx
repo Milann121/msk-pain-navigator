@@ -1,10 +1,13 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { isSameDay, startOfWeek, endOfWeek, isAfter, endOfDay } from 'date-fns';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { Button } from '@/components/ui/button';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { CalendarDay } from './CalendarDay';
 import { CompletionDay } from '@/hooks/useCompletionData';
 import { Locale } from 'date-fns';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface CalendarWeekProps {
   daysToDisplay: Date[];
@@ -23,6 +26,28 @@ export const CalendarWeek: React.FC<CalendarWeekProps> = ({
   weeklyGoal = 0,
   goalCreatedAt
 }) => {
+  const isMobile = useIsMobile();
+  const [mobileStartIndex, setMobileStartIndex] = useState(0);
+  
+  // Mobile view shows 4 days at a time
+  const mobileDisplayDays = isMobile ? daysToDisplay.slice(mobileStartIndex, mobileStartIndex + 4) : daysToDisplay;
+  
+  // Mobile navigation
+  const canScrollLeft = mobileStartIndex > 0;
+  const canScrollRight = mobileStartIndex + 4 < daysToDisplay.length;
+  
+  const handleScrollLeft = () => {
+    if (canScrollLeft) {
+      setMobileStartIndex(prev => Math.max(0, prev - 1));
+    }
+  };
+  
+  const handleScrollRight = () => {
+    if (canScrollRight) {
+      setMobileStartIndex(prev => Math.min(daysToDisplay.length - 4, prev + 1));
+    }
+  };
+
   // Get completion status for a specific date
   const getCompletionForDate = (date: Date): CompletionDay | undefined => {
     return completionDays.find(day => isSameDay(day.date, date));
@@ -64,8 +89,35 @@ export const CalendarWeek: React.FC<CalendarWeekProps> = ({
   return (
     <ScrollArea className="w-full overflow-auto">
       <div className="relative">
+        {/* Mobile navigation arrows */}
+        {isMobile && (
+          <div className="flex justify-between items-center mb-2 px-2">
+            <Button 
+              variant="ghost" 
+              size="sm"
+              onClick={handleScrollLeft}
+              disabled={!canScrollLeft}
+              className="h-8 w-8 p-0"
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </Button>
+            <div className="text-xs text-gray-500">
+              {mobileStartIndex + 1}-{Math.min(mobileStartIndex + 4, daysToDisplay.length)} z {daysToDisplay.length}
+            </div>
+            <Button 
+              variant="ghost" 
+              size="sm"
+              onClick={handleScrollRight}
+              disabled={!canScrollRight}
+              className="h-8 w-8 p-0"
+            >
+              <ChevronRight className="h-4 w-4" />
+            </Button>
+          </div>
+        )}
+
         {/* Connection lines between days - positioned at circle level */}
-        {shouldShowGoalLine() && (
+        {shouldShowGoalLine() && !isMobile && (
           <div className="absolute top-[6.97rem] left-0 right-0 flex justify-between items-center px-7 pointer-events-none">
             {daysToDisplay.slice(0, -1).map((day, index) => (
               <div
@@ -79,9 +131,24 @@ export const CalendarWeek: React.FC<CalendarWeekProps> = ({
           </div>
         )}
         
+        {/* Mobile connection lines for 4 days */}
+        {shouldShowGoalLine() && isMobile && (
+          <div className="absolute top-[6.97rem] left-0 right-0 flex justify-between items-center px-7 pointer-events-none">
+            {mobileDisplayDays.slice(0, -1).map((day, index) => (
+              <div
+                key={`mobile-line-${index}`}
+                className={`h-0.5 flex-1 mx-1 ${getLineColor()}`}
+                style={{
+                  width: 'calc((100% - 56px) / 3)', // Distribute evenly between 4 days (3 lines)
+                }}
+              />
+            ))}
+          </div>
+        )}
+        
         {/* Calendar days */}
-        <div className="flex justify-between space-x-2 relative z-10">
-          {daysToDisplay.map(day => (
+        <div className={`flex justify-between relative z-10 ${isMobile ? 'space-x-1' : 'space-x-2'}`}>
+          {mobileDisplayDays.map(day => (
             <CalendarDay
               key={day.toISOString()}
               day={day}
