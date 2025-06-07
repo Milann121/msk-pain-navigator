@@ -12,6 +12,7 @@ import { EmptyState } from '@/components/exercise-dashboard/assessment/EmptyStat
 import { LoadingState } from '@/components/exercise-dashboard/assessment/LoadingState';
 import { FollowUpDialog } from '@/components/exercise-dashboard/assessment/FollowUpDialog';
 import { ExerciseCalendar } from '@/components/exercise-dashboard/ExerciseCalendar';
+import { GeneralProgram } from '@/components/profile/GeneralProgram';
 import { UserAssessment } from '@/components/follow-up/types';
 
 const MyExercises = () => {
@@ -62,6 +63,13 @@ const MyExercises = () => {
           <h1 className="text-3xl font-bold text-blue-800 mb-6">Moje cviky</h1>
           
           <ExerciseCalendar assessmentId={latestAssessmentId} />
+          
+          {/* General Program Card */}
+          <Card className="mb-6">
+            <CardContent className="pt-6">
+              <GeneralProgram />
+            </CardContent>
+          </Card>
           
           <Card>
             <CardHeader>
