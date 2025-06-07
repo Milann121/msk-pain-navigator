@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
 import { Euro } from 'lucide-react';
+import { format } from 'date-fns';
 
 export const MoneySavings = () => {
   const { user } = useAuth();
@@ -66,14 +67,23 @@ export const MoneySavings = () => {
     setLoading(true);
     
     try {
-      // Count active exercise completions (35€ each)
+      // Get active exercise completions
       const { data: exerciseCompletions, error: exerciseError } = await supabase
         .from('exercise_completion_clicks')
-        .select('id')
+        .select('clicked_at')
         .eq('user_id', user.id)
         .eq('is_active', true);
 
       if (exerciseError) throw exerciseError;
+
+      // Group exercise completions by date (only count once per day)
+      const uniqueDays = new Set();
+      if (exerciseCompletions) {
+        exerciseCompletions.forEach(completion => {
+          const date = format(new Date(completion.clicked_at), 'yyyy-MM-dd');
+          uniqueDays.add(date);
+        });
+      }
 
       // Count completed assessments (50€ each)
       const { data: assessments, error: assessmentError } = await supabase
@@ -83,7 +93,8 @@ export const MoneySavings = () => {
 
       if (assessmentError) throw assessmentError;
 
-      const exerciseSavings = (exerciseCompletions?.length || 0) * 35;
+      // Calculate total: 35€ per unique day of exercise + 50€ per assessment
+      const exerciseSavings = uniqueDays.size * 35;
       const assessmentSavings = (assessments?.length || 0) * 50;
       const total = exerciseSavings + assessmentSavings;
 
