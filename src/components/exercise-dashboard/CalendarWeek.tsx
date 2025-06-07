@@ -36,19 +36,23 @@ export const CalendarWeek: React.FC<CalendarWeekProps> = ({
   // Mobile view shows 4 days at a time
   const mobileDisplayDays = isMobile ? daysToDisplay.slice(mobileStartIndex, mobileStartIndex + 4) : daysToDisplay;
   
-  // Mobile navigation - move by 4 days
-  const canScrollLeft = mobileStartIndex > 0;
-  const canScrollRight = mobileStartIndex + 4 < daysToDisplay.length;
+  // Mobile navigation - move by 4 days within the current week
+  const canScrollLeft = isMobile ? mobileStartIndex > 0 : true;
+  const canScrollRight = isMobile ? mobileStartIndex + 4 < daysToDisplay.length : true;
   
   const handleScrollLeft = () => {
     if (isMobile) {
       if (mobileStartIndex >= 4) {
+        // Move back by 4 days within current week
         setMobileStartIndex(prev => prev - 4);
+      } else if (mobileStartIndex > 0) {
+        // Move to beginning of current week
+        setMobileStartIndex(0);
       } else {
-        // Move to previous week and reset mobile index
+        // Move to previous week and show last 4 days (3,4,5,6 indices)
         if (onPreviousWeek) {
           onPreviousWeek();
-          setMobileStartIndex(3); // Start from the last 4 days of previous week
+          setMobileStartIndex(3);
         }
       }
     } else {
@@ -60,13 +64,14 @@ export const CalendarWeek: React.FC<CalendarWeekProps> = ({
   
   const handleScrollRight = () => {
     if (isMobile) {
-      if (mobileStartIndex + 8 <= daysToDisplay.length) {
+      if (mobileStartIndex + 4 < daysToDisplay.length) {
+        // Move forward by 4 days within current week
         setMobileStartIndex(prev => prev + 4);
       } else {
-        // Move to next week and reset mobile index
+        // Move to next week and show first 4 days
         if (onNextWeek) {
           onNextWeek();
-          setMobileStartIndex(0); // Start from the beginning of next week
+          setMobileStartIndex(0);
         }
       }
     } else {
@@ -159,7 +164,7 @@ export const CalendarWeek: React.FC<CalendarWeekProps> = ({
                 size="icon"
                 className="absolute left-0 top-1/2 -translate-y-1/2 z-20 h-8 w-8" 
                 onClick={handleScrollLeft}
-                disabled={!canScrollLeft && mobileStartIndex === 0}
+                disabled={!canScrollLeft}
                 aria-label="Previous dates"
               >
                 <ChevronLeft className="h-4 w-4" />
@@ -199,7 +204,7 @@ export const CalendarWeek: React.FC<CalendarWeekProps> = ({
                 size="icon" 
                 className="absolute right-0 top-1/2 -translate-y-1/2 z-20 h-8 w-8"
                 onClick={handleScrollRight}
-                disabled={!canScrollRight && mobileStartIndex + 4 >= daysToDisplay.length}
+                disabled={!canScrollRight}
                 aria-label="Next dates"
               >
                 <ChevronRight className="h-4 w-4" />
