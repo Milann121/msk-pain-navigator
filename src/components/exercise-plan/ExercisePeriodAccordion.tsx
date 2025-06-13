@@ -33,6 +33,9 @@ export const ExercisePeriodAccordion = ({
             <div className="text-left">
               <h2 className="text-2xl font-bold text-gray-900">{exercise.title}</h2>
               <p className="text-gray-600 mt-2">{exercise.description}</p>
+              <p className="text-sm text-gray-500 mt-1">
+                Táto sekcia obsahuje {exercise.videos.length} cvikov
+              </p>
             </div>
           </AccordionTrigger>
           <AccordionContent className="px-6 pb-6">
