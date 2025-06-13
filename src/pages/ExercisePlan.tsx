@@ -11,7 +11,7 @@ import Header from '@/components/Header';
 import { generateGeneralProgram } from '@/utils/generalProgramGenerator';
 import { supabase } from '@/integrations/supabase/client';
 import { ExercisePlanHeader } from '@/components/exercise-plan/ExercisePlanHeader';
-import { ExercisePeriodSection } from '@/components/exercise-plan/ExercisePeriodSection';
+import { ExercisePeriodAccordion } from '@/components/exercise-plan/ExercisePeriodAccordion';
 import { ImportantNotice } from '@/components/exercise-plan/ImportantNotice';
 
 const ExercisePlan = () => {
@@ -120,15 +120,11 @@ const ExercisePlan = () => {
             mechanism={mechanism}
           />
           <CardContent className="space-y-8">
-            {exercises.map((exercise, index) => (
-              <ExercisePeriodSection
-                key={index}
-                exercise={exercise}
-                index={index}
-                showGeneral={showGeneral}
-                assessmentId={effectiveAssessmentId}
-              />
-            ))}
+            <ExercisePeriodAccordion
+              exercises={exercises}
+              showGeneral={showGeneral}
+              assessmentId={effectiveAssessmentId}
+            />
             
             <ImportantNotice />
           </CardContent>
