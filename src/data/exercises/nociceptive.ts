@@ -144,7 +144,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
   // MIDDLE BACK ✅
   'nociceptive-facet joint syndrome-middle back': [
     {
-      titlePeriod: '0-2 týždeň',
+      title: '0-2 týždeň',
       description: 'Jemné rotačné pohyby pre zlepšenie mobility v hrudnej oblasti a redukciu bolesti.',
       videos: [
         {
