@@ -5,7 +5,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
   // NECK ✅
   'nociceptive-disc herniation-neck': [
     {
-      title1: 'Program 0-3 týždeň',
+      title: 'Program 0-3 týždeň',
       description: 'Cvičenia na redukciu bolesti, ktoré pomáhajú stabilizovať krčnú chrbticu a znížiť tlak na medzistavcové platničky.',
       videos: [
         {
