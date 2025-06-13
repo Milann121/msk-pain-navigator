@@ -6,7 +6,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
   // NECK ✅
   'neuropathic-Radicular Pain-neck': [
     {
-      titlePeriod: '0-3 týžeň',
+      title: '0-3 týžeň',
       description: 'Jemné cvičenia na uvoľnenie nervových koreňov v krčnej oblasti a zníženie neurologických príznakov.',
       videos: [
         {
@@ -30,7 +30,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
       ]
     },
     {
-      titlePeriod: '4-6 týždeň',
+      title: '4-6 týždeň',
       description: 'Zvýšenie pohyblivosti v krčnej chrbtici a redukcia bolesti.',
       videos: [
         {
@@ -52,7 +52,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
   //LUMBAR SPINE ✅
   'neuropathic-Radicular Pain-lower back': [
     {
-      titlePeriod: '0-3 týždeň',
+      title: '0-3 týždeň',
       description: 'Cvičenia zamerané na jemnú mobilizáciu nervových štruktúr v driekovej oblasti.',
       videos: [
         {
@@ -76,7 +76,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
       ]
     },
     {
-      titlePeriod: '4-6 týždeň',
+      title: '4-6 týždeň',
       description: 'Cvičenia zamerané na posilnenie sedacích svalov a adaptáciu na záťaž.',
       videos: [
         {
@@ -100,7 +100,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
   //NECK ✅
   'neuropathic-Radiculopathy-neck': [
     {
-      titlePeriod: '0-2 týždne',
+      title: '0-2 týždne',
       description: 'Cvičenia na zníženie neurologických symptómov a redukciu tlaku na koreň nervu.',
       videos: [
         {
@@ -118,7 +118,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
       ]
     },
     {
-      titlePeriod: '3-5 týždeň',
+      title: '3-5 týždeň',
       description: 'Posilnenie svalov v oblasti krku a medzilopatkového priestoru.',
       videos: [
         {
@@ -140,7 +140,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
   // LUMBAR SPINE ✅
   'neuropathic-Radiculopathy-lower back': [
     {
-      titlePeriod: '0-2 týždeň',
+      title: '0-2 týždeň',
       description: 'Cvičenia zamerané na zníženie neurologických symptómov dolnej končatiny.',
       videos: [
         {
@@ -158,7 +158,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
       ]
     },
     {
-      titlePeriod: '3-5 týždeň',
+      title: '3-5 týždeň',
       description: 'Cvičenia zamerané na zvyšovanie záťaže driekovej chrbtice a sedacích svalov.',
       videos: [
         {
