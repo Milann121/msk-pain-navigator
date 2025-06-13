@@ -5,7 +5,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
   // NECK ✅
   'nociceptive-disc herniation-neck': [
     {
-      title: 'Program 0-3 týždeň',
+      titlePeriod: 'Program 0-3 týždeň',
       description: 'Cvičenia na redukciu bolesti, ktoré pomáhajú stabilizovať krčnú chrbticu a znížiť tlak na medzistavcové platničky.',
       videos: [
         {
@@ -29,7 +29,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
       ]
     },
     {
-      title: 'Program 4-6 týždeň',
+      titlePeriod: 'Program 4-6 týždeň',
       description: 'Prejdite do pokročilejšieho programu na uvoľnenie krčnej chrbtice a zredukujte tlak na vaše platničky',
       videos: [
         {
@@ -51,7 +51,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
   // LUMBAR SPINE ✅
   'nociceptive-disc herniation-lower back': [
     {
-      title: 'Pogram cvičení 0-3 týždeň',
+      titlePeriod: 'Pogram cvičení 0-3 týždeň',
       description: 'Základné cvičenia pri pravdepodobnom poškodení platničiek s cieľom redukovať bolesť a zabrániť ďaľšiemu poškodeniu.',
       videos: [
         {
@@ -75,7 +75,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
       ]
     },
     {
-      title: 'Program cvičení 4-6 týždeň',
+      titlePeriod: 'Program cvičení 4-6 týždeň',
       description: 'Pokročilé cvičenia na posilnenie krčnej chrbtice a prevenciu ďaľšieho poškodenia vašich platiničiek.',
       videos: [
         {
@@ -98,7 +98,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
   // NECK ✅
   'nociceptive-facet joint syndrome-neck': [
     {
-      title: '0-2 týždeň',
+      titlePeriod: '0-2 týždeň',
       description: 'Cviky na zvýšenie rozsahu pohybu v krku a zníženie bolesti.',
       videos: [
         {
@@ -122,7 +122,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
       ],
     },
     {
-      title: '3-5 týždeň',
+      titlePeriod: '3-5 týždeň',
       description: "Cviky na posilnenie medzilopatkového priestoru a krku + dôraz na prevenciu.",
       videos: [
         {
@@ -144,7 +144,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
   // MIDDLE BACK ✅
   'nociceptive-facet joint syndrome-middle back': [
     {
-      title: '0-2 týždeň',
+      titlePeriod: '0-2 týždeň',
       description: 'Jemné rotačné pohyby pre zlepšenie mobility v hrudnej oblasti a redukciu bolesti.',
       videos: [
         {
@@ -162,7 +162,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
       ],
     },
     {
-      title: '3-5 týždeň',
+      titlePeriod: '3-5 týždeň',
       description: 'Jemné rotačné pohyby pre zlepšenie mobility v hrudnej oblasti a redukciu bolesti.',
       videos: [
         {
@@ -190,7 +190,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
   // LOWER BACK ✅
   'nociceptive-facet joint syndrome-lower back': [
     {
-      title: '0-3 týždeň',
+      titlePeriod: '0-3 týždeň',
       description: 'Uvoľnenie svalov drieku a zvýšenie mobility',
       videos: [
         {
@@ -214,7 +214,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
       ],
     },
     {  
-      title: '4-6 týždeň',
+      titlePeriod: '4-6 týždeň',
       description: 'Posilnite oblasť sedacích svalov a predídite preťaženiu drieku.',
       videos: [
         {
@@ -236,7 +236,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
   // Nociceptive - SIJ Syndrome ✅
   'nociceptive-SIJ syndrome-lower back': [
     {
-      title: '0-2 týždeň',
+      titlePeriod: '0-2 týždeň',
       description: 'Stabilizačné cvičenia pre SI kĺb.',
       videos: [
         {
@@ -254,7 +254,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
       ],
     },
     {
-      title: '3-6 týždeň',
+      titlePeriod: '3-6 týždeň',
       description: 'Posilnenie svalov zadku a chrbta.',
       videos: [
         {
