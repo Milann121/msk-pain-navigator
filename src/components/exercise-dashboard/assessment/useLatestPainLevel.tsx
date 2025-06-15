@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { ArrowUp, ArrowDown } from 'lucide-react';
 
 export function useLatestPainLevel(assessmentId: string, initialPainLevel: number | null) {
   const [latestPainLevel, setLatestPainLevel] = useState<number | null>(null);
