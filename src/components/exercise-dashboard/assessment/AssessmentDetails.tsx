@@ -42,7 +42,6 @@ export const AssessmentDetails = ({
         </div>
       </div>
       <div>
-        <span className="font-medium text-gray-500">Vaša posledná zaznamenaná bolesť:</span>
         <div className="mt-1">
           <p className="text-sm text-gray-600 mb-3">
             Vaša posledná zaznamenaná bolesť:{" "}
@@ -60,4 +59,3 @@ export const AssessmentDetails = ({
     </div>
   );
 };
-
