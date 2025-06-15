@@ -28,6 +28,9 @@ export interface UserAssessment {
   last_completed_at?: string;
   initial_pain_level?: number;
   latest_pain_level?: number;
+  // ADD THESE FIELDS TO MATCH DATABASE
+  program_start_date?: string | null;
+  program_ended_at?: string | null;
 }
 
 export interface FollowUpResponse {
