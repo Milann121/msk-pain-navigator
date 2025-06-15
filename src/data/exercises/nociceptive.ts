@@ -13,7 +13,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           title: 'McKenzie záklony krčnej chrbtice',
           description: 'Postup:\n➜ posaďte sa a uvoľnite trapézy\n➜ vtiahnite bradu dnu (zásuvka), ale nezdvíhajte pri tom plecia, ani hlavu nepredkláňajte\n➜ zakloňte hlavu do rozsahu, ktorý je vám komfortný a nespôsobuje veľa bolesti\n➜ v záklone urobte krátke rotácie hlavy do oboch strán\n➜ OPAKOVANIA: záklon opakujte 5-10x za sebou s 3-5 rotáciami do každej strany ➜ 5x denne. ',
           importance: 3,
-          mainGroup: [mobility, pain relief],
+          mainGroup: ["mobility","pain relief"],
         },
         {
           videoId: '7WAoHWIxgEI',
