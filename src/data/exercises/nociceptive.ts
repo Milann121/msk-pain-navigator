@@ -21,7 +21,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           title: 'Neurodynamika horných končatín',
           description: "Postup:\nPosaďte sa a uvoľnite trapézy\n ➜ upažte ruku s dlaňou smerujúcou hore\n ➜ ohnite dlaň do polohy od seba, spolu s vystretými prstami\n Vráťte dlaň naspäť a pokrčte lakeť do 90 stupňov\n ➜ pohyb zopakujte\nOPAKOVANIA: zopakujte 10-15 x /5x denne",
           importance: 2
-          mainGroup: ["mobility", "pain relief"],
+          mainGroup: ["mobility", "pain-relief"],
         },
         {
           videoId: '844ILxo5xsA',
