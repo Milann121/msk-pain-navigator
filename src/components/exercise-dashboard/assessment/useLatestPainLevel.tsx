@@ -45,18 +45,15 @@ export function useLatestPainLevel(assessmentId: string, initialPainLevel: numbe
   }, [assessmentId]);
 
   let diffIcon = null;
-  if (
-    typeof latestPainLevel === 'number' &&
-    typeof initialPainLevel === 'number' &&
-    latestPainLevel !== initialPainLevel
-  ) {
-    const { ArrowUp, ArrowDown } = require("lucide-react");
-    if (latestPainLevel > initialPainLevel) {
-      diffIcon = <ArrowUp className="h-3 w-3 inline ml-1 text-red-500" />;
-    } else if (latestPainLevel < initialPainLevel) {
-      diffIcon = <ArrowDown className="h-3 w-3 inline ml-1 text-green-600" />;
-    }
+if (
+  typeof latestPainLevel === 'number' &&
+  typeof initialPainLevel === 'number' &&
+  latestPainLevel !== initialPainLevel
+) {
+  if (latestPainLevel > initialPainLevel) {
+    diffIcon = <ArrowUp className="h-3 w-3 inline ml-1 text-red-500" />;
+  } else if (latestPainLevel < initialPainLevel) {
+    diffIcon = <ArrowDown className="h-3 w-3 inline ml-1 text-green-600" />;
   }
-
-  return { latestPainLevel, lastPainDate, diffIcon };
 }
+
