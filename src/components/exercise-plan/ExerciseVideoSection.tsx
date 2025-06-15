@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ExerciseCompletionCheckbox } from '@/components/ExerciseCompletionCheckbox';
 import { FavoriteExerciseButton } from '@/components/FavoriteExerciseButton';
@@ -210,7 +209,7 @@ export const ExerciseVideoSection = ({
           />
         </div>
         {video.description && (
-          <div className="ml-4 border-l-2 border-gray-200 pl-4 space-y-2">
+          <div className="space-y-2">
             <p className="text-gray-600">
               {video.description.split('\n').map((line, index) => (
                 <span key={index}>
