@@ -1,6 +1,6 @@
 
 // Update import to reflect new location
-import exercisesByDifferential from "@/data/exercises";
+import exercisesByDifferential from "@/data/exercisePrograms";
 
 /**
  * Finds a new exercise matching the same bodyPart & mainGroup but a different videoId.
