@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
@@ -111,7 +110,7 @@ export const GeneralProgram = () => {
         </div>
         
         <p className="text-sm text-gray-600 mb-4 line-clamp-3">
-          {program.description}
+          Nemáš čas na jednotlivé cvičebné programy? Odcvič personalizovaný program s najdôležitejšími cvičeniami z tvojich súčasných programov.
         </p>
         
         <div className="text-sm text-blue-600 mb-4">
