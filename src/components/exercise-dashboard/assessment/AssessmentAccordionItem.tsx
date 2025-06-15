@@ -1,3 +1,4 @@
+
 import { format } from 'date-fns';
 import { useNavigate } from 'react-router-dom';
 import { formatPainArea, formatMechanism, formatDifferential } from '../FormatHelpers';
@@ -43,18 +44,19 @@ export const AssessmentAccordionItem = ({
   // Store fetched last and initial pain level
   const [latestPainLevel, setLatestPainLevel] = useState<number | null>(null);
   const [lastPainDate, setLastPainDate] = useState<string | null>(null);
+  // Use the correct property name (initial_pain_level)
   const [initialPainLevel, setInitialPainLevel] = useState<number | null>(
-    assessment.intial_pain_intensity ?? assessment.initial_pain_level ?? null
+    assessment.initial_pain_level ?? null
   );
 
   useEffect(() => {
     async function fetchLatestPainLevel() {
-      // Try the db function if present, otherwise fallback
       try {
+        // Remove user_id, just use assessment.id (since we don't have user_id)
         const { data, error } = await supabase
           .rpc('get_latest_pain_level', {
             assessment_id_param: assessment.id,
-            user_id_param: assessment.user_id
+            user_id_param: null // Pass null since not available, function will ignore if needed
           });
 
         if (!error && data && Array.isArray(data) && data.length > 0) {
@@ -66,13 +68,15 @@ export const AssessmentAccordionItem = ({
             .from('follow_up_responses')
             .select('pain_level, created_at')
             .eq('assessment_id', assessment.id)
-            .eq('user_id', assessment.user_id)
             .order('created_at', { ascending: false })
             .limit(1);
 
           if (!respErr && responses && responses.length > 0) {
             setLatestPainLevel(responses[0].pain_level ?? null);
             setLastPainDate(responses[0].created_at ?? null);
+          } else {
+            setLatestPainLevel(null);
+            setLastPainDate(null);
           }
         }
       } catch (e) {
@@ -82,7 +86,7 @@ export const AssessmentAccordionItem = ({
     }
 
     fetchLatestPainLevel();
-  }, [assessment.id, assessment.user_id]);
+  }, [assessment.id]);
 
   // Compare last and initial pain level for arrow coloring
   let diffIcon = null;
@@ -118,7 +122,11 @@ export const AssessmentAccordionItem = ({
       </AccordionTrigger>
       <AccordionContent className="px-4 pb-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-          <AssessmentDetails assessment={assessment} />
+          <AssessmentDetails
+            assessment={assessment}
+            latestPainLevel={latestPainLevel}
+            diffIcon={diffIcon}
+          />
           <ExerciseCompletionInfo assessmentId={assessment.id} />
         </div>
         
@@ -162,9 +170,11 @@ export const AssessmentAccordionItem = ({
 
 interface DetailsSectionProps {
   assessment: UserAssessment;
+  latestPainLevel: number | null;
+  diffIcon: React.ReactNode;
 }
 
-const AssessmentDetails = ({ assessment }: DetailsSectionProps) => {
+const AssessmentDetails = ({ assessment, latestPainLevel, diffIcon }: DetailsSectionProps) => {
   return (
     <div className="space-y-2">
       <div>
