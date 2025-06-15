@@ -1,4 +1,3 @@
-
 import { format } from 'date-fns';
 import { useNavigate } from 'react-router-dom';
 import { formatPainArea, formatMechanism, formatDifferential } from '../FormatHelpers';
@@ -23,10 +22,10 @@ interface AssessmentAccordionItemProps {
   onDeleteAssessment: (id: string) => void;
 }
 
-export const AssessmentAccordionItem = ({ 
-  assessment, 
-  onOpenFollowUp, 
-  onDeleteAssessment 
+export const AssessmentAccordionItem = ({
+  assessment,
+  onOpenFollowUp,
+  onDeleteAssessment
 }: AssessmentAccordionItemProps) => {
   const navigate = useNavigate();
 
@@ -102,6 +101,47 @@ export const AssessmentAccordionItem = ({
     }
   }
 
+  // NEW: Track state of end/start program change for immediate UI feedback
+  const [programEndedAt, setProgramEndedAt] = useState<Date | null>(
+    assessment.program_ended_at ? new Date(assessment.program_ended_at) : null
+  );
+  const [loadingEnd, setLoadingEnd] = useState(false);
+  const [loadingRenew, setLoadingRenew] = useState(false);
+
+  // Track start date, fallback to assessment timestamp
+  const programStartDate: Date =
+    assessment.program_start_date
+      ? new Date(assessment.program_start_date)
+      : new Date(assessment.timestamp);
+
+  // Actions to end or renew program in DB
+  const handleEndProgram = async () => {
+    setLoadingEnd(true);
+    const now = new Date();
+    const { error } = await supabase
+      .from('user_assessments')
+      .update({ program_ended_at: now.toISOString() })
+      .eq('id', assessment.id);
+
+    if (!error) {
+      setProgramEndedAt(now);
+    }
+    setLoadingEnd(false);
+  };
+
+  const handleRenewProgram = async () => {
+    setLoadingRenew(true);
+    const { error } = await supabase
+      .from('user_assessments')
+      .update({ program_ended_at: null })
+      .eq('id', assessment.id);
+
+    if (!error) {
+      setProgramEndedAt(null);
+    }
+    setLoadingRenew(false);
+  };
+
   return (
     <AccordionItem key={assessment.id} value={assessment.id}>
       <AccordionTrigger className="px-4 py-4 hover:bg-gray-50 rounded-lg">
@@ -121,6 +161,47 @@ export const AssessmentAccordionItem = ({
         </div>
       </AccordionTrigger>
       <AccordionContent className="px-4 pb-4">
+
+        {/* NEW: Program start/end controls */}
+        <div className="mb-3 flex flex-col sm:flex-row sm:items-center gap-2">
+          <div>
+            <span className="font-medium text-gray-600">
+              Začiatok programu:
+            </span>
+            <span className="ml-2 text-blue-800 font-medium">
+              {format(programStartDate, "dd.MM.yyyy")}
+            </span>
+          </div>
+
+          <div className="flex gap-2 mt-2 sm:mt-0">
+            {!programEndedAt ? (
+              <Button
+                size="sm"
+                variant="destructive"
+                onClick={handleEndProgram}
+                disabled={loadingEnd}
+              >
+                {loadingEnd ? "Ukladanie..." : "Ukončiť program"}
+              </Button>
+            ) : (
+              <>
+                <Button size="sm" disabled variant="outline" className="text-green-700 border-green-500 bg-green-50">
+                  Ukončené
+                </Button>
+                <Button
+                  size="sm"
+                  variant="default"
+                  onClick={handleRenewProgram}
+                  disabled={loadingRenew}
+                  className="border-blue-500"
+                >
+                  {loadingRenew ? "Obnovujem..." : "Obnoviť program"}
+                </Button>
+              </>
+            )}
+          </div>
+        </div>
+        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
           <AssessmentDetails
             assessment={assessment}

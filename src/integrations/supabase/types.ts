@@ -254,6 +254,8 @@ export type Database = {
           pain_area: string
           primary_differential: string
           primary_mechanism: string
+          program_ended_at: string | null
+          program_start_date: string | null
           sin_group: string
           timestamp: string
           user_id: string
@@ -264,6 +266,8 @@ export type Database = {
           pain_area: string
           primary_differential: string
           primary_mechanism: string
+          program_ended_at?: string | null
+          program_start_date?: string | null
           sin_group: string
           timestamp?: string
           user_id: string
@@ -274,6 +278,8 @@ export type Database = {
           pain_area?: string
           primary_differential?: string
           primary_mechanism?: string
+          program_ended_at?: string | null
+          program_start_date?: string | null
           sin_group?: string
           timestamp?: string
           user_id?: string
