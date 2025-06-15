@@ -36,7 +36,7 @@ export const AssessmentAccordionItem = ({
     assessment.initial_pain_level ?? null
   );
 
-  // End/renew logic hook
+  // End/renew logic hook - always pass the UI end handler
   const {
     programEndedAt,
     isEnded,
@@ -44,7 +44,13 @@ export const AssessmentAccordionItem = ({
     loadingRenew,
     handleEndProgram,
     handleRenewProgram
-  } = useProgramEndRenew(assessment, onEndProgram, onRenew);
+  } = useProgramEndRenew(assessment, 
+      // This handler will run when program is ended; ensure UI moves item immediately
+      () => {
+        if (onEndProgram) onEndProgram();
+      },
+      onRenew
+  );
 
   const programStartDate: Date =
     assessment.program_start_date
