@@ -65,13 +65,15 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           videoId: 'tIZppe-RB0g',
           title: 'McKenzie záklony',
           description: 'Postup:\n➜ uložte sa na brucho s rukami podľa videa\n➜ dlaňami odtlačte trup od podložky do záklonu\n➜ upozornenie: držte zadok uvoľnený, nezatínajte sedacie svaly!\n➜ zakláňajte sa iba do bodu, pokiaľ je pohyb komfortný a nespôsobuje vám viac bolesti\nOPAKOVANIA: 10x / 4-5x denne',
-          importance: 1
+          importance: 1,
+          mainGroup: ["mobility", "pain-relief"],
         },
         {
           videoId: '3A27NLPe2bs',
           title: 'Neurodynamika sedacieho nervu',
           description: 'Popis vo videu.\n ➜ OPAKOVANIA: 15x / 3-5x denne\n ➜ UPOZORNENIE: ihneď po cvičení môžete pociťovať mierne trnutie nohy. Malo by prejsť do pól minúty, v opačnom prípade znížte počet opakovaní alebo cvik vynechajte.',
-          importance: 2
+          importance: 2,
+          mainGroup: ["pain-relief", "neuro-mobs"],
         },
         {
           videoId: 'PMJsVceAnnY',
