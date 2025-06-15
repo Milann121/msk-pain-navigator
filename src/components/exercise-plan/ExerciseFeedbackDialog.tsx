@@ -39,6 +39,14 @@ export const ExerciseFeedbackDialog = ({
     (pain === "yes" && painAcceptable === "no") ||
     (wantChange === "yes");
 
+  // Show "Odoslať spätnú väzbu" when answers are at certain combinations:
+  // - (pain === "no" && wantChange === "no") OR
+  // - (pain === "yes" && painAcceptable === "yes" && wantChange === "no")
+  //  - basically: feedback is completed, but not a negative/urgent scenario.
+  const showFeedbackSubmit =
+    (pain === "no" && wantChange === "no") ||
+    (pain === "yes" && painAcceptable === "yes" && wantChange === "no");
+
   // Animation and dialog card styles (fade-in and background)
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -137,6 +145,21 @@ export const ExerciseFeedbackDialog = ({
             </div>
           )}
 
+          {/* Odoslať spätnú väzbu - submit feedback button, POSITIVE/NEUTRAL routes */}
+          {showFeedbackSubmit && (
+            <div className="pt-2">
+              <Button
+                type="button"
+                variant="default"
+                className="w-full flex items-center gap-2 text-base bg-blue-500 hover:bg-blue-600"
+                onClick={() => onOpenChange(false)}
+              >
+                Odoslať spätnú väzbu
+              </Button>
+            </div>
+          )}
+
+          {/* NEGATIVE/ESCALATION route */}
           {showRedButton && (
             <div className="pt-2">
               <Button
