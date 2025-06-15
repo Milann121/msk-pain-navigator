@@ -1,4 +1,5 @@
-import exercisesByDifferential from "../exercisePrograms";
+
+import exercisesByDifferential from "../exercises";
 
 /**
  * Collect all exercises (videos) that target the lower-back.

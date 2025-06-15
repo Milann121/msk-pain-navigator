@@ -1,6 +1,5 @@
-
 import { Exercise } from '@/types/exercise';
-import exercisesByDifferential from '@/data/exercisePrograms';
+import exercisesByDifferential from '@/data/exercises';
 
 interface VideoWithSource {
   videoId: string;
