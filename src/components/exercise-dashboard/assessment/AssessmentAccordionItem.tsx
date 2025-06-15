@@ -85,19 +85,32 @@ export const AssessmentAccordionItem = ({
     }
   }
 
+  // --- 'Ended' state logic starts here ---
+  // Ended/active state: computed from assessment.program_ended_at *or* local justEnded flag
   const [programEndedAt, setProgramEndedAt] = useState<Date | null>(
     assessment.program_ended_at ? new Date(assessment.program_ended_at) : null
   );
   const [loadingEnd, setLoadingEnd] = useState(false);
   const [loadingRenew, setLoadingRenew] = useState(false);
+  // NEW: local flag for "just ended" fast UI updates
+  const [justEnded, setJustEnded] = useState(false);
+
+  // If parent re-renders with the program ended (from DB), reset the justEnded flag
+  useEffect(() => {
+    if (assessment.program_ended_at || programEndedAt) {
+      setJustEnded(false);
+    }
+  }, [assessment.program_ended_at, programEndedAt]);
 
   const programStartDate: Date =
     assessment.program_start_date
       ? new Date(assessment.program_start_date)
       : new Date(assessment.timestamp);
 
+  // Handle ending the program instantly in UI
   const handleEndProgram = async () => {
     setLoadingEnd(true);
+    setJustEnded(true);      // Show as ended in UI immediately!
     const now = new Date();
     const { error } = await supabase
       .from('user_assessments')
@@ -111,6 +124,7 @@ export const AssessmentAccordionItem = ({
     setLoadingEnd(false);
   };
 
+  // Renew logic: after renew, go back to active state UI instantly
   const handleRenewProgram = async () => {
     setLoadingRenew(true);
     const { error } = await supabase
@@ -120,6 +134,7 @@ export const AssessmentAccordionItem = ({
 
     if (!error) {
       setProgramEndedAt(null);
+      setJustEnded(false);
       if (onRenew) onRenew();
     }
     setLoadingRenew(false);
@@ -135,6 +150,9 @@ export const AssessmentAccordionItem = ({
       } 
     });
   };
+
+  // Should this program be shown as ended now?
+  const isEnded = !!programEndedAt || justEnded;
 
   return (
     <AccordionItem key={assessment.id} value={assessment.id}>
@@ -161,7 +179,7 @@ export const AssessmentAccordionItem = ({
                 </span>
               </div>
               <div className="flex flex-row flex-wrap gap-2 mt-2">
-                {!programEndedAt ? (
+                {!isEnded ? (
                   <Button
                     size="sm"
                     variant="destructive"
@@ -192,7 +210,7 @@ export const AssessmentAccordionItem = ({
         </div>
         <AssessmentAccordionActions
           assessment={assessment}
-          programEndedAt={programEndedAt}
+          programEndedAt={isEnded ? (programEndedAt ?? new Date()) : null}
           loadingEnd={loadingEnd}
           loadingRenew={loadingRenew}
           onOpenFollowUp={onOpenFollowUp}
