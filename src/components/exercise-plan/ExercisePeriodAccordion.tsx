@@ -20,6 +20,13 @@ interface ExercisePeriodAccordionProps {
   assessmentId?: string;
 }
 
+// Helper function for Slovak pluralization
+function getCvikLabel(count: number) {
+  if (count === 1) return 'cvik';
+  if (count >= 2 && count <= 4) return 'cviky';
+  return 'cvikov';
+}
+
 export const ExercisePeriodAccordion = ({ 
   exercises, 
   showGeneral, 
@@ -34,7 +41,7 @@ export const ExercisePeriodAccordion = ({
               <h2 className="text-2xl font-bold text-gray-900">{exercise.title}</h2>
               <p className="text-gray-600 mt-2">{exercise.description}</p>
               <div className="mt-3 px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium inline-block">
-                Táto sekcia obsahuje {exercise.videos.length} cvikov
+                Táto sekcia obsahuje {exercise.videos.length} {getCvikLabel(exercise.videos.length)}
               </div>
             </div>
           </AccordionTrigger>
