@@ -1,3 +1,4 @@
+
 import { Exercise } from '@/types/exercise';
 import exercisesByDifferential from '@/data/exercises';
 
@@ -8,6 +9,7 @@ interface VideoWithSource {
   importance?: 1 | 2 | 3;
   sourceProgram?: string;
   mainGroup?: Array<'mobility' | 'stability' | 'pain-relief' | 'neuro-mobs'>;
+  bodyPart?: Array<'neck' | 'middle-back' | 'lower-back'>;
 }
 
 export const generateGeneralProgram = (
@@ -37,6 +39,7 @@ export const generateGeneralProgram = (
             ...video,
             sourceProgram: exercise.title,
             mainGroup: video.mainGroup ?? [],
+            bodyPart: video.bodyPart ?? [], // <-- include bodyPart!
           });
         }
       });
@@ -91,6 +94,7 @@ export const generateGeneralProgram = (
       description: video.description,
       importance: video.importance,
       mainGroup: video.mainGroup ?? [],
+      bodyPart: video.bodyPart ?? [], // <-- pass through bodyPart here!
     }))
   };
 
