@@ -17,33 +17,36 @@ export function AssessmentProgramControls({
   onEnd,
   onRenew,
 }: ProgramControlsProps) {
-  return (
-    <div className="flex flex-row flex-wrap gap-2 mt-2">
-      {!isEnded ? (
+  // If ended, show only green "Ukončené" and "Obnoviť program"
+  if (isEnded) {
+    return (
+      <div className="flex flex-row flex-wrap gap-2 mt-2">
+        <Button size="sm" disabled variant="outline" className="text-green-700 border-green-500 bg-green-50">
+          Ukončené
+        </Button>
         <Button
           size="sm"
-          variant="destructive"
-          onClick={onEnd}
-          disabled={loadingEnd}
+          variant="default"
+          onClick={onRenew}
+          disabled={loadingRenew}
+          className="border-blue-500"
         >
-          {loadingEnd ? "Ukladanie..." : "Ukončiť program"}
+          {loadingRenew ? "Obnovujem..." : "Obnoviť program"}
         </Button>
-      ) : (
-        <>
-          <Button size="sm" disabled variant="outline" className="text-green-700 border-green-500 bg-green-50">
-            Ukončené
-          </Button>
-          <Button
-            size="sm"
-            variant="default"
-            onClick={onRenew}
-            disabled={loadingRenew}
-            className="border-blue-500"
-          >
-            {loadingRenew ? "Obnovujem..." : "Obnoviť program"}
-          </Button>
-        </>
-      )}
+      </div>
+    );
+  }
+  // If not ended, show only red "Ukončiť program"
+  return (
+    <div className="flex flex-row flex-wrap gap-2 mt-2">
+      <Button
+        size="sm"
+        variant="destructive"
+        onClick={onEnd}
+        disabled={loadingEnd}
+      >
+        {loadingEnd ? "Ukladanie..." : "Ukončiť program"}
+      </Button>
     </div>
   );
 }
