@@ -170,12 +170,13 @@ export const AssessmentAccordionItem = ({
             latestPainLevel={latestPainLevel}
             diffIcon={diffIcon}
           />
-          {/* RIGHT: Completion info + start/end/renew just below last completed */}
+          {/* RIGHT: Completion info and actions are now in the same column, left-aligned */}
           <div className="flex flex-col h-full justify-start">
-            {/* Completion info (incl. Posledné cvičenie etc) */}
+            {/* Completion info (Odcvičené, Posledné cvičenie) */}
             <ExerciseCompletionInfo assessmentId={assessment.id} />
-            {/* --- Start date and buttons, RIGHT below completion info, right-aligned --- */}
-            <div className="flex flex-col items-end gap-0 mt-2">
+
+            {/* Start date and buttons now appear directly below the stats, left-aligned */}
+            <div className="flex flex-col gap-0 mt-2">
               <div className="flex items-center gap-2">
                 <span className="font-medium text-gray-600">
                   Začiatok programu:
@@ -184,7 +185,7 @@ export const AssessmentAccordionItem = ({
                   {format(programStartDate, "dd.MM.yyyy")}
                 </span>
               </div>
-              {/* Actions under start date */}
+              {/* Actions (stacked under "Začiatok programu") */}
               <div className="flex flex-row flex-wrap gap-2 mt-2">
                 {!programEndedAt ? (
                   <Button
