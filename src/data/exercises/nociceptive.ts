@@ -7,6 +7,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
     {
       title: 'Program 0-3 týždeň',
       description: 'Cvičenia na redukciu bolesti, ktoré pomáhajú stabilizovať krčnú chrbticu a znížiť tlak na medzistavcové platničky.',
+      mainGroup: [],
       videos: [
         {
           videoId: 'eL5KxSe3c1g',
@@ -31,6 +32,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
     {
       title: 'Program 4-6 týždeň',
       description: 'Prejdite do pokročilejšieho programu na uvoľnenie krčnej chrbtice a zredukujte tlak na vaše platničky',
+      mainGroup: [],
       videos: [
         {
           videoId: 'PK62xMsZfG0',
@@ -53,6 +55,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
     {
       title: 'Pogram cvičení 0-3 týždeň',
       description: 'Základné cvičenia pri pravdepodobnom poškodení platničiek s cieľom redukovať bolesť a zabrániť ďaľšiemu poškodeniu.',
+      mainGroup: [],
       videos: [
         {
           videoId: 'tIZppe-RB0g',
@@ -77,6 +80,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
     {
       title: 'Program cvičení 4-6 týždeň',
       description: 'Pokročilé cvičenia na posilnenie krčnej chrbtice a prevenciu ďaľšieho poškodenia vašich platiničiek.',
+      mainGroup: [],
       videos: [
         {
           videoId: 'Xp33YgPZgns',
@@ -100,6 +104,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
     {
       title: '0-2 týždeň',
       description: 'Cviky na zvýšenie rozsahu pohybu v krku a zníženie bolesti.',
+      mainGroup: [],
       videos: [
         {
           videoId: 'JJq8u5IGDb8',
@@ -124,6 +129,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
     {
       title: '3-5 týždeň',
       description: "Cviky na posilnenie medzilopatkového priestoru a krku + dôraz na prevenciu.",
+      mainGroup: [],
       videos: [
         {
           videoId: 'oVJqu0FEw',
@@ -146,6 +152,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
     {
       title: '0-2 týždeň',
       description: 'Jemné rotačné pohyby pre zlepšenie mobility v hrudnej oblasti a redukciu bolesti.',
+      mainGroup: [],
       videos: [
         {
           videoId: 'oAxVF_ktAi0',
@@ -164,6 +171,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
     {
       title: '3-5 týždeň',
       description: 'Jemné rotačné pohyby pre zlepšenie mobility v hrudnej oblasti a redukciu bolesti.',
+      mainGroup: [],
       videos: [
         {
           videoId: 'oVJqu0FEw-Y',
@@ -192,6 +200,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
     {
       title: '0-3 týždeň',
       description: 'Uvoľnenie svalov drieku a zvýšenie mobility',
+      mainGroup: [],
       videos: [
         {
           videoId: 'L1Mf3NxYwgY',
@@ -216,6 +225,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
     {  
       title: '4-6 týždeň',
       description: 'Posilnite oblasť sedacích svalov a predídite preťaženiu drieku.',
+      mainGroup: [],
       videos: [
         {
           videoId: 'Xp33YgPZgns',
@@ -226,9 +236,9 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
         {
           videoId: 'dVjfUlXK93k',
           title:'Drepy do 90 stupňov',
-          description: 'Postavte sa s nohami na na šírku ramien.\n ➜ Drep vykonávajte max. do 90 stupňov ohnutia kolien a bez prehýbania sa v chrtbte. \n ➜ OPAKOVANIA: 10x /3 série / 1x denne',
+          description: 'Postavte sa s nohami na na šírku ramien. \n ➜ Drep vykonávajte max. do 90 stupňov ohnutia kolien a bez prehýbania sa v chrtbte. \n ➜ OPAKOVANIA: 10x /3 série / 1x denne',
           importance: 2
-        },
+        }
       ]
     }
   ],
@@ -238,6 +248,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
     {
       title: '0-2 týždeň',
       description: 'Stabilizačné cvičenia pre SI kĺb.',
+      mainGroup: [],
       videos: [
         {
           videoId: 'Wan8QnjTmiQ',
@@ -256,6 +267,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
     {
       title: '3-6 týždeň',
       description: 'Posilnenie svalov zadku a chrbta.',
+      mainGroup: [],
       videos: [
         {
           videoId: 'BnWLb1h6kfQ',
@@ -273,6 +285,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
     {
       title: 'Základné cvičenia pre krčnú chrbticu',
       description: 'Všeobecné cvičenia na posilnenie a mobilizáciu krčnej chrbtice.',
+      mainGroup: [],
       videos: [
         {
           videoId: '844ILxo5xsA',
@@ -301,6 +314,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
     {
       title: 'Základné cvičenia na hrudnú chrbticu',
       description: 'Všeobecné cvičenia na posilnenie a mobilizáciu hrudnej chrbtice.',
+      mainGroup: [],
       videos: [
         {
           videoId: 'PK62xMsZfG0',
@@ -329,6 +343,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
     {
       title: 'Základné cvičenia na drekovú chrbticu',
       description: 'Základné cvičenia na posilnenie a mobilizáciu driekovej chrbtice',
+      mainGroup: [],
       videos: [
         {
           videoId: 'PMJsVceAnnY',

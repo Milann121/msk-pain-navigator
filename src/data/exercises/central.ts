@@ -1,4 +1,3 @@
-
 import { Exercise } from "@/types/exercise";
 
 export const centralExercises: Record<string, Exercise[]> = {
@@ -8,6 +7,7 @@ export const centralExercises: Record<string, Exercise[]> = {
     {
       title: 'Všeobecné cvičenie na zníženie bolestí krčnej chrbtice',
       description: '',
+      mainGroup: [],
       videos: [
         {
           videoId: '844ILxo5xsA',
@@ -36,11 +36,12 @@ export const centralExercises: Record<string, Exercise[]> = {
     {
       title: 'Všeobecné cvičenie pre zníženie bolesti v hrudnej chrbtici',
       description: '',
+      mainGroup: [],
       videos: [
         {
           videoId: 'PK62xMsZfG0',
           title: 'Modlenie - uvoľnenie krku a lopatiek',
-          description: 'Spojte dlane a lakte v 90 stupňovom uhle v lakti a ramenách. So sústavným spojením pomaly zdvíhajte lakte vyššie, ale stále DRŽTE SPOJENÉ lakte aj dlane. UPOZORNENIE: snažte sa, aby vám prsty stále smerovali do stropu. OPAKOVANIA: 20 sekúnd / 2x za sebou / 2x denne.',
+          description: 'Spojte dlane a lakte v 90 stupňovom uhle v lakti a ramenách. So sústavným spojením pomaly zdvíhajte lakte vyššie, ale stále DRŽTE SPOJENÉ lakte aj dlane. UPOZORNENIE: snažte sa, aby vám prsty smerovali do stropu. OPAKOVANIA: 20 sekúnd / 2x za sebou / 2x denne.',
           importance: 1
         },
         {
@@ -70,6 +71,7 @@ export const centralExercises: Record<string, Exercise[]> = {
     {
       title: 'Všeobecné cvičenie pre zníženie bolesti v driekovej chrbtici',
       description: '',
+      mainGroup: [],
       videos: [
         {
         videoId: 'PMJsVceAnnY',
@@ -100,6 +102,7 @@ export const centralExercises: Record<string, Exercise[]> = {
     {
       title: 'Základné cvičenia pre centrálnu senzitizáciu - krk',
       description: 'Relaxačné a dychové cvičenia pre zníženie citlivosti na bolesť v krčnej oblasti.',
+      mainGroup: [],
       videos: [
         {
           videoId: 'dQw4w9WgXcQ',
@@ -116,6 +119,7 @@ export const centralExercises: Record<string, Exercise[]> = {
     {
       title: 'Základné cvičenia pre centrálnu senzitizáciu - hrudník',
       description: 'Relaxačné a dychové cvičenia pre zníženie citlivosti na bolesť v hrudnej oblasti.',
+      mainGroup: [],
       videos: [
         {
           videoId: 'dQw4w9WgXcQ',
@@ -132,6 +136,7 @@ export const centralExercises: Record<string, Exercise[]> = {
     {
       title: 'Základné cvičenia pre centrálnu senzitizáciu - driek',
       description: 'Relaxačné a dychové cvičenia pre zníženie citlivosti na bolesť v driekovej oblasti.',
+      mainGroup: [],
       videos: [
         {
           videoId: 'dQw4w9WgXcQ',

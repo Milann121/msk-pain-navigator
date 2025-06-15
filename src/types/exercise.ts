@@ -2,6 +2,7 @@
 export interface Exercise {
   title: string;
   description: string;
+  mainGroup: Array<'mobility' | 'stability' | 'pain relief'>;
   videos: Array<{
     videoId: string;
     title?: string;
