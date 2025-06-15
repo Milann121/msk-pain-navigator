@@ -9,6 +9,9 @@ import { AssessmentDetails } from "./AssessmentDetails";
 import { ExerciseCompletionInfo } from "./ExerciseCompletionInfo";
 import { Button } from "@/components/ui/button";
 import { ArrowUp, ArrowDown } from "lucide-react";
+import { useLatestPainLevel } from "./useLatestPainLevel";
+import { useProgramEndRenew } from "./useProgramEndRenew";
+import { AssessmentProgramControls } from "./AssessmentProgramControls";
 
 interface AssessmentAccordionItemProps {
   assessment: UserAssessment;
@@ -27,117 +30,26 @@ export const AssessmentAccordionItem = ({
 }: AssessmentAccordionItemProps) => {
   const navigate = useNavigate();
 
-  // Fetched pain level
-  const [latestPainLevel, setLatestPainLevel] = useState<number | null>(null);
-  const [lastPainDate, setLastPainDate] = useState<string | null>(null);
-  const [initialPainLevel, setInitialPainLevel] = useState<number | null>(
+  // Pain level hook
+  const { latestPainLevel, diffIcon } = useLatestPainLevel(
+    assessment.id,
     assessment.initial_pain_level ?? null
   );
 
-  useEffect(() => {
-    async function fetchLatestPainLevel() {
-      try {
-        const { data, error } = await supabase
-          .rpc('get_latest_pain_level', {
-            assessment_id_param: assessment.id,
-            user_id_param: null
-          });
-
-        if (!error && data && Array.isArray(data) && data.length > 0) {
-          setLatestPainLevel(data[0].pain_level ?? null);
-          setLastPainDate(data[0].created_at ?? null);
-        } else {
-          const { data: responses, error: respErr } = await supabase
-            .from('follow_up_responses')
-            .select('pain_level, created_at')
-            .eq('assessment_id', assessment.id)
-            .order('created_at', { ascending: false })
-            .limit(1);
-
-          if (!respErr && responses && responses.length > 0) {
-            setLatestPainLevel(responses[0].pain_level ?? null);
-            setLastPainDate(responses[0].created_at ?? null);
-          } else {
-            setLatestPainLevel(null);
-            setLastPainDate(null);
-          }
-        }
-      } catch (e) {
-        setLatestPainLevel(null);
-        setLastPainDate(null);
-      }
-    }
-
-    fetchLatestPainLevel();
-  }, [assessment.id]);
-  
-  let diffIcon = null;
-  if (
-    typeof latestPainLevel === 'number' &&
-    typeof initialPainLevel === 'number' &&
-    latestPainLevel !== initialPainLevel
-  ) {
-    if (latestPainLevel > initialPainLevel) {
-      diffIcon = <ArrowUp className="h-3 w-3 inline ml-1 text-red-500" />;
-    } else if (latestPainLevel < initialPainLevel) {
-      diffIcon = <ArrowDown className="h-3 w-3 inline ml-1 text-green-600" />;
-    }
-  }
-
-  // --- 'Ended' state logic starts here ---
-  // Ended/active state: computed from assessment.program_ended_at *or* local justEnded flag
-  const [programEndedAt, setProgramEndedAt] = useState<Date | null>(
-    assessment.program_ended_at ? new Date(assessment.program_ended_at) : null
-  );
-  const [loadingEnd, setLoadingEnd] = useState(false);
-  const [loadingRenew, setLoadingRenew] = useState(false);
-  // NEW: local flag for "just ended" fast UI updates
-  const [justEnded, setJustEnded] = useState(false);
-
-  // If parent re-renders with the program ended (from DB), reset the justEnded flag
-  useEffect(() => {
-    if (assessment.program_ended_at || programEndedAt) {
-      setJustEnded(false);
-    }
-  }, [assessment.program_ended_at, programEndedAt]);
+  // End/renew logic hook
+  const {
+    programEndedAt,
+    isEnded,
+    loadingEnd,
+    loadingRenew,
+    handleEndProgram,
+    handleRenewProgram
+  } = useProgramEndRenew(assessment, onEndProgram, onRenew);
 
   const programStartDate: Date =
     assessment.program_start_date
       ? new Date(assessment.program_start_date)
       : new Date(assessment.timestamp);
-
-  // Handle ending the program instantly in UI
-  const handleEndProgram = async () => {
-    setLoadingEnd(true);
-    setJustEnded(true);      // Show as ended in UI immediately!
-    const now = new Date();
-    const { error } = await supabase
-      .from('user_assessments')
-      .update({ program_ended_at: now.toISOString() })
-      .eq('id', assessment.id);
-
-    if (!error) {
-      setProgramEndedAt(now);
-      if (onEndProgram) onEndProgram();
-    }
-    setLoadingEnd(false);
-  };
-
-  // Renew logic: after renew, go back to active state UI instantly
-  const handleRenewProgram = async () => {
-    setLoadingRenew(true);
-    setProgramEndedAt(null);
-    setJustEnded(false); // <--- Ensure "active" UI shows instantly!
-    const { error } = await supabase
-      .from('user_assessments')
-      .update({ program_ended_at: null })
-      .eq('id', assessment.id);
-
-    if (!error) {
-      if (onRenew) onRenew();
-    }
-    setLoadingRenew(false);
-  };
 
   const handleViewExercises = () => {
     navigate('/exercise-plan', { 
@@ -149,9 +61,6 @@ export const AssessmentAccordionItem = ({
       } 
     });
   };
-
-  // Should this program be shown as ended now?
-  const isEnded = !!programEndedAt || justEnded;
 
   return (
     <AccordionItem key={assessment.id} value={assessment.id}>
@@ -177,33 +86,13 @@ export const AssessmentAccordionItem = ({
                   {programStartDate ? programStartDate.toLocaleDateString("sk-SK") : ""}
                 </span>
               </div>
-              <div className="flex flex-row flex-wrap gap-2 mt-2">
-                {!isEnded ? (
-                  <Button
-                    size="sm"
-                    variant="destructive"
-                    onClick={handleEndProgram}
-                    disabled={loadingEnd}
-                  >
-                    {loadingEnd ? "Ukladanie..." : "Ukončiť program"}
-                  </Button>
-                ) : (
-                  <>
-                    <Button size="sm" disabled variant="outline" className="text-green-700 border-green-500 bg-green-50">
-                      Ukončené
-                    </Button>
-                    <Button
-                      size="sm"
-                      variant="default"
-                      onClick={handleRenewProgram}
-                      disabled={loadingRenew}
-                      className="border-blue-500"
-                    >
-                      {loadingRenew ? "Obnovujem..." : "Obnoviť program"}
-                    </Button>
-                  </>
-                )}
-              </div>
+              <AssessmentProgramControls
+                isEnded={isEnded}
+                loadingEnd={loadingEnd}
+                loadingRenew={loadingRenew}
+                onEnd={handleEndProgram}
+                onRenew={handleRenewProgram}
+              />
             </div>
           </div>
         </div>
