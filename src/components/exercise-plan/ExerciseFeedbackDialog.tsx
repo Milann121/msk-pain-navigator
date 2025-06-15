@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import {
   Dialog,
@@ -168,7 +167,7 @@ export const ExerciseFeedbackDialog = ({
                 className="w-full flex items-center gap-2 text-base"
                 onClick={() => {
                   onOpenChange(false);
-                  onChangeRequest && onChangeRequest();
+                  onChangeRequest && onChangeRequest(); // Show replace dialog
                 }}
               >
                 <CheckCircle className="text-white" size={20} strokeWidth={2.4} />

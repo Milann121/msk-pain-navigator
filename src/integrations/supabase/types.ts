@@ -101,6 +101,33 @@ export type Database = {
         }
         Relationships: []
       }
+      exercise_feedback: {
+        Row: {
+          created_at: string
+          exercise_title: string
+          feedback_value: number
+          id: string
+          user_id: string
+          video_id: string
+        }
+        Insert: {
+          created_at?: string
+          exercise_title: string
+          feedback_value: number
+          id?: string
+          user_id: string
+          video_id: string
+        }
+        Update: {
+          created_at?: string
+          exercise_title?: string
+          feedback_value?: number
+          id?: string
+          user_id?: string
+          video_id?: string
+        }
+        Relationships: []
+      }
       favorite_blogs: {
         Row: {
           blog_description: string | null
