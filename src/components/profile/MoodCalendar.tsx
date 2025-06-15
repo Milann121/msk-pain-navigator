@@ -8,6 +8,8 @@ import { MoodCalendarView } from './mood/MoodCalendarView';
 import { MoneySavings } from './MoneySavings';
 import { GeneralProgram } from './GeneralProgram';
 import { useMoodData } from './mood/useMoodData';
+import { Info } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 // Map mood string to value
 const moodValueMap = {
@@ -102,7 +104,25 @@ export const MoodCalendar = () => {
             />
             {/* Mood Score/Status */}
             <div className="mt-6 w-full flex flex-col items-center">
-              <div className="text-sm text-gray-500 mb-1">Priemerné skóre za 7 dní</div>
+              <div className="text-sm text-gray-500 mb-1 flex items-center gap-1">
+                Priemerné skóre za 7 dní
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <span className="ml-1 cursor-pointer">
+                        <Info size={16} className="text-gray-400 hover:text-blue-600" />
+                      </span>
+                    </TooltipTrigger>
+                    <TooltipContent side="top" className="max-w-xs">
+                      <span>
+                        Priemerné skóre z posledných 7 dní vychádza z vašich denných zápisov nálady.<br />
+                        <span className="font-medium">Dobre = 3, Neutrálne = 2, Zle = 1.</span><br />
+                        Sledujte, ako sa vaše celkové skóre mení v čase.
+                      </span>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+              </div>
               <div className="flex items-center text-2xl font-bold space-x-2">
                 <span>{formatScore(moodScore)}</span>
                 <span className={`${trendColor}`}>{trendIcon}</span>
