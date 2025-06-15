@@ -161,9 +161,17 @@ export const AssessmentAccordionItem = ({
         </div>
       </AccordionTrigger>
       <AccordionContent className="px-4 pb-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+          <AssessmentDetails
+            assessment={assessment}
+            latestPainLevel={latestPainLevel}
+            diffIcon={diffIcon}
+          />
+          <ExerciseCompletionInfo assessmentId={assessment.id} />
+        </div>
 
-        {/* NEW: Program start/end controls */}
-        <div className="mb-3 flex flex-col sm:flex-row sm:items-center gap-2">
+        {/* Moved START: Program controls below completion info */}
+        <div className="mt-2 flex flex-col sm:flex-row sm:items-center gap-2">
           <div>
             <span className="font-medium text-gray-600">
               Začiatok programu:
@@ -201,16 +209,8 @@ export const AssessmentAccordionItem = ({
             )}
           </div>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-          <AssessmentDetails
-            assessment={assessment}
-            latestPainLevel={latestPainLevel}
-            diffIcon={diffIcon}
-          />
-          <ExerciseCompletionInfo assessmentId={assessment.id} />
-        </div>
-        
+        {/* Moved END */}
+
         <div className="flex flex-wrap justify-end gap-2 mt-4">
           <Button 
             variant="outline" 
