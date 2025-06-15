@@ -1,5 +1,5 @@
 
-import exercisesByDifferential from "@/data/exercisePrograms";
+import exercisesByDifferential from "../exercisePrograms";
 
 /**
  * Collect all exercises (videos) that target the lower-back.
@@ -40,3 +40,4 @@ export function getLowerBackExercises() {
 }
 
 export const lowerBackExercises = getLowerBackExercises();
+
