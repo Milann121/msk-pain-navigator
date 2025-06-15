@@ -22,12 +22,14 @@ interface AssessmentAccordionItemProps {
   assessment: UserAssessment;
   onOpenFollowUp: (assessment: UserAssessment) => void;
   onDeleteAssessment: (id: string) => void;
+  onRenew?: () => void; // New prop: called after program is renewed
 }
 
 export const AssessmentAccordionItem = ({
   assessment,
   onOpenFollowUp,
-  onDeleteAssessment
+  onDeleteAssessment,
+  onRenew
 }: AssessmentAccordionItemProps) => {
   const navigate = useNavigate();
 
@@ -140,6 +142,8 @@ export const AssessmentAccordionItem = ({
 
     if (!error) {
       setProgramEndedAt(null);
+      // Notify parent that renewal happened & UI should reflect it
+      if (onRenew) onRenew();
     }
     setLoadingRenew(false);
   };
@@ -170,12 +174,11 @@ export const AssessmentAccordionItem = ({
             latestPainLevel={latestPainLevel}
             diffIcon={diffIcon}
           />
-          {/* RIGHT: Completion info and actions are now in the same column, left-aligned */}
+          {/* RIGHT: Completion info and actions */}
           <div className="flex flex-col h-full justify-start">
-            {/* Completion info (Odcvičené, Posledné cvičenie) */}
+            {/* Completion info */}
             <ExerciseCompletionInfo assessmentId={assessment.id} />
 
-            {/* Start date and buttons now appear directly below the stats, left-aligned */}
             <div className="flex flex-col gap-0 mt-2">
               <div className="flex items-center gap-2">
                 <span className="font-medium text-gray-600">
@@ -254,3 +257,5 @@ export const AssessmentAccordionItem = ({
     </AccordionItem>
   );
 };
+
+// NOTE: This file is now quite long (>250 lines). Consider refactoring to smaller components!

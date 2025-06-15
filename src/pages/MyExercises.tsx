@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Navigate, useNavigate } from 'react-router-dom';
@@ -21,6 +20,22 @@ const MyExercises = () => {
   const { assessments, loading, handleDeleteAssessment, refreshAssessments } = useAssessments();
   const [selectedAssessment, setSelectedAssessment] = React.useState<UserAssessment | null>(null);
 
+  // State for which active assessment accordion item is open
+  const [openedActiveAccordionId, setOpenedActiveAccordionId] = React.useState<string | undefined>(undefined);
+
+  // Split assessments into active and ended programs
+  const [activeAssessments, setActiveAssessments] = React.useState<UserAssessment[]>([]);
+  const [endedAssessments, setEndedAssessments] = React.useState<UserAssessment[]>([]);
+
+  // When assessments load/update, split them by ended/active
+  React.useEffect(() => {
+    const active = assessments.filter(a => !a.program_ended_at);
+    const ended = assessments.filter(a => !!a.program_ended_at);
+    setActiveAssessments(active);
+    setEndedAssessments(ended);
+  }, [assessments]);
+
+  // Re-fetch assessments on login or explicit refresh
   React.useEffect(() => {
     if (user) {
       refreshAssessments();
@@ -34,6 +49,17 @@ const MyExercises = () => {
   const handleCloseFollowUp = () => {
     setSelectedAssessment(null);
     refreshAssessments();
+  };
+
+  // Handler passed to AccordionItem: on renew, move to active and expand
+  const handleRenewAssessmentUI = (renewedId: string) => {
+    // Find in ended assessments
+    const renewed = endedAssessments.find(a => a.id === renewedId);
+    if (!renewed) return;
+    // Remove from ended and add to active (simulate immediate effect)
+    setEndedAssessments(endedAssessments.filter(a => a.id !== renewedId));
+    setActiveAssessments([renewed, ...activeAssessments]);
+    setOpenedActiveAccordionId(renewedId); // expand the renewed item
   };
 
   if (isLoading) {
@@ -51,10 +77,6 @@ const MyExercises = () => {
     return <Navigate to="/auth" replace />;
   }
   
-  // Split assessments into active and ended programs
-  const activeAssessments = assessments.filter(a => !a.program_ended_at);
-  const endedAssessments = assessments.filter(a => !!a.program_ended_at);
-
   // Get the latest ACTIVE assessment ID for the calendar
   const latestAssessmentId = activeAssessments.length > 0 ? activeAssessments[0].id : undefined;
 
@@ -88,13 +110,20 @@ const MyExercises = () => {
               ) : activeAssessments.length === 0 ? (
                 <EmptyState />
               ) : (
-                <Accordion type="single" collapsible className="w-full space-y-2">
+                <Accordion
+                  type="single"
+                  collapsible
+                  className="w-full space-y-2"
+                  value={openedActiveAccordionId}
+                  onValueChange={setOpenedActiveAccordionId}
+                >
                   {activeAssessments.map((assessment) => (
                     <AssessmentAccordionItem
                       key={assessment.id}
                       assessment={assessment}
                       onOpenFollowUp={handleOpenFollowUp}
                       onDeleteAssessment={handleDeleteAssessment}
+                      // Pass no-op for onRenew (not needed for active)
                     />
                   ))}
                 </Accordion>
@@ -124,13 +153,18 @@ const MyExercises = () => {
               ) : endedAssessments.length === 0 ? (
                 <div className="text-center text-gray-400 py-6">Žiadne ukončené programy.</div>
               ) : (
-                <Accordion type="single" collapsible className="w-full space-y-2">
+                <Accordion
+                  type="single"
+                  collapsible
+                  className="w-full space-y-2"
+                >
                   {endedAssessments.map((assessment) => (
                     <AssessmentAccordionItem
                       key={assessment.id}
                       assessment={assessment}
                       onOpenFollowUp={handleOpenFollowUp}
                       onDeleteAssessment={handleDeleteAssessment}
+                      onRenew={() => handleRenewAssessmentUI(assessment.id)}
                     />
                   ))}
                 </Accordion>
@@ -163,4 +197,3 @@ const MyExercises = () => {
 };
 
 export default MyExercises;
-
