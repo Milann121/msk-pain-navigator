@@ -145,7 +145,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           videoId: 'oVJqu0FEw',
           title: 'Posiľnenie medzilopatkových svalov',
           description: 'Uchyťte odporovú gumu podľa videa. Tieto 3 cviky môžete striedať, alebo si vybrať ktorýkoľvek z nich. \n➜ UPOZORNENIE: pri týchto cvikoch nesmiete pociťovať namáhanie trapézov! Celý čas sa snažte tlačiť lopatky a ramená smerom dole od uší, aby pracovali medzilopatkové svaly. Dbajte na to, aby ste počas vykonávania cvikov viac cítili svaly medzi lopatkami, nie ramená a trapézy - to dosiahnete práve tlačením pliec dole. \n➜ OPAKOVANIA: 10-15x / 3 série / 1x denne.',
-          importance: 1
+          importance: 1,
           mainGroup: ["stability"],
         },
         {
