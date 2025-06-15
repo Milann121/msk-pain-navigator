@@ -14,6 +14,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           description: 'Na tento cvik použite ideálne tenisovú loptičku. Položte si loptičku na trapéz, oprite sa o stenu a masírujte svaly šije ako na videu. V prípade, že nájdete bolestivé miesta, môžete staticky zatlačiť po dobu 20-30 sekúnd. Premasírujte celú oblasť trapézov a medzilopatkového priestoru.',
           importance: 1,
           mainGroup: ["pain-relief"],
+          bodyPart:["neck","middle-back"],
         },
         {
          videoId: 'oVJqu0FEw-Y',
@@ -21,6 +22,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           description: 'Uchyťte odporovú gumu podľa videa. Tieto 3 cviky môžete striedať, alebo si vybrať ktorýkoľvek z nich.\n➜ UPOZORNENIE: pri týchto cvikoch nesmiete pociťovať namáhanie trapézov! Celý čas sa snažte tlačiť lopatky a ramená smerom dole od uší, aby pracovali medzilopatkové svaly. Dbajte na to, aby ste počas vykonávania cvikov viac cítili svaly medzi lopatkami, nie ramená a trapézy - to dosiahnete práve tlačením pliec dole. \n➜ OPAKOVANIA: 10-15x / 3 série / 1x denne. ',
           importance: 2,
           mainGroup: ["stability"],
+          bodyPart:["neck","middle-back"],
         },
         {
           videoId: '5NPvv40gd3Q',
@@ -28,6 +30,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           description: 'Oprite ruky o stenu širšie ako sú vaše ramená. Odstúpte 1 krok od steny (čím budete ďalej od steny, tým budú kliky ťažšie). Dbajte, aby vaše ruky boli opreté v úrovni nižšie ako sú vaše ramená.\n➜ UPOZORNENIE: Počas cviku sa neprehýbajte v driekovej chrbtici, ale držte pevný trup. Počas cviku nezdvíhajte ramená, aby vám netuhli trapézy, ale snažte sa tlačiť lopatky smerom dole.\n➜ OPAKOVANIA: 8-15 klikov / 3 série.',
           importance: 3,
           mainGroup: ["stability"],
+          bodyPart:["neck","middle-back"],
         }
       ]
     }
@@ -45,6 +48,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           description: 'Spojte dlane a lakte v 90 stupňovom uhle v lakti a ramenách. So sústavným spojením pomaly zdvíhajte lakte vyššie, ale stále DRŽTE SPOJENÉ lakte aj dlane. UPOZORNENIE: snažte sa, aby vám prsty smerovali do stropu. OPAKOVANIA: 20 sekúnd / 2x za sebou / 2x denne.',
           importance: 1,
           mainGroup: ["mobility"],
+          bodyPart:["middle-back"],
         },
         {
           videoId: 'dxzegzGNdaU',
@@ -52,6 +56,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           description: 'Uložte si loptičku do medzilopatkového priestoru a vertikálnym pohybom uvoľnite bolestivé a stuhnuté svaly.\n ➜ OPAKOVANIA: kedykoľvek v priebehu dňa.',
           importance: 2,
           mainGroup: ["pain-relief"],
+          bodyPart:["neck","middle-back"],
         },
         {
           videoId: 'OKsRn5e2VJY',
@@ -59,6 +64,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           description: 'Týmto cvikom zvýšite mobilitu hrudníka.\n ➜ Uložte sa na bok, pokrčte nohy a spojte dlane pred seba. Spolu s končatinou uloženou na vrchu sa za výdychu vyrotujte do opačnej strany. Hlava by mala celý čas nasledovať ruku. V tejto polohe zotrvajte 3 sekundy.\n ➜ OPAKOVANIA: 5x do každej strany, kedykoľvek v priebehu dňa.',
           importance: 3,
           mainGroup: ["mobility"],
+          bodyPart:["middle-back"],
         },
         {
           videoId: 'oVJqu0FEw-Y',
@@ -66,6 +72,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           description: 'Uchyťte odporovú gumu podľa videa. Tieto 3 cviky môžete striedať, alebo si vybrať ktorýkoľvek z nich. \n➜ UPOZORNENIE: pri týchto cvikoch nesmiete pociťovať namáhanie trapézov! Celý čas sa snažte tlačiť lopatky a ramená smerom dole od uší, aby pracovali medzilopatkové svaly. Dbajte na to, aby ste počas vykonávania cvikov viac cítili svaly medzi lopatkami, nie ramená a trapézy - to dosiahnete práve tlačením pliec dole. \n➜ OPAKOVANIA: 10-15x / 3 série / 1x denne. ',
           importance: 2,
           mainGroup: ["stability"],
+          bodyPart:["middle-back"],
         }
       ]
     }
@@ -83,6 +90,7 @@ export const centralExercises: Record<string, Exercise[]> = {
         description: 'Popis vo videu.\nOPAKOVANIA: 5x denne.',
         importance: 1,
         mainGroup: ["mobility","pain-relief"],
+        bodyPart:["lower-back"],
         },
         {
           videoId: 'Xp33YgPZgns',
@@ -90,6 +98,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           description: 'Ľahnite si na chrbát a uložte pokrčené nohy na šírku ramien.\n ➜ Ruky uložte pozdĺž tela. \n ➜ Zaprite sa chodidlami do podložky a zdvihnite zadok nad podložku, do výšky kedy vyrovnáte chrbát \n ➜ Následne pomaly spustite zadok tesne nad podložku a zopakujte znovu \n ➜ OPAKOVANIA: 8-12x /4 série / 1x denne',
           importance: 2,
           mainGroup: ["stability"],
+          bodyPart:["lower-back"],
         },
         {
           videoId: 'dVjfUlXK93k',
@@ -97,6 +106,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           description: 'Postavte sa s nohami na na šírku ramien. \n ➜ Drep vykonávajte max. do 90 stupňov ohnutia kolien a bez prehýbania sa v chrtbte. \n ➜ OPAKOVANIA: 10x /3 série / 1x denne',
           importance: 3,
           mainGroup: ["stability"],
+          bodyPart:["lower-back"],
         }
       ]
     },
@@ -116,6 +126,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           description: 'Na tento cvik použite ideálne tenisovú loptičku. Položte si loptičku na trapéz, oprite sa o stenu a masírujte svaly šije ako na videu. V prípade, že nájdete bolestivé miesta, môžete staticky zatlačiť po dobu 20-30 sekúnd. Premasírujte celú oblasť trapézov a medzilopatkového priestoru.',
           importance: 1,
           mainGroup: ["pain-relief"],
+          bodyPart:["neck","middle-back"],
         },
         {
          videoId: 'oVJqu0FEw-Y',
@@ -123,6 +134,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           description: 'Uchyťte odporovú gumu podľa videa. Tieto 3 cviky môžete striedať, alebo si vybrať ktorýkoľvek z nich.\n➜ UPOZORNENIE: pri týchto cvikoch nesmiete pociťovať namáhanie trapézov! Celý čas sa snažte tlačiť lopatky a ramená smerom dole od uší, aby pracovali medzilopatkové svaly. Dbajte na to, aby ste počas vykonávania cvikov viac cítili svaly medzi lopatkami, nie ramená a trapézy - to dosiahnete práve tlačením pliec dole. \n➜ OPAKOVANIA: 10-15x / 3 série / 1x denne. ',
           importance: 2,
           mainGroup: ["stability"],
+          bodyPart:["neck","middle-back"],
         },
         {
           videoId: '5NPvv40gd3Q',
@@ -130,6 +142,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           description: 'Oprite ruky o stenu širšie ako sú vaše ramená. Odstúpte 1 krok od steny (čím budete ďalej od steny, tým budú kliky ťažšie). Dbajte, aby vaše ruky boli opreté v úrovni nižšie ako sú vaše ramená.\n➜ UPOZORNENIE: Počas cviku sa neprehýbajte v driekovej chrbtici, ale držte pevný trup. Počas cviku nezdvíhajte ramená, aby vám netuhli trapézy, ale snažte sa tlačiť lopatky smerom dole.\n➜ OPAKOVANIA: 8-15 klikov / 3 série.',
           importance: 3,
           mainGroup: ["stability"],
+          bodyPart:["neck","middle-back"],
         }
       ]
     }
@@ -138,32 +151,57 @@ export const centralExercises: Record<string, Exercise[]> = {
   //MIDDLE BACK ✅
   'central-default-middle back': [
     {
-      title: 'Všeobecné cvičenie pre zníženie bolesti v driekovej chrbtici',
-      description: '',
+      title: '0-2 týždeň',
+      description: 'Jemné rotačné pohyby pre zlepšenie mobility v hrudnej oblasti a redukciu bolesti.',
       videos: [
         {
-        videoId: 'PMJsVceAnnY',
-        title:'Strečing sedacích svalov.',
-        description: 'Popis vo videu.\nOPAKOVANIA: 5x denne.',
-        importance: 1,
-        mainGroup: ["mobility","pain-relief"],
+          videoId: 'oAxVF_ktAi0',
+          title: 'Rotácia hrudníku so záklonom',
+          description: 'Posaďte sa a ruky uložte za hlavu.\n ➜ Pomaly sa vytočte v hrudnej chrbtici do strany do rozsahu, ktorý je vám komfortný. V tejto polohe sa zastavte a mierne zakloňte. Následne sa vráťte naspäť a zopakujte cvik do opačnej strany.\n ➜ OPAKOVANIA: zopakujte 5-8x do každej strany, kedykoľvek v priebehu dňa.',
+          importance: 2,
+          mainGroup: ["mobility"],
+          bodyPart:["middle-back"],
         },
         {
-          videoId: 'Xp33YgPZgns',
-          title:'Mostík',
-          description: 'Ľahnite si na chrbát a uložte pokrčené nohy na šírku ramien.\n ➜ Ruky uložte pozdĺž tela. \n ➜ Zaprite sa chodidlami do podložky a zdvihnite zadok nad podložku, do výšky kedy vyrovnáte chrbát \n ➜ Následne pomaly spustite zadok tesne nad podložku a zopakujte znovu \n ➜ OPAKOVANIA: 8-12x /4 série / 1x denne',
+          videoId: 'dxzegzGNdaU',
+          title: 'Masáž hrudnej chrbtice loptičkou',
+          description: 'Uložte si loptičku do medzilopatkového priestoru a vertikálnym pohybom uvoľnite bolestivé a stuhnuté svaly.\n ➜ OPAKOVANIA: kedykoľvek v priebehu dňa.',
+          importance: 1,
+          mainGroup: ["pain-relief"],
+          bodyPart:["middle-back","neck"],
+        },
+      ],
+    },
+    {
+      title: '3-5 týždeň',
+      description: 'Jemné rotačné pohyby pre zlepšenie mobility v hrudnej oblasti a redukciu bolesti.',
+      videos: [
+        {
+          videoId: 'oVJqu0FEw-Y',
+          title: 'Posiľnenie medzilopatkových svalov',
+          description: 'Uchyťte odporovú gumu podľa videa. Tieto 3 cviky môžete striedať, alebo si vybrať ktorýkoľvek z nich. \n➜ UPOZORNENIE: pri týchto cvikoch nesmiete pociťovať namáhanie trapézov! Celý čas sa snažte tlačiť lopatky a ramená smerom dole od uší, aby pracovali medzilopatkové svaly. Dbajte na to, aby ste počas vykonávania cvikov viac cítili svaly medzi lopatkami, nie ramená a trapézy - to dosiahnete práve tlačením pliec dole. \n➜ OPAKOVANIA: 10-15x / 3 série / 1x denne.',
           importance: 2,
           mainGroup: ["stability"],
+          bodyPart:["middle-back","neck"],
         },
         {
-          videoId: 'dVjfUlXK93k',
-          title:'Drepy do 90 stupňov',
-          description: 'Postavte sa s nohami na na šírku ramien. \n ➜ Drep vykonávajte max. do 90 stupňov ohnutia kolien a bez prehýbania sa v chrtbte. \n ➜ OPAKOVANIA: 10x /3 série / 1x denne',
+          videoId: 'rhPOJA3S-IQ',
+          title: 'Záklon hrudnej chrbtice',
+          description: 'Zaprite dlane o stenu, odstúpte od nej aby ste boli v miernom predklone a s výdychom uvoľnite trup do záklonu. Snažte sa mať celý čas zrelaxované ramená, hlavu v predĺžení chrbtice a v polohe záklonu sa 1-2x nadýchnite.\n➜ OPAKOVANIA: Záklon zopakujte 3-4x, kedykoľvek v priebehu dňa. ',
           importance: 3,
-          mainGroup: ["stability"],
+          mainGroup: ["mobility"],
+          bodyPart:["middle-back"],
+        },
+        {
+          videoId: 'OKsRn5e2VJY',
+          title: 'Otváranie knihy',
+          description: 'Týmto cvikom zvýšite mobilitu hrudníka.\n ➜ Uložte sa na bok, pokrčte nohy a spojte dlane pred seba. Spolu s končatinou uloženou na vrchu sa za výdychu vyrotujte do opačnej strany. Hlava by mala celý čas nasledovať ruku. V tejto polohe zotrvajte 3 sekundy.\n ➜ OPAKOVANIA: 5x do každej strany, kedykoľvek v priebehu dňa.',
+          importance: 1,
+          mainGroup: ["mobility"],
+          bodyPart:["middle-back"],
         }
-      ]
-    },
+      ]  
+    }
   ],
 
   //LUMBAR SPINE ✅
@@ -178,6 +216,8 @@ export const centralExercises: Record<string, Exercise[]> = {
         description: 'Popis vo videu.\n ➜ OPAKOVANIA: 5x denne.',
         importance: 1,
         mainGroup: ["mobility","pain-relief"],
+        bodyPart:["lower-back"],
+        
         },
         {
           videoId: 'Xp33YgPZgns',
@@ -185,6 +225,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           description: 'Ľahnite si na chrbát a uložte pokrčené nohy na šírku ramien.\n ➜ Ruky uložte pozdĺž tela. \n ➜ Zaprite sa chodidlami do podložky a zdvihnite zadok nad podložku, do výšky kedy vyrovnáte chrbát \n ➜ Následne pomaly spustite zadok tesne nad podložku a zopakujte znovu \n ➜ OPAKOVANIA: 8-12x /4 série / 1x denne',
           importance: 2,
           mainGroup: ["stability"],
+          bodyPart:["lower-back"],
         },
         {
           videoId: 'dVjfUlXK93k',
@@ -192,6 +233,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           description: 'Postavte sa s nohami na na šírku ramien. \n ➜ Drep vykonávajte max. do 90 stupňov ohnutia kolien a bez prehýbania sa v chrtbte. \n ➜ OPAKOVANIA: 10x /3 série / 1x denne',
           importance: 3,
           mainGroup: ["stability"],
+          bodyPart:["lower-back"],
         }
       ]
     },
