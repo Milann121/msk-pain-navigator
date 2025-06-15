@@ -1,57 +1,27 @@
 
 import React from "react";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Switch } from "@/components/ui/switch";
 
 interface ExerciseGoodToggleProps {
   value: "good" | "not-good";
   onChange: (value: "good" | "not-good") => void;
 }
 
-/**
- * ExerciseGoodToggle: A visually centered toggle for "Áno" and "Nie".
- * Utilizes RadioGroup for accessibility and improved clarity.
- */
-export const ExerciseGoodToggle = ({
-  value,
-  onChange,
-}: ExerciseGoodToggleProps) => {
+export const ExerciseGoodToggle = ({ value, onChange }: ExerciseGoodToggleProps) => {
   return (
-    <RadioGroup
-      value={value}
-      onValueChange={(val: "good" | "not-good") => onChange(val)}
-      className="flex items-center justify-center gap-6"
-      aria-label="Vyhovuje vám cvik?"
-    >
-      <div className="flex items-center space-x-2">
-        <RadioGroupItem
-          value="good"
-          id="good"
-          className="peer"
-        />
-        <label
-          htmlFor="good"
-          className={`cursor-pointer select-none text-base font-medium ${
-            value === "good" ? "text-green-700 font-bold" : "text-gray-700"
-          }`}
-        >
-          Áno
-        </label>
-      </div>
-      <div className="flex items-center space-x-2">
-        <RadioGroupItem
-          value="not-good"
-          id="not-good"
-          className="peer"
-        />
-        <label
-          htmlFor="not-good"
-          className={`cursor-pointer select-none text-base font-medium ${
-            value === "not-good" ? "text-red-700 font-bold" : "text-gray-700"
-          }`}
-        >
-          Nie
-        </label>
-      </div>
-    </RadioGroup>
+    <div className="flex items-center gap-2">
+      <span className={value === "good" ? "text-green-700 font-medium" : "text-gray-700"}>
+        Áno
+      </span>
+      <Switch
+        checked={value === "not-good"}
+        onCheckedChange={(checked) => onChange(checked ? "not-good" : "good")}
+        aria-label="Toggle exercise feedback"
+        className="!bg-gray-200 data-[state=checked]:!bg-red-500"
+      />
+      <span className={value === "not-good" ? "text-red-700 font-medium" : "text-gray-700"}>
+        Nie
+      </span>
+    </div>
   );
 };
