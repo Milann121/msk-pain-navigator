@@ -92,13 +92,15 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           videoId: 'Xp33YgPZgns',
           title:'Mostík',
           description: 'Ľahnite si na chrbát a uložte pokrčené nohy na šírku ramien.\n ➜ Ruky uložte pozdĺž tela. \n ➜ Zaprite sa chodidlami do podložky a zdvihnite zadok nad podložku, do výšky kedy vyrovnáte chrbát \n ➜ Následne pomaly spustite zadok tesne nad podložku a zopakujte znovu \n ➜ OPAKOVANIA: 8-12x /4 série / 1x denne',
-          importance: 1
+          importance: 1,
+          mainGroup: ["stability"],
         },
         {
           videoId: 'dVjfUlXK93k',
           title:'Drepy do 90 stupňov',
           description: 'Postavte sa s nohami na na šírku ramien. \n ➜ Drep vykonávajte max. do 90 stupňov ohnutia kolien a bez prehýbania sa v chrtbte. \n ➜ OPAKOVANIA: 10x /3 série / 1x denne',
-          importance: 2
+          importance: 2,
+          mainGroup: ["stability"],
         }
       ]
     }
