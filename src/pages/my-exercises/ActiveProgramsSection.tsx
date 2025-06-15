@@ -32,7 +32,15 @@ export const ActiveProgramsSection: React.FC<ActiveProgramsSectionProps> = ({
 }) => (
   <Card className="mb-6">
     <CardHeader>
-      <CardTitle>Aktívne programy</CardTitle>
+      <div className="flex items-center gap-2">
+        <span className="relative flex items-center">
+          <span
+            className="breathing-green inline-block w-3 h-3 rounded-full bg-green-500 shadow-md mr-2"
+            aria-label="Aktívne programy"
+          ></span>
+          <CardTitle>Aktívne programy</CardTitle>
+        </span>
+      </div>
       <CardDescription>
         Nižšie nájdeš všetky svoje aktívne cvičebné programy z dokončených hodnotení.
       </CardDescription>
