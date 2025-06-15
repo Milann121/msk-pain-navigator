@@ -1,4 +1,5 @@
 
+// Update imports to new folder name (was exercises, now exercisePrograms)
 import { Exercise } from "@/types/exercise";
 import { nociceptiveExercises } from "./nociceptive";
 import { neuropathicExercises } from "./neuropathic";

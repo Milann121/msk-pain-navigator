@@ -1,10 +1,9 @@
-
 import exercisesByDifferential from "../exercisePrograms";
 
 /**
- * Collect all exercises (videos) that target the neck.
+ * Collect all exercises (videos) that target the middle-back.
  */
-export function getNeckExercises() {
+export function getMiddleBackExercises() {
   const results: Array<{
     exerciseTitle: string;
     videoId: string;
@@ -19,8 +18,8 @@ export function getNeckExercises() {
       if (Array.isArray(program.videos)) {
         program.videos.forEach((vid: any) => {
           if (
-            (Array.isArray(vid.bodyPart) && vid.bodyPart.includes('neck')) ||
-            vid.bodyPart === 'neck'
+            (Array.isArray(vid.bodyPart) && vid.bodyPart.includes('middle-back')) ||
+            vid.bodyPart === 'middle-back'
           ) {
             results.push({
               exerciseTitle: vid.title || program.title,
@@ -39,5 +38,4 @@ export function getNeckExercises() {
   return results;
 }
 
-export const neckExercises = getNeckExercises();
-
+export const middleBackExercises = getMiddleBackExercises();
