@@ -1,12 +1,11 @@
-
 import { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
-import { ExtendedUserAssessment } from '@/utils/database-helpers';
+import { UserAssessment } from '@/components/follow-up/types';
 import { useToast } from '@/hooks/use-toast';
 
 export const useAssessments = () => {
-  const [assessments, setAssessments] = useState<ExtendedUserAssessment[]>([]);
+  const [assessments, setAssessments] = useState<UserAssessment[]>([]);
   const [loading, setLoading] = useState(true);
   const { user } = useAuth();
   const { toast } = useToast();
@@ -28,7 +27,7 @@ export const useAssessments = () => {
 
       // For each assessment, get completion statistics
       const enrichedAssessments = await Promise.all(
-        (assessmentsData || []).map(async (assessment) => {
+        (assessmentsData || []).map(async (assessment: any) => {
           // Get completion count and last completion date
           const { data: completions, error: completionsError } = await supabase
             .from('completed_exercises')
@@ -46,13 +45,20 @@ export const useAssessments = () => {
             ? completions[0].completed_at 
             : undefined;
 
+          // Correct mapping for pain intensity, program dates, etc.
           return {
-            ...assessment,
+            id: assessment.id,
+            primary_mechanism: assessment.primary_mechanism,
+            sin_group: assessment.sin_group,
+            primary_differential: assessment.primary_differential,
+            pain_area: assessment.pain_area,
+            timestamp: assessment.timestamp,
             completed_exercises_count: completedExercisesCount,
             last_completed_at: lastCompletedAt,
-            // Map the database field name to the expected property
-            initial_pain_level: assessment.intial_pain_intensity || undefined
-          } as ExtendedUserAssessment;
+            initial_pain_level: assessment.intial_pain_intensity ?? undefined,
+            program_start_date: assessment.program_start_date ?? null,
+            program_ended_at: assessment.program_ended_at ?? null,
+          } as UserAssessment;
         })
       );
 
