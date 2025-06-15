@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Navigate, useNavigate } from 'react-router-dom';
@@ -73,9 +72,9 @@ const MyExercises = () => {
           
           <Card>
             <CardHeader>
-              <CardTitle>História hodnotení bolesti</CardTitle>
+              <CardTitle>Aktívne programy</CardTitle>
               <CardDescription>
-                Nižšie nájdete všetky vaše dokončené hodnotenia a ich cvičebné programy
+                Nižšie nájdete všetky vaše aktívne cvičebné programy z dokončených hodnotení.
               </CardDescription>
             </CardHeader>
             <CardContent>
