@@ -101,7 +101,7 @@ export const AssessmentAccordionItem = ({
     }
   }
 
-  // NEW: Track state of end/start program change for immediate UI feedback
+  // Track state of end/start program change for immediate UI feedback
   const [programEndedAt, setProgramEndedAt] = useState<Date | null>(
     assessment.program_ended_at ? new Date(assessment.program_ended_at) : null
   );
@@ -162,54 +162,52 @@ export const AssessmentAccordionItem = ({
       </AccordionTrigger>
       <AccordionContent className="px-4 pb-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+          {/* LEFT: Assessment details */}
           <AssessmentDetails
             assessment={assessment}
             latestPainLevel={latestPainLevel}
             diffIcon={diffIcon}
           />
-          <ExerciseCompletionInfo assessmentId={assessment.id} />
-        </div>
-
-        {/* Moved START: Program controls below completion info */}
-        <div className="mt-2 flex flex-col sm:flex-row sm:items-center gap-2">
-          <div>
-            <span className="font-medium text-gray-600">
-              Začiatok programu:
-            </span>
-            <span className="ml-2 text-blue-800 font-medium">
-              {format(programStartDate, "dd.MM.yyyy")}
-            </span>
-          </div>
-
-          <div className="flex gap-2 mt-2 sm:mt-0">
-            {!programEndedAt ? (
-              <Button
-                size="sm"
-                variant="destructive"
-                onClick={handleEndProgram}
-                disabled={loadingEnd}
-              >
-                {loadingEnd ? "Ukladanie..." : "Ukončiť program"}
-              </Button>
-            ) : (
-              <>
-                <Button size="sm" disabled variant="outline" className="text-green-700 border-green-500 bg-green-50">
-                  Ukončené
-                </Button>
+          {/* RIGHT: Completion info + program controls below */}
+          <div className="flex flex-col h-full justify-between">
+            <ExerciseCompletionInfo assessmentId={assessment.id} />
+            {/* Program controls, styled with margin-top */}
+            <div className="mt-4 flex flex-col sm:flex-row sm:items-center gap-2">
+              <span className="font-medium text-gray-600">
+                Začiatok programu:
+              </span>
+              <span className="ml-2 text-blue-800 font-medium">
+                {format(programStartDate, "dd.MM.yyyy")}
+              </span>
+              {!programEndedAt ? (
                 <Button
                   size="sm"
-                  variant="default"
-                  onClick={handleRenewProgram}
-                  disabled={loadingRenew}
-                  className="border-blue-500"
+                  variant="destructive"
+                  onClick={handleEndProgram}
+                  disabled={loadingEnd}
+                  className="ml-0 sm:ml-3 mt-2 sm:mt-0"
                 >
-                  {loadingRenew ? "Obnovujem..." : "Obnoviť program"}
+                  {loadingEnd ? "Ukladanie..." : "Ukončiť program"}
                 </Button>
-              </>
-            )}
+              ) : (
+                <>
+                  <Button size="sm" disabled variant="outline" className="text-green-700 border-green-500 bg-green-50 ml-0 sm:ml-3 mt-2 sm:mt-0">
+                    Ukončené
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="default"
+                    onClick={handleRenewProgram}
+                    disabled={loadingRenew}
+                    className="border-blue-500"
+                  >
+                    {loadingRenew ? "Obnovujem..." : "Obnoviť program"}
+                  </Button>
+                </>
+              )}
+            </div>
           </div>
         </div>
-        {/* Moved END */}
 
         <div className="flex flex-wrap justify-end gap-2 mt-4">
           <Button 
