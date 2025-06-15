@@ -46,8 +46,6 @@ export const ExerciseVideoSection = ({
   };
 
   const handleExerciseChangeRequest = () => {
-    // Placeholder: Here you'd trigger workflow to change exercise.
-    // For demo just alert. In real app, replace with proper logic/API.
     alert("Žiadosť o zmenu cviku bola odoslaná.");
   };
 
@@ -95,12 +93,14 @@ export const ExerciseVideoSection = ({
                   videoId={video.videoId}
                 />
               )}
-              {/* Inserted question above the toggle */}
-              <p className="text-base font-medium text-gray-900 mb-1">Vyhovuje vám cvik?</p>
-              <ExerciseGoodToggle 
-                value={feedbackValue} 
-                onChange={handleToggleChange} 
-              />
+              {/* Question and toggle now inline */}
+              <div className="flex items-center gap-4 mt-1 mb-2">
+                <span className="text-base font-medium text-gray-900">Vyhovuje vám cvik?</span>
+                <ExerciseGoodToggle 
+                  value={feedbackValue} 
+                  onChange={handleToggleChange} 
+                />
+              </div>
               <ExerciseFeedbackDialog
                 open={feedbackDialogOpen}
                 onOpenChange={handleDialogOpenChange}
@@ -147,12 +147,14 @@ export const ExerciseVideoSection = ({
                 videoId={video.videoId}
               />
             )}
-            {/* Inserted question above the toggle */}
-            <p className="text-base font-medium text-gray-900 mb-1">Vyhovuje vám cvik?</p>
-            <ExerciseGoodToggle 
-              value={feedbackValue} 
-              onChange={handleToggleChange} 
-            />
+            {/* Question and toggle now inline (mobile) */}
+            <div className="flex items-center gap-4 mt-1 mb-2">
+              <span className="text-base font-medium text-gray-900">Vyhovuje vám cvik?</span>
+              <ExerciseGoodToggle 
+                value={feedbackValue} 
+                onChange={handleToggleChange} 
+              />
+            </div>
             <ExerciseFeedbackDialog
               open={feedbackDialogOpen}
               onOpenChange={handleDialogOpenChange}
@@ -160,7 +162,6 @@ export const ExerciseVideoSection = ({
             />
           </div>
         )}
-        
         <FavoriteExerciseButton
           exerciseTitle={video.title || exerciseTitle}
           videoId={video.videoId}
