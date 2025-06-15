@@ -79,7 +79,8 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           videoId: 'PMJsVceAnnY',
           title:'Strečing sedacích svalov.',
           description: 'Popis vo videu.\nOPAKOVANIA: 5x denne.',
-          importance: 3
+          importance: 3,
+          mainGroup: ["stability"],
         }
       ]
     },
