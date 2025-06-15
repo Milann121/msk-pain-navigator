@@ -1,4 +1,3 @@
-
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
@@ -127,14 +126,14 @@ export const AssessmentAccordionItem = ({
   // Renew logic: after renew, go back to active state UI instantly
   const handleRenewProgram = async () => {
     setLoadingRenew(true);
+    setProgramEndedAt(null);
+    setJustEnded(false); // <--- Ensure "active" UI shows instantly!
     const { error } = await supabase
       .from('user_assessments')
       .update({ program_ended_at: null })
       .eq('id', assessment.id);
 
     if (!error) {
-      setProgramEndedAt(null);
-      setJustEnded(false);
       if (onRenew) onRenew();
     }
     setLoadingRenew(false);
