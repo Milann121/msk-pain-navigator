@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Navigate, useNavigate } from 'react-router-dom';
@@ -20,7 +21,6 @@ const MyExercises = () => {
   const { assessments, loading, handleDeleteAssessment, refreshAssessments } = useAssessments();
   const [selectedAssessment, setSelectedAssessment] = React.useState<UserAssessment | null>(null);
 
-  // Add an effect to refresh data when the page loads
   React.useEffect(() => {
     if (user) {
       refreshAssessments();
@@ -51,8 +51,12 @@ const MyExercises = () => {
     return <Navigate to="/auth" replace />;
   }
   
-  // Get the latest assessment ID for the calendar
-  const latestAssessmentId = assessments.length > 0 ? assessments[0].id : undefined;
+  // Split assessments into active and ended programs
+  const activeAssessments = assessments.filter(a => !a.program_ended_at);
+  const endedAssessments = assessments.filter(a => !!a.program_ended_at);
+
+  // Get the latest ACTIVE assessment ID for the calendar
+  const latestAssessmentId = activeAssessments.length > 0 ? activeAssessments[0].id : undefined;
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -70,7 +74,8 @@ const MyExercises = () => {
             </CardContent>
           </Card>
           
-          <Card>
+          {/* Aktívne programy */}
+          <Card className="mb-6">
             <CardHeader>
               <CardTitle>Aktívne programy</CardTitle>
               <CardDescription>
@@ -80,11 +85,11 @@ const MyExercises = () => {
             <CardContent>
               {loading ? (
                 <LoadingState />
-              ) : assessments.length === 0 ? (
+              ) : activeAssessments.length === 0 ? (
                 <EmptyState />
               ) : (
                 <Accordion type="single" collapsible className="w-full space-y-2">
-                  {assessments.map((assessment) => (
+                  {activeAssessments.map((assessment) => (
                     <AssessmentAccordionItem
                       key={assessment.id}
                       assessment={assessment}
@@ -105,6 +110,42 @@ const MyExercises = () => {
             </CardFooter>
           </Card>
 
+          {/* Ukončené programy */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Ukončené programy</CardTitle>
+              <CardDescription>
+                Nižšie nájdete všetky programy, ktoré ste už ukončili.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              {loading ? (
+                <LoadingState />
+              ) : endedAssessments.length === 0 ? (
+                <div className="text-center text-gray-400 py-6">Žiadne ukončené programy.</div>
+              ) : (
+                <Accordion type="single" collapsible className="w-full space-y-2">
+                  {endedAssessments.map((assessment) => (
+                    <AssessmentAccordionItem
+                      key={assessment.id}
+                      assessment={assessment}
+                      onOpenFollowUp={handleOpenFollowUp}
+                      onDeleteAssessment={handleDeleteAssessment}
+                    />
+                  ))}
+                </Accordion>
+              )}
+            </CardContent>
+            <CardFooter className="flex justify-between">
+              <Button variant="outline" onClick={() => navigate('/')}>
+                Späť na úvod
+              </Button>
+              <Button onClick={() => navigate('/assessment')}>
+                Nové hodnotenie
+              </Button>
+            </CardFooter>
+          </Card>
+          
           <FollowUpDialog
             isOpen={selectedAssessment !== null}
             onOpenChange={(open) => {
@@ -122,3 +163,4 @@ const MyExercises = () => {
 };
 
 export default MyExercises;
+
