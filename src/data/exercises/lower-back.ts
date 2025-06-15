@@ -1,3 +1,4 @@
+
 import exercisesByDifferential from "../exercisePrograms";
 
 /**
@@ -39,3 +40,4 @@ export function getLowerBackExercises() {
 }
 
 export const lowerBackExercises = getLowerBackExercises();
+

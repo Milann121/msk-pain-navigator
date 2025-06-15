@@ -3,7 +3,6 @@ export interface Exercise {
   title: string;
   description: string;
   videos: Array<{
-    id: integer;
     videoId: string;
     title?: string;
     description?: string;
