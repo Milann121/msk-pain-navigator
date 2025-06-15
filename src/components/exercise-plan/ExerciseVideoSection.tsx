@@ -1,7 +1,9 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { ExerciseCompletionCheckbox } from '@/components/ExerciseCompletionCheckbox';
 import { FavoriteExerciseButton } from '@/components/FavoriteExerciseButton';
+import { ExerciseGoodToggle } from './ExerciseGoodToggle';
+import { ExerciseFeedbackDialog } from './ExerciseFeedbackDialog';
 
 interface Video {
   videoId: string;
@@ -17,12 +19,38 @@ interface ExerciseVideoSectionProps {
   assessmentId?: string;
 }
 
+// Helper to store feedback by video ID
+type FeedbackMap = Record<string, "good" | "not-good">;
+
 export const ExerciseVideoSection = ({ 
   video, 
   exerciseTitle, 
   showGeneral, 
   assessmentId 
 }: ExerciseVideoSectionProps) => {
+  // Local feedback state per video
+  const [feedbackMap, setFeedbackMap] = useState<FeedbackMap>({});
+  const [feedbackDialogOpen, setFeedbackDialogOpen] = useState(false);
+
+  const feedbackValue = feedbackMap[video.videoId] ?? "good";
+
+  const handleToggleChange = (value: "good" | "not-good") => {
+    setFeedbackMap((prev) => ({ ...prev, [video.videoId]: value }));
+    if (value === "not-good") {
+      setFeedbackDialogOpen(true);
+    }
+  };
+
+  const handleDialogOpenChange = (open: boolean) => {
+    setFeedbackDialogOpen(open);
+  };
+
+  const handleExerciseChangeRequest = () => {
+    // Placeholder: Here you'd trigger workflow to change exercise.
+    // For demo just alert. In real app, replace with proper logic/API.
+    alert("Žiadosť o zmenu cviku bola odoslaná.");
+  };
+
   return (
     <div className="space-y-4">
       {video.title && (
@@ -68,6 +96,16 @@ export const ExerciseVideoSection = ({
                   videoId={video.videoId}
                 />
               )}
+              {/* Exercise feedback toggle and dialog */}
+              <ExerciseGoodToggle 
+                value={feedbackValue} 
+                onChange={handleToggleChange} 
+              />
+              <ExerciseFeedbackDialog
+                open={feedbackDialogOpen}
+                onOpenChange={handleDialogOpenChange}
+                onChangeRequest={handleExerciseChangeRequest}
+              />
             </div>
           )}
           
@@ -110,6 +148,16 @@ export const ExerciseVideoSection = ({
                 videoId={video.videoId}
               />
             )}
+            {/* Exercise feedback toggle and dialog on mobile */}
+            <ExerciseGoodToggle 
+              value={feedbackValue} 
+              onChange={handleToggleChange} 
+            />
+            <ExerciseFeedbackDialog
+              open={feedbackDialogOpen}
+              onOpenChange={handleDialogOpenChange}
+              onChangeRequest={handleExerciseChangeRequest}
+            />
           </div>
         )}
         
