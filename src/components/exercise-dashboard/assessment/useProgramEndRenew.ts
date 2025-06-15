@@ -15,22 +15,31 @@ export function useProgramEndRenew(
   const [loadingRenew, setLoadingRenew] = useState(false);
   const [justEnded, setJustEnded] = useState(false);
 
+  // Listen for prop changes to program_ended_at and reset local justEnded if external state changes
   useEffect(() => {
-    if (assessment.program_ended_at || programEndedAt) {
+    if (assessment.program_ended_at) {
+      setProgramEndedAt(new Date(assessment.program_ended_at));
+      setJustEnded(false); // Reset justEnded if the server state changes
+    }
+    if (!assessment.program_ended_at && programEndedAt) {
+      // If remote ended_at becomes null (renewed elsewhere), update local
+      setProgramEndedAt(null);
       setJustEnded(false);
     }
-  }, [assessment.program_ended_at, programEndedAt]);
+    // eslint-disable-next-line
+  }, [assessment.program_ended_at]);
 
   const handleEndProgram = async () => {
     setLoadingEnd(true);
-    setJustEnded(true); // instant feedback!
+    setJustEnded(true); // Provide instant feedback to UI!
     const now = new Date();
+    // Optimistically set programEndedAt for UI logic (so isEnded works instantly)
+    setProgramEndedAt(now);
     const { error } = await supabase
       .from('user_assessments')
       .update({ program_ended_at: now.toISOString() })
       .eq('id', assessment.id);
     if (!error) {
-      setProgramEndedAt(now);
       if (onEndProgram) onEndProgram();
     }
     setLoadingEnd(false);
@@ -39,7 +48,7 @@ export function useProgramEndRenew(
   const handleRenewProgram = async () => {
     setLoadingRenew(true);
     setProgramEndedAt(null);
-    setJustEnded(false); // instant feedback!
+    setJustEnded(false); // Provide instant feedback to UI!
     const { error } = await supabase
       .from('user_assessments')
       .update({ program_ended_at: null })
@@ -50,7 +59,7 @@ export function useProgramEndRenew(
     setLoadingRenew(false);
   };
 
-  // "Ended" state in UI: local or remote
+  // The program should be considered "ended" if either endedAt or justEnded is truthy
   const isEnded = !!programEndedAt || justEnded;
 
   return {
