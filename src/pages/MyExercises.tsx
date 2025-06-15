@@ -74,7 +74,7 @@ const MyExercises = () => {
             <CardHeader>
               <CardTitle>Aktívne programy</CardTitle>
               <CardDescription>
-                Nižšie nájdete všetky vaše aktívne cvičebné programy z dokončených hodnotení.
+                Nižšie nájdeš všetky svoje aktívne cvičebné programy z dokončených hodnotení.
               </CardDescription>
             </CardHeader>
             <CardContent>
