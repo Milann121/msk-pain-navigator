@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { 
   eachDayOfInterval, 
@@ -35,8 +34,12 @@ export const ExerciseCalendar = ({ assessmentId }: ExerciseCalendarProps) => {
   const [weeklyGoal, setWeeklyGoal] = useState<number>(0);
   const [goalCreatedAt, setGoalCreatedAt] = useState<string | undefined>(undefined);
   const { user } = useAuth();
-  const { completionDays, loading } = useCompletionData(assessmentId);
-  
+
+  // CHANGED: Call useCompletionData without assessmentId, fetches ALL completions for user
+  // If the UI wants a per-program calendar, then assessmentId can be passed. 
+  // But MyExercises should pass nothing so history is unified.
+  const { completionDays, loading } = useCompletionData();
+
   const startDate = startOfWeek(currentDate, { weekStartsOn: 1 }); // Start on Monday
   const endDate = endOfWeek(currentDate, { weekStartsOn: 1 }); // End on Sunday
   

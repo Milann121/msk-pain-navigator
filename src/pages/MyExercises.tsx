@@ -87,8 +87,9 @@ const MyExercises = () => {
     return <Navigate to="/auth" replace />;
   }
   
-  // Get the latest ACTIVE assessment ID for the calendar
-  const latestAssessmentId = activeAssessments.length > 0 ? activeAssessments[0].id : undefined;
+  // Do not filter to only the latest active assessment!
+  // So, do NOT pass 'assessmentId' to ExerciseCalendar.
+  // const latestAssessmentId = activeAssessments.length > 0 ? activeAssessments[0].id : undefined;
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -97,7 +98,8 @@ const MyExercises = () => {
         <div className="container mx-auto w-full max-w-full md:max-w-4xl px-2 md:px-0">
           <h1 className="text-3xl font-bold text-blue-800 mb-6">Moje cviky</h1>
           
-          <ExerciseCalendar assessmentId={latestAssessmentId} />
+          {/* Show all user's completed exercises in the calendar */}
+          <ExerciseCalendar />
           
           {/* General Program Card */}
           <Card className="mb-6">
