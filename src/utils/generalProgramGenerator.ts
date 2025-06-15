@@ -84,6 +84,7 @@ export const generateGeneralProgram = (
   const generalProgram: Exercise = {
     title: 'Všeobecný program',
     description: 'Personalizovaný program s najdôležitejšími cvičeniami z vašich programov.',
+    mainGroup: [],
     videos: shuffledVideos.map(video => ({
       videoId: video.videoId,
       title: video.title,
