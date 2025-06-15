@@ -168,47 +168,47 @@ export const AssessmentAccordionItem = ({
             latestPainLevel={latestPainLevel}
             diffIcon={diffIcon}
           />
-          {/* RIGHT: Completion info + start/end/renew aligned with last completed */}
+          {/* RIGHT: Completion info + start/end/renew just below last completed */}
           <div className="flex flex-col h-full justify-start">
-            {/* Group summary info in one line */}
-            <div className="flex flex-row justify-end gap-12 mt-1">
-              <ExerciseCompletionInfo assessmentId={assessment.id} />
-              <div className="flex flex-col items-end min-w-[220px]">
-                <div className="flex items-center gap-2">
-                  <span className="font-medium text-gray-600 whitespace-nowrap">
-                    Začiatok programu:
-                  </span>
-                  <span className="text-blue-800 font-medium whitespace-nowrap">
-                    {format(programStartDate, "dd.MM.yyyy")}
-                  </span>
-                </div>
-                <div className="mt-2">
-                  {!programEndedAt ? (
+            {/* Completion info (incl. Posledné cvičenie etc) */}
+            <ExerciseCompletionInfo assessmentId={assessment.id} />
+            {/* --- Start date and buttons, RIGHT below completion info, right-aligned --- */}
+            <div className="flex flex-col items-end gap-0 mt-2">
+              <div className="flex items-center gap-2">
+                <span className="font-medium text-gray-600">
+                  Začiatok programu:
+                </span>
+                <span className="text-blue-800 font-medium">
+                  {format(programStartDate, "dd.MM.yyyy")}
+                </span>
+              </div>
+              {/* Actions under start date */}
+              <div className="flex flex-row flex-wrap gap-2 mt-2">
+                {!programEndedAt ? (
+                  <Button
+                    size="sm"
+                    variant="destructive"
+                    onClick={handleEndProgram}
+                    disabled={loadingEnd}
+                  >
+                    {loadingEnd ? "Ukladanie..." : "Ukončiť program"}
+                  </Button>
+                ) : (
+                  <>
+                    <Button size="sm" disabled variant="outline" className="text-green-700 border-green-500 bg-green-50">
+                      Ukončené
+                    </Button>
                     <Button
                       size="sm"
-                      variant="destructive"
-                      onClick={handleEndProgram}
-                      disabled={loadingEnd}
+                      variant="default"
+                      onClick={handleRenewProgram}
+                      disabled={loadingRenew}
+                      className="border-blue-500"
                     >
-                      {loadingEnd ? "Ukladanie..." : "Ukončiť program"}
+                      {loadingRenew ? "Obnovujem..." : "Obnoviť program"}
                     </Button>
-                  ) : (
-                    <div className="flex flex-row gap-2">
-                      <Button size="sm" disabled variant="outline" className="text-green-700 border-green-500 bg-green-50">
-                        Ukončené
-                      </Button>
-                      <Button
-                        size="sm"
-                        variant="default"
-                        onClick={handleRenewProgram}
-                        disabled={loadingRenew}
-                        className="border-blue-500"
-                      >
-                        {loadingRenew ? "Obnovujem..." : "Obnoviť program"}
-                      </Button>
-                    </div>
-                  )}
-                </div>
+                  </>
+                )}
               </div>
             </div>
           </div>
