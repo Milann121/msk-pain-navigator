@@ -8,6 +8,7 @@ interface VideoWithSource {
   description?: string;
   importance?: 1 | 2 | 3;
   sourceProgram?: string;
+  mainGroup?: Array<'mobility' | 'stability' | 'pain-relief' | 'neuro-mobs'>;
 }
 
 export const generateGeneralProgram = (
@@ -35,7 +36,8 @@ export const generateGeneralProgram = (
         if (video.importance) {
           allVideos.push({
             ...video,
-            sourceProgram: exercise.title
+            sourceProgram: exercise.title,
+            mainGroup: video.mainGroup ?? [],
           });
         }
       });
@@ -88,7 +90,9 @@ export const generateGeneralProgram = (
     videos: shuffledVideos.map(video => ({
       videoId: video.videoId,
       title: video.title,
-      description: video.description
+      description: video.description,
+      importance: video.importance,
+      mainGroup: video.mainGroup ?? [],
     }))
   };
 
