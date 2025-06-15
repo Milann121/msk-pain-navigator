@@ -1,29 +1,22 @@
-import { format } from 'date-fns';
+
 import { useNavigate } from 'react-router-dom';
-import { formatPainArea, formatMechanism, formatDifferential } from '../FormatHelpers';
-import { Button } from '@/components/ui/button';
-import { Trash2, ExternalLink, ClipboardCheck } from 'lucide-react';
-import { 
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger
-} from '@/components/ui/accordion';
-import { Badge } from '@/components/ui/badge';
-import { UserAssessment } from '@/components/follow-up/types';
-import { BadgeStyles } from './BadgeStyles';
-import { AssessmentExerciseStats } from '../AssessmentExerciseStats';
-import { ArrowUp, ArrowDown } from "lucide-react";
 import { useEffect, useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
+import { AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { UserAssessment } from '@/components/follow-up/types';
+import { AssessmentAccordionHeader } from './AssessmentAccordionHeader';
+import { AssessmentAccordionActions } from './AssessmentAccordionActions';
 import { AssessmentDetails } from "./AssessmentDetails";
 import { ExerciseCompletionInfo } from "./ExerciseCompletionInfo";
+import { Button } from "@/components/ui/button";
+import { ArrowUp, ArrowDown } from "lucide-react";
 
 interface AssessmentAccordionItemProps {
   assessment: UserAssessment;
   onOpenFollowUp: (assessment: UserAssessment) => void;
   onDeleteAssessment: (id: string) => void;
   onRenew?: () => void; 
-  onEndProgram?: () => void; // NEW: Called after successful end
+  onEndProgram?: () => void;
 }
 
 export const AssessmentAccordionItem = ({
@@ -35,21 +28,9 @@ export const AssessmentAccordionItem = ({
 }: AssessmentAccordionItemProps) => {
   const navigate = useNavigate();
 
-  const handleViewExercises = () => {
-    navigate('/exercise-plan', { 
-      state: { 
-        mechanism: assessment.primary_mechanism,
-        differential: assessment.primary_differential,
-        painArea: assessment.pain_area,
-        assessmentId: assessment.id
-      } 
-    });
-  };
-
-  // Store fetched last and initial pain level
+  // Fetched pain level
   const [latestPainLevel, setLatestPainLevel] = useState<number | null>(null);
   const [lastPainDate, setLastPainDate] = useState<string | null>(null);
-  // Use the correct property name (initial_pain_level)
   const [initialPainLevel, setInitialPainLevel] = useState<number | null>(
     assessment.initial_pain_level ?? null
   );
@@ -57,18 +38,16 @@ export const AssessmentAccordionItem = ({
   useEffect(() => {
     async function fetchLatestPainLevel() {
       try {
-        // Remove user_id, just use assessment.id (since we don't have user_id)
         const { data, error } = await supabase
           .rpc('get_latest_pain_level', {
             assessment_id_param: assessment.id,
-            user_id_param: null // Pass null since not available, function will ignore if needed
+            user_id_param: null
           });
 
         if (!error && data && Array.isArray(data) && data.length > 0) {
           setLatestPainLevel(data[0].pain_level ?? null);
           setLastPainDate(data[0].created_at ?? null);
         } else {
-          // fallback: get latest by descending created_at
           const { data: responses, error: respErr } = await supabase
             .from('follow_up_responses')
             .select('pain_level, created_at')
@@ -92,8 +71,7 @@ export const AssessmentAccordionItem = ({
 
     fetchLatestPainLevel();
   }, [assessment.id]);
-
-  // Compare last and initial pain level for arrow coloring
+  
   let diffIcon = null;
   if (
     typeof latestPainLevel === 'number' &&
@@ -107,20 +85,17 @@ export const AssessmentAccordionItem = ({
     }
   }
 
-  // Track state of end/start program change for immediate UI feedback
   const [programEndedAt, setProgramEndedAt] = useState<Date | null>(
     assessment.program_ended_at ? new Date(assessment.program_ended_at) : null
   );
   const [loadingEnd, setLoadingEnd] = useState(false);
   const [loadingRenew, setLoadingRenew] = useState(false);
 
-  // Track start date, fallback to assessment timestamp
   const programStartDate: Date =
     assessment.program_start_date
       ? new Date(assessment.program_start_date)
       : new Date(assessment.timestamp);
 
-  // Actions to end or renew program in DB
   const handleEndProgram = async () => {
     setLoadingEnd(true);
     const now = new Date();
@@ -131,7 +106,6 @@ export const AssessmentAccordionItem = ({
 
     if (!error) {
       setProgramEndedAt(now);
-      // NEW: Notify parent to update UI
       if (onEndProgram) onEndProgram();
     }
     setLoadingEnd(false);
@@ -146,53 +120,46 @@ export const AssessmentAccordionItem = ({
 
     if (!error) {
       setProgramEndedAt(null);
-      // Notify parent that renewal happened & UI should reflect it
       if (onRenew) onRenew();
     }
     setLoadingRenew(false);
   };
 
+  const handleViewExercises = () => {
+    navigate('/exercise-plan', { 
+      state: { 
+        mechanism: assessment.primary_mechanism,
+        differential: assessment.primary_differential,
+        painArea: assessment.pain_area,
+        assessmentId: assessment.id
+      } 
+    });
+  };
+
   return (
     <AccordionItem key={assessment.id} value={assessment.id}>
       <AccordionTrigger className="px-4 py-4 hover:bg-gray-50 rounded-lg">
-        <div className="flex flex-1 items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="font-medium">
-              {format(new Date(assessment.timestamp), 'dd.MM.yyyy')}
-            </span>
-            <span className="text-gray-600 hidden sm:inline">–</span>
-            <span className="text-gray-600 hidden sm:inline">
-              {formatPainArea(assessment.pain_area)}
-            </span>
-          </div>
-          <div className="sm:hidden text-sm text-gray-500">
-            {formatPainArea(assessment.pain_area)}
-          </div>
-        </div>
+        <AssessmentAccordionHeader assessment={assessment} />
       </AccordionTrigger>
       <AccordionContent className="px-4 pb-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-          {/* LEFT: Assessment details */}
+          {/* Assessment details */}
           <AssessmentDetails
             assessment={assessment}
             latestPainLevel={latestPainLevel}
             diffIcon={diffIcon}
           />
-          {/* RIGHT: Completion info and actions */}
           <div className="flex flex-col h-full justify-start">
-            {/* Completion info */}
             <ExerciseCompletionInfo assessmentId={assessment.id} />
-
             <div className="flex flex-col gap-0 mt-2">
               <div className="flex items-center gap-2">
                 <span className="font-medium text-gray-600">
                   Začiatok programu:
                 </span>
                 <span className="text-blue-800 font-medium">
-                  {format(programStartDate, "dd.MM.yyyy")}
+                  {programStartDate ? programStartDate.toLocaleDateString("sk-SK") : ""}
                 </span>
               </div>
-              {/* Actions (stacked under "Začiatok programu") */}
               <div className="flex flex-row flex-wrap gap-2 mt-2">
                 {!programEndedAt ? (
                   <Button
@@ -223,43 +190,18 @@ export const AssessmentAccordionItem = ({
             </div>
           </div>
         </div>
-
-        <div className="flex flex-wrap justify-end gap-2 mt-4">
-          <Button 
-            variant="outline" 
-            size="sm"
-            onClick={() => onOpenFollowUp(assessment)}
-            className="flex items-center gap-1"
-          >
-            <ClipboardCheck className="h-4 w-4" />
-            Zaznamenať pokrok
-          </Button>
-          
-          <Button 
-            onClick={handleViewExercises}
-            size="sm"
-            className="flex items-center gap-1"
-          >
-            <ExternalLink className="h-4 w-4" />
-            Zobraziť cviky
-          </Button>
-          
-          <Button 
-            variant="destructive" 
-            size="sm"
-            onClick={(e) => {
-              e.stopPropagation();
-              onDeleteAssessment(assessment.id);
-            }}
-            title="Odstrániť hodnotenie"
-            className="flex items-center gap-1"
-          >
-            <Trash2 className="h-4 w-4" />
-          </Button>
-        </div>
+        <AssessmentAccordionActions
+          assessment={assessment}
+          programEndedAt={programEndedAt}
+          loadingEnd={loadingEnd}
+          loadingRenew={loadingRenew}
+          onOpenFollowUp={onOpenFollowUp}
+          onDeleteAssessment={onDeleteAssessment}
+          handleEndProgram={handleEndProgram}
+          handleRenewProgram={handleRenewProgram}
+          handleViewExercises={handleViewExercises}
+        />
       </AccordionContent>
     </AccordionItem>
   );
 };
-
-// NOTE: This file is now quite long (>250 lines). Consider refactoring to smaller components!
