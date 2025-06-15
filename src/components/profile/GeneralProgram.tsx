@@ -110,7 +110,7 @@ export const GeneralProgram = () => {
         </div>
         
         <p className="text-sm text-gray-600 mb-4 line-clamp-3">
-          Nemáš čas na jednotlivé cvičebné programy? Odcvič personalizovaný program s najdôležitejšími cvičeniami z tvojich súčasných programov.
+          Nemáš čas na jednotlivé cvičebné programy? Tu nájdeš personalizovaný program s najdôležitejšími cvičeniami z tvojich súčasných programov.
         </p>
         
         <div className="text-sm text-blue-600 mb-4">
