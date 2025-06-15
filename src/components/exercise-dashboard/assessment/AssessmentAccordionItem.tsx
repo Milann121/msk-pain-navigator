@@ -1,4 +1,3 @@
-
 import { format } from 'date-fns';
 import { useNavigate } from 'react-router-dom';
 import { formatPainArea, formatMechanism, formatDifferential } from '../FormatHelpers';
@@ -13,6 +12,9 @@ import { Badge } from '@/components/ui/badge';
 import { UserAssessment } from '@/components/follow-up/types';
 import { BadgeStyles } from './BadgeStyles';
 import { AssessmentExerciseStats } from '../AssessmentExerciseStats';
+import { ArrowUp, ArrowDown } from "lucide-react";
+import { useEffect, useState } from 'react';
+import { supabase } from '@/integrations/supabase/client';
 
 interface AssessmentAccordionItemProps {
   assessment: UserAssessment;
@@ -37,6 +39,64 @@ export const AssessmentAccordionItem = ({
       } 
     });
   };
+
+  // Store fetched last and initial pain level
+  const [latestPainLevel, setLatestPainLevel] = useState<number | null>(null);
+  const [lastPainDate, setLastPainDate] = useState<string | null>(null);
+  const [initialPainLevel, setInitialPainLevel] = useState<number | null>(
+    assessment.intial_pain_intensity ?? assessment.initial_pain_level ?? null
+  );
+
+  useEffect(() => {
+    async function fetchLatestPainLevel() {
+      // Try the db function if present, otherwise fallback
+      try {
+        const { data, error } = await supabase
+          .rpc('get_latest_pain_level', {
+            assessment_id_param: assessment.id,
+            user_id_param: assessment.user_id
+          });
+
+        if (!error && data && Array.isArray(data) && data.length > 0) {
+          setLatestPainLevel(data[0].pain_level ?? null);
+          setLastPainDate(data[0].created_at ?? null);
+        } else {
+          // fallback: get latest by descending created_at
+          const { data: responses, error: respErr } = await supabase
+            .from('follow_up_responses')
+            .select('pain_level, created_at')
+            .eq('assessment_id', assessment.id)
+            .eq('user_id', assessment.user_id)
+            .order('created_at', { ascending: false })
+            .limit(1);
+
+          if (!respErr && responses && responses.length > 0) {
+            setLatestPainLevel(responses[0].pain_level ?? null);
+            setLastPainDate(responses[0].created_at ?? null);
+          }
+        }
+      } catch (e) {
+        setLatestPainLevel(null);
+        setLastPainDate(null);
+      }
+    }
+
+    fetchLatestPainLevel();
+  }, [assessment.id, assessment.user_id]);
+
+  // Compare last and initial pain level for arrow coloring
+  let diffIcon = null;
+  if (
+    typeof latestPainLevel === 'number' &&
+    typeof initialPainLevel === 'number' &&
+    latestPainLevel !== initialPainLevel
+  ) {
+    if (latestPainLevel > initialPainLevel) {
+      diffIcon = <ArrowUp className="h-3 w-3 inline ml-1 text-red-500" />;
+    } else if (latestPainLevel < initialPainLevel) {
+      diffIcon = <ArrowDown className="h-3 w-3 inline ml-1 text-green-600" />;
+    }
+  }
 
   return (
     <AccordionItem key={assessment.id} value={assessment.id}>
@@ -131,8 +191,23 @@ const AssessmentDetails = ({ assessment }: DetailsSectionProps) => {
       </div>
       <div>
         <span className="font-medium text-gray-500">Vaša posledná zaznamenaná bolesť:</span>
-        <div className="mt-1 font-medium text-blue-700">
-          {assessment.latest_pain_level !== undefined ? `${assessment.latest_pain_level}/10` : 'N/A'}
+        <div className="mt-1">
+          <p className="text-sm text-gray-600 mb-3">
+            Vaša posledná zaznamenaná bolesť:{' '}
+            {typeof latestPainLevel === 'number'
+              ? (
+                <>
+                  <span className="font-semibold text-blue-700">
+                    {latestPainLevel}/10
+                  </span>
+                  {diffIcon}
+                </>
+              )
+              : (
+                <span className="text-gray-400">N/A</span>
+              )
+            }
+          </p>
         </div>
       </div>
     </div>

@@ -11,6 +11,9 @@ import { placeholderQuestions } from './PlaceholderQuestions';
 import { UserAssessment } from './types';
 import { safeDatabase, FollowUpResponse } from '@/utils/database-helpers';
 
+// Add import for icon arrows
+import { ArrowUp, ArrowDown } from "lucide-react";
+
 interface FollowUpQuestionnaireProps {
   assessment: UserAssessment;
   onComplete: () => void;
@@ -22,26 +25,40 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, any>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
-  // Default to nociceptive if mechanism not found
-  const questions = placeholderQuestions[assessment.primary_mechanism] || placeholderQuestions.nociceptive;
+
+  // Get questions for the mechanism, default to nociceptive
+  const fullQuestions = placeholderQuestions[assessment.primary_mechanism] || placeholderQuestions.nociceptive;
+
+  // Helper: calculate visible questions with conditional logic
+  const getVisibleQuestions = () => {
+    const visibleQuestions = [];
+    for (const q of fullQuestions) {
+      if (q.id === 'pain-nature-description' && answers['pain-nature-changed'] !== 'yes') continue;
+      if (q.id === 'new-pain-area' && answers['pain-spreading'] !== 'yes') continue;
+      visibleQuestions.push(q);
+    }
+    return visibleQuestions;
+  };
+
+  const questions = getVisibleQuestions();
   const currentQuestion = questions[currentQuestionIndex];
   const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
-  
+
+  // Handle answer
   const handleAnswerChange = (questionId: string, answer: any) => {
     setAnswers(prev => ({
       ...prev,
       [questionId]: answer
     }));
   };
-  
+
   const handleSliderChange = (questionId: string, value: number) => {
     setAnswers(prev => ({
       ...prev,
       [questionId]: value
     }));
   };
-  
+
   const handleNext = () => {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(prev => prev + 1);
@@ -49,37 +66,38 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
       handleSubmit();
     }
   };
-  
+
   const handleBack = () => {
     if (currentQuestionIndex > 0) {
       setCurrentQuestionIndex(prev => prev - 1);
     }
   };
-  
+
+  // Save latest pain-level-change for assessment+user as the most recent
   const handleSubmit = async () => {
     if (!user) return;
-    
+
+    setIsSubmitting(true);
     try {
-      setIsSubmitting(true);
-      
       // Prepare data for submission
       const responseData: FollowUpResponse = {
         user_id: user.id,
         assessment_id: assessment.id,
-        pain_level: answers['pain-level-change'] || 0,
+        pain_level:
+          answers['pain-level-change'] !== undefined ? answers['pain-level-change'] : 0,
         responses: answers
       };
 
-      // Save the follow-up responses to the database using direct insert
+      // Save follow-up response
       const { error } = await safeDatabase.followUpResponses.insert(responseData);
-          
+
       if (error) throw error;
-      
+
       toast({
         title: "Pokrok zaznamenaný",
         description: "Ďakujeme za vyplnenie dotazníka o vašom pokroku.",
       });
-      
+
       onComplete();
     } catch (error) {
       console.error('Error saving follow-up questionnaire:', error);
@@ -92,9 +110,9 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
       setIsSubmitting(false);
     }
   };
-  
-  const canProceed = answers[currentQuestion?.id] !== undefined;
-  
+
+  const canProceed = currentQuestion && answers[currentQuestion.id] !== undefined;
+
   return (
     <Card>
       <CardContent className="pt-6">
@@ -104,9 +122,8 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
             Otázka {currentQuestionIndex + 1} z {questions.length}
           </p>
         </div>
-        
         <div className="space-y-6">
-          <QuestionRenderer 
+          <QuestionRenderer
             question={currentQuestion}
             answer={answers[currentQuestion?.id]}
             onAnswerChange={handleAnswerChange}
@@ -114,16 +131,15 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
           />
         </div>
       </CardContent>
-      
       <CardFooter className="flex justify-between">
-        <Button 
-          variant="outline" 
+        <Button
+          variant="outline"
           onClick={handleBack}
           disabled={currentQuestionIndex === 0 || isSubmitting}
         >
           Späť
         </Button>
-        <Button 
+        <Button
           onClick={handleNext}
           disabled={!canProceed || isSubmitting}
           className="bg-blue-600 hover:bg-blue-700"
