@@ -1,4 +1,3 @@
-
 import { Questionnaire } from '@/utils/types';
 
 export const nociceptiveQuestionnaire: Questionnaire = {
@@ -112,11 +111,7 @@ export const nociceptiveQuestionnaire: Questionnaire = {
     {
       id: 'breathing-pain',
       text: 'Cítite pri nádychu bolesť alebo iné príznaky?',
-<<<<<<< HEAD
-      description: 'Touto otázkou sa snažíme zistiť symtómy ako napr. pichanie v hrudníku, tuhosť hrudníku pri nádychu alebo ťažkosť s roztiahnutím hrudníka. Ak niektoré z toho pociťujete, odpovedajte KLADNE.', // Add description here later
-=======
       description: 'Touto otázkou sa snažíme zistiť symtómy ako napr. pichanie v hrudníku, tuhosť hrudníku pri nádychu alebo ťažkosť s roztiahnutím hrudníka. Ak niektoré z toho pociťujete, odpovedajte KLADNE.',
->>>>>>> b498c153c7efc6614ca0d573c75c722c7cda402d
       type: 'radio',
       options: [
         {
