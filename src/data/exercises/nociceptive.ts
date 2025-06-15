@@ -200,7 +200,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
     },
     {
       title: '3-5 týždeň',
-      description: 'Jemné rotačné pohyby pre zlepšenie mobility v hrudnej oblasti a redukciu bolesti.',
+      description: 'Pokročilejšie mobilizačné cviky v kombinácii s posiľňovaním medzilopatkových svalov.',
       videos: [
         {
           videoId: 'oVJqu0FEw-Y',
