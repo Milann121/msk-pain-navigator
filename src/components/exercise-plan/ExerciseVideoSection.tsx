@@ -88,11 +88,11 @@ export const ExerciseVideoSection = ({
     setFeedbackDialogOpen(open);
   };
 
-  // When "Zmeniť cvik" is confirmed in feedback dialog:
+  // FIX: After "Zmeniť cvik", open the replacement dialog with a new exercise
   const handleExerciseChangeRequest = async () => {
     // Write negative feedback
     await handleStoreFeedback(-1);
-    // Find a new exercise with same bodyPart/mainGroup
+    // Find a new exercise with same bodyPart/mainGroup but different videoId
     if (video.bodyPart && video.mainGroup) {
       const newExercise = findReplacementExercise(
         video.videoId,
@@ -120,13 +120,14 @@ export const ExerciseVideoSection = ({
 
   // Handle user confirming exercise replacement
   const handleConfirmReplace = (newEx: { exerciseTitle: string; videoId: string }) => {
-    // Here we would update the UI/list with the new exercise in a parent context, but for this demo just close dialog.
+    // Demo: Here we only toast and close, but you can implement logic to actually update exercise in parent
     setReplaceDialogOpen(false);
+    setProposedExercise(null);
     toast({
       title: "Cvik bol zmenený",
       description: "Vybraný cvik bol nahradený novým.",
     });
-    // Optionally update local state/UI
+    // Here you might want to update the exercise in the UI/state!
   };
 
   return (
@@ -183,7 +184,10 @@ export const ExerciseVideoSection = ({
               />
               <ExerciseReplaceDialog
                 open={replaceDialogOpen}
-                onOpenChange={setReplaceDialogOpen}
+                onOpenChange={(open) => {
+                  setReplaceDialogOpen(open);
+                  if (!open) setProposedExercise(null);
+                }}
                 newExercise={proposedExercise}
                 onConfirm={handleConfirmReplace}
               />
@@ -240,7 +244,10 @@ export const ExerciseVideoSection = ({
             />
             <ExerciseReplaceDialog
               open={replaceDialogOpen}
-              onOpenChange={setReplaceDialogOpen}
+              onOpenChange={(open) => {
+                setReplaceDialogOpen(open);
+                if (!open) setProposedExercise(null);
+              }}
               newExercise={proposedExercise}
               onConfirm={handleConfirmReplace}
             />
