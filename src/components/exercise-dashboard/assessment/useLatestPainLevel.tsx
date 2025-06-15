@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { ArrowUp, ArrowDown } from "lucide-react";
 
 export function useLatestPainLevel(assessmentId: string, initialPainLevel: number | null) {
   const [latestPainLevel, setLatestPainLevel] = useState<number | null>(null);
@@ -49,7 +50,6 @@ export function useLatestPainLevel(assessmentId: string, initialPainLevel: numbe
     typeof initialPainLevel === 'number' &&
     latestPainLevel !== initialPainLevel
   ) {
-    const { ArrowUp, ArrowDown } = require("lucide-react");
     if (latestPainLevel > initialPainLevel) {
       diffIcon = <ArrowUp className="h-3 w-3 inline ml-1 text-red-500" />;
     } else if (latestPainLevel < initialPainLevel) {
