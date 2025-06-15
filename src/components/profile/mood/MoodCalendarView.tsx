@@ -16,24 +16,26 @@ interface MoodCalendarViewProps {
 
 export const MoodCalendarView = ({ date, onDateSelect, getMoodForDate }: MoodCalendarViewProps) => {
   return (
-    <div className="w-full p-0 m-0"> {/* removed padding, full width */}
-      <Calendar
-        mode="single"
-        selected={date}
-        onSelect={onDateSelect}
-        locale={sk}
-        className="w-full border rounded-md p-0"
-        modifiers={{
-          happy: (date) => getMoodForDate(date) === 'happy',
-          neutral: (date) => getMoodForDate(date) === 'neutral',
-          sad: (date) => getMoodForDate(date) === 'sad',
-        }}
-        modifiersClassNames={{
-          happy: "bg-green-500 text-white hover:bg-green-600",
-          neutral: "bg-yellow-500 text-white hover:bg-yellow-600",
-          sad: "bg-red-500 text-white hover:bg-red-600",
-        }}
-      />
+    <div className="w-full border rounded-md p-0 flex justify-center items-center min-h-[340px] bg-white">
+      <div className="p-0 m-0 flex justify-center items-center w-auto">
+        <Calendar
+          mode="single"
+          selected={date}
+          onSelect={onDateSelect}
+          locale={sk}
+          className="!w-auto p-0 m-0"
+          modifiers={{
+            happy: (date) => getMoodForDate(date) === 'happy',
+            neutral: (date) => getMoodForDate(date) === 'neutral',
+            sad: (date) => getMoodForDate(date) === 'sad',
+          }}
+          modifiersClassNames={{
+            happy: "bg-green-500 text-white hover:bg-green-600",
+            neutral: "bg-yellow-500 text-white hover:bg-yellow-600",
+            sad: "bg-red-500 text-white hover:bg-red-600",
+          }}
+        />
+      </div>
     </div>
   );
 };
