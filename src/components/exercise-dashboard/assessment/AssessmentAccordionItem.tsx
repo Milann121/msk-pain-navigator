@@ -168,15 +168,14 @@ export const AssessmentAccordionItem = ({
             latestPainLevel={latestPainLevel}
             diffIcon={diffIcon}
           />
-          {/* RIGHT: Completion info + program controls below */}
+          {/* RIGHT: Completion info + start/end/renew buttons directly below */}
           <div className="flex flex-col h-full justify-between">
             <ExerciseCompletionInfo assessmentId={assessment.id} />
-            {/* Program controls, styled with margin-top */}
-            <div className="mt-4 flex flex-col sm:flex-row sm:items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2 mt-2">
               <span className="font-medium text-gray-600">
                 Začiatok programu:
               </span>
-              <span className="ml-2 text-blue-800 font-medium">
+              <span className="text-blue-800 font-medium">
                 {format(programStartDate, "dd.MM.yyyy")}
               </span>
               {!programEndedAt ? (
@@ -185,13 +184,12 @@ export const AssessmentAccordionItem = ({
                   variant="destructive"
                   onClick={handleEndProgram}
                   disabled={loadingEnd}
-                  className="ml-0 sm:ml-3 mt-2 sm:mt-0"
                 >
                   {loadingEnd ? "Ukladanie..." : "Ukončiť program"}
                 </Button>
               ) : (
                 <>
-                  <Button size="sm" disabled variant="outline" className="text-green-700 border-green-500 bg-green-50 ml-0 sm:ml-3 mt-2 sm:mt-0">
+                  <Button size="sm" disabled variant="outline" className="text-green-700 border-green-500 bg-green-50">
                     Ukončené
                   </Button>
                   <Button
