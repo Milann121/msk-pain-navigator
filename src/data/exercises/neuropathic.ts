@@ -111,7 +111,6 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
     {
       title: '0-2 týždne',
       description: 'Cvičenia na zníženie neurologických symptómov a redukciu tlaku na koreň nervu.',
-      mainGroup: [],
       videos: [
         {
           videoId: 'oFQwLC6iea4',
