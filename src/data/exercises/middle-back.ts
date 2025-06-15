@@ -1,41 +1,15 @@
-import exercisesByDifferential from "../exercisePrograms";
 
 /**
- * Collect all exercises (videos) that target the middle-back.
+ * List of middle-back exercises with unique IDs.
  */
-export function getMiddleBackExercises() {
-  const results: Array<{
-    exerciseTitle: string;
-    videoId: string;
-    description?: string;
-    importance?: 1 | 2 | 3;
-    mainGroup?: string[] | string;
-    bodyPart?: string[] | string;
-  }> = [];
-
-  Object.values(exercisesByDifferential).forEach(programArray => {
-    (programArray as any[]).forEach(program => {
-      if (Array.isArray(program.videos)) {
-        program.videos.forEach((vid: any) => {
-          if (
-            (Array.isArray(vid.bodyPart) && vid.bodyPart.includes('middle-back')) ||
-            vid.bodyPart === 'middle-back'
-          ) {
-            results.push({
-              exerciseTitle: vid.title || program.title,
-              videoId: vid.videoId,
-              description: vid.description,
-              importance: vid.importance,
-              mainGroup: vid.mainGroup,
-              bodyPart: vid.bodyPart,
-            });
-          }
-        });
-      }
-    });
-  });
-
-  return results;
-}
-
-export const middleBackExercises = getMiddleBackExercises();
+export const middleBackExercises = [
+  {
+    id: 'middle-back-1',
+    videoId: 'PK62xMsZfG0',
+    title: 'Modlenie - uvoľnenie krku a lopatiek',
+    description: 'Spojte dlane a lakte v 90 stupňovom uhle v lakti a ramenách. So sústavným spojením pomaly zdvíhajte lakte vyššie, ale stále DRŽTE SPOJENÉ lakte aj dlane...',
+    mainGroup: ['mobility'],
+    bodyPart: ['middle-back'],
+  },
+  // Add more exercises as needed...
+];
