@@ -6,7 +6,7 @@ export interface UserInfo {
   firstName: string;
   age: number;
   painArea: 'neck' | 'middle back' | 'lower back';
-  gender: 'muž' | 'žena';
+  gender: 'Muž' | 'Žena';
 }
 
 // Pain Mechanism types
