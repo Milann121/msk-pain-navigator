@@ -40,13 +40,16 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           videoId: 'PK62xMsZfG0',
           title: 'Modlenie - uvoľnenie krku a lopatiek',
           description: 'Spojte dlane a lakte v 90 stupňovom uhle v lakti a ramenách. So sústavným spojením pomaly zdvíhajte lakte vyššie, ale stále DRŽTE SPOJENÉ lakte aj dlane. UPOZORNENIE: snažte sa, aby vám prsty stále smerovali do stropu. OPAKOVANIA: 20 sekúnd / 2x za sebou / 2x denne.',
-          importance: 1
+          importance: 1,
+          mainGroup: ["mobility", "pain-relief"],
         },
         {
           videoId: 'oVJqu0FEw-Y',
           title: 'Posiľnenie medzilopatkových svalov',
           description: 'Uchyťte odporovú gumu podľa videa. Tieto 3 cviky môžete striedať, alebo si vybrať ktorýkoľvek z nich. \n➜ UPOZORNENIE: pri týchto cvikoch nesmiete pociťovať namáhanie trapézov! Celý čas sa snažte tlačiť lopatky a ramená smerom dole od uší, aby pracovali medzilopatkové svaly. Dbajte na to, aby ste počas vykonávania cvikov viac cítili svaly medzi lopatkami, nie ramená a trapézy - to dosiahnete práve tlačením pliec dole. \n➜ OPAKOVANIA: 10-15x / 3 série / 1x denne. ',
-          importance: 2
+          importance: 2,
+          mainGroup: ["stability"],
+          
         }
       ]
     }
