@@ -15,31 +15,22 @@ export function useProgramEndRenew(
   const [loadingRenew, setLoadingRenew] = useState(false);
   const [justEnded, setJustEnded] = useState(false);
 
-  // Listen for prop changes to program_ended_at and reset local justEnded if external state changes
   useEffect(() => {
-    if (assessment.program_ended_at) {
-      setProgramEndedAt(new Date(assessment.program_ended_at));
-      setJustEnded(false); // Reset justEnded if the server state changes
-    }
-    if (!assessment.program_ended_at && programEndedAt) {
-      // If remote ended_at becomes null (renewed elsewhere), update local
-      setProgramEndedAt(null);
+    if (assessment.program_ended_at || programEndedAt) {
       setJustEnded(false);
     }
-    // eslint-disable-next-line
-  }, [assessment.program_ended_at]);
+  }, [assessment.program_ended_at, programEndedAt]);
 
   const handleEndProgram = async () => {
     setLoadingEnd(true);
-    setJustEnded(true); // Provide instant feedback to UI!
+    setJustEnded(true); // instant feedback!
     const now = new Date();
-    // Optimistically set programEndedAt for UI logic (so isEnded works instantly)
-    setProgramEndedAt(now);
     const { error } = await supabase
       .from('user_assessments')
       .update({ program_ended_at: now.toISOString() })
       .eq('id', assessment.id);
     if (!error) {
+      setProgramEndedAt(now);
       if (onEndProgram) onEndProgram();
     }
     setLoadingEnd(false);
@@ -48,7 +39,7 @@ export function useProgramEndRenew(
   const handleRenewProgram = async () => {
     setLoadingRenew(true);
     setProgramEndedAt(null);
-    setJustEnded(false); // Provide instant feedback to UI!
+    setJustEnded(false); // instant feedback!
     const { error } = await supabase
       .from('user_assessments')
       .update({ program_ended_at: null })
@@ -59,7 +50,7 @@ export function useProgramEndRenew(
     setLoadingRenew(false);
   };
 
-  // The program should be considered "ended" if either endedAt or justEnded is truthy
+  // "Ended" state in UI: local or remote
   const isEnded = !!programEndedAt || justEnded;
 
   return {
