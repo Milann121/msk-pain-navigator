@@ -11,7 +11,7 @@ export const ExerciseGoodToggle = ({ value, onChange }: ExerciseGoodToggleProps)
   return (
     <div className="flex items-center gap-2">
       <span className={value === "good" ? "text-green-700 font-medium" : "text-gray-700"}>
-        Dobré
+        Áno
       </span>
       <Switch
         checked={value === "not-good"}
@@ -20,7 +20,7 @@ export const ExerciseGoodToggle = ({ value, onChange }: ExerciseGoodToggleProps)
         className="!bg-gray-200 data-[state=checked]:!bg-red-500"
       />
       <span className={value === "not-good" ? "text-red-700 font-medium" : "text-gray-700"}>
-        Nie je dobré
+        Nie
       </span>
     </div>
   );

@@ -88,7 +88,6 @@ export const ExerciseVideoSection = ({
                   </span>
                 ))}
               </p>
-              {/* Completion button for all programs - use assessmentId directly */}
               {assessmentId && (
                 <ExerciseCompletionCheckbox 
                   exerciseTitle={video.title || exerciseTitle}
@@ -96,7 +95,8 @@ export const ExerciseVideoSection = ({
                   videoId={video.videoId}
                 />
               )}
-              {/* Exercise feedback toggle and dialog */}
+              {/* Inserted question above the toggle */}
+              <p className="text-base font-medium text-gray-900 mb-1">Vyhovuje vám cvik?</p>
               <ExerciseGoodToggle 
                 value={feedbackValue} 
                 onChange={handleToggleChange} 
@@ -140,7 +140,6 @@ export const ExerciseVideoSection = ({
                 </span>
               ))}
             </p>
-            {/* Completion button for all programs on mobile - use assessmentId directly */}
             {assessmentId && (
               <ExerciseCompletionCheckbox 
                 exerciseTitle={video.title || exerciseTitle}
@@ -148,7 +147,8 @@ export const ExerciseVideoSection = ({
                 videoId={video.videoId}
               />
             )}
-            {/* Exercise feedback toggle and dialog on mobile */}
+            {/* Inserted question above the toggle */}
+            <p className="text-base font-medium text-gray-900 mb-1">Vyhovuje vám cvik?</p>
             <ExerciseGoodToggle 
               value={feedbackValue} 
               onChange={handleToggleChange} 
