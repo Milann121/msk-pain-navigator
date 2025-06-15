@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLocation } from 'react-router-dom';
@@ -468,8 +467,6 @@ const exercisesByDifferential: Record<string, Exercise[]> = {
   ]
 };
 
-=======
->>>>>>> 23344f6ec9d47a0606325af290e5b3dfe37c0dd6
 const ExercisePlan = () => {
   const { user } = useAuth();
   const location = useLocation();
