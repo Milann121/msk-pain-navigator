@@ -225,10 +225,8 @@ export const ExerciseVideoSection = ({
                 videoId={video.videoId}
               />
             )}
-            <div className="flex flex-col items-start gap-2 mt-1 mb-2">
-              <span className="text-base font-medium text-gray-900">
-                Vyhovuje vám cvik?
-              </span>
+            <div className="flex items-center gap-4 mt-1 mb-2">
+              <span className="text-base font-medium text-gray-900">Vyhovuje vám cvik?</span>
               <ExerciseGoodToggle
                 value={feedbackValue}
                 onChange={handleToggleChange}
