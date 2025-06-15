@@ -16,13 +16,13 @@ interface MoodCalendarViewProps {
 
 export const MoodCalendarView = ({ date, onDateSelect, getMoodForDate }: MoodCalendarViewProps) => {
   return (
-    <div className="w-full">
+    <div className="w-full p-0 m-0"> {/* removed padding, full width */}
       <Calendar
         mode="single"
         selected={date}
         onSelect={onDateSelect}
         locale={sk}
-        className="w-full border rounded-md p-3"
+        className="w-full border rounded-md p-0"
         modifiers={{
           happy: (date) => getMoodForDate(date) === 'happy',
           neutral: (date) => getMoodForDate(date) === 'neutral',
