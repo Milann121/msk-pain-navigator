@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ExerciseCompletionCheckbox } from '@/components/ExerciseCompletionCheckbox';
 import { FavoriteExerciseButton } from '@/components/FavoriteExerciseButton';
@@ -20,7 +19,7 @@ interface ExerciseVideoSectionProps {
 }
 
 // Helper to store feedback by video ID
-type FeedbackMap = Record<string, "good" | "not-good">;
+type FeedbackMap = Record<string, "good" | "neutral" | "not-good">;
 
 export const ExerciseVideoSection = ({ 
   video, 
@@ -28,13 +27,14 @@ export const ExerciseVideoSection = ({
   showGeneral, 
   assessmentId 
 }: ExerciseVideoSectionProps) => {
-  // Local feedback state per video
+  // Default state is now "neutral"
   const [feedbackMap, setFeedbackMap] = useState<FeedbackMap>({});
   const [feedbackDialogOpen, setFeedbackDialogOpen] = useState(false);
 
-  const feedbackValue = feedbackMap[video.videoId] ?? "good";
+  // Neutral is the default
+  const feedbackValue = feedbackMap[video.videoId] ?? "neutral";
 
-  const handleToggleChange = (value: "good" | "not-good") => {
+  const handleToggleChange = (value: "good" | "neutral" | "not-good") => {
     setFeedbackMap((prev) => ({ ...prev, [video.videoId]: value }));
     if (value === "not-good") {
       setFeedbackDialogOpen(true);
