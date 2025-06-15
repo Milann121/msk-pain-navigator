@@ -28,7 +28,7 @@ export const nociceptiveQuestionnaire: Questionnaire = {
     {
       id: 'worst-time',
       text: 'V ktorej časti dňa je bolesť zvyčajne najhoršia?',
-      description: 'Snažte sa zamyslieť, ktorá časť dňa je pre vás najhoršia a odpovedajte čo najpresnejšie. Ak máte bolesti počas celého dňa, kedy je bolesť najčastejšie najhoršia? Napríklad, ráno pri vstávaní? Alebo počas dňa v práci? Dajte si záležať na odpovedi.', // Add description here later
+      description: 'Snažte sa zamyslieť, ktorá časť dňa je pre vás najhoršia a odpovedajte čo najpresnejšie. Ak máte bolesti počas celého dňa, kedy je bolesť najčastejšie najhoršia? Napríklad, ráno pri vstávaní? Alebo počas dňa v práci? Dajte si záležať na odpovedi.',
       type: 'radio',
       options: [
         {
@@ -62,7 +62,7 @@ export const nociceptiveQuestionnaire: Questionnaire = {
             {
               id: 'lying-helps',
               text: 'Zistili ste, že ľah na chrbte zmierňuje vaše príznaky?',
-              description: 'Overte si, či vám ľah na chrbte dopraje úľavu. Uložte sa na chrbát, pokrčte kolená a zrelaxujte. Počkajte aj 2 minúty a sledujte vývoj symptómov, potom odpovedajte na otázku.',
+              description: 'Ak neviete, vyskúšajte jednoduchý test => Uložte sa na chrbát, pokrčte kolená, zrelaxujte a chvíľu počkajte či vašej symptómy neodoznejú.',
               type: 'radio',
               options: [
                 {
@@ -112,12 +112,16 @@ export const nociceptiveQuestionnaire: Questionnaire = {
     {
       id: 'breathing-pain',
       text: 'Cítite pri nádychu bolesť alebo iné príznaky?',
+<<<<<<< HEAD
+      description: 'Touto otázkou sa snažíme zistiť symtómy ako napr. pichanie v hrudníku, tuhosť hrudníku pri nádychu alebo ťažkosť s roztiahnutím hrudníka. Ak niektoré z toho pociťujete, odpovedajte KLADNE.', // Add description here later
+=======
       description: 'Touto otázkou sa snažíme zistiť symtómy ako napr. pichanie v hrudníku, tuhosť hrudníku pri nádychu alebo ťažkosť s roztiahnutím hrudníka. Ak niektoré z toho pociťujete, odpovedajte KLADNE.',
+>>>>>>> b498c153c7efc6614ca0d573c75c722c7cda402d
       type: 'radio',
       options: [
         {
           id: 'yes-breathing',
-          text: 'Áno, nádych vyvoláva bolesť',
+          text: 'Áno, nádych vyvoláva bolesť alebo tuhosť',
           differentials: ['costovertebral joint syndrome', 'facet joint syndrome', 'red flag']
         },
         {
