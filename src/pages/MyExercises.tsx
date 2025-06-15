@@ -62,6 +62,16 @@ const MyExercises = () => {
     setOpenedActiveAccordionId(renewedId); // expand the renewed item
   };
 
+  // Handler passed to AccordionItem: on end, move to ended instantly
+  const handleEndAssessmentUI = (endedId: string) => {
+    // Find in active assessments
+    const ended = activeAssessments.find(a => a.id === endedId);
+    if (!ended) return;
+    // Remove from active and add to ended (simulate immediate effect)
+    setActiveAssessments(activeAssessments.filter(a => a.id !== endedId));
+    setEndedAssessments([ended, ...endedAssessments]);
+  };
+
   if (isLoading) {
     return (
       <div className="min-h-screen flex flex-col">
@@ -123,6 +133,7 @@ const MyExercises = () => {
                       assessment={assessment}
                       onOpenFollowUp={handleOpenFollowUp}
                       onDeleteAssessment={handleDeleteAssessment}
+                      onEndProgram={() => handleEndAssessmentUI(assessment.id)}
                       // Pass no-op for onRenew (not needed for active)
                     />
                   ))}
@@ -165,6 +176,7 @@ const MyExercises = () => {
                       onOpenFollowUp={handleOpenFollowUp}
                       onDeleteAssessment={handleDeleteAssessment}
                       onRenew={() => handleRenewAssessmentUI(assessment.id)}
+                      // No onEndProgram needed here
                     />
                   ))}
                 </Accordion>

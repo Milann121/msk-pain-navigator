@@ -22,14 +22,16 @@ interface AssessmentAccordionItemProps {
   assessment: UserAssessment;
   onOpenFollowUp: (assessment: UserAssessment) => void;
   onDeleteAssessment: (id: string) => void;
-  onRenew?: () => void; // New prop: called after program is renewed
+  onRenew?: () => void; 
+  onEndProgram?: () => void; // NEW: Called after successful end
 }
 
 export const AssessmentAccordionItem = ({
   assessment,
   onOpenFollowUp,
   onDeleteAssessment,
-  onRenew
+  onRenew,
+  onEndProgram
 }: AssessmentAccordionItemProps) => {
   const navigate = useNavigate();
 
@@ -129,6 +131,8 @@ export const AssessmentAccordionItem = ({
 
     if (!error) {
       setProgramEndedAt(now);
+      // NEW: Notify parent to update UI
+      if (onEndProgram) onEndProgram();
     }
     setLoadingEnd(false);
   };
