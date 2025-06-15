@@ -39,4 +39,3 @@ export function getNeckExercises() {
 }
 
 export const neckExercises = getNeckExercises();
-
