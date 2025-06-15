@@ -168,12 +168,12 @@ export const AssessmentAccordionItem = ({
             latestPainLevel={latestPainLevel}
             diffIcon={diffIcon}
           />
-          {/* RIGHT: Completion info + start/end/renew below last completed line */}
-          <div className="flex flex-col h-full justify-between">
-            {/* Completion info (incl. posledné cvičenie etc) */}
+          {/* RIGHT: Completion info + start/end/renew just below last completed */}
+          <div className="flex flex-col h-full justify-start">
+            {/* Completion info (incl. Posledné cvičenie etc) */}
             <ExerciseCompletionInfo assessmentId={assessment.id} />
-            {/* --- Start date and buttons , aligned right & just below completion info --- */}
-            <div className="flex flex-col items-end mt-2 gap-0">
+            {/* --- Start date and buttons, RIGHT below completion info, right-aligned --- */}
+            <div className="flex flex-col items-end gap-0 mt-2">
               <div className="flex items-center gap-2">
                 <span className="font-medium text-gray-600">
                   Začiatok programu:
