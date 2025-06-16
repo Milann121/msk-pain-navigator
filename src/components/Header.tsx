@@ -100,7 +100,7 @@ const Header = () => {
               <path d="M17 21l-5-5 5-5" />
             </svg>
           </div>
-          <h1 className="text-lg md:text-xl font-bold">Dotazník bolestí chrbtice</h1>
+          <h1 className="text-lg md:text-xl font-bold">Pebee terapeut</h1>
         </div>
         
         {isMobile ? (

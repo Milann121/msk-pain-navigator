@@ -22,7 +22,7 @@ const WelcomeOverlay = () => {
         
         <div className="max-w-2xl mx-auto space-y-6">
           <h2 className="text-3xl font-bold text-blue-800">
-            Vitajte v našom dotazníku bolestí chrbtice
+            Vitajte u nášho Pebee terapeuta
           </h2>
           <p className="text-lg text-gray-600">
             Pre prístup k dotazníku a personalizovaným cvičebným odporúčaniam sa prosím prihláste do svojho účtu.
