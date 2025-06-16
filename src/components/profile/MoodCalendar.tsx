@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { format, isAfter, isBefore, subDays, isSameDay } from 'date-fns';
 import { sk } from 'date-fns/locale/sk';
@@ -10,6 +11,7 @@ import { GeneralProgram } from './GeneralProgram';
 import { useMoodData } from './mood/useMoodData';
 import { Info } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 // Map mood string to value
 const moodValueMap = {
@@ -20,6 +22,7 @@ const moodValueMap = {
 
 export const MoodCalendar = () => {
   const [date, setDate] = useState<Date>(new Date());
+  const [timePeriod, setTimePeriod] = useState<'week' | 'month'>('week');
   const { firstName, loading, handleMoodSelection, getMoodForDate, moodEntries } = useMoodData();
   
   // Get mood for the selected date
@@ -31,8 +34,9 @@ export const MoodCalendar = () => {
 
   // Utility: filter and map moods for a period
   const getMoodScoresForPeriod = (startDate: Date, endDate: Date) => {
+    const daysDiff = Math.ceil((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24)) + 1;
     const days: Date[] = [];
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < daysDiff; i++) {
       days.push(subDays(endDate, i));
     }
     // Keep most recent first
@@ -45,15 +49,16 @@ export const MoodCalendar = () => {
     return scores.filter((val): val is number => val != null);
   };
 
-  // Calculate mood scores
-  const last7DaysScores = getMoodScoresForPeriod(subDays(today, 6), today);
-  const prev7DaysScores = getMoodScoresForPeriod(subDays(today, 13), subDays(today, 7));
+  // Calculate mood scores based on selected time period
+  const currentPeriodDays = timePeriod === 'week' ? 7 : 30;
+  const currentPeriodScores = getMoodScoresForPeriod(subDays(today, currentPeriodDays - 1), today);
+  const prevPeriodScores = getMoodScoresForPeriod(subDays(today, (currentPeriodDays * 2) - 1), subDays(today, currentPeriodDays));
 
   const average = (arr: number[]) =>
     arr.length > 0 ? arr.reduce((sum, n) => sum + n, 0) / arr.length : null;
 
-  const moodScore = average(last7DaysScores);
-  const prevMoodScore = average(prev7DaysScores);
+  const moodScore = average(currentPeriodScores);
+  const prevMoodScore = average(prevPeriodScores);
 
   // Determine trend
   let trendColor = 'text-gray-500';
@@ -63,17 +68,20 @@ export const MoodCalendar = () => {
     if (moodScore > prevMoodScore) {
       trendColor = 'text-green-600';
       trendIcon = '▲';
-      description = 'Lepší trend za posledných 7 dní';
+      description = `Lepší trend za posledných ${currentPeriodDays} ${timePeriod === 'week' ? 'dní' : 'dní'}`;
     } else if (moodScore < prevMoodScore) {
       trendColor = 'text-yellow-600';
       trendIcon = '▼';
-      description = 'Zhoršený trend za posledných 7 dní';
+      description = `Zhoršený trend za posledných ${currentPeriodDays} ${timePeriod === 'week' ? 'dní' : 'dní'}`;
     }
   }
 
   // Format score to 2 decimals or "-"
   const formatScore = (score: number | null) =>
     score != null ? score.toFixed(2) : '-';
+
+  const periodLabel = timePeriod === 'week' ? '7 dní' : '30 dní';
+  const emptyStateText = timePeriod === 'week' ? 'posledných 7 dní' : 'posledných 30 dní';
 
   return (
     <div className="mb-6">
@@ -102,10 +110,23 @@ export const MoodCalendar = () => {
               onDateSelect={(date) => date && setDate(date)}
               getMoodForDate={getMoodForDate}
             />
+            
+            {/* Time Period Toggle */}
+            <div className="mt-6 w-full flex justify-center">
+              <ToggleGroup type="single" value={timePeriod} onValueChange={(value) => value && setTimePeriod(value as 'week' | 'month')}>
+                <ToggleGroupItem value="week" aria-label="Týždeň">
+                  týždeň
+                </ToggleGroupItem>
+                <ToggleGroupItem value="month" aria-label="Mesiac">
+                  mesiac
+                </ToggleGroupItem>
+              </ToggleGroup>
+            </div>
+            
             {/* Mood Score/Status */}
-            <div className="mt-6 w-full flex flex-col items-center">
+            <div className="mt-4 w-full flex flex-col items-center">
               <div className="text-sm text-gray-500 mb-1 flex items-center gap-1">
-                Priemerné skóre za 7 dní
+                Priemerné skóre za {periodLabel}
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger asChild>
@@ -115,7 +136,7 @@ export const MoodCalendar = () => {
                     </TooltipTrigger>
                     <TooltipContent side="top" className="max-w-xs">
                       <span>
-                        Priemerné skóre z posledných 7 dní vychádza z vašich denných zápisov nálady.<br />
+                        Priemerné skóre z posledných {currentPeriodDays} dní vychádza z vašich denných zápisov nálady.<br />
                         <span className="font-medium">Dobre = 3, Neutrálne = 2, Zle = 1.</span><br />
                         Sledujte, ako sa vaše celkové skóre mení v čase.
                       </span>
@@ -131,7 +152,7 @@ export const MoodCalendar = () => {
                 <span className={`text-xs mt-1 ${trendColor}`}>{description}</span>
               )}
               {moodScore === null && (
-                <span className="text-xs text-gray-400">(Nemáte záznamy pre posledných 7 dní)</span>
+                <span className="text-xs text-gray-400">(Nemáte záznamy pre {emptyStateText})</span>
               )}
             </div>
           </CardContent>

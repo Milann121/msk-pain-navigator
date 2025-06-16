@@ -1,8 +1,7 @@
-
 import exercisesByDifferential from "../exercisePrograms";
 
 /**
- * Collect all exercises (videos) that target the middle-back.
+ * Collect all exercises (videos) that target the middle back.
  */
 export function getMiddleBackExercises() {
   const results: Array<{
@@ -40,4 +39,3 @@ export function getMiddleBackExercises() {
 }
 
 export const middleBackExercises = getMiddleBackExercises();
-

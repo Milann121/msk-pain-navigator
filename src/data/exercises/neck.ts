@@ -1,4 +1,3 @@
-
 import exercisesByDifferential from "../exercisePrograms";
 
 /**
@@ -40,4 +39,3 @@ export function getNeckExercises() {
 }
 
 export const neckExercises = getNeckExercises();
-
