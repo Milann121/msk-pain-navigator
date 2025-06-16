@@ -8,6 +8,7 @@ import { MoodSelector } from './mood/MoodSelector';
 import { MoodCalendarView } from './mood/MoodCalendarView';
 import { MoneySavings } from './MoneySavings';
 import { GeneralProgram } from './GeneralProgram';
+import { WeeklyNotificationBanner } from './WeeklyNotificationBanner';
 import { useMoodData } from './mood/useMoodData';
 import { Info } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
@@ -87,10 +88,19 @@ export const MoodCalendar = () => {
     <div className="mb-6">
       {/* Header above containers */}
       <div className="mb-4">
-        <UserGreeting firstName={firstName} />
-        <h3 className="text-lg font-medium">
-          {currentDayAndDate}
-        </h3>
+        <div className="flex gap-4 items-start">
+          <div className="flex-1">
+            <UserGreeting firstName={firstName} />
+            <h3 className="text-lg font-medium">
+              {currentDayAndDate}
+            </h3>
+          </div>
+          
+          {/* Notification Banner */}
+          <div className="flex-1 max-w-md">
+            <WeeklyNotificationBanner />
+          </div>
+        </div>
       </div>
 
       {/* Two containers side by side */}
