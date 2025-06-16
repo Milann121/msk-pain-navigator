@@ -45,7 +45,7 @@ export const WeeklyNotificationBanner = () => {
       <CardContent className="pt-4 pb-4 pr-6">
         <div className="flex items-center justify-between gap-4">
           <div className="flex-1">
-            <p className="text-base font-medium text-blue-800 mb-3 leading-relaxed">
+            <p className="text-base font-large text-blue-800 mb-3 leading-relaxed">
               Je to tu! Nový týždeň, nová výzva. Neodkladaj svoje cviky a začni už dnes 🤩
             </p>
           </div>
