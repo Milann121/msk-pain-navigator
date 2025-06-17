@@ -39,7 +39,7 @@ const Header = () => {
   const MobileMenu = () => (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="md:hidden">
+        <Button variant="ghost" size="icon" className="lg:hidden">
           <Menu className="h-6 w-6" />
           <span className="sr-only">Toggle menu</span>
         </Button>
@@ -103,29 +103,31 @@ const Header = () => {
           <h1 className="text-lg md:text-xl font-bold">Pebee terapeut</h1>
         </div>
         
-        {isMobile ? (
+        {/* Show mobile menu only on small screens (below lg breakpoint) */}
+        <div className="lg:hidden">
           <MobileMenu />
-        ) : (
-          <nav className="flex items-center space-x-6">
-            {navigationLinks.map((link) => (
-              <Button 
-                key={link.label} 
-                variant="ghost" 
-                className="text-white hover:bg-blue-600"
-                onClick={() => navigate(link.href)}
-              >
-                {link.label}
-              </Button>
-            ))}
-            <Button
-              onClick={handleAuthClick}
-              variant="outline"
-              className="bg-white text-blue-600 hover:bg-blue-50"
+        </div>
+
+        {/* Show full navigation on tablet and desktop (lg breakpoint and above) */}
+        <nav className="hidden lg:flex items-center space-x-6">
+          {navigationLinks.map((link) => (
+            <Button 
+              key={link.label} 
+              variant="ghost" 
+              className="text-white hover:bg-blue-600"
+              onClick={() => navigate(link.href)}
             >
-              {user ? 'Odhlásiť sa' : 'Prihlásiť sa'}
+              {link.label}
             </Button>
-          </nav>
-        )}
+          ))}
+          <Button
+            onClick={handleAuthClick}
+            variant="outline"
+            className="bg-white text-blue-600 hover:bg-blue-50"
+          >
+            {user ? 'Odhlásiť sa' : 'Prihlásiť sa'}
+          </Button>
+        </nav>
       </div>
     </header>
   );
