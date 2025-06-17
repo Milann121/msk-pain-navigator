@@ -1,4 +1,4 @@
-
+import React from 'react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -9,7 +9,7 @@ const WelcomeOverlay = () => {
 
   return (
     <div className="min-h-[80vh] flex flex-col px-4 py-20">
-      <div className="max-w-4xl mx-auto text-center space-y-8 mb-12">
+      <div className="max-w-4xl mx-auto text-center space-y-8 mb-6">
         <div className="max-w-2xl mx-auto space-y-6">
           <h2 className="text-3xl font-bold text-blue-800">
             Vitajte u nášho Pebee terapeuta
