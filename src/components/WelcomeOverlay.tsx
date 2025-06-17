@@ -15,7 +15,7 @@ const WelcomeOverlay = () => {
             Vitajte u nášho Pebee terapeuta
           </h2>
           <p className="text-lg text-gray-600">
-            Pre prístup k dotazníku a personalizovaným cvičebným odporúčaniam sa prosím prihláste do svojho účtu.
+            Pre prístup k dotazníku a personalizovaným cvičebným programom sa prosím prihláste do svojho účtu.
           </p>
           <Button 
             onClick={() => navigate('/auth')}
