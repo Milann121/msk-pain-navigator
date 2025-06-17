@@ -11,7 +11,7 @@ const WelcomeOverlay = () => {
     <div className="min-h-screen flex flex-col">
       {/* Header section with title, text and button */}
       <div className="py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center space-y-8 mb-1.5">
+        <div className="max-w-4xl mx-auto text-center space-y-8 mb-1.0">
           <div className="max-w-2xl mx-auto space-y-6">
             <h2 className="text-3xl font-bold text-blue-800">
               Vitajte u nášho Pebee terapeuta
