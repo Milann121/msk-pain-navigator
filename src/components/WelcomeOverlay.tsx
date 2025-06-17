@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
@@ -53,18 +52,17 @@ const WelcomeOverlay = () => {
         </div>
       </div>
 
-      {/* Third image with light blue background and text on the right */}
-      <div className="w-full bg-blue-50">
-        <div className="max-w-7xl mx-auto px-4 py-8">
-          <div className="flex flex-col lg:flex-row items-center gap-8">
-            <div className="lg:w-1/2">
-              <img 
-                src="/lovable-uploads/16d5e659-d4bc-4980-b090-fc7512bd2ace.png"
-                alt="Kalendár cvičení a úspory" 
-                className="w-full h-auto object-cover rounded-lg"
-              />
-            </div>
-            <div className="lg:w-1/2 space-y-4">
+      {/* Third image with full width and text overlay on the right */}
+      <div className="w-full bg-blue-50 relative">
+        <div className="w-full h-full min-h-[400px] relative">
+          <img 
+            src="/lovable-uploads/16d5e659-d4bc-4980-b090-fc7512bd2ace.png"
+            alt="Kalendár cvičení a úspory" 
+            className="w-full h-full object-cover object-center"
+          />
+          {/* Text overlay positioned on the right */}
+          <div className="absolute inset-0 flex items-center justify-end px-4 md:px-8">
+            <div className="bg-white/90 backdrop-blur-sm p-6 md:p-8 rounded-lg shadow-lg max-w-md md:max-w-lg space-y-4 mr-4 md:mr-8">
               <h3 className="text-2xl font-bold text-blue-800">Kalendár cvičení</h3>
               <p className="text-gray-700 leading-relaxed">
                 Sledujte svoj pokrok s naším intuitívnym kalendárom cvičení. Vidíte presne, kedy ste cvičili, koľko dní ste aktívni a aké úspory ste dosiahli. Motivujte sa každodennými výsledkami a udržujte si pravidelnú rutinu cvičenia.
@@ -74,39 +72,37 @@ const WelcomeOverlay = () => {
         </div>
       </div>
 
-      {/* Fourth image with text on the left */}
-      <div className="w-full">
-        <div className="max-w-7xl mx-auto px-4 py-8">
-          <div className="flex flex-col lg:flex-row items-center gap-8">
-            <div className="lg:w-1/2 space-y-4 order-2 lg:order-1">
+      {/* Fourth image with full width and text overlay on the left */}
+      <div className="w-full relative">
+        <div className="w-full h-full min-h-[400px] relative">
+          <img 
+            src="/lovable-uploads/133826c0-fff0-4a91-91fe-4e633b6f23ae.png"
+            alt="Moje cviky a aktívne programy" 
+            className="w-full h-full object-cover object-center"
+          />
+          {/* Text overlay positioned on the left */}
+          <div className="absolute inset-0 flex items-center justify-start px-4 md:px-8">
+            <div className="bg-white/90 backdrop-blur-sm p-6 md:p-8 rounded-lg shadow-lg max-w-md md:max-w-lg space-y-4 ml-4 md:ml-8">
               <h3 className="text-2xl font-bold text-blue-800">Moje cviky a programy</h3>
               <p className="text-gray-700 leading-relaxed">
                 Prístup k personalizovaným cvičebným programom prispôsobeným vašim potrebám. Každý cvik je navrhnutý špeciálne pre váš typ bolesti a stav. Sledujte aktívne programy a udržujte si motiváciu s jasným prehľadom vašich cvičení.
               </p>
             </div>
-            <div className="lg:w-1/2 order-1 lg:order-2">
-              <img 
-                src="/lovable-uploads/133826c0-fff0-4a91-91fe-4e633b6f23ae.png"
-                alt="Moje cviky a aktívne programy" 
-                className="w-full h-auto object-cover rounded-lg"
-              />
-            </div>
           </div>
         </div>
       </div>
 
-      {/* Fifth image with light blue background and text on the right */}
-      <div className="w-full bg-blue-50">
-        <div className="max-w-7xl mx-auto px-4 py-8">
-          <div className="flex flex-col lg:flex-row items-center gap-8">
-            <div className="lg:w-1/2">
-              <img 
-                src="/lovable-uploads/a78217f7-b4cf-44a8-932b-c3bb5b7ad2a0.png"
-                alt="Hodnotenie bolesti pohybového aparátu" 
-                className="w-full h-auto object-cover rounded-lg"
-              />
-            </div>
-            <div className="lg:w-1/2 space-y-4">
+      {/* Fifth image with full width and text overlay on the right */}
+      <div className="w-full bg-blue-50 relative">
+        <div className="w-full h-full min-h-[400px] relative">
+          <img 
+            src="/lovable-uploads/a78217f7-b4cf-44a8-932b-c3bb5b7ad2a0.png"
+            alt="Hodnotenie bolesti pohybového aparátu" 
+            className="w-full h-full object-cover object-center"
+          />
+          {/* Text overlay positioned on the right */}
+          <div className="absolute inset-0 flex items-center justify-end px-4 md:px-8">
+            <div className="bg-white/90 backdrop-blur-sm p-6 md:p-8 rounded-lg shadow-lg max-w-md md:max-w-lg space-y-4 mr-4 md:mr-8">
               <h3 className="text-2xl font-bold text-blue-800">Hodnotenie bolesti</h3>
               <p className="text-gray-700 leading-relaxed">
                 Komplexné hodnotenie vašej bolesti pohybového aparátu pomocou interaktívneho 3D modelu. Presne identifikujte problémové oblasti a získajte personalizované odporúčania. Náš pokročilý systém analyzuje vaše symptómy a navrhne najvhodnejší liečebný plán.
