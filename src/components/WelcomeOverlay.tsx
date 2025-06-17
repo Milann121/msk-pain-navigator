@@ -2,24 +2,14 @@
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 const WelcomeOverlay = () => {
   const navigate = useNavigate();
   const isMobile = useIsMobile();
 
   return (
-    <div className="min-h-[80vh] flex flex-col items-center justify-center px-4 py-20">
-      <div className="max-w-4xl mx-auto text-center space-y-8">
-        <div className={`relative rounded-2xl overflow-hidden shadow-xl ${!isMobile ? 'max-w-md mx-auto' : ''}`}>
-          <img 
-            src="/lovable-uploads/1st-overlay.png"
-            alt="Úvodná stránka" 
-            className="w-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-        </div>
-        
+    <div className="min-h-[80vh] flex flex-col px-4 py-20">
+      <div className="max-w-4xl mx-auto text-center space-y-8 mb-12">
         <div className="max-w-2xl mx-auto space-y-6">
           <h2 className="text-3xl font-bold text-blue-800">
             Vitajte u nášho Pebee terapeuta
@@ -33,6 +23,16 @@ const WelcomeOverlay = () => {
           >
             Prihlásiť sa
           </Button>
+        </div>
+      </div>
+      
+      <div className="flex-1 w-full">
+        <div className="w-full h-full min-h-[400px] relative">
+          <img 
+            src="/lovable-uploads/1st-overlay.png"
+            alt="Mobilné aplikácie" 
+            className="w-full h-full object-cover object-center"
+          />
         </div>
       </div>
     </div>
