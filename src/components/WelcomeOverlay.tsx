@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
@@ -39,6 +37,18 @@ const WelcomeOverlay = () => {
             alt="Mobilné aplikácie" 
             className="w-full h-full object-cover object-center"
           />
+        </div>
+      </div>
+
+      {/* White section with title and subtitle */}
+      <div className="w-full bg-white py-16 px-4">
+        <div className="max-w-4xl mx-auto text-center space-y-4">
+          <h2 className="text-4xl font-bold text-blue-800">
+            Pohyb bez bolesti
+          </h2>
+          <p className="text-xl text-gray-600">
+            Funkcie Pebee terapeuta
+          </p>
         </div>
       </div>
 
@@ -115,4 +125,3 @@ const WelcomeOverlay = () => {
 };
 
 export default WelcomeOverlay;
-
