@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
@@ -11,7 +12,7 @@ const WelcomeOverlay = () => {
     <div className="min-h-screen flex flex-col">
       {/* Header section with title, text and button */}
       <div className="py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center space-y-8 mb-1.0">
+        <div className="max-w-4xl mx-auto text-center space-y-8 mb-1.5">
           <div className="max-w-2xl mx-auto space-y-6">
             <h2 className="text-3xl font-bold text-blue-800">
               Vitajte u nášho Pebee terapeuta
@@ -40,8 +41,8 @@ const WelcomeOverlay = () => {
         </div>
       </div>
 
-      {/* Additional scrollable images */}
-      <div className="w-full">
+      {/* Third image with light blue background */}
+      <div className="w-full bg-blue-50">
         <div className="w-full h-full min-h-[400px] relative">
           <img 
             src="/lovable-uploads/16d5e659-d4bc-4980-b090-fc7512bd2ace.png"
@@ -61,7 +62,8 @@ const WelcomeOverlay = () => {
         </div>
       </div>
 
-      <div className="w-full">
+      {/* Fifth image with light blue background */}
+      <div className="w-full bg-blue-50">
         <div className="w-full h-full min-h-[400px] relative">
           <img 
             src="/lovable-uploads/a78217f7-b4cf-44a8-932b-c3bb5b7ad2a0.png"
