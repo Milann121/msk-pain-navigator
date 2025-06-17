@@ -29,7 +29,7 @@ const WelcomeOverlay = () => {
       <div className="flex-1 w-full">
         <div className="w-full h-full min-h-[400px] relative">
           <img 
-            src="/lovable-uploads/1st-overlay.png"
+            src="/lovable-uploads/2nd-overlay.png"
             alt="Mobilné aplikácie" 
             className="w-full h-full object-cover object-center"
           />
