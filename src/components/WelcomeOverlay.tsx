@@ -41,7 +41,7 @@ const WelcomeOverlay = () => {
       </div>
 
       {/* White section with title and subtitle */}
-      <div className="w-full bg-white py-16 px-4">
+      <div className="w-full bg-white py-10 px-4">
         <div className="max-w-4xl mx-auto text-center space-y-4">
           <h2 className="text-4xl font-bold text-blue-800">
             Pohyb bez bolesti
