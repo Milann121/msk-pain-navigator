@@ -14,7 +14,7 @@ const WelcomeOverlay = () => {
         <div className={`relative rounded-2xl overflow-hidden shadow-xl ${!isMobile ? 'max-w-md mx-auto' : ''}`}>
           <img 
             src="/lovable-uploads/1st-overlay.png"
-            alt="Žena cvičí jogu" 
+            alt="Úvodná stránka" 
             className="w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
