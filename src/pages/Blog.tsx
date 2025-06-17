@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Header from '@/components/Header';
 import { Card, CardContent, CardDescription, CardFooter, CardTitle } from '@/components/ui/card';
@@ -143,8 +142,8 @@ const Blog = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <div className="flex-1 bg-gradient-to-b from-blue-50 to-white py-10 px-4">
-        <div className="container mx-auto max-w-6xl">
+      <div className="flex-1 bg-gradient-to-b from-blue-50 to-white py-10 px-2 md:px-4">
+        <div className="container mx-auto w-full max-w-full md:max-w-4xl px-2 md:px-0">
           <h1 className="text-3xl font-bold text-blue-800 mb-6">Blog</h1>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

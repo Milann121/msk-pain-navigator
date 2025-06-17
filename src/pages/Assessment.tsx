@@ -1,3 +1,4 @@
+
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import Header from '@/components/Header';
@@ -25,8 +26,8 @@ const AssessmentContent = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <div className="flex-1 bg-gradient-to-b from-blue-50 to-white py-10 px-4">
-        <div className="container mx-auto">
+      <div className="flex-1 bg-gradient-to-b from-blue-50 to-white py-10 px-2 md:px-4">
+        <div className="container mx-auto w-full max-w-full md:max-w-4xl px-2 md:px-0">
           <header className="mb-10 text-center">
             <h1 className="text-3xl font-bold text-blue-800 mb-2">
               Hodnotenie bolesti pohybového aparátu
