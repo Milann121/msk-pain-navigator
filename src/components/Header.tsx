@@ -49,12 +49,13 @@ const Header = () => {
           <ul className="space-y-4">
             {navigationLinks.map((link) => (
               <li key={link.label}>
-                <a
-                  href={link.href}
-                  className="block px-4 py-2 text-lg hover:bg-blue-50 rounded-md transition-colors"
+                <Button
+                  onClick={() => navigate(link.href)}
+                  variant="ghost"
+                  className="w-full text-left justify-start px-4 py-2 text-lg hover:bg-blue-50 rounded-md transition-colors"
                 >
                   {link.label}
-                </a>
+                </Button>
               </li>
             ))}
             <li>
