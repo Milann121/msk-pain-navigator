@@ -84,8 +84,8 @@ export const MyExercisesPage = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <div className="flex-1 bg-gradient-to-b from-blue-50 to-white py-10 px-2 md:px-4">
-        <div className="container mx-auto w-full max-w-full md:max-w-4xl px-2 md:px-0">
+      <div className="flex-1 bg-gradient-to-b from-blue-50 to-white py-10 px-1 md:px-4">
+        <div className="container mx-auto w-full max-w-full md:max-w-4xl px-1 md:px-0">
           <MyExercisesHeader />
           {/* Calendar & General Program */}
           <ExerciseCalendar />
