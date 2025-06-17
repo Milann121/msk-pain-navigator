@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
@@ -72,8 +73,46 @@ const WelcomeOverlay = () => {
           />
         </div>
       </div>
+
+      {/* Footer matching header design */}
+      <footer className="bg-gradient-to-r from-blue-700 to-blue-500 text-white py-4 px-3 md:px-6 shadow-md mt-auto">
+        <div className="container mx-auto flex justify-between items-center">
+          <div 
+            className="flex items-center space-x-2 md:space-x-4" 
+            onClick={() => navigate('/')} 
+            style={{ cursor: 'pointer' }}
+          >
+            <div className="bg-white p-1.5 md:p-2 rounded-full">
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="20" 
+                height="20" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                className="text-blue-600 md:w-6 md:h-6"
+              >
+                <path d="M20 11c0-4.4-3.6-8-8-8s-8 3.6-8 8 3.6 8 8 8" />
+                <path d="M2 15h8" />
+                <path d="M2 11h18" />
+                <path d="M2 7h8" />
+                <path d="M17 21l-5-5 5-5" />
+              </svg>
+            </div>
+            <h1 className="text-lg md:text-xl font-bold">Pebee terapeut</h1>
+          </div>
+          
+          <div className="text-sm text-blue-100">
+            © 2024 Pebee terapeut. Všetky práva vyhradené.
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
 
 export default WelcomeOverlay;
+
