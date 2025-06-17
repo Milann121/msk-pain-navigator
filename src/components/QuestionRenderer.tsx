@@ -144,12 +144,18 @@ const QuestionRenderer = ({ question, onAnswer }: QuestionRendererProps) => {
             value={sliderValue}
             onValueChange={handleSliderChange}
           />
-          <div className="flex justify-between text-sm text-gray-500">
-            <span>{question.scale.minLabel} ({question.scale.min})</span>
-            <span>
-              Vybrané: <span className="font-medium text-blue-600">{sliderValue[0]}</span>
-            </span>
-            <span>{question.scale.maxLabel} ({question.scale.max})</span>
+          <div className="flex justify-between items-start text-sm text-gray-500 gap-4">
+            <div className="text-left flex-1">
+              <span className="block">{question.scale.minLabel}</span>
+              <span className="text-xs">({question.scale.min})</span>
+            </div>
+            <div className="text-center flex-shrink-0 px-3 py-1 bg-blue-50 rounded-md">
+              <span className="text-blue-600 font-medium">Vybrané: {sliderValue[0]}</span>
+            </div>
+            <div className="text-right flex-1">
+              <span className="block">{question.scale.maxLabel}</span>
+              <span className="text-xs">({question.scale.max})</span>
+            </div>
           </div>
         </div>
       )}
