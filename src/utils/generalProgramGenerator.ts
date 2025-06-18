@@ -111,16 +111,31 @@ export const generateGeneralProgram = (
 
 // Helper function to detect if user has been making quick changes
 export const detectQuickChanges = (assessments: any[]): boolean => {
-  if (assessments.length < 2) return false;
+  if (assessments.length < 1) return false;
   
   const now = new Date();
-  const recentlyModified = assessments.filter(assessment => {
+  const recentTimeWindow = 10 * 60 * 1000; // 10 minutes
+  
+  // Count recent activities (both created and ended programs)
+  const recentActivities = assessments.filter(assessment => {
     const createdAt = new Date(assessment.timestamp);
-    const timeDiff = now.getTime() - createdAt.getTime();
-    // Check if created within last 5 minutes
-    return timeDiff < 5 * 60 * 1000;
+    const timeSinceCreated = now.getTime() - createdAt.getTime();
+    
+    // Check if created recently
+    if (timeSinceCreated < recentTimeWindow) {
+      return true;
+    }
+    
+    // Check if ended recently (program_ended_at exists and is recent)
+    if (assessment.program_ended_at) {
+      const endedAt = new Date(assessment.program_ended_at);
+      const timeSinceEnded = now.getTime() - endedAt.getTime();
+      return timeSinceEnded < recentTimeWindow;
+    }
+    
+    return false;
   });
   
-  // If more than 1 assessment created in last 5 minutes, consider it quick changes
-  return recentlyModified.length > 1;
+  // If more than 1 recent activity (create/delete) in last 10 minutes, show banner
+  return recentActivities.length > 1;
 };
