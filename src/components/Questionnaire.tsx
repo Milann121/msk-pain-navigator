@@ -4,7 +4,9 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import QuestionRenderer from '@/components/QuestionRenderer';
-import { Questionnaire as QuestionnaireType, Question, PainMechanism, SINGroup, Differential, ScoreTracker } from '@/utils/types';
+import { Questionnaire as QuestionnaireType, Question, PainMechanism, SINGroup, Differential, ScoreTracker, UserInfo } from '@/utils/types';
+import { useAssessment } from '@/contexts/AssessmentContext';
+import { middleBackQuestions } from '@/data/questionnaires/nociceptive';
 
 interface QuestionnaireProps {
   questionnaire: QuestionnaireType;
@@ -16,8 +18,21 @@ const Questionnaire = ({ questionnaire, onComplete, onBack }: QuestionnaireProps
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, any>>({});
   const [progress, setProgress] = useState(0);
+  const { userInfo } = useAssessment();
 
-  const questions = questionnaire.questions;
+  // Get the appropriate questions based on pain area and questionnaire type
+  const getQuestionsForPainArea = () => {
+    let baseQuestions = questionnaire.questions;
+    
+    // Add middle back specific questions if user selected "middle back" and this is nociceptive questionnaire
+    if (questionnaire.id === 'nociceptive' && userInfo?.painArea === 'middle back') {
+      baseQuestions = [...baseQuestions, ...middleBackQuestions];
+    }
+    
+    return baseQuestions;
+  };
+
+  const questions = getQuestionsForPainArea();
   const currentQuestion = questions[currentQuestionIndex];
   
   // Update progress when current question changes
