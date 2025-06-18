@@ -1,3 +1,4 @@
+
 import { Exercise } from '@/types/exercise';
 import exercisesByDifferential from '@/data/exercisePrograms';
 
@@ -21,10 +22,18 @@ export const generateGeneralProgram = (
     return [];
   }
 
-  // Collect all available exercises from user's programs
+  // Filter only active assessments (those without program_ended_at)
+  const activeAssessments = userAssessments.filter(assessment => !assessment.program_ended_at);
+  
+  // Need at least 2 active assessments for general program
+  if (activeAssessments.length <= 1) {
+    return [];
+  }
+
+  // Collect all available exercises from user's active programs
   const allVideos: VideoWithSource[] = [];
   
-  userAssessments.forEach(assessment => {
+  activeAssessments.forEach(assessment => {
     const specificKey = `${assessment.primary_mechanism}-${assessment.primary_differential}-${assessment.pain_area}`;
     const defaultKey = `${assessment.primary_mechanism}-default-${assessment.pain_area}`;
     
@@ -86,7 +95,7 @@ export const generateGeneralProgram = (
   // Create the general program exercise
   const generalProgram: Exercise = {
     title: 'Všeobecný program',
-    description: 'Personalizovaný program s najdôležitejšími cvičeniami z vašich programov.',
+    description: 'Personalizovaný program s najdôležitejšími cvičeniami z vašich aktívnych programov.',
     videos: shuffledVideos.map(video => ({
       videoId: video.videoId,
       title: video.title,
@@ -98,4 +107,20 @@ export const generateGeneralProgram = (
   };
 
   return shuffledVideos.length > 0 ? [generalProgram] : [];
+};
+
+// Helper function to detect if user has been making quick changes
+export const detectQuickChanges = (assessments: any[]): boolean => {
+  if (assessments.length < 2) return false;
+  
+  const now = new Date();
+  const recentlyModified = assessments.filter(assessment => {
+    const createdAt = new Date(assessment.timestamp);
+    const timeDiff = now.getTime() - createdAt.getTime();
+    // Check if created within last 5 minutes
+    return timeDiff < 5 * 60 * 1000;
+  });
+  
+  // If more than 1 assessment created in last 5 minutes, consider it quick changes
+  return recentlyModified.length > 1;
 };

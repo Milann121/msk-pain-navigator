@@ -1,11 +1,13 @@
+
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
 import { Exercise } from '@/types/exercise';
-import { generateGeneralProgram } from '@/utils/generalProgramGenerator';
+import { generateGeneralProgram, detectQuickChanges } from '@/utils/generalProgramGenerator';
 import { Button } from '@/components/ui/button';
 import { PlayCircle, ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { GeneralProgramBanner } from './GeneralProgramBanner';
 
 export const GeneralProgram = () => {
   const { user } = useAuth();
@@ -13,6 +15,8 @@ export const GeneralProgram = () => {
   const [generalProgram, setGeneralProgram] = useState<Exercise[]>([]);
   const [loading, setLoading] = useState(true);
   const [assessmentCount, setAssessmentCount] = useState(0);
+  const [activeAssessmentCount, setActiveAssessmentCount] = useState(0);
+  const [showQuickChangesBanner, setShowQuickChangesBanner] = useState(false);
 
   useEffect(() => {
     if (user) {
@@ -39,18 +43,27 @@ export const GeneralProgram = () => {
 
       console.log('Found assessments:', assessments?.length || 0, assessments);
       setAssessmentCount(assessments?.length || 0);
+      
+      // Filter active assessments (not ended)
+      const activeAssessments = assessments?.filter(a => !a.program_ended_at) || [];
+      setActiveAssessmentCount(activeAssessments.length);
+      
+      // Detect quick changes
+      const hasQuickChanges = detectQuickChanges(assessments || []);
+      setShowQuickChangesBanner(hasQuickChanges);
 
-      if (assessments && assessments.length > 1) {
-        // Generate general program using the utility
+      if (activeAssessments.length > 1) {
+        // Generate general program using the utility with active assessments only
         const program = generateGeneralProgram(
-          assessments[0].primary_mechanism,
-          assessments[0].pain_area,
-          assessments
+          activeAssessments[0].primary_mechanism,
+          activeAssessments[0].pain_area,
+          activeAssessments
         );
         console.log('Generated general program:', program);
         setGeneralProgram(program);
       } else {
-        console.log('Not enough assessments for general program:', assessments?.length);
+        console.log('Not enough active assessments for general program:', activeAssessments.length);
+        setGeneralProgram([]);
       }
     } catch (error) {
       console.error('Error loading general program:', error);
@@ -83,11 +96,12 @@ export const GeneralProgram = () => {
   if (generalProgram.length === 0) {
     return (
       <div className="h-full flex flex-col justify-center items-center p-4 text-center">
+        <GeneralProgramBanner showBanner={showQuickChangesBanner} />
         <PlayCircle className="h-8 w-8 text-gray-400 mb-2" />
         <h3 className="text-lg font-semibold text-gray-600 mb-2">Všeobecný program</h3>
         <p className="text-sm text-gray-500 mb-2">
-          {assessmentCount < 2 
-            ? `Potrebujete aspoň 2 hodnotenia (máte ${assessmentCount})`
+          {activeAssessmentCount < 2 
+            ? `Potrebujete aspoň 2 aktívne programy (máte ${activeAssessmentCount})`
             : 'Program sa generuje...'
           }
         </p>
@@ -103,6 +117,7 @@ export const GeneralProgram = () => {
 
   return (
     <div className="h-full flex flex-col justify-between p-4">
+      <GeneralProgramBanner showBanner={showQuickChangesBanner} />
       <div>
         <div className="flex items-center gap-2 mb-3">
           <PlayCircle className="h-5 w-5 text-blue-600" />
@@ -110,11 +125,11 @@ export const GeneralProgram = () => {
         </div>
         
         <p className="text-sm text-gray-600 mb-4 line-clamp-3">
-          Nemáš čas na jednotlivé cvičebné programy? Tu nájdeš personalizovaný program s najdôležitejšími cvičeniami z tvojich súčasných programov.
+          Nemáš čas na jednotlivé cvičebné programy? Tu nájdeš personalizovaný program s najdôležitejšími cvičeniami z tvojich aktívnych programov.
         </p>
         
         <div className="text-sm text-blue-600 mb-4">
-          {exerciseCount} cvičení z vašich programov
+          {exerciseCount} cvičení z vašich aktívnych programov
         </div>
       </div>
       
