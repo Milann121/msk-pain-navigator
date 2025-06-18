@@ -1,5 +1,6 @@
 
-import exercisesByDifferential from "@/data/exercises";
+
+import exercisesByDifferential from "@/data/exercisePrograms";
 
 /**
  * Finds a new exercise matching the same bodyPart & mainGroup but a different videoId.
@@ -38,3 +39,4 @@ export function findReplacementExercise(currentVideoId: string, bodyPart: string
   // Return first match, or undefined
   return allExercises.length > 0 ? allExercises[0] : undefined;
 }
+

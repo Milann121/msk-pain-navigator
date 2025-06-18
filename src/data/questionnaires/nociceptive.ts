@@ -1,4 +1,5 @@
 
+
 import { Questionnaire } from '@/utils/types';
 
 export const nociceptiveQuestionnaire: Questionnaire = {
@@ -100,17 +101,17 @@ export const middleBackQuestions = [
     id: 'chest-tightness',
     text: 'Pociťujete nejakú stuhnutosť v hrudníku?',
     description: 'Touto otázkou sa snažíme zistiť, či sa u vás prejavujú aj symptómy v prednej časti hrudníka, v oblasti rebier a hrudnej kosti.',
-    type: 'radio' as const,
+    type: 'radio',
     options: [
       {
         id: 'yes-tightness',
         text: 'Áno',
-        differentials: ['costovertebral joint syndrome', 'facet joint syndrome'] as const
+        differentials: ['costovertebral joint syndrome', 'facet joint syndrome']
       },
       {
         id: 'no-tightness',
         text: 'Nie',
-        differentials: ['muscle pain'] as const
+        differentials: ['muscle pain']
       }
     ]
   },
@@ -118,18 +119,19 @@ export const middleBackQuestions = [
     id: 'breathing-pain',
     text: 'Cítite pri nádychu bolesť alebo iné príznaky?',
     description: 'Touto otázkou sa snažíme zistiť symtómy ako napr. pichanie v hrudníku, tuhosť hrudníku pri nádychu alebo ťažkosť s roztiahnutím hrudníka. Ak niektoré z toho pociťujete, odpovedajte KLADNE.',
-    type: 'radio' as const,
+    type: 'radio',
     options: [
       {
         id: 'yes-breathing',
         text: 'Áno, nádych vyvoláva bolesť alebo tuhosť',
-        differentials: ['costovertebral joint syndrome', 'facet joint syndrome', 'red flag'] as const
+        differentials: ['costovertebral joint syndrome', 'facet joint syndrome', 'red flag']
       },
       {
         id: 'no-breathing',
         text: 'Nie',
-        differentials: ['muscle pain'] as const
+        differentials: ['muscle pain']
       }
     ]
   }
 ];
+
