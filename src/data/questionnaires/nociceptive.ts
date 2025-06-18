@@ -96,7 +96,9 @@ export const nociceptiveQuestionnaire: Questionnaire = {
 };
 
 // Additional questions that are conditionally added based on pain area
-export const middleBackQuestions = [
+import { Question } from '@/utils/types';
+
+export const middleBackQuestions: Question[] = [
   {
     id: 'chest-tightness',
     text: 'Pociťujete nejakú stuhnutosť v hrudníku?',
@@ -134,4 +136,3 @@ export const middleBackQuestions = [
     ]
   }
 ];
-
