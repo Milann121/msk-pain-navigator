@@ -47,14 +47,16 @@ export const GeneralProgram = () => {
       // Filter active assessments (not ended)
       const activeAssessments = assessments?.filter(a => !a.program_ended_at) || [];
       setActiveAssessmentCount(activeAssessments.length);
+      console.log('Active assessments for general program:', activeAssessments.length, activeAssessments);
       
       // Detect quick changes - check all assessments, not just active ones
       const hasQuickChanges = detectQuickChanges(assessments || []);
       console.log('Quick changes detected:', hasQuickChanges);
       setShowQuickChangesBanner(hasQuickChanges);
 
-      if (activeAssessments.length > 1) {
+      if (activeAssessments.length >= 2) {
         // Generate general program using the utility with active assessments only
+        // Use the first assessment for mechanism and pain area (they should be similar)
         const program = generateGeneralProgram(
           activeAssessments[0].primary_mechanism,
           activeAssessments[0].pain_area,

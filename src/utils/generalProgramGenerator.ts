@@ -17,16 +17,21 @@ export const generateGeneralProgram = (
   painArea: string,
   userAssessments: any[]
 ): Exercise[] => {
+  console.log('generateGeneralProgram called with:', { mechanism, painArea, assessmentsCount: userAssessments.length });
+  
   // Only create general program if user has multiple assessments
   if (userAssessments.length <= 1) {
+    console.log('Not enough assessments for general program:', userAssessments.length);
     return [];
   }
 
   // Filter only active assessments (those without program_ended_at)
   const activeAssessments = userAssessments.filter(assessment => !assessment.program_ended_at);
+  console.log('Active assessments:', activeAssessments.length, activeAssessments);
   
   // Need at least 2 active assessments for general program
   if (activeAssessments.length <= 1) {
+    console.log('Not enough active assessments for general program:', activeAssessments.length);
     return [];
   }
 
@@ -37,47 +42,60 @@ export const generateGeneralProgram = (
     const specificKey = `${assessment.primary_mechanism}-${assessment.primary_differential}-${assessment.pain_area}`;
     const defaultKey = `${assessment.primary_mechanism}-default-${assessment.pain_area}`;
     
+    console.log('Looking for exercises with keys:', { specificKey, defaultKey });
+    
     const exercises = exercisesByDifferential[specificKey] || 
                      exercisesByDifferential[defaultKey] || [];
     
+    console.log('Found exercises for assessment:', exercises.length);
+    
     exercises.forEach(exercise => {
       exercise.videos.forEach(video => {
-        if (video.importance) {
-          allVideos.push({
-            ...video,
-            sourceProgram: exercise.title,
-            mainGroup: video.mainGroup ?? [],
-            bodyPart: video.bodyPart ?? [], // <-- include bodyPart!
-          });
-        }
+        allVideos.push({
+          ...video,
+          sourceProgram: exercise.title,
+          mainGroup: video.mainGroup ?? [],
+          bodyPart: video.bodyPart ?? [],
+        });
       });
     });
   });
+
+  console.log('Total videos collected:', allVideos.length);
 
   // Filter unique videos by videoId to avoid duplicates
   const uniqueVideos = allVideos.filter((video, index, self) => 
     index === self.findIndex(v => v.videoId === video.videoId)
   );
 
+  console.log('Unique videos after filtering:', uniqueVideos.length);
+
   if (uniqueVideos.length === 0) {
+    console.log('No videos found for general program');
     return [];
   }
 
-  // Separate by importance
+  // Separate by importance - treat videos without importance as importance 2
   const primaryVideos = uniqueVideos.filter(v => v.importance === 1);
-  const secondaryVideos = uniqueVideos.filter(v => v.importance === 2);
+  const secondaryVideos = uniqueVideos.filter(v => v.importance === 2 || !v.importance);
   const tertiaryVideos = uniqueVideos.filter(v => v.importance === 3);
 
-  // Select videos based on 3:2:1 ratio
+  console.log('Videos by importance:', { 
+    primary: primaryVideos.length, 
+    secondary: secondaryVideos.length, 
+    tertiary: tertiaryVideos.length 
+  });
+
+  // Select videos based on 3:2:1 ratio, but take what's available
   const selectedVideos: VideoWithSource[] = [];
   
-  // Add 3 primary exercises (or all if less than 3)
+  // Add up to 3 primary exercises
   selectedVideos.push(...primaryVideos.slice(0, 3));
   
-  // Add 2 secondary exercises (or all if less than 2)
+  // Add up to 2 secondary exercises
   selectedVideos.push(...secondaryVideos.slice(0, 2));
   
-  // Add 1 tertiary exercise (or all if less than 1)
+  // Add up to 1 tertiary exercise
   selectedVideos.push(...tertiaryVideos.slice(0, 1));
 
   // If we don't have enough exercises, fill from remaining
@@ -88,6 +106,8 @@ export const generateGeneralProgram = (
     );
     selectedVideos.push(...remaining.slice(0, targetTotal - selectedVideos.length));
   }
+
+  console.log('Selected videos for general program:', selectedVideos.length);
 
   // Shuffle the selected videos for variety
   const shuffledVideos = selectedVideos.sort(() => Math.random() - 0.5);
@@ -100,12 +120,13 @@ export const generateGeneralProgram = (
       videoId: video.videoId,
       title: video.title,
       description: video.description,
-      importance: video.importance,
+      importance: video.importance || 2, // Default to importance 2 if not set
       mainGroup: video.mainGroup ?? [],
-      bodyPart: video.bodyPart ?? [], // <-- pass through bodyPart here!
+      bodyPart: video.bodyPart ?? [],
     }))
   };
 
+  console.log('Generated general program with', generalProgram.videos.length, 'exercises');
   return shuffledVideos.length > 0 ? [generalProgram] : [];
 };
 
