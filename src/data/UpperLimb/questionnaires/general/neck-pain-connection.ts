@@ -10,8 +10,7 @@ export const neckPainConnectionQuestion: Question = {
     {
       id: 'yes-neck-pain',
       text: 'Áno',
-      mechanisms: [],
-      sinGroups: [],
+      mechanisms: ["nociceptive", "neuropathic"],
       followUp: [
         {
           id: 'neck-movement-causes-pain',
@@ -22,8 +21,7 @@ export const neckPainConnectionQuestion: Question = {
             {
               id: 'yes-neck-movement',
               text: 'Áno',
-              mechanisms: [],
-              sinGroups: [],
+              mechanisms: ["nociceptive", "neuropathic"],
               followUp: [
                 {
                   id: 'pain-spread-location',
@@ -34,32 +32,27 @@ export const neckPainConnectionQuestion: Question = {
                     {
                       id: 'shoulder',
                       text: 'Rameno',
-                      mechanisms: [],
-                      sinGroups: []
+                      mechanisms: ["nociceptive", "neuropathic"],                
                     },
                     {
                       id: 'elbow',
                       text: 'Lakeť',
-                      mechanisms: [],
-                      sinGroups: []
+                      mechanisms: ["nociceptive","neuropathic"],                
                     },
                     {
                       id: 'forearm',
                       text: 'Predlaktie',
-                      mechanisms: [],
-                      sinGroups: []
+                      mechanisms: ["neuropathic"],                      
                     },
                     {
                       id: 'hand',
                       text: 'Ruka',
-                      mechanisms: [],
-                      sinGroups: []
+                      mechanisms: ["neuropathic"],                      
                     },
                     {
                       id: 'fingers',
                       text: 'Prsty',
-                      mechanisms: [],
-                      sinGroups: []
+                      mechanisms: ["neuropathic"],                      
                     }
                   ]
                 }
@@ -68,8 +61,7 @@ export const neckPainConnectionQuestion: Question = {
             {
               id: 'no-neck-movement',
               text: 'Nie',
-              mechanisms: [],
-              sinGroups: []
+              mechanisms: ["nociceptive"],              
             }
           ]
         }
@@ -78,8 +70,7 @@ export const neckPainConnectionQuestion: Question = {
     {
       id: 'no-neck-pain',
       text: 'Nie',
-      mechanisms: [],
-      sinGroups: []
+      mechanisms: ["nociceptive"],      
     }
   ]
 };
