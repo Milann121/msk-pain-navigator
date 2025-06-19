@@ -15,19 +15,19 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
   // Frozen shoulder and stiff shoulder exercises
   'nociceptive-frozen-shoulder-upper limb': [
     {
-      title: 'Cvičenia pre zmrznuté rameno',
-      description: '',
+      title: '0-3 týždne',
+      description: 'Základné cvičenia na zmrznuté rameno s cieľom znížiť bolesť a zvýšiť rozsah pohybu.',
       videos: [
         {
-          videoId: 'xxgqT6Jn4pc',
+          videoId: 'Ak0QVHhwkQg',
           title: 'Kyvadlové cvičenia',
           description: 'Predkloňte sa a začnite vykonávať jemné kyvadlové pohyby na uvoľnenie napätia v ramene. Stačia mierne pohyby v tolerancii bolesti.',
-          importance: 2,
+          importance: 3,
           mainGroup: ['mobility'],
           bodyPart: ['shoulder']
         },
         {
-          videoId: 'PY9H8ulsUTDHig3I', 
+          videoId: '1uz4DoaSY2M', 
           title: 'Izometrická vonkajšia rotácia ramena',
           description: 'Pristúpte k stene s pokrčeným laťom v 90° uhle pri tele. Medzi vonkajšiu stranu dlane a stenu uložte zložený uterák. Uvoľnite plecia a po celý čas ich držte dole -> dbajte na to, aby vám pri cvičení plecia nestúpali k ušiam. Následne zatlačte vonkajšou stranou dlane do steny s neustále pritiahnutým lakťom pri tele. OPAKOVANIA: 6-8 sekúnd x 3-5x za sebou. 1-2x denne.',
           importance: 1,
@@ -35,11 +35,49 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           bodyPart: ['shoulder']
         },
         {
-          videoId: 'RTIYgvFHIXHggL0Z',
+          videoId: 'un6jXuY',
           title: 'Uvoľnenie rotátorovej manžety',
           description: 'Zoberte si tenisovú loptu a uložte si ju na lopatku zo zadu. Oprite sa o stenu a pomaly masírujte svaly rotátorovej manžety. V prípade, že nájdete bolestivý bod, zastavte na tomto mieste a bez pohybu tlačte po dobu 30 sekúnd (ostrá bolesť sa môžte šíriť do prednej časti ramena).',
-        
-        } 
+          importance: 1,
+          mainGroup: ['pain-relief']
+          bodyPart: ['shoulder']
+        } ,
+        {
+          videoId: 'NUhSjqTpw5k',
+          title: 'Nahrievanie ramenného kĺbu',
+          description: 'Zvoľte výhrevnú podložku, alebo využite fén. V prípade fénu si VŽDY ULOŽTE UTERÁK na pokožku a zohrievajte uterák! Začnite zohrievať rameno z prednej strany a neskôr zo zadnej strany -> zohrievajte po dobu 10-15 minút, aby ste kompletne prehriali svaly ramena. Vždy si dávajte pozor, aby ste si nepopálili pokožku! OPAKOVANIA: 2x denne 10-15min.',
+          importance: 2,
+          mainGroup: ['pain-relief'],
+          bodyPart: ['shoulder']
+        },
+      ],
+      title: '4-6 týždeň',
+      description: 'Cvičenia na zvýšenie svalovej sily a návrat k pohybu.',
+      videos: [
+        {
+          videoId: 'ldMl3J7MzXE',
+          title: 'Izometrické tlaky ramena',
+          description: 'Uložte sa chrbtom k stene a zatlačte lakťom do steny. OPAKOVANIA: 6-8 sekúnd x 3 série. Otočte sa čelom k stene, pokrčte lakeť a dlaňou (alebo rukou v päsť) zatlačte do steny. OPAKOVANIA: 6-8 sekúnd 3 série.',
+          importance: 2,
+          mainGroup: ['stability'],
+          bodyPart: ['shoulder']
+        },
+        {
+          videoId: 'whyp41YIN8A',
+          title: 'Kliky o stenu',
+          description: 'Uložte ruky na stenu na úroveň hrudníka, mierne širšie ako šírka pliec. Opatrne sa s vystretým telom priblížte k stene a odtiahnite sa od steny. Dávajte pozor, aby ste nezdvíhali ramená k ušiam a rešpektujte bolesť vášho zmrznutého ramena. OPAKOVANIA: 10-12x 2 série denne',
+          importance: '3',
+          mainGroup: ['stability'],
+          bodyPart: ['shoulder']
+        },
+        {
+          videoId: 'oVJqu0FEw-Y',
+          title: 'Posiľnenie medzilopatkových svalov',
+          description: 'Uchyťte odporovú gumu podľa videa. Tieto 3 cviky môžete striedať, alebo si vybrať ktorýkoľvek z nich. \n➜ UPOZORNENIE: pri týchto cvikoch nesmiete pociťovať namáhanie trapézov! Celý čas sa snažte tlačiť lopatky a ramená smerom dole od uší, aby pracovali medzilopatkové svaly. Dbajte na to, aby ste počas vykonávania cvikov viac cítili svaly medzi lopatkami, nie ramená a trapézy - to dosiahnete práve tlačením pliec dole. \n➜ OPAKOVANIA: 10-15x / 3 série / 1x denne. ',
+          importance: 2,
+          mainGroup: ['stability'],
+          bodyPart:['shoulder'],
+        }
       ]
     }
   ],
