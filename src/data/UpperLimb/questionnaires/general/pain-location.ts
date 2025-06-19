@@ -10,14 +10,12 @@ export const painLocationQuestion: Question = {
     {
       id: 'unilateral-upper-limb',
       text: 'Len na jednej strane (unilaterálne)',
-      mechanisms: [],
-      sinGroups: []
+      mechanisms: ['nociceptive', 'neuropathic'],      
     },
     {
       id: 'bilateral-upper-limb',
       text: 'Na oboch stranách (bilaterálne)',
-      mechanisms: [],
-      sinGroups: []
+      mechanisms: ['neuropathic'],      
     }
   ]
 };

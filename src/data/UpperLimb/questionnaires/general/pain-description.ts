@@ -10,62 +10,52 @@ export const painDescriptionQuestion: Question = {
     {
       id: 'burning-upper-limb',
       text: 'Pálivá',
-      mechanisms: ['neuropathic'],
-      sinGroups: []
+      mechanisms: ['neuropathic'],      
     },
     {
       id: 'electric-shocks-upper-limb',
       text: 'Elektrizujúca',
-      mechanisms: ['neuropathic'],
-      sinGroups: []
+      mechanisms: ['neuropathic'],      
     },
     {
       id: 'shooting-upper-limb',
       text: 'Vystreľujúca',
-      mechanisms: ['neuropathic'],
-      sinGroups: []
+      mechanisms: ['neuropathic'],      
     },
     {
       id: 'dull-upper-limb',
       text: 'Tupá',
-      mechanisms: ['nociceptive'],
-      sinGroups: []
+      mechanisms: ['nociceptive'],      
     },
     {
       id: 'pins-needles-upper-limb',
       text: 'Pichanie a mravčenie',
-      mechanisms: ['neuropathic'],
-      sinGroups: []
+      mechanisms: ['neuropathic'],      
     },
     {
       id: 'numbness-upper-limb',
       text: 'Necitlivosť',
-      mechanisms: ['neuropathic'],
-      sinGroups: []
+      mechanisms: ['neuropathic'],      
     },
     {
       id: 'toothache-like-upper-limb',
       text: 'Ako bolesť zuba',
-      mechanisms: ['nociceptive'],
-      sinGroups: []
+      mechanisms: ['nociceptive'],      
     },
     {
       id: 'diffuse-upper-limb',
       text: 'Rozptýlená (ťažko lokalizovateľná)',
-      mechanisms: ['central'],
-      sinGroups: []
+      mechanisms: ['central'],      
     },
     {
       id: 'stiffness-upper-limb',
       text: 'Stuhnutosť/napätie',
-      mechanisms: ['nociceptive'],
-      sinGroups: []
+      mechanisms: ['nociceptive'],      
     },
     {
       id: 'changes-upper-limb',
       text: 'Neustále sa mení',
-      mechanisms: ['central'],
-      sinGroups: []
+      mechanisms: ['central'],      
     }
   ]
 };
