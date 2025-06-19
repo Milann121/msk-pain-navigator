@@ -1,5 +1,6 @@
 
 import { Questionnaire } from '@/utils/types';
+import { painLocationQuestion } from './general/pain-location';
 import { neckPainConnectionQuestion } from './general/neck-pain-connection';
 import { painIntensityQuestion } from './general/pain-intensity';
 import { painMovementQuestion } from './general/pain-movement';
@@ -18,6 +19,7 @@ export const upperLimbGeneralQuestionnaire: Questionnaire = {
   title: 'Hodnotenie bolesti hornej končatiny',
   description: 'Tento dotazník nám pomôže lepšie pochopiť povahu vašej bolesti hornej končatiny.',
   questions: [
+    painLocationQuestion,
     neckPainConnectionQuestion,
     painIntensityQuestion,
     painMovementQuestion,
