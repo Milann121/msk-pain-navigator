@@ -1,17 +1,73 @@
 
-export interface UserInfo {
-  firstName: string;
+export type UserInfo = {
+  name: string;
   age: number;
-  gender: 'muž' | 'žena';
+  gender: 'male' | 'female' | 'other';
+  job: 'sedentary' | 'physical' | 'mixed';
   painArea: 'neck' | 'middle back' | 'lower back' | 'upper limb';
-}
+  painSubArea?: string | string[];
+  consentGiven: boolean;
+};
 
-export interface Questionnaire {
+export type PainMechanism = 
+  | 'nociceptive' 
+  | 'neuropathic' 
+  | 'central' 
+  | 'red-flag'
+  | 'none';
+
+export type SINGroup = 
+  | 'low SIN' 
+  | 'mid SIN' 
+  | 'high SIN'
+  | 'none';
+
+export type Differential = 
+  | 'disc herniation'
+  | 'facet joint syndrome'
+  | 'SIJ syndrome'
+  | 'muscle pain'
+  | 'red flag'
+  | 'ventral spondylolisthesis'
+  | 'dorsal spondylolisthesis'
+  | 'costovertebral joint syndrome'
+  | 'Radicular Pain'
+  | 'Radiculopathy'
+  | 'Central Sensitisation'
+  | 'Central Sensitisation - Allodynia'
+  | 'Central Sensitisation - Sensory Hypersensitivity'
+  | 'Central Sensitisation - Cognitive Symptoms'
+  | 'spinal stenosis'
+  | 'spondylolisthesis'
+  | 'nerve compression'
+  | 'peripheral neuropathy'
+  | 'central sensitization'
+  | 'fibromyalgia'
+  | 'frozen-shoulder'
+  | 'slap-tear'
+  | 'subacromional-impingement-syndrome'
+  | 'stiff-shoulder'
+  | 'labral-leason'
+  | 'shoulder-bursa'
+  | 'rotator-cuff-tear'
+  | 'rotator-cuff-tendinopathy'
+  | 'biceps-tendinopathy'
+  | 'biceps-tear-long-head'
+  | 'shoulder-dislocation'
+  | 'unstable-shoulder'
+  | 'cervical-radiculopathy'
+  | 'radicular-pain'
+  | 'radiculopathy'
+  | 'none';
+
+export interface QuestionOption {
   id: string;
-  title: string;
-  description: string;
-  forMechanism?: PainMechanism;
-  questions: Question[];
+  text: string;
+  mechanisms?: PainMechanism[];
+  sinGroups?: SINGroup[];
+  differentials?: Differential[];
+  redirectTo?: string;
+  followUp?: Question[];
 }
 
 export interface Question {
@@ -19,9 +75,6 @@ export interface Question {
   text: string;
   description?: string;
   type: 'radio' | 'multiple' | 'scale';
-  showIf?: {
-    painArea?: 'neck' | 'middle back' | 'lower back' | 'upper limb';
-  };
   options?: QuestionOption[];
   scale?: {
     min: number;
@@ -29,54 +82,17 @@ export interface Question {
     minLabel: string;
     maxLabel: string;
   };
+  showIf?: {
+    painArea?: string;
+  };
 }
 
-export interface QuestionOption {
+export interface Questionnaire {
   id: string;
-  text: string;
-  followUp?: Question[];
-  differentials?: Differential[];
-  mechanisms?: PainMechanism[];
-  sinGroups?: SINGroup[];
+  title: string;
+  description: string;
+  questions: Question[];
 }
-
-export type PainMechanism = 'nociceptive' | 'neuropathic' | 'central' | 'red-flag' | 'none';
-export type SINGroup = 'low SIN' | 'mid SIN' | 'high SIN' | 'none';
-export type Differential =
-  // Spine Differentials
-  | 'facet joint syndrome'
-  | 'SIJ syndrome'
-  | 'muscle pain'
-  | 'disc herniation'
-  | 'spinal stenosis'
-  | 'spondylolisthesis'
-  | 'nerve compression'
-  | 'peripheral neuropathy'
-  | 'central sensitization'
-  | 'fibromyalgia'
-  | 'red flag'
-  | 'costovertebral joint syndrome'
-  | 'dorsal spondylolisthesis'
-  | 'ventral spondylolisthesis'
-  | 'Central Sensitisation'
-  | 'Central Sensitisation - Allodynia'
-  | 'Central Sensitisation - Sensory Hypersensitivity'
-  | 'Central Sensitisation - Cognitive Symptoms'
-  | 'Radicular Pain'
-  | 'Radiculopathy'
-  // Shoulder Differentials
-    'frozen-shoulder'
-    'slap-tear'
-    'subacromional-impingement-syndrome'
-    'stiff-shoulder'
-    'labral-lesion'
-    'shoulder-bursa'
-    'rotator-cuff-tear'
-    'rotator-cuff-tendinopathy'
-    'biceps-tendinopathy'
-    'biceps-tear-long-head'
-    'shoulder-dislocation'
-    'unstable-shoulder'
 
 export interface ScoreTracker {
   nociceptive: number;
@@ -85,15 +101,15 @@ export interface ScoreTracker {
   lowSIN: number;
   midSIN: number;
   highSIN: number;
-  differentials: Record<Differential, number>;
+  differentials: Record<string, number>;
 }
 
 export interface AssessmentResults {
   userInfo: UserInfo;
   mechanism: PainMechanism;
+  primaryMechanism: PainMechanism;
   sinGroup: SINGroup;
   differential: Differential;
-  primaryMechanism: PainMechanism;
   primaryDifferential: Differential;
   scores: ScoreTracker;
   timestamp: string;

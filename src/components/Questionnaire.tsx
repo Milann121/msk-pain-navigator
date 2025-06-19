@@ -6,14 +6,16 @@ import { Progress } from '@/components/ui/progress';
 import QuestionRenderer from '@/components/QuestionRenderer';
 import { Questionnaire as QuestionnaireType, Question, PainMechanism, SINGroup, Differential, ScoreTracker } from '@/utils/types';
 import { useAssessment } from '@/contexts/AssessmentContext';
+import { upperLimbQuestionnaires } from '@/data/UpperLimb/questionnaires';
 
 interface QuestionnaireProps {
   questionnaire: QuestionnaireType;
   onComplete: (answers: Record<string, any>) => void;
   onBack?: () => void;
+  onRedirect?: (questionnaireId: string, answers: Record<string, any>) => void;
 }
 
-const Questionnaire = ({ questionnaire, onComplete, onBack }: QuestionnaireProps) => {
+const Questionnaire = ({ questionnaire, onComplete, onBack, onRedirect }: QuestionnaireProps) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, any>>({});
   const [progress, setProgress] = useState(0);
@@ -45,9 +47,23 @@ const Questionnaire = ({ questionnaire, onComplete, onBack }: QuestionnaireProps
     }));
   };
 
+  const checkForRedirection = (answer: any) => {
+    if (!currentQuestion?.options) return null;
+    
+    const selectedOption = currentQuestion.options.find(opt => opt.id === answer);
+    return selectedOption?.redirectTo || null;
+  };
+
   const handleNext = () => {
     // Check if current question is answered
     if (!answers[currentQuestion.id]) {
+      return;
+    }
+    
+    // Check for redirection
+    const redirectTo = checkForRedirection(answers[currentQuestion.id]);
+    if (redirectTo && onRedirect) {
+      onRedirect(redirectTo, answers);
       return;
     }
     

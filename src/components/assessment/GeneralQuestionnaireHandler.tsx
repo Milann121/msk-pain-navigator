@@ -8,6 +8,7 @@ import Questionnaire from '@/components/Questionnaire';
 import { processGeneralQuestionnaire } from '@/utils/assessmentAnalyzer';
 import { supabase } from '@/integrations/supabase/client';
 import { safeDatabase } from '@/utils/database-helpers';
+import { useState } from 'react';
 
 const GeneralQuestionnaireHandler = () => {
   const { user } = useAuth();
@@ -24,16 +25,79 @@ const GeneralQuestionnaireHandler = () => {
     setAssessmentId,
     setAssessmentSaved
   } = useAssessment();
+  
+  const [currentQuestionnaire, setCurrentQuestionnaire] = useState(() => {
+    return userInfo?.painArea === 'upper limb' 
+      ? upperLimbQuestionnaires.general 
+      : questionnaires.general;
+  });
 
-  const getQuestionnaire = () => {
-    if (userInfo?.painArea === 'upper limb') {
-      return upperLimbQuestionnaires.general;
+  const handleRedirection = (questionnaireId: string, answers: Record<string, any>) => {
+    // Store current answers
+    setGeneralAnswers(answers);
+    
+    // Load the new questionnaire
+    if (questionnaireId === 'upper-limb-neck-questions') {
+      setCurrentQuestionnaire(upperLimbQuestionnaires['upper-limb-neck-questions']);
     }
-    return questionnaires.general;
   };
 
   const handleGeneralQuestionnaireComplete = async (answers: Record<string, any>) => {
     setGeneralAnswers(answers);
+    
+    // If this is the neck questionnaire, set mechanism to neuropathic and redirect to neck program
+    if (currentQuestionnaire.id === 'upper-limb-neck-questions') {
+      setPrimaryMechanism('neuropathic');
+      setSINGroup('mid SIN');
+      
+      // Store assessment with neck neuropathic program
+      if (user && answers['abnormal-sensations'] !== undefined) {
+        try {
+          const painIntensity = 5; // Default for neck neuropathic cases
+          
+          if (!assessmentId) {
+            const { data: assessmentData, error: assessmentError } = await supabase
+              .from('user_assessments')
+              .insert({
+                user_id: user.id,
+                pain_area: 'neck', // Set to neck for neuropathic program
+                primary_mechanism: 'neuropathic',
+                sin_group: 'mid SIN',
+                primary_differential: 'cervical-radiculopathy',
+                intial_pain_intensity: painIntensity
+              })
+              .select('id')
+              .single();
+
+            if (assessmentError) throw assessmentError;
+            
+            if (assessmentData?.id) {
+              setAssessmentId(assessmentData.id);
+              setAssessmentSaved(true);
+              
+              const { error: questionnaireError } = await safeDatabase.generalQuestionnaire.insert({
+                user_id: user.id,
+                assessment_id: assessmentData.id,
+                answers: answers
+              });
+                
+              if (questionnaireError) throw questionnaireError;
+            }
+          }
+        } catch (error) {
+          console.error('Error storing neck questionnaire results:', error);
+          toast({
+            title: 'Chyba',
+            description: 'Nepodarilo sa uložiť vaše odpovede.',
+            variant: 'destructive'
+          });
+        }
+      }
+      
+      // Skip follow-up questionnaire and go directly to results
+      setStage(AssessmentStage.Results);
+      return;
+    }
     
     const { scores: newScores, primaryMechanism: newMechanism, sinGroup: newSinGroup } = 
       processGeneralQuestionnaire(answers);
@@ -97,9 +161,10 @@ const GeneralQuestionnaireHandler = () => {
 
   return (
     <Questionnaire
-      questionnaire={getQuestionnaire()}
+      questionnaire={currentQuestionnaire}
       onComplete={handleGeneralQuestionnaireComplete}
       onBack={handleRestart}
+      onRedirect={handleRedirection}
     />
   );
 };
