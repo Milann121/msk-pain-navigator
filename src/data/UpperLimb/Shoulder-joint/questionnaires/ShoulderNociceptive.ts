@@ -20,5 +20,5 @@ export const shoulderNociceptiveQuestionnaire: Questionnaire = {
     shoulderDislocationQuestion,
     menopauseQuestion,
     breastExamsQuestion
-  ]
+  ];
 };

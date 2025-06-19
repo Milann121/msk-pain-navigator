@@ -48,7 +48,6 @@ export const differentialDescriptions: Record<Differential, string> = {
   'Central Sensitisation - Allodynia': 'Vaše príznaky zahŕňajú alodýniu, čo je bolesť z podnetov, ktoré by normálne nemali spôsobovať bolesť, čo naznačuje centrálnu senzitizáciu.',
   'Central Sensitisation - Sensory Hypersensitivity': 'Vaše príznaky zahŕňajú zmyslovú precitlivenosť, kde sa environmentálne podnety ako svetlo alebo zvuk stávajú nepríjemnými.',
   'Central Sensitisation - Cognitive Symptoms': 'Vaše príznaky zahŕňajú kognitívne efekty ako zahmlené myslenie alebo únavu, ktoré môžu sprevádzať centrálnu senzitizáciu.',
-  'none': 'Z vašich odpovedí sme nedokázali identifikovať špecifickú diferenciálnu diagnózu.'
 };
 
 // Exercise recommendations based on pain mechanism, SIN, and differential

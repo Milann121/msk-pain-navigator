@@ -43,6 +43,7 @@ export interface QuestionOption {
 export type PainMechanism = 'nociceptive' | 'neuropathic' | 'central' | 'red-flag' | 'none';
 export type SINGroup = 'low SIN' | 'mid SIN' | 'high SIN' | 'none';
 export type Differential =
+  // Spine Differentials
   | 'facet joint syndrome'
   | 'SIJ syndrome'
   | 'muscle pain'
@@ -63,7 +64,19 @@ export type Differential =
   | 'Central Sensitisation - Cognitive Symptoms'
   | 'Radicular Pain'
   | 'Radiculopathy'
-  | 'none';
+  // Shoulder Differentials
+    'frozen-shoulder'
+    'slap-tear'
+    'subacromional-impingement-syndrome'
+    'stiff-shoulder'
+    'labral-leason'
+    'shoulder-bursa'
+    'rotator-cuff-tear'
+    'rotator-cuff-tendinopathy'
+    'biceps-tendinopathy'
+    'biceps-tear-long-head'
+    'shoulder-dislocation'
+    'unstable-shoulder'
 
 export interface ScoreTracker {
   nociceptive: number;
