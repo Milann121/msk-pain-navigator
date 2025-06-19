@@ -72,6 +72,7 @@ export interface ScoreTracker {
   lowSIN: number;
   midSIN: number;
   highSIN: number;
+  differentials: Record<Differential, number>;
 }
 
 export interface AssessmentResults {
@@ -80,4 +81,5 @@ export interface AssessmentResults {
   sinGroup: SINGroup;
   primaryDifferential: Differential;
   scores: ScoreTracker;
+  timestamp: string;
 }
