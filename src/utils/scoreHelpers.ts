@@ -1,3 +1,4 @@
+
 import { Differential, PainMechanism, SINGroup } from './types';
 
 // Helper function to map pain intensity to SIN group
@@ -49,7 +50,7 @@ export const differentialDescriptions: Record<Differential, string> = {
   'Central Sensitisation - Cognitive Symptoms': 'Kognitívne symptómy centrálnej senzitizácie môžu zahŕňať problémy s pamäťou a koncentráciou.',
   'frozen-shoulder': 'Zmrznuté rameno je stav charakterizovaný bolesťou a obmedzeným pohybom ramena.',
   'slap-tear': 'SLAP lézia je poškodenie labra v ramene, často spôsobené opakovanými pohybmi nad hlavou.',
-  'subacromional-impingement-syndrome': 'Subakromiálny impingment syndróm je stav, pri ktorom sa šľachy v ramene zachytávají pod akromiálnym výbežkom.',
+  'subacromional-impingement-syndrome': 'Subakromiálny impingment syndróm je stav, pri ktorom sa šľachy v ramene zachytávaju pod akromiálnym výbežkom.',
   'stiff-shoulder': 'Stuhnuté rameno je stav charakterizovaný obmedzenou pohyblivosťou ramena.',
   'labral-leason': 'Lézia labra je poškodenie chrupavčitého okraja kĺbovej jamky ramena.',
   'shoulder-bursa': 'Zápal burzy v ramene môže spôsobiť bolesť a obmedzenú pohyblivosť.',
@@ -58,7 +59,7 @@ export const differentialDescriptions: Record<Differential, string> = {
   'biceps-tendinopathy': 'Tendinopatia bicepsu je ochorenie šľachy dvojhlavého svalu ramena.',
   'biceps-tear-long-head': 'Trhnutie dlhej hlavy bicepsu je poškodenie šľachy dvojhlavého svalu v ramene.',
   'shoulder-dislocation': 'Vykĺbenie ramena je stav, pri ktorom sa hlavica ramena dostane z kĺbovej jamky.',
-  'shoulder-instability': 'Nestabilita ramena je stav, pri ktorom je rameno náchylné na vykĺbenie.',
+  'unstable-shoulder': 'Nestabilita ramena je stav, pri ktorom je rameno náchylné na vykĺbenie.',
   'cervical-radiculopathy': 'Cervikalna radikulopatia je stav postihujúci nervové korene v krčnej chrbtici, ktorý môže spôsobiť bolesť, tŕpnutie a slabosť v ramene a paži.',
   'radicular-pain': 'Radikulárna bolesť je ostrá bolesť, ktorá sa vyžaruje z miesta poškodeného nervového koreňa.',
   'radiculopathy': 'Radikulopatia je poškodenie alebo dysfunkcia nervového koreňa.',
