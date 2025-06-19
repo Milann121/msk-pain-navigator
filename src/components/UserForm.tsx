@@ -17,10 +17,10 @@ const UserForm = ({ onSubmit }: UserFormProps) => {
   
   const { register, handleSubmit, formState: { errors }, setValue, watch } = useForm<UserInfo>({
     defaultValues: {
-      firstName: 'Používateľ', // Default name since it's no longer collected
-      age: 25, // Default age since it's no longer collected
+      name: 'Používateľ', // Changed from firstName to name
+      age: 25,
       painArea: 'neck',
-      gender: 'female' // Changed from 'žena' to 'female'
+      gender: 'female'
     }
   });
   

@@ -4,7 +4,6 @@ export const neuropathicQuestionnaire: Questionnaire = {
   id: 'neuropathic',
   title: 'Hodnotenie neuropatickej bolesti',
   description: 'Tento dotazník nám pomôže lepšie pochopiť vaše príznaky súvisiace s nervovou bolesťou.',
-  forMechanism: 'neuropathic',
   questions: [
     {
       id: 'coughing-pain',
