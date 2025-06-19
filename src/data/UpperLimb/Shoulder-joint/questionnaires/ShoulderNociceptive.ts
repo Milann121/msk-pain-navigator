@@ -18,6 +18,7 @@ export const shoulderNociceptiveQuestionnaire: Questionnaire = {
     overheadActivitiesQuestion,
     clickingLockingQuestion,
     shoulderDislocationQuestion,
-    womenSpecificQuestion
-  ]
+    menopauseQuestion,
+    breastExamsQuestion,
+  ];
 };
