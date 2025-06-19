@@ -3,13 +3,13 @@ import { Question } from '@/utils/types';
 
 export const painIntensityQuestion: Question = {
   id: 'pain-intensity-upper-limb',
-  text: 'What is your pain intensity on average?',
+  text: 'Aká je vaša intenzita bolesti v priemere?',
   description: '',
   type: 'scale',
   scale: {
     min: 0,
     max: 10,
-    minLabel: 'No pain',
-    maxLabel: 'Worst imaginable pain'
+    minLabel: 'Žiadna bolesť',
+    maxLabel: 'Najhoršia predstaviteľná bolesť'
   }
 };

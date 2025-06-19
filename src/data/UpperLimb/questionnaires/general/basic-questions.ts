@@ -3,35 +3,35 @@ import { Question } from '@/utils/types';
 
 export const nightPainQuestion: Question = {
   id: 'night-pain-upper-limb',
-  text: 'Do you experience night pain as well?',
+  text: 'Pociťujete aj nočnú bolesť?',
   description: '',
   type: 'radio',
   options: [
     {
       id: 'yes-night-pain',
-      text: 'Yes'
+      text: 'Áno'
     },
     {
       id: 'no-night-pain',
-      text: 'No'
+      text: 'Nie'
     }
   ]
 };
 
 export const injuryStartQuestion: Question = {
   id: 'injury-start-upper-limb',
-  text: 'Did your pain start after an injury or trauma?',
+  text: 'Začala sa vaša bolesť po zranení alebo úraze?',
   description: '',
   type: 'radio',
   options: [
     {
       id: 'yes-injury-upper-limb',
-      text: 'Yes',
+      text: 'Áno',
       mechanisms: ['nociceptive']
     },
     {
       id: 'no-injury-upper-limb',
-      text: 'No',
+      text: 'Nie',
       mechanisms: ['none']
     }
   ]
@@ -39,18 +39,18 @@ export const injuryStartQuestion: Question = {
 
 export const activityStartQuestion: Question = {
   id: 'activity-start-upper-limb',
-  text: 'Did your pain start after a specific activity/movement?',
+  text: 'Začala sa vaša bolesť po konkrétnej aktivite/pohybe?',
   description: '',
   type: 'radio',
   options: [
     {
       id: 'yes-activity-upper-limb',
-      text: 'Yes',
+      text: 'Áno',
       mechanisms: ['nociceptive', 'neuropathic']
     },
     {
       id: 'no-activity-upper-limb',
-      text: 'No',
+      text: 'Nie',
       mechanisms: ['central']
     }
   ]
@@ -58,23 +58,23 @@ export const activityStartQuestion: Question = {
 
 export const reflexesQuestion: Question = {
   id: 'reflexes-upper-limb',
-  text: 'Have you been informed, by a medically trained professional, that you have significantly reduced or absent reflexes?',
+  text: 'Boli ste informovaný/á lekárom, že máte výrazne znížené alebo chýbajúce reflexy?',
   description: '',
   type: 'radio',
   options: [
     {
       id: 'yes-reflexes-upper-limb',
-      text: 'Yes',
+      text: 'Áno',
       mechanisms: ['neuropathic']
     },
     {
       id: 'no-reflexes-upper-limb',
-      text: 'No',
+      text: 'Nie',
       mechanisms: ['neuropathic']
     },
     {
       id: 'not-visited-upper-limb',
-      text: 'I have not visited any medical professional',
+      text: 'Nenavštívil/a som zdravotníckeho pracovníka',
       mechanisms: ['none']
     }
   ]
@@ -82,18 +82,18 @@ export const reflexesQuestion: Question = {
 
 export const sensitivityQuestion: Question = {
   id: 'sensitivity-upper-limb',
-  text: 'Do you experience increased sensitivity to light, sound, or smell?',
+  text: 'Máte zvýšenú citlivosť na svetlo, zvuk alebo vône?',
   description: '',
   type: 'radio',
   options: [
     {
       id: 'yes-sensitivity-upper-limb',
-      text: 'Yes',
+      text: 'Áno',
       mechanisms: ['central']
     },
     {
       id: 'no-sensitivity-upper-limb',
-      text: 'No',
+      text: 'Nie',
       mechanisms: ['none']
     }
   ]
@@ -101,18 +101,18 @@ export const sensitivityQuestion: Question = {
 
 export const variableImpactQuestion: Question = {
   id: 'variable-impact-upper-limb',
-  text: 'Do you find that the impact of movements/activities (same) on pain to be variable, unpredictable, or inconsistent?',
+  text: 'Je vplyv pohybov/aktivít (rovnakých) na bolesť premenlivý, nepredvídateľný alebo nekonzistentný?',
   description: '',
   type: 'radio',
   options: [
     {
       id: 'yes-variable-upper-limb',
-      text: 'Yes',
+      text: 'Áno',
       mechanisms: ['central']
     },
     {
       id: 'no-variable-upper-limb',
-      text: 'No',
+      text: 'Nie',
       mechanisms: ['none']
     }
   ]

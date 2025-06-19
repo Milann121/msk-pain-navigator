@@ -3,70 +3,70 @@ import { Question } from '@/utils/types';
 
 export const painMovementQuestion: Question = {
   id: 'pain-with-movement-upper-limb',
-  text: 'Does your pain increase with certain movements or activities?',
+  text: 'Zvyšuje sa vaša bolesť pri určitých pohyboch alebo aktivitách?',
   description: '',
   type: 'radio',
   options: [
     {
       id: 'yes-movement-upper-limb',
-      text: 'Yes',
+      text: 'Áno',
       mechanisms: ['nociceptive', 'neuropathic'],
       followUp: [
         {
           id: 'pain-intensity-increase-upper-limb',
-          text: 'How intense does the pain get?',
+          text: 'Ako intenzívnou sa vtedy stáva vaša bolesť?',
           description: '',
           type: 'radio',
           options: [
             {
               id: 'significantly-upper-limb',
-              text: 'Significantly',
+              text: 'Výrazne',
               sinGroups: ['high SIN']
             },
             {
               id: 'moderately-upper-limb',
-              text: 'Moderately',
+              text: 'Stredne',
               sinGroups: ['mid SIN']
             },
             {
               id: 'minimally-upper-limb',
-              text: 'Minimally',
+              text: 'Minimálne',
               sinGroups: ['low SIN']
             }
           ]
         },
         {
           id: 'pain-onset-timing-upper-limb',
-          text: 'How quickly do you experience pain after movements/activities?',
+          text: 'Ako rýchlo sa bolesť objaví po týchto pohyboch/aktivitách?',
           description: '',
           type: 'radio',
           options: [
             {
               id: 'immediately-upper-limb',
-              text: 'Immediately',
+              text: 'Okamžite',
               sinGroups: ['high SIN']
             },
             {
               id: 'later-upper-limb',
-              text: 'Later',
+              text: 'Neskôr',
               sinGroups: ['mid SIN']
             }
           ]
         },
         {
           id: 'pain-subsiding-upper-limb',
-          text: 'How long does it take for the pain to subside/reduce after stopping the aggravating activities/movement?',
+          text: 'Ako dlho trvá, kým bolesť ustúpi/zníži sa po ukončení týchto aktivít/pohybu?',
           description: '',
           type: 'radio',
           options: [
             {
               id: 'immediately-subside-upper-limb',
-              text: 'Immediately',
+              text: 'Okamžite',
               sinGroups: ['low SIN']
             },
             {
               id: 'later-subside-upper-limb',
-              text: 'Later',
+              text: 'Neskôr',
               sinGroups: ['mid SIN']
             }
           ]
@@ -75,7 +75,7 @@ export const painMovementQuestion: Question = {
     },
     {
       id: 'no-movement-upper-limb',
-      text: 'No',
+      text: 'Nie',
       mechanisms: ['none']
     }
   ]

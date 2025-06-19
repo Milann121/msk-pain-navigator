@@ -3,58 +3,58 @@ import { Question } from '@/utils/types';
 
 export const painDescriptionQuestion: Question = {
   id: 'pain-description-upper-limb',
-  text: 'How would you describe your pain?',
+  text: 'Ako by ste opísali vašu bolesť?',
   description: '',
   type: 'multiple',
   options: [
     {
       id: 'burning-upper-limb',
-      text: 'Burning',
+      text: 'Pálivá',
       mechanisms: ['neuropathic']
     },
     {
       id: 'electric-shocks-upper-limb',
-      text: 'Electric shocks',
+      text: 'Elektrizujúca',
       mechanisms: ['neuropathic']
     },
     {
       id: 'shooting-upper-limb',
-      text: 'Shooting',
+      text: 'Vystreľujúca',
       mechanisms: ['neuropathic']
     },
     {
       id: 'dull-upper-limb',
-      text: 'Dull',
+      text: 'Tupá',
       mechanisms: ['nociceptive']
     },
     {
       id: 'pins-needles-upper-limb',
-      text: 'Pins & needles',
+      text: 'Pichanie a mravčenie',
       mechanisms: ['neuropathic']
     },
     {
       id: 'numbness-upper-limb',
-      text: 'Numbness',
+      text: 'Necitlivosť',
       mechanisms: ['neuropathic']
     },
     {
       id: 'toothache-like-upper-limb',
-      text: 'Toothache-like',
+      text: 'Ako bolesť zuba',
       mechanisms: ['nociceptive']
     },
     {
       id: 'diffuse-upper-limb',
-      text: 'Diffuse (hard to localize)',
+      text: 'Rozptýlená (ťažko lokalizovateľná)',
       mechanisms: ['central']
     },
     {
       id: 'stiffness-upper-limb',
-      text: 'Stiffness/tightness',
+      text: 'Stuhnutosť/napätie',
       mechanisms: ['nociceptive']
     },
     {
       id: 'changes-upper-limb',
-      text: 'Changes all the time',
+      text: 'Neustále sa mení',
       mechanisms: ['central']
     }
   ]

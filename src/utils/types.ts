@@ -41,7 +41,7 @@ export interface QuestionOption {
 }
 
 export type PainMechanism = 'nociceptive' | 'neuropathic' | 'central' | 'none';
-export type SINGroup = 'SI' | 'SIII' | 'SII' | 'low SIN' | 'mid SIN' | 'high SIN' | 'none';
+export type SINGroup = 'low SIN' | 'mid SIN' | 'high SIN' | 'none';
 export type Differential =
   | 'facet joint syndrome'
   | 'SIJ syndrome'

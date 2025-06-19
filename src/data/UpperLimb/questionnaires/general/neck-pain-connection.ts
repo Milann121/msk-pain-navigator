@@ -3,49 +3,49 @@ import { Question } from '@/utils/types';
 
 export const neckPainConnectionQuestion: Question = {
   id: 'neck-pain-connection',
-  text: 'Is your pain accompanied with a neck pain?',
+  text: 'Je vaša bolesť sprevádzaná bolesťou krku?',
   description: '',
   type: 'radio',
   options: [
     {
       id: 'yes-neck-pain',
-      text: 'Yes',
+      text: 'Áno',
       followUp: [
         {
           id: 'neck-movement-causes-pain',
-          text: 'Does the movement of your neck directly cause a upper limb pain?',
+          text: 'Spôsobuje pohyb vášho krku priamo bolesť hornej končatiny?',
           description: '',
           type: 'radio',
           options: [
             {
               id: 'yes-neck-movement',
-              text: 'Yes',
+              text: 'Áno',
               followUp: [
                 {
                   id: 'pain-spread-location',
-                  text: 'Where does the pain spread?',
+                  text: 'Kam sa bolesť šíri?',
                   description: '',
                   type: 'multiple',
                   options: [
                     {
                       id: 'shoulder',
-                      text: 'Shoulder'
+                      text: 'Rameno'
                     },
                     {
                       id: 'elbow',
-                      text: 'Elbow'
+                      text: 'Lakeť'
                     },
                     {
                       id: 'forearm',
-                      text: 'Forearm'
+                      text: 'Predlaktie'
                     },
                     {
                       id: 'hand',
-                      text: 'Hand'
+                      text: 'Ruka'
                     },
                     {
                       id: 'fingers',
-                      text: 'Fingers'
+                      text: 'Prsty'
                     }
                   ]
                 }
@@ -53,7 +53,7 @@ export const neckPainConnectionQuestion: Question = {
             },
             {
               id: 'no-neck-movement',
-              text: 'No'
+              text: 'Nie'
             }
           ]
         }
@@ -61,7 +61,7 @@ export const neckPainConnectionQuestion: Question = {
     },
     {
       id: 'no-neck-pain',
-      text: 'No'
+      text: 'Nie'
     }
   ]
 };
