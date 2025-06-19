@@ -19,21 +19,27 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
       description: '',
       videos: [
         {
-          videoId: 'example1',
-          title: 'Pasívne ohýbanie ramena',
-          description: 'Jemné pasívne pohyby ramena na zlepšenie pohyblivosti.',
-          importance: 1,
+          videoId: 'xxgqT6Jn4pc',
+          title: 'Kyvadlové cvičenia',
+          description: 'Predkloňte sa a začnite vykonávať jemné kyvadlové pohyby na uvoľnenie napätia v ramene. Stačia mierne pohyby v tolerancii bolesti.',
+          importance: 2,
           mainGroup: ['mobility'],
-          bodyPart: ['upper limb']
+          bodyPart: ['shoulder']
         },
         {
-          videoId: 'example2', 
-          title: 'Kyvadlové cvičenia',
-          description: 'Jemné kyvadlové pohyby na uvoľnenie napätia v ramene.',
+          videoId: 'PY9H8ulsUTDHig3I', 
+          title: 'Izometrická vonkajšia rotácia ramena',
+          description: 'Pristúpte k stene s pokrčeným laťom v 90° uhle pri tele. Medzi vonkajšiu stranu dlane a stenu uložte zložený uterák. Uvoľnite plecia a po celý čas ich držte dole -> dbajte na to, aby vám pri cvičení plecia nestúpali k ušiam. Následne zatlačte vonkajšou stranou dlane do steny s neustále pritiahnutým lakťom pri tele. OPAKOVANIA: 6-8 sekúnd x 3-5x za sebou. 1-2x denne.',
           importance: 1,
-          mainGroup: ['pain-relief'],
-          bodyPart: ['upper limb']
-        }
+          mainGroup: ['pain-relief', 'stability'],
+          bodyPart: ['shoulder']
+        },
+        {
+          videoId: 'RTIYgvFHIXHggL0Z',
+          title: 'Uvoľnenie rotátorovej manžety',
+          description: 'Zoberte si tenisovú loptu a uložte si ju na lopatku zo zadu. Oprite sa o stenu a pomaly masírujte svaly rotátorovej manžety. V prípade, že nájdete bolestivý bod, zastavte na tomto mieste a bez pohybu tlačte po dobu 30 sekúnd (ostrá bolesť sa môžte šíriť do prednej časti ramena).',
+        
+        } 
       ]
     }
   ],
