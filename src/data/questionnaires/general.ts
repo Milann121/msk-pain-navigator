@@ -15,7 +15,6 @@ export const generalQuestionnaire: Questionnaire = {
   id: 'general',
   title: 'Základné hodnotenie bolesti',
   description: 'Tento dotazník nám pomôže lepšie pochopiť povahu vašej bolesti.',
-  forMechanism: 'none',
   questions: [
     painIntensityQuestion,
     painMovementQuestion,

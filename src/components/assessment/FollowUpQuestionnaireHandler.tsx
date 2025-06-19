@@ -1,7 +1,7 @@
 
 import { useAuth } from '@/contexts/AuthContext';
 import { useAssessment, AssessmentStage } from '@/contexts/AssessmentContext';
-import { questionnaires } from '@/data/Spine/questionnaires';
+import { questionnaires } from '@/data/questionnaires';
 import Questionnaire from '@/components/Questionnaire';
 import { processFollowUpQuestionnaire, createAssessmentResults } from '@/utils/assessmentAnalyzer';
 import { supabase } from '@/integrations/supabase/client';
@@ -72,8 +72,8 @@ const FollowUpQuestionnaireHandler = () => {
     setStage(AssessmentStage.GeneralQuestionnaire);
   };
 
-  // Only render if we have a primary mechanism that's not 'none'
-  if (!primaryMechanism || primaryMechanism === 'none') {
+  // Only render if we have a primary mechanism
+  if (primaryMechanism === 'none') {
     return null;
   }
 

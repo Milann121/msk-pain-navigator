@@ -1,7 +1,8 @@
+
 import { useAuth } from '@/contexts/AuthContext';
 import { useToast } from '@/hooks/use-toast';
 import { useAssessment, AssessmentStage } from '@/contexts/AssessmentContext';
-import { questionnaires } from '@/data/Spine/questionnaires';
+import { questionnaires } from '@/data/questionnaires';
 import Questionnaire from '@/components/Questionnaire';
 import { processGeneralQuestionnaire } from '@/utils/assessmentAnalyzer';
 import { supabase } from '@/integrations/supabase/client';

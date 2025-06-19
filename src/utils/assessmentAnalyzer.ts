@@ -1,3 +1,4 @@
+
 import { 
   PainMechanism, 
   SINGroup, 
@@ -6,7 +7,7 @@ import {
   AssessmentResults, 
   UserInfo 
 } from './types';
-import { questionnaires } from '@/data/Spine/questionnaires';
+import { questionnaires } from '@/data/questionnaires';
 
 // Initialize score tracker
 export const initializeScoreTracker = (): ScoreTracker => ({
@@ -25,18 +26,12 @@ export const initializeScoreTracker = (): ScoreTracker => ({
     'ventral spondylolisthesis': 0,
     'dorsal spondylolisthesis': 0,
     'costovertebral joint syndrome': 0,
-    'radicular pain': 0,
-    'radiculopathy': 0,
-    'central sensitization': 0,
-    'central sensitisation': 0,
-    'central sensitisation - allodynia': 0,
-    'central sensitisation - sensory hypersensitivity': 0,
-    'central sensitisation - cognitive symptoms': 0,
-    'spinal stenosis': 0,
-    'spondylolisthesis': 0,
-    'nerve compression': 0,
-    'peripheral neuropathy': 0,
-    'fibromyalgia': 0,
+    'Radicular Pain': 0,
+    'Radiculopathy': 0,
+    'Central Sensitisation': 0,
+    'Central Sensitisation - Allodynia': 0,
+    'Central Sensitisation - Sensory Hypersensitivity': 0,
+    'Central Sensitisation - Cognitive Symptoms': 0,
     'none': 0
   }
 });

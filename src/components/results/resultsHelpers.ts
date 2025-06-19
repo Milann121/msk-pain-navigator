@@ -33,12 +33,12 @@ export const formatDifferential = (differential: Differential): string => {
     'ventral spondylolisthesis': 'Ventrálna spondylolistéza',
     'dorsal spondylolisthesis': 'Dorzálna spondylolistéza',
     'costovertebral joint syndrome': 'Syndróm kostovertebrálneho kĺbu',
-    'radicular pain': 'Radikulárna bolesť',
-    'radiculopathy': 'Radikulopatia',
-    'central sensitisation': 'Centrálna senzitizácia',
-    'central sensitisation - allodynia': 'Centrálna senzitizácia - Alodýnia',
-    'central sensitisation - sensory hypersensitivity': 'Centrálna senzitizácia - Zmyslová precitlivenosť',
-    'central sensitisation - cognitive symptoms': 'Centrálna senzitizácia - Kognitívne symptómy'
+    'Radicular Pain': 'Radikulárna bolesť',
+    'Radiculopathy': 'Radikulopatia',
+    'Central Sensitisation': 'Centrálna senzitizácia',
+    'Central Sensitisation - Allodynia': 'Centrálna senzitizácia - Alodýnia',
+    'Central Sensitisation - Sensory Hypersensitivity': 'Centrálna senzitizácia - Zmyslová precitlivenosť',
+    'Central Sensitisation - Cognitive Symptoms': 'Centrálna senzitizácia - Kognitívne symptómy'
   };
   
   return translations[differential] || differential;

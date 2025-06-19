@@ -24,7 +24,7 @@ export const ExercisePlanHeader = ({
       'central': 'Centrálna senzitizácia',
       'none': 'Nedefinovaný mechanizmus bolesti'
     };
-    return labels[mechanism] || 'Neznámy';
+    return labels[mechanism as PainMechanism] || 'Neznámy';
   };
   
   // Helper function to format differential for display
@@ -40,12 +40,12 @@ export const ExercisePlanHeader = ({
       'ventral spondylolisthesis': 'Ventrálna spondylolistéza',
       'dorsal spondylolisthesis': 'Dorzálna spondylolistéza',
       'costovertebral joint syndrome': 'Syndróm kostovertebrálneho kĺbu',
-      'radicular pain': 'Radikulárna bolesť',
-      'radiculopathy': 'Radikulopatia',
-      'central sensitisation': 'Centrálna senzitizácia',
-      'central sensitisation - allodynia': 'Centrálna senzitizácia - Alodýnia',
-      'central sensitisation - sensory hypersensitivity': 'Centrálna senzitizácia - Zmyslová precitlivenosť',
-      'central sensitisation - cognitive symptoms': 'Centrálna senzitizácia - Kognitívne symptómy'
+      'Radicular Pain': 'Radikulárna bolesť',
+      'Radiculopathy': 'Radikulopatia',
+      'Central Sensitisation': 'Centrálna senzitizácia',
+      'Central Sensitisation - Allodynia': 'Centrálna senzitizácia - Alodýnia',
+      'Central Sensitisation - Sensory Hypersensitivity': 'Centrálna senzitizácia - Zmyslová precitlivenosť',
+      'Central Sensitisation - Cognitive Symptoms': 'Centrálna senzitizácia - Kognitívne symptómy'
     };
     
     return translations[differential] || differential;
@@ -76,7 +76,7 @@ export const ExercisePlanHeader = ({
       {!showGeneral && (
         <div className="mt-2 flex flex-wrap gap-2">
           <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">
-            {getMechanismLabel(mechanism)}
+            {getMechanismLabel(mechanism as PainMechanism)}
           </span>
           <span className="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">
             {formatDifferential(differential)}

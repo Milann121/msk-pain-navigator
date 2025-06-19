@@ -1,4 +1,3 @@
-
 import exercisesByDifferential from "../exercisePrograms";
 
 /**
