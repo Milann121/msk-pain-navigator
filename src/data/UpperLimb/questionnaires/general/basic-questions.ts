@@ -9,11 +9,15 @@ export const nightPainQuestion: Question = {
   options: [
     {
       id: 'yes-night-pain',
-      text: 'Áno'
+      text: 'Áno',
+      mechanisms: [],
+      sinGroups: []
     },
     {
       id: 'no-night-pain',
-      text: 'Nie'
+      text: 'Nie',
+      mechanisms: [],
+      sinGroups: []
     }
   ]
 };
@@ -27,12 +31,14 @@ export const injuryStartQuestion: Question = {
     {
       id: 'yes-injury-upper-limb',
       text: 'Áno',
-      mechanisms: ['nociceptive']
+      mechanisms: ['nociceptive'],
+      sinGroups: []
     },
     {
       id: 'no-injury-upper-limb',
       text: 'Nie',
-      mechanisms: ['none']
+      mechanisms: ['none'],
+      sinGroups: []
     }
   ]
 };
@@ -46,12 +52,14 @@ export const activityStartQuestion: Question = {
     {
       id: 'yes-activity-upper-limb',
       text: 'Áno',
-      mechanisms: ['nociceptive', 'neuropathic']
+      mechanisms: ['nociceptive', 'neuropathic'],
+      sinGroups: []
     },
     {
       id: 'no-activity-upper-limb',
       text: 'Nie',
-      mechanisms: ['central']
+      mechanisms: ['central'],
+      sinGroups: []
     }
   ]
 };
@@ -65,17 +73,20 @@ export const reflexesQuestion: Question = {
     {
       id: 'yes-reflexes-upper-limb',
       text: 'Áno',
-      mechanisms: ['neuropathic']
+      mechanisms: ['neuropathic'],
+      sinGroups: []
     },
     {
       id: 'no-reflexes-upper-limb',
       text: 'Nie',
-      mechanisms: ['neuropathic']
+      mechanisms: ['neuropathic'],
+      sinGroups: []
     },
     {
       id: 'not-visited-upper-limb',
       text: 'Nenavštívil/a som zdravotníckeho pracovníka',
-      mechanisms: ['none']
+      mechanisms: ['none'],
+      sinGroups: []
     }
   ]
 };
@@ -89,12 +100,14 @@ export const sensitivityQuestion: Question = {
     {
       id: 'yes-sensitivity-upper-limb',
       text: 'Áno',
-      mechanisms: ['central']
+      mechanisms: ['central'],
+      sinGroups: []
     },
     {
       id: 'no-sensitivity-upper-limb',
       text: 'Nie',
-      mechanisms: ['none']
+      mechanisms: ['none'],
+      sinGroups: []
     }
   ]
 };
@@ -108,12 +121,14 @@ export const variableImpactQuestion: Question = {
     {
       id: 'yes-variable-upper-limb',
       text: 'Áno',
-      mechanisms: ['central']
+      mechanisms: ['central'],
+      sinGroups: []
     },
     {
       id: 'no-variable-upper-limb',
       text: 'Nie',
-      mechanisms: ['none']
+      mechanisms: ['none'],
+      sinGroups: []
     }
   ]
 };

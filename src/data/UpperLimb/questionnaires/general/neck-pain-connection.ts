@@ -10,6 +10,8 @@ export const neckPainConnectionQuestion: Question = {
     {
       id: 'yes-neck-pain',
       text: 'Áno',
+      mechanisms: [],
+      sinGroups: [],
       followUp: [
         {
           id: 'neck-movement-causes-pain',
@@ -20,6 +22,8 @@ export const neckPainConnectionQuestion: Question = {
             {
               id: 'yes-neck-movement',
               text: 'Áno',
+              mechanisms: [],
+              sinGroups: [],
               followUp: [
                 {
                   id: 'pain-spread-location',
@@ -29,23 +33,33 @@ export const neckPainConnectionQuestion: Question = {
                   options: [
                     {
                       id: 'shoulder',
-                      text: 'Rameno'
+                      text: 'Rameno',
+                      mechanisms: [],
+                      sinGroups: []
                     },
                     {
                       id: 'elbow',
-                      text: 'Lakeť'
+                      text: 'Lakeť',
+                      mechanisms: [],
+                      sinGroups: []
                     },
                     {
                       id: 'forearm',
-                      text: 'Predlaktie'
+                      text: 'Predlaktie',
+                      mechanisms: [],
+                      sinGroups: []
                     },
                     {
                       id: 'hand',
-                      text: 'Ruka'
+                      text: 'Ruka',
+                      mechanisms: [],
+                      sinGroups: []
                     },
                     {
                       id: 'fingers',
-                      text: 'Prsty'
+                      text: 'Prsty',
+                      mechanisms: [],
+                      sinGroups: []
                     }
                   ]
                 }
@@ -53,7 +67,9 @@ export const neckPainConnectionQuestion: Question = {
             },
             {
               id: 'no-neck-movement',
-              text: 'Nie'
+              text: 'Nie',
+              mechanisms: [],
+              sinGroups: []
             }
           ]
         }
@@ -61,7 +77,9 @@ export const neckPainConnectionQuestion: Question = {
     },
     {
       id: 'no-neck-pain',
-      text: 'Nie'
+      text: 'Nie',
+      mechanisms: [],
+      sinGroups: []
     }
   ]
 };

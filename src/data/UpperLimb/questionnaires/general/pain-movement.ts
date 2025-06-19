@@ -11,6 +11,7 @@ export const painMovementQuestion: Question = {
       id: 'yes-movement-upper-limb',
       text: 'Áno',
       mechanisms: ['nociceptive', 'neuropathic'],
+      sinGroups: [],
       followUp: [
         {
           id: 'pain-intensity-increase-upper-limb',
@@ -21,16 +22,19 @@ export const painMovementQuestion: Question = {
             {
               id: 'significantly-upper-limb',
               text: 'Výrazne',
+              mechanisms: [],
               sinGroups: ['high SIN']
             },
             {
               id: 'moderately-upper-limb',
               text: 'Stredne',
+              mechanisms: [],
               sinGroups: ['mid SIN']
             },
             {
               id: 'minimally-upper-limb',
               text: 'Minimálne',
+              mechanisms: [],
               sinGroups: ['low SIN']
             }
           ]
@@ -44,11 +48,13 @@ export const painMovementQuestion: Question = {
             {
               id: 'immediately-upper-limb',
               text: 'Okamžite',
+              mechanisms: [],
               sinGroups: ['high SIN']
             },
             {
               id: 'later-upper-limb',
               text: 'Neskôr',
+              mechanisms: [],
               sinGroups: ['mid SIN']
             }
           ]
@@ -62,11 +68,13 @@ export const painMovementQuestion: Question = {
             {
               id: 'immediately-subside-upper-limb',
               text: 'Okamžite',
+              mechanisms: [],
               sinGroups: ['low SIN']
             },
             {
               id: 'later-subside-upper-limb',
               text: 'Neskôr',
+              mechanisms: [],
               sinGroups: ['mid SIN']
             }
           ]
@@ -76,7 +84,8 @@ export const painMovementQuestion: Question = {
     {
       id: 'no-movement-upper-limb',
       text: 'Nie',
-      mechanisms: ['none']
+      mechanisms: ['none'],
+      sinGroups: []
     }
   ]
 };
