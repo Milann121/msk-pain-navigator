@@ -1,15 +1,16 @@
+
 export interface UserInfo {
   firstName: string;
   age: number;
   gender: 'muž' | 'žena';
-  painArea: 'neck' | 'middle back' | 'lower back';
+  painArea: 'neck' | 'middle back' | 'lower back' | 'upper limb';
 }
 
 export interface Questionnaire {
   id: string;
   title: string;
   description: string;
-  forMechanism: PainMechanism;
+  forMechanism?: PainMechanism;
   questions: Question[];
 }
 
@@ -19,7 +20,7 @@ export interface Question {
   description?: string;
   type: 'radio' | 'multiple' | 'scale';
   showIf?: {
-    painArea?: 'neck' | 'middle back' | 'lower back';
+    painArea?: 'neck' | 'middle back' | 'lower back' | 'upper limb';
   };
   options?: QuestionOption[];
   scale?: {
@@ -35,10 +36,12 @@ export interface QuestionOption {
   text: string;
   followUp?: Question[];
   differentials?: Differential[];
+  mechanisms?: PainMechanism[];
+  sinGroups?: SINGroup[];
 }
 
-export type PainMechanism = 'nociceptive' | 'neuropathic' | 'central';
-export type SINGroup = 'SI' | 'SIII' | 'SII';
+export type PainMechanism = 'nociceptive' | 'neuropathic' | 'central' | 'none';
+export type SINGroup = 'SI' | 'SIII' | 'SII' | 'low SIN' | 'mid SIN' | 'high SIN' | 'none';
 export type Differential =
   | 'facet joint syndrome'
   | 'SIJ syndrome'
@@ -54,10 +57,26 @@ export type Differential =
   | 'costovertebral joint syndrome'
   | 'dorsal spondylolisthesis'
   | 'ventral spondylolisthesis'
+  | 'Central Sensitisation'
+  | 'Central Sensitisation - Allodynia'
+  | 'Central Sensitisation - Sensory Hypersensitivity'
+  | 'Central Sensitisation - Cognitive Symptoms'
+  | 'Radicular Pain'
+  | 'Radiculopathy'
   | 'none';
 
 export interface ScoreTracker {
   nociceptive: number;
   neuropathic: number;
   central: number;
+  lowSIN: number;
+  midSIN: number;
+  highSIN: number;
+}
+
+export interface AssessmentResults {
+  mechanism: PainMechanism;
+  sinGroup: SINGroup;
+  differential: Differential;
+  scores: ScoreTracker;
 }
