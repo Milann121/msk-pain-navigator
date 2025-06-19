@@ -10,7 +10,7 @@ export const painDescriptionQuestion: Question = {
     {
       id: 'burning-upper-limb',
       text: 'Pálivá',
-      mechanisms: ['neuropathic'],      
+      mechanisms: ['neuropathic', 'nociceptive'],      
     },
     {
       id: 'electric-shocks-upper-limb',
