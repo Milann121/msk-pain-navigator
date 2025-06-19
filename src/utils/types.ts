@@ -40,7 +40,7 @@ export interface QuestionOption {
   sinGroups?: SINGroup[];
 }
 
-export type PainMechanism = 'nociceptive' | 'neuropathic' | 'central' | 'none';
+export type PainMechanism = 'nociceptive' | 'neuropathic' | 'central' | 'red-flag' | 'none';
 export type SINGroup = 'low SIN' | 'mid SIN' | 'high SIN' | 'none';
 export type Differential =
   | 'facet joint syndrome'

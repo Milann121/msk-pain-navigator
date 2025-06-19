@@ -1,3 +1,4 @@
+
 import { Differential, PainMechanism, SINGroup } from './types';
 
 // Helper function to map pain intensity to SIN group
@@ -13,6 +14,7 @@ export const painMechanismDescriptions: Record<PainMechanism, string> = {
   'nociceptive': 'Vaša bolesť sa javí ako primárne nociceptívna, čo znamená, že pochádza z poškodenia tkaniva alebo zápalu v svaloch, kĺboch alebo iných tkanivách.',
   'neuropathic': 'Vaša bolesť sa javí ako primárne neuropatická, čo znamená, že súvisí s poškodením alebo dysfunkciou vášho nervového systému.',
   'central': 'Vaša bolesť zahŕňa centrálnu senzitizáciu, čo znamená, že váš nervový systém sa stal citlivejším na bolestivé signály.',
+  'red-flag': 'Vaše príznaky môžu naznačovať vážne ochorenie, ktoré vyžaduje okamžitú lekársku pozornosť. Prosím, navštívte čo najskôr zdravotníckeho pracovníka.',
   'none': 'Z vašich odpovedí sme nedokázali určiť jasný mechanizmus bolesti.'
 };
 

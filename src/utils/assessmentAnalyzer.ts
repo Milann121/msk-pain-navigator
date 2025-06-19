@@ -1,4 +1,3 @@
-
 import { 
   PainMechanism, 
   SINGroup, 
@@ -111,19 +110,24 @@ export const processGeneralQuestionnaire = (
   let primaryMechanism: PainMechanism = 'none';
   let maxMechanismScore = 0;
   
-  if (scores.nociceptive > maxMechanismScore) {
-    maxMechanismScore = scores.nociceptive;
-    primaryMechanism = 'nociceptive';
-  }
-  
-  if (scores.neuropathic > maxMechanismScore) {
-    maxMechanismScore = scores.neuropathic;
-    primaryMechanism = 'neuropathic';
-  }
-  
-  if (scores.central > maxMechanismScore) {
-    maxMechanismScore = scores.central;
-    primaryMechanism = 'central';
+  // Check for red-flag first as it takes priority
+  if (scores['red-flag'] && scores['red-flag'] > 0) {
+    primaryMechanism = 'red-flag';
+  } else {
+    if (scores.nociceptive > maxMechanismScore) {
+      maxMechanismScore = scores.nociceptive;
+      primaryMechanism = 'nociceptive';
+    }
+    
+    if (scores.neuropathic > maxMechanismScore) {
+      maxMechanismScore = scores.neuropathic;
+      primaryMechanism = 'neuropathic';
+    }
+    
+    if (scores.central > maxMechanismScore) {
+      maxMechanismScore = scores.central;
+      primaryMechanism = 'central';
+    }
   }
   
   // Determine SIN group
