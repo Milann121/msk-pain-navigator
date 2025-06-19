@@ -21,7 +21,7 @@ export const painMovementQuestion: Question = {
             {
               id: 'significantly',
               text: 'Výrazne',
-              sinGro ups: ['high SIN']
+              sinGroups: ['high SIN']
             },
             {
               id: 'moderately',
