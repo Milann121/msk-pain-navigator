@@ -10,23 +10,17 @@ export const clickingLockingQuestion: Question = {
     {
       id: 'yes-clicking',
       text: 'Áno',
-      mechanisms: [],
-      sinGroups: [],
-      differentials: []
+      differentials: ["labral-lesion","subacromional-impingement-syndrome", "shoulder-instability"]
     },
     {
       id: 'no-clicking',
-      text: 'Nie',
-      mechanisms: [],
-      sinGroups: [],
-      differentials: []
+      text: 'Nie',      
+      differentials: ["none"]
     },
     {
       id: 'rarely-sports-only',
       text: 'Zriedka, a len pri športe',
-      mechanisms: [],
-      sinGroups: [],
-      differentials: []
+      differentials: ["labral-lesion","subacromional-impingement-syndrome", "shoulder-instability"]
     }
   ]
 };
@@ -40,23 +34,17 @@ export const shoulderDislocationQuestion: Question = {
     {
       id: 'yes-confirmed-diagnosis',
       text: 'Áno, s potvrdenou diagnózou',
-      mechanisms: [],
-      sinGroups: [],
-      differentials: []
+      differentials: ["shoulder-dislocation", "shoulder-instability"]
     },
     {
       id: 'no-dislocation',
       text: 'Nie',
-      mechanisms: [],
-      sinGroups: [],
-      differentials: []
+      differentials: ["none"]
     },
     {
       id: 'not-sure-popped-out',
       text: 'Nie som si istý/á, ale rameno sa cítilo, akoby sa vykĺbilo',
-      mechanisms: [],
-      sinGroups: [],
-      differentials: []
+      differentials: ["shoulder-dislocation", "shoulder-instability"]
     }
   ]
 };

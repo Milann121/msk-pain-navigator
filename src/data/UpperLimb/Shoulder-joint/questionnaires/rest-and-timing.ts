@@ -9,17 +9,13 @@ export const restHelpsPainQuestion: Question = {
   options: [
     {
       id: 'yes-rest-helps',
-      text: 'Áno, moja bolesť sa zlepší, keď si oddýchnem',
-      mechanisms: [],
-      sinGroups: [],
-      differentials: []
+      text: 'Áno, moja bolesť sa zlepší, keď si oddýchnem',      
+      differentials: ["none"]
     },
     {
       id: 'no-rest-not-help',
-      text: 'Nie',
-      mechanisms: [],
-      sinGroups: [],
-      differentials: [],
+      text: 'Nie',      
+      differentials: ["frozen-shoulder", "labral-lesion"],
       followUp: [
         {
           id: 'pain-24-hours',
@@ -29,17 +25,13 @@ export const restHelpsPainQuestion: Question = {
           options: [
             {
               id: '24-hour-pain',
-              text: 'Je to 24-hodinová bolesť bez akéhokoľvek zníženia úrovne bolesti',
-              mechanisms: [],
-              sinGroups: [],
-              differentials: []
+              text: 'Je to 24-hodinová bolesť bez akéhokoľvek zníženia úrovne bolesti',              
+              differentials: ["red-flag"]
             },
             {
               id: 'can-find-relief',
-              text: 'Niekedy si viem nájsť pozície, ktoré bolesť zmierňujú',
-              mechanisms: [],
-              sinGroups: [],
-              differentials: []
+              text: 'Niekedy si viem nájsť pozície, ktoré bolesť zmierňujú',              
+              differentials: ["frozen-shoulder", "labral-lesion"]
             }
           ]
         }
@@ -56,31 +48,18 @@ export const painTimingQuestion: Question = {
   options: [
     {
       id: 'during-activity-overhead',
-      text: 'Počas aktivity, najmä nad hlavou',
-      mechanisms: [],
-      sinGroups: [],
-      differentials: []
+      text: 'Počas aktivity, najmä nad hlavou',      
+      differentials: ["subacromional-impingement-syndrome", "labral-lesion", "biceps-tear-long-head", "rotator-cuff-tendinopathy", "rotator-cuff-tear"]
     },
     {
       id: 'at-rest-night',
-      text: 'V pokoji a v noci, najmä pri ležaní na ramene',
-      mechanisms: [],
-      sinGroups: [],
-      differentials: []
-    },
-    {
-      id: 'only-sports-specific',
-      text: 'Len počas športu alebo špecifických pozícií',
-      mechanisms: [],
-      sinGroups: [],
-      differentials: []
+      text: 'V pokoji a v noci, najmä pri ležaní na ramene',      
+      differentials: ["frozen-shoulder", "labral-lesion"]
     },
     {
       id: 'randomly-sleep-light',
-      text: 'Náhodne, dokonca aj počas spánku alebo ľahkej aktivity',
-      mechanisms: [],
-      sinGroups: [],
-      differentials: []
+      text: 'Náhodne, dokonca aj počas spánku alebo ľahkej aktivity',      
+      differentials: ["frozen-shoulder"]
     }
   ]
 };

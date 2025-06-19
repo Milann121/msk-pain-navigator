@@ -69,7 +69,7 @@ export type Differential =
     'slap-tear'
     'subacromional-impingement-syndrome'
     'stiff-shoulder'
-    'labral-leason'
+    'labral-lesion'
     'shoulder-bursa'
     'rotator-cuff-tear'
     'rotator-cuff-tendinopathy'

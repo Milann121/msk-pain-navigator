@@ -9,10 +9,8 @@ export const aggravatingMovementsQuestion: Question = {
   options: [
     {
       id: 'lifting-arm-overhead',
-      text: 'Zdvíhanie paže nad hlavu',
-      mechanisms: [],
-      sinGroups: [],
-      differentials: [],
+      text: 'Zdvíhanie paže nad hlavu',      
+      differentials: ["subacromional-impingement-syndrome", "frozen-shoulder", "stiff-shoulder"],
       followUp: [
         {
           id: 'painful-degree',
@@ -21,25 +19,19 @@ export const aggravatingMovementsQuestion: Question = {
           type: 'radio',
           options: [
             {
-              id: 'around-45-degrees',
-              text: 'Približne 45 stupňov',
-              mechanisms: [],
-              sinGroups: [],
-              differentials: []
+              id: 'around-45-60-degrees',
+              text: 'Približne 45-60 stupňov',              
+              differentials: ["stiff-shoulder", "frozen-shoulder"]
             },
             {
               id: 'around-90-degrees',
-              text: 'Približne 90 stupňov',
-              mechanisms: [],
-              sinGroups: [],
-              differentials: []
+              text: 'Približne 90 stupňov',              
+              differentials: ["subacromional-impingement-syndrome"]
             },
             {
               id: 'above-90-degrees',
-              text: 'Nad 90 stupňov',
-              mechanisms: [],
-              sinGroups: [],
-              differentials: [],
+              text: 'Nad 90 stupňov',              
+              differentials: ["subacromional-impingement-syndrome","slap-tear"],
               followUp: [
                 {
                   id: 'palm-facing-up',
@@ -49,31 +41,23 @@ export const aggravatingMovementsQuestion: Question = {
                   options: [
                     {
                       id: 'same-pain',
-                      text: 'Áno, je to rovnaké',
-                      mechanisms: [],
-                      sinGroups: [],
-                      differentials: []
+                      text: 'Áno, je to rovnaké',                      
+                      differentials: ["slap-tear"]
                     },
                     {
                       id: 'more-painful-palm-up',
-                      text: 'Áno, bolestivejšie s dlaňou otočenou nahor',
-                      mechanisms: [],
-                      sinGroups: [],
-                      differentials: []
+                      text: 'Áno, bolestivejšie s dlaňou otočenou nahor',                      
+                      differentials: ["slap-tear", "labral-lesion", "biceps-tear-long-head"]
                     },
                     {
                       id: 'less-painful',
-                      text: 'Menej bolestivé',
-                      mechanisms: [],
-                      sinGroups: [],
-                      differentials: []
+                      text: 'Menej bolestivé',                      
+                      differentials: ["subacromional-impigement-syndrome"]
                     },
                     {
                       id: 'do-not-want-try',
-                      text: 'Nechcem to skúšať',
-                      mechanisms: [],
-                      sinGroups: [],
-                      differentials: []
+                      text: 'Nechcem to skúšať',                      
+                      differentials: ["none"]
                     }
                   ]
                 }
@@ -81,10 +65,8 @@ export const aggravatingMovementsQuestion: Question = {
             },
             {
               id: 'do-not-know-degree',
-              text: 'Neviem',
-              mechanisms: [],
-              sinGroups: [],
-              differentials: []
+              text: 'Neviem',              
+              differentials: ["none"]
             }
           ]
         }
@@ -92,31 +74,23 @@ export const aggravatingMovementsQuestion: Question = {
     },
     {
       id: 'reaching-behind-back',
-      text: 'Siahanie za chrbát, obliekanie kabáta alebo zapínanie podprsenky (vnútorná rotácia)',
-      mechanisms: [],
-      sinGroups: [],
-      differentials: []
+      text: 'Siahanie za chrbát, obliekanie kabáta alebo zapínanie podprsenky (vnútorná rotácia)',      
+      differentials: ["subacromional-impingement-syndrome","frozen-shoulder","biceps-tear-long-head"]
     },
     {
       id: 'scratching-back-head',
-      text: 'Škrabanie sa na zadnej časti hlavy (vonkajšia rotácia)',
-      mechanisms: [],
-      sinGroups: [],
-      differentials: []
+      text: 'Škrabanie sa na zadnej časti hlavy (vonkajšia rotácia)',      
+      differentials: ["frozen-shoulder"]
     },
     {
       id: 'throwing-overhead-sports',
-      text: 'Hádzanie alebo športová aktivita nad hlavou',
-      mechanisms: [],
-      sinGroups: [],
-      differentials: []
+      text: 'Hádzanie alebo športová aktivita nad hlavou',      
+      differentials: ["rotator-cuff-tendinopathy","rotator-cuff-tear", "subacromional-impingement-syndrome"]
     },
     {
       id: 'sudden-movement-heavy',
-      text: 'Náhly pohyb alebo nosenie ťažkého predmetu',
-      mechanisms: [],
-      sinGroups: [],
-      differentials: []
+      text: 'Náhly pohyb alebo nosenie ťažkého predmetu',      
+      differentials: ["shoulder-instability", "subacromional-impingement-syndrome"]
     }
   ]
 };

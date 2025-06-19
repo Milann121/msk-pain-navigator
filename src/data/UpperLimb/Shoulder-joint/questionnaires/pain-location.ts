@@ -9,38 +9,33 @@ export const painLocationQuestion: Question = {
   options: [
     {
       id: 'lateral-upper-arm',
-      text: 'Bočná strana hornej časti paže',
-      mechanisms: [],
-      sinGroups: [],
-      differentials: []
+      text: 'Bočná strana hornej časti paže',      
+      differentials: ["frozen-shoulder", "stiff-shoulder"]
     },
     {
       id: 'deep-shoulder-joint',
       text: 'Hlboko vo vnútri ramenného kĺbu',
-      mechanisms: [],
-      sinGroups: [],
-      differentials: []
+      differentials: ["frozens-shoulder","subacromional-impingement-syndrome"]
     },
     {
       id: 'front-shoulder',
       text: 'Predná časť ramena',
-      mechanisms: [],
-      sinGroups: [],
-      differentials: []
+      differentials: ["slap-tear","labral-lesion" ]
     },
     {
       id: 'below-behind-bone',
       text: 'Pod a trochu za kostnatou štruktúrou nad ramenom',
-      mechanisms: [],
-      sinGroups: [],
-      differentials: []
+      differentials: ["shoulder-bursa","subacromional-impingement-syndrome", "labral-lesion"]
+    },
+    {
+      id: 'from-shoulderblade',
+      text: 'Od lopatky až dopredu',
+      differentials: ["fozen-shoulder", "stiff-shoulder", "rotato-cuff-tear", "rotator-cuff-tendinopathy"]
     },
     {
       id: 'entire-shoulder',
       text: 'Celé rameno, ťažko lokalizovateľné',
-      mechanisms: [],
-      sinGroups: [],
-      differentials: []
+      differentials: ["fozen-shoulder", "stiff-shoulder"]
     }
   ]
 };
