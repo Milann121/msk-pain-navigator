@@ -38,58 +38,26 @@ export const generateGeneralProgram = (
   // Collect all available exercises from user's active programs
   const allVideos: VideoWithSource[] = [];
   
-  // Get all available exercise keys for debugging
-  console.log('Available exercise keys:', Object.keys(exercisesByDifferential));
-  
   activeAssessments.forEach(assessment => {
-    // Try multiple key variations to find exercises
-    const keyVariations = [
-      `${assessment.primary_mechanism}-${assessment.primary_differential}-${assessment.pain_area}`,
-      `${assessment.primary_mechanism}-default-${assessment.pain_area}`,
-      `${assessment.primary_mechanism}-${assessment.primary_differential}`,
-      `${assessment.primary_mechanism}-default`,
-      assessment.primary_mechanism
-    ];
+    const specificKey = `${assessment.primary_mechanism}-${assessment.primary_differential}-${assessment.pain_area}`;
+    const defaultKey = `${assessment.primary_mechanism}-default-${assessment.pain_area}`;
     
-    console.log('Trying key variations for assessment:', keyVariations);
+    console.log('Looking for exercises with keys:', { specificKey, defaultKey });
     
-    let foundExercises: any[] = [];
+    const exercises = exercisesByDifferential[specificKey] || 
+                     exercisesByDifferential[defaultKey] || [];
     
-    // Try each key variation until we find exercises
-    for (const key of keyVariations) {
-      const exercises = exercisesByDifferential[key];
-      if (exercises && exercises.length > 0) {
-        foundExercises = exercises;
-        console.log(`Found ${exercises.length} exercises with key: ${key}`);
-        break;
-      }
-    }
+    console.log('Found exercises for assessment:', exercises.length);
     
-    // If still no exercises found, try to find any exercises for the pain mechanism
-    if (foundExercises.length === 0) {
-      // Search through all keys that start with the mechanism
-      for (const [key, exercises] of Object.entries(exercisesByDifferential)) {
-        if (key.startsWith(assessment.primary_mechanism) && exercises.length > 0) {
-          foundExercises = exercises;
-          console.log(`Found ${exercises.length} exercises with fallback key: ${key}`);
-          break;
-        }
-      }
-    }
-    
-    console.log('Final exercises found for assessment:', foundExercises.length);
-    
-    foundExercises.forEach(exercise => {
-      if (exercise.videos && exercise.videos.length > 0) {
-        exercise.videos.forEach(video => {
-          allVideos.push({
-            ...video,
-            sourceProgram: exercise.title,
-            mainGroup: video.mainGroup ?? [],
-            bodyPart: video.bodyPart ?? [],
-          });
+    exercises.forEach(exercise => {
+      exercise.videos.forEach(video => {
+        allVideos.push({
+          ...video,
+          sourceProgram: exercise.title,
+          mainGroup: video.mainGroup ?? [],
+          bodyPart: video.bodyPart ?? [],
         });
-      }
+      });
     });
   });
 
