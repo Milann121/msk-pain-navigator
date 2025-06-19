@@ -17,31 +17,36 @@ export const shoulderNociceptiveQuestionnaire: Questionnaire = {
           id: 'lateral-upper-arm',
           text: 'Bočná strana hornej časti paže',
           mechanisms: [],
-          sinGroups: []
+          sinGroups: [],
+          differentials: []
         },
         {
           id: 'deep-shoulder-joint',
           text: 'Hlboko vo vnútri ramenného kĺbu',
           mechanisms: [],
-          sinGroups: []
+          sinGroups: [],
+          differentials: []
         },
         {
           id: 'front-shoulder',
           text: 'Predná časť ramena',
           mechanisms: [],
-          sinGroups: []
+          sinGroups: [],
+          differentials: []
         },
         {
           id: 'below-behind-bone',
           text: 'Pod a trochu za kostnatou štruktúrou nad ramenom',
           mechanisms: [],
-          sinGroups: []
+          sinGroups: [],
+          differentials: []
         },
         {
           id: 'entire-shoulder',
           text: 'Celé rameno, ťažko lokalizovateľné',
           mechanisms: [],
-          sinGroups: []
+          sinGroups: [],
+          differentials: []
         }
       ]
     },
@@ -55,13 +60,15 @@ export const shoulderNociceptiveQuestionnaire: Questionnaire = {
           id: 'yes-rest-helps',
           text: 'Áno, moja bolesť sa zlepší, keď si oddýchnem',
           mechanisms: [],
-          sinGroups: []
+          sinGroups: [],
+          differentials: []
         },
         {
           id: 'no-rest-not-help',
           text: 'Nie',
           mechanisms: [],
           sinGroups: [],
+          differentials: [],
           followUp: [
             {
               id: 'pain-24-hours',
@@ -73,13 +80,15 @@ export const shoulderNociceptiveQuestionnaire: Questionnaire = {
                   id: '24-hour-pain',
                   text: 'Je to 24-hodinová bolesť bez akéhokoľvek zníženia úrovne bolesti',
                   mechanisms: [],
-                  sinGroups: []
+                  sinGroups: [],
+                  differentials: []
                 },
                 {
                   id: 'can-find-relief',
                   text: 'Niekedy si viem nájsť pozície, ktoré bolesť zmierňujú',
                   mechanisms: [],
-                  sinGroups: []
+                  sinGroups: [],
+                  differentials: []
                 }
               ]
             }
@@ -98,6 +107,7 @@ export const shoulderNociceptiveQuestionnaire: Questionnaire = {
           text: 'Zdvíhanie paže nad hlavu',
           mechanisms: [],
           sinGroups: [],
+          differentials: [],
           followUp: [
             {
               id: 'painful-degree',
@@ -109,19 +119,22 @@ export const shoulderNociceptiveQuestionnaire: Questionnaire = {
                   id: 'around-45-degrees',
                   text: 'Približne 45 stupňov',
                   mechanisms: [],
-                  sinGroups: []
+                  sinGroups: [],
+                  differentials: []
                 },
                 {
                   id: 'around-90-degrees',
                   text: 'Približne 90 stupňov',
                   mechanisms: [],
-                  sinGroups: []
+                  sinGroups: [],
+                  differentials: []
                 },
                 {
                   id: 'above-90-degrees',
                   text: 'Nad 90 stupňov',
                   mechanisms: [],
                   sinGroups: [],
+                  differentials: [],
                   followUp: [
                     {
                       id: 'palm-facing-up',
@@ -133,25 +146,29 @@ export const shoulderNociceptiveQuestionnaire: Questionnaire = {
                           id: 'same-pain',
                           text: 'Áno, je to rovnaké',
                           mechanisms: [],
-                          sinGroups: []
+                          sinGroups: [],
+                          differentials: []
                         },
                         {
                           id: 'more-painful-palm-up',
                           text: 'Áno, bolestivejšie s dlaňou otočenou nahor',
                           mechanisms: [],
-                          sinGroups: []
+                          sinGroups: [],
+                          differentials: []
                         },
                         {
                           id: 'less-painful',
                           text: 'Menej bolestivé',
                           mechanisms: [],
-                          sinGroups: []
+                          sinGroups: [],
+                          differentials: []
                         },
                         {
                           id: 'do-not-want-try',
                           text: 'Nechcem to skúšať',
                           mechanisms: [],
-                          sinGroups: []
+                          sinGroups: [],
+                          differentials: []
                         }
                       ]
                     }
@@ -161,7 +178,8 @@ export const shoulderNociceptiveQuestionnaire: Questionnaire = {
                   id: 'do-not-know-degree',
                   text: 'Neviem',
                   mechanisms: [],
-                  sinGroups: []
+                  sinGroups: [],
+                  differentials: []
                 }
               ]
             }
@@ -171,25 +189,29 @@ export const shoulderNociceptiveQuestionnaire: Questionnaire = {
           id: 'reaching-behind-back',
           text: 'Siahanie za chrbát, obliekanie kabáta alebo zapínanie podprsenky (vnútorná rotácia)',
           mechanisms: [],
-          sinGroups: []
+          sinGroups: [],
+          differentials: []
         },
         {
           id: 'scratching-back-head',
           text: 'Škrabanie sa na zadnej časti hlavy (vonkajšia rotácia)',
           mechanisms: [],
-          sinGroups: []
+          sinGroups: [],
+          differentials: []
         },
         {
           id: 'throwing-overhead-sports',
           text: 'Hádzanie alebo športová aktivita nad hlavou',
           mechanisms: [],
-          sinGroups: []
+          sinGroups: [],
+          differentials: []
         },
         {
           id: 'sudden-movement-heavy',
           text: 'Náhly pohyb alebo nosenie ťažkého predmetu',
           mechanisms: [],
-          sinGroups: []
+          sinGroups: [],
+          differentials: []
         }
       ]
     },
@@ -203,25 +225,29 @@ export const shoulderNociceptiveQuestionnaire: Questionnaire = {
           id: 'during-activity-overhead',
           text: 'Počas aktivity, najmä nad hlavou',
           mechanisms: [],
-          sinGroups: []
+          sinGroups: [],
+          differentials: []
         },
         {
           id: 'at-rest-night',
           text: 'V pokoji a v noci, najmä pri ležaní na ramene',
           mechanisms: [],
-          sinGroups: []
+          sinGroups: [],
+          differentials: []
         },
         {
           id: 'only-sports-specific',
           text: 'Len počas športu alebo špecifických pozícií',
           mechanisms: [],
-          sinGroups: []
+          sinGroups: [],
+          differentials: []
         },
         {
           id: 'randomly-sleep-light',
           text: 'Náhodne, dokonca aj počas spánku alebo ľahkej aktivity',
           mechanisms: [],
-          sinGroups: []
+          sinGroups: [],
+          differentials: []
         }
       ]
     },
@@ -235,19 +261,22 @@ export const shoulderNociceptiveQuestionnaire: Questionnaire = {
           id: 'yes-clicking',
           text: 'Áno',
           mechanisms: [],
-          sinGroups: []
+          sinGroups: [],
+          differentials: []
         },
         {
           id: 'no-clicking',
           text: 'Nie',
           mechanisms: [],
-          sinGroups: []
+          sinGroups: [],
+          differentials: []
         },
         {
           id: 'rarely-sports-only',
           text: 'Zriedka, a len pri športe',
           mechanisms: [],
-          sinGroups: []
+          sinGroups: [],
+          differentials: []
         }
       ]
     },
@@ -261,19 +290,22 @@ export const shoulderNociceptiveQuestionnaire: Questionnaire = {
           id: 'yes-confirmed-diagnosis',
           text: 'Áno, s potvrdenou diagnózou',
           mechanisms: [],
-          sinGroups: []
+          sinGroups: [],
+          differentials: []
         },
         {
           id: 'no-dislocation',
           text: 'Nie',
           mechanisms: [],
-          sinGroups: []
+          sinGroups: [],
+          differentials: []
         },
         {
           id: 'not-sure-popped-out',
           text: 'Nie som si istý/á, ale rameno sa cítilo, akoby sa vykĺbilo',
           mechanisms: [],
-          sinGroups: []
+          sinGroups: [],
+          differentials: []
         }
       ]
     },
@@ -290,25 +322,29 @@ export const shoulderNociceptiveQuestionnaire: Questionnaire = {
           id: 'yes-confirmed-doctor',
           text: 'Áno, potvrdené lekárom',
           mechanisms: [],
-          sinGroups: []
+          sinGroups: [],
+          differentials: []
         },
         {
           id: 'think-so',
           text: 'Myslím, že áno',
           mechanisms: [],
-          sinGroups: []
+          sinGroups: [],
+          differentials: []
         },
         {
           id: 'do-not-think-so',
           text: 'Myslím, že nie',
           mechanisms: [],
-          sinGroups: []
+          sinGroups: [],
+          differentials: []
         },
         {
           id: 'no-not-entered',
           text: 'Nie, ešte som nevstúpila do fázy menopauzy',
           mechanisms: [],
-          sinGroups: []
+          sinGroups: [],
+          differentials: []
         }
       ]
     },
@@ -325,19 +361,22 @@ export const shoulderNociceptiveQuestionnaire: Questionnaire = {
           id: 'yes-regularly',
           text: 'Áno, pravidelne',
           mechanisms: [],
-          sinGroups: []
+          sinGroups: [],
+          differentials: []
         },
         {
           id: 'yes-irregularly',
           text: 'Áno, nepravidelne',
           mechanisms: [],
-          sinGroups: []
+          sinGroups: [],
+          differentials: []
         },
         {
           id: 'no-do-not-know',
           text: 'Nie, neviem',
           mechanisms: [],
-          sinGroups: []
+          sinGroups: [],
+          differentials: []
         }
       ]
     }
