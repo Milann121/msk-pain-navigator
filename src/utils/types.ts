@@ -1,3 +1,4 @@
+
 export interface UserInfo {
   firstName: string;
   age: number;
@@ -9,7 +10,7 @@ export interface Questionnaire {
   id: string;
   title: string;
   description: string;
-  forMechanism: PainMechanism;
+  forMechanism?: PainMechanism;
   questions: Question[];
 }
 
@@ -35,10 +36,12 @@ export interface QuestionOption {
   text: string;
   followUp?: Question[];
   differentials?: Differential[];
+  mechanisms?: PainMechanism[];
+  sinGroups?: SINGroup[];
 }
 
-export type PainMechanism = 'nociceptive' | 'neuropathic' | 'central';
-export type SINGroup = 'SI' | 'SIII' | 'SII';
+export type PainMechanism = 'nociceptive' | 'neuropathic' | 'central' | 'none';
+export type SINGroup = 'low SIN' | 'mid SIN' | 'high SIN' | 'none';
 export type Differential =
   | 'facet joint syndrome'
   | 'SIJ syndrome'
@@ -54,10 +57,27 @@ export type Differential =
   | 'costovertebral joint syndrome'
   | 'dorsal spondylolisthesis'
   | 'ventral spondylolisthesis'
+  | 'radicular pain'
+  | 'radiculopathy'
+  | 'central sensitisation'
+  | 'central sensitisation - allodynia'
+  | 'central sensitisation - sensory hypersensitivity'
+  | 'central sensitisation - cognitive symptoms'
   | 'none';
 
 export interface ScoreTracker {
   nociceptive: number;
   neuropathic: number;
   central: number;
+  lowSIN: number;
+  midSIN: number;
+  highSIN: number;
+}
+
+export interface AssessmentResults {
+  userInfo: UserInfo;
+  primaryMechanism: PainMechanism;
+  sinGroup: SINGroup;
+  primaryDifferential: Differential;
+  scores: ScoreTracker;
 }

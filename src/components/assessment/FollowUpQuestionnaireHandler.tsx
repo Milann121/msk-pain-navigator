@@ -72,8 +72,8 @@ const FollowUpQuestionnaireHandler = () => {
     setStage(AssessmentStage.GeneralQuestionnaire);
   };
 
-  // Only render if we have a primary mechanism
-  if (primaryMechanism === 'none') {
+  // Only render if we have a primary mechanism that's not 'none'
+  if (!primaryMechanism || primaryMechanism === 'none') {
     return null;
   }
 

@@ -16,7 +16,7 @@ export const centralQuestionnaire: Questionnaire = {
         {
           id: 'yes-spread',
           text: 'Áno, moja bolesť sa rozšírila za pôvodnú oblasť.',
-          differentials: ['Central Sensitisation']
+          differentials: ['central sensitisation']
         },
         {
           id: 'no-spread',
@@ -33,7 +33,7 @@ export const centralQuestionnaire: Questionnaire = {
         {
           id: 'yes-allodynia',
           text: 'Áno, aj jemný dotyk alebo tlak spôsobuje bolesť.',
-          differentials: ['Central Sensitisation - Allodynia']
+          differentials: ['central sensitisation - allodynia']
         },
         {
           id: 'no-allodynia',
@@ -50,7 +50,7 @@ export const centralQuestionnaire: Questionnaire = {
         {
           id: 'yes-disproportionate',
           text: 'Áno, moja bolesť sa zdá byť oveľa horšia, ako by som očakával/a pri mojom stave.',
-          differentials: ['Central Sensitisation']
+          differentials: ['central sensitisation']
         },
         {
           id: 'no-disproportionate',
@@ -67,7 +67,7 @@ export const centralQuestionnaire: Questionnaire = {
         {
           id: 'yes-sensory',
           text: 'Áno, som citlivejší/ia na svetlo, hluk alebo vône.',
-          differentials: ['Central Sensitisation - Sensory Hypersensitivity']
+          differentials: ['central sensitisation - sensory hypersensitivity']
         },
         {
           id: 'no-sensory',
@@ -84,7 +84,7 @@ export const centralQuestionnaire: Questionnaire = {
         {
           id: 'yes-cognitive',
           text: 'Áno, pociťujem únavu, mozgovú hmlu alebo zhoršený spánok spolu s bolesťou.',
-          differentials: ['Central Sensitisation - Cognitive Symptoms']
+          differentials: ['central sensitisation - cognitive symptoms']
         },
         {
           id: 'no-cognitive',

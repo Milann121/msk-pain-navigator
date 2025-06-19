@@ -4,138 +4,96 @@ import { Questionnaire } from '@/utils/types';
 export const neuropathicQuestionnaire: Questionnaire = {
   id: 'neuropathic',
   title: 'Hodnotenie neuropatickej bolesti',
-  description: 'Tento dotazník nám pomôže lepšie pochopiť vašu bolesť súvisiacu s nervami.',
+  description: 'Tento dotazník nám pomôže lepšie pochopiť vašu nervovú bolesť.',
   forMechanism: 'neuropathic',
   questions: [
     {
-      id: 'coughing-pain',
-      text: 'Zhoršuje sa vaša bolesť pri kašeľaní, kýchaní alebo napínaní sa?',
-      description: 'Touto otázkou sa snažíme zistiť priamy súvis medzi bolesťou a kýchaním, kašľaním alebo napínaním sa. Ak máte pocit, že niektorá z menovaných činností vám prudko zhorší symptómy, odpovedajte KLADNE.',
+      id: 'nerve-distribution',
+      text: 'Sleduje vaša bolesť jasný vzorec nervového rozloženia (napr. vyžaruje po nohe alebo ruke)?',
+      description: '',
       type: 'radio',
       options: [
         {
-          id: 'yes-coughing',
-          text: 'Áno, moja bolesť sa pri týchto aktivitách zvyšuje.',
-          differentials: ['Radicular Pain']
+          id: 'yes-distribution',
+          text: 'Áno, moja bolesť sleduje jasný vzorec po končatine',
+          differentials: ['radicular pain']
         },
         {
-          id: 'no-coughing',
-          text: 'Nie'
-        }
-      ]
-    },
-    {
-      id: 'abnormal-sensations',
-      text: 'Cítite nezvyčajné pocity ako mravčenie, pálenie alebo "elektrické šoky" pozdĺž postihnutej končatiny?',
-      description: 'Touto otázkou sa snažíme zistiť, či aj vy prežívate silné elektrizujúce ostré bolesti v presne špecifikovanom mieste. Na otázku odpovedajte KLADNE, ak by ste vedeli presne ukázať, alebo nakresliť kadiaľ vám bolesť prejde. Odpovedajte ZÁPORNE, ak máte pocit, že bolesť alebo symptómy sú viac difúzne (rozptýlené), široké a ťažko lokalizovateľné.',
-      type: 'radio',
-      options: [
-        {
-          id: 'yes-sensations',
-          text: 'Áno, pociťujem mravčenie, pálenie alebo pocity podobné elektrickým šokom pozdĺž špecifickej dráhy v končatine.',
-          differentials: ['Radicular Pain']
-        },
-        {
-          id: 'no-sensations',
+          id: 'no-distribution',
           text: 'Nie',
-          differentials: ['Radiculopathy']
-        }
-      ]
-    },
-    {
-      id: 'numbness',
-      text: 'Pociťujete znecitlivenie, zníženú citlivosť alebo oťažievanie v konkrétnej oblasti končatiny?',
-      description: 'Ak sú vaše symptómy podobné mravenčeniu, tŕpnutiu alebo máte pocit že vaša končatina je nezvyčajne ťažká, odpovedajte KLADNE.',
-      type: 'radio',
-      options: [
-        {
-          id: 'yes-numbness',
-          text: 'Áno, cítim znecitlivenie alebo nedostatok citlivosti v špecifickej oblasti končatiny.',
-          differentials: ['Radiculopathy']
-        },
-        {
-          id: 'no-numbness',
-          text: 'Nie',
-          differentials: ['Radicular Pain']
+          differentials: ['none']
         }
       ]
     },
     {
       id: 'muscle-weakness',
-      text: 'Všimli ste si svalovú slabosť v postihnutej končatine, ktorá sťažuje uchopenie predmetov, zdvihnutie nohy alebo normálny pohyb?',
-      description: 'Máte pocit, že vaša končatina oslabla, nedokážete vykonávať aktivity v rovnakej intezite alebo vám končatina oťažieva? Ak áno, odpovedajte KLADNE.',
+      text: 'Pociťujete svalovú slabosť v oblasti postihnutej bolesťou?',
+      description: '',
       type: 'radio',
       options: [
         {
           id: 'yes-weakness',
-          text: 'Áno, mám svalovú slabosť, ktorá ovplyvňuje moju schopnosť hýbať sa alebo používať končatinu správne.',
-          differentials: ['Radiculopathy']
+          text: 'Áno, pociťujem svalovú slabosť',
+          differentials: ['radicular pain']
         },
         {
           id: 'no-weakness',
           text: 'Nie',
-          differentials: ['Radicular Pain']
+          differentials: ['radiculopathy']
         }
       ]
     },
     {
-      id: 'reflex-loss',
-      text: 'Stratili ste reflexy v postihnutej končatine, ktorých stratu vám potvrdil zdravotnícky pracovník?',
-      description: 'Strata alebo výrazné zníženie reflexov nám vedia veľa povedať o vašom stave a jeho príčine. Ak ste navštívili lekára alebo fyzioterapeuta, pravdepodobne ste prešli testom reflexov. V prípade ich zníženia alebo straty, mali by ste byť okamžite upozornený/á. Ak vás zdravotník neupozornil na zemnu reflexov, veľmi pravdepodobne je to preto, že vyšetrenie dopadlo vporiadku - v takom prípade odpovedajte nie. AKO PREBIEHA VYŠETRENIE REFLEXOV? => Zvyčajne ide napr. o poklepkanie kladivkom o šľachu pod kolenom, alebo na achilovej ľache, alebo nad lakťom.',
+      id: 'sensory-changes',
+      text: 'Máte zmeny citlivosti (necitlivosť, mravčenie) v postihnutej oblasti?',
+      description: '',
       type: 'radio',
       options: [
         {
-          id: 'yes-reflex-loss',
-          text: 'Áno, zdravotnícky pracovník potvrdil znížené alebo chýbajúce reflexy.',
-          differentials: ['Radiculopathy']
+          id: 'yes-sensory',
+          text: 'Áno, mám zmeny citlivosti',
+          differentials: ['radiculopathy']
         },
         {
-          id: 'no-reflex-loss',
+          id: 'no-sensory',
           text: 'Nie',
-          differentials: ['Radicular Pain']
+          differentials: ['radicular pain']
         }
       ]
     },
     {
-      id: 'spine-abnormality-neuro',
-      text: 'Všimli ste si nejakú priehlbinu v chrbtici alebo vystupujúci stavec?',
-      description: 'Ak si nie ste istý/á, požiadajte rodinného príslušníka o pomoc -> TEST č.1 = Ľahnite si na brucho na tvrdú zem a vyhrnutým tričkom aby bolo vidno krížovú oblasť chrbtice, s rukami vedľa seba a čelom opretým o zem. Požiadajte blízku osobu, aby sledovala váš chrbát, či v driekovej oblasti nevznikla výtazná priehlbina v jednom malom bode priamo v chrbtici. Ak áno, odpovedajte KLADNE. TEST č.2 = Postavte sa vzpriamene, vyhrňte si tričko a požiadajte blízku osobu, aby sledovala tvar vašej chrbtice v krížovej oblasti. Ak spozorujete vystupujúci stavec oproti ostatným, odpovedajte KLADNE.',
+      id: 'cough-strain',
+      text: 'Zhoršuje sa vaša bolesť pri kašlaní, kýchaní alebo napínaní?',
+      description: '',
       type: 'radio',
       options: [
         {
-          id: 'hole-neuro',
-          text: 'Áno, spozoroval/a som priehlbinu v chrbte',
-          differentials: ['ventral spondylolisthesis'],
-          followUp: [
-            {
-              id: 'lying-helps-neuro',
-              text: 'Máte pocit, že ľah na chrbte zmierňuje vaše príznaky?',
-              description: 'Overte si, či vám ľah na chrbte dopraje úľavu. Uložte sa na chrbát, pokrčte kolená a zrelaxujte. Počkajte aj 2 minúty a sledujte vývoj symptómov, potom odpovedajte na otázku.',
-              type: 'radio',
-              options: [
-                {
-                  id: 'yes-lying-neuro',
-                  text: 'Áno',
-                  differentials: ['ventral spondylolisthesis']
-                },
-                {
-                  id: 'no-lying-neuro',
-                  text: 'Nie',
-                  differentials: ['none']
-                }
-              ]
-            }
-          ]
+          id: 'yes-cough',
+          text: 'Áno, zhoršuje sa pri týchto aktivitách',
+          differentials: ['radiculopathy']
         },
         {
-          id: 'sticking-out-neuro',
-          text: 'Áno, zdá sa, že môj stavec mierne vystupuje',
-          differentials: ['dorsal spondylolisthesis']
-        },
-        {
-          id: 'no-abnormality-neuro',
+          id: 'no-cough',
           text: 'Nie',
-          differentials: ['none']
+          differentials: ['radicular pain']
+        }
+      ]
+    },
+    {
+      id: 'position-dependent',
+      text: 'Je vaša bolesť závislá od polohy (lepšie v určitých polohách)?',
+      description: '',
+      type: 'radio',
+      options: [
+        {
+          id: 'yes-position',
+          text: 'Áno, určité polohy pomáhają',
+          differentials: ['radiculopathy']
+        },
+        {
+          id: 'no-position',
+          text: 'Nie',
+          differentials: ['radicular pain']
         }
       ]
     }
