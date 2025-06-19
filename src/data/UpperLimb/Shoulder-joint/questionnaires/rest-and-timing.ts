@@ -15,7 +15,7 @@ export const restHelpsPainQuestion: Question = {
     {
       id: 'no-rest-not-help',
       text: 'Nie',      
-      differentials: ["frozen-shoulder", "labral-lesion"],
+      differentials: ["frozen-shoulder", "labral-leason"],
       followUp: [
         {
           id: 'pain-24-hours',
@@ -26,12 +26,12 @@ export const restHelpsPainQuestion: Question = {
             {
               id: '24-hour-pain',
               text: 'Je to 24-hodinová bolesť bez akéhokoľvek zníženia úrovne bolesti',              
-              differentials: ["red-flag"]
+              differentials: ["red flag"]
             },
             {
               id: 'can-find-relief',
               text: 'Niekedy si viem nájsť pozície, ktoré bolesť zmierňujú',              
-              differentials: ["frozen-shoulder", "labral-lesion"]
+              differentials: ["frozen-shoulder", "labral-leason"]
             }
           ]
         }
@@ -49,12 +49,12 @@ export const painTimingQuestion: Question = {
     {
       id: 'during-activity-overhead',
       text: 'Počas aktivity, najmä nad hlavou',      
-      differentials: ["subacromional-impingement-syndrome", "labral-lesion", "biceps-tear-long-head", "rotator-cuff-tendinopathy", "rotator-cuff-tear"]
+      differentials: ["subacromional-impingement-syndrome", "labral-leason", "biceps-tear-long-head", "rotator-cuff-tendinopathy", "rotator-cuff-tear"]
     },
     {
       id: 'at-rest-night',
       text: 'V pokoji a v noci, najmä pri ležaní na ramene',      
-      differentials: ["frozen-shoulder", "labral-lesion"]
+      differentials: ["frozen-shoulder", "labral-leason"]
     },
     {
       id: 'randomly-sleep-light',
@@ -63,3 +63,7 @@ export const painTimingQuestion: Question = {
     }
   ]
 };
+
+// Export the required questions
+export const nightPainQuestion = painTimingQuestion;
+export const restPositionQuestion = restHelpsPainQuestion;

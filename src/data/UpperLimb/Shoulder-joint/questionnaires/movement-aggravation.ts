@@ -47,12 +47,12 @@ export const aggravatingMovementsQuestion: Question = {
                     {
                       id: 'more-painful-palm-up',
                       text: 'Áno, bolestivejšie s dlaňou otočenou nahor',                      
-                      differentials: ["slap-tear", "labral-lesion", "biceps-tear-long-head"]
+                      differentials: ["slap-tear", "labral-leason", "biceps-tear-long-head"]
                     },
                     {
                       id: 'less-painful',
                       text: 'Menej bolestivé',                      
-                      differentials: ["subacromional-impigement-syndrome"]
+                      differentials: ["subacromional-impingement-syndrome"]
                     },
                     {
                       id: 'do-not-want-try',
@@ -90,7 +90,11 @@ export const aggravatingMovementsQuestion: Question = {
     {
       id: 'sudden-movement-heavy',
       text: 'Náhly pohyb alebo nosenie ťažkého predmetu',      
-      differentials: ["shoulder-instability", "subacromional-impingement-syndrome"]
+      differentials: ["unstable-shoulder", "subacromional-impingement-syndrome"]
     }
   ]
 };
+
+// Export the movement aggravation question with the correct name
+export const movementAggravationQuestion = aggravatingMovementsQuestion;
+export const overheadActivitiesQuestion = aggravatingMovementsQuestion;

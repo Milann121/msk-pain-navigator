@@ -1,4 +1,3 @@
-
 import { Differential, PainMechanism, SINGroup } from './types';
 
 // Helper function to map pain intensity to SIN group
@@ -48,6 +47,22 @@ export const differentialDescriptions: Record<Differential, string> = {
   'Central Sensitisation - Allodynia': 'Vaše príznaky zahŕňajú alodýniu, čo je bolesť z podnetov, ktoré by normálne nemali spôsobovať bolesť, čo naznačuje centrálnu senzitizáciu.',
   'Central Sensitisation - Sensory Hypersensitivity': 'Vaše príznaky zahŕňajú zmyslovú precitlivenosť, kde sa environmentálne podnety ako svetlo alebo zvuk stávajú nepríjemnými.',
   'Central Sensitisation - Cognitive Symptoms': 'Vaše príznaky zahŕňajú kognitívne efekty ako zahmlené myslenie alebo únavu, ktoré môžu sprevádzať centrálnu senzitizáciu.',
+  'frozen-shoulder': 'Vaše príznaky naznačujú zmrazené rameno (frozen shoulder), stav charakterizovaný bolesťou a obmedzenou pohyblivosťou ramena.',
+  'slap-tear': 'Vaše príznaky môžu zodpovedať SLAP lézii, čo je poškodenie labra v hornej časti ramenného kĺbu.',
+  'subacromional-impingement-syndrome': 'Vaše príznaky naznačujú subakromiálny impingement syndróm, kde dochádza k priskripnutiu tkanív v ramennom kĺbe.',
+  'stiff-shoulder': 'Vaše príznaky zodpovedajú stuhnutému ramenu, stavu s obmedzenou pohyblivosťou ramena.',
+  'labral-leason': 'Vaše príznaky môžu naznačovať léziu labra, poškodenie chrupky okolo ramenného kĺbu.',
+  'shoulder-bursa': 'Vaše príznaky naznačujú zápal burzy v ramene, čo spôsobuje bolesť a opuch.',
+  'rotator-cuff-tear': 'Vaše príznaky môžu zodpovedať natrhnutiu rotátorovej manžety, skupine svalov stabilizujúcich rameno.',
+  'rotator-cuff-tendinopathy': 'Vaše príznaky naznačujú tendinopatiu rotátorovej manžety, degeneratívne zmeny v šľachách ramena.',
+  'biceps-tendinopathy': 'Vaše príznaky môžu zodpovedať tendinopatii bicepsu, zápalu alebo poškodeniu šľachy bicepsu.',
+  'biceps-tear-long-head': 'Vaše príznaky naznačujú natrhnutie dlhej hlavy bicepsu, poškodenie šľachy bicepsu v ramene.',
+  'shoulder-dislocation': 'Vaše príznaky môžu zodpovedať vykĺbeniu ramena, stavu kde sa hlavica pažnej kosti posunie z jamky.',
+  'unstable-shoulder': 'Vaše príznaky naznačujú nestabilné rameno, stav kde je rameno náchylné na vykĺbenie.',
+  'cervical-radiculopathy': 'Vaše príznaky zodpovedajú krčnej radikulopatii, poškodeniu nervových koreňov v krčnej chrbtici.',
+  'radicular-pain': 'Vaše príznaky naznačujú radikulárnu bolesť, bolesť vyžarujúcu pozdĺž nervu.',
+  'radiculopathy': 'Vaše príznaky zodpovedajú radikulopatii, dysfunkcii nervového koreňa.',
+  'none': 'Z vašich odpovedí sme nedokázali určiť špecifickú diagnózu.'
 };
 
 // Exercise recommendations based on pain mechanism, SIN, and differential

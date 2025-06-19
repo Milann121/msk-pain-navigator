@@ -15,27 +15,27 @@ export const painLocationQuestion: Question = {
     {
       id: 'deep-shoulder-joint',
       text: 'Hlboko vo vnútri ramenného kĺbu',
-      differentials: ["frozens-shoulder","subacromional-impingement-syndrome"]
+      differentials: ["frozen-shoulder","subacromional-impingement-syndrome"]
     },
     {
       id: 'front-shoulder',
       text: 'Predná časť ramena',
-      differentials: ["slap-tear","labral-lesion" ]
+      differentials: ["slap-tear","labral-leason" ]
     },
     {
       id: 'below-behind-bone',
       text: 'Pod a trochu za kostnatou štruktúrou nad ramenom',
-      differentials: ["shoulder-bursa","subacromional-impingement-syndrome", "labral-lesion"]
+      differentials: ["shoulder-bursa","subacromional-impingement-syndrome", "labral-leason"]
     },
     {
       id: 'from-shoulderblade',
       text: 'Od lopatky až dopredu',
-      differentials: ["fozen-shoulder", "stiff-shoulder", "rotato-cuff-tear", "rotator-cuff-tendinopathy"]
+      differentials: ["frozen-shoulder", "stiff-shoulder", "rotator-cuff-tear", "rotator-cuff-tendinopathy"]
     },
     {
       id: 'entire-shoulder',
       text: 'Celé rameno, ťažko lokalizovateľné',
-      differentials: ["fozen-shoulder", "stiff-shoulder"]
+      differentials: ["frozen-shoulder", "stiff-shoulder"]
     }
   ]
 };

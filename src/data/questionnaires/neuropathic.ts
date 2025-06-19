@@ -1,10 +1,9 @@
-
 import { Questionnaire } from '@/utils/types';
 
 export const neuropathicQuestionnaire: Questionnaire = {
   id: 'neuropathic',
   title: 'Hodnotenie neuropatickej bolesti',
-  description: 'Tento dotazník nám pomôže lepšie pochopiť vašu bolesť súvisiacu s nervami.',
+  description: 'Tento dotazník nám pomôže lepšie pochopiť vaše príznaky súvisiace s nervovou bolesťou.',
   forMechanism: 'neuropathic',
   questions: [
     {
@@ -81,7 +80,7 @@ export const neuropathicQuestionnaire: Questionnaire = {
     {
       id: 'reflex-loss',
       text: 'Stratili ste reflexy v postihnutej končatine, ktorých stratu vám potvrdil zdravotnícky pracovník?',
-      description: 'Strata alebo výrazné zníženie reflexov nám vedia veľa povedať o vašom stave a jeho príčine. Ak ste navštívili lekára alebo fyzioterapeuta, pravdepodobne ste prešli testom reflexov. V prípade ich zníženia alebo straty, mali by ste byť okamžite upozornený/á. Ak vás zdravotník neupozornil na zemnu reflexov, veľmi pravdepodobne je to preto, že vyšetrenie dopadlo vporiadku - v takom prípade odpovedajte nie. AKO PREBIEHA VYŠETRENIE REFLEXOV? => Zvyčajne ide napr. o poklepkanie kladivkom o šľachu pod kolenom, alebo na achilovej ľache, alebo nad lakťom.',
+      description: 'Strata alebo výrazné zníženie reflexov nám vedia veľa povedať o vašom stave a jeho príčine. Ak ste navštívili lekára alebo fyzioterapeuta, pravdepodobne ste prešli testom reflexov. V prípade ich zníženia alebo straty, mali by ste byť okamžite upozornený/á. AKO PREBIEHA VYŠETRENIE REFLEXOV? => Zvyčajne ide napr. o poklepkanie kladivkom o šľachu pod kolenom, alebo na achilovej ľache, alebo nad lakťom.',
       type: 'radio',
       options: [
         {

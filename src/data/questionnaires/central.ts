@@ -1,11 +1,9 @@
-
 import { Questionnaire } from '@/utils/types';
 
 export const centralQuestionnaire: Questionnaire = {
   id: 'central',
   title: 'Hodnotenie centrálnej senzitizácie',
   description: 'Tento dotazník nám pomôže lepšie pochopiť vaše príznaky súvisiace so spracovaním bolesti.',
-  forMechanism: 'central',
   questions: [
     {
       id: 'pain-spread',

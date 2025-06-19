@@ -20,7 +20,7 @@ const UserForm = ({ onSubmit }: UserFormProps) => {
       firstName: 'Používateľ', // Default name since it's no longer collected
       age: 25, // Default age since it's no longer collected
       painArea: 'neck',
-      gender: 'žena' // Default gender since it's no longer collected
+      gender: 'female' // Changed from 'žena' to 'female'
     }
   });
   

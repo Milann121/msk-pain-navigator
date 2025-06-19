@@ -73,3 +73,6 @@ export const breastExamsQuestion: Question = {
     }
   ]
 };
+
+// Export the required women-specific question
+export const womenSpecificQuestion = menopauseQuestion;

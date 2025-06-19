@@ -1,10 +1,9 @@
-
 import { Questionnaire } from '@/utils/types';
 
 export const nociceptiveQuestionnaire: Questionnaire = {
   id: 'nociceptive',
   title: 'Hodnotenie nociceptívnej bolesti',
-  description: 'Tento dotazník nám pomôže lepšie pochopiť vašu bolesť.',
+  description: 'Tento dotazník nám pomôže lepšie pochopiť vaše príznaky súvisiace s tkanivovou bolesťou.',
   forMechanism: 'nociceptive',
   questions: [
     {
