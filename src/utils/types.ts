@@ -72,11 +72,16 @@ export interface ScoreTracker {
   lowSIN: number;
   midSIN: number;
   highSIN: number;
+  differentials: Record<Differential, number>;
 }
 
 export interface AssessmentResults {
+  userInfo: UserInfo;
   mechanism: PainMechanism;
   sinGroup: SINGroup;
   differential: Differential;
+  primaryMechanism: PainMechanism;
+  primaryDifferential: Differential;
   scores: ScoreTracker;
+  timestamp: string;
 }

@@ -3,6 +3,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { useToast } from '@/hooks/use-toast';
 import { useAssessment, AssessmentStage } from '@/contexts/AssessmentContext';
 import { questionnaires } from '@/data/questionnaires';
+import { upperLimbQuestionnaires } from '@/data/UpperLimb/questionnaires';
 import Questionnaire from '@/components/Questionnaire';
 import { processGeneralQuestionnaire } from '@/utils/assessmentAnalyzer';
 import { supabase } from '@/integrations/supabase/client';
@@ -24,6 +25,13 @@ const GeneralQuestionnaireHandler = () => {
     setAssessmentSaved
   } = useAssessment();
 
+  const getQuestionnaire = () => {
+    if (userInfo?.painArea === 'upper limb') {
+      return upperLimbQuestionnaires.general;
+    }
+    return questionnaires.general;
+  };
+
   const handleGeneralQuestionnaireComplete = async (answers: Record<string, any>) => {
     setGeneralAnswers(answers);
     
@@ -38,7 +46,7 @@ const GeneralQuestionnaireHandler = () => {
     if (user && answers['pain-intensity'] !== undefined) {
       try {
         // Get pain intensity value from answers
-        const painIntensity = answers['pain-intensity'];
+        const painIntensity = answers['pain-intensity'] || answers['pain-intensity-upper-limb'];
         
         // Only create the assessment if it hasn't been created already
         if (!assessmentId) {
@@ -89,7 +97,7 @@ const GeneralQuestionnaireHandler = () => {
 
   return (
     <Questionnaire
-      questionnaire={questionnaires.general}
+      questionnaire={getQuestionnaire()}
       onComplete={handleGeneralQuestionnaireComplete}
       onBack={handleRestart}
     />

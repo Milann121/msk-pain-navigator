@@ -32,6 +32,12 @@ export const initializeScoreTracker = (): ScoreTracker => ({
     'Central Sensitisation - Allodynia': 0,
     'Central Sensitisation - Sensory Hypersensitivity': 0,
     'Central Sensitisation - Cognitive Symptoms': 0,
+    'spinal stenosis': 0,
+    'spondylolisthesis': 0,
+    'nerve compression': 0,
+    'peripheral neuropathy': 0,
+    'central sensitization': 0,
+    'fibromyalgia': 0,
     'none': 0
   }
 });
@@ -43,7 +49,7 @@ export const processGeneralQuestionnaire = (
   const scores = initializeScoreTracker();
   
   // Process pain intensity for SIN scoring
-  const painIntensity = answers['pain-intensity'] || 0;
+  const painIntensity = answers['pain-intensity'] || answers['pain-intensity-upper-limb'] || 0;
   if (painIntensity >= 0 && painIntensity <= 4) {
     scores.lowSIN += 1;
   } else if (painIntensity >= 5 && painIntensity <= 7) {
@@ -55,7 +61,7 @@ export const processGeneralQuestionnaire = (
   // Process the general questionnaire
   Object.entries(answers).forEach(([questionId, answer]) => {
     // Skip pain intensity as it was already processed
-    if (questionId === 'pain-intensity') return;
+    if (questionId === 'pain-intensity' || questionId === 'pain-intensity-upper-limb') return;
     
     const question = questionnaires.general.questions.find(q => q.id === questionId);
     if (!question) return;
@@ -162,7 +168,7 @@ export const processFollowUpQuestionnaire = (
         if (option) {
           // Add scores for differentials
           option.differentials?.forEach(differential => {
-            if (differential !== 'none') {
+            if (differential !== 'none' && scores.differentials[differential] !== undefined) {
               scores.differentials[differential] += 1;
             }
           });
@@ -174,7 +180,7 @@ export const processFollowUpQuestionnaire = (
       if (option) {
         // Add scores for differentials
         option.differentials?.forEach(differential => {
-          if (differential !== 'none') {
+          if (differential !== 'none' && scores.differentials[differential] !== undefined) {
             scores.differentials[differential] += 1;
           }
         });
@@ -187,7 +193,7 @@ export const processFollowUpQuestionnaire = (
   let maxDifferentialScore = 0;
   
   Object.entries(scores.differentials).forEach(([differential, score]) => {
-    if (score > maxDifferentialScore && differential !== 'none') {
+    if (typeof score === 'number' && score > maxDifferentialScore && differential !== 'none') {
       maxDifferentialScore = score;
       primaryDifferential = differential as Differential;
     }
@@ -206,8 +212,10 @@ export const createAssessmentResults = (
 ): AssessmentResults => {
   return {
     userInfo,
+    mechanism: primaryMechanism,
     primaryMechanism,
     sinGroup,
+    differential: primaryDifferential,
     primaryDifferential,
     scores,
     timestamp: new Date().toISOString()

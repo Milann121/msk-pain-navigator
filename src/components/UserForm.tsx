@@ -26,7 +26,7 @@ const UserForm = ({ onSubmit }: UserFormProps) => {
   
   const painArea = watch('painArea');
 
-  const handlePainAreaChange = (value: 'neck' | 'middle back' | 'lower back') => {
+  const handlePainAreaChange = (value: 'neck' | 'middle back' | 'lower back' | 'upper limb') => {
     setValue('painArea', value);
   };
 
