@@ -46,7 +46,8 @@ export const ExercisePlanHeader = ({
       'Central Sensitisation': 'Centrálna senzitizácia',
       'Central Sensitisation - Allodynia': 'Centrálna senzitizácia - Alodýnia',
       'Central Sensitisation - Sensory Hypersensitivity': 'Centrálna senzitizácia - Zmyslová precitlivenosť',
-      'Central Sensitisation - Cognitive Symptoms': 'Centrálna senzitizácia - Kognitívne symptómy'
+      'Central Sensitisation - Cognitive Symptoms': 'Centrálna senzitizácia - Kognitívne symptómy',
+      'cervical-radiculopathy': 'Cervikalna radikulopatia'
     };
     
     return translations[differential] || differential;

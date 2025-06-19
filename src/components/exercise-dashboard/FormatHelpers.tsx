@@ -31,8 +31,9 @@ export const formatDifferential = (differential: string): string => {
     'Radiculopathy': 'Radikulopatia',
     'Central Sensitisation': 'Centrálna senzitizácia',
     'Central Sensitisation - Allodynia': 'Centrálna senzitizácia - Alodýnia',
-    'Central Sensitisation - Sensory Hypersensitivity': 'Centrálna senzitizácia - Zmyslová precitlivenosť',
-    'Central Sensitisation - Cognitive Symptoms': 'Centrálna senzitizácia - Kognitívne symptómy'
+    'Central Sensitisation - Sensory Hypersensitivity': 'Centrálna senzitizácia - Zmyslová precitlivelosť',
+    'Central Sensitisation - Cognitive Symptoms': 'Centrálna senzitizácia - Kognitívne symptómy',
+    'cervical-radiculopathy': 'Cervikalna radikulopatia'
   };
   
   return differentials[differential] || differential;
