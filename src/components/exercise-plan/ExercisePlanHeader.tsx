@@ -22,7 +22,8 @@ export const ExercisePlanHeader = ({
       'nociceptive': 'Nociceptívna bolesť',
       'neuropathic': 'Neuropatická bolesť',
       'central': 'Centrálna senzitizácia',
-      'none': 'Nedefinovaný mechanizmus bolesti'
+      'none': 'Nedefinovaný mechanizmus bolesti',
+      'red-flag': 'Symptómy vyžadujúce návštevu lekára',
     };
     return labels[mechanism as PainMechanism] || 'Neznámy';
   };
@@ -36,7 +37,7 @@ export const ExercisePlanHeader = ({
       'facet joint syndrome': 'Syndróm facetových kĺbov',
       'SIJ syndrome': 'Syndróm SI kĺbu',
       'muscle pain': 'Svalová bolesť',
-      'red flag': 'Vyžaduje kontrolu u lekára/fyzioterapeuta.',
+      'red-flag': 'Symptómy vyžadujúce návštevu lekára',
       'ventral spondylolisthesis': 'Ventrálna spondylolistéza',
       'dorsal spondylolisthesis': 'Dorzálna spondylolistéza',
       'costovertebral joint syndrome': 'Syndróm kostovertebrálneho kĺbu',
