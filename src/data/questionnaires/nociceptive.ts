@@ -1,3 +1,4 @@
+
 import { Questionnaire } from '@/utils/types';
 
 export const nociceptiveQuestionnaire: Questionnaire = {
@@ -95,6 +96,7 @@ export const nociceptiveQuestionnaire: Questionnaire = {
       text: 'Pociťujete nejakú stuhnutosť v hrudníku?',
       description: 'Touto otázkou sa snažíme zistiť, či sa u vás prejavujú aj symptómy v prednej časti hrudníka, v oblasti rebier a hrudnej kosti.',
       type: 'radio',
+      showIf: { painArea: 'middle back' },
       options: [
         {
           id: 'yes-tightness',
@@ -113,6 +115,7 @@ export const nociceptiveQuestionnaire: Questionnaire = {
       text: 'Cítite pri nádychu bolesť alebo iné príznaky?',
       description: 'Touto otázkou sa snažíme zistiť symtómy ako napr. pichanie v hrudníku, tuhosť hrudníku pri nádychu alebo ťažkosť s roztiahnutím hrudníka. Ak niektoré z toho pociťujete, odpovedajte KLADNE.',
       type: 'radio',
+      showIf: { painArea: 'middle back' },
       options: [
         {
           id: 'yes-breathing',

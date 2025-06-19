@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Progress } from '@/components/ui/progress';
 import QuestionRenderer from '@/components/QuestionRenderer';
 import { Questionnaire as QuestionnaireType, Question, PainMechanism, SINGroup, Differential, ScoreTracker } from '@/utils/types';
+import { useAssessment } from '@/contexts/AssessmentContext';
 
 interface QuestionnaireProps {
   questionnaire: QuestionnaireType;
@@ -16,14 +17,26 @@ const Questionnaire = ({ questionnaire, onComplete, onBack }: QuestionnaireProps
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, any>>({});
   const [progress, setProgress] = useState(0);
+  const { userInfo } = useAssessment();
 
-  const questions = questionnaire.questions;
-  const currentQuestion = questions[currentQuestionIndex];
+  // Filter questions based on showIf conditions
+  const filteredQuestions = questionnaire.questions.filter(question => {
+    if (!question.showIf) return true;
+    
+    // Check if the question should be shown based on pain area
+    if (question.showIf.painArea) {
+      return userInfo?.painArea === question.showIf.painArea;
+    }
+    
+    return true;
+  });
+
+  const currentQuestion = filteredQuestions[currentQuestionIndex];
   
   // Update progress when current question changes
   useEffect(() => {
-    setProgress(((currentQuestionIndex + 1) / questions.length) * 100);
-  }, [currentQuestionIndex, questions.length]);
+    setProgress(((currentQuestionIndex + 1) / filteredQuestions.length) * 100);
+  }, [currentQuestionIndex, filteredQuestions.length]);
 
   const handleAnswer = (questionId: string, answer: any) => {
     setAnswers(prev => ({
@@ -38,7 +51,7 @@ const Questionnaire = ({ questionnaire, onComplete, onBack }: QuestionnaireProps
       return;
     }
     
-    if (currentQuestionIndex < questions.length - 1) {
+    if (currentQuestionIndex < filteredQuestions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
       onComplete(answers);
@@ -63,7 +76,7 @@ const Questionnaire = ({ questionnaire, onComplete, onBack }: QuestionnaireProps
         <div className="mt-4">
           <Progress value={progress} className="h-2" />
           <p className="text-sm text-gray-500 mt-1">
-            Otázka {currentQuestionIndex + 1} z {questions.length}
+            Otázka {currentQuestionIndex + 1} z {filteredQuestions.length}
           </p>
         </div>
       </CardHeader>
@@ -87,7 +100,7 @@ const Questionnaire = ({ questionnaire, onComplete, onBack }: QuestionnaireProps
           disabled={!canProceed}
           className="bg-blue-600 hover:bg-blue-700"
         >
-          {currentQuestionIndex < questions.length - 1 ? 'Ďalej' : 'Dokončiť'}
+          {currentQuestionIndex < filteredQuestions.length - 1 ? 'Ďalej' : 'Dokončiť'}
         </Button>
       </CardFooter>
     </Card>
