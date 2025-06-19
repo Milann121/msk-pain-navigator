@@ -5,7 +5,7 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
   // Frozen shoulder nociceptive exercises
   'nociceptive-frozen-shoulder-upper limb': [
     {
-      title: 'Cvičenia pre zmrznuté rameno - nociceptívna bolesť',
+      title: 'Cvičenia pre zmrznuté rameno',
       description: 'Jemné cvičenia na zlepšenie pohyblivosti ramena pri zmrznutom ramene s nociceptívnou bolesťou.\n\nTieto cvičenia pomáhajú postupne obnoviť rozsah pohybu v ramene.\nVykonávajte ich pomaly a opatrne, v prípade bolesti cvičenie prerušte.',
       videos: [
         {
