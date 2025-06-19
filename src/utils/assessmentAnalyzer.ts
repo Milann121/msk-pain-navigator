@@ -1,4 +1,3 @@
-
 import { 
   PainMechanism, 
   SINGroup, 
@@ -7,7 +6,7 @@ import {
   AssessmentResults, 
   UserInfo 
 } from './types';
-import { questionnaires } from '@/data/questionnaires';
+import { questionnaires } from '@/data/Spine/questionnaires';
 
 // Initialize score tracker
 export const initializeScoreTracker = (): ScoreTracker => ({

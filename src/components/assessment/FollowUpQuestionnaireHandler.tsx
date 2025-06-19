@@ -1,7 +1,7 @@
 
 import { useAuth } from '@/contexts/AuthContext';
 import { useAssessment, AssessmentStage } from '@/contexts/AssessmentContext';
-import { questionnaires } from '@/data/questionnaires';
+import { questionnaires } from '@/data/Spine/questionnaires';
 import Questionnaire from '@/components/Questionnaire';
 import { processFollowUpQuestionnaire, createAssessmentResults } from '@/utils/assessmentAnalyzer';
 import { supabase } from '@/integrations/supabase/client';

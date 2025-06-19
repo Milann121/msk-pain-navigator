@@ -1,9 +1,10 @@
+
 import exercisesByDifferential from "../exercisePrograms";
 
 /**
- * Collect all exercises (videos) that target the lower back.
+ * Collect all exercises (videos) that target the middle back.
  */
-export function getLowerBackExercises() {
+export function getMiddleBackExercises() {
   const results: Array<{
     exerciseTitle: string;
     videoId: string;
@@ -18,8 +19,8 @@ export function getLowerBackExercises() {
       if (Array.isArray(program.videos)) {
         program.videos.forEach((vid: any) => {
           if (
-            (Array.isArray(vid.bodyPart) && vid.bodyPart.includes('lower-back')) ||
-            vid.bodyPart === 'lower-back'
+            (Array.isArray(vid.bodyPart) && vid.bodyPart.includes('middle-back')) ||
+            vid.bodyPart === 'middle-back'
           ) {
             results.push({
               exerciseTitle: vid.title || program.title,
@@ -38,4 +39,4 @@ export function getLowerBackExercises() {
   return results;
 }
 
-export const lowerBackExercises = getLowerBackExercises();
+export const middleBackExercises = getMiddleBackExercises();
