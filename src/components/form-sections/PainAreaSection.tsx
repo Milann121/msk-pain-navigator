@@ -2,6 +2,7 @@
 import { UseFormRegister } from 'react-hook-form';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Checkbox } from '@/components/ui/checkbox';
 import { UserInfo } from '@/utils/types';
 import { useState } from 'react';
 
@@ -16,10 +17,14 @@ const PainAreaSection = ({
   handlePainAreaChange,
   register,
 }: PainAreaSectionProps) => {
-  const [upperLimbSubArea, setUpperLimbSubArea] = useState<string>('');
+  const [upperLimbSubAreas, setUpperLimbSubAreas] = useState<string[]>([]);
 
-  const handleUpperLimbSubAreaChange = (value: string) => {
-    setUpperLimbSubArea(value);
+  const handleUpperLimbSubAreaChange = (value: string, checked: boolean) => {
+    if (checked) {
+      setUpperLimbSubAreas(prev => [...prev, value]);
+    } else {
+      setUpperLimbSubAreas(prev => prev.filter(area => area !== value));
+    }
   };
 
   return (
@@ -52,32 +57,58 @@ const PainAreaSection = ({
       {painArea === 'upper limb' && (
         <div className="ml-6 space-y-3">
           <Label>Špecifikujte oblasť hornej končatiny:</Label>
-          <RadioGroup 
-            value={upperLimbSubArea}
-            onValueChange={handleUpperLimbSubAreaChange}
-            className="flex flex-col space-y-2"
-          >
+          <div className="flex flex-col space-y-2">
             <div className="flex items-center space-x-2">
-              <RadioGroupItem value="shoulder" id="shoulder" />
+              <Checkbox 
+                id="shoulder"
+                checked={upperLimbSubAreas.includes('shoulder')}
+                onCheckedChange={(checked) => 
+                  handleUpperLimbSubAreaChange('shoulder', checked as boolean)
+                }
+              />
               <Label htmlFor="shoulder" className="cursor-pointer">Rameno</Label>
             </div>
             <div className="flex items-center space-x-2">
-              <RadioGroupItem value="elbow" id="elbow" />
+              <Checkbox 
+                id="elbow"
+                checked={upperLimbSubAreas.includes('elbow')}
+                onCheckedChange={(checked) => 
+                  handleUpperLimbSubAreaChange('elbow', checked as boolean)
+                }
+              />
               <Label htmlFor="elbow" className="cursor-pointer">Lakeť</Label>
             </div>
             <div className="flex items-center space-x-2">
-              <RadioGroupItem value="forearm" id="forearm" />
+              <Checkbox 
+                id="forearm"
+                checked={upperLimbSubAreas.includes('forearm')}
+                onCheckedChange={(checked) => 
+                  handleUpperLimbSubAreaChange('forearm', checked as boolean)
+                }
+              />
               <Label htmlFor="forearm" className="cursor-pointer">Predlaktie</Label>
             </div>
             <div className="flex items-center space-x-2">
-              <RadioGroupItem value="hand" id="hand" />
+              <Checkbox 
+                id="hand"
+                checked={upperLimbSubAreas.includes('hand')}
+                onCheckedChange={(checked) => 
+                  handleUpperLimbSubAreaChange('hand', checked as boolean)
+                }
+              />
               <Label htmlFor="hand" className="cursor-pointer">Ruka</Label>
             </div>
             <div className="flex items-center space-x-2">
-              <RadioGroupItem value="fingers" id="fingers" />
+              <Checkbox 
+                id="fingers"
+                checked={upperLimbSubAreas.includes('fingers')}
+                onCheckedChange={(checked) => 
+                  handleUpperLimbSubAreaChange('fingers', checked as boolean)
+                }
+              />
               <Label htmlFor="fingers" className="cursor-pointer">Prsty</Label>
             </div>
-          </RadioGroup>
+          </div>
         </div>
       )}
     </div>
