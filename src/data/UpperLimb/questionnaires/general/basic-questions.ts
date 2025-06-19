@@ -10,8 +10,7 @@ export const nightPainQuestion: Question = {
     {
       id: 'yes-night-pain',
       text: 'Áno',
-      mechanisms: [],
-      sinGroups: []
+      mechanisms: ['nociceptive'],
     },
     {
       id: 'no-night-pain',
