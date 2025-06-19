@@ -7,7 +7,8 @@ export const getMechanismLabel = (mechanism: PainMechanism): string => {
     'nociceptive': 'Nociceptívna bolesť',
     'neuropathic': 'Neuropatická bolesť',
     'central': 'Centrálna senzitizácia',
-    'none': 'Nedefinovaný mechanizmus bolesti'
+    'none': 'Nedefinovaný mechanizmus bolesti',
+    'red-flag': 'Symptómy vyžadujúce návštevu lekára'
   };
   return labels[mechanism as PainMechanism] || 'Neznámy';
 };
@@ -21,7 +22,7 @@ export const formatDifferential = (differential: string): string => {
     'facet joint syndrome': 'Syndróm facetových kĺbov',
     'SIJ syndrome': 'Syndróm SI kĺbu',
     'muscle pain': 'Svalová bolesť',
-    'red flag': 'Závažný stav vyžadujúci pozornosť',
+    'red flag': 'Symptómy vyžadujúce návštevu lekára',
     'ventral spondylolisthesis': 'Ventrálna spondylolistéza',
     'dorsal spondylolisthesis': 'Dorzálna spondylolistéza',
     'costovertebral joint syndrome': 'Syndróm kostovertebrálneho kĺbu',
