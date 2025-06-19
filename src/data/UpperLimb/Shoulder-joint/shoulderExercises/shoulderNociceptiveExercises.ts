@@ -1,8 +1,18 @@
 
 import { Exercise } from "@/types/exercise";
 
+//'slap-tear'
+//'labral-leason'
+//'shoulder-bursa'
+//'rotator-cuff-tear'
+//'rotator-cuff-tendinopathy'
+//'biceps-tendinopathy'
+//'biceps-tear-long-head'
+//'shoulder-dislocation'
+//'unstable-shoulder'
+
 export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
-  // Frozen shoulder nociceptive exercises
+  // Frozen shoulder and stiff shoulder exercises
   'nociceptive-frozen-shoulder-upper limb': [
     {
       title: 'Cvičenia pre zmrznuté rameno',
@@ -28,7 +38,7 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
     }
   ],
 
-  // Rotator cuff tear nociceptive exercises
+  // Rotator cuff tear exercises
   'nociceptive-rotator-cuff-tear-upper limb': [
     {
       title: 'Cvičenia pre trhnutie rotátorovej manžety - nociceptívna bolesť',
@@ -54,7 +64,7 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
     }
   ],
 
-  // Shoulder impingement nociceptive exercises
+  // Shoulder impingement exercises
   'nociceptive-subacromional-impingement-syndrome-upper limb': [
     {
       title: 'Cvičenia pre subakromiálny impingment syndróm - nociceptívna bolesť',
@@ -106,3 +116,6 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
     }
   ]
 };
+
+
+
