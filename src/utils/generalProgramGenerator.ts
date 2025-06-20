@@ -9,7 +9,7 @@ interface VideoWithSource {
   importance?: 1 | 2 | 3;
   sourceProgram?: string;
   mainGroup?: Array<'mobility' | 'stability' | 'pain-relief' | 'neuro-mobs'>;
-  bodyPart?: Array<'neck' | 'middle-back' | 'lower-back' | 'shoulder'>;
+  bodyPart?: Array<'neck' | 'middle-back' | 'lower-back' | 'shoulder' | 'elbow' | 'forearm' | 'hand' | 'fingers'>;
 }
 
 export const generateGeneralProgram = (
