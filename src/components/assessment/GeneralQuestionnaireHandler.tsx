@@ -43,6 +43,7 @@ const GeneralQuestionnaireHandler = () => {
   };
 
   const handleGeneralQuestionnaireComplete = async (answers: Record<string, any>) => {
+    console.log('🚀 GeneralQuestionnaireHandler: Starting completion with answers:', answers);
     setGeneralAnswers(answers);
     
     // If this is the neck questionnaire, set mechanism to neuropathic and redirect to neck program
@@ -102,15 +103,24 @@ const GeneralQuestionnaireHandler = () => {
     const { scores: newScores, primaryMechanism: newMechanism, sinGroup: newSinGroup } = 
       processGeneralQuestionnaire(answers);
     
+    console.log('🔍 GeneralQuestionnaireHandler: Processing results:', {
+      newScores,
+      newMechanism,
+      newSinGroup,
+      painArea: userInfo?.painArea
+    });
+    
     setScores(newScores);
     setPrimaryMechanism(newMechanism);
     setSINGroup(newSinGroup);
     
     // Store the general questionnaire results for later retrieval
-    if (user && answers['pain-intensity'] !== undefined) {
+    if (user) {
       try {
-        // Get pain intensity value from answers
-        const painIntensity = answers['pain-intensity'] || answers['pain-intensity-upper-limb'];
+        // Get pain intensity value from answers - check both possible field names
+        const painIntensity = answers['pain-intensity'] || answers['pain-intensity-upper-limb'] || 5;
+        
+        console.log('💾 GeneralQuestionnaireHandler: Creating assessment with pain intensity:', painIntensity);
         
         // Only create the assessment if it hasn't been created already
         if (!assessmentId) {
@@ -128,9 +138,13 @@ const GeneralQuestionnaireHandler = () => {
             .select('id')
             .single();
 
-          if (assessmentError) throw assessmentError;
+          if (assessmentError) {
+            console.error('❌ GeneralQuestionnaireHandler: Assessment creation error:', assessmentError);
+            throw assessmentError;
+          }
           
           if (assessmentData?.id) {
+            console.log('✅ GeneralQuestionnaireHandler: Assessment created with ID:', assessmentData.id);
             setAssessmentId(assessmentData.id);
             setAssessmentSaved(true);
             
@@ -141,13 +155,16 @@ const GeneralQuestionnaireHandler = () => {
               answers: answers
             });
               
-            if (questionnaireError) throw questionnaireError;
+            if (questionnaireError) {
+              console.error('❌ GeneralQuestionnaireHandler: Questionnaire save error:', questionnaireError);
+              throw questionnaireError;
+            }
             
-            console.log('Successfully stored general questionnaire answers with pain intensity:', painIntensity);
+            console.log('✅ GeneralQuestionnaireHandler: Successfully stored general questionnaire answers');
           }
         }
       } catch (error) {
-        console.error('Error storing general questionnaire results:', error);
+        console.error('❌ GeneralQuestionnaireHandler: Error storing general questionnaire results:', error);
         toast({
           title: 'Chyba',
           description: 'Nepodarilo sa uložiť vaše odpovede.',
@@ -156,6 +173,7 @@ const GeneralQuestionnaireHandler = () => {
       }
     }
     
+    console.log('➡️ GeneralQuestionnaireHandler: Moving to FollowUpQuestionnaire stage');
     setStage(AssessmentStage.FollowUpQuestionnaire);
   };
 
