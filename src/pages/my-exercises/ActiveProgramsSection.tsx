@@ -107,9 +107,8 @@ export const ActiveProgramsSection: React.FC<ActiveProgramsSectionProps> = ({
               key={assessment.id}
               assessment={{
                 ...assessment,
-                // Override the pain_area display with sub-area formatting
                 pain_area_display: formatPainAreaWithSubArea(assessment.pain_area, assessment.primary_differential)
-              }}
+              } as UserAssessment & { pain_area_display: string }}
               onOpenFollowUp={handleOpenFollowUp}
               onDeleteAssessment={handleDeleteAssessment}
               onEndProgram={() => handleEndAssessmentUI(assessment.id)}

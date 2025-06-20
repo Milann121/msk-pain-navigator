@@ -145,119 +145,172 @@ export const processFollowUpQuestionnaire = (
   console.log('Processing follow-up questionnaire:', { primaryMechanism, answers });
 
   if (primaryMechanism === 'nociceptive') {
-    // Handle shoulder nociceptive questionnaires with improved differential logic
-    if (answers['pain-location-shoulder']) {
-      const painLocation = answers['pain-location-shoulder'];
-      console.log('Processing pain location:', painLocation);
+    // Handle shoulder nociceptive questionnaires with correct question IDs
+    console.log('Processing shoulder nociceptive questions...');
+    
+    // Pain location assessment - using correct question ID from the questionnaire
+    const painLocation = answers['shoulder-pain-location'];
+    if (painLocation && Array.isArray(painLocation)) {
+      console.log('Processing pain location array:', painLocation);
       
-      if (painLocation === 'front-shoulder' || painLocation === 'side-shoulder') {
-        updatedScores.differentials['subacromional-impingement-syndrome'] += 3;
-        primaryDifferential = 'subacromional-impingement-syndrome';
-      } else if (painLocation === 'deep-shoulder') {
-        updatedScores.differentials['frozen-shoulder'] += 3;
-        primaryDifferential = 'frozen-shoulder';
-      } else if (painLocation === 'back-shoulder') {
-        updatedScores.differentials['rotator-cuff-tendinopathy'] += 2;
-      }
-    }
-    
-    // Night pain assessment
-    if (answers['night-pain']) {
-      const nightPain = answers['night-pain'];
-      if (nightPain === 'yes-severe') {
-        updatedScores.differentials['frozen-shoulder'] += 2;
-        if (primaryDifferential === 'none') {
-          primaryDifferential = 'frozen-shoulder';
-        }
-      } else if (nightPain === 'yes-moderate') {
-        updatedScores.differentials['rotator-cuff-tendinopathy'] += 1;
-      }
-    }
-    
-    // Rest position assessment
-    if (answers['rest-position']) {
-      const restPosition = answers['rest-position'];
-      if (restPosition === 'arm-supported') {
-        updatedScores.differentials['frozen-shoulder'] += 2;
-      }
-    }
-    
-    // Movement aggravation
-    if (answers['movement-aggravation']) {
-      const movementAgg = answers['movement-aggravation'];
-      if (movementAgg === 'overhead-reaching') {
-        updatedScores.differentials['subacromional-impingement-syndrome'] += 2;
-        if (primaryDifferential === 'none') {
-          primaryDifferential = 'subacromional-impingement-syndrome';
-        }
-      } else if (movementAgg === 'all-directions') {
-        updatedScores.differentials['frozen-shoulder'] += 2;
-      }
-    }
-    
-    // Overhead activities
-    if (answers['overhead-activities']) {
-      const overheadActivities = answers['overhead-activities'];
-      if (overheadActivities === 'impossible') {
-        updatedScores.differentials['frozen-shoulder'] += 3;
-        primaryDifferential = 'frozen-shoulder';
-      } else if (overheadActivities === 'painful') {
-        updatedScores.differentials['subacromional-impingement-syndrome'] += 2;
-        if (primaryDifferential === 'none') {
-          primaryDifferential = 'subacromional-impingement-syndrome';
-        }
-      }
-    }
-    
-    // Clicking/locking symptoms
-    if (answers['clicking-locking']) {
-      const clickingLocking = answers['clicking-locking'];
-      if (clickingLocking === 'yes-catching') {
-        updatedScores.differentials['labral-leason'] += 3;
-        primaryDifferential = 'labral-leason';
-      } else if (clickingLocking === 'yes-clicking') {
-        updatedScores.differentials['rotator-cuff-tear'] += 3;
-        primaryDifferential = 'rotator-cuff-tear';
-      }
-    }
-    
-    // Shoulder dislocation history
-    if (answers['shoulder-dislocation']) {
-      const shoulderDislocation = answers['shoulder-dislocation'];
-      if (shoulderDislocation === 'yes-multiple') {
-        updatedScores.differentials['unstable-shoulder'] += 4;
-        primaryDifferential = 'unstable-shoulder';
-      } else if (shoulderDislocation === 'yes-once') {
-        updatedScores.differentials['unstable-shoulder'] += 2;
-      }
-    }
-    
-    // Determine primary differential based on highest score if not already set
-    if (primaryDifferential === 'none') {
-      const shoulderDifferentials = [
-        'frozen-shoulder',
-        'subacromional-impingement-syndrome', 
-        'rotator-cuff-tear',
-        'rotator-cuff-tendinopathy',
-        'labral-leason',
-        'unstable-shoulder'
-      ];
-      
-      let maxScore = 0;
-      let topDifferential = 'rotator-cuff-tendinopathy'; // default
-      
-      shoulderDifferentials.forEach(diff => {
-        const score = updatedScores.differentials[diff] || 0;
-        if (score > maxScore) {
-          maxScore = score;
-          topDifferential = diff;
+      painLocation.forEach((location: string) => {
+        switch (location) {
+          case 'lateral-upper-arm':
+            updatedScores.differentials['frozen-shoulder'] += 2;
+            updatedScores.differentials['stiff-shoulder'] += 2;
+            break;
+          case 'deep-shoulder-joint':
+            updatedScores.differentials['frozen-shoulder'] += 3;
+            updatedScores.differentials['subacromional-impingement-syndrome'] += 2;
+            break;
+          case 'front-shoulder':
+            updatedScores.differentials['slap-tear'] += 3;
+            updatedScores.differentials['labral-leason'] += 3;
+            break;
+          case 'below-behind-bone':
+            updatedScores.differentials['shoulder-bursa'] += 2;
+            updatedScores.differentials['subacromional-impingement-syndrome'] += 3;
+            updatedScores.differentials['labral-leason'] += 2;
+            break;
+          case 'from-shoulderblade':
+            updatedScores.differentials['frozen-shoulder'] += 2;
+            updatedScores.differentials['stiff-shoulder'] += 2;
+            updatedScores.differentials['rotator-cuff-tear'] += 2;
+            updatedScores.differentials['rotator-cuff-tendinopathy'] += 2;
+            break;
+          case 'entire-shoulder':
+            updatedScores.differentials['frozen-shoulder'] += 3;
+            updatedScores.differentials['stiff-shoulder'] += 3;
+            break;
         }
       });
+    }
+    
+    // Rest helps pain - using correct question ID
+    const restHelps = answers['rest-helps-pain'];
+    if (restHelps === 'no-rest-not-help') {
+      updatedScores.differentials['frozen-shoulder'] += 2;
+      updatedScores.differentials['labral-leason'] += 2;
       
-      primaryDifferential = topDifferential as Differential;
+      // Check follow-up question
+      const pain24Hours = answers['pain-24-hours'];
+      if (pain24Hours === '24-hour-pain') {
+        updatedScores.differentials['red flag'] += 4;
+      } else if (pain24Hours === 'can-find-relief') {
+        updatedScores.differentials['frozen-shoulder'] += 1;
+        updatedScores.differentials['labral-leason'] += 1;
+      }
+    }
+    
+    // Pain timing assessment - using correct question ID
+    const painTiming = answers['when-pain-noticeable'];
+    if (painTiming) {
+      switch (painTiming) {
+        case 'during-activity-overhead':
+          updatedScores.differentials['subacromional-impingement-syndrome'] += 3;
+          updatedScores.differentials['labral-leason'] += 2;
+          updatedScores.differentials['biceps-tear-long-head'] += 2;
+          updatedScores.differentials['rotator-cuff-tendinopathy'] += 2;
+          updatedScores.differentials['rotator-cuff-tear'] += 2;
+          break;
+        case 'at-rest-night':
+          updatedScores.differentials['frozen-shoulder'] += 3;
+          updatedScores.differentials['labral-leason'] += 2;
+          break;
+        case 'randomly-sleep-light':
+          updatedScores.differentials['frozen-shoulder'] += 4;
+          break;
+      }
+    }
+    
+    // Aggravating movements - using correct question ID
+    const aggravatingMovements = answers['aggravating-movements'];
+    if (aggravatingMovements && Array.isArray(aggravatingMovements)) {
+      console.log('Processing aggravating movements:', aggravatingMovements);
+      
+      aggravatingMovements.forEach((movement: string) => {
+        switch (movement) {
+          case 'lifting-arm-overhead':
+            updatedScores.differentials['subacromional-impingement-syndrome'] += 2;
+            updatedScores.differentials['frozen-shoulder'] += 1;
+            updatedScores.differentials['stiff-shoulder'] += 1;
+            
+            // Check painful degree follow-up
+            const painfulDegree = answers['painful-degree'];
+            if (painfulDegree === 'around-45-60-degrees') {
+              updatedScores.differentials['stiff-shoulder'] += 2;
+              updatedScores.differentials['frozen-shoulder'] += 2;
+            } else if (painfulDegree === 'around-90-degrees') {
+              updatedScores.differentials['subacromional-impingement-syndrome'] += 3;
+            } else if (painfulDegree === 'above-90-degrees') {
+              updatedScores.differentials['subacromional-impingement-syndrome'] += 2;
+              updatedScores.differentials['slap-tear'] += 2;
+              
+              // Check palm facing up follow-up
+              const palmFacingUp = answers['palm-facing-up'];
+              if (palmFacingUp === 'more-painful-palm-up') {
+                updatedScores.differentials['slap-tear'] += 3;
+                updatedScores.differentials['labral-leason'] += 3;
+                updatedScores.differentials['biceps-tear-long-head'] += 3;
+              } else if (palmFacingUp === 'less-painful') {
+                updatedScores.differentials['subacromional-impingement-syndrome'] += 2;
+              }
+            }
+            break;
+          case 'reaching-behind-back':
+            updatedScores.differentials['subacromional-impingement-syndrome'] += 2;
+            updatedScores.differentials['frozen-shoulder'] += 2;
+            updatedScores.differentials['biceps-tear-long-head'] += 2;
+            break;
+          case 'scratching-back-head':
+            updatedScores.differentials['frozen-shoulder'] += 3;
+            break;
+          case 'throwing-overhead-sports':
+            updatedScores.differentials['rotator-cuff-tendinopathy'] += 2;
+            updatedScores.differentials['rotator-cuff-tear'] += 2;
+            updatedScores.differentials['subacromional-impingement-syndrome'] += 2;
+            break;
+          case 'sudden-movement-heavy':
+            updatedScores.differentials['unstable-shoulder'] += 3;
+            updatedScores.differentials['subacromional-impingement-syndrome'] += 1;
+            break;
+        }
+      });
+    }
+    
+    // Clicking/locking symptoms - using correct question ID
+    const clickingLocking = answers['clicking-locking-catching'];
+    if (clickingLocking) {
+      switch (clickingLocking) {
+        case 'yes-clicking':
+          updatedScores.differentials['labral-leason'] += 3;
+          updatedScores.differentials['subacromional-impingement-syndrome'] += 2;
+          updatedScores.differentials['unstable-shoulder'] += 2;
+          break;
+        case 'rarely-sports-only':
+          updatedScores.differentials['labral-leason'] += 2;
+          updatedScores.differentials['subacromional-impingement-syndrome'] += 1;
+          updatedScores.differentials['unstable-shoulder'] += 1;
+          break;
+      }
+    }
+    
+    // Shoulder dislocation history - using correct question ID
+    const shoulderDislocation = answers['shoulder-dislocation-past'];
+    if (shoulderDislocation) {
+      switch (shoulderDislocation) {
+        case 'yes-confirmed-diagnosis':
+          updatedScores.differentials['shoulder-dislocation'] += 4;
+          updatedScores.differentials['unstable-shoulder'] += 4;
+          break;
+        case 'not-sure-popped-out':
+          updatedScores.differentials['shoulder-dislocation'] += 2;
+          updatedScores.differentials['unstable-shoulder'] += 2;
+          break;
+      }
     }
 
-    // Handle other nociceptive cases (existing logic for spine)
+    // Handle other nociceptive cases (existing spine logic)
     if (answers['worse-bending-forward'] === 'yes') {
       updatedScores.differentials['disc herniation'] += 2;
     }
@@ -274,22 +327,63 @@ export const processFollowUpQuestionnaire = (
       updatedScores.differentials['facet joint syndrome'] += 1;
     }
 
-    // Determine primary differential for non-shoulder cases if not already set by shoulder logic
-    if (primaryDifferential === 'none' || primaryDifferential === 'rotator-cuff-tendinopathy') {
-      const maxScore = Math.max(
-        updatedScores.differentials['disc herniation'] || 0,
-        updatedScores.differentials['facet joint syndrome'] || 0,
-        updatedScores.differentials['muscle pain'] || 0
-      );
-      
-      if (updatedScores.differentials['disc herniation'] === maxScore && maxScore > 0) {
-        primaryDifferential = 'disc herniation';
-      } else if (updatedScores.differentials['facet joint syndrome'] === maxScore && maxScore > 0) {
-        primaryDifferential = 'facet joint syndrome';
-      } else if (maxScore === 0 && primaryDifferential === 'none') {
-        primaryDifferential = 'muscle pain';
+    // Determine primary differential based on highest score
+    const shoulderDifferentials = [
+      'frozen-shoulder',
+      'subacromional-impingement-syndrome', 
+      'rotator-cuff-tear',
+      'rotator-cuff-tendinopathy',
+      'labral-leason',
+      'unstable-shoulder',
+      'slap-tear',
+      'stiff-shoulder',
+      'shoulder-bursa',
+      'biceps-tear-long-head',
+      'shoulder-dislocation'
+    ];
+    
+    const spineDifferentials = [
+      'disc herniation',
+      'facet joint syndrome',
+      'muscle pain'
+    ];
+    
+    let maxScore = 0;
+    let topDifferential: Differential = 'none';
+    
+    // Check shoulder differentials first
+    shoulderDifferentials.forEach(diff => {
+      const score = updatedScores.differentials[diff] || 0;
+      if (score > maxScore) {
+        maxScore = score;
+        topDifferential = diff as Differential;
+      }
+    });
+    
+    // If no shoulder differential scored, check spine differentials
+    if (maxScore === 0) {
+      spineDifferentials.forEach(diff => {
+        const score = updatedScores.differentials[diff] || 0;
+        if (score > maxScore) {
+          maxScore = score;
+          topDifferential = diff as Differential;
+        }
+      });
+    }
+    
+    // Only use fallback if absolutely no scores were recorded
+    if (maxScore === 0) {
+      // Balanced fallback based on common presentations
+      const hasShoulderQuestions = answers['shoulder-pain-location'] || answers['aggravating-movements'];
+      if (hasShoulderQuestions) {
+        topDifferential = 'subacromional-impingement-syndrome'; // Most common shoulder issue
+      } else {
+        topDifferential = 'muscle pain'; // Conservative fallback for spine
       }
     }
+    
+    primaryDifferential = topDifferential;
+    
   } else if (primaryMechanism === 'neuropathic') {
     // Handle neuropathic cases - mostly neck/cervical
     if (answers['abnormal-sensations'] === 'yes-sensations') {
