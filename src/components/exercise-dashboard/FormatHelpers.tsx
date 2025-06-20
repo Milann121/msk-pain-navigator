@@ -31,9 +31,23 @@ export const formatDifferential = (differential: string): string => {
     'Radiculopathy': 'Radikulopatia',
     'Central Sensitisation': 'Centrálna senzitizácia',
     'Central Sensitisation - Allodynia': 'Centrálna senzitizácia - Alodýnia',
-    'Central Sensitisation - Sensory Hypersensitivity': 'Centrálna senzitizácia - Zmyslová precitlivelosť',
+    'Central Sensitisation - Sensory Hypersensitivity': 'Centrálna senzitizácia - Zmyslová precitlivenosť',
     'Central Sensitisation - Cognitive Symptoms': 'Centrálna senzitizácia - Kognitívne symptómy',
-    'cervical-radiculopathy': 'Cervikalna radikulopatia'
+    'cervical-radiculopathy': 'Cervikalna radikulopatia',
+    
+    // Upper limb diagnoses - Slovak translations
+    'frozen-shoulder': 'Zmrznuté rameno',
+    'slap-tear': 'Lézia labra',
+    'subacromional-impingement-syndrome': 'Impingement syndróm ramena',
+    'stiff-shoulder': 'Syndróm stuhnutého ramena',
+    'shoulder-bursa': 'Burzitída',
+    'rotator-cuff-tear': 'Porucha rotátorovej manžety',
+    'rotator-cuff-tendinopathy': 'Porucha rotátorovej manžety',
+    'biceps-tendinopathy': 'Porucha bicepsovej šľachy',
+    'biceps-tear-long-head': 'Porucha bicepsovej šľachy',
+    'shoulder-dislocation': 'Dislokácia ramena',
+    'unstable-shoulder': 'Nestabilné rameno',
+    'labral-leason': 'Lézia labra'
   };
   
   return differentials[differential] || differential;
@@ -43,7 +57,8 @@ export const formatPainArea = (area: string): string => {
   const areas: Record<string, string> = {
     'neck': 'Krčná chrbtica',
     'middle back': 'Hrudná chrbtica', 
-    'lower back': 'Driekova chrbtica'
+    'lower back': 'Driekova chrbtica',
+    'upper limb': 'Horná končatina'
   };
   
   return areas[area] || area;
