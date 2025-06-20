@@ -173,8 +173,14 @@ export const processFollowUpQuestionnaire = (
       primaryDifferential = 'frozen-shoulder';
     }
     
-    // Default shoulder differential if none specific found
-    if (primaryDifferential === 'none') {
+    // Default shoulder differential if none specific found but we're in shoulder context
+    if (primaryDifferential === 'none' && (
+      answers['pain-location-shoulder'] || 
+      answers['clicking-locking'] || 
+      answers['shoulder-dislocation'] || 
+      answers['night-pain'] || 
+      answers['overhead-activities']
+    )) {
       primaryDifferential = 'rotator-cuff-tendinopathy';
     }
 

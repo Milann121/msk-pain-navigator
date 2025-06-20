@@ -1,3 +1,4 @@
+
 import { useAuth } from '@/contexts/AuthContext';
 import { useAssessment, AssessmentStage } from '@/contexts/AssessmentContext';
 import { questionnaires } from '@/data/questionnaires';
@@ -133,7 +134,8 @@ const FollowUpQuestionnaireHandler = () => {
         
         if (isShoulderRelated) {
           console.log('✅ Shoulder detected - using shoulder nociceptive questionnaire');
-          const shoulderQuestionnaire = shoulderQuestionnaires['nociceptive'];
+          // Use shoulder questionnaire directly
+          const shoulderQuestionnaire = shoulderQuestionnaires.nociceptive;
           
           if (shoulderQuestionnaire) {
             console.log('✅ Found shoulder questionnaire:', shoulderQuestionnaire.id, shoulderQuestionnaire.title);
