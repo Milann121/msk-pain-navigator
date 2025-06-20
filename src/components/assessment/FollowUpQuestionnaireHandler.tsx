@@ -97,75 +97,130 @@ const FollowUpQuestionnaireHandler = () => {
     return null;
   }
 
+  // Helper function to detect shoulder-related pain
+  const isShoulderRelated = (painSubArea: any): boolean => {
+    console.log('🔍 Checking if shoulder-related, painSubArea:', painSubArea, 'type:', typeof painSubArea);
+    
+    // List of all possible shoulder-related terms (Slovak and English)
+    const shoulderTerms = [
+      'shoulder', 'rameno', 'ramená', 'plece', 'plecia', 'pleco',
+      'Shoulder', 'Rameno', 'Ramená', 'Plece', 'Plecia', 'Pleco',
+      'SHOULDER', 'RAMENO', 'RAMENÁ', 'PLECE', 'PLECIA', 'PLECO'
+    ];
+    
+    if (!painSubArea) {
+      console.log('❌ No painSubArea provided');
+      return false;
+    }
+    
+    // Handle array case
+    if (Array.isArray(painSubArea)) {
+      console.log('📋 painSubArea is array:', painSubArea);
+      const found = painSubArea.some(area => {
+        if (!area || typeof area !== 'string') return false;
+        const isMatch = shoulderTerms.some(term => area.toLowerCase().includes(term.toLowerCase()));
+        console.log(`  - Checking "${area}": ${isMatch}`);
+        return isMatch;
+      });
+      console.log('🎯 Array check result:', found);
+      return found;
+    }
+    
+    // Handle string case
+    if (typeof painSubArea === 'string') {
+      console.log('📝 painSubArea is string:', painSubArea);
+      const found = shoulderTerms.some(term => painSubArea.toLowerCase().includes(term.toLowerCase()));
+      console.log('🎯 String check result:', found);
+      return found;
+    }
+    
+    console.log('❌ painSubArea is neither array nor string');
+    return false;
+  };
+
   // Determine which questionnaire to use based on pain area and mechanism
   const getFollowUpQuestionnaire = () => {
     console.log('=== FOLLOW-UP QUESTIONNAIRE SELECTION DEBUG ===');
-    console.log('User info:', userInfo);
+    console.log('User info:', JSON.stringify(userInfo, null, 2));
     console.log('Pain area:', userInfo?.painArea);
     console.log('Pain sub area:', userInfo?.painSubArea);
     console.log('Primary mechanism:', primaryMechanism);
+    console.log('Available shoulder questionnaires:', Object.keys(shoulderQuestionnaires));
+    console.log('Available general questionnaires:', Object.keys(questionnaires));
     
     // For upper limb cases, check mechanism to determine pathway
     if (userInfo?.painArea === 'upper limb') {
-      console.log('Upper limb detected, checking mechanism:', primaryMechanism);
+      console.log('🔥 Upper limb detected, checking mechanism:', primaryMechanism);
       
       if (primaryMechanism === 'nociceptive') {
-        // Nociceptive pathway -> shoulder questions (if shoulder-related)
-        const painSubArea = userInfo.painSubArea;
-        console.log('Nociceptive mechanism, checking pain sub area:', painSubArea);
+        console.log('💪 Nociceptive mechanism for upper limb');
         
-        // Check if painSubArea includes shoulder (can be array or string)
-        const isShoulderRelated = Array.isArray(painSubArea) 
-          ? painSubArea.some(area => 
-              area && (
-                area.toLowerCase().includes('shoulder') || 
-                area.toLowerCase().includes('rameno')
-              )
-            )
-          : typeof painSubArea === 'string' && painSubArea && (
-              painSubArea.toLowerCase().includes('shoulder') || 
-              painSubArea.toLowerCase().includes('rameno')
-            );
+        // Check if it's shoulder-related
+        const shoulderDetected = isShoulderRelated(userInfo.painSubArea);
+        console.log('🎯 Shoulder detection result:', shoulderDetected);
         
-        console.log('Is shoulder related:', isShoulderRelated);
-        
-        if (isShoulderRelated) {
-          console.log('✅ Shoulder detected - using shoulder nociceptive questionnaire');
-          // Use shoulder questionnaire directly from shoulderQuestionnaires
+        if (shoulderDetected) {
+          console.log('✅ Shoulder detected - attempting to use shoulder nociceptive questionnaire');
           const shoulderQuestionnaire = shoulderQuestionnaires.nociceptive;
           
           if (shoulderQuestionnaire) {
-            console.log('✅ Found shoulder questionnaire:', shoulderQuestionnaire.id, shoulderQuestionnaire.title);
+            console.log('✅ SUCCESS! Found shoulder questionnaire:', {
+              id: shoulderQuestionnaire.id,
+              title: shoulderQuestionnaire.title,
+              questionsCount: shoulderQuestionnaire.questions?.length || 0
+            });
             console.log('✅ RETURNING SHOULDER QUESTIONNAIRE');
             return shoulderQuestionnaire;
           } else {
-            console.log('❌ No shoulder questionnaire found for nociceptive mechanism');
+            console.log('❌ ERROR: No shoulder questionnaire found for nociceptive mechanism');
+          }
+        } else {
+          console.log('⚠️ No shoulder detected in painSubArea, but this is upper limb + nociceptive');
+          console.log('🔄 FALLBACK: Using shoulder questionnaire anyway for upper limb nociceptive');
+          
+          // Fallback: For upper limb + nociceptive, default to shoulder questionnaire
+          const shoulderQuestionnaire = shoulderQuestionnaires.nociceptive;
+          if (shoulderQuestionnaire) {
+            console.log('✅ FALLBACK SUCCESS! Using shoulder questionnaire:', {
+              id: shoulderQuestionnaire.id,
+              title: shoulderQuestionnaire.title
+            });
+            return shoulderQuestionnaire;
           }
         }
       } else if (primaryMechanism === 'neuropathic') {
         // Neuropathic pathway -> neck questions
-        console.log('✅ Neuropathic mechanism - using neck questionnaire');
+        console.log('🧠 Neuropathic mechanism - using neck questionnaire');
         return upperLimbQuestionnaires['upper-limb-neck-questions'];
       }
     }
     
     // Default to general questionnaires ONLY if not upper limb or conditions not met
-    console.log('Using general questionnaire for mechanism:', primaryMechanism);
+    console.log('⚠️ Falling back to general questionnaire for mechanism:', primaryMechanism);
     const generalQuestionnaire = questionnaires[primaryMechanism as keyof typeof questionnaires];
-    console.log('General questionnaire found:', generalQuestionnaire?.id, generalQuestionnaire?.title);
+    console.log('📋 General questionnaire found:', {
+      id: generalQuestionnaire?.id,
+      title: generalQuestionnaire?.title,
+      questionsCount: generalQuestionnaire?.questions?.length || 0
+    });
     return generalQuestionnaire;
   };
 
   const selectedQuestionnaire = getFollowUpQuestionnaire();
   
-  console.log('=== FINAL SELECTION ===');
-  console.log('Selected questionnaire:', selectedQuestionnaire?.id, selectedQuestionnaire?.title);
+  console.log('=== FINAL SELECTION RESULT ===');
+  console.log('Selected questionnaire:', {
+    id: selectedQuestionnaire?.id,
+    title: selectedQuestionnaire?.title,
+    questionsCount: selectedQuestionnaire?.questions?.length || 0
+  });
 
   if (!selectedQuestionnaire) {
-    console.error('❌ No questionnaire found for mechanism:', primaryMechanism);
+    console.error('❌ CRITICAL ERROR: No questionnaire found for mechanism:', primaryMechanism);
     return <div className="text-center p-4">
       <p className="text-red-600">Error: No questionnaire found for mechanism {primaryMechanism}</p>
       <p className="text-sm text-gray-600 mt-2">Pain area: {userInfo?.painArea}, Sub area: {JSON.stringify(userInfo?.painSubArea)}</p>
+      <p className="text-xs text-gray-500 mt-1">Debug info logged to console</p>
     </div>;
   }
 
