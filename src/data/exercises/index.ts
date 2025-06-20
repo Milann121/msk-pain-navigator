@@ -1,3 +1,4 @@
+
 import { Exercise } from "@/types/exercise";
 import { nociceptiveExercises } from "./nociceptive";
 import { neuropathicExercises } from "./neuropathic";
@@ -9,7 +10,7 @@ const exercisesByDifferential = {
   ...neuropathicExercises,
   ...centralExercises,
 
-  // Upper limb shoulder exercises - nociceptive
+  // Upper limb shoulder exercises - nociceptive with specific differentials
   'nociceptive-frozen-shoulder-upper limb': shoulderNociceptiveExercises['nociceptive-frozen-shoulder-upper limb'],
   'nociceptive-rotator-cuff-tear-upper limb': shoulderNociceptiveExercises['nociceptive-rotator-cuff-tear-upper limb'],
   'nociceptive-subacromional-impingement-syndrome-upper limb': shoulderNociceptiveExercises['nociceptive-subacromional-impingement-syndrome-upper limb'],

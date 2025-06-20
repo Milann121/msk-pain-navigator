@@ -65,9 +65,43 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
         {
           videoId: 'oVJqu0FEw-Y',
           title: 'Posiľnenie medzilopatkových svalov',
-          description: 'Uchyťte odporovú gumu podľa videa. Tieto 3 cviky môžete striedať, alebo si vybrať ktorýkoľvek z nich. \n➜ UPOZORNENIE: pri týchto cvikoch nesmiete pociťovať namáhanie trapézov! Celý čas sa snažte tlačiť lopatky a ramená smerom dole od uší, aby pracovali medzilopatkové svaly. Dbajte na to, aby ste počas vykonávania cvikov viac cítili svaly medzi lopatkami, nie ramená a trapézy - to dosiahnete práve tlačením pliec dole. \n➜ OPAKOVANIA: 10-15x / 3 série / 1x denne. ',
+          description: 'Uchyťte odporovú gumu podľa videa. Tieto 3 cviky môžete striedať, alebo si vybrať ktorýkoľvek z nich. \n➜ UPOZORNЕНИЕ: pri týchto cvikoch nesmiete pociťovať namáhanie trapézov! Celý čas sa snažte tlačiť lopatky a ramená smerom dole od uší, aby pracovali medzilopatkové svaly. Dbajte na to, aby ste počas vykonávania cvikov viac cítili svaly medzi lopatkami, nie ramená a trapézy - to dosiahnete práve tlačením pliec dole. \n➜ OPAKOVANIA: 10-15x / 3 série / 1x denne. ',
           importance: 2,
           mainGroup: ['stability'],
+          bodyPart: ['shoulder']
+        }
+      ]
+    }
+  ],
+
+  // Subacromional impingement syndrome exercises
+  'nociceptive-subacromional-impingement-syndrome-upper limb': [
+    {
+      title: 'Cvičenia pre subakromiálny impingment syndróm',
+      description: 'Cvičenia zamerané na zlepšenie priestoru pod akromiónom a zníženie bolesti.\n\nTieto cvičenia pomáhajú zlepšiť mechaniku ramena a znižujú tlak na šľachy.\nVyhýbajte sa pohybom nad hlavou, ktoré zhoršujú príznaky.',
+      videos: [
+        {
+          videoId: 'oVJqu0FEw-Y',
+          title: 'Posiľnenie medzilopatkových svalov',
+          description: 'Uchyťte odporovú gumu podľa videa. Tieto 3 cviky môžete striedať, alebo si vybrať ktorýkoľvek z nich. \n➜ UPOZORNЕНИЕ: pri týchto cvikoch nesmiete pociťovať namáhanie trapézov! Celý čas sa snažte tlačiť lopatky a ramená smerom dole od uší, aby pracovali medzilopatkové svaly.',
+          importance: 1,
+          mainGroup: ['stability'],
+          bodyPart: ['shoulder']
+        },
+        {
+          videoId: 'Ak0QVHhwkQg',
+          title: 'Jemné kyvadlové cvičenia',
+          description: 'Predkloňte sa a začnite vykonávať jemné kyvadlové pohyby na uvoľnenie napätia v ramene.',
+          importance: 2,
+          mainGroup: ['mobility'],
+          bodyPart: ['shoulder']
+        },
+        {
+          videoId: 'NUhSjqTpw5k',
+          title: 'Nahrievanie pred cvičením',
+          description: 'Zohrievajte rameno pred cvičením na zlepšenie cirkulácie a pripravenosť svalov.',
+          importance: 3,
+          mainGroup: ['pain-relief'],
           bodyPart: ['shoulder']
         }
       ]
@@ -77,49 +111,23 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
   // Rotator cuff tear exercises
   'nociceptive-rotator-cuff-tear-upper limb': [
     {
-      title: 'Cvičenia pre trhnutie rotátorovej manžety - nociceptívna bolesť',
+      title: 'Cvičenia pre trhnutie rotátorovej manžety',
       description: 'Špecializované cvičenia na posilnenie a rehabilitáciu po trhnutí rotátorovej manžety.\n\nTieto cvičenia pomáhajú obnoviť funkciu ramena a predchádzajú ďalším zraneniam.\nZačnite s ľahkými cvičeniami a postupne zvyšujte intenzitu.',
       videos: [
         {
-          videoId: 'example3',
+          videoId: '1uz4DoaSY2M',
           title: 'Izometrické posilňovanie rotátorovej manžety',
-          description: 'Jemné izometrické cvičenia na posilnenie rotátorovej manžety.',
+          description: 'Jemné izometrické cvičenia na posilnenie rotátorovej manžety bez nadmernej záťaže.',
           importance: 1,
           mainGroup: ['stability'],
           bodyPart: ['shoulder']
         },
         {
-          videoId: 'example4',
-          title: 'Pasívne protahovanie ramena',
-          description: 'Jemné protahovacie cvičenia na zlepšenie pohyblivosti.',
+          videoId: 'un6jXuY',
+          title: 'Masáž rotátorovej manžety',
+          description: 'Jemná masáž na zlepšenie cirkulácie a uvoľnenie napätia v rotátorovej manžete.',
           importance: 2,
-          mainGroup: ['mobility'],
-          bodyPart: ['shoulder']
-        }
-      ]
-    }
-  ],
-
-  // Shoulder impingement exercises
-  'nociceptive-subacromional-impingement-syndrome-upper limb': [
-    {
-      title: 'Cvičenia pre subakromiálny impingment syndróm - nociceptívna bolesť',
-      description: 'Cvičenia zamerané na zlepšenie priestoru pod akromiónom a zníženie bolesti.\n\nTieto cvičenia pomáhajú zlepšiť mechaniku ramena a znižujú tlak na šľachy.\nVyhýbajte sa pohybom nad hlavou, ktoré zhoršujú príznaky.',
-      videos: [
-        {
-          videoId: 'example5',
-          title: 'Posilňovanie dolných trapcov',
-          description: 'Cvičenia na posilnenie dolných vlákien trapezu na zlepšenie mechaniky ramena.',
-          importance: 1,
-          mainGroup: ['stability'],
-          bodyPart: ['shoulder']
-        },
-        {
-          videoId: 'example6',
-          title: 'Protahovanie prednej časti ramena',
-          description: 'Protahovacie cvičenia na uvoľnenie napätia v prednej časti ramena.',
-          importance: 1,
-          mainGroup: ['mobility'],
+          mainGroup: ['pain-relief'],
           bodyPart: ['shoulder']
         }
       ]
@@ -133,7 +141,7 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
       description: 'Základné cvičenia vhodné pre rôzne typy nociceptívnej bolesti ramena.\n\nTieto cvičenia pomáhajú zlepšiť celkovú funkciu ramena a znížiť bolesť.\nVykonávajte ich pravidelne, ale rešpektujte hranice bolesti.',
       videos: [
         {
-          videoId: 'example7',
+          videoId: 'Ak0QVHhwkQg',
           title: 'Základné pohyblivostné cvičenia ramena',
           description: 'Jemné cvičenia na zlepšenie pohyblivosti vo všetkých smeroch.',
           importance: 1,
@@ -141,7 +149,7 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           bodyPart: ['shoulder']
         },
         {
-          videoId: 'example8',
+          videoId: 'ldMl3J7MzXE',
           title: 'Základné posilňovacie cvičenia',
           description: 'Ľahké posilňovacie cvičenia na stabilizáciu ramena.',
           importance: 2,
