@@ -20,6 +20,50 @@ interface ActiveProgramsSectionProps {
   navigate: NavigateFunction;
 }
 
+// Helper function to get sub-area for upper limb assessments
+const getUpperLimbSubArea = (differential: string): string | null => {
+  const shoulderDifferentials = [
+    'frozen-shoulder',
+    'slap-tear', 
+    'subacromional-impingement-syndrome',
+    'stiff-shoulder',
+    'shoulder-bursa',
+    'rotator-cuff-tear',
+    'rotator-cuff-tendinopathy',
+    'biceps-tendinopathy',
+    'biceps-tear-long-head',
+    'shoulder-dislocation',
+    'unstable-shoulder',
+    'labral-leason'
+  ];
+  
+  if (shoulderDifferentials.includes(differential)) {
+    return 'Rameno';
+  }
+  
+  return null;
+};
+
+// Helper function to format pain area with sub-area
+const formatPainAreaWithSubArea = (painArea: string, differential: string): string => {
+  if (painArea === 'upper limb') {
+    const subArea = getUpperLimbSubArea(differential);
+    if (subArea) {
+      return `Horná končatina / ${subArea}`;
+    }
+    return 'Horná končatina';
+  }
+  
+  // For other pain areas, use existing translations
+  const translations: Record<string, string> = {
+    'neck': 'Krčná chrbtica',
+    'middle back': 'Hrudná chrbtica',
+    'lower back': 'Driekova chrbtica'
+  };
+  
+  return translations[painArea] || painArea;
+};
+
 export const ActiveProgramsSection: React.FC<ActiveProgramsSectionProps> = ({
   loading,
   activeAssessments,
@@ -61,7 +105,11 @@ export const ActiveProgramsSection: React.FC<ActiveProgramsSectionProps> = ({
           {activeAssessments.map((assessment) => (
             <AssessmentAccordionItem
               key={assessment.id}
-              assessment={assessment}
+              assessment={{
+                ...assessment,
+                // Override the pain_area display with sub-area formatting
+                pain_area_display: formatPainAreaWithSubArea(assessment.pain_area, assessment.primary_differential)
+              }}
               onOpenFollowUp={handleOpenFollowUp}
               onDeleteAssessment={handleDeleteAssessment}
               onEndProgram={() => handleEndAssessmentUI(assessment.id)}

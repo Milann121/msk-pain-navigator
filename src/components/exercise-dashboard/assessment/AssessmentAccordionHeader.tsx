@@ -1,28 +1,20 @@
 
-import React from "react";
-import { format } from "date-fns";
-import { formatPainArea } from "../FormatHelpers";
-import { UserAssessment } from "@/components/follow-up/types";
+import { UserAssessment } from '@/components/follow-up/types';
+import { formatPainArea } from '@/utils/formatHelpers';
 
 interface AssessmentAccordionHeaderProps {
-  assessment: UserAssessment;
+  assessment: UserAssessment & { pain_area_display?: string };
 }
 
-export function AssessmentAccordionHeader({ assessment }: AssessmentAccordionHeaderProps) {
+export const AssessmentAccordionHeader = ({ assessment }: AssessmentAccordionHeaderProps) => {
   return (
-    <div className="flex flex-1 items-center justify-between">
-      <div className="flex items-center gap-2">
-        <span className="font-medium">
-          {format(new Date(assessment.timestamp), 'dd.MM.yyyy')}
-        </span>
-        <span className="text-gray-600 hidden sm:inline">–</span>
-        <span className="text-gray-600 hidden sm:inline">
-          {formatPainArea(assessment.pain_area)}
-        </span>
-      </div>
-      <div className="sm:hidden text-sm text-gray-500">
-        {formatPainArea(assessment.pain_area)}
+    <div className="flex justify-between items-center w-full text-left">
+      <div className="flex-1">
+        <div className="font-medium text-gray-900">
+          {new Date(assessment.timestamp).toLocaleDateString('sk-SK')} — {' '}
+          {assessment.pain_area_display || formatPainArea(assessment.pain_area)}
+        </div>
       </div>
     </div>
   );
-}
+};
