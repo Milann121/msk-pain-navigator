@@ -81,15 +81,16 @@ const FollowUpQuestionnaireHandler = () => {
 
   // Determine which questionnaire to use based on pain area and mechanism
   const getFollowUpQuestionnaire = () => {
-    console.log('Getting follow-up questionnaire for:');
-    console.log('- Pain area:', userInfo?.painArea);
-    console.log('- Pain sub area:', userInfo?.painSubArea);
-    console.log('- Primary mechanism:', primaryMechanism);
+    console.log('=== FOLLOW-UP QUESTIONNAIRE SELECTION DEBUG ===');
+    console.log('User info:', userInfo);
+    console.log('Pain area:', userInfo?.painArea);
+    console.log('Pain sub area:', userInfo?.painSubArea);
+    console.log('Primary mechanism:', primaryMechanism);
     
     // For upper limb cases, check if it's shoulder related
     if (userInfo?.painArea === 'upper limb') {
       const painSubArea = userInfo.painSubArea;
-      console.log('Checking upper limb pain sub area:', painSubArea);
+      console.log('Upper limb detected, checking pain sub area:', painSubArea);
       
       // Check if painSubArea includes shoulder (can be array or string)
       const isShoulderRelated = Array.isArray(painSubArea) 
@@ -107,17 +108,18 @@ const FollowUpQuestionnaireHandler = () => {
       console.log('Is shoulder related:', isShoulderRelated);
       
       if (isShoulderRelated) {
-        console.log('Looking for shoulder questionnaire for mechanism:', primaryMechanism);
+        console.log('Shoulder detected, looking for questionnaire for mechanism:', primaryMechanism);
         console.log('Available shoulder questionnaires:', Object.keys(shoulderQuestionnaires));
         
         // Get the shoulder questionnaire for the specific mechanism
-        const shoulderQuestionnaire = shoulderQuestionnaires[primaryMechanism as keyof typeof shoulderQuestionnaires];
+        const shoulderQuestionnaire = shoulderQuestionnaires[primaryMechanism];
         
         if (shoulderQuestionnaire) {
-          console.log('Found shoulder questionnaire:', shoulderQuestionnaire.id, shoulderQuestionnaire.title);
+          console.log('✅ Found shoulder questionnaire:', shoulderQuestionnaire.id, shoulderQuestionnaire.title);
           return shoulderQuestionnaire;
         } else {
-          console.log('No shoulder questionnaire found for mechanism:', primaryMechanism);
+          console.log('❌ No shoulder questionnaire found for mechanism:', primaryMechanism);
+          console.log('Available mechanisms in shoulderQuestionnaires:', Object.keys(shoulderQuestionnaires));
         }
       }
     }
@@ -131,10 +133,11 @@ const FollowUpQuestionnaireHandler = () => {
 
   const selectedQuestionnaire = getFollowUpQuestionnaire();
   
-  console.log('Final selected questionnaire:', selectedQuestionnaire?.id, selectedQuestionnaire?.title);
+  console.log('=== FINAL SELECTION ===');
+  console.log('Selected questionnaire:', selectedQuestionnaire?.id, selectedQuestionnaire?.title);
 
   if (!selectedQuestionnaire) {
-    console.error('No questionnaire found for mechanism:', primaryMechanism);
+    console.error('❌ No questionnaire found for mechanism:', primaryMechanism);
     return <div className="text-center p-4">
       <p className="text-red-600">Error: No questionnaire found for mechanism {primaryMechanism}</p>
       <p className="text-sm text-gray-600 mt-2">Pain area: {userInfo?.painArea}, Sub area: {JSON.stringify(userInfo?.painSubArea)}</p>
