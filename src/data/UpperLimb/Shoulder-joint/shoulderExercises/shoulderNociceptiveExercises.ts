@@ -1,16 +1,6 @@
 
 import { Exercise } from "@/types/exercise";
 
-//'slap-tear'
-//'labral-leason'
-//'shoulder-bursa'
-//'rotator-cuff-tear'
-//'rotator-cuff-tendinopathy'
-//'biceps-tendinopathy'
-//'biceps-tear-long-head'
-//'shoulder-dislocation'
-//'unstable-shoulder'
-
 export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
   // Frozen shoulder and stiff shoulder exercises
   'nociceptive-frozen-shoulder-upper limb': [
@@ -39,9 +29,9 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           title: 'Uvoľnenie rotátorovej manžety',
           description: 'Zoberte si tenisovú loptu a uložte si ju na lopatku zo zadu. Oprite sa o stenu a pomaly masírujte svaly rotátorovej manžety. V prípade, že nájdete bolestivý bod, zastavte na tomto mieste a bez pohybu tlačte po dobu 30 sekúnd (ostrá bolesť sa môžte šíriť do prednej časti ramena).',
           importance: 1,
-          mainGroup: ['pain-relief']
+          mainGroup: ['pain-relief'],
           bodyPart: ['shoulder']
-        } ,
+        },
         {
           videoId: 'NUhSjqTpw5k',
           title: 'Nahrievanie ramenného kĺbu',
@@ -49,8 +39,10 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ['pain-relief'],
           bodyPart: ['shoulder']
-        },
-      ],
+        }
+      ]
+    },
+    {
       title: '4-6 týždeň',
       description: 'Cvičenia na zvýšenie svalovej sily a návrat k pohybu.',
       videos: [
@@ -66,7 +58,7 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           videoId: 'whyp41YIN8A',
           title: 'Kliky o stenu',
           description: 'Uložte ruky na stenu na úroveň hrudníka, mierne širšie ako šírka pliec. Opatrne sa s vystretým telom priblížte k stene a odtiahnite sa od steny. Dávajte pozor, aby ste nezdvíhali ramená k ušiam a rešpektujte bolesť vášho zmrznutého ramena. OPAKOVANIA: 10-12x 2 série denne',
-          importance: '3',
+          importance: 3,
           mainGroup: ['stability'],
           bodyPart: ['shoulder']
         },
@@ -76,7 +68,7 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           description: 'Uchyťte odporovú gumu podľa videa. Tieto 3 cviky môžete striedať, alebo si vybrať ktorýkoľvek z nich. \n➜ UPOZORNENIE: pri týchto cvikoch nesmiete pociťovať namáhanie trapézov! Celý čas sa snažte tlačiť lopatky a ramená smerom dole od uší, aby pracovali medzilopatkové svaly. Dbajte na to, aby ste počas vykonávania cvikov viac cítili svaly medzi lopatkami, nie ramená a trapézy - to dosiahnete práve tlačením pliec dole. \n➜ OPAKOVANIA: 10-15x / 3 série / 1x denne. ',
           importance: 2,
           mainGroup: ['stability'],
-          bodyPart:['shoulder'],
+          bodyPart: ['shoulder']
         }
       ]
     }
@@ -94,7 +86,7 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           description: 'Jemné izometrické cvičenia na posilnenie rotátorovej manžety.',
           importance: 1,
           mainGroup: ['stability'],
-          bodyPart: ['upper limb']
+          bodyPart: ['shoulder']
         },
         {
           videoId: 'example4',
@@ -102,7 +94,7 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           description: 'Jemné protahovacie cvičenia na zlepšenie pohyblivosti.',
           importance: 2,
           mainGroup: ['mobility'],
-          bodyPart: ['upper limb']
+          bodyPart: ['shoulder']
         }
       ]
     }
@@ -120,7 +112,7 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           description: 'Cvičenia na posilnenie dolných vlákien trapezu na zlepšenie mechaniky ramena.',
           importance: 1,
           mainGroup: ['stability'],
-          bodyPart: ['upper limb']
+          bodyPart: ['shoulder']
         },
         {
           videoId: 'example6',
@@ -128,7 +120,7 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           description: 'Protahovacie cvičenia na uvoľnenie napätia v prednej časti ramena.',
           importance: 1,
           mainGroup: ['mobility'],
-          bodyPart: ['upper limb']
+          bodyPart: ['shoulder']
         }
       ]
     }
@@ -146,7 +138,7 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           description: 'Jemné cvičenia na zlepšenie pohyblivosti vo všetkých smeroch.',
           importance: 1,
           mainGroup: ['mobility'],
-          bodyPart: ['upper limb']
+          bodyPart: ['shoulder']
         },
         {
           videoId: 'example8',
@@ -154,12 +146,9 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           description: 'Ľahké posilňovacie cvičenia na stabilizáciu ramena.',
           importance: 2,
           mainGroup: ['stability'],
-          bodyPart: ['upper limb']
+          bodyPart: ['shoulder']
         }
       ]
     }
   ]
 };
-
-
-
