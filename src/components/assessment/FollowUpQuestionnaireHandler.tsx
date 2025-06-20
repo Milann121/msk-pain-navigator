@@ -1,4 +1,5 @@
 
+
 import { useAuth } from '@/contexts/AuthContext';
 import { useAssessment, AssessmentStage } from '@/contexts/AssessmentContext';
 import { questionnaires } from '@/data/questionnaires';
@@ -108,11 +109,7 @@ const FollowUpQuestionnaireHandler = () => {
     if (userInfo?.painArea === 'upper limb') {
       console.log('Upper limb detected, checking mechanism:', primaryMechanism);
       
-      if (primaryMechanism === 'neuropathic') {
-        // Neuropathic pathway -> neck questions
-        console.log('✅ Neuropathic mechanism - using neck questionnaire');
-        return upperLimbQuestionnaires['upper-limb-neck-questions'];
-      } else if (primaryMechanism === 'nociceptive') {
+      if (primaryMechanism === 'nociceptive') {
         // Nociceptive pathway -> shoulder questions (if shoulder-related)
         const painSubArea = userInfo.painSubArea;
         console.log('Nociceptive mechanism, checking pain sub area:', painSubArea);
@@ -134,20 +131,25 @@ const FollowUpQuestionnaireHandler = () => {
         
         if (isShoulderRelated) {
           console.log('✅ Shoulder detected - using shoulder nociceptive questionnaire');
-          // Use shoulder questionnaire directly
+          // Use shoulder questionnaire directly from shoulderQuestionnaires
           const shoulderQuestionnaire = shoulderQuestionnaires.nociceptive;
           
           if (shoulderQuestionnaire) {
             console.log('✅ Found shoulder questionnaire:', shoulderQuestionnaire.id, shoulderQuestionnaire.title);
+            console.log('✅ RETURNING SHOULDER QUESTIONNAIRE');
             return shoulderQuestionnaire;
           } else {
             console.log('❌ No shoulder questionnaire found for nociceptive mechanism');
           }
         }
+      } else if (primaryMechanism === 'neuropathic') {
+        // Neuropathic pathway -> neck questions
+        console.log('✅ Neuropathic mechanism - using neck questionnaire');
+        return upperLimbQuestionnaires['upper-limb-neck-questions'];
       }
     }
     
-    // Default to general questionnaires
+    // Default to general questionnaires ONLY if not upper limb or conditions not met
     console.log('Using general questionnaire for mechanism:', primaryMechanism);
     const generalQuestionnaire = questionnaires[primaryMechanism as keyof typeof questionnaires];
     console.log('General questionnaire found:', generalQuestionnaire?.id, generalQuestionnaire?.title);
@@ -177,3 +179,4 @@ const FollowUpQuestionnaireHandler = () => {
 };
 
 export default FollowUpQuestionnaireHandler;
+
