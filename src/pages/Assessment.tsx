@@ -15,13 +15,19 @@ const AssessmentContent = () => {
   const { user, isLoading } = useAuth();
   const { stage, isSubmitting } = useAssessment();
   
+  console.log('🔍 AssessmentContent rendered with stage:', stage, 'isSubmitting:', isSubmitting);
+  
   if (isLoading) {
+    console.log('⏳ AssessmentContent: Still loading user...');
     return <LoadingView />;
   }
 
   if (!user) {
+    console.log('❌ AssessmentContent: No user found, redirecting to auth');
     return <Navigate to="/auth" replace />;
   }
+
+  console.log('✅ AssessmentContent: User authenticated, rendering stage:', AssessmentStage[stage]);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -40,15 +46,40 @@ const AssessmentContent = () => {
           {/* Body Model Section - hidden for now, keeping code for later use */}
           {/* <BodyModelSection /> */}
           
-          {stage === AssessmentStage.UserInfo && <UserInfoHandler />}
+          {stage === AssessmentStage.UserInfo && (
+            <>
+              {console.log('🎯 Rendering UserInfoHandler')}
+              <UserInfoHandler />
+            </>
+          )}
           
-          {stage === AssessmentStage.GeneralQuestionnaire && <GeneralQuestionnaireHandler />}
+          {stage === AssessmentStage.GeneralQuestionnaire && (
+            <>
+              {console.log('🎯 Rendering GeneralQuestionnaireHandler')}
+              <GeneralQuestionnaireHandler />
+            </>
+          )}
           
-          {stage === AssessmentStage.FollowUpQuestionnaire && <FollowUpQuestionnaireHandler />}
+          {stage === AssessmentStage.FollowUpQuestionnaire && (
+            <>
+              {console.log('🎯 Rendering FollowUpQuestionnaireHandler')}
+              <FollowUpQuestionnaireHandler />
+            </>
+          )}
           
-          {stage === AssessmentStage.Results && <ResultsHandler />}
+          {stage === AssessmentStage.Results && (
+            <>
+              {console.log('🎯 Rendering ResultsHandler')}
+              <ResultsHandler />
+            </>
+          )}
           
-          {isSubmitting && <SubmittingOverlay />}
+          {isSubmitting && (
+            <>
+              {console.log('⏳ Rendering SubmittingOverlay')}
+              <SubmittingOverlay />
+            </>
+          )}
         </div>
       </div>
     </div>
@@ -56,6 +87,8 @@ const AssessmentContent = () => {
 };
 
 const Assessment = () => {
+  console.log('🚀 Assessment component mounted');
+  
   return (
     <AssessmentProvider>
       <AssessmentContent />

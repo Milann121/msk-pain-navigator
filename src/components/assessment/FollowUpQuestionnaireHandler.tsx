@@ -1,5 +1,3 @@
-
-
 import { useAuth } from '@/contexts/AuthContext';
 import { useAssessment, AssessmentStage } from '@/contexts/AssessmentContext';
 import { questionnaires } from '@/data/questionnaires';
@@ -25,14 +23,30 @@ const FollowUpQuestionnaireHandler = () => {
   } = useAssessment();
 
   const handleFollowUpQuestionnaireComplete = async (answers: Record<string, any>) => {
+    console.log('🚀 Follow-up questionnaire completion started');
+    console.log('📝 Answers received:', answers);
+    console.log('📋 Current assessment state:', {
+      userInfo,
+      primaryMechanism,
+      sinGroup,
+      scores,
+      assessmentId
+    });
+
     setIsSubmitting(true);
     setFollowUpAnswers(answers);
     
     if (!userInfo || !scores || !assessmentId) {
+      console.error('❌ Missing required data for processing:', {
+        hasUserInfo: !!userInfo,
+        hasScores: !!scores,
+        hasAssessmentId: !!assessmentId
+      });
       setIsSubmitting(false);
       return;
     }
     
+    console.log('⚙️ Processing follow-up questionnaire...');
     const { scores: updatedScores, primaryDifferential: newDifferential } = 
       processFollowUpQuestionnaire(
         primaryMechanism as 'nociceptive' | 'neuropathic' | 'central',
@@ -40,6 +54,11 @@ const FollowUpQuestionnaireHandler = () => {
         scores
       );
     
+    console.log('✅ Processing completed:', {
+      updatedScores,
+      newDifferential
+    });
+
     setScores(updatedScores);
     setPrimaryDifferential(newDifferential);
     
@@ -50,9 +69,16 @@ const FollowUpQuestionnaireHandler = () => {
     // If it's upper limb and neuropathic (neck-related), set pain area to neck
     if (userInfo.painArea === 'upper limb' && primaryMechanism === 'neuropathic') {
       finalPainArea = 'neck';
-      console.log('Upper limb neuropathic case - setting pain area to neck for exercise program');
+      console.log('🧠 Upper limb neuropathic case - setting pain area to neck for exercise program');
     }
     
+    console.log('🎯 Creating assessment results with:', {
+      finalPainArea,
+      finalDifferential,
+      primaryMechanism,
+      sinGroup
+    });
+
     const assessmentResults = createAssessmentResults(
       userInfo,
       primaryMechanism,
@@ -61,8 +87,11 @@ const FollowUpQuestionnaireHandler = () => {
       updatedScores
     );
 
+    console.log('📊 Assessment results created:', assessmentResults);
+
     // Update the assessment record with the primary differential and correct pain area
     try {
+      console.log('💾 Updating assessment record...');
       const { error } = await supabase
         .from('user_assessments')
         .update({
@@ -73,18 +102,21 @@ const FollowUpQuestionnaireHandler = () => {
         
       if (error) throw error;
       
-      console.log('Assessment updated successfully:', {
+      console.log('✅ Assessment updated successfully:', {
         assessmentId,
         differential: finalDifferential,
         painArea: finalPainArea
       });
     } catch (error) {
-      console.error('Error updating assessment with differential:', error);
+      console.error('❌ Error updating assessment with differential:', error);
     }
     
+    console.log('🎉 Setting results and transitioning to Results stage...');
     setResults(assessmentResults);
     setStage(AssessmentStage.Results);
     setIsSubmitting(false);
+    
+    console.log('✅ Follow-up questionnaire completion finished - should now show Results page');
   };
 
   const handleBack = () => {
@@ -234,4 +266,3 @@ const FollowUpQuestionnaireHandler = () => {
 };
 
 export default FollowUpQuestionnaireHandler;
-
