@@ -92,11 +92,14 @@ const ExercisePlan = () => {
     const specificKey = `${mechanism}-${differential}-${painArea}`;
     const defaultKey = `${mechanism}-default-${painArea}`;
     
+    console.log('Looking for exercises with keys:', { specificKey, defaultKey });
+    console.log('Available exercise keys:', Object.keys(exercisesByDifferential));
+    
     exercises = exercisesByDifferential[specificKey] || 
                 exercisesByDifferential[defaultKey] || 
                 [{
                   title: 'Odporúčané cvičenia neboli nájdené',
-                  description: 'Pre vašu kombináciu diagnózy a oblasti bolesti nemáme špecifické cvičenia. Prosím, konzultujte s fyzioterapeutom.',
+                  description: `Pre vašu kombináciu diagnózy (${differential}) a oblasti bolesti (${painArea}) nemáme špecifické cvičenia. Prosím, konzultujte s fyzioterapeutom.`,
                   videos: []
                 }];
   }

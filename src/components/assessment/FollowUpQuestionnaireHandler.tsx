@@ -1,4 +1,3 @@
-
 import { useAuth } from '@/contexts/AuthContext';
 import { useAssessment, AssessmentStage } from '@/contexts/AssessmentContext';
 import { questionnaires } from '@/data/questionnaires';
@@ -6,6 +5,7 @@ import { shoulderQuestionnaires } from '@/data/UpperLimb/Shoulder-joint/question
 import Questionnaire from '@/components/Questionnaire';
 import { processFollowUpQuestionnaire, createAssessmentResults } from '@/utils/assessmentAnalyzer';
 import { supabase } from '@/integrations/supabase/client';
+import { upperLimbQuestionnaires } from '@/data/UpperLimb/questionnaires';
 
 const FollowUpQuestionnaireHandler = () => {
   const { 
@@ -41,25 +41,41 @@ const FollowUpQuestionnaireHandler = () => {
     setScores(updatedScores);
     setPrimaryDifferential(newDifferential);
     
+    // For upper limb cases, we need to determine the correct pain area for exercise programs
+    let finalPainArea = userInfo.painArea;
+    let finalDifferential = newDifferential;
+    
+    // If it's upper limb and neuropathic (neck-related), set pain area to neck
+    if (userInfo.painArea === 'upper limb' && primaryMechanism === 'neuropathic') {
+      finalPainArea = 'neck';
+      console.log('Upper limb neuropathic case - setting pain area to neck for exercise program');
+    }
+    
     const assessmentResults = createAssessmentResults(
       userInfo,
       primaryMechanism,
       sinGroup,
-      newDifferential,
+      finalDifferential,
       updatedScores
     );
 
-    // Update the assessment record with the primary differential
+    // Update the assessment record with the primary differential and correct pain area
     try {
-      // Only update the differential, not create a new record
       const { error } = await supabase
         .from('user_assessments')
         .update({
-          primary_differential: newDifferential
+          primary_differential: finalDifferential,
+          pain_area: finalPainArea // Update pain area for correct exercise program mapping
         })
         .eq('id', assessmentId);
         
       if (error) throw error;
+      
+      console.log('Assessment updated successfully:', {
+        assessmentId,
+        differential: finalDifferential,
+        painArea: finalPainArea
+      });
     } catch (error) {
       console.error('Error updating assessment with differential:', error);
     }
@@ -87,39 +103,44 @@ const FollowUpQuestionnaireHandler = () => {
     console.log('Pain sub area:', userInfo?.painSubArea);
     console.log('Primary mechanism:', primaryMechanism);
     
-    // For upper limb cases, check if it's shoulder related
+    // For upper limb cases, check mechanism to determine pathway
     if (userInfo?.painArea === 'upper limb') {
-      const painSubArea = userInfo.painSubArea;
-      console.log('Upper limb detected, checking pain sub area:', painSubArea);
+      console.log('Upper limb detected, checking mechanism:', primaryMechanism);
       
-      // Check if painSubArea includes shoulder (can be array or string)
-      const isShoulderRelated = Array.isArray(painSubArea) 
-        ? painSubArea.some(area => 
-            area && (
-              area.toLowerCase().includes('shoulder') || 
-              area.toLowerCase().includes('rameno')
+      if (primaryMechanism === 'neuropathic') {
+        // Neuropathic pathway -> neck questions
+        console.log('✅ Neuropathic mechanism - using neck questionnaire');
+        return upperLimbQuestionnaires['upper-limb-neck-questions'];
+      } else if (primaryMechanism === 'nociceptive') {
+        // Nociceptive pathway -> shoulder questions (if shoulder-related)
+        const painSubArea = userInfo.painSubArea;
+        console.log('Nociceptive mechanism, checking pain sub area:', painSubArea);
+        
+        // Check if painSubArea includes shoulder (can be array or string)
+        const isShoulderRelated = Array.isArray(painSubArea) 
+          ? painSubArea.some(area => 
+              area && (
+                area.toLowerCase().includes('shoulder') || 
+                area.toLowerCase().includes('rameno')
+              )
             )
-          )
-        : typeof painSubArea === 'string' && painSubArea && (
-            painSubArea.toLowerCase().includes('shoulder') || 
-            painSubArea.toLowerCase().includes('rameno')
-          );
-      
-      console.log('Is shoulder related:', isShoulderRelated);
-      
-      if (isShoulderRelated) {
-        console.log('Shoulder detected, looking for questionnaire for mechanism:', primaryMechanism);
-        console.log('Available shoulder questionnaires:', Object.keys(shoulderQuestionnaires));
+          : typeof painSubArea === 'string' && painSubArea && (
+              painSubArea.toLowerCase().includes('shoulder') || 
+              painSubArea.toLowerCase().includes('rameno')
+            );
         
-        // Get the shoulder questionnaire for the specific mechanism
-        const shoulderQuestionnaire = shoulderQuestionnaires[primaryMechanism];
+        console.log('Is shoulder related:', isShoulderRelated);
         
-        if (shoulderQuestionnaire) {
-          console.log('✅ Found shoulder questionnaire:', shoulderQuestionnaire.id, shoulderQuestionnaire.title);
-          return shoulderQuestionnaire;
-        } else {
-          console.log('❌ No shoulder questionnaire found for mechanism:', primaryMechanism);
-          console.log('Available mechanisms in shoulderQuestionnaires:', Object.keys(shoulderQuestionnaires));
+        if (isShoulderRelated) {
+          console.log('✅ Shoulder detected - using shoulder nociceptive questionnaire');
+          const shoulderQuestionnaire = shoulderQuestionnaires['nociceptive'];
+          
+          if (shoulderQuestionnaire) {
+            console.log('✅ Found shoulder questionnaire:', shoulderQuestionnaire.id, shoulderQuestionnaire.title);
+            return shoulderQuestionnaire;
+          } else {
+            console.log('❌ No shoulder questionnaire found for nociceptive mechanism');
+          }
         }
       }
     }
