@@ -84,17 +84,29 @@ const FollowUpQuestionnaireHandler = () => {
     if (userInfo?.painArea === 'upper limb') {
       // Check if painSubArea includes shoulder or if it's shoulder-related
       const painSubArea = userInfo.painSubArea;
+      console.log('Checking painSubArea:', painSubArea);
+      console.log('Primary mechanism:', primaryMechanism);
+      
       const isShoulderRelated = Array.isArray(painSubArea) 
         ? painSubArea.some(area => area.toLowerCase().includes('shoulder') || area.toLowerCase().includes('rameno'))
         : typeof painSubArea === 'string' && (painSubArea.toLowerCase().includes('shoulder') || painSubArea.toLowerCase().includes('rameno'));
       
+      console.log('Is shoulder related:', isShoulderRelated);
+      console.log('Available shoulder questionnaires:', Object.keys(shoulderQuestionnaires));
+      
       if (isShoulderRelated && shoulderQuestionnaires[primaryMechanism as 'nociceptive' | 'neuropathic' | 'central']) {
         console.log('Loading shoulder questionnaire for mechanism:', primaryMechanism);
-        return shoulderQuestionnaires[primaryMechanism as 'nociceptive' | 'neuropathic' | 'central'];
+        const questionnaire = shoulderQuestionnaires[primaryMechanism as 'nociceptive' | 'neuropathic' | 'central'];
+        console.log('Selected shoulder questionnaire:', questionnaire?.id, questionnaire?.title);
+        return questionnaire;
+      } else {
+        console.log('Shoulder questionnaire not found for mechanism:', primaryMechanism);
+        console.log('Available mechanisms in shoulderQuestionnaires:', Object.keys(shoulderQuestionnaires));
       }
     }
     
     // Default to general questionnaires
+    console.log('Falling back to general questionnaire for mechanism:', primaryMechanism);
     return questionnaires[primaryMechanism as 'nociceptive' | 'neuropathic' | 'central'];
   };
 
@@ -103,7 +115,12 @@ const FollowUpQuestionnaireHandler = () => {
   console.log('FollowUpQuestionnaireHandler - Pain area:', userInfo?.painArea);
   console.log('FollowUpQuestionnaireHandler - Pain sub area:', userInfo?.painSubArea);
   console.log('FollowUpQuestionnaireHandler - Primary mechanism:', primaryMechanism);
-  console.log('FollowUpQuestionnaireHandler - Selected questionnaire:', selectedQuestionnaire?.id);
+  console.log('FollowUpQuestionnaireHandler - Selected questionnaire:', selectedQuestionnaire?.id, selectedQuestionnaire?.title);
+
+  if (!selectedQuestionnaire) {
+    console.error('No questionnaire found for mechanism:', primaryMechanism);
+    return <div>Error: No questionnaire found for mechanism {primaryMechanism}</div>;
+  }
 
   return (
     <Questionnaire

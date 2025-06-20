@@ -9,7 +9,7 @@ interface VideoWithSource {
   importance?: 1 | 2 | 3;
   sourceProgram?: string;
   mainGroup?: Array<'mobility' | 'stability' | 'pain-relief' | 'neuro-mobs'>;
-  bodyPart?: Array<'neck' | 'middle-back' | 'lower-back'>;
+  bodyPart?: Array<'neck' | 'middle-back' | 'lower-back' | 'shoulder'>;
 }
 
 export const generateGeneralProgram = (
@@ -39,7 +39,7 @@ export const generateGeneralProgram = (
             ...video,
             sourceProgram: exercise.title,
             mainGroup: video.mainGroup ?? [],
-            bodyPart: video.bodyPart ?? [], // <-- include bodyPart!
+            bodyPart: video.bodyPart ?? [],
           });
         }
       });
@@ -94,7 +94,7 @@ export const generateGeneralProgram = (
       description: video.description,
       importance: video.importance,
       mainGroup: video.mainGroup ?? [],
-      bodyPart: video.bodyPart ?? [], // <-- pass through bodyPart here!
+      bodyPart: video.bodyPart ?? [],
     }))
   };
 
