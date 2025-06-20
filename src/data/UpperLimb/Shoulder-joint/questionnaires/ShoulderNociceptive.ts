@@ -4,7 +4,6 @@ import { painLocationQuestion } from './pain-location';
 import { nightPainQuestion, restPositionQuestion } from './rest-and-timing';
 import { movementAggravationQuestion, overheadActivitiesQuestion } from './movement-aggravation';
 import { clickingLockingQuestion, shoulderDislocationQuestion } from './mechanical-symptoms';
-import { womenSpecificQuestion } from './women-specific';
 
 export const shoulderNociceptiveQuestionnaire: Questionnaire = {
   id: 'shoulder-nociceptive',
@@ -18,7 +17,5 @@ export const shoulderNociceptiveQuestionnaire: Questionnaire = {
     overheadActivitiesQuestion,
     clickingLockingQuestion,
     shoulderDislocationQuestion,
-    menopauseQuestion,
-    breastExamsQuestion,
-  ];
+  ]
 };

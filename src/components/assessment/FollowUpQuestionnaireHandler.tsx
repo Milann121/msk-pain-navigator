@@ -2,6 +2,7 @@
 import { useAuth } from '@/contexts/AuthContext';
 import { useAssessment, AssessmentStage } from '@/contexts/AssessmentContext';
 import { questionnaires } from '@/data/questionnaires';
+import { shoulderQuestionnaires } from '@/data/UpperLimb/Shoulder-joint/questionnaires';
 import Questionnaire from '@/components/Questionnaire';
 import { processFollowUpQuestionnaire, createAssessmentResults } from '@/utils/assessmentAnalyzer';
 import { supabase } from '@/integrations/supabase/client';
@@ -77,9 +78,36 @@ const FollowUpQuestionnaireHandler = () => {
     return null;
   }
 
+  // Determine which questionnaire to use based on pain area and mechanism
+  const getFollowUpQuestionnaire = () => {
+    // For upper limb cases, check if it's shoulder related
+    if (userInfo?.painArea === 'upper limb') {
+      // Check if painSubArea includes shoulder or if it's shoulder-related
+      const painSubArea = userInfo.painSubArea;
+      const isShoulderRelated = Array.isArray(painSubArea) 
+        ? painSubArea.some(area => area.toLowerCase().includes('shoulder') || area.toLowerCase().includes('rameno'))
+        : typeof painSubArea === 'string' && (painSubArea.toLowerCase().includes('shoulder') || painSubArea.toLowerCase().includes('rameno'));
+      
+      if (isShoulderRelated && shoulderQuestionnaires[primaryMechanism as 'nociceptive' | 'neuropathic' | 'central']) {
+        console.log('Loading shoulder questionnaire for mechanism:', primaryMechanism);
+        return shoulderQuestionnaires[primaryMechanism as 'nociceptive' | 'neuropathic' | 'central'];
+      }
+    }
+    
+    // Default to general questionnaires
+    return questionnaires[primaryMechanism as 'nociceptive' | 'neuropathic' | 'central'];
+  };
+
+  const selectedQuestionnaire = getFollowUpQuestionnaire();
+  
+  console.log('FollowUpQuestionnaireHandler - Pain area:', userInfo?.painArea);
+  console.log('FollowUpQuestionnaireHandler - Pain sub area:', userInfo?.painSubArea);
+  console.log('FollowUpQuestionnaireHandler - Primary mechanism:', primaryMechanism);
+  console.log('FollowUpQuestionnaireHandler - Selected questionnaire:', selectedQuestionnaire?.id);
+
   return (
     <Questionnaire
-      questionnaire={questionnaires[primaryMechanism as 'nociceptive' | 'neuropathic' | 'central']}
+      questionnaire={selectedQuestionnaire}
       onComplete={handleFollowUpQuestionnaireComplete}
       onBack={handleBack}
     />
