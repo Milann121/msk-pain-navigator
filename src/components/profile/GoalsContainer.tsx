@@ -230,21 +230,21 @@ export const GoalsContainer = ({ onBlogGoalChange, onExerciseGoalChange, externa
               </span>
             </div>
             
-            {/* Buttons row - always stacked vertically with increased height and decreased width */}
-            <div className="flex flex-col gap-2">
+            {/* Buttons row - stacked on mobile */}
+            <div className="flex gap-2 flex-col sm:flex-row">
               <Button 
-                size="default" 
+                size="md" 
                 onClick={() => handleSave(field)} 
-                className="h-12 w-32 mx-auto"
+                className="px-4 h-8 flex-1 sm:flex-none"
                 disabled={loading}
               >
                 Uložiť
               </Button>
               <Button 
-                size="default" 
+                size="md" 
                 variant="outline" 
                 onClick={handleCancel} 
-                className="h-12 w-32 mx-auto"
+                className="px-4 h-8 flex-1 sm:flex-none"
                 disabled={loading}
               >
                 Zrušiť
