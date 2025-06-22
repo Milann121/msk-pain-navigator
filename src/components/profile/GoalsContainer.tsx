@@ -235,7 +235,7 @@ export const GoalsContainer = ({ onBlogGoalChange, onExerciseGoalChange, externa
               <Button 
                 size="md" 
                 onClick={() => handleSave(field)} 
-                className="px-4 h-8 flex-1 sm:flex-none"
+                className="px-4 h-8 flex-1 md:flex-none"
                 disabled={loading}
               >
                 Uložiť
@@ -244,7 +244,7 @@ export const GoalsContainer = ({ onBlogGoalChange, onExerciseGoalChange, externa
                 size="md" 
                 variant="outline" 
                 onClick={handleCancel} 
-                className="px-4 h-8 flex-1 sm:flex-none"
+                className="px-4 h-8 flex-1 md:flex-none"
                 disabled={loading}
               >
                 Zrušiť
