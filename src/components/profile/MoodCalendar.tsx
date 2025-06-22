@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { format, isAfter, isBefore, subDays, isSameDay } from 'date-fns';
 import { sk } from 'date-fns/locale/sk';
@@ -13,6 +12,8 @@ import { useMoodData } from './mood/useMoodData';
 import { Info } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Button } from "@/components/ui/button";
 
 // Map mood string to value
 const moodValueMap = {
@@ -24,6 +25,7 @@ const moodValueMap = {
 export const MoodCalendar = () => {
   const [date, setDate] = useState<Date>(new Date());
   const [timePeriod, setTimePeriod] = useState<'week' | 'month'>('week');
+  const [infoPopoverOpen, setInfoPopoverOpen] = useState(false);
   const { firstName, loading, handleMoodSelection, getMoodForDate, moodEntries } = useMoodData();
   
   // Get mood for the selected date
@@ -142,22 +144,33 @@ export const MoodCalendar = () => {
             <div className="mt-4 w-full flex flex-col items-center">
               <div className="text-sm text-gray-500 mb-1 flex items-center gap-1">
                 Priemerné skóre za {periodLabel}
-                <TooltipProvider>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <span className="ml-1 cursor-pointer">
-                        <Info size={16} className="text-gray-400 hover:text-blue-600" />
-                      </span>
-                    </TooltipTrigger>
-                    <TooltipContent side="top" className="max-w-xs">
-                      <span>
+                <Popover open={infoPopoverOpen} onOpenChange={setInfoPopoverOpen}>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="p-1 h-auto w-auto min-w-[24px] min-h-[24px] text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-full touch-manipulation"
+                      onClick={() => setInfoPopoverOpen(!infoPopoverOpen)}
+                    >
+                      <Info size={16} />
+                      <span className="sr-only">Informácie o skóre</span>
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent 
+                    side="top" 
+                    className="max-w-xs bg-white border border-gray-200 shadow-lg z-50"
+                    align="center"
+                    sideOffset={8}
+                  >
+                    <div className="p-3">
+                      <p className="text-sm text-gray-700 leading-relaxed">
                         Priemerné skóre z posledných {currentPeriodDays} dní vychádza z vašich denných zápisov nálady.<br />
                         <span className="font-medium">Dobre = 3, Neutrálne = 2, Zle = 1.</span><br />
                         Sledujte, ako sa vaše celkové skóre mení v čase.
-                      </span>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
+                      </p>
+                    </div>
+                  </PopoverContent>
+                </Popover>
               </div>
               <div className="flex items-center text-2xl font-bold space-x-2">
                 <span>{formatScore(moodScore)}</span>
