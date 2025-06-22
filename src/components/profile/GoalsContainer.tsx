@@ -206,43 +206,50 @@ export const GoalsContainer = ({ onBlogGoalChange, onExerciseGoalChange, externa
 
     if (isEditing) {
       return (
-        <div className="flex items-center py-3 border-b border-gray-100 last:border-b-0">
-          <div className="flex items-center gap-2 flex-1">
-            <span className="text-base">
-              {displayText.split('{dropdown}')[0]}
-            </span>
-            <Select value={tempValue?.toString() || ""} onValueChange={(value) => setTempValue(parseInt(value))}>
-              <SelectTrigger className="w-20 h-8">
-                <SelectValue placeholder="-" />
-              </SelectTrigger>
-              <SelectContent>
-                {options.map((option) => (
-                  <SelectItem key={option} value={option.toString()}>
-                    {option}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-            <span className="text-base">
-              {displayText.split('{dropdown}')[1]}
-            </span>
-            <Button 
-              size="sm" 
-              onClick={() => handleSave(field)} 
-              className="ml-2 px-4 h-8"
-              disabled={loading}
-            >
-              Uložiť
-            </Button>
-            <Button 
-              size="sm" 
-              variant="outline" 
-              onClick={handleCancel} 
-              className="px-4 h-8"
-              disabled={loading}
-            >
-              Zrušiť
-            </Button>
+        <div className="py-3 border-b border-gray-100 last:border-b-0">
+          <div className="flex flex-col gap-3">
+            {/* Text and dropdown row */}
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className="text-base">
+                {displayText.split('{dropdown}')[0]}
+              </span>
+              <Select value={tempValue?.toString() || ""} onValueChange={(value) => setTempValue(parseInt(value))}>
+                <SelectTrigger className="w-20 h-8">
+                  <SelectValue placeholder="-" />
+                </SelectTrigger>
+                <SelectContent>
+                  {options.map((option) => (
+                    <SelectItem key={option} value={option.toString()}>
+                      {option}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <span className="text-base">
+                {displayText.split('{dropdown}')[1]}
+              </span>
+            </div>
+            
+            {/* Buttons row - stacked on mobile */}
+            <div className="flex gap-2 flex-col sm:flex-row">
+              <Button 
+                size="sm" 
+                onClick={() => handleSave(field)} 
+                className="px-4 h-8 flex-1 sm:flex-none"
+                disabled={loading}
+              >
+                Uložiť
+              </Button>
+              <Button 
+                size="sm" 
+                variant="outline" 
+                onClick={handleCancel} 
+                className="px-4 h-8 flex-1 sm:flex-none"
+                disabled={loading}
+              >
+                Zrušiť
+              </Button>
+            </div>
           </div>
         </div>
       );
