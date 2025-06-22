@@ -244,7 +244,7 @@ export const GoalsContainer = ({ onBlogGoalChange, onExerciseGoalChange, externa
                 size="sm" 
                 variant="outline" 
                 onClick={handleCancel} 
-                className="px-4 h-8 flex-1 sm:flex-none"
+                className="px-4 h-20 flex-1 sm:flex-none"
                 disabled={loading}
               >
                 Zrušiť
