@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Header from '@/components/Header';
 import { Card, CardContent, CardDescription, CardFooter, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -71,6 +72,7 @@ const sampleBlogs: BlogPost[] = [
 ];
 
 const BlogCard: React.FC<{ blog: BlogPost }> = ({ blog }) => {
+  const { t } = useTranslation();
   return (
     <Card className="h-full flex flex-col">
       <AspectRatio ratio={16/9} className="bg-muted">
@@ -85,7 +87,7 @@ const BlogCard: React.FC<{ blog: BlogPost }> = ({ blog }) => {
         <CardDescription className="text-sm">{blog.description}</CardDescription>
       </CardContent>
       <CardFooter className="pt-0 flex flex-col gap-2">
-        <Button 
+        <Button
           className="w-full"
           variant="outline"
           onClick={() => {
@@ -96,7 +98,7 @@ const BlogCard: React.FC<{ blog: BlogPost }> = ({ blog }) => {
             }
           }}
         >
-          Čítať viac
+          {t('blog.readMore')}
           {blog.isExternal && <ExternalLink className="ml-2 h-4 w-4" />}
         </Button>
         
@@ -127,13 +129,14 @@ const BlogCard: React.FC<{ blog: BlogPost }> = ({ blog }) => {
 
 const Blog = () => {
   const { isLoading } = useAuth();
+  const { t } = useTranslation();
 
   if (isLoading) {
     return (
       <div className="min-h-screen flex flex-col">
         <Header />
         <div className="flex-1 bg-gradient-to-b from-blue-50 to-white py-10 px-4 flex items-center justify-center">
-          <div className="text-blue-600">Načítava sa...</div>
+          <div className="text-blue-600">{t('loading')}</div>
         </div>
       </div>
     );
@@ -144,7 +147,7 @@ const Blog = () => {
       <Header />
       <div className="flex-1 bg-gradient-to-b from-blue-50 to-white py-10 px-2 md:px-4">
         <div className="container mx-auto w-full max-w-full md:max-w-4xl px-2 md:px-0">
-          <h1 className="text-3xl font-bold text-blue-800 mb-6">Blog</h1>
+          <h1 className="text-3xl font-bold text-blue-800 mb-6">{t('blog.title')}</h1>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {sampleBlogs.map((blog) => (

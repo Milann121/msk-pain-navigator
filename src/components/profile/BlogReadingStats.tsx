@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { BookOpen } from 'lucide-react';
@@ -12,6 +13,7 @@ interface BlogReadingStatsProps {
 
 export const BlogReadingStats = ({ weeklyBlogGoal }: BlogReadingStatsProps) => {
   const { user } = useAuth();
+  const { t } = useTranslation();
   const [blogCount, setBlogCount] = useState(0);
   const [loading, setLoading] = useState(true);
 
@@ -60,7 +62,7 @@ export const BlogReadingStats = ({ weeklyBlogGoal }: BlogReadingStatsProps) => {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="text-gray-500">Načítava sa...</div>
+          <div className="text-gray-500">{t('loading')}</div>
         </CardContent>
       </Card>
     );
