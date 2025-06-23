@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
@@ -22,6 +23,7 @@ export const SavedBlogs = () => {
   const [loading, setLoading] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
   const { user } = useAuth();
+  const { t } = useTranslation();
 
   const blogsPerPage = 3;
 
@@ -115,7 +117,7 @@ export const SavedBlogs = () => {
         </CardHeader>
         <CardContent>
           <div className="text-center py-8">
-            <p className="text-muted-foreground">Načítava sa...</p>
+            <p className="text-muted-foreground">{t('loading')}</p>
           </div>
         </CardContent>
       </Card>

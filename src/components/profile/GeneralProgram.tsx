@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
 import { Exercise } from '@/types/exercise';
@@ -9,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 
 export const GeneralProgram = () => {
   const { user } = useAuth();
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [generalProgram, setGeneralProgram] = useState<Exercise[]>([]);
   const [loading, setLoading] = useState(true);
@@ -74,7 +76,7 @@ export const GeneralProgram = () => {
   if (loading) {
     return (
       <div className="h-full flex items-center justify-center">
-        <div className="text-blue-600">Načítava sa...</div>
+        <div className="text-blue-600">{t('loading')}</div>
       </div>
     );
   }

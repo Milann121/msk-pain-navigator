@@ -11,5 +11,39 @@
     "assessment": "Dotazník bolesti",
     "signIn": "Prihlásiť sa",
     "signOut": "Odhlásiť sa"
+  },
+  "auth": {
+    "signIn": "Prihlásiť sa",
+    "signUp": "Vytvoriť účet",
+    "google": "Pokračovať s Google",
+    "toggleSignUp": "Nemáte účet? Zaregistrujte sa",
+    "toggleSignIn": "Už máte účet? Prihláste sa",
+    "signUpSubtitle": "Vytvorte si nový účet pre začatie",
+    "signInSubtitle": "Prihláste sa do svojho účtu",
+    "firstName": "Meno",
+    "email": "Email",
+    "password": "Heslo",
+    "privacyConsent": "Súhlasím so spracovaním osobných údajov",
+    "or": "alebo",
+    "backHome": "Späť na hlavnú stránku"
+  },
+  "myExercises": {
+    "title": "Moje cviky",
+    "activeProgramsTitle": "Aktívne programy",
+    "activeProgramsDescription": "Nižšie nájdeš všetky svoje aktívne cvičebné programy z dokončených hodnotení.",
+    "endedProgramsTitle": "Ukončené programy",
+    "endedProgramsDescription": "Nižšie nájdete všetky programy, ktoré ste už ukončili.",
+    "noEndedPrograms": "Žiadne ukončené programy.",
+    "backHome": "Späť na úvod",
+    "newAssessment": "Nové hodnotenie"
+  },
+  "blog": {
+    "title": "Blog",
+    "readMore": "Čítať viac"
+  },
+  "assessment": {
+    "title": "Hodnotenie bolesti pohybového aparátu",
+    "subtitle": "Vyplňte dotazník pre získanie personalizovaných cvičebných odporúčaní",
+    "new": "Nové hodnotenie"
   }
 }

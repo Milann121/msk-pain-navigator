@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
@@ -18,6 +19,7 @@ interface FavoriteExercise {
 export const FavoriteExercises = () => {
   const [favoriteExercises, setFavoriteExercises] = useState<FavoriteExercise[]>([]);
   const [loading, setLoading] = useState(true);
+  const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedExercise, setSelectedExercise] = useState<FavoriteExercise | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -117,7 +119,7 @@ export const FavoriteExercises = () => {
         </CardHeader>
         <CardContent>
           <div className="text-center py-8">
-            <p className="text-muted-foreground">Načítava sa...</p>
+            <p className="text-muted-foreground">{t('loading')}</p>
           </div>
         </CardContent>
       </Card>

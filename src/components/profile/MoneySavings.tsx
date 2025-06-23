@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
 import { Euro } from 'lucide-react';
@@ -7,6 +8,7 @@ import { format } from 'date-fns';
 
 export const MoneySavings = () => {
   const { user } = useAuth();
+  const { t } = useTranslation();
   const [totalSavings, setTotalSavings] = useState(0);
   const [loading, setLoading] = useState(true);
 
@@ -113,7 +115,7 @@ export const MoneySavings = () => {
           <Euro className="h-6 w-6 text-green-600" />
           <h3 className="text-xl font-semibold text-green-800">Ušetrené peniaze</h3>
         </div>
-        <div className="text-green-600">Načítava sa...</div>
+        <div className="text-green-600">{t('loading')}</div>
       </div>
     );
   }

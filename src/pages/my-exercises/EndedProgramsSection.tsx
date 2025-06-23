@@ -5,6 +5,7 @@ import { AssessmentAccordionItem } from "@/components/exercise-dashboard/assessm
 import { LoadingState } from "@/components/exercise-dashboard/assessment/LoadingState";
 import { Button } from "@/components/ui/button";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { UserAssessment } from "@/components/follow-up/types";
 import { NavigateFunction } from "react-router-dom";
 
@@ -24,19 +25,21 @@ export const EndedProgramsSection: React.FC<EndedProgramsSectionProps> = ({
   handleDeleteAssessment,
   handleRenewAssessmentUI,
   navigate
-}) => (
-  <Card>
-    <CardHeader>
-      <CardTitle>Ukončené programy</CardTitle>
-      <CardDescription>
-        Nižšie nájdete všetky programy, ktoré ste už ukončili.
-      </CardDescription>
-    </CardHeader>
+}) => {
+  const { t } = useTranslation();
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>{t("myExercises.endedProgramsTitle")}</CardTitle>
+        <CardDescription>
+          {t("myExercises.endedProgramsDescription")}
+        </CardDescription>
+      </CardHeader>
     <CardContent>
       {loading ? (
         <LoadingState />
       ) : endedAssessments.length === 0 ? (
-        <div className="text-center text-gray-400 py-6">Žiadne ukončené programy.</div>
+        <div className="text-center text-gray-400 py-6">{t("myExercises.noEndedPrograms")}</div>
       ) : (
         <Accordion type="single" collapsible className="w-full space-y-2">
           {endedAssessments.map((assessment) => (
@@ -53,11 +56,12 @@ export const EndedProgramsSection: React.FC<EndedProgramsSectionProps> = ({
     </CardContent>
     <CardFooter className="flex justify-between">
       <Button variant="outline" onClick={() => navigate("/")}>
-        Späť na úvod
+        {t("myExercises.backHome")}
       </Button>
       <Button onClick={() => navigate("/assessment")}>
-        Nové hodnotenie
+        {t("myExercises.newAssessment")}
       </Button>
     </CardFooter>
   </Card>
-);
+  );
+};

@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Dumbbell } from 'lucide-react';
@@ -14,6 +15,7 @@ interface ExerciseStatsProps {
 
 export const ExerciseStats = ({ weeklyExerciseGoal, onGoalUpdate }: ExerciseStatsProps) => {
   const { user } = useAuth();
+  const { t } = useTranslation();
   const [exerciseCount, setExerciseCount] = useState(0);
   const [loading, setLoading] = useState(true);
 
@@ -89,7 +91,7 @@ export const ExerciseStats = ({ weeklyExerciseGoal, onGoalUpdate }: ExerciseStat
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="text-gray-500">Načítava sa...</div>
+          <div className="text-gray-500">{t('loading')}</div>
         </CardContent>
       </Card>
     );
