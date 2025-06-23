@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/contexts/AuthContext';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { EditableField } from './EditableField';
@@ -18,6 +19,7 @@ interface UserProfileData {
 
 export const ProfileInfo = () => {
   const { user } = useAuth();
+  const { t } = useTranslation();
   
   const [userData, setUserData] = useState<UserProfileData>({
     firstName: '',
@@ -147,7 +149,7 @@ export const ProfileInfo = () => {
           <CardTitle>Osobné údaje</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="text-center text-muted-foreground">Načítava sa...</div>
+          <div className="text-center text-muted-foreground">{t('loading')}</div>
         </CardContent>
       </Card>
     );

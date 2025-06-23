@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Navigate, Link } from 'react-router-dom';
 import { useToast } from '@/components/ui/use-toast';
 import { useAuth } from '@/contexts/AuthContext';
@@ -23,6 +24,7 @@ const Auth = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [privacyConsent, setPrivacyConsent] = useState(false);
   const { signIn, signUp, signInWithGoogle, user } = useAuth();
+  const { t } = useTranslation();
   const { toast } = useToast();
 
   if (user) {
@@ -83,18 +85,16 @@ const Auth = () => {
           <Link to="/">
             <Button variant="ghost" className="flex items-center gap-2">
               <Home className="h-4 w-4" />
-              Späť na hlavnú stránku
+              {t('auth.backHome')}
             </Button>
           </Link>
         </div>
         
         <Card>
           <CardHeader>
-            <CardTitle>{isSignUp ? 'Vytvoriť účet' : 'Prihlásiť sa'}</CardTitle>
+            <CardTitle>{isSignUp ? t('auth.signUp') : t('auth.signIn')}</CardTitle>
             <CardDescription>
-              {isSignUp
-                ? 'Vytvorte si nový účet pre začatie'
-                : 'Prihláste sa do svojho účtu'}
+              {isSignUp ? t('auth.signUpSubtitle') : t('auth.signInSubtitle')}
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -123,7 +123,7 @@ const Auth = () => {
                     fill="#EA4335"
                   />
                 </svg>
-                Pokračovať s Google
+                {t('auth.google')}
               </Button>
             </div>
             
@@ -132,14 +132,14 @@ const Auth = () => {
                 <span className="w-full border-t border-gray-300" />
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-gray-500">alebo</span>
+                <span className="px-2 bg-white text-gray-500">{t('auth.or')}</span>
               </div>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               {isSignUp && (
                 <div className="space-y-1">
-                  <Label htmlFor="firstName">Meno</Label>
+                  <Label htmlFor="firstName">{t('auth.firstName')}</Label>
                   <Input
                     id="firstName"
                     type="text"
@@ -150,7 +150,7 @@ const Auth = () => {
                 </div>
               )}
               <div className="space-y-1">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email">{t('auth.email')}</Label>
                 <Input
                   id="email"
                   type="email"
@@ -160,7 +160,7 @@ const Auth = () => {
                 />
               </div>
               <div className="space-y-1">
-                <Label htmlFor="password">Heslo</Label>
+                <Label htmlFor="password">{t('auth.password')}</Label>
                 <Input
                   id="password"
                   type="password"
@@ -178,7 +178,7 @@ const Auth = () => {
                     onCheckedChange={(checked) => setPrivacyConsent(checked as boolean)}
                   />
                   <Label htmlFor="privacy" className="text-sm text-gray-600">
-                    Súhlasím so{' '}
+                    {t('auth.privacyConsent')} {' '}
                     <Link
                       to="/privacy-policy"
                       className="text-blue-600 hover:text-blue-800 underline"
@@ -196,10 +196,10 @@ const Auth = () => {
                 disabled={isLoading || (isSignUp && !privacyConsent)}
               >
                 {isLoading
-                  ? 'Načítava sa...'
+                  ? t('loading')
                   : isSignUp
-                  ? 'Vytvoriť účet'
-                  : 'Prihlásiť sa'}
+                  ? t('auth.signUp')
+                  : t('auth.signIn')}
               </Button>
             </form>
             
@@ -210,8 +210,8 @@ const Auth = () => {
                 className="text-sm"
               >
                 {isSignUp
-                  ? 'Už máte účet? Prihláste sa'
-                  : "Nemáte účet? Zaregistrujte sa"}
+                  ? t('auth.toggleSignIn')
+                  : t('auth.toggleSignUp')}
               </Button>
             </div>
           </CardContent>

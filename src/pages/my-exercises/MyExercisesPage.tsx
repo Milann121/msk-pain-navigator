@@ -1,5 +1,6 @@
 
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { useAuth } from "@/contexts/AuthContext";
 import { Navigate, useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
@@ -16,6 +17,7 @@ import { EndedProgramsSection } from "./EndedProgramsSection";
 export const MyExercisesPage = () => {
   const { user, isLoading } = useAuth();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const { assessments, loading, handleDeleteAssessment, refreshAssessments } = useAssessments();
   const [selectedAssessment, setSelectedAssessment] = React.useState<UserAssessment | null>(null);
 
@@ -72,7 +74,7 @@ export const MyExercisesPage = () => {
       <div className="min-h-screen flex flex-col">
         <Header />
         <div className="flex-1 bg-gradient-to-b from-blue-50 to-white py-10 px-4 flex items-center justify-center">
-          <div className="text-blue-600">Načítava sa...</div>
+          <div className="text-blue-600">{t('loading')}</div>
         </div>
       </div>
     );

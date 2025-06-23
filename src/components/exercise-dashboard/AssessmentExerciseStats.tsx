@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
 
@@ -11,6 +12,7 @@ export const AssessmentExerciseStats = ({ assessmentId }: AssessmentExerciseStat
   const [uniqueDaysCount, setUniqueDaysCount] = useState(0);
   const [lastCompletionDate, setLastCompletionDate] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+  const { t } = useTranslation();
   const { user } = useAuth();
 
   useEffect(() => {
@@ -69,7 +71,7 @@ export const AssessmentExerciseStats = ({ assessmentId }: AssessmentExerciseStat
   }, [user, assessmentId]);
 
   if (loading) {
-    return <div className="text-sm text-gray-500">Načítava sa...</div>;
+    return <div className="text-sm text-gray-500">{t('loading')}</div>;
   }
 
   if (uniqueDaysCount === 0) {

@@ -11,5 +11,39 @@
     "assessment": "Pain questionnaire",
     "signIn": "Sign in",
     "signOut": "Sign out"
+  },
+  "auth": {
+    "signIn": "Sign in",
+    "signUp": "Create account",
+    "google": "Continue with Google",
+    "toggleSignUp": "Don't have an account? Sign up",
+    "toggleSignIn": "Already have an account? Sign in",
+    "signUpSubtitle": "Create a new account to get started",
+    "signInSubtitle": "Sign in to your account",
+    "firstName": "First name",
+    "email": "Email",
+    "password": "Password",
+    "privacyConsent": "I agree to the processing of personal data",
+    "or": "or",
+    "backHome": "Back to home"
+  },
+  "myExercises": {
+    "title": "My exercises",
+    "activeProgramsTitle": "Active programs",
+    "activeProgramsDescription": "Below you'll find all your active exercise programs from completed assessments.",
+    "endedProgramsTitle": "Ended programs",
+    "endedProgramsDescription": "Below you will find all programs you have already ended.",
+    "noEndedPrograms": "No ended programs.",
+    "backHome": "Back to home",
+    "newAssessment": "New assessment"
+  },
+  "blog": {
+    "title": "Blog",
+    "readMore": "Read more"
+  },
+  "assessment": {
+    "title": "Pain assessment",
+    "subtitle": "Fill the questionnaire to get personalized exercise recommendations",
+    "new": "New assessment"
   }
 }
