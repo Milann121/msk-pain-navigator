@@ -1,6 +1,8 @@
 {
   "profile": {
-    "title": "Můj profil"
+    "title": "Můj profil",
+    "moneySavingsTitle": "Ušetřené peníze",
+    "moneySavingsNote": "*vypočítáno z průměrných cen na Slovensku"
   },
   "loading": "Načítá se...",
   "header": {
