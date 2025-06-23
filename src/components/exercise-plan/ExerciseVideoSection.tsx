@@ -168,12 +168,14 @@ export const ExerciseVideoSection = ({
                   videoId={video.videoId}
                 />
               )}
-              <div className="flex items-center gap-4 mt-1 mb-2">
-                <span className="text-base font-medium text-gray-900">Vyhovuje vám cvik?</span>
-                <ExerciseGoodToggle
-                  value={feedbackValue}
-                  onChange={handleToggleChange}
-                />
+              <div className="space-y-2">
+                <span className="text-base font-medium text-gray-900 block">Vyhovuje vám cvik?</span>
+                <div className="flex justify-start">
+                  <ExerciseGoodToggle
+                    value={feedbackValue}
+                    onChange={handleToggleChange}
+                  />
+                </div>
               </div>
               <ExerciseFeedbackDialog
                 open={feedbackDialogOpen}
@@ -225,12 +227,14 @@ export const ExerciseVideoSection = ({
                 videoId={video.videoId}
               />
             )}
-            <div className="flex items-center gap-4 mt-1 mb-2">
-              <span className="text-base font-medium text-gray-900">Vyhovuje vám cvik?</span>
-              <ExerciseGoodToggle
-                value={feedbackValue}
-                onChange={handleToggleChange}
-              />
+            <div className="space-y-2">
+              <span className="text-base font-medium text-gray-900 block">Vyhovuje vám cvik?</span>
+              <div className="flex justify-start">
+                <ExerciseGoodToggle
+                  value={feedbackValue}
+                  onChange={handleToggleChange}
+                />
+              </div>
             </div>
             <ExerciseFeedbackDialog
               open={feedbackDialogOpen}
