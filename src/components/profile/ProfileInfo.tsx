@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/contexts/AuthContext';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { EditableField } from './EditableField';
@@ -18,6 +19,7 @@ interface UserProfileData {
 
 export const ProfileInfo = () => {
   const { user } = useAuth();
+  const { t } = useTranslation();
   
   const [userData, setUserData] = useState<UserProfileData>({
     firstName: '',
@@ -144,10 +146,10 @@ export const ProfileInfo = () => {
     return (
       <Card className="h-full">
         <CardHeader>
-          <CardTitle>Osobné údaje</CardTitle>
+          <CardTitle>{t('profile.personalData')}</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="text-center text-muted-foreground">Načítava sa...</div>
+          <div className="text-center text-muted-foreground">{t('loading')}</div>
         </CardContent>
       </Card>
     );
@@ -156,13 +158,13 @@ export const ProfileInfo = () => {
   return (
     <Card className="h-full">
       <CardHeader>
-        <CardTitle>Osobné údaje</CardTitle>
+        <CardTitle>{t('profile.personalData')}</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="space-y-6">
           <div className="grid grid-cols-2 gap-4">
             <EditableField
-              label="Meno"
+              label={t('profile.firstName')}
               field="firstName"
               value={userData.firstName}
               editingField={editingField}
@@ -176,7 +178,7 @@ export const ProfileInfo = () => {
           
           <div className="grid grid-cols-2 gap-4">
             <EditableField
-              label="Priezvisko"
+              label={t('profile.lastName')}
               field="lastName"
               value={userData.lastName}
               editingField={editingField}
@@ -190,7 +192,7 @@ export const ProfileInfo = () => {
           
           <div className="grid grid-cols-2 gap-4">
             <EditableField
-              label="Vek"
+              label={t('profile.age')}
               field="age"
               value={userData.age}
               type="number"
