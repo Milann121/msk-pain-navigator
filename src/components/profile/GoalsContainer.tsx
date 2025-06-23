@@ -233,7 +233,7 @@ export const GoalsContainer = ({ onBlogGoalChange, onExerciseGoalChange, externa
             {/* Buttons row - stacked on mobile */}
             <div className="flex gap-2 flex-col sm:flex-row">
               <Button 
-                size="md" 
+                size="default" 
                 onClick={() => handleSave(field)} 
                 className="px-4 h-8 flex-1 sm:flex-none"
                 disabled={loading}
@@ -241,7 +241,7 @@ export const GoalsContainer = ({ onBlogGoalChange, onExerciseGoalChange, externa
                 Uložiť
               </Button>
               <Button 
-                size="md" 
+                size="default" 
                 variant="outline" 
                 onClick={handleCancel} 
                 className="px-4 h-8 flex-1 sm:flex-none"

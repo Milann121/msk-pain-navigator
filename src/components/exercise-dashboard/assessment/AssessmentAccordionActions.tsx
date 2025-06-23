@@ -28,7 +28,7 @@ export function AssessmentAccordionActions({
   handleViewExercises
 }: AssessmentAccordionActionsProps) {
   return (
-    <div className="flex flex-wrap justify-end gap-2 mt-4">
+    <div className="flex flex-wrap justify-start md:justify-end gap-2 mt-4">
       <Button 
         variant="outline" 
         size="sm"
