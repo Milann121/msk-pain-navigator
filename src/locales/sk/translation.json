@@ -1,0 +1,15 @@
+{
+  "profile": {
+    "title": "Môj profil"
+  },
+  "loading": "Načítava sa...",
+  "header": {
+    "home": "Domov",
+    "profile": "Môj profil",
+    "myExercises": "Moje cviky",
+    "blog": "Blog",
+    "assessment": "Dotazník bolesti",
+    "signIn": "Prihlásiť sa",
+    "signOut": "Odhlásiť sa"
+  }
+}

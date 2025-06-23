@@ -65,7 +65,10 @@
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.160.1",
     "vaul": "^0.9.3",
-    "zod": "^3.23.8"
+    "zod": "^3.23.8",
+    "i18next": "^23.7.4",
+    "react-i18next": "^13.2.2",
+    "i18next-browser-languagedetector": "^7.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",

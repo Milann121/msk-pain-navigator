@@ -1,6 +1,7 @@
 
 import { Menu } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -10,23 +11,20 @@ const Header = () => {
   const navigate = useNavigate();
   const isMobile = useIsMobile();
   const { user, signOut } = useAuth();
+  const { t } = useTranslation();
 
-  const navigationLinks = [];
-
-  if (user) {
-    navigationLinks.push(
-      { href: '/domov', label: 'Domov' },
-      { href: '/profile', label: 'Môj profil' },
-      { href: '/my-exercises', label: 'Moje cviky' },
-      { href: '/blog', label: 'Blog' },
-      { href: '/assessment', label: 'Dotazník bolesti' }
-    );
-  } else {
-    navigationLinks.push(
-      { href: '/', label: 'Domov' },
-      { href: '/blog', label: 'Blog' }
-    );
-  }
+  const navigationLinks = user
+    ? [
+        { href: '/domov', label: t('header.home') },
+        { href: '/profile', label: t('header.profile') },
+        { href: '/my-exercises', label: t('header.myExercises') },
+        { href: '/blog', label: t('header.blog') },
+        { href: '/assessment', label: t('header.assessment') }
+      ]
+    : [
+        { href: '/', label: t('header.home') },
+        { href: '/blog', label: t('header.blog') }
+      ];
 
   const handleAuthClick = () => {
     if (user) {
@@ -64,7 +62,7 @@ const Header = () => {
                 variant="ghost"
                 className="w-full text-left justify-start px-4 py-2 text-lg"
               >
-                {user ? 'Odhlásiť sa' : 'Prihlásiť sa'}
+                {user ? t('header.signOut') : t('header.signIn')}
               </Button>
             </li>
           </ul>
@@ -126,7 +124,7 @@ const Header = () => {
             variant="outline"
             className="bg-white text-blue-600 hover:bg-blue-50"
           >
-            {user ? 'Odhlásiť sa' : 'Prihlásiť sa'}
+            {user ? t('header.signOut') : t('header.signIn')}
           </Button>
         </nav>
       </div>
