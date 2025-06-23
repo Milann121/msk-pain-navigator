@@ -1,7 +1,9 @@
 
 {
   "profile": {
-    "title": "My profile"
+    "title": "My profile",
+    "moneySavingsTitle": "Money saved",
+    "moneySavingsNote": "*calculated from average prices in Slovakia"
   },
   "loading": "Loading...",
   "header": {
