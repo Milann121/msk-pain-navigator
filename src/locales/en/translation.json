@@ -1,0 +1,15 @@
+{
+  "profile": {
+    "title": "My profile"
+  },
+  "loading": "Loading...",
+  "header": {
+    "home": "Home",
+    "profile": "My profile",
+    "myExercises": "My exercises",
+    "blog": "Blog",
+    "assessment": "Pain questionnaire",
+    "signIn": "Sign in",
+    "signOut": "Sign out"
+  }
+}
