@@ -29,6 +29,43 @@
       "officeWork": "práca v kancelárii"
     }
   },
+  "home": {
+    "greeting": "Vitajte späť, {{name}}!",
+    "greetingDefault": "Vitajte späť!",
+    "mood": {
+      "selector": {
+        "question": "Ako sa dnes cítite?",
+        "happy": "Dobre",
+        "neutral": "Neutrálne", 
+        "sad": "Zle"
+      },
+      "avgScore": "Priemerné skóre ({{period}})",
+      "week": "Týždeň",
+      "month": "Mesiac",
+      "periodWeek": "týždeň",
+      "periodMonth": "mesiac",
+      "better": "Lepšie ako posledných {{days}} dní",
+      "worse": "Horšie ako posledných {{days}} dní",
+      "noChange": "Bez zmeny",
+      "noRecords": "Žiadne záznamy za {{period}}",
+      "emptyWeek": "tento týždeň",
+      "emptyMonth": "tento mesiac",
+      "infoLabel": "Informácie o skóre",
+      "infoText": "Priemerné skóre nálady za posledných {{days}} dní.",
+      "infoGrades": "Dobre: 3, Neutrálne: 2, Zle: 1",
+      "infoFollow": "Sledujte svoj pokrok v čase."
+    },
+    "progressTitle": "Môj pokrok",
+    "setGoals": "Nastaviť ciele",
+    "generalProgram": {
+      "view": "Zobraziť program",
+      "exerciseCount": "cvikov"
+    }
+  },
+  "exercisePlanPage": {
+    "generalTitle": "Všeobecný program",
+    "generalDescription": "Základné cvičenia pre celkové posilnenie a mobilitu."
+  },
   "bodyParts": {
     "neck": "Krčná chrbtíca",
     "middle back": "Hrudná chrbtíca",
