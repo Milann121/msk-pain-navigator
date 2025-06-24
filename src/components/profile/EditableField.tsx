@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Edit } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface EditableFieldProps {
   label: string;
@@ -31,6 +32,7 @@ export const EditableField: React.FC<EditableFieldProps> = ({
   onTempValueChange
 }) => {
   const isEditing = editingField === field;
+  const { t } = useTranslation();
 
   if (isEditing) {
     return (
@@ -43,13 +45,13 @@ export const EditableField: React.FC<EditableFieldProps> = ({
             onChange={(e) => onTempValueChange(type === 'number' ? Number(e.target.value) : e.target.value)}
             className="flex-1 h-11 text-base"
             autoFocus
-            placeholder={`Zadajte ${label.toLowerCase()}`}
+            placeholder={t('profile.savePlaceholder', { field: label.toLowerCase() })}
           />
           <Button size="sm" onClick={() => onSave(field)} className="px-6 h-11">
-            Uložiť
+            {t('profile.save')}
           </Button>
           <Button size="sm" variant="outline" onClick={onCancel} className="px-6 h-11">
-            Zrušiť
+            {t('profile.cancel')}
           </Button>
         </div>
       </div>

@@ -2,6 +2,7 @@
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import Header from '@/components/Header';
+import { useTranslation } from 'react-i18next';
 import { AssessmentProvider, useAssessment, AssessmentStage } from '@/contexts/AssessmentContext';
 import LoadingView from '@/components/assessment/LoadingView';
 import UserInfoHandler from '@/components/assessment/UserInfoHandler';
@@ -14,6 +15,7 @@ import SubmittingOverlay from '@/components/assessment/SubmittingOverlay';
 const AssessmentContent = () => {
   const { user, isLoading } = useAuth();
   const { stage, isSubmitting } = useAssessment();
+  const { t } = useTranslation();
   
   console.log('🔍 AssessmentContent rendered with stage:', stage, 'isSubmitting:', isSubmitting);
   
@@ -36,10 +38,10 @@ const AssessmentContent = () => {
         <div className="container mx-auto w-full max-w-full md:max-w-4xl px-2 md:px-0">
           <header className="mb-10 text-center">
             <h1 className="text-3xl font-bold text-blue-800 mb-2">
-              Hodnotenie bolesti pohybového aparátu
+              {t('assessment.title')}
             </h1>
             <p className="text-lg text-blue-600">
-              Vyplňte dotazník pre získanie personalizovaných cvičebných odporúčaní
+              {t('assessment.subtitle')}
             </p>
           </header>
           

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
@@ -18,6 +19,7 @@ interface FavoriteExercise {
 export const FavoriteExercises = () => {
   const [favoriteExercises, setFavoriteExercises] = useState<FavoriteExercise[]>([]);
   const [loading, setLoading] = useState(true);
+  const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedExercise, setSelectedExercise] = useState<FavoriteExercise | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -113,11 +115,11 @@ export const FavoriteExercises = () => {
     return (
       <Card className="mb-6">
         <CardHeader>
-          <CardTitle>Obľúbené cviky</CardTitle>
+          <CardTitle>{t('home.favoriteExercises.title')}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="text-center py-8">
-            <p className="text-muted-foreground">Načítava sa...</p>
+            <p className="text-muted-foreground">{t('loading')}</p>
           </div>
         </CardContent>
       </Card>
@@ -128,7 +130,7 @@ export const FavoriteExercises = () => {
     <>
       <Card className="mb-6">
         <CardHeader>
-          <CardTitle>Obľúbené cviky</CardTitle>
+          <CardTitle>{t('home.favoriteExercises.title')}</CardTitle>
         </CardHeader>
         <CardContent>
           {favoriteExercises.length > 0 ? (
@@ -165,8 +167,7 @@ export const FavoriteExercises = () => {
           ) : (
             <div className="text-center py-8">
               <p className="text-muted-foreground">
-                Zatiaľ nemáte žiadne obľúbené cviky. 
-                Môžete si ich pridať označením hviezdy pri cvikoch v pláne cvičení.
+                {t('home.favoriteExercises.empty')}
               </p>
             </div>
           )}

@@ -39,7 +39,7 @@ const Header = () => {
       <SheetTrigger asChild>
         <Button variant="ghost" size="icon" className="lg:hidden">
           <Menu className="h-6 w-6" />
-          <span className="sr-only">Toggle menu</span>
+          <span className="sr-only">{t('header.toggleMenu')}</span>
         </Button>
       </SheetTrigger>
       <SheetContent side="right" className="w-[300px] bg-white">
@@ -99,7 +99,7 @@ const Header = () => {
               <path d="M17 21l-5-5 5-5" />
             </svg>
           </div>
-          <h1 className="text-lg md:text-xl font-bold">Pebee terapeut</h1>
+          <h1 className="text-lg md:text-xl font-bold">{t('header.brand')}</h1>
         </div>
         
         {/* Show mobile menu only on small screens (below lg breakpoint) */}

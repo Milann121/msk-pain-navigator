@@ -2,10 +2,12 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useTranslation } from 'react-i18next';
 
 const WelcomeOverlay = () => {
   const navigate = useNavigate();
   const isMobile = useIsMobile();
+  const { t } = useTranslation();
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -14,16 +16,16 @@ const WelcomeOverlay = () => {
         <div className="max-w-4xl mx-auto text-center space-y-8 mb-1.5">
           <div className="max-w-2xl mx-auto space-y-6">
             <h2 className="text-3xl font-bold text-blue-800">
-              Vitajte u nášho Pebee terapeuta
+              {t('welcome.title')}
             </h2>
             <p className="text-lg text-gray-600">
-              Pre prístup k dotazníku a personalizovaným cvičebným programom sa prosím prihláste do svojho účtu.
+              {t('welcome.subtitle')}
             </p>
-            <Button 
+            <Button
               onClick={() => navigate('/auth')}
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg"
             >
-              Prihlásiť sa
+              {t('welcome.signIn')}
             </Button>
           </div>
         </div>
@@ -32,9 +34,9 @@ const WelcomeOverlay = () => {
       {/* Current overlay image */}
       <div className="w-full">
         <div className="w-full h-full min-h-[400px] relative">
-          <img 
+          <img
             src="/lovable-uploads/2nd-overlay.png"
-            alt="Mobilné aplikácie" 
+            alt={t('welcome.alt.mobileApps')}
             className="w-full h-full object-cover object-center"
           />
         </div>
@@ -44,10 +46,10 @@ const WelcomeOverlay = () => {
       <div className="w-full bg-white py-10 px-4">
         <div className="max-w-4xl mx-auto text-center space-y-4">
           <h2 className="text-4xl font-bold text-blue-800">
-            Pohyb bez bolesti
+            {t('welcome.movementTitle')}
           </h2>
           <p className="text-xl text-gray-600">
-            Funkcie Pebee terapeuta
+            {t('welcome.features')}
           </p>
         </div>
       </div>
@@ -55,17 +57,17 @@ const WelcomeOverlay = () => {
       {/* Third image with full width and text overlay on the right */}
       <div className="w-full bg-blue-50 relative">
         <div className="w-full h-full min-h-[400px] relative">
-          <img 
+          <img
             src="/lovable-uploads/16d5e659-d4bc-4980-b090-fc7512bd2ace.png"
-            alt="Kalendár cvičení a úspory" 
+            alt={t('welcome.alt.calendar')}
             className="w-full h-full object-cover object-center"
           />
           {/* Text overlay positioned on the right */}
           <div className="absolute inset-0 flex items-center justify-end px-4 md:px-8">
             <div className="bg-white/90 backdrop-blur-sm p-6 md:p-8 rounded-lg shadow-lg max-w-md md:max-w-lg space-y-4 mr-4 md:mr-8">
-              <h3 className="text-2xl font-bold text-blue-800">Kalendár cvičení</h3>
+              <h3 className="text-2xl font-bold text-blue-800">{t('welcome.calendar.title')}</h3>
               <p className="text-gray-700 leading-relaxed">
-                Sledujte svoj pokrok s naším intuitívnym kalendárom cvičení. Vidíte presne, kedy ste cvičili, koľko dní ste aktívni a aké úspory ste dosiahli. Motivujte sa každodennými výsledkami a udržujte si pravidelnú rutinu cvičenia.
+                {t('welcome.calendar.text')}
               </p>
             </div>
           </div>
@@ -75,17 +77,17 @@ const WelcomeOverlay = () => {
       {/* Fourth image with full width and text overlay on the left */}
       <div className="w-full relative">
         <div className="w-full h-full min-h-[400px] relative">
-          <img 
+          <img
             src="/lovable-uploads/133826c0-fff0-4a91-91fe-4e633b6f23ae.png"
-            alt="Moje cviky a aktívne programy" 
+            alt={t('welcome.alt.programs')}
             className="w-full h-full object-cover object-center"
           />
           {/* Text overlay positioned on the left */}
           <div className="absolute inset-0 flex items-center justify-start px-4 md:px-8">
             <div className="bg-white/90 backdrop-blur-sm p-6 md:p-8 rounded-lg shadow-lg max-w-md md:max-w-lg space-y-4 ml-4 md:ml-8">
-              <h3 className="text-2xl font-bold text-blue-800">Moje cviky a programy</h3>
+              <h3 className="text-2xl font-bold text-blue-800">{t('welcome.programs.title')}</h3>
               <p className="text-gray-700 leading-relaxed">
-                Prístup k personalizovaným cvičebným programom prispôsobeným vašim potrebám. Každý cvik je navrhnutý špeciálne pre váš typ bolesti a stav. Sledujte aktívne programy a udržujte si motiváciu s jasným prehľadom vašich cvičení.
+                {t('welcome.programs.text')}
               </p>
             </div>
           </div>
@@ -95,17 +97,17 @@ const WelcomeOverlay = () => {
       {/* Fifth image with full width and text overlay on the right */}
       <div className="w-full bg-blue-50 relative">
         <div className="w-full h-full min-h-[400px] relative">
-          <img 
+          <img
             src="/lovable-uploads/a78217f7-b4cf-44a8-932b-c3bb5b7ad2a0.png"
-            alt="Hodnotenie bolesti pohybového aparátu" 
+            alt={t('welcome.alt.assessment')}
             className="w-full h-full object-cover object-center"
           />
           {/* Text overlay positioned on the right */}
           <div className="absolute inset-0 flex items-center justify-end px-4 md:px-8">
             <div className="bg-white/90 backdrop-blur-sm p-6 md:p-8 rounded-lg shadow-lg max-w-md md:max-w-lg space-y-4 mr-4 md:mr-8">
-              <h3 className="text-2xl font-bold text-blue-800">Hodnotenie bolesti</h3>
+              <h3 className="text-2xl font-bold text-blue-800">{t('welcome.assessment.title')}</h3>
               <p className="text-gray-700 leading-relaxed">
-                Komplexné hodnotenie vašej bolesti pohybového aparátu pomocou interaktívneho 3D modelu. Presne identifikujte problémové oblasti a získajte personalizované odporúčania. Náš pokročilý systém analyzuje vaše symptómy a navrhne najvhodnejší liečebný plán.
+                {t('welcome.assessment.text')}
               </p>
             </div>
           </div>
@@ -140,11 +142,11 @@ const WelcomeOverlay = () => {
                 <path d="M17 21l-5-5 5-5" />
               </svg>
             </div>
-            <h1 className="text-lg md:text-xl font-bold">Pebee terapeut</h1>
+            <h1 className="text-lg md:text-xl font-bold">{t('welcome.footer.title')}</h1>
           </div>
           
           <div className="text-sm text-blue-100">
-            © 2024 Pebee terapeut. Všetky práva vyhradené.
+            {t('welcome.footer.rights')}
           </div>
         </div>
       </footer>

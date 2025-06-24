@@ -1,5 +1,6 @@
 
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
@@ -17,12 +18,13 @@ interface ExerciseReplaceDialogProps {
 export const ExerciseReplaceDialog: React.FC<ExerciseReplaceDialogProps> = ({
   open, onOpenChange, newExercise, onConfirm
 }) => {
+  const { t } = useTranslation();
   if (!newExercise) return null;
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-md bg-white rounded-xl border flex flex-col gap-4">
         <DialogHeader>
-          <DialogTitle>Navrhnutý nový cvik</DialogTitle>
+          <DialogTitle>{t('exercisePlan.newExerciseProposed')}</DialogTitle>
         </DialogHeader>
         <div>
           <div className="font-medium text-gray-800 mb-2">{newExercise.exerciseTitle}</div>
@@ -45,7 +47,7 @@ export const ExerciseReplaceDialog: React.FC<ExerciseReplaceDialogProps> = ({
             className="flex-1"
             onClick={() => onConfirm(newExercise)}
           >
-            Potvrdiť zmenu cviku
+            {t('exercisePlan.confirmChange')}
           </Button>
           <Button
             type="button"
@@ -53,7 +55,7 @@ export const ExerciseReplaceDialog: React.FC<ExerciseReplaceDialogProps> = ({
             className="flex-1"
             onClick={() => onOpenChange(false)}
           >
-            Odmietnuť zmenu cviku
+            {t('exercisePlan.declineChange')}
           </Button>
         </div>
       </DialogContent>
