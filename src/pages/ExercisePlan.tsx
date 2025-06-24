@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLocation } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
@@ -30,6 +31,7 @@ const ExercisePlan = () => {
   const [userAssessments, setUserAssessments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [effectiveAssessmentId, setEffectiveAssessmentId] = useState<string | undefined>(assessmentId);
+  const { t } = useTranslation();
   
   // Redirect to login if not authenticated
   if (!user) {
@@ -109,7 +111,7 @@ const ExercisePlan = () => {
       <>
         <Header />
         <div className="container mx-auto py-8 px-4">
-          <div className="text-center">Načítava sa...</div>
+          <div className="text-center">{t('loading')}</div>
         </div>
       </>
     );

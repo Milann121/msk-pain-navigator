@@ -1,6 +1,7 @@
 
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 interface ResultsFooterProps {
   onRestart: () => void;
@@ -9,6 +10,7 @@ interface ResultsFooterProps {
 
 const ResultsFooter = ({ onRestart, userLoggedIn }: ResultsFooterProps) => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <div className="flex flex-wrap gap-2">
@@ -17,7 +19,7 @@ const ResultsFooter = ({ onRestart, userLoggedIn }: ResultsFooterProps) => {
         variant="outline" 
         className="flex-1"
       >
-        Začať nové hodnotenie
+        {t('resultsFooter.startNew')}
       </Button>
       {userLoggedIn && (
         <Button 
@@ -25,7 +27,7 @@ const ResultsFooter = ({ onRestart, userLoggedIn }: ResultsFooterProps) => {
           variant="secondary"
           className="flex-1"
         >
-          Moje cviky
+          {t('resultsFooter.myExercises')}
         </Button>
       )}
     </div>

@@ -1,6 +1,28 @@
 {
   "profile": {
-    "title": "Môj profil"
+    "title": "Môj profil",
+    "personalData": "Osobné údaje",
+    "firstName": "Meno",
+    "lastName": "Priezvisko",
+    "age": "Vek",
+    "gender": "Pohlavie",
+    "job": "Práca",
+    "save": "Uložiť",
+    "cancel": "Zrušiť",
+    "male": "Muž",
+    "female": "Žena",
+    "savePlaceholder": "Zadajte vaše {{field}}",
+    "moneySavings": "Ušetrené peniaze",
+    "moneySavingsFootnote": "*vypočítané na základe priemerných cien na Slovensku"
+  },
+  "results": {
+    "savedTitle": "Výsledky boli uložené",
+    "savedDescription": "Vaše hodnotenie bolo úspešne uložené a nájdete ho v sekcii Moje cviky.",
+    "saveErrorTitle": "Chyba pri ukladaní",
+    "saveErrorDescription": "Nepodarilo sa uložiť výsledky hodnotenia.",
+    "autoSaved": "✓ Výsledky boli automaticky uložené. Nájdete ich v sekcii Moje cviky.",
+    "saving": "Ukladanie výsledkov...",
+    "autoSaveFailed": "Automatické ukladanie výsledkov zlyhalo."
   },
   "loading": "Načítava sa...",
   "header": {
@@ -11,5 +33,243 @@
     "assessment": "Dotazník bolesti",
     "signIn": "Prihlásiť sa",
     "signOut": "Odhlásiť sa"
+  },
+  "auth": {
+    "signIn": "Prihlásiť sa",
+    "signUp": "Vytvoriť účet",
+    "google": "Pokračovať s Google",
+    "toggleSignUp": "Nemáte účet? Zaregistrujte sa",
+    "toggleSignIn": "Už máte účet? Prihláste sa",
+    "signUpSubtitle": "Vytvorte si nový účet pre začatie",
+    "signInSubtitle": "Prihláste sa do svojho účtu",
+    "firstName": "Meno",
+    "email": "Email",
+    "password": "Heslo",
+    "privacyConsent": "Súhlasím so spracovaním osobných údajov",
+    "or": "alebo",
+    "backHome": "Späť na hlavnú stránku"
+  },
+  "myExercises": {
+    "title": "Moje cviky",
+    "activeProgramsTitle": "Aktívne programy",
+    "activeProgramsDescription": "Nižšie nájdeš všetky svoje aktívne cvičebné programy z dokončených hodnotení.",
+    "endedProgramsTitle": "Ukončené programy",
+    "endedProgramsDescription": "Nižšie nájdete všetky programy, ktoré ste už ukončili.",
+    "noEndedPrograms": "Žiadne ukončené programy.",
+    "backHome": "Späť na úvod",
+    "newAssessment": "Nové hodnotenie"
+  },
+  "blog": {
+    "title": "Blog",
+    "readMore": "Čítať viac",
+    "posts": {
+      "1": {
+        "title": "Neurodynamické cvičenia: čo? prečo? kedy?",
+        "description": "Už ste niekedy počuli o „flossingu" nervov? Ak máte bolesť spôsobenú podráždením alebo útlakom nervu, nervový flossing môže pomôcť."
+      },
+      "2": {
+        "title": "Prevencia bolestí chrbtice v práci",
+        "description": "Tipy na správne sedenie, ergonomické nastavenie pracoviska a cviky počas pracovného dňa."
+      },
+      "3": {
+        "title": "Strečing pre zdravú chrbticu",
+        "description": "Jednoduchý strečingový program, ktorý pomôže udržať chrbticu zdravú a flexibilnú."
+      },
+      "4": {
+        "title": "Cvičenie a výživa",
+        "description": "Ako správna výživa prispieva k lepšej regenerácii a posilneniu chrbtového svalstva."
+      },
+      "5": {
+        "title": "Najčastejšie chyby pri cvičení",
+        "description": "Vyvarujte sa chybám, ktoré môžu zhoršiť bolesti chrbta namiesto ich zmiernenia."
+      },
+      "6": {
+        "title": "Rehabilitačné cvičenia po zranení",
+        "description": "Odporúčané postupy a cviky pre rehabilitáciu po zranení chrbtice alebo operácii."
+      }
+    }
+  },
+  "assessment": {
+    "title": "Hodnotenie bolesti pohybového aparátu",
+    "subtitle": "Vyplňte dotazník pre získanie personalizovaných cvičebných odporúčaní",
+    "new": "Nové hodnotenie"
+  },
+  "cookie": {
+    "message": "Táto stránka používa súbory cookie na zlepšenie vášho zážitku. Používaním našej stránky súhlasíte s našimi podmienkami používania súborov cookie.",
+    "accept": "Súhlasím"
+  },
+  "home": {
+    "progressTitle": "Môj pokrok",
+    "setGoals": "Nastaviť osobné ciele",
+    "exerciseStats": {
+      "title": "Moje cvičenia",
+      "weekLabel": "dní odcvičených tento týždeň",
+      "goalDone": "🎉 Gratulujeme! Splnili ste svoj týždenný cieľ.",
+      "goalRemaining": "Zostáva {{count}} dní do splnenia cieľa.",
+      "noGoal": "Nastavte si týždenný cieľ v sekcii \"Moje ciele\" na stránke profilu."
+    },
+    "blogStats": {
+      "title": "Čítanie blogov",
+      "weekLabel": "blogov prečítaných tento týždeň",
+      "goalDone": "🎉 Gratulujeme! Splnili ste svoj týždenný cieľ.",
+      "goalRemaining": "Zostáva {{count}} blogov do splnenia cieľa.",
+      "noGoal": "Nastavte si týždenný cieľ v sekcii \"Moje ciele\" na stránke profilu."
+    },
+    "favoriteExercises": {
+      "title": "Obľúbené cviky",
+      "empty": "Zatiaľ nemáte žiadne obľúbené cviky. Môžete si ich pridať označením hviezdy pri cvikoch v pláne cvičení."
+    },
+    "savedBlogs": {
+      "title": "Uložené články",
+      "empty": "Zatiaľ nemáte žiadne uložené články. Články si môžete uložiť v sekcii Blog pomocou tlačidla \"Pridať medzi obľúbené\"."
+    },
+    "generalProgram": {
+      "title": "Všeobecný program",
+      "needMore": "Potrebujete aspoň 2 hodnotenia (máte {{count}})",
+      "generating": "Program sa generuje...",
+      "hint": "Vyplňte viac dotazníkov bolesti pre vytvorenie personalizovaného programu",
+      "description": "Nemáš čas na jednotlivé cvičebné programy? Tu nájdeš personalizovaný program s najdôležitejšími cvičeniami z tvojich súčasných programov.",
+      "exerciseCount": "{{count}} cvičení z vašich programov",
+      "view": "Zobraziť program"
+    },
+    "banner": {
+      "message": "Je to tu! Nový týždeň, nová výzva. Neodkladaj svoje cviky a začni už dnes 🤩",
+      "open": "Otvoriť program"
+    },
+    "greeting": {
+      "hello": "Ahoj {{name}}",
+      "question": "ako sa dnes cítiš?"
+    },
+    "mood": {
+      "week": "týždeň",
+      "month": "mesiac",
+      "periodWeek": "7 dní",
+      "periodMonth": "30 dní",
+      "emptyWeek": "posledných 7 dní",
+      "emptyMonth": "posledných 30 dní",
+      "avgScore": "Priemerné skóre za {{period}}",
+      "infoLabel": "Informácie o skóre",
+      "infoText": "Priemerné skóre z posledných {{days}} dní vychádza z vašich denných zápisov toho, ako sa cítite. Čím je vaše skóre bližšie k číslu 3, tým sa máte lepšie.",
+      "infoGrades": "Dobre = 3, Neutrálne = 2, Zle = 1.",
+      "infoFollow": "Sledujte, ako sa vaše celkové skóre mení v čase.",
+      "better": "Lepší trend za posledných {{days}} dní",
+      "worse": "Zhoršený trend za posledných {{days}} dní",
+      "noChange": "Žiadna zmena",
+      "noRecords": "(Nemáte záznamy pre {{period}})",
+      "happy": "Dobre",
+      "neutral": "Neutrálne",
+    "sad": "Zle"
+    }
+  },
+  "welcome": {
+    "title": "Vitajte u Pebee terapeuta",
+    "subtitle": "Pre prístup k dotazníku a personalizovaným cvičebným programom sa prihláste do svojho účtu.",
+    "signIn": "Prihlásiť sa",
+    "movementTitle": "Pohyb bez bolesti",
+    "features": "Funkcie Pebee terapeuta",
+    "alt": {
+      "mobileApps": "Mobilné aplikácie",
+      "calendar": "Kalendár cvičení a úspory",
+      "programs": "Moje cviky a aktívne programy",
+      "assessment": "Hodnotenie bolesti pohybového aparátu"
+    },
+    "calendar": {
+      "title": "Kalendár cvičení",
+      "text": "Sledujte svoj pokrok s naším intuitívnym kalendárom cvičení. Vidíte presne, kedy ste cvičili, koľko dní ste aktívni a aké úspory ste dosiahli. Motivujte sa každodennými výsledkami a udržujte si pravidelnú rutinu cvičenia."
+    },
+    "programs": {
+      "title": "Moje cviky a programy",
+      "text": "Prístup k personalizovaným cvičebným programom prispôsobeným vašim potrebám. Každý cvik je navrhnutý pre váš typ bolesti a stav. Sledujte aktívne programy a udržujte si motiváciu s jasným prehľadom vašich cvičení."
+    },
+    "assessment": {
+      "title": "Hodnotenie bolesti",
+      "text": "Komplexné hodnotenie vašej bolesti pohybového aparátu pomocou interaktívneho 3D modelu. Identifikujte problémové oblasti a získajte personalizované odporúčania. Náš systém analyzuje symptómy a navrhne vhodný liečebný plán."
+    },
+    "footer": {
+      "title": "Pebee terapeut",
+      "rights": "© 2024 Pebee terapeut. Všetky práva vyhradené."
+    }
+  },
+  "goals": {
+    "title": "Moje ciele",
+    "weekly": "Týždenné ciele",
+    "exerciseText": "Týždenne chcem cvičiť {dropdown} krát",
+    "blogText": "Týždenne chcem prečítať {dropdown} blogov",
+    "save": "Uložiť",
+    "cancel": "Zrušiť",
+    "successTitle": "Úspech",
+    "successExercise": "Cieľ pre cvičenie bol úspešne uložený.",
+    "successBlog": "Cieľ pre čítanie bol úspešne uložený.",
+    "errorTitle": "Chyba",
+    "error": "Nepodarilo sa uložiť cieľ."
+  },
+  "profileForm": {
+    "title": "Vyplňte vaše osobné údaje",
+    "personalInfo": "Osobné informácie",
+    "firstName": "Meno *",
+    "firstNamePlaceholder": "Zadajte vaše meno",
+    "lastName": "Priezvisko *",
+    "lastNamePlaceholder": "Zadajte vaše priezvisko",
+    "gender": "Pohlavie *",
+    "male": "Muž",
+    "female": "Žena",
+    "age": "Vek *",
+    "agePlaceholder": "Zadajte váš vek",
+    "job": "Práca *",
+    "manual": "manuálna práca",
+    "manualSpec": "Špecifikácia:",
+    "heavyLifting": "zdvíhanie ťažkých predmetov",
+    "standingWork": "práca v stoji na mieste",
+    "awkwardPositions": "práca v neprirodzených polohách",
+    "desk": "sedavá práca",
+    "officeWork": "práca v kancelárii",
+    "driver": "šofér",
+    "goalsTitle": "Moje ciele (voliteľné)",
+    "goalsSubtitle": "Môžete si nastaviť ciele alebo ich preskočiť a nastaviť neskôr v profile.",
+    "weeklyExercise": "Týždenne chcem cvičiť",
+    "times": "krát",
+    "weeklyBlog": "Týždenne chcem prečítať",
+    "skip": "Preskočiť ciele",
+    "saveAll": "Uložiť všetko",
+    "saving": "Ukladá sa...",
+    "success": "Osobné údaje boli úspešne uložené.",
+    "error": "Nepodarilo sa uložiť osobné údaje."
+  },
+  "resultsFooter": {
+    "startNew": "Začať nové hodnotenie",
+    "myExercises": "Moje cviky"
+  },
+  "exerciseStats": {
+    "noneToday": "Žiadne cvičenia dnes",
+    "completed": "Odcvičené: {{count}}x",
+    "lastExercise": "Posledné cvičenie: {{date}}"
+  },
+  "privacy": {
+    "title": "Ochrana osobných údajov – Dotazník o bolesti pohybového systému",
+    "intro": "Vaša dôvera a bezpečnosť Vašich údajov sú pre nás kľúčové. Preto by sme Vás radi informovali, ako spracúvame osobné údaje, ktoré nám poskytujete prostredníctvom dotazníka o bolesti pohybového systému.",
+    "whatTitle": "Aké údaje spracúvame?",
+    "email": "Emailová adresa: Ukladáme a spracúvame len Vašu emailovú adresu. Slúži na to, aby sme Vám mohli zaslať výsledky dotazníka, prípadné odporúčania alebo Vás kontaktovať s informáciami o našich službách, ak ste na to udelili súhlas.",
+    "health": "Údaje o zdravotnom stave: Informácie o Vašej bolesti a zdravotnom stave, ktoré uvediete v dotazníku, neukladáme a nespracúvame. Slúžia výhradne na okamžité vyhodnotenie a personalizáciu odporúčaní v reálnom čase. Po ukončení vyhodnotenia tieto údaje nijako ďalej neuchovávame.",
+    "whyTitle": "Prečo spracúvame emailovú adresu?",
+    "whyList": [
+      "Na odoslanie výsledkov vyhodnotenia dotazníka.",
+      "Na prípadné zaslanie dodatočných odporúčaní alebo edukatívneho obsahu.",
+      "Na komunikáciu v súvislosti s ponukou našich služieb, ak ste vyjadrili súhlas so zasielaním marketingových informácií."
+    ],
+    "protectTitle": "Ako chránime Vaše údaje?",
+    "protectText": "Vašu emailovú adresu chránime modernými technickými a organizačnými opatreniami, aby sme zabránili neoprávnenému prístupu, zmene alebo strate údajov.",
+    "rightsTitle": "Vaše práva:",
+    "rightsIntro": "V súlade s GDPR máte právo:",
+    "rightsList": [
+      "na prístup k svojim osobným údajom,",
+      "na opravu alebo vymazanie osobných údajov,",
+      "na obmedzenie spracúvania,",
+      "na námietku proti spracúvaniu,",
+      "na prenosnosť údajov,",
+      "na odvolanie súhlasu so spracovaním údajov kedykoľvek."
+    ],
+    "contact": "Pre uplatnenie Vašich práv nás môžete kontaktovať na <a href=\"mailto:privacy@example.com\">privacy@example.com</a>.",
+    "endTitle": "Záver",
+    "endText": "Vaše súkromie je pre nás prioritou. Spracovávame len nevyhnutné minimum údajov a zdravotné informácie neukladáme ani nearchivujame."
   }
 }

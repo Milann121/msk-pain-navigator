@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
@@ -22,6 +23,7 @@ export const SavedBlogs = () => {
   const [loading, setLoading] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
   const { user } = useAuth();
+  const { t } = useTranslation();
 
   const blogsPerPage = 3;
 
@@ -111,11 +113,11 @@ export const SavedBlogs = () => {
     return (
       <Card className="mb-6">
         <CardHeader>
-          <CardTitle>Uložené články</CardTitle>
+          <CardTitle>{t('home.savedBlogs.title')}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="text-center py-8">
-            <p className="text-muted-foreground">Načítava sa...</p>
+            <p className="text-muted-foreground">{t('loading')}</p>
           </div>
         </CardContent>
       </Card>
@@ -125,7 +127,7 @@ export const SavedBlogs = () => {
   return (
     <Card className="mb-6">
       <CardHeader>
-        <CardTitle>Uložené články</CardTitle>
+        <CardTitle>{t('home.savedBlogs.title')}</CardTitle>
       </CardHeader>
       <CardContent>
         {favoriteBlogs.length > 0 ? (
@@ -162,8 +164,7 @@ export const SavedBlogs = () => {
         ) : (
           <div className="text-center py-8">
             <p className="text-muted-foreground">
-              Zatiaľ nemáte žiadne uložené články. 
-              Články si môžete uložiť v sekcii Blog pomocou tlačidla "Pridať medzi obľúbené".
+              {t('home.savedBlogs.empty')}
             </p>
           </div>
         )}

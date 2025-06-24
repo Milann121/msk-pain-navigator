@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { BookOpen } from 'lucide-react';
@@ -12,6 +13,7 @@ interface BlogReadingStatsProps {
 
 export const BlogReadingStats = ({ weeklyBlogGoal }: BlogReadingStatsProps) => {
   const { user } = useAuth();
+  const { t } = useTranslation();
   const [blogCount, setBlogCount] = useState(0);
   const [loading, setLoading] = useState(true);
 
@@ -56,11 +58,11 @@ export const BlogReadingStats = ({ weeklyBlogGoal }: BlogReadingStatsProps) => {
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <BookOpen className="h-5 w-5" />
-            Čítanie blogov
+            {t('home.blogStats.title')}
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="text-gray-500">Načítava sa...</div>
+          <div className="text-gray-500">{t('loading')}</div>
         </CardContent>
       </Card>
     );
@@ -70,12 +72,12 @@ export const BlogReadingStats = ({ weeklyBlogGoal }: BlogReadingStatsProps) => {
 
   return (
     <Card>
-      <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <BookOpen className="h-5 w-5" />
-          Čítanie blogov
-        </CardTitle>
-      </CardHeader>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <BookOpen className="h-5 w-5" />
+            {t('home.blogStats.title')}
+          </CardTitle>
+        </CardHeader>
       <CardContent>
         <div className="space-y-4">
           {/* Large number display */}
@@ -87,10 +89,7 @@ export const BlogReadingStats = ({ weeklyBlogGoal }: BlogReadingStatsProps) => {
               )}
             </div>
             <p className="text-sm text-gray-600">
-              {weeklyBlogGoal 
-                ? "blogov prečítaných tento týždeň"
-                : "blogov prečítaných tento týždeň"
-              }
+              {t('home.blogStats.weekLabel')}
             </p>
           </div>
 
@@ -101,11 +100,11 @@ export const BlogReadingStats = ({ weeklyBlogGoal }: BlogReadingStatsProps) => {
               <div className="text-center">
                 {blogCount >= weeklyBlogGoal ? (
                   <p className="text-sm text-green-600 font-medium">
-                    🎉 Gratulujeme! Splnili ste svoj týždenný cieľ.
+                    {t('home.blogStats.goalDone')}
                   </p>
                 ) : (
                   <p className="text-sm text-gray-500">
-                    Zostáva {weeklyBlogGoal - blogCount} blogov do splnenia cieľa.
+                    {t('home.blogStats.goalRemaining', { count: weeklyBlogGoal - blogCount })}
                   </p>
                 )}
               </div>
@@ -114,7 +113,7 @@ export const BlogReadingStats = ({ weeklyBlogGoal }: BlogReadingStatsProps) => {
 
           {!weeklyBlogGoal && (
             <p className="text-xs text-gray-500 text-center">
-              Nastavte si týždenný cieľ v sekcii "Moje ciele" na stránke profilu.
+              {t('home.blogStats.noGoal')}
             </p>
           )}
         </div>

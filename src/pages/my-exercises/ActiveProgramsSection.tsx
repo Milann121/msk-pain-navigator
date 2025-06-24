@@ -6,6 +6,7 @@ import { EmptyState } from "@/components/exercise-dashboard/assessment/EmptyStat
 import { LoadingState } from "@/components/exercise-dashboard/assessment/LoadingState";
 import { Button } from "@/components/ui/button";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { UserAssessment } from "@/components/follow-up/types";
 import { NavigateFunction } from "react-router-dom";
 
@@ -73,22 +74,24 @@ export const ActiveProgramsSection: React.FC<ActiveProgramsSectionProps> = ({
   handleDeleteAssessment,
   handleEndAssessmentUI,
   navigate
-}) => (
-  <Card className="mb-6">
-    <CardHeader>
-      <div className="flex items-center gap-2">
-        <span className="relative flex items-center">
-          <span
-            className="breathing-green inline-block w-3 h-3 rounded-full bg-green-500 shadow-md mr-2"
-            aria-label="Aktívne programy"
-          ></span>
-          <CardTitle>Aktívne programy</CardTitle>
-        </span>
-      </div>
-      <CardDescription>
-        Nižšie nájdeš všetky svoje aktívne cvičebné programy z dokončených hodnotení.
-      </CardDescription>
-    </CardHeader>
+}) => {
+  const { t } = useTranslation();
+  return (
+    <Card className="mb-6">
+      <CardHeader>
+        <div className="flex items-center gap-2">
+          <span className="relative flex items-center">
+            <span
+              className="breathing-green inline-block w-3 h-3 rounded-full bg-green-500 shadow-md mr-2"
+              aria-label={t("myExercises.activeProgramsTitle")}
+            ></span>
+            <CardTitle>{t("myExercises.activeProgramsTitle")}</CardTitle>
+          </span>
+        </div>
+        <CardDescription>
+          {t("myExercises.activeProgramsDescription")}
+        </CardDescription>
+      </CardHeader>
     <CardContent>
       {loading ? (
         <LoadingState />
@@ -119,11 +122,12 @@ export const ActiveProgramsSection: React.FC<ActiveProgramsSectionProps> = ({
     </CardContent>
     <CardFooter className="flex justify-between">
       <Button variant="outline" onClick={() => navigate("/")}>
-        Späť na úvod
+        {t("myExercises.backHome")}
       </Button>
       <Button onClick={() => navigate("/assessment")}>
-        Nové hodnotenie
+        {t("myExercises.newAssessment")}
       </Button>
     </CardFooter>
   </Card>
-);
+  );
+};

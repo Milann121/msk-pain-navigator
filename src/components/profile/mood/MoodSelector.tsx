@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
+import { useTranslation } from 'react-i18next';
 
 interface MoodSelectorProps {
   selectedDateMood: 'happy' | 'neutral' | 'sad' | null;
@@ -9,11 +10,12 @@ interface MoodSelectorProps {
   currentDayAndDate: string;
 }
 
-export const MoodSelector = ({ 
-  selectedDateMood, 
-  onMoodSelection, 
-  loading 
+export const MoodSelector = ({
+  selectedDateMood,
+  onMoodSelection,
+  loading
 }: MoodSelectorProps) => {
+  const { t } = useTranslation();
   return (
     <div className="flex justify-around items-center mb-6">
       <Button 
@@ -23,7 +25,7 @@ export const MoodSelector = ({
         className={`flex flex-col items-center p-4 h-20 w-20 ${selectedDateMood === 'happy' ? 'bg-green-100 border-green-500 ring-2 ring-green-300' : 'hover:bg-green-50'}`}
       >
         <span className="text-3xl mb-1">😊</span>
-        <span className="text-xs">Dobre</span>
+        <span className="text-xs">{t('home.mood.happy')}</span>
       </Button>
       
       <Button 
@@ -33,7 +35,7 @@ export const MoodSelector = ({
         className={`flex flex-col items-center p-4 h-20 w-20 ${selectedDateMood === 'neutral' ? 'bg-yellow-100 border-yellow-500 ring-2 ring-yellow-300' : 'hover:bg-yellow-50'}`}
       >
         <span className="text-3xl mb-1">😐</span>
-        <span className="text-xs">Neutrálne</span>
+        <span className="text-xs">{t('home.mood.neutral')}</span>
       </Button>
       
       <Button 
@@ -43,7 +45,7 @@ export const MoodSelector = ({
         className={`flex flex-col items-center p-4 h-20 w-20 ${selectedDateMood === 'sad' ? 'bg-red-100 border-red-500 ring-2 ring-red-300' : 'hover:bg-red-50'}`}
       >
         <span className="text-3xl mb-1">😔</span>
-        <span className="text-xs">Zle</span>
+        <span className="text-xs">{t('home.mood.sad')}</span>
       </Button>
     </div>
   );

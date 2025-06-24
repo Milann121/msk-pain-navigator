@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Dumbbell } from 'lucide-react';
@@ -14,6 +15,7 @@ interface ExerciseStatsProps {
 
 export const ExerciseStats = ({ weeklyExerciseGoal, onGoalUpdate }: ExerciseStatsProps) => {
   const { user } = useAuth();
+  const { t } = useTranslation();
   const [exerciseCount, setExerciseCount] = useState(0);
   const [loading, setLoading] = useState(true);
 
@@ -85,11 +87,11 @@ export const ExerciseStats = ({ weeklyExerciseGoal, onGoalUpdate }: ExerciseStat
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Dumbbell className="h-5 w-5" />
-            Moje cvičenia
+            {t('home.exerciseStats.title')}
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="text-gray-500">Načítava sa...</div>
+          <div className="text-gray-500">{t('loading')}</div>
         </CardContent>
       </Card>
     );
@@ -99,12 +101,12 @@ export const ExerciseStats = ({ weeklyExerciseGoal, onGoalUpdate }: ExerciseStat
 
   return (
     <Card>
-      <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <Dumbbell className="h-5 w-5" />
-          Moje cvičenia
-        </CardTitle>
-      </CardHeader>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <Dumbbell className="h-5 w-5" />
+            {t('home.exerciseStats.title')}
+          </CardTitle>
+        </CardHeader>
       <CardContent>
         <div className="space-y-4">
           {/* Large number display */}
@@ -116,10 +118,7 @@ export const ExerciseStats = ({ weeklyExerciseGoal, onGoalUpdate }: ExerciseStat
               )}
             </div>
             <p className="text-sm text-gray-600">
-              {weeklyExerciseGoal 
-                ? "dní odcvičených tento týždeň"
-                : "dní odcvičených tento týždeň"
-              }
+              {t('home.exerciseStats.weekLabel')}
             </p>
           </div>
 
@@ -130,11 +129,11 @@ export const ExerciseStats = ({ weeklyExerciseGoal, onGoalUpdate }: ExerciseStat
               <div className="text-center">
                 {exerciseCount >= weeklyExerciseGoal ? (
                   <p className="text-sm text-green-600 font-medium">
-                    🎉 Gratulujeme! Splnili ste svoj týždenný cieľ.
+                    {t('home.exerciseStats.goalDone')}
                   </p>
                 ) : (
                   <p className="text-sm text-gray-500">
-                    Zostáva {weeklyExerciseGoal - exerciseCount} dní do splnenia cieľa.
+                    {t('home.exerciseStats.goalRemaining', { count: weeklyExerciseGoal - exerciseCount })}
                   </p>
                 )}
               </div>
@@ -143,7 +142,7 @@ export const ExerciseStats = ({ weeklyExerciseGoal, onGoalUpdate }: ExerciseStat
 
           {!weeklyExerciseGoal && (
             <p className="text-xs text-gray-500 text-center">
-              Nastavte si týždenný cieľ v sekcii "Moje ciele" na stránke profilu.
+              {t('home.exerciseStats.noGoal')}
             </p>
           )}
         </div>

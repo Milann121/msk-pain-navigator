@@ -7,6 +7,7 @@ import { Target, Edit } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
+import { useTranslation } from 'react-i18next';
 
 interface GoalsContainerProps {
   onBlogGoalChange?: (goal: number | null) => void;
@@ -20,6 +21,7 @@ interface GoalsContainerProps {
 export const GoalsContainer = ({ onBlogGoalChange, onExerciseGoalChange, externalGoals }: GoalsContainerProps) => {
   const { user } = useAuth();
   const { toast } = useToast();
+  const { t } = useTranslation();
   const [weeklyExerciseGoal, setWeeklyExerciseGoal] = useState<number | null>(null);
   const [weeklyBlogGoal, setWeeklyBlogGoal] = useState<number | null>(null);
   const [editingField, setEditingField] = useState<string | null>(null);
@@ -148,22 +150,22 @@ export const GoalsContainer = ({ onBlogGoalChange, onExerciseGoalChange, externa
         await saveGoalToDatabase('weekly_exercise', tempValue);
         setWeeklyExerciseGoal(tempValue);
         toast({
-          title: 'Úspech',
-          description: 'Cieľ pre cvičenie bol úspešne uložený.',
+          title: t('goals.successTitle'),
+          description: t('goals.successExercise'),
         });
       } else if (field === 'weeklyBlogGoal') {
         await saveGoalToDatabase('weekly_blog', tempValue);
         setWeeklyBlogGoal(tempValue);
         toast({
-          title: 'Úspech',
-          description: 'Cieľ pre čítanie bol úspešne uložený.',
+          title: t('goals.successTitle'),
+          description: t('goals.successBlog'),
         });
       }
     } catch (error) {
       console.error('Error saving goal:', error);
       toast({
-        title: 'Chyba',
-        description: 'Nepodarilo sa uložiť cieľ.',
+        title: t('goals.errorTitle'),
+        description: t('goals.error'),
         variant: 'destructive',
       });
     } finally {
@@ -197,9 +199,9 @@ export const GoalsContainer = ({ onBlogGoalChange, onExerciseGoalChange, externa
     const getDisplayText = () => {
       if (field === 'weeklyBlogGoal') {
         const blogWord = isEditing ? getBlogWord(tempValue) : getBlogWord(goalValue);
-        return `Týždenne chcem prečítať {dropdown} ${blogWord}`;
+        return t('goals.blogText').replace('{dropdown}', '{dropdown}').replace('blogov', blogWord);
       }
-      return text;
+      return text as string;
     };
 
     const displayText = getDisplayText();
@@ -238,7 +240,7 @@ export const GoalsContainer = ({ onBlogGoalChange, onExerciseGoalChange, externa
                 className="px-4 h-8 flex-1 sm:flex-none"
                 disabled={loading}
               >
-                Uložiť
+                {t('goals.save')}
               </Button>
               <Button 
                 size="default" 
@@ -247,7 +249,7 @@ export const GoalsContainer = ({ onBlogGoalChange, onExerciseGoalChange, externa
                 className="px-4 h-8 flex-1 sm:flex-none"
                 disabled={loading}
               >
-                Zrušiť
+                {t('goals.cancel')}
               </Button>
             </div>
           </div>
@@ -286,24 +288,24 @@ export const GoalsContainer = ({ onBlogGoalChange, onExerciseGoalChange, externa
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <Target className="h-5 w-5" />
-          Moje ciele
+          {t('goals.title')}
         </CardTitle>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
           {/* Weekly Goals Section */}
           <div>
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">Týždenné ciele</h3>
+            <h3 className="text-lg font-semibold mb-3 text-blue-800">{t('goals.weekly')}</h3>
             <div className="space-y-1">
               <GoalRow
-                text="Týždenne chcem cvičiť {dropdown} krát"
+                text={t('goals.exerciseText')}
                 field="weeklyExerciseGoal"
                 goalValue={weeklyExerciseGoal}
                 onGoalChange={(value) => setWeeklyExerciseGoal(parseInt(value))}
                 options={exerciseOptions}
               />
               <GoalRow
-                text="Týždenne chcem prečítať {dropdown} blogov"
+                text={t('goals.blogText')}
                 field="weeklyBlogGoal"
                 goalValue={weeklyBlogGoal}
                 onGoalChange={(value) => setWeeklyBlogGoal(parseInt(value))}
