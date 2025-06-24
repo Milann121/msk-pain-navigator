@@ -29,66 +29,12 @@
       "officeWork": "práca v kancelárii"
     }
   },
-  "home": {
-    "greeting": "Vitajte späť, {{name}}!",
-    "greetingDefault": "Vitajte späť!",
-    "mood": {
-      "selector": {
-        "question": "Ako sa dnes cítite?",
-        "happy": "Dobre",
-        "neutral": "Neutrálne", 
-        "sad": "Zle"
-      },
-      "avgScore": "Priemerné skóre ({{period}})",
-      "week": "Týždeň",
-      "month": "Mesiac",
-      "periodWeek": "týždeň",
-      "periodMonth": "mesiac",
-      "better": "Lepšie ako posledných {{days}} dní",
-      "worse": "Horšie ako posledných {{days}} dní",
-      "noChange": "Bez zmeny",
-      "noRecords": "Žiadne záznamy za {{period}}",
-      "emptyWeek": "tento týždeň",
-      "emptyMonth": "tento mesiac",
-      "infoLabel": "Informácie o skóre",
-      "infoText": "Priemerné skóre nálady za posledných {{days}} dní.",
-      "infoGrades": "Dobre: 3, Neutrálne: 2, Zle: 1",
-      "infoFollow": "Sledujte svoj pokrok v čase."
-    },
-    "progressTitle": "Môj pokrok",
-    "setGoals": "Nastaviť ciele",
-    "generalProgram": {
-      "view": "Zobraziť program",
-      "exerciseCount": "cvikov"
-    }
-  },
-  "exercisePlanPage": {
-    "generalTitle": "Všeobecný program",
-    "generalDescription": "Základné cvičenia pre celkové posilnenie a mobilitu."
-  },
   "bodyParts": {
     "neck": "Krčná chrbtíca",
     "middle back": "Hrudná chrbtíca",
     "lower back": "Bedrová chrbtíca",
     "upper limb": "Horná končatina",
     "shoulder": "Rameno"
-  },
-  "painArea": {
-    "specify": "Pre začatie hodnotenia prosím vyberte oblasť bolesti",
-    "neck": "Krk",
-    "middleBack": "Stredná časť chrbta",
-    "lowerBack": "Spodná časť chrbta",
-    "upperLimb": "Horná končatina",
-    "specifyUpperLimb": "Špecifikujte oblasť hornej končatiny",
-    "shoulder": "Rameno",
-    "elbow": "Lakeť",
-    "forearm": "Predlaktie",
-    "hand": "Ruka",
-    "fingers": "Prsty"
-  },
-  "consent": {
-    "disclaimer": "Súhlasím s podmienkami používania",
-    "privacy": "Súhlasím so spracovaním osobných údajov"
   },
   "painMechanisms": {
     "nociceptive": "Nociceptívna bolesť",
@@ -147,23 +93,6 @@
     "brand": "Pebee terapeut",
     "toggleMenu": "Zobraziť menu"
   },
-  "assessment": {
-    "title": "Hodnotenie bolesti pohybového aparátu",
-    "subtitle": "Vyplňte dotazník pre získanie personalizovaných odporúčaní cvičení",
-    "new": "Nové hodnotenie",
-    "painArea": {
-      "specify": "Pre začatie hodnotenia prosím vyberte oblasť bolesti",
-      "neck": "Krk",
-      "middleBack": "Stredná časť chrbta",
-      "lowerBack": "Spodná časť chrbta",
-      "upperLimb": "Horná končatina"
-    },
-    "consent": {
-      "disclaimer": "Súhlasím s podmienkami používania",
-      "privacy": "Súhlasím so spracovaním osobných údajov"
-    },
-    "startAssessment": "Začať hodnotenie"
-  },
   "exercisePlan": {
     "changeRequestAlert": "Žiadosť o zmenu cviku bola odoslaná.",
     "suitableQuestion": "Vyhovuje vám cvik?",
@@ -210,7 +139,7 @@
         },
         "rotatorCuffRelease": {
           "title": "Uvoľnenie rotátorovej manžety",
-          "description": "Vezmite si tenisovú loptičku a vložte si ju na lopatku zozadu. Oprite sa o stenu a pomaly masírujte svaly rotátorovej manžety. V prípade, že nájdete bolestivý bod, zastavte na tomto mieste a bez pohybu tlačte po dobu 30 sekúnd (ostrá bolesť sa môže šíriť do prednej časti ramena)."
+          "description": "Vezmite si tenisovú loptičku a vložte si ju na lopatku zozadu. Oprите sa o stenu a pomaly masírujte svaly rotátorovej manžety. V prípade, že nájdete bolestivý bod, zastavte na tomto mieste a bez pohybu tlačte po dobu 30 sekúnd (ostrá bolesť sa môže šíriť do prednej časti ramena)."
         },
         "shoulderHeating": {
           "title": "Nahrievanie ramenného kĺbu",
