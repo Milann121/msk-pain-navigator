@@ -84,8 +84,8 @@ const ExercisePlan = () => {
     exercises = generateGeneralProgram(mechanism, painArea, userAssessments);
     if (exercises.length === 0) {
       exercises = [{
-        title: 'Všeobecný program nie je k dispozícii',
-        description: 'Nemáte dostatok hodnotení na vytvorenie všeobecného programu alebo nie sú k dispozícii cvičenia s definovanou dôležitosťou.',
+        title: t('exercisePlanPage.generalNotAvailable'),
+        description: t('exercisePlanPage.generalNotAvailableDescription'),
         videos: []
       }];
     }
@@ -100,8 +100,11 @@ const ExercisePlan = () => {
     exercises = exercisesByDifferential[specificKey] || 
                 exercisesByDifferential[defaultKey] || 
                 [{
-                  title: 'Odporúčané cvičenia neboli nájdené',
-                  description: `Pre vašu kombináciu diagnózy (${differential}) a oblasti bolesti (${painArea}) nemáme špecifické cvičenia. Prosím, konzultujte s fyzioterapeutom.`,
+                  title: t('exercisePlanPage.notFoundTitle'),
+                  description: t('exercisePlanPage.notFoundDescription', { 
+                    diagnosis: differential, 
+                    painArea: painArea 
+                  }),
                   videos: []
                 }];
   }
@@ -123,7 +126,7 @@ const ExercisePlan = () => {
       <div className="container mx-auto py-8 px-4">
         <Link to="/my-exercises" className="inline-flex items-center gap-2 mb-6">
           <ArrowLeft className="h-4 w-4" />
-          Späť na moje cvičenia
+          {t('exercisePlanPage.backToExercises')}
         </Link>
         
         <Card>

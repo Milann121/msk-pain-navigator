@@ -193,7 +193,7 @@
     "months": {
       "short": {
         "jan": "Jan",
-        "feb": "Feb", 
+        "feb": "Feb",
         "mar": "Mar",
         "apr": "Apr",
         "may": "Máj",
@@ -479,5 +479,20 @@
   },
   "genderField": {
     "selectGender": "Vyberte pohlavie"
+  },
+  "exercisePlanPage": {
+    "title": "Váš cvičebný plán",
+    "generalTitle": "Všeobecný cvičebný plán",
+    "generalDescription": "Personalizovaný program s najdôležitejšími cvičeniami z vašich programov. Postupujte podľa inštrukcií a v prípade bolesti cvičenie prerušte.",
+    "specificDescription": "Cvičenia špecifické pre {{diagnosis}} v oblasti {{painArea}}. Postupujte podľa inštrukcií a v prípade bolesti cvičenie prerušte.",
+    "backToExercises": "Späť na moje cvičenia",
+    "sectionContains": "Táto sekcia obsahuje {{count}} {{label}}",
+    "weeks": "týždne",
+    "week": "týždeň",
+    "gentleRotationalMovements": "Jemné rotačné pohyby pre zlepšenie mobility v hrudnej oblasti a redukciu bolesti.",
+    "notFoundTitle": "Odporúčané cvičenia neboli nájdené",
+    "notFoundDescription": "Pre vašu kombináciu diagnózy ({{diagnosis}}) a oblasti bolesti ({{painArea}}) nemáme špecifické cvičenia. Prosím, konzultujte s fyzioterapeutom.",
+    "generalNotAvailable": "Všeobecný program nie je k dispozícii",
+    "generalNotAvailableDescription": "Nemáte dostatok hodnotení na vytvorenie všeobecného programu alebo nie sú k dispozícii cvičenia s definovanou dôležitosťou."
   }
 }

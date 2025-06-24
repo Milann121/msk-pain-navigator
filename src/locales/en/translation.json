@@ -480,5 +480,20 @@
   },
   "genderField": {
     "selectGender": "Select gender"
+  },
+  "exercisePlanPage": {
+    "title": "Your Exercise Plan",
+    "generalTitle": "General Exercise Plan",
+    "generalDescription": "Personalized program with the most important exercises from your programs. Follow the instructions and stop exercising if you experience pain.",
+    "specificDescription": "Exercises specific for {{diagnosis}} in the {{painArea}} area. Follow the instructions and stop exercising if you experience pain.",
+    "backToExercises": "Back to my exercises",
+    "sectionContains": "This section contains {{count}} {{label}}",
+    "weeks": "weeks",
+    "week": "week",
+    "gentleRotationalMovements": "Gentle rotational movements to improve mobility in the thoracic area and reduce pain.",
+    "notFoundTitle": "Recommended exercises not found", 
+    "notFoundDescription": "We don't have specific exercises for your combination of diagnosis ({{diagnosis}}) and pain area ({{painArea}}). Please consult with a physiotherapist.",
+    "generalNotAvailable": "General program is not available",
+    "generalNotAvailableDescription": "You don't have enough assessments to create a general program or there are no exercises with defined importance available."
   }
 }

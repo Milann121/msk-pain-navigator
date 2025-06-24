@@ -480,5 +480,20 @@
   },
   "genderField": {
     "selectGender": "Vyberte pohlaví"
+  },
+  "exercisePlanPage": {
+    "title": "Váš cvičební plán",
+    "generalTitle": "Obecný cvičební plán", 
+    "generalDescription": "Personalizovaný program s nejdůležitějšími cvičeními z vašich programů. Postupujte podle instrukcí a v případě bolesti cvičení přerušte.",
+    "specificDescription": "Cvičení specifická pro {{diagnosis}} v oblasti {{painArea}}. Postupujte podle instrukcí a v případě bolesti cvičení přerušte.",
+    "backToExercises": "Zpět na moje cviky",
+    "sectionContains": "Tato sekce obsahuje {{count}} {{label}}",
+    "weeks": "týdny",
+    "week": "týden",
+    "gentleRotationalMovements": "Jemné rotační pohyby pro zlepšení mobility v hrudní oblasti a redukci bolesti.",
+    "notFoundTitle": "Doporučená cvičení nebyla nalezena",
+    "notFoundDescription": "Pro vaši kombinaci diagnózy ({{diagnosis}}) a oblasti bolesti ({{painArea}}) nemáme specifická cvičení. Prosím, konzultujte s fyzioterapeutem.",
+    "generalNotAvailable": "Obecný program není k dispozici",
+    "generalNotAvailableDescription": "Nemáte dostatek hodnocení na vytvoření obecného programu nebo nejsou k dispozici cvičení s definovanou důležitostí."
   }
 }

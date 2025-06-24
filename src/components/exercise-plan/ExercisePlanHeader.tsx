@@ -2,6 +2,7 @@
 import React from 'react';
 import { CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { PainMechanism } from '@/utils/types';
+import { useTranslation } from 'react-i18next';
 
 interface ExercisePlanHeaderProps {
   showGeneral: boolean;
@@ -16,6 +17,8 @@ export const ExercisePlanHeader = ({
   painArea, 
   mechanism 
 }: ExercisePlanHeaderProps) => {
+  const { t } = useTranslation();
+  
   // Helper function to format mechanism for display
   const getMechanismLabel = (mechanism: PainMechanism): string => {
     const labels: Record<PainMechanism, string> = {
@@ -82,12 +85,15 @@ export const ExercisePlanHeader = ({
   return (
     <CardHeader>
       <CardTitle>
-        {showGeneral ? 'Všeobecný cvičebný plán' : 'Váš cvičebný plán'}
+        {showGeneral ? t('exercisePlanPage.generalTitle') : t('exercisePlanPage.title')}
       </CardTitle>
       <CardDescription>
         {showGeneral 
-          ? 'Personalizovaný program s najdôležitejšími cvičeniami z vašich programov. Postupujte podľa inštrukcií a v prípade bolesti cvičenie prerušte.'
-          : `Cvičenia špecifické pre ${formatDifferential(differential)} v oblasti ${formatPainArea(painArea)}. Postupujte podľa inštrukcií a v prípade bolesti cvičenie prerušte.`
+          ? t('exercisePlanPage.generalDescription')
+          : t('exercisePlanPage.specificDescription', { 
+              diagnosis: formatDifferential(differential), 
+              painArea: formatPainArea(painArea) 
+            })
         }
       </CardDescription>
       {!showGeneral && (
