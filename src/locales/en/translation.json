@@ -1,4 +1,3 @@
-
 {
   "profile": {
     "title": "My Profile",
@@ -62,7 +61,7 @@
     "cervical-radiculopathy": "Cervical Radiculopathy",
     "frozen-shoulder": "Frozen Shoulder",
     "slap-tear": "SLAP Tear",
-    "subacromional-impingement-syndrome": "Subacromial Impingement Syndrome",
+    "subacromial-impingement-syndrome": "Subacromial Impingement Syndrome",
     "stiff-shoulder": "Stiff Shoulder Syndrome",
     "shoulder-bursa": "Shoulder Bursitis",
     "rotator-cuff-tear": "Rotator Cuff Tear",
@@ -539,5 +538,88 @@
     "notFoundDescription": "We don't have specific exercises for your combination of diagnosis ({{diagnosis}}) and pain area ({{painArea}}). Please consult with a physiotherapist.",
     "generalNotAvailable": "General program is not available",
     "generalNotAvailableDescription": "You don't have enough assessments to create a general program or there are no exercises with defined importance available."
+  },
+  "exerciseDialog": {
+    "description": "Description"
+  },
+  "exercises": {
+    "shoulderNociceptive": {
+      "frozenShoulderPhase1": {
+        "title": "0-3 weeks",
+        "description": "Basic exercises for frozen shoulder aimed at reducing pain and increasing range of motion.",
+        "pendulumExercises": {
+          "title": "Pendulum exercises",
+          "description": "Lean forward and start performing gentle pendulum movements to release tension in the shoulder. Slight movements within pain tolerance are sufficient."
+        },
+        "isometricExternalRotation": {
+          "title": "Isometric external rotation of the shoulder",
+          "description": "Approach the wall with your elbow bent at 90° angle against your body. Place a folded towel between the outer side of your palm and the wall. Keep your shoulders relaxed and down throughout -> make sure your shoulders don't rise to your ears during exercise. Then press the outer side of your palm against the wall with your elbow constantly pulled against your body. REPETITIONS: 6-8 seconds x 3-5 times in a row. 1-2x daily."
+        },
+        "rotatorCuffRelease": {
+          "title": "Rotator cuff release",
+          "description": "Take a tennis ball and place it on your shoulder blade from behind. Lean against the wall and slowly massage the rotator cuff muscles. If you find a painful spot, stop at this point and press without movement for 30 seconds (sharp pain may radiate to the front of the shoulder)."
+        },
+        "shoulderHeating": {
+          "title": "Shoulder joint heating",
+          "description": "Choose a heating pad or use a hair dryer. When using a hair dryer, ALWAYS PLACE A TOWEL on the skin and heat the towel! Start heating the shoulder from the front and later from the back -> heat for 10-15 minutes to completely warm the shoulder muscles. Always be careful not to burn your skin! REPETITIONS: 2x daily for 10-15min."
+        }
+      },
+      "frozenShoulderPhase2": {
+        "title": "4-6 weeks",
+        "description": "Exercises to increase muscle strength and return to movement.",
+        "isometricShoulderPresses": {
+          "title": "Isometric shoulder presses",
+          "description": "Place your back against the wall and press your elbow into the wall. REPETITIONS: 6-8 seconds x 3 sets. Turn to face the wall, bend your elbow and press your palm (or hand in fist) into the wall. REPETITIONS: 6-8 seconds 3 sets."
+        },
+        "wallPushUps": {
+          "title": "Wall push-ups",
+          "description": "Place your hands on the wall at chest level, slightly wider than shoulder width. Carefully approach the wall with your body straight and push away from the wall. Be careful not to lift your shoulders to your ears and respect the pain of your frozen shoulder. REPETITIONS: 10-12x 2 sets daily"
+        },
+        "interscapularStrengthening": {
+          "title": "Interscapular muscle strengthening",
+          "description": "Grab the resistance band as shown in the video. You can alternate these 3 exercises or choose any of them. \n➜ WARNING: you must not feel strain in the trapezius muscles during these exercises! Always try to press your shoulder blades and shoulders down away from your ears so that the interscapular muscles work. Make sure you feel the muscles between your shoulder blades more during the exercises, not your shoulders and trapezius - achieve this by pressing your shoulders down. \n➜ REPETITIONS: 10-15x / 3 sets / 1x daily."
+        }
+      },
+      "subacromialImpingement": {
+        "title": "Exercises for subacromial impingement syndrome",
+        "description": "Exercises focused on improving space under the acromion and reducing pain.\n\nThese exercises help improve shoulder mechanics and reduce pressure on tendons.\nAvoid overhead movements that worsen symptoms.",
+        "interscapularStrengthening": {
+          "title": "Interscapular muscle strengthening",
+          "description": "Grab the resistance band as shown in the video. You can alternate these 3 exercises or choose any of them. \n➜ WARNING: you must not feel strain in the trapezius muscles during these exercises! Always try to press your shoulder blades and shoulders down away from your ears so that the interscapular muscles work."
+        },
+        "gentlePendulum": {
+          "title": "Gentle pendulum exercises",
+          "description": "Lean forward and start performing gentle pendulum movements to release tension in the shoulder."
+        },
+        "preExerciseHeating": {
+          "title": "Pre-exercise heating",
+          "description": "Heat the shoulder before exercise to improve circulation and muscle readiness."
+        }
+      },
+      "rotatorCuffTear": {
+        "title": "Exercises for rotator cuff tear",
+        "description": "Specialized exercises for strengthening and rehabilitation after rotator cuff tear.\n\nThese exercises help restore shoulder function and prevent further injury.\nStart with light exercises and gradually increase intensity.",
+        "isometricStrengthening": {
+          "title": "Isometric rotator cuff strengthening",
+          "description": "Gentle isometric exercises to strengthen the rotator cuff without excessive strain."
+        },
+        "rotatorCuffMassage": {
+          "title": "Rotator cuff massage",
+          "description": "Gentle massage to improve circulation and release tension in the rotator cuff."
+        }
+      },
+      "defaultNociceptive": {
+        "title": "General shoulder exercises - nociceptive pain",
+        "description": "Basic exercises suitable for various types of nociceptive shoulder pain.\n\nThese exercises help improve overall shoulder function and reduce pain.\nPerform them regularly but respect pain boundaries.",
+        "basicMobility": {
+          "title": "Basic shoulder mobility exercises",
+          "description": "Gentle exercises to improve mobility in all directions."
+        },
+        "basicStrengthening": {
+          "title": "Basic strengthening exercises",
+          "description": "Light strengthening exercises for shoulder stabilization."
+        }
+      }
+    }
   }
 }

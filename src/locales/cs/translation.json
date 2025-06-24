@@ -1,4 +1,3 @@
-
 {
   "profile": {
     "title": "Můj profil",
@@ -62,7 +61,7 @@
     "cervical-radiculopathy": "Cervikální radikulopatie",
     "frozen-shoulder": "Zmrzlé rameno",
     "slap-tear": "SLAP léze",
-    "subacromional-impingement-syndrome": "Impingement syndrom ramene",
+    "subacromial-impingement-syndrome": "Impingement syndrom ramene",
     "stiff-shoulder": "Syndrom ztuhlého ramene",
     "shoulder-bursa": "Burzitida ramene",
     "rotator-cuff-tear": "Porucha rotátorové manžety",
@@ -539,5 +538,88 @@
     "notFoundDescription": "Pro vaši kombinaci diagnózy ({{diagnosis}}) a oblasti bolesti ({{painArea}}) nemáme specifická cvičení. Prosím, konzultujte s fyzioterapeutem.",
     "generalNotAvailable": "Obecný program není k dispozici",
     "generalNotAvailableDescription": "Nemáte dostatek hodnocení na vytvoření obecného programu nebo nejsou k dispozici cvičení s definovanou důležitostí."
+  },
+  "exerciseDialog": {
+    "description": "Popis"
+  },
+  "exercises": {
+    "shoulderNociceptive": {
+      "frozenShoulderPhase1": {
+        "title": "0-3 týdny",
+        "description": "Základní cvičení pro zmrzlé rameno zaměřená na snížení bolesti a zvýšení rozsahu pohybu.",
+        "pendulumExercises": {
+          "title": "Kyvadlová cvičení",
+          "description": "Předklonit se a začít provádět jemné kyvadlové pohyby k uvolnění napětí v rameni. Stačí mírné pohyby v toleranci bolesti."
+        },
+        "isometricExternalRotation": {
+          "title": "Izometrická vnější rotace ramene",
+          "description": "Přistupte ke stěně s pokrčeným loktem v 90° úhlu u těla. Mezi vnější stranu dlaně a stěnu vložte složený ručník. Uvolněte ramena a po celou dobu je držte dole -> dbejte na to, aby vám při cvičení ramena nestoupala k uším. Následně zatlačte vnější stranou dlaně do stěny s neustále přitaženým loktem u těla. OPAKOVÁNÍ: 6-8 sekund x 3-5x za sebou. 1-2x denně."
+        },
+        "rotatorCuffRelease": {
+          "title": "Uvolnění rotátorové manžety",
+          "description": "Vezměte si tenisový míček a vložte si ho na lopatku zezadu. Opřete se o stěnu a pomalu masírujte svaly rotátorové manžety. V případě, že najdete bolestivý bod, zastavte na tomto místě a bez pohybu tlačte po dobu 30 sekund (ostrá bolest se může šířit do přední části ramene)."
+        },
+        "shoulderHeating": {
+          "title": "Nahřívání ramenního kloubu",
+          "description": "Zvolte výhřevnou podložku, nebo využijte fén. V případě fénu si VŽDY VLOŽTE RUČNÍK na pokožku a zahřívejte ručník! Začněte zahřívat rameno z přední strany a později ze zadní strany -> zahřívejte po dobu 10-15 minut, abyste kompletně prohřáli svaly ramene. Vždy si dávejte pozor, abyste si nepopálili pokožku! OPAKOVÁNÍ: 2x denně 10-15min."
+        }
+      },
+      "frozenShoulderPhase2": {
+        "title": "4-6 týden",
+        "description": "Cvičení na zvýšení svalové síly a návrat k pohybu.",
+        "isometricShoulderPresses": {
+          "title": "Izometrické tlaky ramene",
+          "description": "Vložte se zády ke stěně a zatlačte loktem do stěny. OPAKOVÁNÍ: 6-8 sekund x 3 série. Otočte se čelem ke stěně, pokrčte loket a dlaní (nebo rukou v pěst) zatlačte do stěny. OPAKOVÁNÍ: 6-8 sekund 3 série."
+        },
+        "wallPushUps": {
+          "title": "Kliky o stěnu",
+          "description": "Vložte ruce na stěnu na úroveň hrudníku, mírně šířeji než šířka ramen. Opatrně se s vystřeným tělem přiblížte ke stěně a odtáhněte se od stěny. Dávejte pozor, abyste nezdvíhali ramena k uším a respektujte bolest vašeho zmrzlého ramene. OPAKOVÁNÍ: 10-12x 2 série denně"
+        },
+        "interscapularStrengthening": {
+          "title": "Posílení mezilopatkových svalů",
+          "description": "Uchopte odporovou gumu podle videa. Tyto 3 cviky můžete střídat, nebo si vybrat kterýkoli z nich. \n➜ UPOZORNĚNÍ: při těchto cvicích nesmíte pociťovat namáhání trapézů! Celý čas se snažte tlačit lopatky a ramena směrem dolů od uší, aby pracovaly mezilopatkové svaly. Dbejte na to, abyste během provádění cviků více cítili svaly mezi lopatkami, ne ramena a trapézy - toho dosáhnete právě tlačením ramen dolů. \n➜ OPAKOVÁNÍ: 10-15x / 3 série / 1x denně."
+        }
+      },
+      "subacromialImpingement": {
+        "title": "Cvičení pro subakromiální impingment syndrom",
+        "description": "Cvičení zaměřená na zlepšení prostoru pod akromiem a snížení bolesti.\n\nTato cvičení pomáhají zlepšit mechaniku ramene a snižují tlak na šlachy.\nVyhýbejte se pohybům nad hlavou, které zhoršují příznaky.",
+        "interscapularStrengthening": {
+          "title": "Posílení mezilopatkových svalů",
+          "description": "Uchopte odporovou gumu podle videa. Tyto 3 cviky můžete střídat, nebo si vybrat kterýkoli z nich. \n➜ UPOZORNĚNÍ: při těchto cvicích nesmíte pociťovat namáhání trapézů! Celý čas se snažte tlačit lopatky a ramena směrem dolů od uší, aby pracovaly mezilopatkové svaly."
+        },
+        "gentlePendulum": {
+          "title": "Jemná kyvadlová cvičení",
+          "description": "Předklonit se a začít provádět jemné kyvadlové pohyby k uvolnění napětí v rameni."
+        },
+        "preExerciseHeating": {
+          "title": "Nahřívání před cvičením",
+          "description": "Zahřejte rameno před cvičením na zlepšení cirkulace a připravenosti svalů."
+        }
+      },
+      "rotatorCuffTear": {
+        "title": "Cvičení pro trhnutí rotátorové manžety",
+        "description": "Specializovaná cvičení na posílení a rehabilitaci po trhnutí rotátorové manžety.\n\nTato cvičení pomáhají obnovit funkci ramene a předcházejí dalším zraněním.\nZačněte s lehkými cvičeními a postupně zvyšujte intenzitu.",
+        "isometricStrengthening": {
+          "title": "Izometrické posílení rotátorové manžety",
+          "description": "Jemná izometrická cvičení na posílení rotátorové manžety bez nadměrné zátěže."
+        },
+        "rotatorCuffMassage": {
+          "title": "Masáž rotátorové manžety",
+          "description": "Jemná masáž na zlepšení cirkulace a uvolnění napětí v rotátorové manžetě."
+        }
+      },
+      "defaultNociceptive": {
+        "title": "Všeobecná cvičení pro rameno - nociceptivní bolest",
+        "description": "Základní cvičení vhodná pro různé typy nociceptivní bolesti ramene.\n\nTato cvičení pomáhají zlepšit celkovou funkci ramene a snížit bolest.\nVykonávejte je pravidelně, ale respektujte hranice bolesti.",
+        "basicMobility": {
+          "title": "Základní pohyblivostní cvičení ramene",
+          "description": "Jemná cvičení na zlepšení pohyblivosti ve všech směrech."
+        },
+        "basicStrengthening": {
+          "title": "Základní posilňovací cvičení",
+          "description": "Lehká posilňovací cvičení na stabilizaci ramene."
+        }
+      }
+    }
   }
 }

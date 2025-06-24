@@ -46,6 +46,15 @@ export const ExerciseVideoSection = ({
   const { user } = useAuth();
   const { toast } = useToast();
   const { t } = useTranslation();
+  
+  // Helper function to get translated text
+  const getTranslatedText = (text: string) => {
+    if (text.startsWith('exercises.')) {
+      return t(text);
+    }
+    return text;
+  };
+
   // Neutral is the default
   const feedbackValue = feedbackMap[video.videoId] ?? "neutral";
 
@@ -56,7 +65,7 @@ export const ExerciseVideoSection = ({
     const { error } = await supabase.from("exercise_feedback").upsert([
       {
         user_id: user.id,
-        exercise_title: video.title || exerciseTitle,
+        exercise_title: getTranslatedText(video.title || exerciseTitle),
         video_id: video.videoId,
         feedback_value: value,
       },
@@ -130,11 +139,14 @@ export const ExerciseVideoSection = ({
     // Optionally update local state/UI
   };
 
+  const translatedTitle = getTranslatedText(video.title || '');
+  const translatedDescription = getTranslatedText(video.description || '');
+
   return (
     <div className="space-y-4">
       {video.title && (
         <div className="flex items-center gap-2">
-          <h3 className="text-xl font-bold text-gray-800">{video.title}</h3>
+          <h3 className="text-xl font-bold text-gray-800">{translatedTitle}</h3>
         </div>
       )}
       {/* Desktop */}
@@ -145,7 +157,7 @@ export const ExerciseVideoSection = ({
               width="100%"
               height="100%"
               src={`https://www.youtube.com/embed/${video.videoId}`}
-              title={video.title || exerciseTitle}
+              title={translatedTitle || getTranslatedText(exerciseTitle)}
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
@@ -156,7 +168,7 @@ export const ExerciseVideoSection = ({
           {video.description && (
             <div className="space-y-2">
               <p className="text-gray-600">
-                {video.description.split('\n').map((line, index) => (
+                {translatedDescription.split('\n').map((line, index) => (
                   <span key={index}>
                     {line}
                     <br />
@@ -165,7 +177,7 @@ export const ExerciseVideoSection = ({
               </p>
               {assessmentId && (
                 <ExerciseCompletionCheckbox
-                  exerciseTitle={video.title || exerciseTitle}
+                  exerciseTitle={translatedTitle || getTranslatedText(exerciseTitle)}
                   assessmentId={assessmentId}
                   videoId={video.videoId}
                 />
@@ -193,9 +205,9 @@ export const ExerciseVideoSection = ({
             </div>
           )}
           <FavoriteExerciseButton
-            exerciseTitle={video.title || exerciseTitle}
+            exerciseTitle={translatedTitle || getTranslatedText(exerciseTitle)}
             videoId={video.videoId}
-            description={video.description}
+            description={translatedDescription}
           />
         </div>
       </div>
@@ -206,7 +218,7 @@ export const ExerciseVideoSection = ({
             width="100%"
             height="100%"
             src={`https://www.youtube.com/embed/${video.videoId}`}
-            title={video.title || exerciseTitle}
+            title={translatedTitle || getTranslatedText(exerciseTitle)}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
@@ -215,7 +227,7 @@ export const ExerciseVideoSection = ({
         {video.description && (
           <div className="space-y-2">
             <p className="text-gray-600">
-              {video.description.split('\n').map((line, index) => (
+              {translatedDescription.split('\n').map((line, index) => (
                 <span key={index}>
                   {line}
                   <br />
@@ -224,7 +236,7 @@ export const ExerciseVideoSection = ({
             </p>
             {assessmentId && (
               <ExerciseCompletionCheckbox
-                exerciseTitle={video.title || exerciseTitle}
+                exerciseTitle={translatedTitle || getTranslatedText(exerciseTitle)}
                 assessmentId={assessmentId}
                 videoId={video.videoId}
               />
@@ -252,9 +264,9 @@ export const ExerciseVideoSection = ({
           </div>
         )}
         <FavoriteExerciseButton
-          exerciseTitle={video.title || exerciseTitle}
+          exerciseTitle={translatedTitle || getTranslatedText(exerciseTitle)}
           videoId={video.videoId}
-          description={video.description}
+          description={translatedDescription}
         />
       </div>
     </div>

@@ -38,10 +38,20 @@ export const ExercisePeriodSection = ({
   const [feedbackDialogOpen, setFeedbackDialogOpen] = useState(false);
   const { t } = useTranslation();
 
-  const feedbackValue = feedbackMap[exercise.title] ?? "good";
+  // Helper function to get translated text
+  const getTranslatedText = (text: string) => {
+    if (text.startsWith('exercises.')) {
+      return t(text);
+    }
+    return text;
+  };
+
+  const translatedTitle = getTranslatedText(exercise.title);
+  const translatedDescription = getTranslatedText(exercise.description);
+  const feedbackValue = feedbackMap[translatedTitle] ?? "good";
 
   const handleToggleChange = (value: "good" | "not-good") => {
-    setFeedbackMap((prev) => ({ ...prev, [exercise.title]: value }));
+    setFeedbackMap((prev) => ({ ...prev, [translatedTitle]: value }));
     if (value === "not-good") {
       setFeedbackDialogOpen(true);
     }
@@ -61,11 +71,11 @@ export const ExercisePeriodSection = ({
     <div key={index} className="space-y-4">
       <div className="flex items-center gap-4">
         {/* Period title with larger size */}
-        <h2 className="text-3xl font-bold text-gray-900">{exercise.title}</h2>
+        <h2 className="text-3xl font-bold text-gray-900">{translatedTitle}</h2>
 
         <ExerciseGoodToggle value={feedbackValue} onChange={handleToggleChange} />
       </div>
-      <p className="text-gray-600">{exercise.description}</p>
+      <p className="text-gray-600">{translatedDescription}</p>
       {/* Feedback dialog for this period */}
       <ExerciseFeedbackDialog
         open={feedbackDialogOpen}
@@ -78,7 +88,7 @@ export const ExercisePeriodSection = ({
           <ExerciseVideoSection
             key={videoIndex}
             video={video}
-            exerciseTitle={exercise.title}
+            exerciseTitle={translatedTitle}
             showGeneral={showGeneral}
             assessmentId={assessmentId}
           />
