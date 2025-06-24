@@ -98,7 +98,7 @@
     "suitableQuestion": "Vyhovuje vám cvik?",
     "feedbackTitle": "Prečo nie je cvik dobrý?",
     "painQuestion": "1. Spôsobuje vám cvik bolesť?",
-    "painAcceptableQuestion": "1a. Je bolesť prijateľná?",
+    "painAcceptableQuestion": "1a. Je bolesť przyjateľná?",
     "yes": "Áno",
     "no": "Nie",
     "yesAcceptable": "Áno, je prijateľná",
@@ -139,7 +139,7 @@
         },
         "rotatorCuffRelease": {
           "title": "Uvoľnenie rotátorovej manžety",
-          "description": "Vezmite si tenisovú loptičku a vložte si ju na lopatku zozadu. Oprите sa o stenu a pomaly masírujte svaly rotátorovej manžety. V prípade, že nájdete bolestivý bod, zastavte na tomto mieste a bez pohybu tlačte po dobu 30 sekúnd (ostrá bolesť sa môže šíriť do prednej časti ramena)."
+          "description": "Vezmite si tenisovú loptičku a vložte si ju na lopatku zozadu. Oprité sa o stenu a pomaly masírujte svaly rotátorovej manžety. V prípade, že nájdete bolestivý bod, zastavte na tomto mieste a bez pohybu tlačte po dobu 30 sekúnd (ostrá bolesť sa môže šíriť do prednej časti ramena)."
         },
         "shoulderHeating": {
           "title": "Nahrievanie ramenného kĺbu",
@@ -300,5 +300,26 @@
     "exerciseCalendarTitle": "Kalendár cvičení",
     "today": "Dnes",
     "weeklyProgress": "{{completed}} / {{goal}} dní odcvičených tento týždeň"
+  },
+  "assessment": {
+    "title": "Dotazník bolesti svalovo-kostrovej sústavy",
+    "subtitle": "Vyplňte dotazník na získanie personalizovaných odporúčaní cvikov"
+  },
+  "painArea": {
+    "specify": "Pre začatie hodnotenia prosím vyberte oblasť bolesti",
+    "neck": "Krčná chrbtíca",
+    "middleBack": "Hrudná chrbtíca", 
+    "lowerBack": "Bedrová chrbtíca",
+    "upperLimb": "Horná končatina",
+    "specifyUpperLimb": "Špecifikujte hornú končatinu:",
+    "shoulder": "Rameno",
+    "elbow": "Lakeť",
+    "forearm": "Predlaktie",
+    "hand": "Ruka",
+    "fingers": "Prsty"
+  },
+  "consent": {
+    "disclaimer": "Súhlasím s podmienkami používania",
+    "privacy": "Súhlasím so spracovaním osobných údajov"
   }
 }
