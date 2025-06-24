@@ -42,6 +42,9 @@
     "blog": "Blog",
     "assessment": "Dotazník bolesti",
     "signIn": "Přihlásit se",
+    "signOut": "Odhlásit se",
+    "brand": "Pebee terapeut",
+    "toggleMenu": "Zobrazit menu"
     "signOut": "Odhlásit se"
   },
   "auth": {
@@ -265,6 +268,54 @@
       "title": "Pebee terapeut",
       "rights": "© 2024 Pebee terapeut. Všechna práva vyhrazena."
     }
+  },
+  "exercisePlan": {
+    "changeRequestAlert": "Žádost o změnu cviku byla odeslána.",
+    "suitableQuestion": "Vyhovuje vám cvik?",
+    "feedbackTitle": "Proč cvik není dobrý?",
+    "painQuestion": "1. Způsobuje vám cvik bolest?",
+    "painAcceptableQuestion": "1a. Je bolest přijatelná?",
+    "yes": "Ano",
+    "no": "Ne",
+    "yesAcceptable": "Ano, je přijatelná",
+    "noAcceptable": "Ne, není",
+    "changeQuestion": "2. Chcete tento cvik změnit?",
+    "submitFeedback": "Odeslat zpětnou vazbu",
+    "changeExercise": "Změnit cvik",
+    "changeRequestInfo": "Po odeslání této žádosti vás budeme kontaktovat ohledně vhodné náhrady cviku.",
+    "newExerciseProposed": "Navržený nový cvik",
+    "confirmChange": "Potvrdit změnu cviku",
+    "declineChange": "Odmítnout změnu cviku",
+    "replacementErrorTitle": "Nenalezen vhodný nový cvik.",
+    "replacementErrorDescription": "Zkuste kontaktovat fyzioterapeuta nebo změňte kritéria.",
+    "missingInfoTitle": "Chybějí informace o cviku.",
+    "missingInfoDescription": "Nelze navrhnout nový cvik.",
+    "exerciseChangedTitle": "Cvik byl změněn",
+    "exerciseChangedDesc": "Vybraný cvik byl nahrazen novým.",
+    "feedbackSaved": "Zpětná vazba uložena",
+    "markedGood": "Cvik jste označili jako vyhovující.",
+    "requestedChange": "Požádali jste o změnu cviku.",
+    "sectionSummary": "Tato sekce obsahuje {{count}} {{label}}",
+    "moveLabel": "Posuňte pro výběr možnosti",
+    "errorSave": "Nepodařilo se uložit zpětnou vazbu."
+  },
+  "importantNotice": {
+    "title": "Důležité upozornění",
+    "text": "Tato cvičení slouží pouze jako obecné doporučení a nenahrazují návštěvu fyzioterapeuta nebo lékaře. Pokud během cvičení pocítíte zvýšenou bolest, závratě nebo jakýkoli diskomfort, okamžitě cvičení přerušte a vyhledejte odbornou pomoc."
+  },
+  "rotationControls": {
+    "modelControls": "Ovládání modelu",
+    "reset": "Reset",
+    "resetTitle": "Vrátit do neutrální polohy",
+    "horizontal": "Horizontální rotace",
+    "vertical": "Vertikální rotace",
+    "position": "Vertikální pozice",
+    "zoom": "Zoom"
+  },
+  "exerciseCvik": {
+    "one": "cvik",
+    "few": "cviky",
+    "many": "cviků"
   },
   "goals": {
     "title": "Moje cíle",

@@ -2,9 +2,7 @@
 {
   "profile": {
     "title": "Môj profil",
-
     "personalData": "Osobné údaje",
-    "personaData": "Osobné údaje",
     "firstName": "Meno",
     "lastName": "Priezvisko",
     "age": "Vek",
@@ -48,7 +46,9 @@
     "myExercises": "Moje cviky",
     "blog": "Blog",
     "assessment": "Dotazník bolesti",
-    "signIn": "Prihlásiť sa",
+    "signOut": "Odhlásiť sa",
+    "brand": "Pebee terapeut",
+    "toggleMenu": "Zobraziť menu"
     "signOut": "Odhlásiť sa"
   },
   "auth": {
@@ -83,6 +83,7 @@
     "posts": {
       "1": {
         "title": "Neurodynamické cvičenia: čo? prečo? kedy?",
+        "description": "Už ste niekedy počuli o \"flossingu\" nervov? Ak máte bolesť spôsobenú podráždením alebo útlakom nervu, nervový flossing môže pomôcť."
         "description": "Už ste niekedy počuli o „flossingu" nervov? Ak máte bolesť spôsobenú podráždením alebo útlakom nervu, nervový flossing môže pomôcť."
         "description": "Už ste niekedy počuli o „flossingu“ nervov? Ak máte bolesť spôsobenú podráždením alebo útlakom nervu, nervový flossing môže pomôcť."
       },
@@ -214,6 +215,54 @@
       "title": "Pebee terapeut",
       "rights": "© 2024 Pebee terapeut. Všetky práva vyhradené."
     }
+  },
+  "exercisePlan": {
+    "changeRequestAlert": "Žiadosť o zmenu cviku bola odoslaná.",
+    "suitableQuestion": "Vyhovuje vám cvik?",
+    "feedbackTitle": "Prečo nie je cvik dobrý?",
+    "painQuestion": "1. Spôsobuje Vám cvik bolesť?",
+    "painAcceptableQuestion": "1a. Je bolesť prijateľná?",
+    "yes": "Áno",
+    "no": "Nie",
+    "yesAcceptable": "Áno, je prijateľná",
+    "noAcceptable": "Nie, nie je",
+    "changeQuestion": "2. Chcete zmeniť tento cvik?",
+    "submitFeedback": "Odoslať spätnú väzbu",
+    "changeExercise": "Zmeniť cvik",
+    "changeRequestInfo": "Po odoslaní tejto žiadosti Vás budeme kontaktovať ohľadom vhodnej náhrady cviku.",
+    "newExerciseProposed": "Navrhnutý nový cvik",
+    "confirmChange": "Potvrdiť zmenu cviku",
+    "declineChange": "Odmietnuť zmenu cviku",
+    "replacementErrorTitle": "Nie je dostupný vhodný nový cvik.",
+    "replacementErrorDescription": "Skúste kontaktovať fyzioterapeuta alebo zmeňte kritériá.",
+    "missingInfoTitle": "Chýbajú informácie o cviku.",
+    "missingInfoDescription": "Nie je možné navrhnúť nový cvik.",
+    "exerciseChangedTitle": "Cvik bol zmenený",
+    "exerciseChangedDesc": "Vybraný cvik bol nahradený novým.",
+    "feedbackSaved": "Spätná väzba uložená",
+    "markedGood": "Cvik ste označili ako vyhovujúci.",
+    "requestedChange": "Požiadali ste o zmenu cviku.",
+    "sectionSummary": "Táto sekcia obsahuje {{count}} {{label}}",
+    "moveLabel": "Presuňte pre výber možnosti",
+    "errorSave": "Nepodarilo sa uložiť spätnú väzbu."
+  },
+  "importantNotice": {
+    "title": "Dôležité upozornenie",
+    "text": "Tieto cvičenia slúžia len ako všeobecné odporúčania a nenahrádzajú návštevu fyzioterapeuta alebo lekára. Ak počas cvičenia pocítite zvýšenú bolesť, závraty alebo akýkoľvek diskomfort, okamžite cvičenie prerušte a vyhľadajte odbornú pomoc."
+  },
+  "rotationControls": {
+    "modelControls": "Ovládanie modelu",
+    "reset": "Resetovať",
+    "resetTitle": "Vrátiť do neutrálnej pozície",
+    "horizontal": "Horizontálna rotácia",
+    "vertical": "Vertikálna rotácia",
+    "position": "Vertikálna poloha",
+    "zoom": "Priblíženie"
+  },
+  "exerciseCvik": {
+    "one": "cvik",
+    "few": "cviky",
+    "many": "cvikov"
   },
   "goals": {
     "title": "Moje ciele",

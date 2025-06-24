@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { ExerciseVideoSection } from './ExerciseVideoSection';
 import { ExerciseGoodToggle } from './ExerciseGoodToggle';
 import { ExerciseFeedbackDialog } from './ExerciseFeedbackDialog';
+import { useTranslation } from 'react-i18next';
 
 // Exercise type
 interface Exercise {
@@ -35,6 +36,7 @@ export const ExercisePeriodSection = ({
   // Local feedback state per exercise (could be lifted up in future)
   const [feedbackMap, setFeedbackMap] = useState<FeedbackMap>({});
   const [feedbackDialogOpen, setFeedbackDialogOpen] = useState(false);
+  const { t } = useTranslation();
 
   const feedbackValue = feedbackMap[exercise.title] ?? "good";
 
@@ -52,8 +54,7 @@ export const ExercisePeriodSection = ({
 
   const handleExerciseChangeRequest = () => {
     // Placeholder: Here you'd trigger workflow to change exercise.
-    // For demo just alert. In real app, replace with proper logic/API.
-    alert("Žiadosť o zmenu cviku bola odoslaná.");
+    alert(t('exercisePlan.changeRequestAlert'));
   };
 
   return (

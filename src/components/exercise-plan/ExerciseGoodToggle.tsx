@@ -1,5 +1,6 @@
 
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 interface ExerciseGoodToggleProps {
   // Add "neutral" as a possible value
@@ -11,6 +12,7 @@ export const ExerciseGoodToggle = ({
   value,
   onChange,
 }: ExerciseGoodToggleProps) => {
+  const { t } = useTranslation();
   // Determine slider position
   const getThumbPosition = () => {
     switch (value) {
@@ -32,14 +34,14 @@ export const ExerciseGoodToggle = ({
           value === "good" ? "text-green-700 font-medium" : "text-gray-700"
         }`}
       >
-        Áno
+        {t('exercisePlan.yes')}
       </span>
       {/* Custom 3-position toggle */}
       <div className="relative w-20 h-7 mx-1">
         <div className="absolute inset-0 rounded-full bg-gray-200" />
         {/* Thumb */}
         <button
-          aria-label="Presuňte pre výber možnosti"
+          aria-label={t('exercisePlan.moveLabel')}
           type="button"
           className={`absolute top-1/2 -translate-y-1/2 w-6 h-6 rounded-full transition-all duration-200
             shadow bg-white border-2 ${
@@ -91,7 +93,7 @@ export const ExerciseGoodToggle = ({
           value === "not-good" ? "text-red-700 font-medium" : "text-gray-700"
         }`}
       >
-        Nie
+        {t('exercisePlan.no')}
       </span>
     </div>
   );

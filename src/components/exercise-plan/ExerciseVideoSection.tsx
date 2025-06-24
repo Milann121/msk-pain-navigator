@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ExerciseCompletionCheckbox } from '@/components/ExerciseCompletionCheckbox';
 import { FavoriteExerciseButton } from '@/components/FavoriteExerciseButton';
 import { ExerciseGoodToggle } from './ExerciseGoodToggle';
@@ -44,6 +45,7 @@ export const ExerciseVideoSection = ({
 
   const { user } = useAuth();
   const { toast } = useToast();
+  const { t } = useTranslation();
   // Neutral is the default
   const feedbackValue = feedbackMap[video.videoId] ?? "neutral";
 
@@ -61,14 +63,14 @@ export const ExerciseVideoSection = ({
     ]);
     if (error) {
       toast({
-        title: "Chyba",
-        description: "Nepodarilo sa uložiť spätnú väzbu.",
-        variant: "destructive",
+        title: t('goals.errorTitle'),
+        description: t('exercisePlan.errorSave'),
+        variant: 'destructive',
       });
     } else {
       toast({
-        title: "Spätná väzba uložená",
-        description: value === 1 ? "Cvik ste označili ako vyhovujúci." : "Požiadali ste o zmenu cviku.",
+        title: t('exercisePlan.feedbackSaved'),
+        description: value === 1 ? t('exercisePlan.markedGood') : t('exercisePlan.requestedChange'),
       });
     }
   };
@@ -103,16 +105,16 @@ export const ExerciseVideoSection = ({
         setReplaceDialogOpen(true);
       } else {
         toast({
-          title: "Nie je dostupný vhodný nový cvik.",
-          description: "Skúste kontaktovať fyzioterapeuta alebo zmeňte kritériá.",
-          variant: "destructive",
+          title: t('exercisePlan.replacementErrorTitle'),
+          description: t('exercisePlan.replacementErrorDescription'),
+          variant: 'destructive',
         });
       }
     } else {
       toast({
-        title: "Chýbajú informácie o cviku.",
-        description: "Nie je možné navrhnúť nový cvik.",
-        variant: "destructive",
+        title: t('exercisePlan.missingInfoTitle'),
+        description: t('exercisePlan.missingInfoDescription'),
+        variant: 'destructive',
       });
     }
   };
@@ -122,8 +124,8 @@ export const ExerciseVideoSection = ({
     // Here we would update the UI/list with the new exercise in a parent context, but for this demo just close dialog.
     setReplaceDialogOpen(false);
     toast({
-      title: "Cvik bol zmenený",
-      description: "Vybraný cvik bol nahradený novým.",
+      title: t('exercisePlan.exerciseChangedTitle'),
+      description: t('exercisePlan.exerciseChangedDesc'),
     });
     // Optionally update local state/UI
   };
@@ -169,7 +171,7 @@ export const ExerciseVideoSection = ({
                 />
               )}
               <div className="space-y-2">
-                <span className="text-base font-medium text-gray-900 block">Vyhovuje vám cvik?</span>
+                <span className="text-base font-medium text-gray-900 block">{t('exercisePlan.suitableQuestion')}</span>
                 <div className="flex justify-start">
                   <ExerciseGoodToggle
                     value={feedbackValue}
@@ -228,7 +230,7 @@ export const ExerciseVideoSection = ({
               />
             )}
             <div className="space-y-2">
-              <span className="text-base font-medium text-gray-900 block">Vyhovuje vám cvik?</span>
+              <span className="text-base font-medium text-gray-900 block">{t('exercisePlan.suitableQuestion')}</span>
               <div className="flex justify-start">
                 <ExerciseGoodToggle
                   value={feedbackValue}

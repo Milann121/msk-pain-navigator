@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
   Dialog,
   DialogContent,
@@ -23,6 +24,7 @@ export const ExerciseFeedbackDialog = ({
   const [pain, setPain] = useState<null | "yes" | "no">(null);
   const [painAcceptable, setPainAcceptable] = useState<null | "yes" | "no">(null);
   const [wantChange, setWantChange] = useState<null | "yes" | "no">(null);
+  const { t } = useTranslation();
 
   // Reset state when closed
   React.useEffect(() => {
@@ -56,7 +58,7 @@ export const ExerciseFeedbackDialog = ({
         <DialogHeader>
           <DialogTitle className="text-lg flex items-center gap-2">
             <AlertTriangle className="text-yellow-500 mr-1" size={22} strokeWidth={2.2} />
-            Prečo nie je cvik dobrý?
+            {t('exercisePlan.feedbackTitle')}
           </DialogTitle>
         </DialogHeader>
         <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
@@ -64,7 +66,7 @@ export const ExerciseFeedbackDialog = ({
           <div className="rounded-lg px-3 pb-3 pt-2 bg-gray-50 flex flex-col gap-2">
             <div className="flex items-center gap-2 text-gray-900 font-semibold">
               <HeartHandshake className="text-green-600" size={20} />
-              <span>1. Spôsobuje Vám cvik bolesť?</span>
+              <span>{t('exercisePlan.painQuestion')}</span>
             </div>
             <div className="flex flex-row gap-2 mt-2">
               <Button
@@ -74,7 +76,7 @@ export const ExerciseFeedbackDialog = ({
                 onClick={() => setPain("yes")}
                 tabIndex={0}
               >
-                Áno
+                {t('exercisePlan.yes')}
               </Button>
               <Button
                 type="button"
@@ -83,7 +85,7 @@ export const ExerciseFeedbackDialog = ({
                 onClick={() => setPain("no")}
                 tabIndex={0}
               >
-                Nie
+                {t('exercisePlan.no')}
               </Button>
             </div>
           </div>
@@ -92,7 +94,7 @@ export const ExerciseFeedbackDialog = ({
             <div className="rounded-lg px-3 pb-3 pt-2 bg-gray-50 flex flex-col gap-2 ml-4 border-l-4 border-yellow-100">
               <div className="flex items-center gap-2 text-gray-900 font-semibold">
                 <CornerDownRight className="text-yellow-500" size={18} />
-                <span>1a. Je bolesť prijateľná?</span>
+                <span>{t('exercisePlan.painAcceptableQuestion')}</span>
               </div>
               <div className="flex flex-row gap-2 mt-2">
                 <Button
@@ -101,7 +103,7 @@ export const ExerciseFeedbackDialog = ({
                   className="flex-1"
                   onClick={() => setPainAcceptable("yes")}
                 >
-                  Áno, je prijateľná
+                  {t('exercisePlan.yesAcceptable')}
                 </Button>
                 <Button
                   type="button"
@@ -109,7 +111,7 @@ export const ExerciseFeedbackDialog = ({
                   className="flex-1"
                   onClick={() => setPainAcceptable("no")}
                 >
-                  Nie, nie je
+                  {t('exercisePlan.noAcceptable')}
                 </Button>
               </div>
             </div>
@@ -121,7 +123,7 @@ export const ExerciseFeedbackDialog = ({
             <div className="rounded-lg px-3 pb-3 pt-2 bg-gray-50 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-gray-900 font-semibold">
                 <RotateCw className="text-blue-500" size={20} />
-                <span>2. Chcete zmeniť tento cvik?</span>
+                <span>{t('exercisePlan.changeQuestion')}</span>
               </div>
               <div className="flex flex-row gap-2 mt-2">
                 <Button
@@ -130,7 +132,7 @@ export const ExerciseFeedbackDialog = ({
                   className="flex-1"
                   onClick={() => setWantChange("yes")}
                 >
-                  Áno
+                  {t('exercisePlan.yes')}
                 </Button>
                 <Button
                   type="button"
@@ -138,7 +140,7 @@ export const ExerciseFeedbackDialog = ({
                   className="flex-1"
                   onClick={() => setWantChange("no")}
                 >
-                  Nie
+                  {t('exercisePlan.no')}
                 </Button>
               </div>
             </div>
@@ -153,7 +155,7 @@ export const ExerciseFeedbackDialog = ({
                 className="w-full flex items-center gap-2 text-base bg-blue-500 hover:bg-blue-600"
                 onClick={() => onOpenChange(false)}
               >
-                Odoslať spätnú väzbu
+                {t('exercisePlan.submitFeedback')}
               </Button>
             </div>
           )}
@@ -171,10 +173,10 @@ export const ExerciseFeedbackDialog = ({
                 }}
               >
                 <CheckCircle className="text-white" size={20} strokeWidth={2.4} />
-                Zmeniť cvik
+                {t('exercisePlan.changeExercise')}
               </Button>
               <div className="text-xs text-center text-muted-foreground mt-2">
-                Po odoslaní tejto žiadosti Vás budeme kontaktovať ohľadom vhodnej náhrady cviku.
+                {t('exercisePlan.changeRequestInfo')}
               </div>
             </div>
           )}

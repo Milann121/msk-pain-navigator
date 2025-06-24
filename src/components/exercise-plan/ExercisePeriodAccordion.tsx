@@ -2,6 +2,7 @@
 import React from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { ExerciseVideoSection } from './ExerciseVideoSection';
+import { useTranslation } from 'react-i18next';
 
 interface Exercise {
   title: string;
@@ -21,17 +22,18 @@ interface ExercisePeriodAccordionProps {
 }
 
 // Helper function for Slovak pluralization
-function getCvikLabel(count: number) {
-  if (count === 1) return 'cvik';
-  if (count >= 2 && count <= 4) return 'cviky';
-  return 'cvikov';
+function getCvikLabel(t: (k: string) => string, count: number) {
+  if (count === 1) return t('exerciseCvik.one');
+  if (count >= 2 && count <= 4) return t('exerciseCvik.few');
+  return t('exerciseCvik.many');
 }
 
-export const ExercisePeriodAccordion = ({ 
-  exercises, 
-  showGeneral, 
-  assessmentId 
+export const ExercisePeriodAccordion = ({
+  exercises,
+  showGeneral,
+  assessmentId
 }: ExercisePeriodAccordionProps) => {
+  const { t } = useTranslation();
   return (
     <Accordion type="multiple" className="w-full space-y-4">
       {exercises.map((exercise, index) => (
@@ -41,7 +43,7 @@ export const ExercisePeriodAccordion = ({
               <h2 className="text-2xl font-bold text-gray-900">{exercise.title}</h2>
               <p className="text-gray-600 mt-2">{exercise.description}</p>
               <div className="mt-3 px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium inline-block">
-                Táto sekcia obsahuje {exercise.videos.length} {getCvikLabel(exercise.videos.length)}
+                {t('exercisePlan.sectionSummary', { count: exercise.videos.length, label: getCvikLabel(t, exercise.videos.length) })}
               </div>
             </div>
           </AccordionTrigger>

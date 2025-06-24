@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Slider } from '@/components/ui/slider';
 import { Label } from '@/components/ui/label';
 import { RotateCcw, RotateCw, ZoomIn, ZoomOut, ArrowUp, ArrowDown } from 'lucide-react';
@@ -27,24 +28,25 @@ export function RotationControls({
   onVerticalPositionChange,
   onReset
 }: RotationControlsProps) {
+  const { t } = useTranslation();
   return (
     <div className="space-y-6 p-6 bg-white/95 backdrop-blur-sm rounded-lg border shadow-lg">
       <div className="flex items-center justify-between">
-        <h3 className="text-sm font-medium text-gray-700">Model Controls</h3>
-        <button 
+        <h3 className="text-sm font-medium text-gray-700">{t('rotationControls.modelControls')}</h3>
+        <button
           onClick={onReset}
           className="text-xs text-blue-600 hover:text-blue-800 flex items-center gap-1 transition-colors"
-          title="Reset to neutral position"
+          title={t('rotationControls.resetTitle')}
         >
           <RotateCcw className="w-3 h-3" />
-          Reset
+          {t('rotationControls.reset')}
         </button>
       </div>
       
       {/* Y-axis rotation (horizontal rotation) */}
       <div className="space-y-3">
         <div className="flex items-center justify-between">
-          <Label className="text-xs text-gray-600 font-medium">Horizontal Rotation</Label>
+          <Label className="text-xs text-gray-600 font-medium">{t('rotationControls.horizontal')}</Label>
           <span className="text-xs text-gray-500 font-mono min-w-[3rem] text-right">{Math.round(yRotation)}°</span>
         </div>
         <div className="flex items-center gap-3">
@@ -64,7 +66,7 @@ export function RotationControls({
       {/* X-axis rotation (vertical rotation) */}
       <div className="space-y-3">
         <div className="flex items-center justify-between">
-          <Label className="text-xs text-gray-600 font-medium">Vertical Rotation</Label>
+          <Label className="text-xs text-gray-600 font-medium">{t('rotationControls.vertical')}</Label>
           <span className="text-xs text-gray-500 font-mono min-w-[3rem] text-right">{Math.round(xRotation)}°</span>
         </div>
         <div className="flex items-center gap-3">
@@ -84,7 +86,7 @@ export function RotationControls({
       {/* Vertical position control */}
       <div className="space-y-3">
         <div className="flex items-center justify-between">
-          <Label className="text-xs text-gray-600 font-medium">Vertical Position</Label>
+          <Label className="text-xs text-gray-600 font-medium">{t('rotationControls.position')}</Label>
           <span className="text-xs text-gray-500 font-mono min-w-[3rem] text-right">{Math.round(verticalPosition * 100)}%</span>
         </div>
         <div className="flex items-center gap-3">
@@ -104,7 +106,7 @@ export function RotationControls({
       {/* Zoom control */}
       <div className="space-y-3">
         <div className="flex items-center justify-between">
-          <Label className="text-xs text-gray-600 font-medium">Zoom</Label>
+          <Label className="text-xs text-gray-600 font-medium">{t('rotationControls.zoom')}</Label>
           <span className="text-xs text-gray-500 font-mono min-w-[3rem] text-right">{Math.round(zoom * 100)}%</span>
         </div>
         <div className="flex items-center gap-3">

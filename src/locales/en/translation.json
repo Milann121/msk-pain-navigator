@@ -37,6 +37,9 @@
     "blog": "Blog",
     "assessment": "Pain questionnaire",
     "signIn": "Sign in",
+    "signOut": "Sign out",
+    "brand": "Pebee therapist",
+    "toggleMenu": "Toggle menu"
     "signOut": "Sign out"
   },
   "auth": {
@@ -226,6 +229,54 @@
       "title": "Pebee therapist",
       "rights": "© 2024 Pebee therapist. All rights reserved."
     }
+  },
+  "exercisePlan": {
+    "changeRequestAlert": "Exercise change request sent.",
+    "suitableQuestion": "Does this exercise work for you?",
+    "feedbackTitle": "Why isn't the exercise good?",
+    "painQuestion": "1. Does the exercise cause you pain?",
+    "painAcceptableQuestion": "1a. Is the pain acceptable?",
+    "yes": "Yes",
+    "no": "No",
+    "yesAcceptable": "Yes, it's acceptable",
+    "noAcceptable": "No, it isn't",
+    "changeQuestion": "2. Do you want to change this exercise?",
+    "submitFeedback": "Submit feedback",
+    "changeExercise": "Change exercise",
+    "changeRequestInfo": "We will contact you about a suitable replacement once you submit this request.",
+    "newExerciseProposed": "Proposed new exercise",
+    "confirmChange": "Confirm change",
+    "declineChange": "Decline change",
+    "replacementErrorTitle": "No suitable new exercise available.",
+    "replacementErrorDescription": "Try contacting a physiotherapist or change the criteria.",
+    "missingInfoTitle": "Missing exercise information.",
+    "missingInfoDescription": "Cannot suggest a new exercise.",
+    "exerciseChangedTitle": "Exercise changed",
+    "exerciseChangedDesc": "The selected exercise has been replaced with a new one.",
+    "feedbackSaved": "Feedback saved",
+    "markedGood": "You marked the exercise as suitable.",
+    "requestedChange": "You requested an exercise change.",
+    "sectionSummary": "This section contains {{count}} {{label}}",
+    "moveLabel": "Move to select option",
+    "errorSave": "Failed to save feedback."
+  },
+  "importantNotice": {
+    "title": "Important notice",
+    "text": "These exercises serve only as general recommendations and do not replace a visit to a physiotherapist or doctor. If you experience increased pain, dizziness, or any discomfort during exercise, stop immediately and seek professional help."
+  },
+  "rotationControls": {
+    "modelControls": "Model Controls",
+    "reset": "Reset",
+    "resetTitle": "Reset to neutral position",
+    "horizontal": "Horizontal Rotation",
+    "vertical": "Vertical Rotation",
+    "position": "Vertical Position",
+    "zoom": "Zoom"
+  },
+  "exerciseCvik": {
+    "one": "exercise",
+    "few": "exercises",
+    "many": "exercises"
   },
   "goals": {
     "title": "My goals",
