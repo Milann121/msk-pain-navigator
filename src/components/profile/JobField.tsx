@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Edit } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface JobFieldProps {
   value: string;
@@ -31,11 +32,12 @@ export const JobField: React.FC<JobFieldProps> = ({
   onTempJobSubtypeChange
 }) => {
   const isEditing = editingField === 'job';
+  const { t } = useTranslation();
 
   if (isEditing) {
     return (
       <div className="col-span-2 space-y-4">
-        <Label className="text-base font-medium">Práca:</Label>
+        <Label className="text-base font-medium">{t('profile.job')}:</Label>
         <RadioGroup 
           value={tempValue as string}
           onValueChange={(value) => {
@@ -47,11 +49,11 @@ export const JobField: React.FC<JobFieldProps> = ({
           <div className="space-y-2">
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="manuálna práca" id="manual-job-edit" />
-              <Label htmlFor="manual-job-edit" className="cursor-pointer text-sm">manuálna práca</Label>
+              <Label htmlFor="manual-job-edit" className="cursor-pointer text-sm">{t('profileForm.manual')}</Label>
             </div>
             {tempValue === 'manuálna práca' && (
               <div className="space-y-2 pl-6">
-                <Label className="text-sm font-medium">Špecifikácia:</Label>
+                <Label className="text-sm font-medium">{t('profileForm.manualSpec')}</Label>
                 <RadioGroup 
                   value={tempJobSubtype}
                   onValueChange={onTempJobSubtypeChange}
@@ -59,15 +61,15 @@ export const JobField: React.FC<JobFieldProps> = ({
                 >
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="zdvíhanie ťažkých predmetov" id="heavy-lifting" />
-                    <Label htmlFor="heavy-lifting" className="cursor-pointer text-sm">zdvíhanie ťažkých predmetov</Label>
+                    <Label htmlFor="heavy-lifting" className="cursor-pointer text-sm">{t('profileForm.heavyLifting')}</Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="práca v stoji na mieste" id="standing-work" />
-                    <Label htmlFor="standing-work" className="cursor-pointer text-sm">práca v stoji na mieste</Label>
+                    <Label htmlFor="standing-work" className="cursor-pointer text-sm">{t('profileForm.standingWork')}</Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="práca v neprirodzených polohách" id="awkward-positions" />
-                    <Label htmlFor="awkward-positions" className="cursor-pointer text-sm">práca v neprirodzených polohách</Label>
+                    <Label htmlFor="awkward-positions" className="cursor-pointer text-sm">{t('profileForm.awkwardPositions')}</Label>
                   </div>
                 </RadioGroup>
               </div>
@@ -77,11 +79,11 @@ export const JobField: React.FC<JobFieldProps> = ({
           <div className="space-y-2">
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="sedavá práca" id="desk-job-edit" />
-              <Label htmlFor="desk-job-edit" className="cursor-pointer text-sm">sedavá práca</Label>
+              <Label htmlFor="desk-job-edit" className="cursor-pointer text-sm">{t('profileForm.desk')}</Label>
             </div>
             {tempValue === 'sedavá práca' && (
               <div className="space-y-2 pl-6">
-                <Label className="text-sm font-medium">Špecifikácia:</Label>
+                <Label className="text-sm font-medium">{t('profileForm.manualSpec')}</Label>
                 <RadioGroup 
                   value={tempJobSubtype}
                   onValueChange={onTempJobSubtypeChange}
@@ -89,11 +91,11 @@ export const JobField: React.FC<JobFieldProps> = ({
                 >
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="práca v kancelárii" id="office-work" />
-                    <Label htmlFor="office-work" className="cursor-pointer text-sm">práca v kancelárii</Label>
+                    <Label htmlFor="office-work" className="cursor-pointer text-sm">{t('profileForm.officeWork')}</Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="šofér" id="driver" />
-                    <Label htmlFor="driver" className="cursor-pointer text-sm">šofér</Label>
+                    <Label htmlFor="driver" className="cursor-pointer text-sm">{t('profileForm.driver')}</Label>
                   </div>
                 </RadioGroup>
               </div>
@@ -103,10 +105,10 @@ export const JobField: React.FC<JobFieldProps> = ({
         
         <div className="flex space-x-3 pt-2">
           <Button size="sm" onClick={() => onSave('job')} className="px-6">
-            Uložiť
+            {t('profile.save')}
           </Button>
           <Button size="sm" variant="outline" onClick={onCancel} className="px-6">
-            Zrušiť
+            {t('profile.cancel')}
           </Button>
         </div>
       </div>
@@ -117,7 +119,7 @@ export const JobField: React.FC<JobFieldProps> = ({
   
   return (
     <>
-      <div className="text-sm text-muted-foreground">Práca:</div>
+      <div className="text-sm text-muted-foreground">{t('profile.job')}:</div>
       <div className="flex items-center justify-between">
         <span className="font-medium">{displayValue}</span>
         <Button

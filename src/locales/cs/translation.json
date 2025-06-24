@@ -1,4 +1,3 @@
-
 {
   "profile": {
     "title": "Můj profil",
@@ -409,7 +408,7 @@
     "next": "Další",
     "finish": "Dokončit",
     "question": "Otázka {{current}} z {{total}}",
-    "thankYou": "Děkujeme za vyplnění dotazníku o vašem pokroku."
+    "thankYou": "Děkujeme za vyplnění dotazníka o vašem pokroku."
   },
   "genderField": {
     "selectGender": "Vyberte pohlaví"
