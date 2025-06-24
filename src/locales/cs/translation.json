@@ -2,6 +2,10 @@
   "profile": {
     "title": "Můj profil",
     "personalData": "Osobní údaje",
+{
+  "profile": {
+    "title": "Můj profil",
+    "personaData": "Osobní údaje",
     "firstName": "Jméno",
     "lastName": "Příjmení",
     "age": "Věk",
@@ -14,6 +18,9 @@
     "savePlaceholder": "Zadejte své {{field}}",
     "moneySavings": "Ušetřené peníze",
     "moneySavingsFootnote": "*vypočteno na základě průměrných cen na Slovensku"
+    "moneySavingsFootnote": "*vypočteno na základě průměrných cen na Slovensku",
+    "moneySavingsTitle": "Ušetřené peníze",
+    "moneySavingsNote": "*vypočítáno z průměrných cen na Slovensku"
   },
   "results": {
     "savedTitle": "Výsledky uloženy",
@@ -23,6 +30,9 @@
     "autoSaved": "✓ Výsledky byly automaticky uloženy. Najdete je v sekci Moje cviky.",
     "saving": "Ukládání výsledků...",
     "autoSaveFailed": "Automatické ukládání selhalo."
+    "autoSaved": "✔ Výsledky byly automaticky uloženy. Najdete je v sekci Moje cviky.",
+    "saving": "Ukládání výsledků...",
+    "saveFailed": "Automatické ukládání selhalo."
   },
   "loading": "Načítá se...",
   "header": {
@@ -35,6 +45,7 @@
     "signOut": "Odhlásit se",
     "brand": "Pebee terapeut",
     "toggleMenu": "Zobrazit menu"
+    "signOut": "Odhlásit se"
   },
   "auth": {
     "signIn": "Přihlásit se",
@@ -89,6 +100,33 @@
         "title": "Rehabilitační cvičení po zranění",
         "description": "Doporučené postupy a cviky pro rehabilitaci po zranění páteře nebo operaci."
       }
+ "readMore": "Číst více",
+  "posts": {
+    "1": {
+      "title": "Neurodynamická cvičení: co? proč? kdy?",
+      "description": "Už jste slyšeli o flossingu nervů? Pokud máte bolest způsobenou podrážděním nebo útlakem nervu, nerve flossing stojí za vyzkoušení."
+    },
+    "2": {
+      "title": "Prevence bolestí zad v práci",
+      "description": "Tipy na správné sezení, ergonomické nastavení pracoviště a cviky během pracovního dne."
+    },
+    "3": {
+      "title": "Stretching pro zdravou páteř",
+      "description": "Jednoduchý strečinkový program, který pomůže udržet páteř zdravou a flexibilní."
+    },
+    "4": {
+      "title": "Cvičení a výživa",
+      "description": "Jak správná výživa přispívá k lepší regeneraci a posílení zádových svalů."
+    },
+    "5": {
+      "title": "Nejčastější chyby při cvičení",
+      "description": "Vyvarujte se běžným chybám, které mohou zhoršit bolesti zad."
+    },
+    "6": {
+      "title": "Rehabilitační cvičení po zranění",
+      "description": "Doporučené postupy a cviky pro rehabilitaci po zranění páteře nebo operaci."
+    }
+  },
     }
   },
   "assessment": {
@@ -140,6 +178,45 @@
     },
     "greeting": {
       "hello": "Ahoj {{name}}",
+"home": {
+    "progressTitle": "Můj pokrok",
+    "setGoals": "Nastavit osobní cíle",
+    "exerciseStats": {
+      "title": "Moje cviky",
+      "weekLabel": "Hndi cvičených setů tento týden",
+      "goalDone": "Gratulujeme! Splnili jste svůj týdenní cíl.",
+      "goalRemaining": "Zbývá {{count}} dní do splnění cíle.",
+      "noGoal": "Nastavte si týdenní cíl v sekci 'Moje cíle' na stránce profilu."
+    },
+    "blogStats": {
+      "title": "Čtení blogů",
+      "weekLabel": "Hndi přečtených tento týden",
+      "goalDone": "Gratulujeme! Splnili jste svůj týdenní cíl.",
+      "goalRemaining": "Zbývá {{count}} blogů do splnění cíle.",
+      "noGoal": "Nastavte si týdenní cíl v sekci 'Moje cíle' na stránce profilu."
+    },
+    "favoriteExercises": {
+      "title": "Oblíbené cviky",
+      "empty": "Zatím nemáte žádné oblíbené cviky. Přidejte je označením hvězdy u cviku v plánu cvičení."
+    },
+    "savedBlogs": {
+      "title": "Uložené články",
+      "empty": "Zatím nemáte žádné uložené články. Můžete je uložit v sekci Blog pomocí tlačítka 'Přidat mezi oblíbené'."
+    },
+    "generalProgram": {
+      "title": "Všeobecný program",
+      "needMore": "Potřebujete alespoň 2 hodnocení (máte {{count}}).",
+      "generating": "Program se generuje...",
+      "hint": "Vyplňte více dotazníků bolesti pro vytvoření personalizovaného programu.",
+      "description": "Nemáte čas na jednotlivé cvičební programy? Zde najdete personalizovaný program s nejdůležitějšími cviky z vašich programů.",
+      "view": "Zobrazit program"
+    },
+    "banner": {
+      "message": "Je to tady! Nový týden, nová výzva. Neodkládejte své cviky a začněte už dnes 💪.",
+      "open": "Otevřít program"
+    },
+    "greeting": {
+      "hello": "Ahoj {{name}}!",
       "question": "jak se dnes cítíte?"
     },
     "mood": {
@@ -321,5 +398,20 @@
     "contact": "Pro uplatnění svých práv nás můžete kontaktovat na <a href=\"mailto:privacy@example.com\">privacy@example.com</a>.",
     "endTitle": "Závěr",
     "endText": "Vaše soukromí je pro nás prioritou. Zpracováváme jen nezbytné minimum údajů a zdravotní informace neukládáme ani nearchivujeme."
+      "weekly": "posledních 7 dní",
+      "monthly": "posledních 30 dní",
+      "emptyWeek": "Průměrné skóre za {{period}}",
+      "emptyMonth": "Průměrné skóre za {{period}}",
+      "infoLabel": "Informace o skóre:",
+      "infoText": "Průměrné skóre z posledních {{days}} dní vychází z vašich denních záznamů, jak se cítíte. Čím je skóre blíže k číslu 3, tím lépe se cítíte.",
+      "infoGrades": "Dobře = 3, Neutrálně = 2, Špatně = 1.",
+      "infoFollow": "Sledujte, jak se vaše celkové skóre mění v čase.",
+      "better": "Lepší trend za posledních {{days}} dní.",
+      "worse": "Horší trend za posledních {{days}} dní.",
+      "noRecords": "(Nemáte záznamy pro {{period}})",
+      "happy": "Dobře",
+      "neutral": "Neutrálně",
+      "sad": "Špatně"
+    }
   }
 }
