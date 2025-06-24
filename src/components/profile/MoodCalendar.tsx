@@ -164,7 +164,7 @@ export const MoodCalendar = () => {
                   >
                     <div className="p-3">
                       <p className="text-sm text-gray-700 leading-relaxed">
-                        Priemerné skóre z posledných {currentPeriodDays} dní vychádza z vašich denných zápisov toho, ako sa cítite. Čím je vaše skóre bližšie k číslu 3, tým sa máte lepšie.<br />
+                        {t(Priemerné skóre z posledných {currentPeriodDays} dní vychádza z vašich denných zápisov toho, ako sa cítite. Čím je vaše skóre bližšie k číslu 3, tým sa máte lepšie.)}<br />
                         <span className="font-medium">Dobre = 3, Neutrálne = 2, Zle = 1.</span><br />
                         Sledujte, ako sa vaše celkové skóre mení v čase.
                       </p>
