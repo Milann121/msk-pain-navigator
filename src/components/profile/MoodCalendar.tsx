@@ -169,7 +169,6 @@ export const MoodCalendar = () => {
                         {t('home.mood.infoText', { days: currentPeriodDays })}<br />
                         <span className="font-medium">{t('home.mood.infoGrades')}</span><br />
                         {t('home.mood.infoFollow')}
-
                       </p>
                     </div>
                   </PopoverContent>

@@ -75,17 +75,17 @@ export const AssessmentExerciseStats = ({ assessmentId }: AssessmentExerciseStat
   }
 
   if (uniqueDaysCount === 0) {
-    return <div className="text-sm text-gray-500">Žiadne cvičenia dnes</div>;
+    return <div className="text-sm text-gray-500">{t('exerciseStats.noneToday')}</div>;
   }
 
   return (
     <div className="space-y-1">
       <div className="text-sm font-medium text-gray-700">
-        Odcvičené: {uniqueDaysCount}x
+        {t('exerciseStats.completed', { count: uniqueDaysCount })}
       </div>
       {lastCompletionDate && (
         <div className="text-sm text-gray-600">
-          Posledné cvičenie: {new Date(lastCompletionDate).toLocaleDateString('sk-SK')}
+          {t('exerciseStats.lastExercise', { date: new Date(lastCompletionDate).toLocaleDateString('sk-SK') })}
         </div>
       )}
     </div>

@@ -79,6 +79,57 @@ const BlogCard: React.FC<{ blog: BlogPost }> = ({ blog }) => {
 const Blog = () => {
   const { isLoading } = useAuth();
   const { t } = useTranslation();
+
+  const sampleBlogs: BlogPost[] = [
+    {
+      id: '1',
+      title: t('blog.posts.1.title'),
+      description: t('blog.posts.1.description'),
+      imageUrl: 'https://images.squarespace-cdn.com/content/v1/60b7c37ac6320a77cc078aaf/1716065389319-CSTLSEJRJFAUQDN3VF3O/dwexs.png?format=2500w',
+      link: 'https://www.alphafyzio.sk/blog/jef2w0ea7mgks0kmvb3zqmylbhibwq',
+      isExternal: true
+    },
+    {
+      id: '2',
+      title: t('blog.posts.2.title'),
+      description: t('blog.posts.2.description'),
+      imageUrl: '/placeholder.svg',
+      link: '/assessment',
+      isExternal: false
+    },
+    {
+      id: '3',
+      title: t('blog.posts.3.title'),
+      description: t('blog.posts.3.description'),
+      imageUrl: '/placeholder.svg',
+      link: 'https://example.com/blog/stretching',
+      isExternal: true
+    },
+    {
+      id: '4',
+      title: t('blog.posts.4.title'),
+      description: t('blog.posts.4.description'),
+      imageUrl: '/placeholder.svg',
+      link: 'https://example.com/blog/nutrition-exercise',
+      isExternal: true
+    },
+    {
+      id: '5',
+      title: t('blog.posts.5.title'),
+      description: t('blog.posts.5.description'),
+      imageUrl: '/placeholder.svg',
+      link: 'https://example.com/blog/exercise-mistakes',
+      isExternal: true
+    },
+    {
+      id: '6',
+      title: t('blog.posts.6.title'),
+      description: t('blog.posts.6.description'),
+      imageUrl: '/placeholder.svg',
+      link: '/my-exercises',
+      isExternal: false
+    }
+  ];
 const sampleBlogs: BlogPost[] = [
   {
     id: '1',
