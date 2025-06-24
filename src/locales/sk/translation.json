@@ -1,4 +1,3 @@
-
 {
   "profile": {
     "title": "Môj profil",
@@ -68,7 +67,7 @@
     "posts": {
       "1": {
         "title": "Neurodynamické cvičenia: čo? prečo? kedy?",
-        "description": "Už ste niekedy počuli o „flossingu" nervov? Ak máte bolesť spôsobenú podráždením alebo útlakom nervu, nervový flossing môže pomôcť."
+        "description": "Už ste niekedy počuli o flossingu nervov? Ak máte bolesť spôsobenú podráždením alebo útlakom nervu, nervový flossing môže pomôcť."
       },
       "2": {
         "title": "Prevencia bolestí chrbtice v práci",
