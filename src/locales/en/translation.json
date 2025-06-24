@@ -95,7 +95,19 @@
   "assessment": {
     "title": "Musculoskeletal Pain Assessment",
     "subtitle": "Fill out the questionnaire to get personalized exercise recommendations",
-    "new": "New Assessment"
+    "new": "New Assessment",
+    "painArea": {
+      "specify": "To start the assessment please select pain area",
+      "neck": "Neck",
+      "middleBack": "Middle Back",
+      "lowerBack": "Lower Back",
+      "upperLimb": "Upper Limb"
+    },
+    "consent": {
+      "disclaimer": "I agree to terms of use",
+      "privacy": "I agree to the processing of personal data"
+    },
+    "startAssessment": "Start Assessment"
   },
   "cookie": {
     "message": "This site uses cookies to improve your experience. By using our site, you agree to our cookie usage terms.",
@@ -221,7 +233,8 @@
     "requestedChange": "You requested an exercise change.",
     "sectionSummary": "This section contains {{count}} {{label}}",
     "moveLabel": "Move to select option",
-    "errorSave": "Failed to save feedback."
+    "errorSave": "Failed to save feedback.",
+    "backToExercises": "Back to my exercises"
   },
   "importantNotice": {
     "title": "Important Notice",
@@ -365,7 +378,12 @@
     "yourPainLatest": "Your latest recorded pain:",
     "programStart": "Program start:",
     "painMechanismLabel": "Pain mechanism:",
-    "diagnosisLabel": "Diagnosis:"
+    "diagnosisLabel": "Diagnosis:",
+    "recordProgress": "Record Progress",
+    "viewExercises": "View Exercises",
+    "delivered": "Delivered:",
+    "lastExercise": "Last exercise:",
+    "programRequest": "Program request:"
   },
   "assessmentDetails": {
     "painArea": "Pain area:",

@@ -95,7 +95,19 @@
   "assessment": {
     "title": "Hodnocení bolesti pohybového aparátu",
     "subtitle": "Vyplňte dotazník pro získání personalizovaných cvičebních doporučení",
-    "new": "Nové hodnocení"
+    "new": "Nové hodnocení",
+    "painArea": {
+      "specify": "Pro začátek hodnocení prosím vyberte oblast bolesti",
+      "neck": "Krk",
+      "middleBack": "Střední záda",
+      "lowerBack": "Dolní záda",
+      "upperLimb": "Horní končetina"
+    },
+    "consent": {
+      "disclaimer": "Souhlasím s podmínkami použití",
+      "privacy": "Souhlasím se zpracováním osobních údajů"
+    },
+    "startAssessment": "Začít hodnocení"
   },
   "cookie": {
     "message": "Tato stránka používá soubory cookie na zlepšení vašeho zážitku. Používáním naší stránky souhlasíte s našimi podmínkami používání souborů cookie.",
@@ -131,7 +143,7 @@
       "needMore": "Potřebujete alespoň 2 hodnocení (máte {{count}})",
       "generating": "Program se generuje...",
       "hint": "Vyplňte více dotazníků bolesti pro vytvoření personalizovaného programu",
-      "description": "Nemáte čas na jednotlivé cvičební programy? Zde najdете personalizovaný program s nejdůležitějšími cvičeními z vašich programů.",
+      "description": "Nemáte čas na jednotlivé cvičební programy? Zde najdete personalizovaný program s nejdůležitějšími cvičeními z vašich programů.",
       "exerciseCount": "{{count}} cvičení z vašich programů",
       "view": "Zobrazit program"
     },
@@ -221,7 +233,8 @@
     "requestedChange": "Požádali jste o změnu cviku.",
     "sectionSummary": "Tato sekce obsahuje {{count}} {{label}}",
     "moveLabel": "Přesuňte pro výběr možnosti",
-    "errorSave": "Nepodařilo se uložit zpětnou vazbu."
+    "errorSave": "Nepodařilo se uložit zpětnou vazbu.",
+    "backToExercises": "Zpět na moje cvičení"
   },
   "importantNotice": {
     "title": "Důležité upozornění",
@@ -365,7 +378,12 @@
     "yourPainLatest": "Vaše poslední zaznamenaná bolest:",
     "programStart": "Začátek programu:",
     "painMechanismLabel": "Mechanismus bolesti:",
-    "diagnosisLabel": "Diagnóza:"
+    "diagnosisLabel": "Diagnóza:",
+    "recordProgress": "Zaznamenat pokrok",
+    "viewExercises": "Zobrazit cvičení",
+    "delivered": "Odevzdáno:",
+    "lastExercise": "Poslední cvičení:",
+    "programRequest": "Žádost o program:"
   },
   "assessmentDetails": {
     "painArea": "Oblast bolesti:",

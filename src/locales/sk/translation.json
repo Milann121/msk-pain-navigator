@@ -55,7 +55,7 @@
   "myExercises": {
     "title": "Moje cviky",
     "activeProgramsTitle": "Aktívne programy",
-    "activeProgramsDescription": "Nižšie nájdeš všetky svoje aktívne cvičebné programy z dokončených hodnotení.",
+    "activeProgramsDescription": "Nižšie nájdete všetky svoje aktívne cvičebné programy z dokončených hodnotení.",
     "endedProgramsTitle": "Ukončené programy",
     "endedProgramsDescription": "Nižšie nájdete všetky programy, ktoré ste už ukončili.",
     "noEndedPrograms": "Žiadne ukončené programy.",
@@ -95,7 +95,19 @@
   "assessment": {
     "title": "Hodnotenie bolesti pohybového aparátu",
     "subtitle": "Vyplňte dotazník pre získanie personalizovaných cvičebných odporúčaní",
-    "new": "Nové hodnotenie"
+    "new": "Nové hodnotenie",
+    "painArea": {
+      "specify": "Pre začatie hodnotenia prosím vyberte oblasť bolesti",
+      "neck": "Krk",
+      "middleBack": "Stredná chrbtíca",
+      "lowerBack": "Dolná chrbtíca",
+      "upperLimb": "Horná končatina"
+    },
+    "consent": {
+      "disclaimer": "Súhlasím s podmienkami použitia",
+      "privacy": "Súhlasím so spracovaním osobných údajov"
+    },
+    "startAssessment": "Začať hodnotenie"
   },
   "cookie": {
     "message": "Táto stránka používa súbory cookie na zlepšenie vášho zážitku. Používaním našej stránky súhlasíte s našimi podmienkami používania súborov cookie.",
@@ -131,17 +143,17 @@
       "needMore": "Potrebujete aspoň 2 hodnotenia (máte {{count}})",
       "generating": "Program sa generuje...",
       "hint": "Vyplňte viac dotazníkov bolesti pre vytvorenie personalizovaného programu",
-      "description": "Nemáš čas na jednotlivé cvičebné programy? Tu nájdeš personalizovaný program s najdôležitejšími cvičeniami z tvojich programov.",
+      "description": "Nemáte čas na jednotlivé cvičebné programy? Tu nájdete personalizovaný program s najdôležitejšími cvičeniami z vašich programov.",
       "exerciseCount": "{{count}} cvičení z vašich programov",
       "view": "Zobraziť program"
     },
     "banner": {
-      "message": "Je to tu! Nový týždeň, nová výzva. Neodkladaj svoje cviky a začni už dnes 🏋️‍♂️",
+      "message": "Je to tu! Nový týždeň, nová výzva. Neodkladajte svoje cviky a začnite už dnes 🏋️‍♂️",
       "open": "Otvoriť program"
     },
     "greeting": {
       "hello": "Ahoj {{name}}",
-      "question": "ako sa dnes cítiš?"
+      "question": "ako sa dnes cítite?"
     },
     "mood": {
       "week": "týždeň",
@@ -197,7 +209,7 @@
     "changeRequestAlert": "Žiadosť o zmenu cviku bola odoslaná.",
     "suitableQuestion": "Vyhovuje vám cvik?",
     "feedbackTitle": "Prečo nie je cvik dobrý?",
-    "painQuestion": "1. Spôsobuje Vám cvik bolesť?",
+    "painQuestion": "1. Spôsobuje vám cvik bolesť?",
     "painAcceptableQuestion": "1a. Je bolesť prijateľná?",
     "yes": "Áno",
     "no": "Nie",
@@ -206,7 +218,7 @@
     "changeQuestion": "2. Chcete zmeniť tento cvik?",
     "submitFeedback": "Odoslať spätnú väzbu",
     "changeExercise": "Zmeniť cvik",
-    "changeRequestInfo": "Po odoslaní tejto žiadosti Vás budeme kontaktovať ohľadom vhodnej náhrady cviku.",
+    "changeRequestInfo": "Po odoslaní tejto žiadosti vás budeme kontaktovať ohľadom vhodnej náhrady cviku.",
     "newExerciseProposed": "Navrhnutý nový cvik",
     "confirmChange": "Potvrdiť zmenu cviku",
     "declineChange": "Odmietnuť zmenu cviku",
@@ -221,7 +233,8 @@
     "requestedChange": "Požiadali ste o zmenu cviku.",
     "sectionSummary": "Táto sekcia obsahuje {{count}} {{label}}",
     "moveLabel": "Presuňte pre výber možnosti",
-    "errorSave": "Nepodarilo sa uložiť spätnú väzbu."
+    "errorSave": "Nepodarilo sa uložiť spätnú väzbu.",
+    "backToExercises": "Späť na moje cvičenia"
   },
   "importantNotice": {
     "title": "Dôležité upozornenie",
@@ -297,17 +310,17 @@
   },
   "privacy": {
     "title": "Ochrana osobných údajov – Dotazník o bolesti pohybového systému",
-    "intro": "Vaša dôvera a bezpečnosť Vašich údajov sú pre nás kľúčové. Preto by sme Vás radi informovali, ako spracúvame osobné údaje, ktoré nám poskytujete prostredníctvom dotazníka o bolesti pohybového systému.",
+    "intro": "Vaša dôvera a bezpečnosť vašich údajov sú pre nás kľúčové. Preto by sme vás radi informovali, ako spracúvame osobné údaje, ktoré nám poskytujete prostredníctvom dotazníka o bolesti pohybového systému.",
     "whatTitle": "Aké údaje spracúvame?",
-    "email": "Emailová adresa: Ukladáme a spracúvame len Vašu emailovú adresu. Slúži na to, aby sme Vám mohli zaslať výsledky dotazníka, prípadné odporúčania alebo Vás kontaktovať s informáciami o našich službách, ak ste na to udelili súhlas.",
-    "health": "Údaje o zdravotnom stave: Informácie o Vašej bolesti a zdravotnom stave, ktoré uvediete v dotazníku, neukladáme a nespracúvame. Slúžia výhradne na okamžité vyhodnotenie a personalizáciu odporúčaní v reálnom čase. Po ukončení vyhodnotenia tieto údaje nijako ďalej neuchovávame.",
+    "email": "Emailová adresa: Ukladáme a spracúvame len vašu emailovú adresu. Slúži na to, aby sme vám mohli zaslať výsledky dotazníka, prípadné odporúčania alebo vás kontaktovať s informáciami o našich službách, ak ste na to udelili súhlas.",
+    "health": "Údaje o zdravotnom stave: Informácie o vašej bolesti a zdravotnom stave, ktoré uvediete v dotazníku, neukladáme a nespracúvame. Slúžia výhradne na okamžité vyhodnotenie a personalizáciu odporúčaní v reálnom čase. Po ukončení vyhodnotenia tieto údaje nijako ďalej neuchovávame.",
     "whyTitle": "Prečo spracúvame emailovú adresu?",
     "whyList": [
       "Na odoslanie výsledkov vyhodnotenia dotazníka.",
       "Na prípadné zaslanie dodatočných odporúčaní alebo edukatívneho obsahu.",
       "Na komunikáciu v súvislosti s ponukou našich služieb, ak ste vyjadrili súhlas so zasielaním marketingových informácií."
     ],
-    "protectTitle": "Ako chránime Vaše údaje?",
+    "protectTitle": "Ako chránime vaše údaje?",
     "protectText": "Vašu emailovú adresu chránime modernými technickými a organizačnými opatreniami, aby sme zabránili neoprávnenému prístupu, zmene alebo strate údajov.",
     "rightsTitle": "Vaše práva:",
     "rightsIntro": "V súlade s GDPR máte právo:",
@@ -319,7 +332,7 @@
       "na prenosnosť údajov,",
       "na odvolanie súhlasu so spracovaním údajov kedykoľvek."
     ],
-    "contact": "Pre uplatnenie Vašich práv nás môžete kontaktovať na <a href=\"mailto:privacy@example.com\">privacy@example.com</a>.",
+    "contact": "Pre uplatnenie vašich práv nás môžete kontaktovať na <a href=\"mailto:privacy@example.com\">privacy@example.com</a>.",
     "endTitle": "Záver",
     "endText": "Vaše súkromie je pre nás prioritou. Spracovávame len nevyhnutné minimum údajov a zdravotné informácie neukladáme ani nearchivujeme."
   },
@@ -360,12 +373,17 @@
     "renewProgram": "Obnoviť program",
     "ended": "Ukončené",
     "ending": "Ukončuje sa...",
-    "renewing": "Obnov... sa...",
+    "renewing": "Obnovuje sa...",
     "yourPainInitial": "Vaša počiatočná bolesť:",
     "yourPainLatest": "Vaša posledná zaznamenaná bolesť:",
     "programStart": "Začiatok programu:",
     "painMechanismLabel": "Mechanizmus bolesti:",
-    "diagnosisLabel": "Diagnóza:"
+    "diagnosisLabel": "Diagnóza:",
+    "recordProgress": "Zaznamenať pokrok",
+    "viewExercises": "Zobraziť cvičenia",
+    "delivered": "Odovzdané:",
+    "lastExercise": "Posledné cvičenie:",
+    "programRequest": "Žiadosť o program:"
   },
   "assessmentDetails": {
     "painArea": "Oblasť bolesti:",
