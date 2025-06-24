@@ -34,6 +34,35 @@ export const JobField: React.FC<JobFieldProps> = ({
   const isEditing = editingField === 'job';
   const { t } = useTranslation();
 
+  // Function to translate job values from database to current language
+  const translateJobValue = (jobValue: string) => {
+    switch (jobValue) {
+      case 'manuálna práca':
+        return t('profileForm.manual');
+      case 'sedavá práca':
+        return t('profileForm.desk');
+      default:
+        return jobValue;
+    }
+  };
+
+  const translateJobSubtype = (subtypeValue: string) => {
+    switch (subtypeValue) {
+      case 'zdvíhanie ťažkých predmetov':
+        return t('profileForm.heavyLifting');
+      case 'práca v stoji na mieste':
+        return t('profileForm.standingWork');
+      case 'práca v neprirodzených polohách':
+        return t('profileForm.awkwardPositions');
+      case 'práca v kancelárii':
+        return t('profileForm.officeWork');
+      case 'šofér':
+        return t('profileForm.driver');
+      default:
+        return subtypeValue;
+    }
+  };
+
   if (isEditing) {
     return (
       <div className="col-span-2 space-y-4">
@@ -115,7 +144,10 @@ export const JobField: React.FC<JobFieldProps> = ({
     );
   }
 
-  const displayValue = value ? `${value}${jobSubtype ? ` - ${jobSubtype}` : ''}` : '-';
+  // Translate the display values
+  const translatedJobValue = value ? translateJobValue(value) : '';
+  const translatedJobSubtype = jobSubtype ? translateJobSubtype(jobSubtype) : '';
+  const displayValue = translatedJobValue ? `${translatedJobValue}${translatedJobSubtype ? ` - ${translatedJobSubtype}` : ''}` : '-';
   
   return (
     <>
