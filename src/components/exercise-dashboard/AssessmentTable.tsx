@@ -3,8 +3,9 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Trash2, PlayCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { formatDate, formatDifferential, formatMechanism, formatPainArea } from './FormatHelpers';
+import { getMechanismLabel, formatDifferential, formatPainArea } from '@/utils/formatHelpers';
 import { AssessmentExerciseStats } from './AssessmentExerciseStats';
+import { useTranslation } from 'react-i18next';
 
 interface Assessment {
   id: string;
@@ -23,6 +24,11 @@ interface AssessmentTableProps {
 
 export const AssessmentTable = ({ assessments, loading, onDeleteAssessment }: AssessmentTableProps) => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
+
+  const formatDate = (timestamp: string): string => {
+    return new Date(timestamp).toLocaleDateString('sk-SK');
+  };
 
   const handleExerciseClick = (assessment: Assessment) => {
     navigate('/exercise-plan', { 
@@ -64,13 +70,13 @@ export const AssessmentTable = ({ assessments, loading, onDeleteAssessment }: As
             <div className="flex-1">
               <div className="flex flex-wrap gap-2 mb-2">
                 <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">
-                  {formatMechanism(assessment.primary_mechanism)}
+                  {getMechanismLabel(assessment.primary_mechanism as any, t)}
                 </span>
                 <span className="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">
-                  {formatDifferential(assessment.primary_differential)}
+                  {formatDifferential(assessment.primary_differential, t)}
                 </span>
                 <span className="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">
-                  {formatPainArea(assessment.pain_area)}
+                  {formatPainArea(assessment.pain_area, t)}
                 </span>
               </div>
               <p className="text-sm text-gray-600 mb-2">

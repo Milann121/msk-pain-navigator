@@ -6,6 +6,7 @@ import { getMechanismLabel, formatDifferential } from "@/utils/formatHelpers";
 import { UserAssessment } from "@/components/follow-up/types";
 import { ArrowUp, ArrowDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { PainMechanism } from "@/utils/types";
 
 interface DetailsSectionProps {
   assessment: UserAssessment;
@@ -26,7 +27,7 @@ export const AssessmentDetails = ({
         <span className="font-medium text-gray-500">{t('assessmentAccordion.painMechanismLabel')}</span>
         <div className="mt-1">
           <Badge className={BadgeStyles.getMechanismBadgeStyle(assessment.primary_mechanism)}>
-            {getMechanismLabel(assessment.primary_mechanism, t)}
+            {getMechanismLabel(assessment.primary_mechanism as PainMechanism, t)}
           </Badge>
         </div>
       </div>
