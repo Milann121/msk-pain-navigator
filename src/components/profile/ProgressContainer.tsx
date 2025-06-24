@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { TrendingUp, Settings } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { BlogReadingStats } from './BlogReadingStats';
 import { ExerciseStats } from './ExerciseStats';
 import { useNavigate } from 'react-router-dom';
@@ -15,6 +16,7 @@ interface ProgressContainerProps {
 
 export const ProgressContainer = ({ weeklyExerciseGoal, weeklyBlogGoal, onGoalUpdate }: ProgressContainerProps) => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleNavigateToGoals = () => {
     navigate('/profile');
@@ -25,7 +27,7 @@ export const ProgressContainer = ({ weeklyExerciseGoal, weeklyBlogGoal, onGoalUp
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <TrendingUp className="h-5 w-5" />
-          Môj pokrok
+          {t('home.progressTitle')}
         </CardTitle>
       </CardHeader>
       <CardContent>
@@ -41,7 +43,7 @@ export const ProgressContainer = ({ weeklyExerciseGoal, weeklyBlogGoal, onGoalUp
             className="flex items-center gap-2"
           >
             <Settings className="h-4 w-4" />
-            Nastaviť osobné ciele
+            {t('home.setGoals')}
           </Button>
         </div>
       </CardContent>

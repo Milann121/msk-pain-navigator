@@ -84,9 +84,9 @@ const sampleBlogs: BlogPost[] = [
     id: '1',
     title: t('blog.posts.1.title'),
     description: t('blog.posts.1.description'),
-    imageUrl: 'https://images.squarespace-cdn.com/content/v1/660b7c37ac6320a77cce078aaf/1716065389319-CSTLSEJ3RFAUQDN3VF30/dwexs.png?format=2500w',
-    link: 'https://www.alphafyzio.sk/blog/jezf2wea7mgks6wnbz3qmyubhibwq',
-    isExternal: true
+    imageUrl: 'https://images.squarespace-cdn.com/content/v1/660b7c37ac6320a77cc078aaf/1716065389319-CSTLSEJ3RFAUQDN3VF30/dwexs.png?format=2500w',
+    link: 'https://www.alphafyzio.sk/blog/jezf2wea7mgks6wnb3zqmyubhibwq',
+    isExternal: true,
   },
   {
     id: '2',
@@ -94,7 +94,7 @@ const sampleBlogs: BlogPost[] = [
     description: t('blog.posts.2.description'),
     imageUrl: '/placeholder.svg',
     link: '/assessment',
-    isExternal: false
+    isExternal: false,
   },
   {
     id: '3',
@@ -102,7 +102,7 @@ const sampleBlogs: BlogPost[] = [
     description: t('blog.posts.3.description'),
     imageUrl: '/placeholder.svg',
     link: 'https://example.com/blog/stretching',
-    isExternal: true
+    isExternal: true,
   },
   {
     id: '4',
@@ -110,7 +110,7 @@ const sampleBlogs: BlogPost[] = [
     description: t('blog.posts.4.description'),
     imageUrl: '/placeholder.svg',
     link: 'https://example.com/blog/nutrition-exercise',
-    isExternal: true
+    isExternal: true,
   },
   {
     id: '5',
@@ -118,7 +118,7 @@ const sampleBlogs: BlogPost[] = [
     description: t('blog.posts.5.description'),
     imageUrl: '/placeholder.svg',
     link: 'https://example.com/blog/exercise-mistakes',
-    isExternal: true
+    isExternal: true,
   },
   {
     id: '6',
@@ -126,7 +126,7 @@ const sampleBlogs: BlogPost[] = [
     description: t('blog.posts.6.description'),
     imageUrl: '/placeholder.svg',
     link: '/my-exercises',
-    isExternal: false
+    isExternal: false,
   }
 ];
 

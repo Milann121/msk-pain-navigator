@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -8,6 +9,7 @@ import { X } from 'lucide-react';
 export const WeeklyNotificationBanner = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     // Check if it's Monday (0 = Sunday, 1 = Monday)
@@ -47,14 +49,14 @@ export const WeeklyNotificationBanner = () => {
         <div className="hidden md:flex items-center justify-between gap-4">
           <div className="flex-1">
             <p className="text-lg font-medium text-blue-800 mb-0 leading-relaxed">
-              Je to tu! Nový týždeň, nová výzva. Neodkladaj svoje cviky a začni už dnes 🤩
+              {t('home.banner.message')}
             </p>
           </div>
           
           <div className="flex items-center gap-3">
             <Button asChild size="sm" className="bg-blue-600 hover:bg-blue-700">
               <Link to="/my-exercises">
-                Otvoriť program
+                {t('home.banner.open')}
               </Link>
             </Button>
             
@@ -73,7 +75,7 @@ export const WeeklyNotificationBanner = () => {
         <div className="md:hidden">
           <div className="flex justify-between items-start mb-3">
             <p className="text-lg font-medium text-blue-800 leading-relaxed flex-1 pr-2">
-              Je to tu! Nový týždeň, nová výzva. Neodkladaj svoje cviky a začni už dnes 🤩
+              {t('home.banner.message')}
             </p>
             
             <Button
@@ -89,7 +91,7 @@ export const WeeklyNotificationBanner = () => {
           <div className="flex justify-start">
             <Button asChild size="sm" className="bg-blue-600 hover:bg-blue-700">
               <Link to="/my-exercises">
-                Otvoriť program
+                {t('home.banner.open')}
               </Link>
             </Button>
           </div>

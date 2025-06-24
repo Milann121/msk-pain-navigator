@@ -86,15 +86,14 @@ export const GeneralProgram = () => {
     return (
       <div className="h-full flex flex-col justify-center items-center p-4 text-center">
         <PlayCircle className="h-8 w-8 text-gray-400 mb-2" />
-        <h3 className="text-lg font-semibold text-gray-600 mb-2">Všeobecný program</h3>
+        <h3 className="text-lg font-semibold text-gray-600 mb-2">{t('home.generalProgram.title')}</h3>
         <p className="text-sm text-gray-500 mb-2">
-          {assessmentCount < 2 
-            ? `Potrebujete aspoň 2 hodnotenia (máte ${assessmentCount})`
-            : 'Program sa generuje...'
-          }
+          {assessmentCount < 2
+            ? t('home.generalProgram.needMore', { count: assessmentCount })
+            : t('home.generalProgram.generating')}
         </p>
         <p className="text-xs text-gray-400">
-          Vyplňte viac dotazníkov bolesti pre vytvorenie personalizovaného programu
+          {t('home.generalProgram.hint')}
         </p>
       </div>
     );
@@ -108,23 +107,23 @@ export const GeneralProgram = () => {
       <div>
         <div className="flex items-center gap-2 mb-3">
           <PlayCircle className="h-5 w-5 text-blue-600" />
-          <h3 className="text-lg font-semibold text-blue-800">Všeobecný program</h3>
+          <h3 className="text-lg font-semibold text-blue-800">{t('home.generalProgram.title')}</h3>
         </div>
         
         <p className="text-sm text-gray-600 mb-4 line-clamp-3">
-          Nemáš čas na jednotlivé cvičebné programy? Tu nájdeš personalizovaný program s najdôležitejšími cvičeniami z tvojich súčasných programov.
+          {t('home.generalProgram.description')}
         </p>
         
         <div className="text-sm text-blue-600 mb-4">
-          {exerciseCount} cvičení z vašich programov
+          {t('home.generalProgram.exerciseCount', { count: exerciseCount })}
         </div>
       </div>
       
-      <Button 
+      <Button
         onClick={handleViewProgram}
         className="w-full bg-blue-600 hover:bg-blue-700 text-white"
       >
-        Zobraziť program
+        {t('home.generalProgram.view')}
         <ChevronRight className="h-4 w-4 ml-1" />
       </Button>
     </div>
