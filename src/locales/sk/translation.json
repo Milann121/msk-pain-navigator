@@ -36,6 +36,23 @@
     "upper limb": "Horná končatina",
     "shoulder": "Rameno"
   },
+  "painArea": {
+    "specify": "Pre začatie hodnotenia prosím vyberte oblasť bolesti",
+    "neck": "Krk",
+    "middleBack": "Stredná časť chrbta",
+    "lowerBack": "Spodná časť chrbta",
+    "upperLimb": "Horná končatina",
+    "specifyUpperLimb": "Špecifikujte oblasť hornej končatiny",
+    "shoulder": "Rameno",
+    "elbow": "Lakeť",
+    "forearm": "Predlaktie",
+    "hand": "Ruka",
+    "fingers": "Prsty"
+  },
+  "consent": {
+    "disclaimer": "Súhlasím s podmienkami používania",
+    "privacy": "Súhlasím so spracovaním osobných údajov"
+  },
   "painMechanisms": {
     "nociceptive": "Nociceptívna bolesť",
     "neuropathic": "Neuropatická bolesť",
@@ -93,6 +110,23 @@
     "brand": "Pebee terapeut",
     "toggleMenu": "Zobraziť menu"
   },
+  "assessment": {
+    "title": "Hodnotenie bolesti pohybového aparátu",
+    "subtitle": "Vyplňte dotazník pre získanie personalizovaných odporúčaní cvičení",
+    "new": "Nové hodnotenie",
+    "painArea": {
+      "specify": "Pre začatie hodnotenia prosím vyberte oblasť bolesti",
+      "neck": "Krk",
+      "middleBack": "Stredná časť chrbta",
+      "lowerBack": "Spodná časť chrbta",
+      "upperLimb": "Horná končatina"
+    },
+    "consent": {
+      "disclaimer": "Súhlasím s podmienkami používania",
+      "privacy": "Súhlasím so spracovaním osobných údajov"
+    },
+    "startAssessment": "Začať hodnotenie"
+  },
   "exercisePlan": {
     "changeRequestAlert": "Žiadosť o zmenu cviku bola odoslaná.",
     "suitableQuestion": "Vyhovuje vám cvik?",
@@ -139,7 +173,7 @@
         },
         "rotatorCuffRelease": {
           "title": "Uvoľnenie rotátorovej manžety",
-          "description": "Vezmite si tenisovú loptičku a vložte si ju na lopatku zozadu. Oprите sa o stenu a pomaly masírujte svaly rotátorovej manžety. V prípade, že nájdete bolestivý bod, zastavte na tomto mieste a bez pohybu tlačte po dobu 30 sekúnd (ostrá bolesť sa môže šíriť do prednej časti ramena)."
+          "description": "Vezmite si tenisovú loptičku a vložte si ju na lopatku zozadu. Oprite sa o stenu a pomaly masírujte svaly rotátorovej manžety. V prípade, že nájdete bolestivý bod, zastavte na tomto mieste a bez pohybu tlačte po dobu 30 sekúnd (ostrá bolesť sa môže šíriť do prednej časti ramena)."
         },
         "shoulderHeating": {
           "title": "Nahrievanie ramenného kĺbu",
