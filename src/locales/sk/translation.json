@@ -29,55 +29,6 @@
       "officeWork": "práca v kancelárii"
     }
   },
-  "home": {
-    "greeting": {
-      "hello": "Ahoj {{name}}",
-      "question": "ako sa dnes cítite?"
-    },
-    "mood": {
-      "happy": "Dobre",
-      "neutral": "Neutrálne", 
-      "sad": "Zle",
-      "week": "Týždeň",
-      "month": "Mesiac",
-      "avgScore": "Priemerné skóre za {{period}}",
-      "periodWeek": "týždeň",
-      "periodMonth": "mesiac",
-      "emptyWeek": "týždeň",
-      "emptyMonth": "mesiac",
-      "noChange": "Bez zmeny",
-      "better": "Lepšie ako predchádzajúcich {{days}} dní",
-      "worse": "Horšie ako predchádzajúcich {{days}} dní",
-      "noRecords": "Žiadne záznamy za {{period}}",
-      "infoLabel": "Informácie o skóre",
-      "infoText": "Toto skóre predstavuje váš priemerný pocit za posledných {{days}} dní.",
-      "infoGrades": "Dobre = 3, Neutrálne = 2, Zle = 1",
-      "infoFollow": "Sledujte svoj trend v čase."
-    },
-    "generalProgram": {
-      "view": "Zobraziť program",
-      "exerciseCount": "cvikov"
-    },
-    "favoriteExercises": {
-      "title": "Obľúbené cviky",
-      "empty": "Zatiaľ nemáte žiadne obľúbené cviky"
-    }
-  },
-  "myExercises": {
-    "title": "Moje cviky",
-    "activeProgramsTitle": "Aktívne programy",
-    "activeProgramsDescription": "Nižšie nájdete všetky vaše aktívne cvičebné programy z dokončených hodnotení.",
-    "endedProgramsTitle": "Ukončené programy", 
-    "endedProgramsDescription": "Programy, ktoré ste ukončili alebo dokončili.",
-    "noActivePrograms": "Momentálne nemáte žiadne aktívne programy.",
-    "noEndedPrograms": "Nemáte žiadne ukončené programy.",
-    "backHome": "Späť domov",
-    "newAssessment": "Nové hodnotenie"
-  },
-  "exercisePlanPage": {
-    "generalTitle": "Všeobecný cvičebný plán",
-    "generalDescription": "Personalizovaný program s najdôležitejšími cvikmi z vašich programov. Dodržiavajte pokyny a prestaňte cvičiť, ak pociťujete bolesť."
-  },
   "bodyParts": {
     "neck": "Krčná chrbtíca",
     "middle back": "Hrudná chrbtíca",
@@ -188,7 +139,7 @@
         },
         "rotatorCuffRelease": {
           "title": "Uvoľnenie rotátorovej manžety",
-          "description": "Vezmite si tenisovú loptičku a vložte si ju na lopatku zozadu. Oprité sa o stenu a pomaly masírujte svaly rotátorovej manžety. V prípade, že nájdete bolestivý bod, zastavte na tomto mieste a bez pohybu tlačte po dobu 30 sekúnd (ostrá bolesť sa môže šíriť do prednej časti ramena)."
+          "description": "Vezmite si tenisovú loptičku a vložte si ju na lopatku zozadu. Oprите sa o stenu a pomaly masírujte svaly rotátorovej manžety. V prípade, že nájdete bolestivý bod, zastavte na tomto mieste a bez pohybu tlačte po dobu 30 sekúnd (ostrá bolesť sa môže šíriť do prednej časti ramena)."
         },
         "shoulderHeating": {
           "title": "Nahrievanie ramenného kĺbu",
@@ -349,26 +300,5 @@
     "exerciseCalendarTitle": "Kalendár cvičení",
     "today": "Dnes",
     "weeklyProgress": "{{completed}} / {{goal}} dní odcvičených tento týždeň"
-  },
-  "assessment": {
-    "title": "Dotazník bolesti svalovo-kostrovej sústavy",
-    "subtitle": "Vyplňte dotazník na získanie personalizovaných odporúčaní cvikov"
-  },
-  "painArea": {
-    "specify": "Pre začatie hodnotenia prosím vyberte oblasť bolesti",
-    "neck": "Krčná chrbtíca",
-    "middleBack": "Hrudná chrbtíca", 
-    "lowerBack": "Bedrová chrbtíca",
-    "upperLimb": "Horná končatina",
-    "specifyUpperLimb": "Špecifikujte hornú končatinu:",
-    "shoulder": "Rameno",
-    "elbow": "Lakeť",
-    "forearm": "Predlaktie",
-    "hand": "Ruka",
-    "fingers": "Prsty"
-  },
-  "consent": {
-    "disclaimer": "Súhlasím s podmienkami používania",
-    "privacy": "Súhlasím so spracovaním osobných údajov"
   }
 }

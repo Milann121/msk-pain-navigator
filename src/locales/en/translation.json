@@ -1,4 +1,3 @@
-
 {
   "profile": {
     "title": "My Profile",
@@ -153,24 +152,19 @@
   "assessment": {
     "title": "Musculoskeletal Pain Assessment",
     "subtitle": "Fill out the questionnaire to get personalized exercise recommendations",
-    "new": "New Assessment"
-  },
-  "painArea": {
-    "specify": "To start the assessment please select pain area",
-    "neck": "Neck",
-    "middleBack": "Middle Back",
-    "lowerBack": "Lower Back",
-    "upperLimb": "Upper Limb",
-    "specifyUpperLimb": "Specify upper limb:",
-    "shoulder": "Shoulder",
-    "elbow": "Elbow",
-    "forearm": "Forearm",
-    "hand": "Hand",
-    "fingers": "Fingers"
-  },
-  "consent": {
-    "disclaimer": "I agree to terms of use",
-    "privacy": "I agree to the processing of personal data"
+    "new": "New Assessment",
+    "painArea": {
+      "specify": "To start the assessment please select pain area",
+      "neck": "Neck",
+      "middleBack": "Middle Back",
+      "lowerBack": "Lower Back",
+      "upperLimb": "Upper Limb"
+    },
+    "consent": {
+      "disclaimer": "I agree to terms of use",
+      "privacy": "I agree to the processing of personal data"
+    },
+    "startAssessment": "Start Assessment"
   },
   "cookie": {
     "message": "This site uses cookies to improve your experience. By using our site, you agree to our cookie usage terms.",
