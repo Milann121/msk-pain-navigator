@@ -125,91 +125,123 @@
     "backToExercises": "Späť na moje cvičenie"
   },
   "exercises": {
-    "central": {
-      "neck": {
-        "generalProgram": {
-          "title": "Všeobecné cvičenie na zníženie bolestí krčnej chrbtice",
-          "description": "",
-          "wallMassage": {
-            "title": "Masáž loptičkou o stenu",
-            "description": "Na tento cvik použite ideálne tenisovú loptičku. Položte si loptičku na trapéz, oprite sa o stenu a masírujte svaly šije ako na videu. V prípade, že nájdete bolestivé miesta, môžete staticky zatlačiť po dobu 20-30 sekúnd. Premasírujte celú oblasť trapézov a medzilopatkového priestoru."
-          },
-          "interscapularStrength": {
-            "title": "Posiľnenie medzilopatkových svalov",
-            "description": "Uchyťte odporovú gumu podľa videa. Tieto 3 cviky môžete striedať, alebo si vybrať ktorýkoľvek z nich.\\n➜ UPOZORNENIE: pri týchto cvikoch nesmiete pociťovať namáhanie trapézov! Celý čas sa snažte tlačiť lopatky a ramená smerom dole od uší, aby pracovali medzilopatkové svaly. Dbajte na to, aby ste počas vykonávania cvikov viac cítili svaly medzi lopatkami, nie ramená a trapézy - to dosiahnete práve tlačením pliec dole. \\n➜ OPAKOVANIA: 10-15x / 3 série / 1x denne."
-          },
-          "wallPushUps": {
-            "title": "Kliky o stenu",
-            "description": "Oprite ruky o stenu širšie ako sú vaše ramená. Odstúpte 1 krok od steny (čím budete ďalej od steny, tým budú kliky ťažšie). Dbajte, aby vaše ruky boli opreté v úrovni nižšie ako sú vaše ramená.\\n➜ UPOZORNENIE: Počas cviku sa neprehýbajte v driekovej chrbtici, ale držte pevný trup. Počas cviku nezdvíhajte ramená, aby vám netuhli trapézy, ale snažte sa tlačiť lopatky smerom dole.\\n➜ OPAKOVANIA: 8-15 klikov / 3 série."
-          }
+    "shoulderNociceptive": {
+      "frozenShoulderPhase1": {
+        "title": "0-3 týždne",
+        "description": "Základné cvičenia pre zmrznuté rameno zamerané na zníženie bolesti a zvýšenie rozsahu pohybu.",
+        "pendulumExercises": {
+          "title": "Kyvadlové cvičenia",
+          "description": "Predkloniť sa a začať vykonávať jemné kyvadlové pohyby na uvoľnenie napätia v ramene. Stačia mierné pohyby v tolerancii bolesti."
+        },
+        "isometricExternalRotation": {
+          "title": "Izometrická vonkajšia rotácia ramena",
+          "description": "Pristúpte k stene s pokrčeným lakťom v 90° uhle pri tele. Medzi vonkajšiu stranu dlane a stenu vložte zložený uterák. Uvoľnite ramená a po celý čas ich držte dole -> dbajte na to, aby vám pri cvičení ramená nestúpali k ušiam. Následne zatlačte vonkajšou stranou dlane do steny s neustále pritlačeným lakťom pri tele. OPAKOVANIA: 6-8 sekúnd x 3-5x za sebou. 1-2x denne."
+        },
+        "rotatorCuffRelease": {
+          "title": "Uvoľnenie rotátorovej manžety",
+          "description": "Vezmite si tenisovú loptičku a vložte si ju na lopatku zozadu. Oprите sa o stenu a pomaly masírujte svaly rotátorovej manžety. V prípade, že nájdete bolestivý bod, zastavte na tomto mieste a bez pohybu tlačte po dobu 30 sekúnd (ostrá bolesť sa môže šíriť do prednej časti ramena)."
+        },
+        "shoulderHeating": {
+          "title": "Nahrievanie ramenného kĺbu",
+          "description": "Zvoľte výhrevnú podložku, alebo využite fén. V prípade fénu si VŽDY VLOŽTE UTERÁK na pokožku a zahriavajte uterák! Začnite zahriavať rameno z prednej strany a neskôr zo zadnej strany -> zahriavajte po dobu 10-15 minút, aby ste kompletne prehriali svaly ramena. Vždy si dávajte pozor, aby ste si nepopálili pokožku! OPAKOVANIA: 2x denne 10-15min."
         }
       },
-      "middleBack": {
-        "generalProgram": {
-          "title": "Všeobecné cvičenie pre zníženie bolesti v hrudnej chrbtici",
-          "description": "",
-          "prayer": {
-            "title": "Modlenie - uvoľnenie krku a lopatiek",
-            "description": "Spojte dlane a lakte v 90 stupňovom uhle v lakti a ramenách. So sústavným spojením pomaly zdvíhajte lakte vyššie, ale stále DRŽTE SPOJENÉ lakte aj dlane. UPOZORNENIE: snažte sa, aby vám prsty smerovali do stropu. OPAKOVANIA: 20 sekúnd / 2x za sebou / 2x denne."
-          },
-          "thoracicMassage": {
-            "title": "Masáž hrudnej chrbtice loptičkou",
-            "description": "Uložte si loptičku do medzilopatkového priestoru a vertikálnym pohybom uvoľnite bolestivé a stuhnuté svaly.\\n ➜ OPAKOVANIA: kedykoľvek v priebehu dňa."
-          },
-          "bookOpening": {
-            "title": "Otváranie knihy",
-            "description": "Týmto cvikom zvýšite mobilitu hrudníka.\\n ➜ Uložte sa na bok, pokrčte nohy a spojte dlane pred seba. Spolu s končatinou uloženou na vrchu sa za výdychu vyrotujte do opačnej strany. Hlava by mala celý čas nasledovať ruku. V tejto polohe zotrvajte 3 sekundy.\\n ➜ OPAKOVANIA: 5x do každej strany, kedykoľvek v priebehu dňa."
-          },
-          "interscapularStrength": {
-            "title": "Posiľnenie medzilopatkových svalov",
-            "description": "Uchyťte odporovú gumu podľa videa. Tieto 3 cviky môžete striedať, alebo si vybrať ktorýkoľvek z nich. \\n➜ UPOZORNENIE: pri týchto cvikoch nesmiete pociťovať namáhanie trapézov! Celý čas sa snažte tlačiť lopatky a ramená smerom dole od uší, aby pracovali medzilopatkové svaly. Dbajte na to, aby ste počas vykonávania cvikov viac cítili svaly medzi lopatkami, nie ramená a trapézy - to dosiahnete práve tlačením pliec dole. \\n➜ OPAKOVANIA: 10-15x / 3 série / 1x denne."
-          }
+      "frozenShoulderPhase2": {
+        "title": "4-6 týždeň",
+        "description": "Cvičenia na zvýšenie svalovej sily a návrat k pohybu.",
+        "isometricShoulderPresses": {
+          "title": "Izometrické tlaky ramena",
+          "description": "Vložte sa chrbtom k stene a zatlačte lakťom do steny. OPAKOVANIA: 6-8 sekúnd x 3 série. Otočte sa čelom k stene, pokrčte lakeť a dlaňou (alebo rukou v päsť) zatlačte do steny. OPAKOVANIA: 6-8 sekúnd 3 série."
         },
+        "wallPushUps": {
+          "title": "Kliky o stenu",
+          "description": "Vložte ruky na stenu na úroveň hrudníka, mierne širšie ako šírka ramien. Opatrne sa s vystreným telom priblížte k stene a odtiahnte sa od steny. Dávajte pozor, aby ste nezdvíhali ramená k ušiam a rešpektujte bolesť vášho zmrznutého ramena. OPAKOVANIA: 10-12x 2 série denne"
+        },
+        "interscapularStrengthening": {
+          "title": "Posilnenie mezilopatkových svalov",
+          "description": "Uchopte odporovú gumu podľa videa. Tieto 3 cviky môžete striedať, alebo si vybrať ktorýkoľvek z nich. \n➜ UPOZORNENIE: pri týchto cvikoch nesmie pociťovať namáhanie trapézov! Celý čas sa snažte tlačiť lopatky a ramená smerom dole od uší, aby pracovali mezilopatkové svaly. Dbajte na to, aby ste počas vykonávania cvikov viac cítili svaly medzi lopatkami, nie ramená a trapézy - toho dosiahnete práve tlačením ramien dole. \n➜ OPAKOVANIA: 10-15x / 3 série / 1x denne."
+        }
+      },
+      "subacromialImpingement": {
+        "title": "Cvičenia pre subakromiálny impingement syndróm",
+        "description": "Cvičenia zamerané na zlepšenie priestoru pod akromiom a zníženie bolesti.\n\nTieto cvičenia pomáhajú zlepšiť mechaniku ramena a znižujú tlak na šľachy.\nVyhýbajte sa pohybom nad hlavou, ktoré zhoršujú príznaky.",
+        "interscapularStrengthening": {
+          "title": "Posilnenie mezilopatkových svalov",
+          "description": "Uchopte odporovú gumu podľa videa. Tieto 3 cviky môžete striedať, alebo si vybrať ktorýkoľvek z nich. \n➜ UPOZORNENIE: pri týchto cvikoch nesmie pociťovať namáhanie trapézov! Celý čas sa snažte tlačiť lopatky a ramená smerom dole od uší, aby pracovali mezilopatkové svaly."
+        },
+        "gentlePendulum": {
+          "title": "Jemné kyvadlové cvičenia",
+          "description": "Predkloniť sa a začať vykonávať jemné kyvadlové pohyby na uvoľnenie napätia v ramene."
+        },
+        "preExerciseHeating": {
+          "title": "Nahrievanie pred cvičením",
+          "description": "Zahrejte rameno pred cvičením na zlepšenie cirkulácie a pripravenosti svalov."
+        }
+      },
+      "rotatorCuffTear": {
+        "title": "Cvičenia pre trhnutie rotátorovej manžety",
+        "description": "Špecializované cvičenia na posilnenie a rehabilitáciu po trhnutí rotátorovej manžety.\n\nTieto cvičenia pomáhajú obnoviť funkciu ramena a predchádzajú ďalším zraneniam.\nZačnite s ľahkými cvičeniami a postupne zvyšujte intenzitu.",
+        "isometricStrengthening": {
+          "title": "Izometrické posilnenie rotátorovej manžety",
+          "description": "Jemné izometrické cvičenia na posilnenie rotátorovej manžety bez nadmernej záťaže."
+        },
+        "rotatorCuffMassage": {
+          "title": "Masáž rotátorovej manžety",
+          "description": "Jemná masáž na zlepšenie cirkulácie a uvoľnenie napätia v rotátorovej manžete."
+        }
+      },
+      "defaultNociceptive": {
+        "title": "Všeobecné cvičenia pre rameno - nociceptívna bolesť",
+        "description": "Základné cvičenia vhodné pre rôzne typy nociceptívnej bolesti ramena.\n\nTieto cvičenia pomáhajú zlepšiť celkovú funkciu ramena a znížiť bolesť.\nVykonávajte ich pravidelne, ale rešpektujte hranice bolesti.",
+        "basicMobility": {
+          "title": "Základné pohyblivostné cvičenia ramena",
+          "description": "Jemné cvičenia na zlepšenie pohyblivosti vo všetkých smeroch."
+        },
+        "basicStrengthening": {
+          "title": "Základné posilňovacie cvičenia",
+          "description": "Ľahké posilňovacie cvičenia na stabilizáciu ramena."
+        }
+      }
+    },
+    "middleBackNociceptive": {
+      "facetJointSyndrome": {
+        "title": "Cvičenia pre syndróm facetových kĺbov",
+        "description": "Jemné rotačné pohyby pre zlepšenie mobility v hrudnej oblasti a redukciu bolesti.",
         "phase1": {
-          "title": "0-2 týždeň",
+          "title": "0-2 týždne",
           "description": "Jemné rotačné pohyby pre zlepšenie mobility v hrudnej oblasti a redukciu bolesti.",
           "thoracicRotation": {
             "title": "Rotácia hrudníku so záklonom",
-            "description": "Posaďte sa a ruky uložte za hlavu.\\n ➜ Pomaly sa vytočte v hrudnej chrbtici do strany do rozsahu, ktorý je vám komfortný. V tejto polohe sa zastavte a mierne zakloňte. Následne sa vráťte naspäť a zopakujte cvik do opačnej strany.\\n ➜ OPAKOVANIA: zopakujte 5-8x do každej strany, kedykoľvek v priebehu dňa."
+            "description": "Posaďte sa a ruky uložte za hlavu. Pomaly sa otáčajte do strán, pričom panvu držte nehybne. Pohyb opakujte 5-8x do každej strany. OPAKOVANIA: každý deň ráno."
           },
           "thoracicMassage": {
             "title": "Masáž hrudnej chrbtice loptičkou",
-            "description": "Uložte si loptičku do medzilopatkového priestoru a vertikálnym pohybom uvoľnite bolestivé a stuhnuté svaly.\\n ➜ OPAKOVANIA: kedykoľvek v priebehu dňa."
+            "description": "Uložte si loptičku do medziloptatkového priestoru a vertikálnym pohybom uvoľnite bolestivé a stuhnuté svaly. OPAKOVANIA: kedykoľvek v priebehu dňa."
           }
         },
         "phase2": {
-          "title": "3-5 týždeň",
+          "title": "3-5 týždňov",
           "description": "Jemné rotačné pohyby pre zlepšenie mobility v hrudnej oblasti a redukciu bolesti.",
-          "interscapularStrength": {
-            "title": "Posiľnenie medzilopatkových svalov",
-            "description": "Uchyťte odporovú gumu podľa videa. Tieto 3 cviky môžete striedať, alebo si vybrať ktorýkoľvek z nich. \\n➜ UPOZORNENIE: pri týchto cvikoch nesmiete pociťovať namáhanie trapézov! Celý čas sa snažte tlačiť lopatky a ramená smerom dole od uší, aby pracovali medzilopatkové svaly. Dbajte na to, aby ste počas vykonávania cvikov viac cítili svaly medzi lopatkami, nie ramená a trapézy - to dosiahnete práve tlačením pliec dole. \\n➜ OPAKOVANIA: 10-15x / 3 série / 1x denne."
-          },
           "thoracicExtension": {
-            "title": "Záklon hrudnej chrbtice",
-            "description": "Zaprite dlane o stenu, odstúpte od nej aby ste boli v miernom predklone a s výdychom uvoľnite trup do záklonu. Snažte sa mať celý čas zrelaxované ramená, hlavu v predĺžení chrbtice a v polohe záklonu sa 1-2x nadýchnite.\\n➜ OPAKOVANIA: Záklon zopakujte 3-4x, kedykoľvek v priebehu dňa."
+            "title": "Extenzia hrudnej chrbtice",
+            "description": "Sadnúť si na stoličku s operadlom. Ruky založiť za hlavu a pomaly extendovať hrudnú chrbticu cez operadlo. Pozíciu držať 5 sekúnd a vrátiť sa do východiskovej polohy. OPAKOVANIA: 10x / 2 série / denne."
           },
-          "bookOpening": {
-            "title": "Otváranie knihy",
-            "description": "Týmto cvikom zvýšite mobilitu hrudníka.\\n ➜ Uložte sa na bok, pokrčte nohy a spojte dlane pred seba. Spolu s končatinou uloženou na vrchu sa za výdychu vyrotujte do opačnej strany. Hlava by mala celý čas nasledovať ruku. V tejto polohe zotrvajte 3 sekundy.\\n ➜ OPAKOVANIA: 5x do každej strany, kedykoľvek v priebehu dňa."
+          "thoracicMobilization": {
+            "title": "Mobilizácia hrudnej chrbtice",
+            "description": "Ležať na boku s pokrčenými kolenami. Hornú ruku založiť za hlavu a pomaly rotovať trupom pri zachovaní kolien na zemi. OPAKOVANIA: 8-10x každú stranu / 2 série / denne."
           }
         }
       },
-      "lowerBack": {
-        "generalProgram": {
-          "title": "Všeobecné cvičenie pre zníženie bolesti v driekovej chrbtici",
-          "description": "",
-          "glutealStretch": {
-            "title": "Strečing sedacích svalov.",
-            "description": "Popis vo videu.\\nOPAKOVANIA: 5x denne."
-          },
-          "bridge": {
-            "title": "Mostík",
-            "description": "Ľahnite si na chrbát a uložte pokrčené nohy na šírku ramien.\\n ➜ Ruky uložte pozdĺž tela. \\n ➜ Zaprite sa chodidlami do podložky a zdvihnite zadok nad podložku, do výšky kedy vyrovnáte chrbát \\n ➜ Následne pomaly spustite zadok tesne nad podložku a zopakujte znovu \\n ➜ OPAKOVANIA: 8-12x /4 série / 1x denne"
-          },
-          "squats": {
-            "title": "Drepy do 90 stupňov",
-            "description": "Postavte sa s nohami na na šírku ramien. \\n ➜ Drep vykonávajte max. do 90 stupňov ohnutia kolien a bez prehýbania sa v chrtbte. \\n ➜ OPAKOVANIA: 10x /3 série / 1x denne"
-          }
+      "defaultNociceptive": {
+        "title": "Všeobecné cvičenia pre stredné chrbát - nociceptívna bolesť",
+        "description": "Základné cvičenia vhodné pre rôzne typy nociceptívnej bolesti strednej časti chrbta.\n\nTieto cvičenia pomáhajú zlepšiť celkovú funkciu hrudnej chrbtice a znížiť bolesť.\nVykonávajte ich pravidelne, ale rešpektujte hranice bolesti.",
+        "basicMobility": {
+          "title": "Základné pohyblivostné cvičenia hrudnej chrbtice",
+          "description": "Jemné cvičenia na zlepšenie pohyblivosti vo všetkých smeroch."
+        },
+        "basicStrengthening": {
+          "title": "Základné posilňovacie cvičenia",
+          "description": "Ľahké posilňovacie cvičenia na stabilizáciu hrudnej chrbtice."
         }
       }
     }
