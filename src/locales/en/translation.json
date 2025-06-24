@@ -241,7 +241,8 @@
       }
     },
     "exerciseCalendarTitle": "Exercise Calendar",
-    "today": "Today"
+    "today": "Today",
+    "weeklyProgress": "{{completed}} / {{goal}} days exercised this week"
   },
   "welcome": {
     "title": "Welcome to Pebee Therapist",

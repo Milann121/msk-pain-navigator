@@ -241,7 +241,8 @@
       }
     },
     "exerciseCalendarTitle": "Kalendář cvičení",
-    "today": "Dnes"
+    "today": "Dnes",
+    "weeklyProgress": "{{completed}} / {{goal}} dní odcvičených tento týden"
   },
   "welcome": {
     "title": "Vítejte u Pebee terapeuta",
