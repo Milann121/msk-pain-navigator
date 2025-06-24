@@ -4,6 +4,7 @@ import { format, isSameDay } from 'date-fns';
 import { CheckIcon } from 'lucide-react';
 import { CompletionDay } from '@/hooks/useCompletionData';
 import { Locale } from 'date-fns';
+import { useTranslation } from 'react-i18next';
 
 interface CalendarDayProps {
   day: Date;
@@ -18,6 +19,7 @@ export const CalendarDay: React.FC<CalendarDayProps> = ({
   assessmentId,
   locale
 }) => {
+  const { t } = useTranslation();
   const isCompleted = completion !== undefined;
   const completionCount = completion?.count || 0;
   const isForCurrentAssessment = assessmentId 

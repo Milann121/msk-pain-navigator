@@ -14,7 +14,19 @@
     "savePlaceholder": "Enter your {{field}}",
     "moneySavings": "Money Saved",
     "moneySavingsFootnote": "*calculated based on average prices in your country",
-    "modelTitle": "Body Model"
+    "modelTitle": "Body Model",
+    "jobTypes": {
+      "manual": "manual work",
+      "desk": "desk work",
+      "driver": "driver"
+    },
+    "jobSubtypes": {
+      "manualSpec": "Specification:",
+      "heavyLifting": "lifting heavy objects",
+      "standingWork": "standing work in place",
+      "awkwardPositions": "work in unnatural positions",
+      "officeWork": "office work"
+    }
   },
   "results": {
     "savedTitle": "Results have been saved",
@@ -176,6 +188,60 @@
       "neutral": "Neutral",
       "sad": "Bad"
     }
+  },
+  "calendar": {
+    "months": {
+      "short": {
+        "jan": "Jan",
+        "feb": "Feb", 
+        "mar": "Mar",
+        "apr": "Apr",
+        "may": "May",
+        "jun": "Jun",
+        "jul": "Jul",
+        "aug": "Aug",
+        "sep": "Sep",
+        "oct": "Oct",
+        "nov": "Nov",
+        "dec": "Dec"
+      },
+      "long": {
+        "january": "January",
+        "february": "February",
+        "march": "March",
+        "april": "April",
+        "may": "May",
+        "june": "June",
+        "july": "July",
+        "august": "August",
+        "september": "September",
+        "october": "October",
+        "november": "November",
+        "december": "December"
+      }
+    },
+    "days": {
+      "short": {
+        "mon": "Mon",
+        "tue": "Tue",
+        "wed": "Wed",
+        "thu": "Thu",
+        "fri": "Fri",
+        "sat": "Sat",
+        "sun": "Sun"
+      },
+      "long": {
+        "monday": "Monday",
+        "tuesday": "Tuesday",
+        "wednesday": "Wednesday",
+        "thursday": "Thursday",
+        "friday": "Friday",
+        "saturday": "Saturday",
+        "sunday": "Sunday"
+      }
+    },
+    "exerciseCalendarTitle": "Exercise Calendar",
+    "today": "Today"
   },
   "welcome": {
     "title": "Welcome to Pebee Therapist",

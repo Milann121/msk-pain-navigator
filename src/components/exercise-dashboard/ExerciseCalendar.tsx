@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { 
   eachDayOfInterval, 
@@ -7,7 +8,8 @@ import {
   subWeeks,
   format
 } from 'date-fns';
-import { sk } from 'date-fns/locale/sk';
+import { useTranslation } from 'react-i18next';
+import { enUS, cs, sk } from 'date-fns/locale';
 import { 
   Card, 
   CardContent 
@@ -34,6 +36,20 @@ export const ExerciseCalendar = ({ assessmentId }: ExerciseCalendarProps) => {
   const [weeklyGoal, setWeeklyGoal] = useState<number>(0);
   const [goalCreatedAt, setGoalCreatedAt] = useState<string | undefined>(undefined);
   const { user } = useAuth();
+  const { t, i18n } = useTranslation();
+
+  // Get appropriate date-fns locale based on current language
+  const getLocale = () => {
+    switch (i18n.language) {
+      case 'cs':
+        return cs;
+      case 'sk':
+        return sk;
+      case 'en':
+      default:
+        return enUS;
+    }
+  };
 
   // CHANGED: Call useCompletionData without assessmentId, fetches ALL completions for user
   // If the UI wants a per-program calendar, then assessmentId can be passed. 
@@ -94,13 +110,13 @@ export const ExerciseCalendar = ({ assessmentId }: ExerciseCalendarProps) => {
     setCurrentDate(new Date());
   };
 
-  // Format the date range for display using Slovak locale (e.g., "20. máj - 26. máj 2025")
-  const dateRangeText = `${format(startDate, 'd. MMM', { locale: sk })} - ${format(endDate, 'd. MMM yyyy', { locale: sk })}`;
+  // Format the date range for display using current locale
+  const dateRangeText = `${format(startDate, 'd. MMM', { locale: getLocale() })} - ${format(endDate, 'd. MMM yyyy', { locale: getLocale() })}`;
   
   return (
     <Card className="mb-6">
       <CardContent className="pt-6">
-        <div className="text-lg font-medium mb-4">Kalendár cvičení</div>
+        <div className="text-lg font-medium mb-4">{t('calendar.exerciseCalendarTitle')}</div>
         
         <div className="flex items-center gap-2 mb-4">
           <Button 
@@ -110,7 +126,7 @@ export const ExerciseCalendar = ({ assessmentId }: ExerciseCalendarProps) => {
             className="flex items-center gap-1 px-3 py-1 text-xs rounded-md border-blue-300 bg-blue-50 text-blue-600 hover:bg-blue-100"
           >
             <CalendarDays className="h-3 w-3" />
-            Dnes
+            {t('calendar.today')}
           </Button>
           <div className="text-sm text-muted-foreground">{dateRangeText}</div>
         </div>
@@ -124,7 +140,7 @@ export const ExerciseCalendar = ({ assessmentId }: ExerciseCalendarProps) => {
                   daysToDisplay={daysToDisplay}
                   completionDays={completionDays}
                   assessmentId={assessmentId}
-                  locale={sk}
+                  locale={getLocale()}
                   weeklyGoal={weeklyGoal}
                   goalCreatedAt={goalCreatedAt}
                   onPreviousWeek={handlePreviousWeek}

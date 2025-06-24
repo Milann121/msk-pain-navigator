@@ -1,7 +1,8 @@
 
 import React from 'react';
 import { Calendar } from '@/components/ui/calendar';
-import { sk } from 'date-fns/locale/sk';
+import { useTranslation } from 'react-i18next';
+import { enUS, cs, sk } from 'date-fns/locale';
 
 interface MoodEntry {
   date: Date;
@@ -15,6 +16,21 @@ interface MoodCalendarViewProps {
 }
 
 export const MoodCalendarView = ({ date, onDateSelect, getMoodForDate }: MoodCalendarViewProps) => {
+  const { i18n } = useTranslation();
+
+  // Get appropriate date-fns locale based on current language
+  const getLocale = () => {
+    switch (i18n.language) {
+      case 'cs':
+        return cs;
+      case 'sk':
+        return sk;
+      case 'en':
+      default:
+        return enUS;
+    }
+  };
+
   return (
     <div className="w-full border rounded-md p-0 flex justify-center items-center min-h-[340px] bg-white">
       <div className="p-0 m-0 flex justify-center items-center w-auto">
@@ -22,7 +38,7 @@ export const MoodCalendarView = ({ date, onDateSelect, getMoodForDate }: MoodCal
           mode="single"
           selected={date}
           onSelect={onDateSelect}
-          locale={sk}
+          locale={getLocale()}
           className="!w-auto p-0 m-0"
           modifiers={{
             happy: (date) => getMoodForDate(date) === 'happy',
