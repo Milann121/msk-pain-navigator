@@ -6,6 +6,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
+import { useTranslation } from 'react-i18next';
 
 interface ExerciseVideoDialogProps {
   isOpen: boolean;
@@ -19,6 +20,8 @@ interface ExerciseVideoDialogProps {
 }
 
 export const ExerciseVideoDialog = ({ isOpen, onClose, exercise }: ExerciseVideoDialogProps) => {
+  const { t } = useTranslation();
+  
   if (!exercise) return null;
 
   return (
@@ -48,7 +51,7 @@ export const ExerciseVideoDialog = ({ isOpen, onClose, exercise }: ExerciseVideo
           {/* Description */}
           {exercise.description && (
             <div className="mt-4">
-              <h4 className="font-medium text-gray-800 mb-2">Popis cviku:</h4>
+              <h4 className="font-medium text-gray-800 mb-2">{t('exerciseDialog.description')}</h4>
               <p className="text-gray-600 leading-relaxed border-l-2 border-gray-200 pl-4">
                 {exercise.description.split('\n').map((line, index) => (
                   <span key={index}>

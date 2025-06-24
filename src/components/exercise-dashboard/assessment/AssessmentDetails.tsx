@@ -5,6 +5,7 @@ import { BadgeStyles } from "./BadgeStyles";
 import { formatPainArea, formatMechanism, formatDifferential } from "../FormatHelpers";
 import { UserAssessment } from "@/components/follow-up/types";
 import { ArrowUp, ArrowDown } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 interface DetailsSectionProps {
   assessment: UserAssessment;
@@ -17,10 +18,12 @@ export const AssessmentDetails = ({
   latestPainLevel,
   diffIcon,
 }: DetailsSectionProps) => {
+  const { t } = useTranslation();
+  
   return (
     <div className="space-y-2">
       <div>
-        <span className="font-medium text-gray-500">Mechanizmus bolesti:</span>
+        <span className="font-medium text-gray-500">{t('assessmentAccordion.painMechanism')}:</span>
         <div className="mt-1">
           <Badge className={BadgeStyles.getMechanismBadgeStyle(assessment.primary_mechanism)}>
             {formatMechanism(assessment.primary_mechanism)}
@@ -28,7 +31,7 @@ export const AssessmentDetails = ({
         </div>
       </div>
       <div>
-        <span className="font-medium text-gray-500">Diagnóza:</span>
+        <span className="font-medium text-gray-500">{t('assessmentAccordion.diagnosis')}:</span>
         <div className="mt-1">
           <Badge className={BadgeStyles.getDifferentialBadgeStyle(assessment.primary_differential)}>
             {formatDifferential(assessment.primary_differential)}
@@ -36,7 +39,7 @@ export const AssessmentDetails = ({
         </div>
       </div>
       <div className="mt-3">
-        <span className="font-medium text-gray-500">Vaša bolesť na začiatku:</span>
+        <span className="font-medium text-gray-500">{t('assessmentAccordion.initialPain')}:</span>
         <div className="mt-1 font-medium text-blue-700">
           {assessment.initial_pain_level !== undefined ? `${assessment.initial_pain_level}/10` : "–"}
         </div>
@@ -44,7 +47,7 @@ export const AssessmentDetails = ({
       <div>
         <div className="mt-1">
           <p className="text-sm text-gray-600 mb-3">
-            Vaša posledná zaznamenaná bolesť:{" "}
+            {t('assessmentAccordion.latestPain')}:{" "}
             {typeof latestPainLevel === "number" ? (
               <>
                 <span className="font-semibold text-blue-700">{latestPainLevel}/10</span>

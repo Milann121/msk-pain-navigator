@@ -1,6 +1,7 @@
 
 import { Slider } from '@/components/ui/slider';
 import { FollowUpQuestion } from './types';
+import { useTranslation } from 'react-i18next';
 
 interface ScaleQuestionProps {
   question: FollowUpQuestion;
@@ -9,6 +10,8 @@ interface ScaleQuestionProps {
 }
 
 const ScaleQuestion = ({ question, value = 5, onChange }: ScaleQuestionProps) => {
+  const { t } = useTranslation();
+  
   if (!question.scale) return null;
   
   return (
@@ -27,7 +30,7 @@ const ScaleQuestion = ({ question, value = 5, onChange }: ScaleQuestionProps) =>
           <span className="text-xs">({question.scale.min})</span>
         </div>
         <div className="text-center flex-shrink-0 px-3 py-1 bg-blue-50 rounded-md">
-          <span className="text-blue-600 font-medium">Vybrané: {value}</span>
+          <span className="text-blue-600 font-medium">{t('slider.selected', { value })}</span>
         </div>
         <div className="text-right flex-1">
           <span className="block">{question.scale.maxLabel}</span>

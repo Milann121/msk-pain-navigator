@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Info } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { cn } from '@/lib/utils';
+import { useTranslation } from 'react-i18next';
 
 interface QuestionRendererProps {
   question: FollowUpQuestion;
@@ -18,6 +19,7 @@ interface QuestionRendererProps {
 
 const QuestionRenderer = ({ question, answer, onAnswerChange, onSliderChange }: QuestionRendererProps) => {
   const isMobile = useIsMobile();
+  const { t } = useTranslation();
 
   const handleSingleOptionChange = (value: string) => {
     onAnswerChange(question.id, value);
@@ -47,10 +49,10 @@ const QuestionRenderer = ({ question, answer, onAnswerChange, onSliderChange }: 
                 variant="ghost"
                 size="sm"
                 className="p-2 h-auto text-gray-500 hover:text-blue-600 hover:bg-blue-50 flex-shrink-0"
-                title="Vysvetliť otázku"
+                title={t('questionExplanation.explain')}
               >
                 <Info className="h-4 w-4" />
-                <span className="sr-only">Vysvetliť otázku</span>
+                <span className="sr-only">{t('questionExplanation.explain')}</span>
               </Button>
             </PopoverTrigger>
             <PopoverContent 
@@ -63,7 +65,7 @@ const QuestionRenderer = ({ question, answer, onAnswerChange, onSliderChange }: 
               sideOffset={isMobile ? 8 : 4}
             >
               <div className="p-3">
-                <h4 className="font-medium text-blue-700 mb-2">Vysvetlenie otázky</h4>
+                <h4 className="font-medium text-blue-700 mb-2">{t('questionExplanation.title')}</h4>
                 <p className="text-sm text-gray-700 leading-relaxed">
                   {question.description}
                 </p>

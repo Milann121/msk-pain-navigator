@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Edit } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface GenderFieldProps {
   value: string;
@@ -25,11 +26,12 @@ export const GenderField: React.FC<GenderFieldProps> = ({
   onTempValueChange
 }) => {
   const isEditing = editingField === 'gender';
+  const { t } = useTranslation();
 
   if (isEditing) {
     return (
       <div className="col-span-2 space-y-3">
-        <Label className="text-base font-medium">Pohlavie:</Label>
+        <Label className="text-base font-medium">{t('gender')}:</Label>
         <RadioGroup 
           value={tempValue as string}
           onValueChange={(value) => onTempValueChange(value)}
@@ -37,19 +39,19 @@ export const GenderField: React.FC<GenderFieldProps> = ({
         >
           <div className="flex items-center space-x-2">
             <RadioGroupItem value="Muž" id="muz-edit" />
-            <Label htmlFor="muz-edit" className="cursor-pointer text-sm">Muž</Label>
+            <Label htmlFor="muz-edit" className="cursor-pointer text-sm">{t('male')}</Label>
           </div>
           <div className="flex items-center space-x-2">
             <RadioGroupItem value="Žena" id="zena-edit" />
-            <Label htmlFor="zena-edit" className="cursor-pointer text-sm">Žena</Label>
+            <Label htmlFor="zena-edit" className="cursor-pointer text-sm">{t('female')}</Label>
           </div>
         </RadioGroup>
         <div className="flex space-x-3 pt-2">
           <Button size="sm" onClick={() => onSave('gender')} className="px-6">
-            Uložiť
+            {t('save')}
           </Button>
           <Button size="sm" variant="outline" onClick={onCancel} className="px-6">
-            Zrušiť
+            {t('cancel')}
           </Button>
         </div>
       </div>
@@ -58,7 +60,7 @@ export const GenderField: React.FC<GenderFieldProps> = ({
 
   return (
     <>
-      <div className="text-sm text-muted-foreground">Pohlavie:</div>
+      <div className="text-sm text-muted-foreground">{t('gender')}:</div>
       <div className="flex items-center justify-between">
         <span className="font-medium">{value || '-'}</span>
         <Button

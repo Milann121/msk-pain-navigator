@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
 
 interface ProgramControlsProps {
   isEnded: boolean;
@@ -17,12 +18,14 @@ export function AssessmentProgramControls({
   onEnd,
   onRenew,
 }: ProgramControlsProps) {
+  const { t } = useTranslation();
+  
   // If ended, show only green "Ukončené" and "Obnoviť program"
   if (isEnded) {
     return (
       <div className="flex flex-row flex-wrap gap-2 mt-2">
         <Button size="sm" disabled variant="outline" className="text-green-700 border-green-500 bg-green-50">
-          Ukončené
+          {t('assessmentAccordion.ended')}
         </Button>
         <Button
           size="sm"
@@ -31,7 +34,7 @@ export function AssessmentProgramControls({
           disabled={loadingRenew}
           className="border-blue-500"
         >
-          {loadingRenew ? "Obnovujem..." : "Obnoviť program"}
+          {loadingRenew ? t('assessmentAccordion.renewing') : t('assessmentAccordion.renewProgram')}
         </Button>
       </div>
     );
@@ -45,7 +48,7 @@ export function AssessmentProgramControls({
         onClick={onEnd}
         disabled={loadingEnd}
       >
-        {loadingEnd ? "Ukladanie..." : "Ukončiť program"}
+        {loadingEnd ? t('assessmentAccordion.ending') : t('assessmentAccordion.endProgram')}
       </Button>
     </div>
   );

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Trash2, ExternalLink, ClipboardCheck } from 'lucide-react';
 import { UserAssessment } from '@/components/follow-up/types';
+import { useTranslation } from 'react-i18next';
 
 interface AssessmentAccordionActionsProps {
   assessment: UserAssessment;
@@ -27,6 +28,8 @@ export function AssessmentAccordionActions({
   handleRenewProgram,
   handleViewExercises
 }: AssessmentAccordionActionsProps) {
+  const { t } = useTranslation();
+  
   return (
     <div className="flex flex-wrap justify-start md:justify-end gap-2 mt-4">
       <Button 
@@ -36,7 +39,7 @@ export function AssessmentAccordionActions({
         className="flex items-center gap-1"
       >
         <ClipboardCheck className="h-4 w-4" />
-        Zaznamenať pokrok
+        {t('assessmentAccordion.recordProgress')}
       </Button>
       
       <Button 
@@ -45,7 +48,7 @@ export function AssessmentAccordionActions({
         className="flex items-center gap-1"
       >
         <ExternalLink className="h-4 w-4" />
-        Zobraziť cviky
+        {t('assessmentAccordion.viewExercises')}
       </Button>
       
       <Button 
@@ -55,7 +58,7 @@ export function AssessmentAccordionActions({
           e.stopPropagation();
           onDeleteAssessment(assessment.id);
         }}
-        title="Odstrániť hodnotenie"
+        title={t('assessmentAccordion.deleteAssessment')}
         className="flex items-center gap-1"
       >
         <Trash2 className="h-4 w-4" />

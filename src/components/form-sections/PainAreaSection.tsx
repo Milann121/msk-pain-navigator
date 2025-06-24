@@ -5,6 +5,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Checkbox } from '@/components/ui/checkbox';
 import { UserInfo } from '@/utils/types';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface PainAreaSectionProps {
   painArea: 'neck' | 'middle back' | 'lower back' | 'upper limb';
@@ -18,6 +19,7 @@ const PainAreaSection = ({
   register,
 }: PainAreaSectionProps) => {
   const [upperLimbSubAreas, setUpperLimbSubAreas] = useState<string[]>([]);
+  const { t } = useTranslation();
 
   const handleUpperLimbSubAreaChange = (value: string, checked: boolean) => {
     if (checked) {
@@ -29,7 +31,7 @@ const PainAreaSection = ({
 
   return (
     <div className="space-y-3">
-      <Label>Prosím, špecifikujte presnú oblasť vašej bolesti</Label>
+      <Label>{t('painArea.specify')}</Label>
       <RadioGroup 
         defaultValue="neck" 
         value={painArea}
@@ -38,25 +40,25 @@ const PainAreaSection = ({
       >
         <div className="flex items-center space-x-2">
           <RadioGroupItem value="neck" id="neck" />
-          <Label htmlFor="neck" className="cursor-pointer">Krčná chrbtica</Label>
+          <Label htmlFor="neck" className="cursor-pointer">{t('painArea.neck')}</Label>
         </div>
         <div className="flex items-center space-x-2">
           <RadioGroupItem value="middle back" id="middle-back" />
-          <Label htmlFor="middle-back" className="cursor-pointer">Hrudná chrbtica</Label>
+          <Label htmlFor="middle-back" className="cursor-pointer">{t('painArea.middleBack')}</Label>
         </div>
         <div className="flex items-center space-x-2">
           <RadioGroupItem value="lower back" id="lower-back" />
-          <Label htmlFor="lower-back" className="cursor-pointer">Drieková chrbtica</Label>
+          <Label htmlFor="lower-back" className="cursor-pointer">{t('painArea.lowerBack')}</Label>
         </div>
         <div className="flex items-center space-x-2">
           <RadioGroupItem value="upper limb" id="upper-limb" />
-          <Label htmlFor="upper-limb" className="cursor-pointer">Horná končatina</Label>
+          <Label htmlFor="upper-limb" className="cursor-pointer">{t('painArea.upperLimb')}</Label>
         </div>
       </RadioGroup>
 
       {painArea === 'upper limb' && (
         <div className="ml-6 space-y-3">
-          <Label>Špecifikujte oblasť hornej končatiny:</Label>
+          <Label>{t('painArea.specifyUpperLimb')}</Label>
           <div className="flex flex-col space-y-2">
             <div className="flex items-center space-x-2">
               <Checkbox 
@@ -66,7 +68,7 @@ const PainAreaSection = ({
                   handleUpperLimbSubAreaChange('shoulder', checked as boolean)
                 }
               />
-              <Label htmlFor="shoulder" className="cursor-pointer">Rameno</Label>
+              <Label htmlFor="shoulder" className="cursor-pointer">{t('painArea.shoulder')}</Label>
             </div>
             <div className="flex items-center space-x-2">
               <Checkbox 
@@ -76,7 +78,7 @@ const PainAreaSection = ({
                   handleUpperLimbSubAreaChange('elbow', checked as boolean)
                 }
               />
-              <Label htmlFor="elbow" className="cursor-pointer">Lakeť</Label>
+              <Label htmlFor="elbow" className="cursor-pointer">{t('painArea.elbow')}</Label>
             </div>
             <div className="flex items-center space-x-2">
               <Checkbox 
@@ -86,7 +88,7 @@ const PainAreaSection = ({
                   handleUpperLimbSubAreaChange('forearm', checked as boolean)
                 }
               />
-              <Label htmlFor="forearm" className="cursor-pointer">Predlaktie</Label>
+              <Label htmlFor="forearm" className="cursor-pointer">{t('painArea.forearm')}</Label>
             </div>
             <div className="flex items-center space-x-2">
               <Checkbox 
@@ -96,7 +98,7 @@ const PainAreaSection = ({
                   handleUpperLimbSubAreaChange('hand', checked as boolean)
                 }
               />
-              <Label htmlFor="hand" className="cursor-pointer">Ruka</Label>
+              <Label htmlFor="hand" className="cursor-pointer">{t('painArea.hand')}</Label>
             </div>
             <div className="flex items-center space-x-2">
               <Checkbox 
@@ -106,7 +108,7 @@ const PainAreaSection = ({
                   handleUpperLimbSubAreaChange('fingers', checked as boolean)
                 }
               />
-              <Label htmlFor="fingers" className="cursor-pointer">Prsty</Label>
+              <Label htmlFor="fingers" className="cursor-pointer">{t('painArea.fingers')}</Label>
             </div>
           </div>
         </div>

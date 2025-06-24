@@ -3,6 +3,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/u
 import { UserAssessment } from '@/components/follow-up/types';
 import FollowUpQuestionnaire from '@/components/follow-up/FollowUpQuestionnaire';
 import { useToast } from '@/hooks/use-toast';
+import { useTranslation } from 'react-i18next';
 
 interface FollowUpDialogProps {
   isOpen: boolean;
@@ -18,11 +19,12 @@ export const FollowUpDialog = ({
   onComplete 
 }: FollowUpDialogProps) => {
   const { toast } = useToast();
+  const { t } = useTranslation();
   
   const handleComplete = () => {
     toast({
-      title: "Pokrok zaznamenaný",
-      description: "Vaše odpovede boli úspešne uložené",
+      title: t('followUp.progressRecorded'),
+      description: t('followUp.responsesSaved'),
     });
     onComplete();
     
@@ -35,7 +37,7 @@ export const FollowUpDialog = ({
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-3xl">
         <DialogHeader>
-          <DialogTitle>Zaznamenať pokrok</DialogTitle>
+          <DialogTitle>{t('followUp.title')}</DialogTitle>
         </DialogHeader>
         {selectedAssessment && (
           <FollowUpQuestionnaire

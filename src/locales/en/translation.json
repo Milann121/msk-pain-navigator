@@ -1,632 +1,164 @@
+
 {
-  "profile": {
-    "title": "My profile",
-    "personalData": "Personal data",
-    "personaData": "Personal data",
-    "firstName": "First name",
-    "lastName": "Last name",
-    "age": "Age",
-    "gender": "Gender",
-    "job": "Job",
-    "save": "Save",
-    "cancel": "Cancel",
-    "male": "Male",
-    "female": "Female",
-    "savePlaceholder": "Enter your {{field}}",
-    "moneySavings": "Money saved",
-    "moneySavingsFootnote": "*calculated using average prices in Slovakia"
-    "moneySavingsFootnote": "*calculated using average prices in Slovakia",
-    "moneySavingsTitle": "Money saved",
-    "moneySavingsNote": "*calculated from average prices in Slovakia"
-  },
-  "results": {
-    "savedTitle": "Results saved",
-    "savedDescription": "Your assessment was saved and is available in My exercises.",
-    "saveErrorTitle": "Save error",
-    "saveErrorDescription": "Failed to save assessment results.",
-    "autoSaved": "✓ Results were automatically saved. Find them in My exercises.",
-    "autoSaved": "✔ Results were automatically saved. Find them in My exercises.",
-    "saving": "Saving results...",
-    "autoSaveFailed": "Automatic saving failed."
-  },
   "loading": "Loading...",
-  "header": {
-    "home": "Home",
-    "profile": "My profile",
-    "myExercises": "My exercises",
-    "blog": "Blog",
-    "assessment": "Pain questionnaire",
-    "signIn": "Sign in",
-    "signOut": "Sign out",
-    "brand": "Pebee therapist",
-    "toggleMenu": "Toggle menu"
-    "signOut": "Sign out"
-  },
-  "auth": {
-    "signIn": "Sign in",
-    "signUp": "Create account",
-    "google": "Continue with Google",
-    "toggleSignUp": "Don't have an account? Sign up",
-    "toggleSignIn": "Already have an account? Sign in",
-    "signUpSubtitle": "Create a new account to get started",
-    "signInSubtitle": "Sign in to your account",
-    "firstName": "First name",
-    "email": "Email",
-    "password": "Password",
-    "privacyConsent": "I agree to the processing of personal data",
-    "or": "or",
-    "backHome": "Back to home"
-  },
-  "myExercises": {
-    "title": "My exercises",
-    "activeProgramsTitle": "Active programs",
-    "activeProgramsDescription": "Below you'll find all your active exercise programs from completed assessments.",
-    "endedProgramsTitle": "Ended programs",
-    "endedProgramsDescription": "Below you will find all programs you have already ended.",
-    "noEndedPrograms": "No ended programs.",
-    "backHome": "Back to home",
-    "newAssessment": "New assessment"
-  },
-  "blog": {
-    "title": "Blog",
-    "readMore": "Read more",
-    "posts": {
-      "1": {
-        "title": "Neurodynamic exercises: what, why, when?",
-        "description": "Ever heard of nerve flossing? If you have pain caused by nerve irritation or compression, nerve flossing is worth a try."
-      },
-      "2": {
-        "title": "Preventing back pain at work",
-        "description": "Tips for proper sitting, ergonomic workspace setup and exercises you can do during the work day."
-      },
-      "3": {
-        "title": "Stretching for a healthy spine",
-        "description": "A simple stretching routine to keep your spine healthy and flexible."
-      },
-      "4": {
-        "title": "Exercise and nutrition",
-        "description": "How proper nutrition aids recovery and strengthens the back muscles."
-      },
-      "5": {
-        "title": "Common exercise mistakes",
-        "description": "Avoid these common errors that can worsen back pain instead of easing it."
-      },
-      "6": {
-        "title": "Rehabilitation exercises after injury",
-        "description": "Recommended practices and exercises for rehabilitation after spinal injury or surgery."
-      }
-"readMore": "Read more",
-  "posts": {
-    "1": {
-      "title": "Neurodynamic exercises: what, why, when?",
-      "description": "Ever heard of nerve flossing? If you have pain caused by nerve irritation or compression, nerve flossing is worth a try."
+  "hello": "Hello",
+  "welcome": "Welcome",
+  "login": "Login",
+  "register": "Register",
+  "email": "Email",
+  "password": "Password",
+  "confirmPassword": "Confirm Password",
+  "firstName": "First Name",
+  "lastName": "Last Name",
+  "age": "Age",
+  "gender": "Gender",
+  "male": "Male",
+  "female": "Female",
+  "height": "Height",
+  "weight": "Weight",
+  "submit": "Submit",
+  "cancel": "Cancel",
+  "save": "Save",
+  "delete": "Delete",
+  "edit": "Edit",
+  "close": "Close",
+  "back": "Back",
+  "next": "Next",
+  "previous": "Previous",
+  "yes": "Yes",
+  "no": "No",
+  "home": {
+    "title": "Home",
+    "greeting": {
+      "hello": "Hello{{name}}",
+      "question": "How are you feeling today?"
     },
-    "2": {
-      "title": "Preventing back pain at work",
-      "description": "Tips for proper sitting, ergonomic workspace setup and exercises you can do during the work day."
+    "progressTitle": "Your Progress",
+    "setGoals": "Set Goals",
+    "exerciseStats": {
+      "title": "Exercise This Week",
+      "weekLabel": "days this week",
+      "goalDone": "Goal completed! 🎉",
+      "goalRemaining": "{{count}} days remaining",
+      "noGoal": "Set a weekly goal in your profile"
     },
-    "3": {
-      "title": "Stretching for a healthy spine",
-      "description": "A simple stretching routine to keep your spine healthy and flexible."
+    "blogStats": {
+      "title": "Articles Read",
+      "weekLabel": "articles this week", 
+      "goalDone": "Goal completed! 🎉",
+      "goalRemaining": "{{count}} articles remaining",
+      "noGoal": "Set a weekly goal in your profile"
     },
-    "4": {
-      "title": "Exercise and nutrition",
-      "description": "How proper nutrition aids recovery and strengthens the back muscles."
+    "generalProgram": {
+      "title": "General Program",
+      "description": "Personalized program with the most important exercises from your programs",
+      "view": "View Program",
+      "exerciseCount": "{{count}} exercises",
+      "needMore": "You have {{count}} assessments. Need at least 2 for general program.",
+      "generating": "Generating general program...",
+      "hint": "Create more assessments for a personalized program"
     },
-    "5": {
-      "title": "Common exercise mistakes",
-      "description": "Avoid these common errors that can worsen back pain instead of easing it."
-    },
-    "6": {
-      "title": "Rehabilitation exercises after injury",
-      "description": "Recommended practices and exercises for rehabilitation after spinal injury or surgery."
+    "banner": {
+      "message": "New week started! Continue with your exercise plan.",
+      "open": "Open Exercises"
     }
   },
   "assessment": {
-    "title": "Pain assessment",
-    "subtitle": "Fill the questionnaire to get personalized exercise recommendations",
-    "new": "New assessment"
+    "title": "Pain Assessment",
+    "subtitle": "Help us better understand your pain"
   },
-  "cookie": {
-    "message": "This site uses cookies to enhance your experience. By using our site, you agree to our cookie policy.",
-    "accept": "Accept"
+  "profile": {
+    "title": "Profile",
+    "personalInfo": "Personal Information",
+    "goals": "Goals",
+    "weeklyExerciseGoal": "Weekly Exercise Goal",
+    "weeklyBlogGoal": "Weekly Reading Goal",
+    "daysPerWeek": "days per week",
+    "articlesPerWeek": "articles per week",
+    "save": "Save",
+    "cancel": "Cancel",
+    "savePlaceholder": "Enter {{field}}",
+    "editProfile": "Edit Profile",
+    "favoriteExercises": "Favorite Exercises",
+    "savedBlogs": "Saved Articles",
+    "viewAll": "View All",
+    "noFavorites": "You have no favorite exercises yet",
+    "noSavedBlogs": "You have no saved articles yet",
+    "modelTitle": "Body Model"
   },
-  "home": {
-    "progressTitle": "My progress",
-    "setGoals": "Set personal goals",
-    "exerciseStats": {
-      "title": "My exercises",
-      "weekLabel": "days exercised this week",
-      "goalDone": "🎉 Congratulations! You met your weekly goal.",
-      "goalRemaining": "{{count}} days remaining to reach your goal.",
-      "noGoal": "Set a weekly goal in the \"My goals\" section of your profile."
-    },
-    "blogStats": {
-      "title": "Blog reading",
-      "weekLabel": "blogs read this week",
-      "goalDone": "🎉 Congratulations! You met your weekly goal.",
-      "goalRemaining": "{{count}} blogs remaining to reach your goal.",
-      "noGoal": "Set a weekly goal in the \"My goals\" section of your profile."
-    },
-    "favoriteExercises": {
-      "title": "Favourite exercises",
-      "empty": "You have no favourite exercises yet. Mark the star next to exercises in your plan to add them."
-    },
-    "savedBlogs": {
-      "title": "Saved articles",
-      "empty": "You have no saved articles yet. Save articles in the Blog section using the \"Add to favourites\" button."
-    },
-    "generalProgram": {
-      "title": "General program",
-      "needMore": "You need at least 2 assessments (you have {{count}})",
-      "generating": "Program is being generated...",
-      "hint": "Fill in more pain questionnaires to create a personalized program",
-      "description": "No time for individual exercise programs? Here's a personalized plan with the most important exercises from your current programs.",
-      "exerciseCount": "{{count}} exercises from your programs",
-      "view": "View program"
-    },
-    "banner": {
-      "message": "A new week, a new challenge! Don't postpone your exercises and start today 🤩",
-      "open": "Open program"
-    },
-    "greeting": {
-      "hello": "Hello {{name}}",
-      "question": "how are you feeling today?"
-      "message": "A new week, a new challenge! Don't postpone your exercises and start today 🏋️",
-      "open": "Open program"
-    },
-    "greeting": {
-      "hello": "Hello {{name}}!",
-      "question": "How are you feeling today?"
-    },
-    "mood": {
-      "week": "week",
-      "month": "month",
-      "periodWeek": "7 days",
-      "periodMonth": "30 days",
-      "emptyWeek": "the last 7 days",
-      "emptyMonth": "the last 30 days",
-      "avgScore": "Average score for {{period}}",
-      "infoLabel": "Score info",
-      "infoText": "Average score from the last {{days}} days is based on your daily mood entries. The closer your score is to 3, the better you feel.",
-      "infoText": "Average score from the last {{days}} days is based on your daily mood entries. The closer your score is to 3, the better.",
-      "infoGrades": "Good = 3, Neutral = 2, Bad = 1.",
-      "infoFollow": "Watch how your overall score changes over time.",
-      "better": "Better trend in the last {{days}} days",
-      "worse": "Worse trend in the last {{days}} days",
-      "noChange": "No change",
-      "noRecords": "(No records for {{period}})",
-      "happy": "Good",
-      "neutral": "Neutral",
-    "sad": "Bad"
-    }
-  },
-  "welcome": {
-    "title": "Welcome to Pebee therapist",
-    "subtitle": "Please sign in to access the questionnaire and personalized exercise programs.",
-    "signIn": "Sign in",
-    "movementTitle": "Move without pain",
-    "features": "Pebee therapist features",
-    "alt": {
-      "mobileApps": "Mobile apps",
-      "calendar": "Exercise calendar and savings",
-      "programs": "My exercises and active programs",
-      "assessment": "Musculoskeletal pain assessment"
-    },
-    "calendar": {
-      "title": "Exercise calendar",
-      "text": "Track your progress with our intuitive exercise calendar. See exactly when you exercised, how many active days you have and how much you saved. Stay motivated with daily results and keep a consistent routine."
-    },
-    "programs": {
-      "title": "My exercises and programs",
-      "text": "Access personalized exercise programs tailored to your needs. Each exercise is designed specifically for your pain type and condition. Track active programs and stay motivated with a clear overview of your exercises."
-    },
-    "assessment": {
-      "title": "Pain assessment",
-      "text": "Comprehensive assessment of your musculoskeletal pain using an interactive 3D model. Precisely identify problem areas and get personalized recommendations. Our advanced system analyzes your symptoms and suggests the most suitable treatment plan."
-    },
-    "footer": {
-      "title": "Pebee therapist",
-      "rights": "© 2024 Pebee therapist. All rights reserved."
-    }
+  "myExercises": {
+    "title": "My Exercises",
+    "activeProgramsTitle": "Active Programs",
+    "activeProgramsDescription": "Programs you are currently doing",
+    "endedProgramsTitle": "Ended Programs", 
+    "endedProgramsDescription": "Programs you have completed",
+    "noActivePrograms": "You don't have any active programs yet",
+    "noEndedPrograms": "You don't have any ended programs yet",
+    "backHome": "Back Home",
+    "newAssessment": "New Assessment"
   },
   "exercisePlan": {
-    "changeRequestAlert": "Exercise change request sent.",
-    "suitableQuestion": "Does this exercise work for you?",
-    "feedbackTitle": "Why isn't the exercise good?",
-    "painQuestion": "1. Does the exercise cause you pain?",
-    "painAcceptableQuestion": "1a. Is the pain acceptable?",
+    "title": "Exercise Plan",
+    "sectionSummary": "{{count}} {{label}}",
+    "exerciseSuitable": "Is this exercise suitable for you?",
     "yes": "Yes",
-    "no": "No",
-    "yesAcceptable": "Yes, it's acceptable",
-    "noAcceptable": "No, it isn't",
-    "changeQuestion": "2. Do you want to change this exercise?",
-    "submitFeedback": "Submit feedback",
-    "changeExercise": "Change exercise",
-    "changeRequestInfo": "We will contact you about a suitable replacement once you submit this request.",
-    "newExerciseProposed": "Proposed new exercise",
-    "confirmChange": "Confirm change",
-    "declineChange": "Decline change",
-    "replacementErrorTitle": "No suitable new exercise available.",
-    "replacementErrorDescription": "Try contacting a physiotherapist or change the criteria.",
-    "missingInfoTitle": "Missing exercise information.",
-    "missingInfoDescription": "Cannot suggest a new exercise.",
-    "exerciseChangedTitle": "Exercise changed",
-    "exerciseChangedDesc": "The selected exercise has been replaced with a new one.",
-    "feedbackSaved": "Feedback saved",
-    "markedGood": "You marked the exercise as suitable.",
-    "requestedChange": "You requested an exercise change.",
-    "sectionSummary": "This section contains {{count}} {{label}}",
-    "moveLabel": "Move to select option",
-    "errorSave": "Failed to save feedback."
-  },
-  "importantNotice": {
-    "title": "Important notice",
-    "text": "These exercises serve only as general recommendations and do not replace a visit to a physiotherapist or doctor. If you experience increased pain, dizziness, or any discomfort during exercise, stop immediately and seek professional help."
-  },
-  "rotationControls": {
-    "modelControls": "Model Controls",
-    "reset": "Reset",
-    "resetTitle": "Reset to neutral position",
-    "horizontal": "Horizontal Rotation",
-    "vertical": "Vertical Rotation",
-    "position": "Vertical Position",
-    "zoom": "Zoom"
+    "no": "No", 
+    "neutral": "Not sure",
+    "moveLabel": "Move slider",
+    "feedbackTitle": "Why doesn't this exercise suit you?",
+    "feedbackPlaceholder": "Describe what you don't like about this exercise...",
+    "requestChange": "Request Exercise Change",
+    "skipFeedback": "Skip",
+    "changeRequestAlert": "Exercise change request sent!",
+    "newExerciseProposed": "New Exercise Proposed",
+    "confirmChange": "Confirm Change",
+    "declineChange": "Decline Change",
+    "completedExercise": "Completed",
+    "markCompleted": "Mark as Completed",
+    "importance": {
+      "high": "High Importance",
+      "medium": "Medium Importance",
+      "low": "Low Importance"
+    }
   },
   "exerciseCvik": {
     "one": "exercise",
     "few": "exercises",
     "many": "exercises"
   },
-  "goals": {
-    "title": "My goals",
-    "weekly": "Weekly goals",
-    "exerciseText": "I want to exercise {dropdown} times per week",
-    "blogText": "I want to read {dropdown} blogs per week",
-    "save": "Save",
-    "cancel": "Cancel",
-    "successTitle": "Success",
-    "successExercise": "Exercise goal saved.",
-    "successBlog": "Blog goal saved.",
-    "errorTitle": "Error",
-    "error": "Failed to save goal."
-  },
-  "profileForm": {
-    "title": "Fill in your personal information",
-    "personalInfo": "Personal information",
-    "firstName": "First name *",
-    "firstNamePlaceholder": "Enter your first name",
-    "lastName": "Last name *",
-    "lastNamePlaceholder": "Enter your last name",
-    "gender": "Gender *",
-    "male": "Male",
-    "female": "Female",
-    "age": "Age *",
-    "agePlaceholder": "Enter your age",
-    "job": "Job *",
-    "manual": "Manual work",
-    "manualSpec": "Specification:",
-    "heavyLifting": "heavy lifting",
-    "standingWork": "standing work",
-    "awkwardPositions": "awkward positions",
-    "desk": "Desk job",
-    "officeWork": "office work",
-    "driver": "driver",
-    "goalsTitle": "My goals (optional)",
-    "goalsSubtitle": "You can set goals or skip and set them later in your profile.",
-    "weeklyExercise": "I want to exercise",
-    "times": "times",
-    "weeklyBlog": "I want to read",
-    "skip": "Skip goals",
-    "saveAll": "Save all",
-    "saving": "Saving...",
-    "success": "Personal data saved successfully.",
-    "error": "Failed to save personal data."
-  },
   "resultsFooter": {
-    "startNew": "Start new assessment",
-    "myExercises": "My exercises"
+    "startNew": "Start New",
+    "myExercises": "My Exercises"
   },
-  "exerciseStats": {
-    "noneToday": "No exercises today",
-    "completed": "Completed: {{count}}x",
-    "lastExercise": "Last exercise: {{date}}"
+  "importantNotice": {
+    "title": "Important Notice",
+    "text": "This application serves only educational purposes and does not replace professional medical help. In case of persistent or worsening problems, contact your doctor."
   },
   "privacy": {
-    "title": "Privacy policy – Musculoskeletal pain questionnaire",
-    "intro": "Your trust and data security are key for us. Therefore we would like to inform you how we process personal data provided through the pain questionnaire.",
-    "whatTitle": "What data do we process?",
-    "email": "Email address: We store and process only your email to send questionnaire results, additional recommendations or to contact you about our services if you have given consent.",
-    "health": "Health information: We do not store or process information about your pain and health condition provided in the questionnaire. They are used solely for immediate evaluation and personalization and are not stored afterwards.",
-    "whyTitle": "Why do we process your email?",
+    "title": "Privacy Policy",
+    "intro": "We value your privacy and want you to know how we handle your personal data.",
+    "whatTitle": "What data do we collect?",
+    "email": "Email address: For account creation and communication",
+    "health": "Health information: Information about pain and health status for personalized exercise plans",
+    "whyTitle": "Why do we collect this data?",
     "whyList": [
-      "To send questionnaire results.",
-      "To send additional recommendations or educational content.",
-      "To communicate about our services if you agreed to receive marketing information."
+      "To provide personalized exercise plans",
+      "To track your progress",
+      "To improve our services",
+      "To communicate about your account"
     ],
     "protectTitle": "How do we protect your data?",
-    "protectText": "We protect your email with modern technical and organizational measures to prevent unauthorized access, alteration or loss.",
-    "rightsTitle": "Your rights:",
-    "rightsIntro": "In accordance with GDPR you have the right:",
+    "protectText": "We use modern security measures to protect your data.",
+    "rightsTitle": "Your rights",
+    "rightsIntro": "You have the right to:",
     "rightsList": [
-      "to access your personal data,",
-      "to rectify or erase personal data,",
-      "to restrict processing,",
-      "to object to processing,",
-      "to data portability,",
-      "to withdraw consent at any time."
+      "Access your data",
+      "Correct incorrect data",
+      "Delete your data",
+      "Data portability"
     ],
-    "contact": "To exercise your rights contact us at <a href=\"mailto:privacy@example.com\">privacy@example.com</a>.",
-    "endTitle": "Conclusion",
-    "endText": "Your privacy is our priority. We process only necessary minimal data and do not store or archive health information."
-      "sad": "Bad"
-    }
-  },
-  "results": {
-    "title": "Assessment results",
-    "subtitle": "Thank you for completing the MSK Pain Navigator",
-    "greeting": "Good day",
-    "painAnalysis": "We analyzed your answers regarding pain in {area}",
-    "painMechanism": "Primary pain mechanism",
-    "painSensitivity": "Pain sensitivity level",
-    "differentialAssessment": "Differential assessment",
-    "exercisePlan": "Your personalized exercise plan",
-    "exercisePlanDescription": "Based on your assessment, we have prepared a personalized exercise program specifically designed for your condition. Please note that this assessment does not replace professional medical help. For a complete diagnosis and treatment plan, please consult with a healthcare professional.",
-    "openExerciseProgram": "OPEN EXERCISE PROGRAM",
-    "disclaimer": "This assessment does not replace professional medical help. For a complete diagnosis and treatment plan, please consult with a healthcare professional.",
-    "resultsSaved": "✔ Results have been automatically saved. You can find them in the 'My exercises' section.",
-    "savingResults": "Saving results...",
-    "savingFailed": "Automatic saving of results failed.",
-    "startNewAssessment": "Start new assessment"
-  },
-  "exercisePlan": {
-    "title": "Your exercise plan",
-    "generalTitle": "General exercise plan",
-    "generalDescription": "Personalized program with the most important exercises from your programs. Follow the instructions and stop exercising if you feel pain.",
-    "specificDescription": "Exercises specific for {diagnosis} in the {area} area. Follow the instructions and stop exercising if you feel pain.",
-    "backToExercises": "Back to my exercises",
-    "exerciseGood": "Does the exercise suit you?",
-    "yes": "Yes",
-    "no": "No",
-    "neutral": "Neutral",
-    "whyNotGood": "Why is the exercise not good?",
-    "hasPain": "Do you feel pain during the exercise?",
-    "painAcceptable": "Is the pain acceptable?",
-    "wantChange": "Do you want to change this exercise?",
-    "requestChange": "Request exercise change",
-    "sendFeedback": "Send feedback",
-    "close": "Close",
-    "exercisesNotFound": "Recommended exercises were not found",
-    "exercisesNotFoundDescription": "For your combination of diagnosis ({{diagnosis}}) and pain area ({{area}}), we don't have specific exercises. Please consult with a physiotherapist.",
-    "generalNotAvailable": "General program is not available",
-    "generalNotAvailableDescription": "You don't have enough assessments to create a general program or there are no exercises with defined importance available.",
-    "importantNotice": "Important notice",
-    "importantNoticeText": "These exercises serve only as general recommendations and do not replace a visit to a physiotherapist or doctor. If you experience increased pain, stop exercising.",
-    "exerciseChangeRequested": "Exercise change request has been sent.",
-    "newExerciseSuggested": "Suggested new exercise",
-    "confirmChange": "Confirm exercise change",
-    "rejectChange": "Reject exercise change",
-    "sectionContains": "This section contains {count} {exercises}"
-  },
-  "painAreas": {
-    "neck": "Neck",
-    "middleBack": "Thoracic spine",
-    "lowerBack": "Lower back",
-    "upperLimb": "Upper limb",
-    "shoulder": "Shoulder"
-  },
-  "mechanisms": {
-    "nociceptive": "Nociceptive pain",
-    "neuropathic": "Neuropathic pain",
-    "central": "Central sensitization",
-    "none": "Undefined pain mechanism",
-    "redFlag": "Symptoms requiring medical visit"
-  },
-  "differentials": {
-    "none": "No specific diagnosis identified",
-    "discHerniation": "Disc herniation",
-    "facetJointSyndrome": "Facet joint syndrome",
-    "sijSyndrome": "SI joint syndrome",
-    "musclePain": "Muscle pain",
-    "redFlag": "Symptoms requiring medical visit",
-    "ventralSpondylolisthesis": "Ventral spondylolisthesis",
-    "dorsalSpondylolisthesis": "Dorsal spondylolisthesis",
-    "costovertebralJointSyndrome": "Costovertebral joint syndrome",
-    "radicularPain": "Radicular pain",
-    "radiculopathy": "Radiculopathy",
-    "centralSensitisation": "Central sensitization",
-    "centralSensitisationAllodynia": "Central sensitization - Allodynia",
-    "centralSensitisationSensoryHyper": "Central sensitization - Sensory hypersensitivity",
-    "centralSensitisationCognitive": "Central sensitization - Cognitive symptoms",
-    "cervicalRadiculopathy": "Cervical radiculopathy",
-    "frozenShoulder": "Frozen shoulder",
-    "slapTear": "Labral lesion",
-    "subacromialImpingement": "Shoulder impingement syndrome",
-    "stiffShoulder": "Stiff shoulder syndrome",
-    "shoulderBursa": "Bursitis",
-    "rotatorCuffTear": "Rotator cuff injury",
-    "rotatorCuffTendinopathy": "Rotator cuff injury",
-    "bicepsTendinopathy": "Biceps tendon injury",
-    "bicepsTearLongHead": "Biceps tendon injury",
-    "shoulderDislocation": "Shoulder dislocation",
-    "unstableShoulder": "Unstable shoulder",
-    "labralLesion": "Labral lesion"
-  },
-  "followUp": {
-    "recordProgress": "Record progress",
-    "showExercises": "Show exercises",
-    "endProgram": "End program",
-    "renewProgram": "Renew program",
-    "ended": "Ended",
-    "ending": "Saving...",
-    "renewing": "Renewing...",
-    "progressRecorded": "Progress recorded",
-    "progressRecordedDescription": "Your answers have been successfully saved",
-    "yourPainInitial": "Your pain at the beginning:",
-    "yourPainLatest": "Your latest recorded pain:",
-    "programStart": "Program start",
-    "painMechanismLabel": "Pain mechanism:",
-    "diagnosisLabel": "Diagnosis:",
-    "back": "Back",
-    "next": "Next",
-    "finish": "Finish",
-    "question": "Question {current} of {total}",
-    "thankYou": "Thank you for completing the progress questionnaire."
-  },
-  "common": {
-    "error": "Error",
-    "success": "Success",
-    "save": "Save",
-    "cancel": "Cancel",
-    "delete": "Delete",
-    "edit": "Edit",
-    "close": "Close",
-    "confirm": "Confirm",
-    "reject": "Reset",
-    "reset": "Reset",
-    "loading": "Loading...",
-    "noData": "No data available",
-    "pageNotFound": "Page not found",
-    "returnHome": "Return to Home",
-    "oops": "Oops!"
-  },
-  "emptyState": {
-    "noAssessments": "You don't have any saved assessments yet.",
-    "createNewAssessment": "Create new assessment"
+    "contact": "For privacy-related questions, contact us at <a href=\"mailto:privacy@example.com\">privacy@example.com</a>",
+    "endTitle": "Changes to this policy",
+    "endText": "We may occasionally update this policy. We will inform you about significant changes."
   }
-"cookie": {
-  "message": "This site uses cookies to enhance your experience. By using our site, you agree to our cookie policy.",
-  "accept": "Accept"
-},
-"results": {
-  "title": "Assessment results",
-  "subtitle": "Thank you for completing the MSK Pain Navigator",
-  "greeting": "Good day",
-  "painAnalysis": "We analyzed your answers regarding pain in {area}",
-  "painMechanism": "Primary pain mechanism",
-  "painSensitivity": "Pain sensitivity level",
-  "differentialAssessment": "Differential assessment",
-  "exercisePlan": "Your personalized exercise plan",
-  "exercisePlanDescription": "Based on your assessment, we have prepared a personalized exercise program specifically designed for your condition. Please note that this program is a recommendation.",
-  "openExerciseProgram": "OPEN EXERCISE PROGRAM",
-  "disclaimer": "This assessment does not replace professional medical help. For a complete diagnosis and treatment plan, please consult with a healthcare professional.",
-  "resultsSaved": "✔ Results have been automatically saved. You can find them in the 'My exercises' section.",
-  "savingResults": "Saving results...",
-  "savingFailed": "Automatic saving of results failed.",
-  "startNewAssessment": "Start new assessment"
-},
-"exercisePlan": {
-  "title": "Your exercise plan",
-  "generalTitle": "General exercise plan",
-  "generalDescription": "Personalized program with the most important exercises from your programs. Follow the instructions and stop exercising if you feel pain.",
-  "specificDescription": "Exercises specific for {diagnosis} in the {area} area. Follow the instructions and stop exercising if you feel pain.",
-  "backToExercises": "Back to my exercises",
-  "exerciseGood": "Does the exercise suit you?",
-  "yes": "Yes",
-  "no": "No",
-  "neutral": "Neutral",
-  "whyNotGood": "Why is the exercise not good?",
-  "hasPain": "Do you feel pain during the exercise?",
-  "painAcceptable": "Is the pain acceptable?",
-  "wantChange": "Do you want to change this exercise?",
-  "requestChange": "Request exercise change",
-  "sendFeedback": "Send feedback",
-  "close": "Close",
-  "exercisesNotFound": "Recommended exercises were not found",
-  "exercisesNotFoundDescription": "For your combination of diagnosis ({diagnosis}) and pain area ({area}), we don't have specific exercises. Please consult with a physiotherapist.",
-  "generalNotAvailable": "General program is not available",
-  "generalNotAvailableDescription": "You don't have enough assessments to create a general program or there are no exercises with defined importance available.",
-  "importantNotice": "Important notice",
-  "importantNoticeText": "These exercises serve only as general recommendations and do not replace a visit to a physiotherapist or doctor. If you experience increased pain, please stop exercising and consult a specialist.",
-  "exerciseChangeRequested": "Exercise change request has been sent.",
-  "newExerciseSuggested": "Suggested new exercise",
-  "confirmChange": "Confirm exercise change",
-  "rejectChange": "Reject exercise change",
-  "sectionContains": "This section contains {count} {exercises}"
-},
-"painAreas": {
-  "neck": "Neck",
-  "middleBack": "Thoracic spine",
-  "lowerBack": "Lower back",
-  "upperLimb": "Upper limb",
-  "shoulder": "Shoulder"
-},
-  "mechanisms": {
-    "nociceptive": "Nociceptive pain",
-    "neuropathic": "Neuropathic pain", 
-    "central": "Central sensitization",
-    "none": "Undefined pain mechanism",
-    "redFlag": "Symptoms requiring medical visit"
-  },
-  "differentials": {
-  "none": "No specific diagnosis identified",
-  "discHerniation": "Disc herniation",
-  "facetJointSyndrome": "Facet joint syndrome",
-  "siJointSyndrome": "SI joint syndrome",
-  "musclePain": "Muscle pain",
-  "redFlag": "Symptoms requiring medical visit",
-  "ventralSpondylolisthesis": "Ventral spondylolisthesis",
-  "dorsalSpondylolisthesis": "Dorsal spondylolisthesis",
-  "costovertebralJointSyndrome": "Costovertebral joint syndrome",
-  "radicularPain": "Radicular pain",
-  "radiculopathy": "Radiculopathy",
-  "centralSensitisation": "Central sensitization",
-  "centralSensitisationAllodynia": "Central sensitization - Allodynia",
-  "centralSensitisationSensoryHyper": "Central sensitization - Sensory hypersensitivity",
-  "centralSensitisationCognitive": "Central sensitization - Cognitive symptoms",
-  "cervicalRadiculopathy": "Cervical radiculopathy",
-  "frozenShoulder": "Frozen shoulder",
-  "slapTear": "Labral lesion",
-  "subacromialImpingement": "Shoulder impingement syndrome",
-  "stiffShoulder": "Stiff shoulder syndrome",
-  "shoulderBursa": "Bursitis",
-  "rotatorCuffTear": "Rotator cuff injury",
-  "rotatorCuffTendinopathy": "Rotator cuff injury",
-  "bicepsTendinopathy": "Biceps tendon injury",
-  "bicepsTearLongHead": "Biceps tendon injury",
-  "shoulderDislocation": "Shoulder dislocation",
-  "unstableShoulder": "Unstable shoulder",
-  "labralLesion": "Labral lesion"
-},
-"followUp": {
-  "recordProgress": "Record progress",
-  "showExercises": "Show exercises",
-  "endProgram": "End program",
-  "renewProgram": "Renew program",
-  "ended": "Ended",
-  "ending": "Saving...",
-  "renewing": "Renewing...",
-  "progressRecorded": "Progress recorded",
-  "progressRecordedDescription": "Your answers have been successfully saved",
-  "yourPainInitial": "Your pain at the beginning:",
-  "yourPainLatest": "Your latest recorded pain:",
-  "programStart": "Program start:",
-  "painMechanismLabel": "Pain mechanism:",
-  "diagnosisLabel": "Diagnosis:",
-  "back": "Back",
-  "next": "Next",
-  "finish": "Finish",
-  "question": "Question {current} of {total}",
-  "thankYou": "Thank you for completing the progress questionnaire."
-},
-"common": {
-  "error": "Error",
-  "success": "Success",
-  "save": "Save",
-  "cancel": "Cancel",
-  "delete": "Delete",
-  "edit": "Edit",
-  "close": "Close",
-  "confirm": "Confirm",
-  "reject": "Reject",
-  "reset": "Reset",
-  "loading": "Loading...",
-  "noData": "No data available",
-  "pageNotFound": "Page not found",
-  "returnHome": "Return to Home",
-  "oops": "Oops!"
-},
-"emptyState": {
-  "noAssessments": "You don't have any saved assessments yet.",
-  "createNewAssessment": "Create new assessment"
 }

@@ -2,6 +2,7 @@
 import { Link } from 'react-router-dom';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
+import { useTranslation } from 'react-i18next';
 
 interface ConsentSectionProps {
   disclaimerConsent: boolean;
@@ -16,6 +17,8 @@ const ConsentSection = ({
   setDisclaimerConsent,
   setPrivacyConsent,
 }: ConsentSectionProps) => {
+  const { t } = useTranslation();
+  
   return (
     <div className="space-y-4">
       <div className="flex items-center space-x-2">
@@ -25,7 +28,7 @@ const ConsentSection = ({
           onCheckedChange={(checked) => setDisclaimerConsent(checked as boolean)}
         />
         <Label htmlFor="disclaimer" className="text-sm text-gray-600">
-          Súhlasím a plne si uvedomujem, že táto aplikácia slúži len na vzdelávacie účely a nenahrádza odbornú lekársku pomoc
+          {t('consent.disclaimer')}
         </Label>
       </div>
 
@@ -36,13 +39,13 @@ const ConsentSection = ({
           onCheckedChange={(checked) => setPrivacyConsent(checked as boolean)}
         />
         <Label htmlFor="privacy" className="text-sm text-gray-600">
-          Súhlasím so{' '}
+          {t('consent.privacy')}{' '}
           <Link
             to="/privacy-policy"
             className="text-blue-600 hover:text-blue-800 underline"
             target="_blank"
           >
-            spracovaním osobných údajov
+            {t('consent.privacy')}
           </Link>
         </Label>
       </div>
