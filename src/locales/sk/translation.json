@@ -1,4 +1,3 @@
-
 {
   "profile": {
     "title": "Môj profil",
@@ -19,20 +18,20 @@
     "jobTypes": {
       "manual": "manuálna práca",
       "desk": "sedavá práca",
-      "driver": "vodič"
+      "driver": "šofér"
     },
     "jobSubtypes": {
       "manualSpec": "Špecifikácia:",
       "heavyLifting": "zdvíhanie ťažkých predmetov",
       "standingWork": "práca v stoji na mieste",
-      "awkwardPositions": "práca v neprirodených polohách",
+      "awkwardPositions": "práca v neprirodzených polohách",
       "officeWork": "práca v kancelárii"
     }
   },
   "bodyParts": {
-    "neck": "Krčná chrbtíca",
-    "middle back": "Hrudná chrbtíca",
-    "lower back": "Bedrová chrbtíca",
+    "neck": "Krčná chrbtica",
+    "middle back": "Hrudná chrbtica",
+    "lower back": "Driekova chrbtica",
     "upper limb": "Horná končatina",
     "shoulder": "Rameno"
   },
@@ -45,7 +44,7 @@
   },
   "diagnoses": {
     "none": "Nebola identifikovaná žiadna špecifická diagnóza",
-    "disc herniation": "Hernia medziobratlového disku",
+    "disc herniation": "Hernia medzistavcovej platničky",
     "facet joint syndrome": "Syndróm facetových kĺbov",
     "SIJ syndrome": "Syndróm SI kĺbu",
     "muscle pain": "Svalová bolesť",
@@ -57,17 +56,17 @@
     "Radiculopathy": "Radikulopatia",
     "Central Sensitisation": "Centrálna senzitizácia",
     "Central Sensitisation - Allodynia": "Centrálna senzitizácia - Alodýnia",
-    "Central Sensitisation - Sensory Hypersensitivity": "Centrálna senzitizácia - Zmyslová hypersenzitivita",
+    "Central Sensitisation - Sensory Hypersensitivity": "Centrálna senzitizácia - Zmyslová precitlivenosť",
     "Central Sensitisation - Cognitive Symptoms": "Centrálna senzitizácia - Kognitívne symptómy",
-    "cervical-radiculopathy": "Cervikálna radikulopatia",
+    "cervical-radiculopathy": "Cervikalna radikulopatia",
     "frozen-shoulder": "Zmrznuté rameno",
-    "slap-tear": "SLAP lézia",
+    "slap-tear": "Lézia labra",
     "subacromial-impingement-syndrome": "Impingement syndróm ramena",
     "stiff-shoulder": "Syndróm stuhnutého ramena",
-    "shoulder-bursa": "Burzitída ramena",
+    "shoulder-bursa": "Burzitída",
     "rotator-cuff-tear": "Porucha rotátorovej manžety",
-    "rotator-cuff-tendinopathy": "Tendinopatia rotátorovej manžety",
-    "biceps-tendinopathy": "Tendinopatia bicepsu",
+    "rotator-cuff-tendinopathy": "Porucha rotátorovej manžety",
+    "biceps-tendinopathy": "Porucha bicepsovej šľachy",
     "biceps-tear-long-head": "Porucha bicepsovej šľachy",
     "shoulder-dislocation": "Dislokácia ramena",
     "unstable-shoulder": "Nestabilné rameno",
@@ -82,7 +81,7 @@
     "saving": "Ukladanie výsledkov...",
     "autoSaveFailed": "Automatické ukladanie výsledkov zlyhalo."
   },
-  "loading": "Načítavam...",
+  "loading": "Načítava sa...",
   "header": {
     "home": "Domov",
     "profile": "Môj profil",
@@ -92,6 +91,231 @@
     "signOut": "Odhlásiť sa",
     "brand": "Pebee terapeut",
     "toggleMenu": "Zobraziť menu"
+  },
+  "auth": {
+    "signIn": "Prihlásiť sa",
+    "signUp": "Vytvoriť účet",
+    "google": "Pokračovať s Google",
+    "toggleSignUp": "Nemáte účet? Zaregistrujte sa",
+    "toggleSignIn": "Už máte účet? Prihláste sa",
+    "signUpSubtitle": "Vytvorte si nový účet pre začatie",
+    "signInSubtitle": "Prihláste sa do svojho účtu",
+    "firstName": "Meno",
+    "email": "Email",
+    "password": "Heslo",
+    "privacyConsent": "Súhlasím so spracovaním osobných údajov",
+    "or": "alebo",
+    "backHome": "Späť na hlavnú stránku"
+  },
+  "myExercises": {
+    "title": "Moje cviky",
+    "activeProgramsTitle": "Aktívne programy",
+    "activeProgramsDescription": "Nižšie nájdete všetky svoje aktívne cvičebné programy z dokončených hodnotení.",
+    "endedProgramsTitle": "Ukončené programy",
+    "endedProgramsDescription": "Nižšie nájdete všetky programy, ktoré ste už ukončili.",
+    "noEndedPrograms": "Žiadne ukončené programy.",
+    "backHome": "Späť na úvod",
+    "newAssessment": "Nové hodnotenie"
+  },
+  "blog": {
+    "title": "Blog",
+    "readMore": "Čítať viac",
+    "posts": {
+      "1": {
+        "title": "Neurodynamické cvičenia: čo? prečo? kedy?",
+        "description": "Už ste niekedy počuli o flossingu nervov? Ak máte bolesť spôsobenú podrážděním alebo útlakom nervu, nervový flossing môže pomôcť."
+      },
+      "2": {
+        "title": "Prevencia bolestí chrbtice v práci",
+        "description": "Tipy na správne sedenie, ergonomické nastavenie pracoviska a cviky počas pracovného dňa."
+      },
+      "3": {
+        "title": "Strečing pre zdravú chrbticu",
+        "description": "Jednoduchý strečingový program, ktorý pomôže udržať chrbticu zdravú a flexibilnú."
+      },
+      "4": {
+        "title": "Cvičenie a výživa",
+        "description": "Ako správna výživa prispieva k lepšej regenerácii a posilneniu chrbtového svalstva."
+      },
+      "5": {
+        "title": "Najčastejšie chyby pri cvičení",
+        "description": "Vyvarujte sa chybám, ktoré môžu zhoršiť bolesti chrbta namiesto ich zmiernenia."
+      },
+      "6": {
+        "title": "Rehabilitačné cvičenia po zranení",
+        "description": "Odporúčané postupy a cviky pre rehabilitáciu po zranení chrbtice alebo operácii."
+      }
+    },
+    "favorite": "Obľúbené",
+    "read": "Prečítané"
+  },
+  "assessment": {
+    "title": "Hodnotenie bolesti pohybového aparátu",
+    "subtitle": "Vyplňte dotazník pre získanie personalizovaných cvičebných odporúčaní",
+    "new": "Nové hodnotenie",
+    "painArea": {
+      "specify": "Pre začatie hodnotenia prosím vyberte oblasť bolesti",
+      "neck": "Krk",
+      "middleBack": "Stredná chrbtíca",
+      "lowerBack": "Dolná chrbtíca",
+      "upperLimb": "Horná končatina"
+    },
+    "consent": {
+      "disclaimer": "Súhlasím s podmienkami použitia",
+      "privacy": "Súhlasím so spracovaním osobných údajov"
+    },
+    "startAssessment": "Začať hodnotenie"
+  },
+  "cookie": {
+    "message": "Táto stránka používa súbory cookie na zlepšenie vášho zážitku. Používaním našej stránky súhlasíte s našimi podmienkami používania súborov cookie.",
+    "accept": "Súhlasím"
+  },
+  "home": {
+    "progressTitle": "Môj pokrok",
+    "setGoals": "Nastaviť osobné ciele",
+    "exerciseStats": {
+      "title": "Moje cvičenia",
+      "weekLabel": "dní odcvičených tento týždeň",
+      "goalDone": "🎉 Gratulujem! Splnili ste svoj týždenný cieľ.",
+      "goalRemaining": "Zostáva {{count}} dní do splnenia cieľa.",
+      "noGoal": "Nastavte si týždenný cieľ v sekcii \"Moje ciele\" na stránke profilu."
+    },
+    "blogStats": {
+      "title": "Čítanie blogov",
+      "weekLabel": "blogy prečítaných tento týždeň",
+      "goalDone": "🎉 Gratulujem! Splnili ste svoj týždenný cieľ.",
+      "goalRemaining": "Zostáva {{count}} blogov do splnenia cieľa.",
+      "noGoal": "Nastavte si týždenný cieľ v sekcii \"Moje ciele\" na stránke profilu."
+    },
+    "favoriteExercises": {
+      "title": "Obľúbené cviky",
+      "empty": "Zatiaľ nemáte žiadne obľúbené cviky. Môžete si ich pridať označením hviezdy pri cvikoch v pláne cvičení."
+    },
+    "savedBlogs": {
+      "title": "Uložené články",
+      "empty": "Zatiaľ nemáte žiadne uložené články. Články si môžete uložiť v sekcii Blog pomocou tlačidla \"Pridať medzi obľúbené\"."
+    },
+    "generalProgram": {
+      "title": "Všeobecný program",
+      "needMore": "Potrebujete aspoň 2 hodnotenia (máte {{count}})",
+      "generating": "Program sa generuje...",
+      "hint": "Vyplňte viac dotazníkov bolesti pre vytvorenie personalizovaného programu",
+      "description": "Nemáte čas na jednotlivé cvičebné programy? Tu nájdete personalizovaný program s najdôležitejšími cvičeniami z vašich programov.",
+      "exerciseCount": "{{count}} cvičení z vašich programov",
+      "view": "Zobraziť program"
+    },
+    "banner": {
+      "message": "Je to tu! Nový týždeň, nová výzva. Neodkladajte svoje cviky a začnite už dnes 🏋️‍♂️",
+      "open": "Otvoriť program"
+    },
+    "greeting": {
+      "hello": "Ahoj {{name}}",
+      "question": "ako sa dnes cítite?"
+    },
+    "mood": {
+      "week": "týždeň",
+      "month": "mesiac",
+      "periodWeek": "7 dní",
+      "periodMonth": "30 dní",
+      "emptyWeek": "posledných 7 dní",
+      "emptyMonth": "posledných 30 dní",
+      "avgScore": "Priemerné skóre za {{period}}",
+      "infoLabel": "Informácie o skóre",
+      "infoText": "Priemerné skóre za posledných {{days}} dní vychádza z vašich denných zápisov toho, ako sa cítíte. Čím je vaše skóre bližšie k číslu 3, tým je vaša nálada lepšia.",
+      "infoGrades": "Dobre = 3, Neutrálne = 2, Zle = 1.",
+      "infoFollow": "Sledujte, ako sa vaše celkové skóre mení v čase.",
+      "better": "Lepší trend za posledných {{days}} dní.",
+      "worse": "Zhoršený trend za posledných {{days}} dní.",
+      "noChange": "Žiadna zmena.",
+      "noRecords": "(Nemáte záznamy pre {{period}})",
+      "happy": "Dobre",
+      "neutral": "Neutrálne",
+      "sad": "Zle"
+    }
+  },
+  "calendar": {
+    "months": {
+      "short": {
+        "jan": "Jan",
+        "feb": "Feb",
+        "mar": "Mar",
+        "apr": "Apr",
+        "may": "Máj",
+        "jun": "Jún",
+        "jul": "Júl",
+        "aug": "Aug",
+        "sep": "Sep",
+        "oct": "Okt",
+        "nov": "Nov",
+        "dec": "Dec"
+      },
+      "long": {
+        "january": "Január",
+        "february": "Február",
+        "march": "Marec",
+        "april": "Apríl",
+        "may": "Máj",
+        "june": "Jún",
+        "july": "Júl",
+        "august": "August",
+        "september": "September",
+        "october": "Október",
+        "november": "November",
+        "december": "December"
+      }
+    },
+    "days": {
+      "short": {
+        "mon": "Po",
+        "tue": "Ut",
+        "wed": "St",
+        "thu": "Št",
+        "fri": "Pi",
+        "sat": "So",
+        "sun": "Ne"
+      },
+      "long": {
+        "monday": "Pondelok",
+        "tuesday": "Utorok",
+        "wednesday": "Streda",
+        "thursday": "Štvrtok",
+        "friday": "Piatok",
+        "saturday": "Sobota",
+        "sunday": "Nedeľa"
+      }
+    },
+    "exerciseCalendarTitle": "Kalendár cvičení",
+    "today": "Dnes",
+    "weeklyProgress": "{{completed}} / {{goal}} dní odcvičených tento týždeň"
+  },
+  "welcome": {
+    "title": "Vitajte u Pebee terapeuta",
+    "subtitle": "Pre prístup k dotazníku a personalizovaným cvičebným programom sa prihláste do svojho účtu.",
+    "signIn": "Prihlásiť sa",
+    "movementTitle": "Pohyb bez bolesti",
+    "features": "Funkcie Pebee terapeuta",
+    "alt": {
+      "mobileApps": "Mobilné aplikácie",
+      "calendar": "Kalendár cvičení a úspory",
+      "programs": "Moje cviky a aktívne programy",
+      "assessment": "Hodnotenie bolesti pohybového aparátu"
+    },
+    "calendar": {
+      "title": "Kalendár cvičení",
+      "text": "Sledujte svoj pokrok s naším intuitívnym kalendárom cvičení. Vidíte presne, kedy ste cvičili, koľko dní ste aktívni a aké úspory ste dosiahli. Motivujte sa každodennými výsledkami a udržujte si pravidelnú rutinu cvičenia."
+    },
+    "programs": {
+      "title": "Moje cviky a programy",
+      "text": "Prístup k personalizovaným cvičebným programom prispôsobeným vašim potrebám. Každý cvik je navrhnutý pre váš typ bolesti a stav. Sledujte aktívne programy a udržujte si motiváciu s jasným prehľadom vašich cvičení."
+    },
+    "assessment": {
+      "title": "Hodnotenie bolesti",
+      "text": "Komplexné hodnotenie vašej bolesti pohybového aparátu pomocou interaktívneho 3D modelu. Identifikujte problémové oblasti a získajte personalizované odporúčania. Náš systém analyzuje symptómy a navrhne vhodný liečebný plán."
+    },
+    "footer": {
+      "title": "Pebee terapeut",
+      "rights": "© 2024 Pebee terapeut. Všetky práva vyhradené."
+    }
   },
   "exercisePlan": {
     "changeRequestAlert": "Žiadosť o zmenu cviku bola odoslaná.",
@@ -106,8 +330,8 @@
     "changeQuestion": "2. Chcete zmeniť tento cvik?",
     "submitFeedback": "Odoslať spätnú väzbu",
     "changeExercise": "Zmeniť cvik",
-    "changeRequestInfo": "Po odoslaní tejto žiadosti vás budeme kontaktovať ohľadne vhodnej náhrady cviku.",
-    "newExerciseProposed": "Navrhovaný nový cvik",
+    "changeRequestInfo": "Po odoslaní tejto žiadosti vás budeme kontaktovať ohľadom vhodnej náhrady cviku.",
+    "newExerciseProposed": "Navrhnutý nový cvik",
     "confirmChange": "Potvrdiť zmenu cviku",
     "declineChange": "Odmietnuť zmenu cviku",
     "replacementErrorTitle": "Nie je dostupný vhodný nový cvik.",
@@ -122,28 +346,222 @@
     "sectionSummary": "Táto sekcia obsahuje {{count}} {{label}}",
     "moveLabel": "Presuňte pre výber možnosti",
     "errorSave": "Nepodarilo sa uložiť spätnú väzbu.",
-    "backToExercises": "Späť na moje cvičenie"
+    "backToExercises": "Späť na moje cvičenia"
+  },
+  "importantNotice": {
+    "title": "Dôležité upozornenie",
+    "text": "Tieto cvičenia slúžia len ako všeobecné odporúčania a nenahrádzajú návštevu fyzioterapeuta alebo lekára. Ak počas cvičenia pocítite zvýšenú bolesť, závraty alebo akýkoľvek diskomfort, okamžite cvičenie prerušte a vyhľadajte odbornú pomoc."
+  },
+  "rotationControls": {
+    "modelControls": "Ovládanie modelu",
+    "reset": "Resetovať",
+    "resetTitle": "Vrátiť do neutrálnej pozície",
+    "horizontal": "Horizontálna rotácia",
+    "vertical": "Vertikálna rotácia",
+    "position": "Vertikálna poloha",
+    "zoom": "Priblíženie"
+  },
+  "exerciseCvik": {
+    "one": "cvik",
+    "few": "cviky",
+    "many": "cvikov"
+  },
+  "goals": {
+    "title": "Moje ciele",
+    "weekly": "Týždenné ciele",
+    "exerciseText": "Týždenne chcem cvičiť {dropdown} krát",
+    "blogText": "Týždenne chcem prečítať {dropdown} blogov",
+    "save": "Uložiť",
+    "cancel": "Zrušiť",
+    "successTitle": "Úspech",
+    "successExercise": "Cieľ pre cvičenie bol úspešne uložený.",
+    "successBlog": "Cieľ pre čítanie bol úspešne uložený.",
+    "errorTitle": "Chyba",
+    "error": "Nepodarilo sa uložiť cieľ."
+  },
+  "profileForm": {
+    "title": "Vyplňte vaše osobné údaje",
+    "personalInfo": "Osobné informácie",
+    "firstName": "Meno *",
+    "firstNamePlaceholder": "Zadajte vaše meno",
+    "lastName": "Priezvisko *",
+    "lastNamePlaceholder": "Zadajte vaše priezvisko",
+    "gender": "Pohlavie *",
+    "male": "Muž",
+    "female": "Žena",
+    "age": "Vek *",
+    "agePlaceholder": "Zadajte váš vek",
+    "job": "Práca *",
+    "manual": "manuálna práca",
+    "manualSpec": "Špecifikácia:",
+    "heavyLifting": "zdvíhanie ťažkých predmetov",
+    "standingWork": "práca v stoji na mieste",
+    "awkwardPositions": "práca v neprirodzených polohách",
+    "desk": "sedavá práca",
+    "officeWork": "práca v kancelárii",
+    "driver": "šofér",
+    "goalsTitle": "Moje ciele (voliteľné)",
+    "goalsSubtitle": "Môžete si nastaviť ciele alebo ich preskočiť a nastaviť neskôr v profile.",
+    "weeklyExercise": "Týždenne chcem cvičiť",
+    "times": "krát",
+    "weeklyBlog": "Týždenne chcem prečítať",
+    "skip": "Preskočiť ciele",
+    "saveAll": "Uložiť všetko",
+    "saving": "Ukladá sa...",
+    "success": "Osobné údaje boli úspešne uložené.",
+    "error": "Nepodarilo sa uložiť osobné údaje."
+  },
+  "resultsFooter": {
+    "startNew": "Začať nové hodnotenie",
+    "myExercises": "Moje cviky"
+  },
+  "exerciseStats": {
+    "noneToday": "Žiadne cvičenia dnes",
+    "completed": "Odcvičené: {{count}}x",
+    "lastExercise": "Posledné cvičenie: {{date}}"
+  },
+  "privacy": {
+    "title": "Ochrana osobných údajov – Dotazník o bolesti pohybového systému",
+    "intro": "Vaša dôvera a bezpečnosť vašich údajov sú pre nás kľúčové. Preto by sme vás radi informovali, ako spracúvame osobné údaje, ktoré nám poskytujete prostredníctvom dotazníka o bolesti pohybového systému.",
+    "whatTitle": "Aké údaje spracúvame?",
+    "email": "Emailová adresa: Ukladáme a spracúvame len vašu emailovú adresu. Slúži na to, aby sme vám mohli zaslať výsledky dotazníka, prípadné odporúčania alebo vás kontaktovať s informáciami o našich službách, ak ste na to udelili súhlas.",
+    "health": "Údaje o zdravotnom stave: Informácie o vašej bolesti a zdravotnom stave, ktoré uvediete v dotazníku, neukladáme a nespracúvame. Slúžia výhradne na okamžité vyhodnotenie a personalizáciu odporúčaní v reálnom čase. Po ukončení vyhodnotenia tieto údaje nijako ďalej neuchovávame.",
+    "whyTitle": "Prečo spracúvame emailovú adresu?",
+    "whyList": [
+      "Na odoslanie výsledkov vyhodnotenia dotazníka.",
+      "Na prípadné zaslanie dodatočných odporúčaní alebo edukatívneho obsahu.",
+      "Na komunikáciu v súvislosti s ponukou našich služieb, ak ste vyjadrili súhlas so zasielaním marketingových informácií."
+    ],
+    "protectTitle": "Ako chránime vaše údaje?",
+    "protectText": "Vašu emailovú adresu chránime modernými technickými a organizačnými opatreniami, aby sme zabránili neoprávnenému prístupu, zmene alebo strate údajov.",
+    "rightsTitle": "Vaše práva:",
+    "rightsIntro": "V súlade s GDPR máte právo:",
+    "rightsList": [
+      "na prístup k svojim osobným údajom,",
+      "na opravu alebo vymazanie osobných údajov,",
+      "na obmedzenie spracúvania,",
+      "na námietku proti spracúvaniu,",
+      "na prenosnosť údajov,",
+      "na odvolanie súhlasu so spracovaním údajov kedykoľvek."
+    ],
+    "contact": "Pre uplatnenie vašich práv nás môžete kontaktovať na <a href=\"mailto:privacy@example.com\">privacy@example.com</a>.",
+    "endTitle": "Záver",
+    "endText": "Vaše súkromie je pre nás prioritou. Spracovávame len nevyhnutné minimum údajov a zdravotné informácie neukladáme ani narchivujeme."
+  },
+  "followUp": {
+    "progressRecorded": "Pokrok zaznamenaný",
+    "responsesSaved": "Vaše odpovede boli úspešne uložené",
+    "title": "Sledovanie pokroku"
+  },
+  "slider": {
+    "selected": "Vybrané: {{value}}"
+  },
+  "emptyState": {
+    "noAssessments": "Zatiaľ nemáte žiadne uložené hodnotenia.",
+    "createNew": "Vytvoriť nové"
+  },
+  "notFound": {
+    "title": "Stránka sa nenašla",
+    "message": "Stránka, ktorú hľadáte, neexistuje.",
+    "returnHome": "Späť na úvodnú stránku"
+  },
+  "consentSection": {
+    "privacyTitle": "Ochrana osobných údajov",
+    "privacyText": "Súhlasím so spracovaním osobných údajov v súlade s podmienkami ochrany súkromia.",
+    "viewPrivacyPolicy": "Zobraziť zásady ochrany osobných údajov",
+    "mustAgree": "Musíte súhlasiť s podmienkami ochrany osobných údajov."
+  },
+  "painAreaSection": {
+    "title": "Označte oblasti bolesti na modeli",
+    "instruction": "Kliknite na oblasti tela, kde pociťujete bolesť",
+    "selectedAreas": "Vybrané oblasti:",
+    "noAreasSelected": "Nie sú vybrané žiadne oblasti",
+    "selectAtLeastOne": "Vyberte aspoň jednu oblasť bolesti"
+  },
+  "assessmentAccordion": {
+    "followUpProgress": "Sledovanie pokroku",
+    "showExercises": "Zobraziť cvičenia",
+    "endProgram": "Ukončiť program",
+    "renewProgram": "Obnoviť program",
+    "ended": "Ukončené",
+    "ending": "Ukončuje sa...",
+    "renewing": "Obnovuje sa...",
+    "yourPainInitial": "Vaša počiatočná bolesť:",
+    "yourPainLatest": "Vaša posledná zaznamenaná bolesť:",
+    "programStart": "Začiatok programu:",
+    "painMechanismLabel": "Mechanizmus bolesti:",
+    "diagnosisLabel": "Diagnóza:",
+    "recordProgress": "Zaznamenať pokrok",
+    "viewExercises": "Zobraziť cvičenia",
+    "delivered": "Odovzdané:",
+    "lastExercise": "Posledné cvičenie:",
+    "programRequest": "Žiadosť o program:"
+  },
+  "assessmentDetails": {
+    "painArea": "Oblasť bolesti:",
+    "painMechanism": "Mechanizmus bolesti:",
+    "diagnosis": "Diagnóza:",
+    "exerciseCount": "Počet cvičení:",
+    "createdAt": "Vytvorené:",
+    "lastFollowUp": "Posledné sledovanie:",
+    "noFollowUp": "Žiadne sledovanie zatiaľ"
+  },
+  "exerciseVideoDialog": {
+    "title": "Náhľad cvičenia",
+    "exerciseName": "Názov cvičenia:",
+    "description": "Popis:",
+    "duration": "Trvanie:",
+    "repetitions": "Opakovania:",
+    "close": "Zavrieť"
+  },
+  "followUpQuestionnaire": {
+    "back": "Späť",
+    "next": "Ďalej",
+    "finish": "Dokončiť",
+    "question": "Otázka {{current}} z {{total}}",
+    "thankYou": "Ďakujeme za vyplnenie dotazníka o vašom pokroku."
+  },
+  "genderField": {
+    "selectGender": "Vyberte pohlavie"
+  },
+  "exercisePlanPage": {
+    "title": "Váš cvičebný plán",
+    "generalTitle": "Všeobecný cvičebný plán",
+    "generalDescription": "Personalizovaný program s najdôležitejšími cvičeniami z vašich programov. Postupujte podľa inštrukcií a v prípade bolesti cvičenie prerušte.",
+    "specificDescription": "Cvičenia špecifické pre {{diagnosis}} v oblasti {{painArea}}. Postupujte podľa inštrukcií a v prípade bolesti cvičenie prerušte.",
+    "backToExercises": "Späť na moje cvičenia",
+    "sectionContains": "Táto sekcia obsahuje {{count}} {{label}}",
+    "weeks": "týždne",
+    "week": "týždeň",
+    "gentleRotationalMovements": "Jemné rotačné pohyby pre zlepšenie mobility v hrudnej oblasti a redukciu bolesti.",
+    "notFoundTitle": "Odporúčané cvičenia neboli nájdené",
+    "notFoundDescription": "Pre vašu kombináciu diagnózy ({{diagnosis}}) a oblasti bolesti ({{painArea}}) nemáme špecifické cvičenia. Prosím, konzultujte s fyzioterapeutom.",
+    "generalNotAvailable": "Všeobecný program nie je k dispozícii",
+    "generalNotAvailableDescription": "Nemáte dostatok hodnotení na vytvorenie všeobecného programu alebo nie sú k dispozícii cvičenia s definovanou dôležitosťou."
+  },
+  "exerciseDialog": {
+    "description": "Popis"
   },
   "exercises": {
     "shoulderNociceptive": {
       "frozenShoulderPhase1": {
         "title": "0-3 týždne",
-        "description": "Základné cvičenia pre zmrznuté rameno zamerané na zníženie bolesti a zvýšenie rozsahu pohybu.",
+        "description": "Základné cvičenia na zmrznuté rameno s cieľom znížiť bolesť a zvýšiť rozsah pohybu.",
         "pendulumExercises": {
           "title": "Kyvadlové cvičenia",
-          "description": "Predkloniť sa a začať vykonávať jemné kyvadlové pohyby na uvoľnenie napätia v ramene. Stačia mierné pohyby v tolerancii bolesti."
+          "description": "Predkloňte sa a začnite vykonávať jemné kyvadlové pohyby na uvoľnenie napätia v ramene. Stačia mierne pohyby v tolerancii bolesti."
         },
         "isometricExternalRotation": {
           "title": "Izometrická vonkajšia rotácia ramena",
-          "description": "Pristúpte k stene s pokrčeným lakťom v 90° uhle pri tele. Medzi vonkajšiu stranu dlane a stenu vložte zložený uterák. Uvoľnite ramená a po celý čas ich držte dole -> dbajte na to, aby vám pri cvičení ramená nestúpali k ušiam. Následne zatlačte vonkajšou stranou dlane do steny s neustále pritlačeným lakťom pri tele. OPAKOVANIA: 6-8 sekúnd x 3-5x za sebou. 1-2x denne."
+          "description": "Pristúpte k stene s pokrčeným laťom v 90° uhle pri tele. Medzi vonkajšiu stranu dlane a stenu uložte zložený uterák. Uvoľnite plecia a po celý čas ich držte dole -> dbajte na to, aby vám pri cvičení plecia nestúpali k ušiam. Následne zatlačte vonkajšou stranou dlane do steny s neustále pritiahnutým lakťom pri tele. OPAKOVANIA: 6-8 sekúnd x 3-5x za sebou. 1-2x denne."
         },
         "rotatorCuffRelease": {
           "title": "Uvoľnenie rotátorovej manžety",
-          "description": "Vezmite si tenisovú loptičku a vložte si ju na lopatku zozadu. Oprите sa o stenu a pomaly masírujte svaly rotátorovej manžety. V prípade, že nájdete bolestivý bod, zastavte na tomto mieste a bez pohybu tlačte po dobu 30 sekúnd (ostrá bolesť sa môže šíriť do prednej časti ramena)."
+          "description": "Zoberte si tenisovú loptu a uložte si ju na lopatku zo zadu. Oprite sa o stenu a pomaly masírujte svaly rotátorovej manžety. V prípade, že nájdete bolestivý bod, zastavte na tomto mieste a bez pohybu tlačte po dobu 30 sekúnd (ostrá bolesť sa môžte šíriť do prednej časti ramena)."
         },
         "shoulderHeating": {
           "title": "Nahrievanie ramenného kĺbu",
-          "description": "Zvoľte výhrevnú podložku, alebo využite fén. V prípade fénu si VŽDY VLOŽTE UTERÁK na pokožku a zahriavajte uterák! Začnite zahriavať rameno z prednej strany a neskôr zo zadnej strany -> zahriavajte po dobu 10-15 minút, aby ste kompletne prehriali svaly ramena. Vždy si dávajte pozor, aby ste si nepopálili pokožku! OPAKOVANIA: 2x denne 10-15min."
+          "description": "Zvoľte výhrevnú podložku, alebo využite fén. V prípade fénu si VŽDY ULOŽTE UTERÁK na pokožku a zohrievajte uterák! Začnite zohrievať rameno z prednej strany a neskôr zo zadnej strany -> zohrievajte po dobu 10-15 minút, aby ste kompletne prehriali svaly ramena. Vždy si dávajte pozor, aby ste si nepopálili pokožku! OPAKOVANIA: 2x denne 10-15min."
         }
       },
       "frozenShoulderPhase2": {
@@ -151,38 +569,38 @@
         "description": "Cvičenia na zvýšenie svalovej sily a návrat k pohybu.",
         "isometricShoulderPresses": {
           "title": "Izometrické tlaky ramena",
-          "description": "Vložte sa chrbtom k stene a zatlačte lakťom do steny. OPAKOVANIA: 6-8 sekúnd x 3 série. Otočte sa čelom k stene, pokrčte lakeť a dlaňou (alebo rukou v päsť) zatlačte do steny. OPAKOVANIA: 6-8 sekúnd 3 série."
+          "description": "Uložte sa chrbtom k stene a zatlačte lakťom do steny. OPAKOVANIA: 6-8 sekúnd x 3 série. Otočte sa čelom k stene, pokrčte lakeť a dlaňou (alebo rukou v päsť) zatlačte do steny. OPAKOVANIA: 6-8 sekúnd 3 série."
         },
         "wallPushUps": {
           "title": "Kliky o stenu",
-          "description": "Vložte ruky na stenu na úroveň hrudníka, mierne širšie ako šírka ramien. Opatrne sa s vystreným telom priblížte k stene a odtiahnte sa od steny. Dávajte pozor, aby ste nezdvíhali ramená k ušiam a rešpektujte bolesť vášho zmrznutého ramena. OPAKOVANIA: 10-12x 2 série denne"
+          "description": "Uložte ruky na stenu na úroveň hrudníka, mierne širšie ako šírka pliec. Opatrne sa s vystretým telom priblížte k stene a odtiahnite sa od steny. Dávajte pozor, aby ste nezdvíhali ramená k ušiam a rešpektujte bolesť vášho zmrznutého ramena. OPAKOVANIA: 10-12x 2 série denne"
         },
         "interscapularStrengthening": {
-          "title": "Posilnenie mezilopatkových svalov",
-          "description": "Uchopte odporovú gumu podľa videa. Tieto 3 cviky môžete striedať, alebo si vybrať ktorýkoľvek z nich. \n➜ UPOZORNENIE: pri týchto cvikoch nesmie pociťovať namáhanie trapézov! Celý čas sa snažte tlačiť lopatky a ramená smerom dole od uší, aby pracovali mezilopatkové svaly. Dbajte na to, aby ste počas vykonávania cvikov viac cítili svaly medzi lopatkami, nie ramená a trapézy - toho dosiahnete práve tlačením ramien dole. \n➜ OPAKOVANIA: 10-15x / 3 série / 1x denne."
+          "title": "Posiľnenie medzilopatkových svalov",
+          "description": "Uchyťte odporovú gumu podľa videa. Tieto 3 cviky môžete striedať, alebo si vybrať ktorýkoľvek z nich. \n➜ UPOZORNENIE: pri týchto cvikoch nesmiete pociťovať namáhanie trapézov! Celý čas sa snažte tlačiť lopatky a ramená smerom dole od uší, aby pracovali medzilopatkové svaly. Dbajte na to, aby ste počas vykonávania cvikov viac cítili svaly medzi lopatkami, nie ramená a trapézy - to dosiahnete práve tlačením pliec dole. \n➜ OPAKOVANIA: 10-15x / 3 série / 1x denne."
         }
       },
       "subacromialImpingement": {
-        "title": "Cvičenia pre subakromiálny impingement syndróm",
-        "description": "Cvičenia zamerané na zlepšenie priestoru pod akromiom a zníženie bolesti.\n\nTieto cvičenia pomáhajú zlepšiť mechaniku ramena a znižujú tlak na šľachy.\nVyhýbajte sa pohybom nad hlavou, ktoré zhoršujú príznaky.",
+        "title": "Cvičenia pre subakromiálny impingment syndróm",
+        "description": "Cvičenia zamerané na zlepšenie priestoru pod akromiónom a zníženie bolesti.\n\nTieto cvičenia pomáhajú zlepšiť mechaniku ramena a znižujú tlak na šľachy.\nVyhýbajte sa pohybom nad hlavou, ktoré zhoršujú príznaky.",
         "interscapularStrengthening": {
-          "title": "Posilnenie mezilopatkových svalov",
-          "description": "Uchopte odporovú gumu podľa videa. Tieto 3 cviky môžete striedať, alebo si vybrať ktorýkoľvek z nich. \n➜ UPOZORNENIE: pri týchto cvikoch nesmie pociťovať namáhanie trapézov! Celý čas sa snažte tlačiť lopatky a ramená smerom dole od uší, aby pracovali mezilopatkové svaly."
+          "title": "Posiľnenie medzilopatkových svalov",
+          "description": "Uchyťte odporovú gumu podľa videa. Tieto 3 cviky môžete striedať, alebo si vybrať ktorýkoľvek z nich. \n➜ UPOZORNENIE: pri týchto cvikoch nesmiete pociťovať namáhanie trapézov! Celý čas sa snažte tlačiť lopatky a ramená smerom dole od uší, aby pracovali medzilopatkové svaly."
         },
         "gentlePendulum": {
           "title": "Jemné kyvadlové cvičenia",
-          "description": "Predkloniť sa a začať vykonávať jemné kyvadlové pohyby na uvoľnenie napätia v ramene."
+          "description": "Predkloňte sa a začnite vykonávať jemné kyvadlové pohyby na uvoľnenie napätia v ramene."
         },
         "preExerciseHeating": {
           "title": "Nahrievanie pred cvičením",
-          "description": "Zahrejte rameno pred cvičením na zlepšenie cirkulácie a pripravenosti svalov."
+          "description": "Zohrievajte rameno pred cvičením na zlepšenie cirkulácie a pripravenosť svalov."
         }
       },
       "rotatorCuffTear": {
         "title": "Cvičenia pre trhnutie rotátorovej manžety",
         "description": "Špecializované cvičenia na posilnenie a rehabilitáciu po trhnutí rotátorovej manžety.\n\nTieto cvičenia pomáhajú obnoviť funkciu ramena a predchádzajú ďalším zraneniam.\nZačnite s ľahkými cvičeniami a postupne zvyšujte intenzitu.",
         "isometricStrengthening": {
-          "title": "Izometrické posilnenie rotátorovej manžety",
+          "title": "Izometrické posilňovanie rotátorovej manžety",
           "description": "Jemné izometrické cvičenia na posilnenie rotátorovej manžety bez nadmernej záťaže."
         },
         "rotatorCuffMassage": {
@@ -200,48 +618,6 @@
         "basicStrengthening": {
           "title": "Základné posilňovacie cvičenia",
           "description": "Ľahké posilňovacie cvičenia na stabilizáciu ramena."
-        }
-      }
-    },
-    "middleBackNociceptive": {
-      "facetJointSyndrome": {
-        "title": "Cvičenia pre syndróm facetových kĺbov",
-        "description": "Jemné rotačné pohyby pre zlepšenie mobility v hrudnej oblasti a redukciu bolesti.",
-        "phase1": {
-          "title": "0-2 týždne",
-          "description": "Jemné rotačné pohyby pre zlepšenie mobility v hrudnej oblasti a redukciu bolesti.",
-          "thoracicRotation": {
-            "title": "Rotácia hrudníku so záklonom",
-            "description": "Posaďte sa a ruky uložte za hlavu. Pomaly sa otáčajte do strán, pričom panvu držte nehybne. Pohyb opakujte 5-8x do každej strany. OPAKOVANIA: každý deň ráno."
-          },
-          "thoracicMassage": {
-            "title": "Masáž hrudnej chrbtice loptičkou",
-            "description": "Uložte si loptičku do medziloptatkového priestoru a vertikálnym pohybom uvoľnite bolestivé a stuhnuté svaly. OPAKOVANIA: kedykoľvek v priebehu dňa."
-          }
-        },
-        "phase2": {
-          "title": "3-5 týždňov",
-          "description": "Jemné rotačné pohyby pre zlepšenie mobility v hrudnej oblasti a redukciu bolesti.",
-          "thoracicExtension": {
-            "title": "Extenzia hrudnej chrbtice",
-            "description": "Sadnúť si na stoličku s operadlom. Ruky založiť za hlavu a pomaly extendovať hrudnú chrbticu cez operadlo. Pozíciu držať 5 sekúnd a vrátiť sa do východiskovej polohy. OPAKOVANIA: 10x / 2 série / denne."
-          },
-          "thoracicMobilization": {
-            "title": "Mobilizácia hrudnej chrbtice",
-            "description": "Ležať na boku s pokrčenými kolenami. Hornú ruku založiť za hlavu a pomaly rotovať trupom pri zachovaní kolien na zemi. OPAKOVANIA: 8-10x každú stranu / 2 série / denne."
-          }
-        }
-      },
-      "defaultNociceptive": {
-        "title": "Všeobecné cvičenia pre stredné chrbát - nociceptívna bolesť",
-        "description": "Základné cvičenia vhodné pre rôzne typy nociceptívnej bolesti strednej časti chrbta.\n\nTieto cvičenia pomáhajú zlepšiť celkovú funkciu hrudnej chrbtice a znížiť bolesť.\nVykonávajte ich pravidelne, ale rešpektujte hranice bolesti.",
-        "basicMobility": {
-          "title": "Základné pohyblivostné cvičenia hrudnej chrbtice",
-          "description": "Jemné cvičenia na zlepšenie pohyblivosti vo všetkých smeroch."
-        },
-        "basicStrengthening": {
-          "title": "Základné posilňovacie cvičenia",
-          "description": "Ľahké posilňovacie cvičenia na stabilizáciu hrudnej chrbtice."
         }
       }
     }
