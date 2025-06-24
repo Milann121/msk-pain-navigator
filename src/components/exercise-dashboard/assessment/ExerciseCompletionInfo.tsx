@@ -15,7 +15,7 @@ export const ExerciseCompletionInfo = ({ assessmentId }: ExerciseCompletionInfoP
     queryKey: ['exercise-completion', assessmentId],
     queryFn: async () => {
       const { data, error } = await supabase
-        .from('exercise_completions')
+        .from('exercise_completion_clicks')
         .select('*')
         .eq('assessment_id', assessmentId);
       
@@ -25,7 +25,7 @@ export const ExerciseCompletionInfo = ({ assessmentId }: ExerciseCompletionInfoP
   });
 
   const totalCompletions = completionData?.length || 0;
-  const lastCompletionDate = completionData?.[completionData.length - 1]?.completed_at;
+  const lastCompletionDate = completionData?.[completionData.length - 1]?.clicked_at;
 
   return (
     <div className="space-y-1 text-sm text-gray-600">
