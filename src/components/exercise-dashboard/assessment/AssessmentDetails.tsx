@@ -2,7 +2,7 @@
 import React from "react";
 import { Badge } from "@/components/ui/badge";
 import { BadgeStyles } from "./BadgeStyles";
-import { formatPainArea, formatMechanism, formatDifferential } from "../FormatHelpers";
+import { getMechanismLabel, formatDifferential } from "@/utils/formatHelpers";
 import { UserAssessment } from "@/components/follow-up/types";
 import { ArrowUp, ArrowDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -26,7 +26,7 @@ export const AssessmentDetails = ({
         <span className="font-medium text-gray-500">{t('assessmentAccordion.painMechanismLabel')}</span>
         <div className="mt-1">
           <Badge className={BadgeStyles.getMechanismBadgeStyle(assessment.primary_mechanism)}>
-            {formatMechanism(assessment.primary_mechanism)}
+            {getMechanismLabel(assessment.primary_mechanism, t)}
           </Badge>
         </div>
       </div>
@@ -34,7 +34,7 @@ export const AssessmentDetails = ({
         <span className="font-medium text-gray-500">{t('assessmentAccordion.diagnosisLabel')}</span>
         <div className="mt-1">
           <Badge className={BadgeStyles.getDifferentialBadgeStyle(assessment.primary_differential)}>
-            {formatDifferential(assessment.primary_differential)}
+            {formatDifferential(assessment.primary_differential, t)}
           </Badge>
         </div>
       </div>
