@@ -29,6 +29,50 @@
       "officeWork": "práce v kanceláři"
     }
   },
+  "bodyParts": {
+    "neck": "Krční páteř",
+    "middle back": "Hrudní páteř",
+    "lower back": "Bederní páteř",
+    "upper limb": "Horní končetina",
+    "shoulder": "Rameno"
+  },
+  "painMechanisms": {
+    "nociceptive": "Nociceptivní bolest",
+    "neuropathic": "Neuropatická bolest",
+    "central": "Centrální senzitizace",
+    "none": "Nedefinovaný mechanismus bolesti",
+    "red-flag": "Symptomy vyžadující návštěvu lékaře"
+  },
+  "diagnoses": {
+    "none": "Nebyla identifikována žádná specifická diagnóza",
+    "disc herniation": "Hernie meziobratlové ploténky",
+    "facet joint syndrome": "Syndrom facetových kloubů",
+    "SIJ syndrome": "Syndrom SI kloubu",
+    "muscle pain": "Svalová bolest",
+    "red-flag": "Symptomy vyžadující návštěvu lékaře",
+    "ventral spondylolisthesis": "Ventrální spondylolistéza",
+    "dorsal spondylolisthesis": "Dorzální spondylolistéza",
+    "costovertebral joint syndrome": "Syndrom kostovertebrálního kloubu",
+    "Radicular Pain": "Radikulární bolest",
+    "Radiculopathy": "Radikulopatie",
+    "Central Sensitisation": "Centrální senzitizace",
+    "Central Sensitisation - Allodynia": "Centrální senzitizace - Alodynie",
+    "Central Sensitisation - Sensory Hypersensitivity": "Centrální senzitizace - Smyslová hypersenzitivita",
+    "Central Sensitisation - Cognitive Symptoms": "Centrální senzitizace - Kognitivní symptomy",
+    "cervical-radiculopathy": "Cervikální radikulopatie",
+    "frozen-shoulder": "Zmrzlé rameno",
+    "slap-tear": "SLAP léze",
+    "subacromional-impingement-syndrome": "Impingement syndrom ramene",
+    "stiff-shoulder": "Syndrom ztuhlého ramene",
+    "shoulder-bursa": "Burzitida ramene",
+    "rotator-cuff-tear": "Porucha rotátorové manžety",
+    "rotator-cuff-tendinopathy": "Tendinopatie rotátorové manžety",
+    "biceps-tendinopathy": "Tendinopatie bicepsu",
+    "biceps-tear-long-head": "Porucha bicepsové šlachy",
+    "shoulder-dislocation": "Dislokace ramene",
+    "unstable-shoulder": "Nestabilní rameno",
+    "labral-leason": "Léze labra"
+  },
   "results": {
     "savedTitle": "Výsledky byly uloženy",
     "savedDescription": "Vaše hodnocení bylo úspěšně uloženo a najdete ho v sekci Moje cviky.",

@@ -9,6 +9,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { UserAssessment } from "@/components/follow-up/types";
 import { NavigateFunction } from "react-router-dom";
+import { formatPainAreaWithSubArea } from "@/utils/formatHelpers";
 
 interface ActiveProgramsSectionProps {
   loading: boolean;
@@ -21,50 +22,6 @@ interface ActiveProgramsSectionProps {
   navigate: NavigateFunction;
 }
 
-// Helper function to get sub-area for upper limb assessments
-const getUpperLimbSubArea = (differential: string): string | null => {
-  const shoulderDifferentials = [
-    'frozen-shoulder',
-    'slap-tear', 
-    'subacromional-impingement-syndrome',
-    'stiff-shoulder',
-    'shoulder-bursa',
-    'rotator-cuff-tear',
-    'rotator-cuff-tendinopathy',
-    'biceps-tendinopathy',
-    'biceps-tear-long-head',
-    'shoulder-dislocation',
-    'unstable-shoulder',
-    'labral-leason'
-  ];
-  
-  if (shoulderDifferentials.includes(differential)) {
-    return 'Rameno';
-  }
-  
-  return null;
-};
-
-// Helper function to format pain area with sub-area
-const formatPainAreaWithSubArea = (painArea: string, differential: string): string => {
-  if (painArea === 'upper limb') {
-    const subArea = getUpperLimbSubArea(differential);
-    if (subArea) {
-      return `Horná končatina / ${subArea}`;
-    }
-    return 'Horná končatina';
-  }
-  
-  // For other pain areas, use existing translations
-  const translations: Record<string, string> = {
-    'neck': 'Krčná chrbtica',
-    'middle back': 'Hrudná chrbtica',
-    'lower back': 'Driekova chrbtica'
-  };
-  
-  return translations[painArea] || painArea;
-};
-
 export const ActiveProgramsSection: React.FC<ActiveProgramsSectionProps> = ({
   loading,
   activeAssessments,
@@ -76,6 +33,7 @@ export const ActiveProgramsSection: React.FC<ActiveProgramsSectionProps> = ({
   navigate
 }) => {
   const { t } = useTranslation();
+  
   return (
     <Card className="mb-6">
       <CardHeader>
@@ -110,7 +68,7 @@ export const ActiveProgramsSection: React.FC<ActiveProgramsSectionProps> = ({
               key={assessment.id}
               assessment={{
                 ...assessment,
-                pain_area_display: formatPainAreaWithSubArea(assessment.pain_area, assessment.primary_differential)
+                pain_area_display: formatPainAreaWithSubArea(assessment.pain_area, assessment.primary_differential, t)
               } as UserAssessment & { pain_area_display: string }}
               onOpenFollowUp={handleOpenFollowUp}
               onDeleteAssessment={handleDeleteAssessment}

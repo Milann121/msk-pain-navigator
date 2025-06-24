@@ -29,6 +29,50 @@
       "officeWork": "office work"
     }
   },
+  "bodyParts": {
+    "neck": "Neck",
+    "middle back": "Middle Back",
+    "lower back": "Lower Back",
+    "upper limb": "Upper Limb",
+    "shoulder": "Shoulder"
+  },
+  "painMechanisms": {
+    "nociceptive": "Nociceptive Pain",
+    "neuropathic": "Neuropathic Pain",
+    "central": "Central Sensitization",
+    "none": "Undefined Pain Mechanism",
+    "red-flag": "Symptoms Requiring Medical Attention"
+  },
+  "diagnoses": {
+    "none": "No specific diagnosis identified",
+    "disc herniation": "Disc Herniation",
+    "facet joint syndrome": "Facet Joint Syndrome",
+    "SIJ syndrome": "SI Joint Syndrome",
+    "muscle pain": "Muscle Pain",
+    "red-flag": "Symptoms Requiring Medical Attention",
+    "ventral spondylolisthesis": "Ventral Spondylolisthesis",
+    "dorsal spondylolisthesis": "Dorsal Spondylolisthesis",
+    "costovertebral joint syndrome": "Costovertebral Joint Syndrome",
+    "Radicular Pain": "Radicular Pain",
+    "Radiculopathy": "Radiculopathy",
+    "Central Sensitisation": "Central Sensitization",
+    "Central Sensitisation - Allodynia": "Central Sensitization - Allodynia",
+    "Central Sensitisation - Sensory Hypersensitivity": "Central Sensitization - Sensory Hypersensitivity",
+    "Central Sensitisation - Cognitive Symptoms": "Central Sensitization - Cognitive Symptoms",
+    "cervical-radiculopathy": "Cervical Radiculopathy",
+    "frozen-shoulder": "Frozen Shoulder",
+    "slap-tear": "SLAP Tear",
+    "subacromional-impingement-syndrome": "Subacromial Impingement Syndrome",
+    "stiff-shoulder": "Stiff Shoulder Syndrome",
+    "shoulder-bursa": "Shoulder Bursitis",
+    "rotator-cuff-tear": "Rotator Cuff Tear",
+    "rotator-cuff-tendinopathy": "Rotator Cuff Tendinopathy",
+    "biceps-tendinopathy": "Biceps Tendinopathy",
+    "biceps-tear-long-head": "Biceps Tendon Tear",
+    "shoulder-dislocation": "Shoulder Dislocation",
+    "unstable-shoulder": "Shoulder Instability",
+    "labral-leason": "Labral Lesion"
+  },
   "results": {
     "savedTitle": "Results have been saved",
     "savedDescription": "Your assessment has been successfully saved and you can find it in the My Exercises section.",

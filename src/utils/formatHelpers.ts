@@ -1,65 +1,57 @@
 
 import { PainMechanism } from '@/utils/types';
+import { useTranslation } from 'react-i18next';
 
 // Helper function to format mechanism for display
-export const getMechanismLabel = (mechanism: PainMechanism): string => {
-  const labels: Record<PainMechanism, string> = {
-    'nociceptive': 'Nociceptívna bolesť',
-    'neuropathic': 'Neuropatická bolesť',
-    'central': 'Centrálna senzitizácia',
-    'none': 'Nedefinovaný mechanizmus bolesti',
-    'red-flag': 'Symptómy vyžadujúce návštevu lekára'
-  };
-  return labels[mechanism as PainMechanism] || 'Neznámy';
+export const getMechanismLabel = (mechanism: PainMechanism, t: any): string => {
+  return t(`painMechanisms.${mechanism}`) || t('painMechanisms.none');
 };
 
 // Helper function to format differential for display
-export const formatDifferential = (differential: string): string => {
-  if (differential === 'none') return 'Nebola identifikovaná žiadna špecifická diagnóza';
+export const formatDifferential = (differential: string, t: any): string => {
+  if (differential === 'none') return t('diagnoses.none');
   
-  const translations: Record<string, string> = {
-    'disc herniation': 'Hernia medzistavcovej platničky',
-    'facet joint syndrome': 'Syndróm facetových kĺbov',
-    'SIJ syndrome': 'Syndróm SI kĺbu',
-    'muscle pain': 'Svalová bolesť',
-    'red flag': 'Symptómy vyžadujúce návštevu lekára',
-    'ventral spondylolisthesis': 'Ventrálna spondylolistéza',
-    'dorsal spondylolisthesis': 'Dorzálna spondylolistéza',
-    'costovertebral joint syndrome': 'Syndróm kostovertebrálneho kĺbu',
-    'Radicular Pain': 'Radikulárna bolesť',
-    'Radiculopathy': 'Radikulopatia',
-    'Central Sensitisation': 'Centrálna senzitizácia',
-    'Central Sensitisation - Allodynia': 'Centrálna senzitizácia - Alodýnia',
-    'Central Sensitisation - Sensory Hypersensitivity': 'Centrálna senzitizácia - Zmyslová precitlivenosť',
-    'Central Sensitisation - Cognitive Symptoms': 'Centrálna senzitizácia - Kognitívne symptómy',
-    'cervical-radiculopathy': 'Cervikalna radikulopatia',
-    
-    // Upper limb diagnoses - Slovak translations
-    'frozen-shoulder': 'Zmrznuté rameno',
-    'slap-tear': 'Lézia labra',
-    'subacromional-impingement-syndrome': 'Impingement syndróm ramena',
-    'stiff-shoulder': 'Syndróm stuhnutého ramena',
-    'shoulder-bursa': 'Burzitída',
-    'rotator-cuff-tear': 'Porucha rotátorovej manžety',
-    'rotator-cuff-tendinopathy': 'Porucha rotátorovej manžety',
-    'biceps-tendinopathy': 'Porucha bicepsovej šľachy',
-    'biceps-tear-long-head': 'Porucha bicepsovej šľachy',
-    'shoulder-dislocation': 'Dislokácia ramena',
-    'unstable-shoulder': 'Nestabilné rameno',
-    'labral-leason': 'Lézia labra'
-  };
-  
-  return translations[differential] || differential;
+  return t(`diagnoses.${differential}`) || differential;
 };
 
 // Format pain area for display
-export const formatPainArea = (area: string): string => {
-  const translations: Record<string, string> = {
-    'neck': 'Krčná chrbtica',
-    'middle back': 'Hrudná chrbtica',
-    'lower back': 'Driekova chrbtica',
-    'upper limb': 'Horná končatina'
-  };
+export const formatPainArea = (area: string, t: any): string => {
+  return t(`bodyParts.${area}`) || area;
+};
+
+// Helper function to get sub-area for upper limb assessments
+export const getUpperLimbSubArea = (differential: string, t: any): string | null => {
+  const shoulderDifferentials = [
+    'frozen-shoulder',
+    'slap-tear', 
+    'subacromional-impingement-syndrome',
+    'stiff-shoulder',
+    'shoulder-bursa',
+    'rotator-cuff-tear',
+    'rotator-cuff-tendinopathy',
+    'biceps-tendinopathy',
+    'biceps-tear-long-head',
+    'shoulder-dislocation',
+    'unstable-shoulder',
+    'labral-leason'
+  ];
   
-  return translations[area] || area;
+  if (shoulderDifferentials.includes(differential)) {
+    return t('bodyParts.shoulder');
+  }
+  
+  return null;
+};
+
+// Helper function to format pain area with sub-area
+export const formatPainAreaWithSubArea = (painArea: string, differential: string, t: any): string => {
+  if (painArea === 'upper limb') {
+    const subArea = getUpperLimbSubArea(differential, t);
+    if (subArea) {
+      return `${t('bodyParts.upper limb')} / ${subArea}`;
+    }
+    return t('bodyParts.upper limb');
+  }
+  
+  return formatPainArea(painArea, t);
 };
