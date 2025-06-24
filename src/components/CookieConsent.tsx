@@ -2,9 +2,11 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Cookie } from "lucide-react";
+import { useTranslation } from 'react-i18next';
 
 const CookieConsent = () => {
   const [showBanner, setShowBanner] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const consent = localStorage.getItem("cookieConsent");
@@ -26,15 +28,12 @@ const CookieConsent = () => {
         <div className="flex items-center gap-3">
           <Cookie className="h-5 w-5 text-blue-600" />
           <p className="text-sm text-gray-700 dark:text-gray-300">
-            Táto stránka používa súbory cookie na zlepšenie vášho zážitku. Používaním našej stránky súhlasíte s našimi podmienkami používania súborov cookie.
+            {t('cookie.message')}
           </p>
         </div>
         <div className="flex gap-4">
-          <Button
-            variant="default"
-            onClick={acceptCookies}
-          >
-            Súhlasím
+          <Button variant="default" onClick={acceptCookies}>
+            {t('cookie.accept')}
           </Button>
         </div>
       </div>

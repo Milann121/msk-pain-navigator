@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
@@ -20,6 +21,7 @@ const SaveResultsManager = ({
 }: SaveResultsManagerProps) => {
   const { user } = useAuth();
   const { toast } = useToast();
+  const { t } = useTranslation();
   const [isSaving, setIsSaving] = useState(false);
   const { userInfo, primaryMechanism, sinGroup, primaryDifferential } = results;
 
@@ -46,14 +48,14 @@ const SaveResultsManager = ({
       
       setAssessmentSaved(true);
       toast({
-        title: 'Výsledky boli uložené',
-        description: 'Vaše hodnotenie bolo úspešne uložené a nájdete ho v sekcii "Moje cviky".',
+        title: t('results.savedTitle'),
+        description: t('results.savedDescription'),
       });
     } catch (error) {
       console.error('Error saving results:', error);
       toast({
-        title: 'Chyba pri ukladaní',
-        description: 'Nepodarilo sa uložiť výsledky hodnotenia.',
+        title: t('results.saveErrorTitle'),
+        description: t('results.saveErrorDescription'),
         variant: 'destructive',
       });
     } finally {
@@ -77,11 +79,11 @@ const SaveResultsManager = ({
 
   return (
     <p className="mt-2">
-      {assessmentSaved ? 
-        '✓ Výsledky boli automaticky uložené. Nájdete ich v sekcii "Moje cviky".' : 
-        isSaving ? 
-          'Ukladanie výsledkov...' : 
-          'Automatické ukladanie výsledkov zlyhalo.'}
+      {assessmentSaved ?
+        t('results.autoSaved') :
+        isSaving ?
+          t('results.saving') :
+          t('results.autoSaveFailed')}
     </p>
   );
 };

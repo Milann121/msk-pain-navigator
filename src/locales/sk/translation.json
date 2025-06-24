@@ -1,6 +1,28 @@
 {
   "profile": {
-    "title": "Môj profil"
+    "title": "Môj profil",
+    "personalData": "Osobné údaje",
+    "firstName": "Meno",
+    "lastName": "Priezvisko",
+    "age": "Vek",
+    "gender": "Pohlavie",
+    "job": "Práca",
+    "save": "Uložiť",
+    "cancel": "Zrušiť",
+    "male": "Muž",
+    "female": "Žena",
+    "savePlaceholder": "Zadajte vaše {{field}}",
+    "moneySavings": "Ušetrené peniaze",
+    "moneySavingsFootnote": "*vypočítané na základe priemerných cien na Slovensku"
+  },
+  "results": {
+    "savedTitle": "Výsledky boli uložené",
+    "savedDescription": "Vaše hodnotenie bolo úspešne uložené a nájdete ho v sekcii Moje cviky.",
+    "saveErrorTitle": "Chyba pri ukladaní",
+    "saveErrorDescription": "Nepodarilo sa uložiť výsledky hodnotenia.",
+    "autoSaved": "✓ Výsledky boli automaticky uložené. Nájdete ich v sekcii Moje cviky.",
+    "saving": "Ukladanie výsledkov...",
+    "autoSaveFailed": "Automatické ukladanie výsledkov zlyhalo."
   },
   "loading": "Načítava sa...",
   "header": {
@@ -11,5 +33,132 @@
     "assessment": "Dotazník bolesti",
     "signIn": "Prihlásiť sa",
     "signOut": "Odhlásiť sa"
+  },
+  "auth": {
+    "signIn": "Prihlásiť sa",
+    "signUp": "Vytvoriť účet",
+    "google": "Pokračovať s Google",
+    "toggleSignUp": "Nemáte účet? Zaregistrujte sa",
+    "toggleSignIn": "Už máte účet? Prihláste sa",
+    "signUpSubtitle": "Vytvorte si nový účet pre začatie",
+    "signInSubtitle": "Prihláste sa do svojho účtu",
+    "firstName": "Meno",
+    "email": "Email",
+    "password": "Heslo",
+    "privacyConsent": "Súhlasím so spracovaním osobných údajov",
+    "or": "alebo",
+    "backHome": "Späť na hlavnú stránku"
+  },
+  "myExercises": {
+    "title": "Moje cviky",
+    "activeProgramsTitle": "Aktívne programy",
+    "activeProgramsDescription": "Nižšie nájdeš všetky svoje aktívne cvičebné programy z dokončených hodnotení.",
+    "endedProgramsTitle": "Ukončené programy",
+    "endedProgramsDescription": "Nižšie nájdete všetky programy, ktoré ste už ukončili.",
+    "noEndedPrograms": "Žiadne ukončené programy.",
+    "backHome": "Späť na úvod",
+    "newAssessment": "Nové hodnotenie"
+  },
+  "blog": {
+    "title": "Blog",
+    "readMore": "Čítať viac",
+    "posts": {
+      "1": {
+        "title": "Neurodynamické cvičenia: čo? prečo? kedy?",
+        "description": "Už ste niekedy počuli o „flossingu" nervov? Ak máte bolesť spôsobenú podráždením alebo útlakom nervu, nervový flossing môže pomôcť."
+      },
+      "2": {
+        "title": "Prevencia bolestí chrbtice v práci",
+        "description": "Tipy na správne sedenie, ergonomické nastavenie pracoviska a cviky počas pracovného dňa."
+      },
+      "3": {
+        "title": "Strečing pre zdravú chrbticu",
+        "description": "Jednoduchý strečingový program, ktorý pomôže udržať chrbticu zdravú a flexibilnú."
+      },
+      "4": {
+        "title": "Cvičenie a výživa",
+        "description": "Ako správna výživa prispieva k lepšej regenerácii a posilneniu chrbtového svalstva."
+      },
+      "5": {
+        "title": "Najčastejšie chyby pri cvičení",
+        "description": "Vyvarujte sa chybám, ktoré môžu zhoršiť bolesti chrbta namiesto ich zmiernenia."
+      },
+      "6": {
+        "title": "Rehabilitačné cvičenia po zranení",
+        "description": "Odporúčané postupy a cviky pre rehabilitáciu po zranení chrbtice alebo operácii."
+      }
+    }
+  },
+  "assessment": {
+    "title": "Hodnotenie bolesti pohybového aparátu",
+    "subtitle": "Vyplňte dotazník pre získanie personalizovaných cvičebných odporúčaní",
+    "new": "Nové hodnotenie"
+  },
+  "cookie": {
+    "message": "Táto stránka používa súbory cookie na zlepšenie vášho zážitku. Používaním našej stránky súhlasíte s našimi podmienkami používania súborov cookie.",
+    "accept": "Súhlasím"
+  },
+  "home": {
+    "progressTitle": "Môj pokrok",
+    "setGoals": "Nastaviť osobné ciele",
+    "exerciseStats": {
+      "title": "Moje cvičenia",
+      "weekLabel": "dní odcvičených tento týždeň",
+      "goalDone": "🎉 Gratulujeme! Splnili ste svoj týždenný cieľ.",
+      "goalRemaining": "Zostáva {{count}} dní do splnenia cieľa.",
+      "noGoal": "Nastavte si týždenný cieľ v sekcii \"Moje ciele\" na stránke profilu."
+    },
+    "blogStats": {
+      "title": "Čítanie blogov",
+      "weekLabel": "blogov prečítaných tento týždeň",
+      "goalDone": "🎉 Gratulujeme! Splnili ste svoj týždenný cieľ.",
+      "goalRemaining": "Zostáva {{count}} blogov do splnenia cieľa.",
+      "noGoal": "Nastavte si týždenný cieľ v sekcii \"Moje ciele\" na stránke profilu."
+    },
+    "favoriteExercises": {
+      "title": "Obľúbené cviky",
+      "empty": "Zatiaľ nemáte žiadne obľúbené cviky. Môžete si ich pridať označením hviezdy pri cvikoch v pláne cvičení."
+    },
+    "savedBlogs": {
+      "title": "Uložené články",
+      "empty": "Zatiaľ nemáte žiadne uložené články. Články si môžete uložiť v sekcii Blog pomocou tlačidla \"Pridať medzi obľúbené\"."
+    },
+    "generalProgram": {
+      "title": "Všeobecný program",
+      "needMore": "Potrebujete aspoň 2 hodnotenia (máte {{count}})",
+      "generating": "Program sa generuje...",
+      "hint": "Vyplňte viac dotazníkov bolesti pre vytvorenie personalizovaného programu",
+      "description": "Nemáš čas na jednotlivé cvičebné programy? Tu nájdeš personalizovaný program s najdôležitejšími cvičeniami z tvojich súčasných programov.",
+      "exerciseCount": "{{count}} cvičení z vašich programov",
+      "view": "Zobraziť program"
+    },
+    "banner": {
+      "message": "Je to tu! Nový týždeň, nová výzva. Neodkladaj svoje cviky a začni už dnes 🤩",
+      "open": "Otvoriť program"
+    },
+    "greeting": {
+      "hello": "Ahoj {{name}}",
+      "question": "ako sa dnes cítiš?"
+    },
+    "mood": {
+      "week": "týždeň",
+      "month": "mesiac",
+      "periodWeek": "7 dní",
+      "periodMonth": "30 dní",
+      "emptyWeek": "posledných 7 dní",
+      "emptyMonth": "posledných 30 dní",
+      "avgScore": "Priemerné skóre za {{period}}",
+      "infoLabel": "Informácie o skóre",
+      "infoText": "Priemerné skóre z posledných {{days}} dní vychádza z vašich denných zápisov toho, ako sa cítite. Čím je vaše skóre bližšie k číslu 3, tým sa máte lepšie.",
+      "infoGrades": "Dobre = 3, Neutrálne = 2, Zle = 1.",
+      "infoFollow": "Sledujte, ako sa vaše celkové skóre mení v čase.",
+      "better": "Lepší trend za posledných {{days}} dní",
+      "worse": "Zhoršený trend za posledných {{days}} dní",
+      "noChange": "Žiadna zmena",
+      "noRecords": "(Nemáte záznamy pre {{period}})",
+      "happy": "Dobre",
+      "neutral": "Neutrálne",
+      "sad": "Zle"
+    }
   }
 }

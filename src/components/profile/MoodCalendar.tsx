@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { format, isAfter, isBefore, subDays, isSameDay } from 'date-fns';
 import { sk } from 'date-fns/locale/sk';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent } from '@/components/ui/card';
 import { UserGreeting } from './mood/UserGreeting';
 import { MoodSelector } from './mood/MoodSelector';
@@ -27,6 +28,7 @@ export const MoodCalendar = () => {
   const [timePeriod, setTimePeriod] = useState<'week' | 'month'>('week');
   const [infoPopoverOpen, setInfoPopoverOpen] = useState(false);
   const { firstName, loading, handleMoodSelection, getMoodForDate, moodEntries } = useMoodData();
+  const { t } = useTranslation();
   
   // Get mood for the selected date
   const selectedDateMood = getMoodForDate(date);
@@ -66,16 +68,16 @@ export const MoodCalendar = () => {
   // Determine trend
   let trendColor = 'text-gray-500';
   let trendIcon = '—'; // Flat dash by default
-  let description = 'Žiadna zmena';
+  let description = t('home.mood.noChange');
   if (moodScore !== null && prevMoodScore !== null) {
     if (moodScore > prevMoodScore) {
       trendColor = 'text-green-600';
       trendIcon = '▲';
-      description = `Lepší trend za posledných ${currentPeriodDays} ${timePeriod === 'week' ? 'dní' : 'dní'}`;
+      description = t('home.mood.better', { days: currentPeriodDays });
     } else if (moodScore < prevMoodScore) {
       trendColor = 'text-yellow-600';
       trendIcon = '▼';
-      description = `Zhoršený trend za posledných ${currentPeriodDays} ${timePeriod === 'week' ? 'dní' : 'dní'}`;
+      description = t('home.mood.worse', { days: currentPeriodDays });
     }
   }
 
@@ -83,8 +85,8 @@ export const MoodCalendar = () => {
   const formatScore = (score: number | null) =>
     score != null ? score.toFixed(2) : '-';
 
-  const periodLabel = timePeriod === 'week' ? '7 dní' : '30 dní';
-  const emptyStateText = timePeriod === 'week' ? 'posledných 7 dní' : 'posledných 30 dní';
+  const periodLabel = timePeriod === 'week' ? t('home.mood.periodWeek') : t('home.mood.periodMonth');
+  const emptyStateText = timePeriod === 'week' ? t('home.mood.emptyWeek') : t('home.mood.emptyMonth');
 
   return (
     <div className="mb-6">
@@ -131,11 +133,11 @@ export const MoodCalendar = () => {
             {/* Time Period Toggle */}
             <div className="mt-6 w-full flex justify-center">
               <ToggleGroup type="single" value={timePeriod} onValueChange={(value) => value && setTimePeriod(value as 'week' | 'month')}>
-                <ToggleGroupItem value="week" aria-label="Týždeň">
-                  týždeň
+                <ToggleGroupItem value="week" aria-label={t('home.mood.week')}>
+                  {t('home.mood.week')}
                 </ToggleGroupItem>
-                <ToggleGroupItem value="month" aria-label="Mesiac">
-                  mesiac
+                <ToggleGroupItem value="month" aria-label={t('home.mood.month')}>
+                  {t('home.mood.month')}
                 </ToggleGroupItem>
               </ToggleGroup>
             </div>
@@ -143,7 +145,7 @@ export const MoodCalendar = () => {
             {/* Mood Score/Status */}
             <div className="mt-4 w-full flex flex-col items-center">
               <div className="text-sm text-gray-500 mb-1 flex items-center gap-1">
-                Priemerné skóre za {periodLabel}
+                {t('home.mood.avgScore', { period: periodLabel })}
                 <Popover open={infoPopoverOpen} onOpenChange={setInfoPopoverOpen}>
                   <PopoverTrigger asChild>
                     <Button
@@ -153,7 +155,7 @@ export const MoodCalendar = () => {
                       onClick={() => setInfoPopoverOpen(!infoPopoverOpen)}
                     >
                       <Info size={16} />
-                      <span className="sr-only">Informácie o skóre</span>
+                      <span className="sr-only">{t('home.mood.infoLabel')}</span>
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent 
@@ -164,9 +166,9 @@ export const MoodCalendar = () => {
                   >
                     <div className="p-3">
                       <p className="text-sm text-gray-700 leading-relaxed">
-                        Priemerné skóre z posledných {currentPeriodDays} dní vychádza z vašich denných zápisov toho, ako sa cítite. Čím je vaše skóre bližšie k číslu 3, tým sa máte lepšie.<br />
-                        <span className="font-medium">Dobre = 3, Neutrálne = 2, Zle = 1.</span><br />
-                        Sledujte, ako sa vaše celkové skóre mení v čase.
+                        {t('home.mood.infoText', { days: currentPeriodDays })}<br />
+                        <span className="font-medium">{t('home.mood.infoGrades')}</span><br />
+                        {t('home.mood.infoFollow')}
                       </p>
                     </div>
                   </PopoverContent>
@@ -180,7 +182,7 @@ export const MoodCalendar = () => {
                 <span className={`text-xs mt-1 ${trendColor}`}>{description}</span>
               )}
               {moodScore === null && (
-                <span className="text-xs text-gray-400">(Nemáte záznamy pre {emptyStateText})</span>
+                <span className="text-xs text-gray-400">{t('home.mood.noRecords', { period: emptyStateText })}</span>
               )}
             </div>
           </CardContent>
