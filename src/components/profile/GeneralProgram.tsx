@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { PlayCircle, Info } from 'lucide-react';
+import { PlayCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useAssessments } from '@/hooks/useAssessments';
 import { generateGeneralProgram } from '@/utils/generalProgramGenerator';
@@ -44,17 +44,16 @@ export const GeneralProgram = () => {
         {t('exercisePlanPage.generalDescription')}
       </p>
       
-      <div className="flex items-center gap-2 text-sm text-blue-600 mb-4">
-        <Info className="h-4 w-4" />
-        <span>{exerciseCount} {t('profile.exercisesFromPrograms')}</span>
-      </div>
+      <p className="text-sm text-blue-600 mb-4">
+        {exerciseCount} {t('home.generalProgram.exerciseCount', { count: exerciseCount }).replace(`${exerciseCount} `, '')}
+      </p>
       
       <Button 
         onClick={handleShowGeneral}
         className="w-full bg-blue-600 hover:bg-blue-700 text-white"
       >
         <PlayCircle className="h-4 w-4 mr-2" />
-        {t('profile.showProgram')}
+        {t('home.generalProgram.view')}
       </Button>
     </div>
   );
