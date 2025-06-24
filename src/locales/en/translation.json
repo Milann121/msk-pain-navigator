@@ -90,7 +90,9 @@
         "title": "Rehabilitation exercises after injury",
         "description": "Recommended procedures and exercises for rehabilitation after spinal injury or surgery."
       }
-    }
+    },
+    "favorite": "Favorite",
+    "read": "Read"
   },
   "assessment": {
     "title": "Musculoskeletal Pain Assessment",

@@ -90,7 +90,9 @@
         "title": "Rehabilitačné cvičenia po zranení",
         "description": "Odporúčané postupy a cviky pre rehabilitáciu po zranení chrbtice alebo operácii."
       }
-    }
+    },
+    "favorite": "Obľúbené",
+    "read": "Prečítané"
   },
   "assessment": {
     "title": "Hodnotenie bolesti pohybového aparátu",

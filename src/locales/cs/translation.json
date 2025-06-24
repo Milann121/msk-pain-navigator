@@ -90,7 +90,9 @@
         "title": "Rehabilitační cvičení po zranění",
         "description": "Doporučené postupy a cviky pro rehabilitaci po zranění páteře nebo operaci."
       }
-    }
+    },
+    "favorite": "Oblíbené",
+    "read": "Přečtené"
   },
   "assessment": {
     "title": "Hodnocení bolesti pohybového aparátu",
@@ -310,7 +312,7 @@
   },
   "privacy": {
     "title": "Ochrana osobních údajů – Dotazník o bolesti pohybového systému",
-    "intro": "Vaše důvěra a bezpečnost vašich údajů jsou pro nás klíčové. Proto bychom vás rádi informovali, jak zpracováváme osobní údaje, které nám poskytujete prostřednictvím dotazníku o bolesti pohybového systému.",
+    "intro": "Vaše důvěra a bezpečnost vašich údajů jsou pro nás klíčové. Proto bychom vás rádi informovali, jak zpracováváme osobní údaje, které nám poskytujete prostřednictvom dotazníku o bolesti pohybového systému.",
     "whatTitle": "Jaké údaje zpracováváme?",
     "email": "Emailová adresa: Ukládáme a zpracováváme pouze vaši emailovou adresu. Slouží k tomu, abychom vám mohli zaslat výsledky dotazníku, případná doporučení nebo vás kontaktovat s informacemi o našich službách, pokud jste k tomu udělili souhlas.",
     "health": "Údaje o zdravotním stavu: Informace o vaší bolesti a zdravotním stavu, které uvedete v dotazníku, neukládáme a nezpracováváme. Slouží výhradně k okamžitému vyhodnocení a personalizaci doporučení v reálném čase. Po ukončení vyhodnocení tyto údaje nijak dále neuchováváme.",
@@ -345,7 +347,7 @@
     "selected": "Vybráno: {{value}}"
   },
   "emptyState": {
-    "noAssessments": "Zatím nemáte žádná uložená hodnocení.",
+    "noAssessments": "Zatím nemáte žádna uložená hodnocení.",
     "createNew": "Vytvořit nové"
   },
   "notFound": {
