@@ -1,3 +1,4 @@
+
 {
   "profile": {
     "title": "Můj profil",
@@ -449,7 +450,7 @@
     "diagnosisLabel": "Diagnóza:",
     "recordProgress": "Zaznamenat pokrok",
     "viewExercises": "Zobrazit cvičení",
-    "delivered": "Odevzdáno:",
+    "delivered": "Odcvičeno:",
     "lastExercise": "Poslední cvičení:",
     "programRequest": "Žádost o program:"
   },

@@ -23,7 +23,7 @@ export const AssessmentDetails = ({
   return (
     <div className="space-y-2">
       <div>
-        <span className="font-medium text-gray-500">{t('assessmentAccordion.painMechanism')}:</span>
+        <span className="font-medium text-gray-500">{t('assessmentAccordion.painMechanismLabel')}</span>
         <div className="mt-1">
           <Badge className={BadgeStyles.getMechanismBadgeStyle(assessment.primary_mechanism)}>
             {formatMechanism(assessment.primary_mechanism)}
@@ -31,7 +31,7 @@ export const AssessmentDetails = ({
         </div>
       </div>
       <div>
-        <span className="font-medium text-gray-500">{t('assessmentAccordion.diagnosis')}:</span>
+        <span className="font-medium text-gray-500">{t('assessmentAccordion.diagnosisLabel')}</span>
         <div className="mt-1">
           <Badge className={BadgeStyles.getDifferentialBadgeStyle(assessment.primary_differential)}>
             {formatDifferential(assessment.primary_differential)}
@@ -39,7 +39,7 @@ export const AssessmentDetails = ({
         </div>
       </div>
       <div className="mt-3">
-        <span className="font-medium text-gray-500">{t('assessmentAccordion.initialPain')}:</span>
+        <span className="font-medium text-gray-500">{t('assessmentAccordion.yourPainInitial')}</span>
         <div className="mt-1 font-medium text-blue-700">
           {assessment.initial_pain_level !== undefined ? `${assessment.initial_pain_level}/10` : "–"}
         </div>
@@ -47,7 +47,7 @@ export const AssessmentDetails = ({
       <div>
         <div className="mt-1">
           <p className="text-sm text-gray-600 mb-3">
-            {t('assessmentAccordion.latestPain')}:{" "}
+            {t('assessmentAccordion.yourPainLatest')}{" "}
             {typeof latestPainLevel === "number" ? (
               <>
                 <span className="font-semibold text-blue-700">{latestPainLevel}/10</span>

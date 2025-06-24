@@ -1,3 +1,4 @@
+
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
@@ -12,6 +13,7 @@ import { ArrowUp, ArrowDown } from "lucide-react";
 import { useLatestPainLevel } from "./useLatestPainLevel";
 import { useProgramEndRenew } from "./useProgramEndRenew";
 import { AssessmentProgramControls } from "./AssessmentProgramControls";
+import { useTranslation } from "react-i18next";
 
 interface AssessmentAccordionItemProps {
   assessment: UserAssessment;
@@ -29,6 +31,7 @@ export const AssessmentAccordionItem = ({
   onEndProgram
 }: AssessmentAccordionItemProps) => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   // Pain level hook
   const { latestPainLevel, diffIcon } = useLatestPainLevel(
@@ -86,7 +89,7 @@ export const AssessmentAccordionItem = ({
             <div className="flex flex-col gap-0 mt-2">
               <div className="flex items-center gap-2">
                 <span className="font-medium text-gray-600">
-                  Začiatok programu:
+                  {t('assessmentAccordion.programStart')}
                 </span>
                 <span className="text-blue-800 font-medium">
                   {programStartDate ? programStartDate.toLocaleDateString("sk-SK") : ""}
