@@ -113,7 +113,7 @@ export const SavedBlogs = () => {
     return (
       <Card className="mb-6">
         <CardHeader>
-          <CardTitle>Uložené články</CardTitle>
+          <CardTitle>{t('home.savedBlogs.title')}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="text-center py-8">
@@ -127,7 +127,7 @@ export const SavedBlogs = () => {
   return (
     <Card className="mb-6">
       <CardHeader>
-        <CardTitle>Uložené články</CardTitle>
+        <CardTitle>{t('home.savedBlogs.title')}</CardTitle>
       </CardHeader>
       <CardContent>
         {favoriteBlogs.length > 0 ? (
@@ -164,8 +164,7 @@ export const SavedBlogs = () => {
         ) : (
           <div className="text-center py-8">
             <p className="text-muted-foreground">
-              Zatiaľ nemáte žiadne uložené články. 
-              Články si môžete uložiť v sekcii Blog pomocou tlačidla "Pridať medzi obľúbené".
+              {t('home.savedBlogs.empty')}
             </p>
           </div>
         )}

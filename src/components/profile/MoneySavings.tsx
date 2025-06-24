@@ -113,16 +113,19 @@ export const MoneySavings = () => {
       <div className="h-full w-full flex flex-col items-center justify-center">
         <div className="flex items-center justify-center gap-2 mb-4">
           <Euro className="h-6 w-6 text-green-600" />
-// First conflict resolved
-<h3 className="text-xl font-semibold text-green-800">
-  {t('profile.moneySavingsTitle')}
-</h3>
-</div>
-<main>
-  <div className="text-green-600">{t('loading')}</div>
-</main>
+if (loading)
+  return (
+    <div className="h-full w-full flex flex-col items-center justify-center">
+      <div className="flex items-center justify-center gap-2 mb-4">
+        <Euro className="h-6 w-6 text-green-600" />
+        <h3 className="text-xl font-semibold text-green-800">
+          {t('profile.moneySavings')}
+        </h3>
+      </div>
+      <div className="text-green-600">{t('loading')}</div>
+    </div>
+  );
 
-// Second conflict resolved
 return (
   <div className="h-full w-full flex flex-col items-center justify-center">
     <div className="flex items-center justify-center gap-2 mb-6">
@@ -132,16 +135,16 @@ return (
       </h3>
     </div>
 
-// Third conflict resolved
     <div className="text-8xl font-bold text-green-700 mb-6">
       {totalSavings}€
     </div>
 
     <p className="text-base text-green-600 text-center px-4">
-      {t('profile.moneySavingsNote')}
+      {t('profile.moneySavingsFootnote')}
     </p>
   </div>
 );
+
 
   );
 };

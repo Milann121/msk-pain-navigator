@@ -115,7 +115,7 @@ export const FavoriteExercises = () => {
     return (
       <Card className="mb-6">
         <CardHeader>
-          <CardTitle>Obľúbené cviky</CardTitle>
+          <CardTitle>{t('home.favoriteExercises.title')}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="text-center py-8">
@@ -130,7 +130,7 @@ export const FavoriteExercises = () => {
     <>
       <Card className="mb-6">
         <CardHeader>
-          <CardTitle>Obľúbené cviky</CardTitle>
+          <CardTitle>{t('home.favoriteExercises.title')}</CardTitle>
         </CardHeader>
         <CardContent>
           {favoriteExercises.length > 0 ? (
@@ -167,8 +167,7 @@ export const FavoriteExercises = () => {
           ) : (
             <div className="text-center py-8">
               <p className="text-muted-foreground">
-                Zatiaľ nemáte žiadne obľúbené cviky. 
-                Môžete si ich pridať označením hviezdy pri cvikoch v pláne cvičení.
+                {t('home.favoriteExercises.empty')}
               </p>
             </div>
           )}
