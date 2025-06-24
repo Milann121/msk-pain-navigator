@@ -1,41 +1,41 @@
-import exercisesByDifferential from "../exercisePrograms";
 
-/**
- * Collect all exercises (videos) that target the neck.
- */
-export function getNeckExercises() {
-  const results: Array<{
-    exerciseTitle: string;
-    videoId: string;
-    description?: string;
-    importance?: 1 | 2 | 3;
-    mainGroup?: string[] | string;
-    bodyPart?: string[] | string;
-  }> = [];
-
-  Object.values(exercisesByDifferential).forEach(programArray => {
-    (programArray as any[]).forEach(program => {
-      if (Array.isArray(program.videos)) {
-        program.videos.forEach((vid: any) => {
-          if (
-            (Array.isArray(vid.bodyPart) && vid.bodyPart.includes('neck')) ||
-            vid.bodyPart === 'neck'
-          ) {
-            results.push({
-              exerciseTitle: vid.title || program.title,
-              videoId: vid.videoId,
-              description: vid.description,
-              importance: vid.importance,
-              mainGroup: vid.mainGroup,
-              bodyPart: vid.bodyPart,
-            });
-          }
-        });
-      }
-    });
-  });
-
-  return results;
-}
-
-export const neckExercises = getNeckExercises();
+export const neckExercises = {
+  'nociceptive-cervical-radiculopathy-neck': [
+    {
+      title: 'exercises.neckNociceptive.cervicalRadiculopathy.title',
+      description: 'exercises.neckNociceptive.cervicalRadiculopathy.description',
+      videos: [
+        {
+          title: 'exercises.neckNociceptive.cervicalRadiculopathy.phase1.title',
+          description: 'exercises.neckNociceptive.cervicalRadiculopathy.phase1.description',
+          videos: [
+            {
+              videoId: 'dQw4w9WgXcQ',
+              title: 'exercises.neckNociceptive.cervicalRadiculopathy.phase1.neckRetraction.title',
+              description: 'exercises.neckNociceptive.cervicalRadiculopathy.phase1.neckRetraction.description',
+              importance: 1,
+              bodyPart: 'neck',
+              mainGroup: 'postural correction'
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  'nociceptive-default-neck': [
+    {
+      title: 'exercises.neckNociceptive.defaultNociceptive.title',
+      description: 'exercises.neckNociceptive.defaultNociceptive.description',
+      videos: [
+        {
+          videoId: 'dQw4w9WgXcQ',
+          title: 'exercises.neckNociceptive.defaultNociceptive.basicMobility.title',
+          description: 'exercises.neckNociceptive.defaultNociceptive.basicMobility.description',
+          importance: 1,
+          bodyPart: 'neck',
+          mainGroup: 'general mobility'
+        }
+      ]
+    }
+  ]
+};
