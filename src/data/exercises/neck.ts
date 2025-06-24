@@ -2,16 +2,22 @@
 export const neckExercises = {
   'nociceptive-cervical-radiculopathy-neck': [
     {
-      title: 'exercises.neckNociceptive.cervicalRadiculopathy.phase1.title',
-      description: 'exercises.neckNociceptive.cervicalRadiculopathy.phase1.description',
+      title: 'exercises.neckNociceptive.cervicalRadiculopathy.title',
+      description: 'exercises.neckNociceptive.cervicalRadiculopathy.description',
       videos: [
         {
-          videoId: 'dQw4w9WgXcQ',
-          title: 'exercises.neckNociceptive.cervicalRadiculopathy.phase1.neckRetraction.title',
-          description: 'exercises.neckNociceptive.cervicalRadiculopathy.phase1.neckRetraction.description',
-          importance: 1,
-          bodyPart: 'neck',
-          mainGroup: 'postural correction'
+          title: 'exercises.neckNociceptive.cervicalRadiculopathy.phase1.title',
+          description: 'exercises.neckNociceptive.cervicalRadiculopathy.phase1.description',
+          videos: [
+            {
+              videoId: 'dQw4w9WgXcQ',
+              title: 'exercises.neckNociceptive.cervicalRadiculopathy.phase1.neckRetraction.title',
+              description: 'exercises.neckNociceptive.cervicalRadiculopathy.phase1.neckRetraction.description',
+              importance: 1,
+              bodyPart: 'neck',
+              mainGroup: 'postural correction'
+            }
+          ]
         }
       ]
     }
