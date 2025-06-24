@@ -14,8 +14,8 @@
     "female": "Žena",
     "savePlaceholder": "Zadajte vaše {{field}}",
     "moneySavings": "Ušetrené peniaze",
-
-    "moneySavingsFootnote": "*vypočítané na základe priemerných cien na Slovensku"
+    "moneySavingsFootnote": "*vypočítané na základe priemerných cien na Slovensku",
+    "modelTitle": "Model tela"
   },
   "results": {
     "savedTitle": "Výsledky boli uložené",
@@ -24,19 +24,6 @@
     "saveErrorDescription": "Nepodarilo sa uložiť výsledky hodnotenia.",
     "autoSaved": "✓ Výsledky boli automaticky uložené. Nájdete ich v sekcii Moje cviky.",
     "saving": "Ukladanie výsledkov...",
-
-    "moneySavingsFootnote": "*vypočítané na základe priemerných cien na Slovensku",
-    "moneySavingsTitle": "Ušetrené peniaze",
-    "moneySavingsNote": "*vypočítané na základe priemerných cien na Slovensku"
-  },
-  "results": {
-    "savedTitle": "Výsledky boli uložené.",
-    "savedDescription": "Vaše hodnotenie bolo úspešne uložené a nájdete ho v sekcii Moje cviky.",
-    "saveErrorTitle": "Chyba pri ukladaní.",
-    "saveErrorDescription": "Nepodarilo sa uložiť výsledky hodnotenia.",
-    "autoSaved": "✔ Výsledky boli automaticky uložené. Nájdete ich v sekcii Moje cviky.",
-    "saving": "Ukladám výsledkov...",
-
     "autoSaveFailed": "Automatické ukladanie výsledkov zlyhalo."
   },
   "loading": "Načítava sa...",
@@ -48,8 +35,7 @@
     "assessment": "Dotazník bolesti",
     "signOut": "Odhlásiť sa",
     "brand": "Pebee terapeut",
-    "toggleMenu": "Zobraziť menu",
-    "signOut": "Odhlásiť sa",
+    "toggleMenu": "Zobraziť menu"
   },
   "auth": {
     "signIn": "Prihlásiť sa",
@@ -78,14 +64,11 @@
   },
   "blog": {
     "title": "Blog",
-"blog": {
     "readMore": "Čítať viac",
     "posts": {
       "1": {
         "title": "Neurodynamické cvičenia: čo? prečo? kedy?",
-        "description": "Už ste niekedy počuli o \"flossingu\" nervov? Ak máte bolesť spôsobenú podráždením alebo útlakom nervu, nervový flossing môže pomôcť."
         "description": "Už ste niekedy počuli o „flossingu" nervov? Ak máte bolesť spôsobenú podráždením alebo útlakom nervu, nervový flossing môže pomôcť."
-        "description": "Už ste niekedy počuli o „flossingu“ nervov? Ak máte bolesť spôsobenú podráždením alebo útlakom nervu, nervový flossing môže pomôcť."
       },
       "2": {
         "title": "Prevencia bolestí chrbtice v práci",
@@ -124,16 +107,12 @@
     "exerciseStats": {
       "title": "Moje cvičenia",
       "weekLabel": "dní odcvičených tento týždeň",
-      "goalDone": "🎉 Gratulujeme! Splnili ste svoj týždenný cieľ.",
-      "weekLabel": "dni odcvičených tento týždeň",
       "goalDone": "🎉 Gratulujem! Splnili ste svoj týždenný cieľ.",
       "goalRemaining": "Zostáva {{count}} dní do splnenia cieľa.",
       "noGoal": "Nastavte si týždenný cieľ v sekcii \"Moje ciele\" na stránke profilu."
     },
     "blogStats": {
       "title": "Čítanie blogov",
-      "weekLabel": "blogov prečítaných tento týždeň",
-      "goalDone": "🎉 Gratulujeme! Splnili ste svoj týždenný cieľ.",
       "weekLabel": "blogy prečítaných tento týždeň",
       "goalDone": "🎉 Gratulujem! Splnili ste svoj týždenný cieľ.",
       "goalRemaining": "Zostáva {{count}} blogov do splnenia cieľa.",
@@ -152,13 +131,11 @@
       "needMore": "Potrebujete aspoň 2 hodnotenia (máte {{count}})",
       "generating": "Program sa generuje...",
       "hint": "Vyplňte viac dotazníkov bolesti pre vytvorenie personalizovaného programu",
-      "description": "Nemáš čas na jednotlivé cvičebné programy? Tu nájdeš personalizovaný program s najdôležitejšími cvičeniami z tvojich súčasných programov.",
       "description": "Nemáš čas na jednotlivé cvičebné programy? Tu nájdeš personalizovaný program s najdôležitejšími cvičeniami z tvojich programov.",
       "exerciseCount": "{{count}} cvičení z vašich programov",
       "view": "Zobraziť program"
     },
     "banner": {
-      "message": "Je to tu! Nový týždeň, nová výzva. Neodkladaj svoje cviky a začni už dnes 🤩",
       "message": "Je to tu! Nový týždeň, nová výzva. Neodkladaj svoje cviky a začni už dnes 🏋️‍♂️",
       "open": "Otvoriť program"
     },
@@ -175,16 +152,16 @@
       "emptyMonth": "posledných 30 dní",
       "avgScore": "Priemerné skóre za {{period}}",
       "infoLabel": "Informácie o skóre",
-      "infoText": "Priemerné skóre z posledných {{days}} dní vychádza z vašich denných zápisov toho, ako sa cítite. Čím je vaše skóre bližšie k číslu 3, tým sa máte lepšie.",
+      "infoText": "Priemerné skóre za posledných {{days}} dní vychádza z vašich denných zápisov toho, ako sa cítite. Čím je vaše skóre bližšie k číslu 3, tým je vaša nálada lepšia.",
       "infoGrades": "Dobre = 3, Neutrálne = 2, Zle = 1.",
       "infoFollow": "Sledujte, ako sa vaše celkové skóre mení v čase.",
-      "better": "Lepší trend za posledných {{days}} dní",
-      "worse": "Zhoršený trend za posledných {{days}} dní",
-      "noChange": "Žiadna zmena",
+      "better": "Lepší trend za posledných {{days}} dní.",
+      "worse": "Zhoršený trend za posledných {{days}} dní.",
+      "noChange": "Žiadna zmena.",
       "noRecords": "(Nemáte záznamy pre {{period}})",
       "happy": "Dobre",
       "neutral": "Neutrálne",
-    "sad": "Zle"
+      "sad": "Zle"
     }
   },
   "welcome": {
@@ -344,161 +321,77 @@
     ],
     "contact": "Pre uplatnenie Vašich práv nás môžete kontaktovať na <a href=\"mailto:privacy@example.com\">privacy@example.com</a>.",
     "endTitle": "Záver",
-    "endText": "Vaše súkromie je pre nás prioritou. Spracovávame len nevyhnutné minimum údajov a zdravotné informácie neukladáme ani nearchivujame."
-      "infoText": "Priemerné skóre za posledných {{days}} dní vychádza z vašich denných zápisov toho, ako sa cítite. Čím je vaše skóre bližšie k číslu 3, tým je vaša nálada lepšia.",
-      "infoGrades": "Dobre = 3, Neutrálne = 2, Zle = 1.",
-      "infoFollow": "Sledujte, ako sa vaše celkové skóre mení v čase.",
-      "better": "Lepší trend za posledných {{days}} dní.",
-      "worse": "Zhoršený trend za posledných {{days}} dní.",
-      "noChange": "Žiadna zmena.",
-      "noRecords": "(Nemáte záznamy pre {{period}})",
-      "happy": "Dobre",
-      "neutral": "Neutrálne",
-      "sad": "Zle"
-    }
-  }
-}
-
-  "assessment": {
-    "title": "Hodnotenie bolesti pohybového aparátu",
-    "subtitle": "Vyplňte dotazník pre získanie personalizovaných cvičebných odporúčaní",
-    "new": "Nové hodnotenie"
-  },
-{
-  "cookie": {
-    "message": "Táto stránka používa súbory cookie na zlepšenie vášho zážitku. Používaním našej stránky súhlasíte s našimi podmienkami používania súborov cookie.",
-    "accept": "Súhlasím"
-  },
-  "results": {
-    "title": "Výsledky hodnotenia",
-    "subtitle": "Ďakujeme za vyplnenie MSK Navigátora bolesti.",
-    "greeting": "Dobrý deň",
-    "painAnalysis": "Na základe vašich odpovedí ohľadom bolesti {area}",
-    "painMechanism": "Primárny mechanizmus bolesti",
-    "painSensitivity": "Úroveň citlivosti na bolesť",
-    "differentialAssessment": "Diferenčná hodnotenie",
-    "exercisePlan": "Váš personalizovaný cvičebný plán",
-    "exercisePlanDescription": "Na základe vášho hodnotenia sme pripravili personalizovaný cvičebný program špeciálne navrhnutý pre váš stav. Prosím, berte na vedomie, že tento program je len odporúčanie.",
-    "openExerciseProgram": "OTVORIŤ CVIČEBNÝ PROGRAM",
-    "disclaimer": "Toto hodnotenie nenahrádza odbornú lekársku pomoc. Pre kompletnú diagnózu a liečebný plán sa prosím poraďte so zdravotníckym pracovníkom.",
-    "resultsSaved": "✔ Výsledky boli automaticky uložené. Nájdete ich v sekcii 'Moje cviky'.",
-    "savingResults": "Ukladanie výsledkov...",
-    "savingFailed": "Automatické ukladanie výsledkov zlyhalo.",
-    "startNewAssessment": "Začať nové hodnotenie"
-  },
-  "exercisePlan": {
-    "title": "Váš cvičebný plán",
-    "generalTitle": "Všeobecný cvičebný plán",
-    "generalDescription": "Personalizovaný program s najdôležitejšími cvičeniami z vašich programov. Postupujte podľa inštrukcií a v prípade bolesti cvičenie prerušte.",
-    "specificDescription": "Cvičenia špecifické pre {diagnosis} v oblasti {area}. Postupujte podľa inštrukcií a v prípade bolesti cvičenie prerušte.",
-    "backToExercises": "Späť na moje cvičenia",
-    "exerciseGood": "Vyhovuje vám cvik?",
-    "yes": "Áno",
-    "no": "Nie",
-    "neutral": "Neutrálne",
-    "whyNotGood": "Prečo nie je cvik dobrý?",
-    "hasPain": "Pociťujete bolesť pri cvičení?",
-    "painAcceptable": "Je bolesť prijateľná?",
-    "wantChange": "Chcete zmeniť tento cvik?",
-    "requestChange": "Požiadať o zmenu cviku",
-    "sendFeedback": "Odoslať spätnú väzbu",
-    "close": "Zavrieť",
-    "exercisesNotFound": "Odporúčané cvičenia neboli nájdené.",
-    "exercisesNotFoundDescription": "Pre vašu kombináciu diagnóz ({diagnosis}) a oblasti bolesti ({area}) nemáme špecifické cvičenia. Prosím, konzultujte s fyzioterapeutom.",
-    "generalNotAvailable": "Všeobecný program nie je k dispozícii.",
-    "generalNotAvailableDescription": "Nemáte dostatok hodnotení na vytvorenie všeobecného programu alebo nie sú k dispozícii cvičenia s definovanou dôležitosťou.",
-    "importantNotice": "Dôležité upozornenie.",
-    "importantNoticeText": "Tieto cvičenia slúžia len ako všeobecné odporúčania a nenahrádzajú návštevu fyzioterapeuta alebo lekára. Ak počas cvičenia pocítite zvýšenú bolesť, prosím, cvičenie prerušte a kontaktujte odborníka.",
-    "exerciseChangeRequested": "Žiadosť o zmenu cviku bola odoslaná.",
-    "newExerciseSuggested": "Navrhnutý nový cvik.",
-    "confirmChange": "Potvrdiť zmenu cviku",
-    "rejectChange": "Odmietnuť zmenu cviku",
-    "sectionContains": "Táto sekcia obsahuje {count} {exercises}"
-  },
-  "painAreas": {
-    "neck": "Krk",
-    "middleBack": "Stredná časť chrbtice",
-    "lowerBack": "Driek",
-    "upperLimb": "Horné končatiny",
-    "shoulder": "Rameno"
-  },
-  "mechanisms": {
-    "nociceptive": "Nociceptívna bolesť",
-    "neuropathic": "Neuropatická bolesť",
-    "central": "Centrálna senzitivizácia",
-    "none": "Neodvážený mechanizmus bolesti",
-    "redFlag": "Symptómy vyžadujúce návštevu lekára"
-  },
-  "differentials": {
-    "none": "Nebola identifikovaná žiadna špecifická diagnóza",
-    "discHerniation": "Hernia medzistavcovej platničky",
-    "facetJointSyndrome": "Syndróm facetových kĺbov",
-    "siJointSyndrome": "Syndróm SI kĺbov",
-    "musclePain": "Svalová bolesť",
-    "redFlag": "Symptómy vyžadujúce návštevu lekára",
-    "ventralSpondylolisthesis": "Ventralná spondylolistéza",
-    "dorsalSpondylolisthesis": "Dorzálna spondylolistéza",
-    "costovertebralJointSyndrome": "Syndróm kostovertebrálneho kĺbu",
-    "radicularPain": "Radikulárna bolesť",
-    "radiculopathy": "Radikulopatia",
-    "centralSensitisation": "Centrálna senzitivizácia",
-    "centralSensitisationAllodynia": "Centrálna senzitivizácia – Alodýnia",
-    "centralSensitisationSensoryHyper": "Centrálna senzitivizácia – Zmyslová precitlivenosť",
-    "centralSensitisationCognitive": "Centrálna senzitivizácia – Kognitívne symptómy",
-    "cervicalRadiculopathy": "Cervikálna radikulopatia",
-    "frozenShoulder": "Zmrznuté rameno",
-    "slapTear": "Lézia labra",
-    "subacromialImpingement": "Impingement syndróm ramena",
-    "stiffShoulder": "Syndróm stuhnutého ramena",
-    "shoulderBursa": "Burzitída",
-    "rotatorCuffTear": "Porucha rotátorovej manžety",
-    "rotatorCuffTendinopathy": "Porucha rotátorovej manžety",
-    "bicepsTendinopathy": "Porucha bicepsovej šľachy",
-    "bicepsTearLongHead": "Porucha bicepsovej šľachy",
-    "shoulderDislocation": "Dislokácia ramena",
-    "unstableShoulder": "Nestabilné rameno",
-    "labralLesion": "Lézia labra"
+    "endText": "Vaše súkromie je pre nás prioritou. Spracovávame len nevyhnutné minimum údajov a zdravotné informácie neukladáme ani nearchivujeme."
   },
   "followUp": {
-    "recordProgress": "Zaznamenať pokrok",
-    "showExercises": "Zobraziť cviky",
-    "endProgram": "Ukončiť program",
-    "renewProgram": "Obnoviť program",
-    "ended": "Ukončené",
-    "ending": "Ukladanie...",
-    "renewing": "Obnovujem...",
     "progressRecorded": "Pokrok zaznamenaný",
-    "progressRecordedDescription": "Vaše odpovede boli úspešne uložené",
-    "yourPainInitial": "Vaša bolesť na začiatku:",
-    "yourPainLatest": "Vaša posledná zaznamenaná bolesť:",
-    "programStart": "Začiatok programu:",
-    "painMechanismLabel": "Mechanizmus bolesti:",
-    "diagnosisLabel": "Diagnóza:",
-    "back": "Späť",
-    "next": "Ďalej",
-    "finish": "Dokončiť",
-    "question": "Otázka {current} z {total}",
-    "thankYou": "Ďakujeme za vyplnenie dotazníka o vašom pokroku."
+    "responsesSaved": "Vaše odpovede boli úspešne uložené",
+    "title": "Sledovanie pokroku"
   },
-  "common": {
-    "error": "Chyba",
-    "success": "Úspech",
-    "save": "Uložiť",
-    "cancel": "Zrušiť",
-    "delete": "Odstrániť",
-    "edit": "Upraviť",
-    "close": "Zavrieť",
-    "confirm": "Potvrdiť",
-    "reject": "Odmietnuť",
-    "reset": "Resetovať",
-    "loading": "Načítava sa...",
-    "noData": "Žiadne údaje k dispozícii",
-    "pageNotFound": "Stránka sa nenašla",
-    "returnHome": "Návrat na úvod",
-    "oops": "Ups!"
+  "slider": {
+    "selected": "Vybrané: {{value}}"
   },
   "emptyState": {
     "noAssessments": "Zatiaľ nemáte žiadne uložené hodnotenia.",
-    "createNewAssessment": "Vytvoriť nové hodnotenie"
+    "createNew": "Vytvoriť nové"
+  },
+  "notFound": {
+    "title": "Stránka sa nenašla",
+    "message": "Stránka, ktorú hľadáte, neexistuje.",
+    "returnHome": "Späť na úvodnú stránku"
+  },
+  "consentSection": {
+    "privacyTitle": "Ochrana osobných údajov",
+    "privacyText": "Súhlasím so spracovaním osobných údajov v súlade s podmienkami ochrany súkromia.",
+    "viewPrivacyPolicy": "Zobraziť zásady ochrany osobných údajov",
+    "mustAgree": "Musíte súhlasiť s podmienkami ochrany osobných údajov."
+  },
+  "painAreaSection": {
+    "title": "Označte oblasti bolesti na modeli",
+    "instruction": "Kliknite na oblasti tela, kde pociťujete bolesť",
+    "selectedAreas": "Vybrané oblasti:",
+    "noAreasSelected": "Nie sú vybrané žiadne oblasti",
+    "selectAtLeastOne": "Vyberte aspoň jednu oblasť bolesti"
+  },
+  "assessmentAccordion": {
+    "followUpProgress": "Sledovanie pokroku",
+    "showExercises": "Zobraziť cvičenia",
+    "endProgram": "Ukončiť program",
+    "renewProgram": "Obnoviť program",
+    "ended": "Ukončené",
+    "ending": "Ukončuje sa...",
+    "renewing": "Obnovuje sa...",
+    "yourPainInitial": "Vaša počiatočná bolesť:",
+    "yourPainLatest": "Vaša posledná zaznamenaná bolesť:",
+    "programStart": "Začiatok programu:",
+    "painMechanismLabel": "Mechanizmus bolesti:",
+    "diagnosisLabel": "Diagnóza:"
+  },
+  "assessmentDetails": {
+    "painArea": "Oblasť bolesti:",
+    "painMechanism": "Mechanizmus bolesti:",
+    "diagnosis": "Diagnóza:",
+    "exerciseCount": "Počet cvičení:",
+    "createdAt": "Vytvorené:",
+    "lastFollowUp": "Posledné sledovanie:",
+    "noFollowUp": "Žiadne sledovanie zatiaľ"
+  },
+  "exerciseVideoDialog": {
+    "title": "Náhľad cvičenia",
+    "exerciseName": "Názov cvičenia:",
+    "description": "Popis:",
+    "duration": "Trvanie:",
+    "repetitions": "Opakovania:",
+    "close": "Zavrieť"
+  },
+  "followUpQuestionnaire": {
+    "back": "Späť",
+    "next": "Ďalej",
+    "finish": "Dokončiť",
+    "question": "Otázka {{current}} z {{total}}",
+    "thankYou": "Ďakujeme za vyplnenie dotazníka o vašom pokroku."
+  },
+  "genderField": {
+    "selectGender": "Vyberte pohlavie"
   }
 }
