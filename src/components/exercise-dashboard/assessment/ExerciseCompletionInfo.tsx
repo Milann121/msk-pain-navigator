@@ -24,7 +24,11 @@ export const ExerciseCompletionInfo = ({ assessmentId }: ExerciseCompletionInfoP
     }
   });
 
-  const totalCompletions = completionData?.length || 0;
+  // Count unique days instead of total clicks
+  const uniqueDays = completionData ? new Set(
+    completionData.map(item => new Date(item.clicked_at).toDateString())
+  ).size : 0;
+
   const lastCompletionDate = completionData?.[completionData.length - 1]?.clicked_at;
 
   return (
@@ -34,7 +38,7 @@ export const ExerciseCompletionInfo = ({ assessmentId }: ExerciseCompletionInfoP
           {t('assessmentAccordion.delivered')}
         </span>
         <span className="text-blue-800 font-medium">
-          {totalCompletions}x
+          {uniqueDays}x
         </span>
       </div>
       {lastCompletionDate && (
