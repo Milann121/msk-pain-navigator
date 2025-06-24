@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { format, isAfter, isBefore, subDays, isSameDay } from 'date-fns';
-import { sk } from 'date-fns/locale/sk';
 import { useTranslation } from 'react-i18next';
 import { Card, CardContent } from '@/components/ui/card';
 import { UserGreeting } from './mood/UserGreeting';
@@ -28,14 +27,16 @@ export const MoodCalendar = () => {
   const [timePeriod, setTimePeriod] = useState<'week' | 'month'>('week');
   const [infoPopoverOpen, setInfoPopoverOpen] = useState(false);
   const { firstName, loading, handleMoodSelection, getMoodForDate, moodEntries } = useMoodData();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   
   // Get mood for the selected date
   const selectedDateMood = getMoodForDate(date);
   
-  // Get current day and date
+  // Get current day and date with translated day name
   const today = new Date();
-  const currentDayAndDate = format(today, 'EEEE, dd.MM.yyyy', { locale: sk });
+  const dayOfWeek = format(today, 'EEEE').toLowerCase();
+  const translatedDay = t(`calendar.days.long.${dayOfWeek}`);
+  const currentDayAndDate = `${translatedDay}, ${format(today, 'dd.MM.yyyy')}`;
 
   // Utility: filter and map moods for a period
   const getMoodScoresForPeriod = (startDate: Date, endDate: Date) => {
