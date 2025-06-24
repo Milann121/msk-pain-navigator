@@ -1,4 +1,3 @@
-
 {
   "profile": {
     "title": "My Profile",
@@ -347,185 +346,7 @@
     "sectionSummary": "This section contains {{count}} {{label}}",
     "moveLabel": "Move to select option",
     "errorSave": "Failed to save feedback.",
-    "backToExercises": "Back to my exercises"
-  },
-  "importantNotice": {
-    "title": "Important Notice",
-    "text": "These exercises serve only as general recommendations and do not replace a visit to a physiotherapist or doctor. If you experience increased pain, dizziness or any discomfort during exercise, immediately stop exercising and seek professional help."
-  },
-  "rotationControls": {
-    "modelControls": "Model Controls",
-    "reset": "Reset",
-    "resetTitle": "Return to neutral position",
-    "horizontal": "Horizontal Rotation",
-    "vertical": "Vertical Rotation",
-    "position": "Vertical Position",
-    "zoom": "Zoom"
-  },
-  "exerciseCvik": {
-    "one": "exercise",
-    "few": "exercises",
-    "many": "exercises"
-  },
-  "goals": {
-    "title": "My Goals",
-    "weekly": "Weekly Goals",
-    "exerciseText": "I want to exercise {dropdown} times per week",
-    "blogText": "I want to read {dropdown} blogs per week",
-    "save": "Save",
-    "cancel": "Cancel",
-    "successTitle": "Success",
-    "successExercise": "Exercise goal has been successfully saved.",
-    "successBlog": "Reading goal has been successfully saved.",
-    "errorTitle": "Error",
-    "error": "Failed to save goal."
-  },
-  "profileForm": {
-    "title": "Fill in your personal information",
-    "personalInfo": "Personal Information",
-    "firstName": "First Name *",
-    "firstNamePlaceholder": "Enter your first name",
-    "lastName": "Last Name *",
-    "lastNamePlaceholder": "Enter your last name",
-    "gender": "Gender *",
-    "male": "Male",
-    "female": "Female",
-    "age": "Age *",
-    "agePlaceholder": "Enter your age",
-    "job": "Job *",
-    "manual": "manual work",
-    "manualSpec": "Specification:",
-    "heavyLifting": "lifting heavy objects",
-    "standingWork": "standing work in place",
-    "awkwardPositions": "work in unnatural positions",
-    "desk": "desk work",
-    "officeWork": "office work",
-    "driver": "driver",
-    "goalsTitle": "My Goals (optional)",
-    "goalsSubtitle": "You can set goals or skip them and set them later in your profile.",
-    "weeklyExercise": "I want to exercise weekly",
-    "times": "times",
-    "weeklyBlog": "I want to read weekly",
-    "skip": "Skip Goals",
-    "saveAll": "Save All",
-    "saving": "Saving...",
-    "success": "Personal information has been successfully saved.",
-    "error": "Failed to save personal information."
-  },
-  "resultsFooter": {
-    "startNew": "Start New Assessment",
-    "myExercises": "My Exercises"
-  },
-  "exerciseStats": {
-    "noneToday": "No exercises today",
-    "completed": "Completed: {{count}}x",
-    "lastExercise": "Last exercise: {{date}}"
-  },
-  "privacy": {
-    "title": "Privacy Policy - Musculoskeletal Pain Questionnaire",
-    "intro": "Your trust and the security of your data are key to us. Therefore, we would like to inform you how we process personal data that you provide to us through the musculoskeletal pain questionnaire.",
-    "whatTitle": "What data do we process?",
-    "email": "Email address: We store and process only your email address. It serves so that we can send you the questionnaire results, possible recommendations or contact you with information about our services, if you have given consent to it.",
-    "health": "Health status data: Information about your pain and health status that you enter in the questionnaire, we do not store and do not process. They serve exclusively for immediate evaluation and personalization of recommendations in real time. After the evaluation is completed, we do not keep this data in any way.",
-    "whyTitle": "Why do we process email address?",
-    "whyList": [
-      "To send questionnaire evaluation results.",
-      "To possibly send additional recommendations or educational content.",
-      "For communication in connection with the offer of our services, if you have expressed consent to receiving marketing information."
-    ],
-    "protectTitle": "How do we protect your data?",
-    "protectText": "We protect your email address with modern technical and organizational measures to prevent unauthorized access, alteration or loss of data.",
-    "rightsTitle": "Your rights:",
-    "rightsIntro": "In accordance with GDPR, you have the right:",
-    "rightsList": [
-      "to access your personal data,",
-      "to correct or delete personal data,",
-      "to limit processing,",
-      "to object to processing,",
-      "to data portability,",
-      "to withdraw consent to data processing at any time."
-    ],
-    "contact": "To exercise your rights, you can contact us at <a href=\"mailto:privacy@example.com\">privacy@example.com</a>.",
-    "endTitle": "Conclusion",
-    "endText": "Your privacy is our priority. We process only the necessary minimum of data and do not store or archive health information."
-  },
-  "followUp": {
-    "progressRecorded": "Progress recorded",
-    "responsesSaved": "Your responses have been successfully saved",
-    "title": "Progress Tracking"
-  },
-  "slider": {
-    "selected": "Selected: {{value}}"
-  },
-  "emptyState": {
-    "noAssessments": "You don't have any saved assessments yet.",
-    "createNew": "Create New"
-  },
-  "notFound": {
-    "title": "Page not found",
-    "message": "The page you are looking for does not exist.",
-    "returnHome": "Return to home page"
-  },
-  "consentSection": {
-    "privacyTitle": "Privacy Protection",
-    "privacyText": "I agree to the processing of personal data in accordance with privacy protection terms.",
-    "viewPrivacyPolicy": "View privacy policy",
-    "mustAgree": "You must agree to the privacy protection terms."
-  },
-  "painAreaSection": {
-    "title": "Mark pain areas on the model",
-    "instruction": "Click on body areas where you feel pain",
-    "selectedAreas": "Selected areas:",
-    "noAreasSelected": "No areas selected",
-    "selectAtLeastOne": "Select at least one pain area"
-  },
-  "assessmentAccordion": {
-    "followUpProgress": "Progress Tracking",
-    "showExercises": "Show Exercises",
-    "endProgram": "End Program",
-    "renewProgram": "Renew Program",
-    "ended": "Ended",
-    "ending": "Ending...",
-    "renewing": "Renewing...",
-    "yourPainInitial": "Your initial pain:",
-    "yourPainLatest": "Your latest recorded pain:",
-    "programStart": "Program start:",
-    "painMechanismLabel": "Pain mechanism:",
-    "diagnosisLabel": "Diagnosis:",
-    "recordProgress": "Record Progress",
-    "viewExercises": "View Exercises",
-    "delivered": "Delivered:",
-    "lastExercise": "Last exercise:",
-    "programRequest": "Program request:"
-  },
-  "assessmentDetails": {
-    "painArea": "Pain area:",
-    "painMechanism": "Pain mechanism:",
-    "diagnosis": "Diagnosis:",
-    "exerciseCount": "Exercise count:",
-    "createdAt": "Created:",
-    "lastFollowUp": "Last follow-up:",
-    "noFollowUp": "No follow-up yet"
-  },
-  "exerciseVideoDialog": {
-    "title": "Exercise Preview",
-    "exerciseName": "Exercise Name:",
-    "description": "Description:",
-    "duration": "Duration:",
-    "repetitions": "Repetitions:",
-    "close": "Close"
-  },
-  "followUpQuestionnaire": {
-    "back": "Back",
-    "next": "Next",
-    "finish": "Finish",
-    "question": "Question {{current}} of {{total}}",
-    "thankYou": "Thank you for completing the progress questionnaire."
-  },
-  "genderField": {
-    "selectGender": "Select gender"
-  },
-  "exercisePlanPage": {
+    "backToExercises": "Back to my exercises",
     "title": "Your Exercise Plan",
     "generalTitle": "General Exercise Plan",
     "generalDescription": "Personalized program with the most important exercises from your programs. Follow the instructions and stop exercising if you experience pain.",
@@ -540,10 +361,123 @@
     "generalNotAvailable": "General program is not available",
     "generalNotAvailableDescription": "You don't have enough assessments to create a general program or there are no exercises with defined importance available."
   },
-  "exerciseDialog": {
-    "description": "Description"
-  },
   "exercises": {
+    "centralSensitisation": {
+      "neck": {
+        "title": "General exercise for reducing neck pain",
+        "description": "",
+        "wallMassage": {
+          "title": "Wall massage with tennis ball",
+          "description": "Use a tennis ball for this exercise. Place the ball on your trapezius, lean against the wall and massage your neck muscles as shown in the video. If you find painful spots, you can press statically for 20-30 seconds. Massage the entire trapezius and interscapular area."
+        },
+        "interscapularStrengthening": {
+          "title": "Interscapular muscle strengthening",
+          "description": "Grab the resistance band as shown in the video. You can alternate these 3 exercises or choose any of them.\\n➜ WARNING: you must not feel strain in the trapezius muscles during these exercises! Always try to press your shoulder blades and shoulders down away from your ears so that the interscapular muscles work. Make sure you feel the muscles between your shoulder blades more during the exercises, not your shoulders and trapezius - achieve this by pressing your shoulders down. \\n➜ REPETITIONS: 10-15x / 3 sets / 1x daily."
+        },
+        "wallPushUps": {
+          "title": "Wall push-ups",
+          "description": "Place your hands on the wall wider than your shoulders. Step back 1 step from the wall (the further you are from the wall, the harder the push-ups will be). Make sure your hands are positioned lower than your shoulders.\\n➜ WARNING: Don't arch your lower back during the exercise, but keep a tight core. Don't lift your shoulders during the exercise to prevent trapezius tightening, but try to press your shoulder blades down.\\n➜ REPETITIONS: 8-15 push-ups / 3 sets."
+        }
+      },
+      "middleBack": {
+        "title": "General exercise for reducing middle back pain",
+        "description": "",
+        "prayer": {
+          "title": "Prayer - neck and shoulder blade release",
+          "description": "Join your palms and elbows at 90-degree angles in your elbows and shoulders. With constant connection, slowly raise your elbows higher, but still KEEP YOUR ELBOWS AND PALMS CONNECTED. WARNING: try to keep your fingers pointing to the ceiling. REPETITIONS: 20 seconds / 2x in a row / 2x daily."
+        },
+        "thoracicMassage": {
+          "title": "Thoracic spine massage with ball",
+          "description": "Place the ball in the interscapular space and use vertical movements to release painful and tight muscles.\\n ➜ REPETITIONS: anytime during the day."
+        },
+        "bookOpening": {
+          "title": "Book opening",
+          "description": "This exercise will increase thoracic mobility.\\n ➜ Lie on your side, bend your legs and join your palms in front of you. Together with the upper limb, rotate to the opposite side while exhaling. Your head should follow your hand throughout. Stay in this position for 3 seconds.\\n ➜ REPETITIONS: 5x in each direction, anytime during the day."
+        },
+        "interscapularStrengthening": {
+          "title": "Interscapular muscle strengthening",
+          "description": "Grab the resistance band as shown in the video. You can alternate these 3 exercises or choose any of them. \\n➜ WARNING: you must not feel strain in the trapezius muscles during these exercises! Always try to press your shoulder blades and shoulders down away from your ears so that the interscapular muscles work. Make sure you feel the muscles between your shoulder blades more during the exercises, not your shoulders and trapezius - achieve this by pressing your shoulders down. \\n➜ REPETITIONS: 10-15x / 3 sets / 1x daily."
+        }
+      },
+      "lowerBack": {
+        "title": "General exercise for reducing lower back pain",
+        "description": "",
+        "glutealStretch": {
+          "title": "Glute stretch",
+          "description": "Description in the video.\\nREPETITIONS: 5x daily."
+        },
+        "bridge": {
+          "title": "Bridge",
+          "description": "Lie on your back and place your bent legs shoulder-width apart.\\n ➜ Place your arms along your body. \\n ➜ Press your feet into the surface and lift your buttocks above the surface, to the height where you straighten your back \\n ➜ Then slowly lower your buttocks just above the surface and repeat \\n ➜ REPETITIONS: 8-12x /4 sets / 1x daily"
+        },
+        "squats": {
+          "title": "90-degree squats",
+          "description": "Stand with your feet shoulder-width apart. \\n ➜ Perform squats to a maximum of 90 degrees of knee flexion and without bending your back. \\n ➜ REPETITIONS: 10x /3 sets / 1x daily"
+        }
+      }
+    },
+    "defaultNeck": {
+      "title": "General exercise for reducing neck pain",
+      "description": "",
+      "wallMassage": {
+        "title": "Wall massage with tennis ball",
+        "description": "Use a tennis ball for this exercise. Place the ball on your trapezius, lean against the wall and massage your neck muscles as shown in the video. If you find painful spots, you can press statically for 20-30 seconds. Massage the entire trapezius and interscapular area."
+      },
+      "interscapularStrengthening": {
+        "title": "Interscapular muscle strengthening",
+        "description": "Grab the resistance band as shown in the video. You can alternate these 3 exercises or choose any of them.\\n➜ WARNING: you must not feel strain in the trapezius muscles during these exercises! Always try to press your shoulder blades and shoulders down away from your ears so that the interscapular muscles work. Make sure you feel the muscles between your shoulder blades more during the exercises, not your shoulders and trapezius - achieve this by pressing your shoulders down. \\n➜ REPETITIONS: 10-15x / 3 sets / 1x daily."
+      },
+      "wallPushUps": {
+        "title": "Wall push-ups",
+        "description": "Place your hands on the wall wider than your shoulders. Step back 1 step from the wall (the further you are from the wall, the harder the push-ups will be). Make sure your hands are positioned lower than your shoulders.\\n➜ WARNING: Don't arch your lower back during the exercise, but keep a tight core. Don't lift your shoulders during the exercise to prevent trapezius tightening, but try to press your shoulder blades down.\\n➜ REPETITIONS: 8-15 push-ups / 3 sets."
+      }
+    },
+    "defaultMiddleBack": {
+      "phase1": {
+        "title": "0-2 weeks",
+        "description": "Gentle rotational movements to improve mobility in the thoracic area and reduce pain.",
+        "thoracicRotation": {
+          "title": "Thoracic rotation with extension",
+          "description": "Sit down and place your hands behind your head.\\n ➜ Slowly rotate in your thoracic spine to the side to a range that is comfortable for you. Stop in this position and slightly extend. Then return and repeat the exercise to the opposite side.\\n ➜ REPETITIONS: repeat 5-8x in each direction, anytime during the day."
+        },
+        "thoracicMassage": {
+          "title": "Thoracic spine massage with ball",
+          "description": "Place the ball in the interscapular space and use vertical movements to release painful and tight muscles.\\n ➜ REPETITIONS: anytime during the day."
+        }
+      },
+      "phase2": {
+        "title": "3-5 weeks",
+        "description": "Gentle rotational movements to improve mobility in the thoracic area and reduce pain.",
+        "interscapularStrengthening": {
+          "title": "Interscapular muscle strengthening",
+          "description": "Grab the resistance band as shown in the video. You can alternate these 3 exercises or choose any of them. \\n➜ WARNING: you must not feel strain in the trapezius muscles during these exercises! Always try to press your shoulder blades and shoulders down away from your ears so that the interscapular muscles work. Make sure you feel the muscles between your shoulder blades more during the exercises, not your shoulders and trapezius - achieve this by pressing your shoulders down. \\n➜ REPETITIONS: 10-15x / 3 sets / 1x daily."
+        },
+        "thoracicExtension": {
+          "title": "Thoracic spine extension",
+          "description": "Press your palms against the wall, step away from it so you are in a slight forward bend and with an exhale, release your torso into extension. Try to keep your shoulders relaxed at all times, your head in line with your spine and breathe 1-2 times in the extension position.\\n➜ REPETITIONS: Repeat extension 3-4x, anytime during the day."
+        },
+        "bookOpening": {
+          "title": "Book opening",
+          "description": "This exercise will increase thoracic mobility.\\n ➜ Lie on your side, bend your legs and join your palms in front of you. Together with the upper limb, rotate to the opposite side while exhaling. Your head should follow your hand throughout. Stay in this position for 3 seconds.\\n ➜ REPETITIONS: 5x in each direction, anytime during the day."
+        }
+      }
+    },
+    "defaultLowerBack": {
+      "title": "General exercise for reducing lower back pain",
+      "description": "",
+      "glutealStretch": {
+        "title": "Glute stretch",
+        "description": "Description in the video.\\n ➜ REPETITIONS: 5x daily."
+      },
+      "bridge": {
+        "title": "Bridge",
+        "description": "Lie on your back and place your bent legs shoulder-width apart.\\n ➜ Place your arms along your body. \\n ➜ Press your feet into the surface and lift your buttocks above the surface, to the height where you straighten your back \\n ➜ Then slowly lower your buttocks just above the surface and repeat \\n ➜ REPETITIONS: 8-12x /4 sets / 1x daily"
+      },
+      "squats": {
+        "title": "90-degree squats",
+        "description": "Stand with your feet shoulder-width apart. \\n ➜ Perform squats to a maximum of 90 degrees of knee flexion and without bending your back. \\n ➜ REPETITIONS: 10x /3 sets / 1x daily"
+      }
+    },
     "shoulderNociceptive": {
       "frozenShoulderPhase1": {
         "title": "0-3 weeks",
@@ -744,5 +678,184 @@
         }
       }
     }
+  },
+  "importantNotice": {
+    "title": "Important Notice",
+    "text": "These exercises serve only as general recommendations and do not replace a visit to a physiotherapist or doctor. If you experience increased pain, dizziness or any discomfort during exercise, immediately stop exercising and seek professional help."
+  },
+  "rotationControls": {
+    "modelControls": "Model Controls",
+    "reset": "Reset",
+    "resetTitle": "Return to neutral position",
+    "horizontal": "Horizontal Rotation",
+    "vertical": "Vertical Rotation",
+    "position": "Vertical Position",
+    "zoom": "Zoom"
+  },
+  "exerciseCvik": {
+    "one": "exercise",
+    "few": "exercises",
+    "many": "exercises"
+  },
+  "goals": {
+    "title": "My Goals",
+    "weekly": "Weekly Goals",
+    "exerciseText": "I want to exercise {dropdown} times per week",
+    "blogText": "I want to read {dropdown} blogs per week",
+    "save": "Save",
+    "cancel": "Cancel",
+    "successTitle": "Success",
+    "successExercise": "Exercise goal has been successfully saved.",
+    "successBlog": "Reading goal has been successfully saved.",
+    "errorTitle": "Error",
+    "error": "Failed to save goal."
+  },
+  "profileForm": {
+    "title": "Fill in your personal information",
+    "personalInfo": "Personal Information",
+    "firstName": "First Name *",
+    "firstNamePlaceholder": "Enter your first name",
+    "lastName": "Last Name *",
+    "lastNamePlaceholder": "Enter your last name",
+    "gender": "Gender *",
+    "male": "Male",
+    "female": "Female",
+    "age": "Age *",
+    "agePlaceholder": "Enter your age",
+    "job": "Job *",
+    "manual": "manual work",
+    "manualSpec": "Specification:",
+    "heavyLifting": "lifting heavy objects",
+    "standingWork": "standing work in place",
+    "awkwardPositions": "work in unnatural positions",
+    "desk": "desk work",
+    "officeWork": "office work",
+    "driver": "driver",
+    "goalsTitle": "My Goals (optional)",
+    "goalsSubtitle": "You can set goals or skip them and set them later in your profile.",
+    "weeklyExercise": "I want to exercise weekly",
+    "times": "times",
+    "weeklyBlog": "I want to read weekly",
+    "skip": "Skip Goals",
+    "saveAll": "Save All",
+    "saving": "Saving...",
+    "success": "Personal information has been successfully saved.",
+    "error": "Failed to save personal information."
+  },
+  "resultsFooter": {
+    "startNew": "Start New Assessment",
+    "myExercises": "My Exercises"
+  },
+  "exerciseStats": {
+    "noneToday": "No exercises today",
+    "completed": "Completed: {{count}}x",
+    "lastExercise": "Last exercise: {{date}}"
+  },
+  "privacy": {
+    "title": "Privacy Policy - Musculoskeletal Pain Questionnaire",
+    "intro": "Your trust and the security of your data are key to us. Therefore, we would like to inform you how we process personal data that you provide to us through the musculoskeletal pain questionnaire.",
+    "whatTitle": "What data do we process?",
+    "email": "Email address: We store and process only your email address. It serves so that we can send you the questionnaire results, possible recommendations or contact you with information about our services, if you have given consent to it.",
+    "health": "Health status data: Information about your pain and health status that you enter in the questionnaire, we do not store and do not process. They serve exclusively for immediate evaluation and personalization of recommendations in real time. After the evaluation is completed, we do not keep this data in any way.",
+    "whyTitle": "Why do we process email address?",
+    "whyList": [
+      "To send questionnaire evaluation results.",
+      "To possibly send additional recommendations or educational content.",
+      "For communication in connection with the offer of our services, if you have expressed consent to receiving marketing information."
+    ],
+    "protectTitle": "How do we protect your data?",
+    "protectText": "We protect your email address with modern technical and organizational measures to prevent unauthorized access, alteration or loss of data.",
+    "rightsTitle": "Your rights:",
+    "rightsIntro": "In accordance with GDPR, you have the right:",
+    "rightsList": [
+      "to access your personal data,",
+      "to correct or delete personal data,",
+      "to limit processing,",
+      "to object to processing,",
+      "to data portability,",
+      "to withdraw consent to data processing at any time."
+    ],
+    "contact": "To exercise your rights, you can contact us at <a href=\"mailto:privacy@example.com\">privacy@example.com</a>.",
+    "endTitle": "Conclusion",
+    "endText": "Your privacy is our priority. We process only the necessary minimum of data and do not store or archive health information."
+  },
+  "followUp": {
+    "progressRecorded": "Progress recorded",
+    "responsesSaved": "Your responses have been successfully saved",
+    "title": "Progress Tracking"
+  },
+  "slider": {
+    "selected": "Selected: {{value}}"
+  },
+  "emptyState": {
+    "noAssessments": "You don't have any saved assessments yet.",
+    "createNew": "Create New"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "message": "The page you are looking for does not exist.",
+    "returnHome": "Return to home page"
+  },
+  "consentSection": {
+    "privacyTitle": "Privacy Protection",
+    "privacyText": "I agree to the processing of personal data in accordance with privacy protection terms.",
+    "viewPrivacyPolicy": "View privacy policy",
+    "mustAgree": "You must agree to the privacy protection terms."
+  },
+  "painAreaSection": {
+    "title": "Mark pain areas on the model",
+    "instruction": "Click on body areas where you feel pain",
+    "selectedAreas": "Selected areas:",
+    "noAreasSelected": "No areas selected",
+    "selectAtLeastOne": "Select at least one pain area"
+  },
+  "assessmentAccordion": {
+    "followUpProgress": "Progress Tracking",
+    "showExercises": "Show Exercises",
+    "endProgram": "End Program",
+    "renewProgram": "Renew Program",
+    "ended": "Ended",
+    "ending": "Ending...",
+    "renewing": "Renewing...",
+    "yourPainInitial": "Your initial pain:",
+    "yourPainLatest": "Your latest recorded pain:",
+    "programStart": "Program start:",
+    "painMechanismLabel": "Pain mechanism:",
+    "diagnosisLabel": "Diagnosis:",
+    "recordProgress": "Record Progress",
+    "viewExercises": "View Exercises",
+    "delivered": "Delivered:",
+    "lastExercise": "Last exercise:",
+    "programRequest": "Program request:"
+  },
+  "assessmentDetails": {
+    "painArea": "Pain area:",
+    "painMechanism": "Pain mechanism:",
+    "diagnosis": "Diagnosis:",
+    "exerciseCount": "Exercise count:",
+    "createdAt": "Created:",
+    "lastFollowUp": "Last follow-up:",
+    "noFollowUp": "No follow-up yet"
+  },
+  "exerciseVideoDialog": {
+    "title": "Exercise Preview",
+    "exerciseName": "Exercise Name:",
+    "description": "Description:",
+    "duration": "Duration:",
+    "repetitions": "Repetitions:",
+    "close": "Close"
+  },
+  "followUpQuestionnaire": {
+    "back": "Back",
+    "next": "Next",
+    "finish": "Finish",
+    "question": "Question {{current}} of {{total}}",
+    "thankYou": "Thank you for completing the progress questionnaire."
+  },
+  "genderField": {
+    "selectGender": "Select gender"
+  },
+  "exerciseDialog": {
+    "description": "Description"
   }
 }

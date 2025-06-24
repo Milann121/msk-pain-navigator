@@ -1,4 +1,3 @@
-
 {
   "profile": {
     "title": "Môj profil",
@@ -122,128 +121,537 @@
     "sectionSummary": "Táto sekcia obsahuje {{count}} {{label}}",
     "moveLabel": "Presuňte pre výber možnosti",
     "errorSave": "Nepodarilo sa uložiť spätnú väzbu.",
-    "backToExercises": "Späť na moje cvičenie"
+    "backToExercises": "Späť na moje cvičenie",
+    "title": "Váš cvičebný plán",
+    "generalTitle": "Všeobecný cvičebný plán",
+    "generalDescription": "Personalizovaný program s najdôležitejšími cvikmi z vašich programov. Dodržiavajte pokyny a prestaňte cvičiť, ak pociťujete bolesť.",
+    "specificDescription": "Cviky špecifické pre {{diagnosis}} v oblasti {{painArea}}. Dodržiavajte pokyny a prestaňte cvičiť, ak pociťujete bolesť.",
+    "backToExercises": "Späť na moje cviky",
+    "sectionContains": "Táto sekcia obsahuje {{count}} {{label}}",
+    "weeks": "týždne",
+    "week": "týždeň",
+    "gentleRotationalMovements": "Jemné rotačné pohyby pre zlepšenie mobility v hrudnej oblasti a redukciu bolesti.",
+    "notFoundTitle": "Odporúčané cviky neboli nájdené", 
+    "notFoundDescription": "Nemáme špecifické cviky pre vašu kombináciu diagnózy ({{diagnosis}}) a oblasti bolesti ({{painArea}}). Prosím poraďte sa s fyzioterapeutom.",
+    "generalNotAvailable": "Všeobecný program nie je dostupný",
+    "generalNotAvailableDescription": "Nemáte dostatok hodnotení na vytvorenie všeobecného programu alebo nie sú dostupné cviky s definovanou dôležitosťou."
   },
   "exercises": {
-    "shoulderNociceptive": {
-      "frozenShoulderPhase1": {
-        "title": "0-3 týždne",
-        "description": "Základné cvičenia pre zmrznuté rameno zamerané na zníženie bolesti a zvýšenie rozsahu pohybu.",
-        "pendulumExercises": {
-          "title": "Kyvadlové cvičenia",
-          "description": "Predkloniť sa a začať vykonávať jemné kyvadlové pohyby na uvoľnenie napätia v ramene. Stačia mierné pohyby v tolerancii bolesti."
+    "centralSensitisation": {
+      "neck": {
+        "title": "Všeobecné cvičenie na zníženie bolestí krčnej chrbtice",
+        "description": "",
+        "wallMassage": {
+          "title": "Masáž loptičkou o stenu",
+          "description": "Na tento cvik použite ideálne tenisovú loptičku. Položte si loptičku na trapéz, oprite sa o stenu a masírujte svaly šije ako na videu. V prípade, že nájdete bolestivé miesta, môžete staticky zatlačiť po dobu 20-30 sekúnd. Premasírujte celú oblasť trapézov a medzilopatkového priestoru."
         },
-        "isometricExternalRotation": {
-          "title": "Izometrická vonkajšia rotácia ramena",
-          "description": "Pristúpte k stene s pokrčeným lakťom v 90° uhle pri tele. Medzi vonkajšiu stranu dlane a stenu vložte zložený uterák. Uvoľnite ramená a po celý čas ich držte dole -> dbajte na to, aby vám pri cvičení ramená nestúpali k ušiam. Následne zatlačte vonkajšou stranou dlane do steny s neustále pritlačeným lakťom pri tele. OPAKOVANIA: 6-8 sekúnd x 3-5x za sebou. 1-2x denne."
-        },
-        "rotatorCuffRelease": {
-          "title": "Uvoľnenie rotátorovej manžety",
-          "description": "Vezmite si tenisovú loptičku a vložte si ju na lopatku zozadu. Oprите sa o stenu a pomaly masírujte svaly rotátorovej manžety. V prípade, že nájdete bolestivý bod, zastavte na tomto mieste a bez pohybu tlačte po dobu 30 sekúnd (ostrá bolesť sa môže šíriť do prednej časti ramena)."
-        },
-        "shoulderHeating": {
-          "title": "Nahrievanie ramenného kĺbu",
-          "description": "Zvoľte výhrevnú podložku, alebo využite fén. V prípade fénu si VŽDY VLOŽTE UTERÁK na pokožku a zahriavajte uterák! Začnite zahriavať rameno z prednej strany a neskôr zo zadnej strany -> zahriavajte po dobu 10-15 minút, aby ste kompletne prehriali svaly ramena. Vždy si dávajte pozor, aby ste si nepopálili pokožku! OPAKOVANIA: 2x denne 10-15min."
-        }
-      },
-      "frozenShoulderPhase2": {
-        "title": "4-6 týždeň",
-        "description": "Cvičenia na zvýšenie svalovej sily a návrat k pohybu.",
-        "isometricShoulderPresses": {
-          "title": "Izometrické tlaky ramena",
-          "description": "Vložte sa chrbtom k stene a zatlačte lakťom do steny. OPAKOVANIA: 6-8 sekúnd x 3 série. Otočte sa čelom k stene, pokrčte lakeť a dlaňou (alebo rukou v päsť) zatlačte do steny. OPAKOVANIA: 6-8 sekúnd 3 série."
+        "interscapularStrengthening": {
+          "title": "Posiľnenie medzilopatkových svalov",
+          "description": "Uchyťte odporovú gumu podľa videa. Tieto 3 cviky môžete striedať, alebo si vybrať ktorýkoľvek z nich.\\n➜ UPOZORNENIE: pri týchto cvikoch nesmiete pociťovať namáhanie trapézov! Celý čas sa snažte tlačiť lopatky a ramená smerom dole od uší, aby pracovali medzilopatkové svaly. Dbajte na to, aby ste počas vykonávania cvikov viac cítili svaly medzi lopatkami, nie ramená a trapézy - to dosiahnete práve tlačením pliec dole. \\n➜ OPAKOVANIA: 10-15x / 3 série / 1x denne."
         },
         "wallPushUps": {
           "title": "Kliky o stenu",
-          "description": "Vložte ruky na stenu na úroveň hrudníka, mierne širšie ako šírka ramien. Opatrne sa s vystreným telom priblížte k stene a odtiahnte sa od steny. Dávajte pozor, aby ste nezdvíhali ramená k ušiam a rešpektujte bolesť vášho zmrznutého ramena. OPAKOVANIA: 10-12x 2 série denne"
-        },
-        "interscapularStrengthening": {
-          "title": "Posilnenie mezilopatkových svalov",
-          "description": "Uchopte odporovú gumu podľa videa. Tieto 3 cviky môžete striedať, alebo si vybrať ktorýkoľvek z nich. \n➜ UPOZORNENIE: pri týchto cvikoch nesmie pociťovať namáhanie trapézov! Celý čas sa snažte tlačiť lopatky a ramená smerom dole od uší, aby pracovali mezilopatkové svaly. Dbajte na to, aby ste počas vykonávania cvikov viac cítili svaly medzi lopatkami, nie ramená a trapézy - toho dosiahnete práve tlačením ramien dole. \n➜ OPAKOVANIA: 10-15x / 3 série / 1x denne."
+          "description": "Oprite ruky o stenu širšie ako sú vaše ramená. Odstúpte 1 krok od steny (čím budete ďalej od steny, tým budú kliky ťažšie). Dbajte, aby vaše ruky boli opreté v úrovni nižšie ako sú vaše ramená.\\n➜ UPOZORNENIE: Počas cviku sa neprehýbajte v driekovej chrbtici, ale držte pevný trup. Počas cviku nezdvíhajte ramená, aby vám netuhli trapézy, ale snažte sa tlačiť lopatky smerom dole.\\n➜ OPAKOVANIA: 8-15 klikov / 3 série."
         }
       },
-      "subacromialImpingement": {
-        "title": "Cvičenia pre subakromiálny impingement syndróm",
-        "description": "Cvičenia zamerané na zlepšenie priestoru pod akromiom a zníženie bolesti.\n\nTieto cvičenia pomáhajú zlepšiť mechaniku ramena a znižujú tlak na šľachy.\nVyhýbajte sa pohybom nad hlavou, ktoré zhoršujú príznaky.",
-        "interscapularStrengthening": {
-          "title": "Posilnenie mezilopatkových svalov",
-          "description": "Uchopte odporovú gumu podľa videa. Tieto 3 cviky môžete striedať, alebo si vybrať ktorýkoľvek z nich. \n➜ UPOZORNENIE: pri týchto cvikoch nesmie pociťovať namáhanie trapézov! Celý čas sa snažte tlačiť lopatky a ramená smerom dole od uší, aby pracovali mezilopatkové svaly."
+      "middleBack": {
+        "title": "Všeobecné cvičenie pre zníženie bolesti v hrudnej chrbtici",
+        "description": "",
+        "prayer": {
+          "title": "Modlenie - uvoľnenie krku a lopatiek",
+          "description": "Spojte dlane a lakte v 90 stupňovom uhle v lakti a ramenách. So sústavným spojením pomaly zdvíhajte lakte vyššie, ale stále DRŽTE SPOJENÉ lakte aj dlane. UPOZORNENIE: snažte sa, aby vám prsty smerovali do stropu. OPAKOVANIA: 20 sekúnd / 2x za sebou / 2x denne."
         },
-        "gentlePendulum": {
-          "title": "Jemné kyvadlové cvičenia",
-          "description": "Predkloniť sa a začať vykonávať jemné kyvadlové pohyby na uvoľnenie napätia v ramene."
+        "thoracicMassage": {
+          "title": "Masáž hrudnej chrbtice loptičkou",
+          "description": "Uložte si loptičku do medzilopatkového priestoru a vertikálnym pohybom uvoľnite bolestivé a stuhnuté svaly.\\n ➜ OPAKOVANIA: kedykoľvek v priebehu dňa."
         },
-        "preExerciseHeating": {
-          "title": "Nahrievanie pred cvičením",
-          "description": "Zahrejte rameno pred cvičením na zlepšenie cirkulácie a pripravenosti svalov."
+        "bookOpening": {
+          "title": "Otváranie knihy",
+          "description": "Týmto cvikom zvýšite mobilitu hrudníka.\\n ➜ Uložte sa na bok, pokrčte nohy a spojte dlane pred seba. Spolu s končatinou uloženou na vrchu sa za výdychu vyrotujte do opačnej strany. Hlava by mala celý čas nasledovať ruku. V tejto polohe zotrvajte 3 sekundy.\\n ➜ OPAKOVANIA: 5x do každej strany, kedykoľvek v priebehu dňa."
         }
       },
-      "rotatorCuffTear": {
-        "title": "Cvičenia pre trhnutie rotátorovej manžety",
-        "description": "Špecializované cvičenia na posilnenie a rehabilitáciu po trhnutí rotátorovej manžety.\n\nTieto cvičenia pomáhajú obnoviť funkciu ramena a predchádzajú ďalším zraneniam.\nZačnite s ľahkými cvičeniami a postupne zvyšujte intenzitu.",
-        "isometricStrengthening": {
-          "title": "Izometrické posilnenie rotátorovej manžety",
-          "description": "Jemné izometrické cvičenia na posilnenie rotátorovej manžety bez nadmernej záťaže."
+      "lowerBack": {
+        "title": "Všeobecné cvičenie pre zníženie bolesti v driekovej chrbtici",
+        "description": "",
+        "glutealStretch": {
+          "title": "Strečing sedacích svalov",
+          "description": "Popis vo videu.\\nOPAKOVANIA: 5x denne."
         },
-        "rotatorCuffMassage": {
-          "title": "Masáž rotátorovej manžety",
-          "description": "Jemná masáž na zlepšenie cirkulácie a uvoľnenie napätia v rotátorovej manžete."
-        }
-      },
-      "defaultNociceptive": {
-        "title": "Všeobecné cvičenia pre rameno - nociceptívna bolesť",
-        "description": "Základné cvičenia vhodné pre rôzne typy nociceptívnej bolesti ramena.\n\nTieto cvičenia pomáhajú zlepšiť celkovú funkciu ramena a znížiť bolesť.\nVykonávajte ich pravidelne, ale rešpektujte hranice bolesti.",
-        "basicMobility": {
-          "title": "Základné pohyblivostné cvičenia ramena",
-          "description": "Jemné cvičenia na zlepšenie pohyblivosti vo všetkých smeroch."
+        "bridge": {
+          "title": "Mostík",
+          "description": "Ľahnite si na chrbát a uložte pokrčené nohy na šírku ramien.\\n ➜ Ruky uložte pozdĺž tela. \\n ➜ Zaprite sa chodidlami do podložky a zdvihnite zadok nad podložku, do výšky kedy vyrovnáte chrbát \\n ➜ Následne pomaly spustite zadok tesne nad podložku a zopakujte znovu \\n ➜ OPAKOVANIA: 8-12x /4 série / 1x denne"
         },
-        "basicStrengthening": {
-          "title": "Základné posilňovacie cvičenia",
-          "description": "Ľahké posilňovacie cvičenia na stabilizáciu ramena."
+        "squats": {
+          "title": "Drepy do 90 stupňov",
+          "description": "Postavte sa s nohami na na šírku ramien. \\n ➜ Drep vykonávajte max. do 90 stupňov ohnutia kolien a bez prehýbania sa v chrtbte. \\n ➜ OPAKOVANIA: 10x /3 série / 1x denne"
         }
       }
     },
-    "middleBackNociceptive": {
-      "facetJointSyndrome": {
-        "title": "Cvičenia pre syndróm facetových kĺbov",
+    "defaultNeck": {
+      "title": "Všeobecné cvičenie na zníženie bolestí krčnej chrbtice",
+      "description": "",
+      "wallMassage": {
+        "title": "Masáž loptičkou o stenu",
+        "description": "Na tento cvik použite ideálne tenisovú loptičku. Položte si loptičku na trapéz, oprite sa o stenu a masírujte svaly šije ako na videu. V prípade, že nájdete bolestivé miesta, môžete staticky zatlačiť po dobu 20-30 sekúnd. Premasírujte celú oblasť trapézov a medzilopatkového priestoru."
+      },
+      "interscapularStrengthening": {
+        "title": "Posiľnenie medzilopatkových svalov",
+        "description": "Uchyťte odporovú gumu podľa videa. Tieto 3 cviky môžete striedať, alebo si vybrať ktorýkoľvek z nich.\\n➜ UPOZORNENIE: pri týchto cvikoch nesmiete pociťovať namáhanie trapézov! Celý čas sa snažte tlačiť lopatky a ramená smerom dole od uší, aby pracovali medzilopatkové svaly. Dbajte na to, aby ste počas vykonávania cvikov viac cítili svaly medzi lopatkami, nie ramená a trapézy - to dosiahnete práve tlačením pliec dole. \\n➜ OPAKOVANIA: 10-15x / 3 série / 1x denne."
+      },
+      "wallPushUps": {
+        "title": "Kliky o stenu",
+        "description": "Oprite ruky o stenu širšie ako sú vaše ramená. Odstúpte 1 krok od steny (čím budete ďalej od steny, tým budú kliky ťažšie). Dbajte, aby vaše ruky boli opreté v úrovni nižšie ako sú vaše ramená.\\n➜ UPOZORNENIE: Počas cviku sa neprehýbajte v driekovej chrbtici, ale držte pevný trup. Počas cviku nezdvíhajte ramená, aby vám netuhli trapézy, ale snažte sa tlačiť lopatky smerom dole.\\n➜ OPAKOVANIA: 8-15 klikov / 3 série."
+      }
+    },
+    "defaultMiddleBack": {
+      "phase1": {
+        "title": "0-2 týždeň",
         "description": "Jemné rotačné pohyby pre zlepšenie mobility v hrudnej oblasti a redukciu bolesti.",
-        "phase1": {
-          "title": "0-2 týždne",
-          "description": "Jemné rotačné pohyby pre zlepšenie mobility v hrudnej oblasti a redukciu bolesti.",
-          "thoracicRotation": {
-            "title": "Rotácia hrudníku so záklonom",
-            "description": "Posaďte sa a ruky uložte za hlavu. Pomaly sa otáčajte do strán, pričom panvu držte nehybne. Pohyb opakujte 5-8x do každej strany. OPAKOVANIA: každý deň ráno."
-          },
-          "thoracicMassage": {
-            "title": "Masáž hrudnej chrbtice loptičkou",
-            "description": "Uložte si loptičku do medziloptatkového priestoru a vertikálnym pohybom uvoľnite bolestivé a stuhnuté svaly. OPAKOVANIA: kedykoľvek v priebehu dňa."
-          }
+        "thoracicRotation": {
+          "title": "Rotácia hrudníku so záklonom",
+          "description": "Posaďte sa a ruky uložte za hlavu.\\n ➜ Pomaly sa vytočte v hrudnej chrbtici do strany do rozsahu, ktorý je vám komfortný. V tejto polohe sa zastavte a mierne zakloňte. Následne sa vráťte naspäť a zopakujte cvik do opačnej strany.\\n ➜ OPAKOVANIA: zopakujte 5-8x do každej strany, kedykoľvek v priebehu dňa."
         },
-        "phase2": {
-          "title": "3-5 týždňov",
-          "description": "Jemné rotačné pohyby pre zlepšenie mobility v hrudnej oblasti a redukciu bolesti.",
-          "thoracicExtension": {
-            "title": "Extenzia hrudnej chrbtice",
-            "description": "Sadnúť si na stoličku s operadlom. Ruky založiť za hlavu a pomaly extendovať hrudnú chrbticu cez operadlo. Pozíciu držať 5 sekúnd a vrátiť sa do východiskovej polohy. OPAKOVANIA: 10x / 2 série / denne."
-          },
-          "thoracicMobilization": {
-            "title": "Mobilizácia hrudnej chrbtice",
-            "description": "Ležať na boku s pokrčenými kolenami. Hornú ruku založiť za hlavu a pomaly rotovať trupom pri zachovaní kolien na zemi. OPAKOVANIA: 8-10x každú stranu / 2 série / denne."
-          }
+        "thoracicMassage": {
+          "title": "Masáž hrudnej chrbtice loptičkou",
+          "description": "Uložte si loptičku do medzilopatkového priestoru a vertikálnym pohybom uvoľnite bolestivé a stuhnuté svaly.\\n ➜ OPAKOVANIA: kedykoľvek v priebehu dňa."
         }
       },
-      "defaultNociceptive": {
-        "title": "Všeobecné cvičenia pre stredné chrbát - nociceptívna bolesť",
-        "description": "Základné cvičenia vhodné pre rôzne typy nociceptívnej bolesti strednej časti chrbta.\n\nTieto cvičenia pomáhajú zlepšiť celkovú funkciu hrudnej chrbtice a znížiť bolesť.\nVykonávajte ich pravidelne, ale rešpektujte hranice bolesti.",
-        "basicMobility": {
-          "title": "Základné pohyblivostné cvičenia hrudnej chrbtice",
-          "description": "Jemné cvičenia na zlepšenie pohyblivosti vo všetkých smeroch."
+      "phase2": {
+        "title": "3-5 týždeň",
+        "description": "Jemné rotačné pohyby pre zlepšenie mobility v hrudnej oblasti a redukciu bolesti.",
+        "interscapularStrengthening": {
+          "title": "Posiľnenie medzilopatkových svalov",
+          "description": "Uchyťte odporovú gumu podľa videa. Tieto 3 cviky môžete striedať, alebo si vybrať ktorýkoľvek z nich. \\n➜ UPOZORNENIE: pri týchto cvikoch nesmiete pociťovať namáhanie trapézov! Celý čas sa snažte tlačiť lopatky a ramená smerom dole od uší, aby pracovali medzilopatkové svaly. Dbajte na to, aby ste počas vykonávania cvikov viac cítili svaly medzi lopatkami, nie ramená a trapézy - to dosiahnete práve tlačením pliec dole. \\n➜ OPAKOVANIA: 10-15x / 3 série / 1x denne."
         },
-        "basicStrengthening": {
-          "title": "Základné posilňovacie cvičenia",
-          "description": "Ľahké posilňovacie cvičenia na stabilizáciu hrudnej chrbtice."
+        "thoracicExtension": {
+          "title": "Záklon hrudnej chrbtice",
+          "description": "Zaprite dlane o stenu, odstúpte od nej aby ste boli v miernom predklone a s výdychom uvoľnite trup do záklonu. Snažte sa mať celý čas zrelaxované ramená, hlavu v predĺžení chrbtice a v polohe záklonu sa 1-2x nadýchnite.\\n➜ OPAKOVANIA: Záklon zopakujte 3-4x, kedykoľvek v priebehu dňa."
+        },
+        "bookOpening": {
+          "title": "Otváranie knihy",
+          "description": "Týmto cvikom zvýšite mobilitu hrudníka.\\n ➜ Uložte sa na bok, pokrčte nohy a spojte dlane pred seba. Spolu s končatinou uloženou na vrchu sa za výdychu vyrotujte do opačnej strany. Hlava by mala celý čas nasledovať ruku. V tejto polohe zotrvajte 3 sekundy.\\n ➜ OPAKOVANIA: 5x do každej strany, kedykoľvek v priebehu dňa."
         }
       }
+    },
+    "defaultLowerBack": {
+      "title": "Všeobecné cvičenie pre zníženie bolesti v driekovej chrbtici",
+      "description": "",
+      "glutealStretch": {
+        "title": "Strečing sedacích svalov",
+        "description": "Popis vo videu.\\n ➜ OPAKOVANIA: 5x denne."
+      },
+      "bridge": {
+        "title": "Mostík",
+        "description": "Ľahnite si na chrbát a uložte pokrčené nohy na šírku ramien.\\n ➜ Ruky uložte pozdĺž tela. \\n ➜ Zaprite sa chodidlami do podložky a zdvihnite zadok nad podložku, do výšky kedy vyrovnáte chrbát \\n ➜ Následne pomaly spustite zadok tesne nad podložku a zopakujte znovu \\n ➜ OPAKOVANIA: 8-12x /4 série / 1x denne"
+      },
+      "squats": {
+        "title": "Drepy do 90 stupňov",
+        "description": "Postavte sa s nohami na na šírku ramien. \\n ➜ Drep vykonávajte max. do 90 stupňov ohnutia kolien a bez prehýbania sa v chrtbte. \\n ➜ OPAKOVANIA: 10x /3 série / 1x denne"
+      }
     }
+  },
+  "calendar": {
+    "months": {
+      "short": {
+        "jan": "Jan",
+        "feb": "Feb", 
+        "mar": "Mar",
+        "apr": "Apr",
+        "may": "Máj",
+        "jun": "Jún",
+        "jul": "Júl",
+        "aug": "Aug",
+        "sep": "Sep",
+        "oct": "Okt",
+        "nov": "Nov",
+        "dec": "Dec"
+      },
+      "long": {
+        "january": "Január",
+        "february": "Február",
+        "march": "Marec",
+        "april": "Apríl",
+        "may": "Máj",
+        "june": "Jún",
+        "july": "Júl",
+        "august": "August",
+        "september": "September",
+        "october": "Október",
+        "november": "November",
+        "december": "December"
+      }
+    },
+    "days": {
+      "short": {
+        "mon": "Po",
+        "tue": "Ut",
+        "wed": "St",
+        "thu": "Št",
+        "fri": "Pi",
+        "sat": "So",
+        "sun": "Ne"
+      },
+      "long": {
+        "monday": "Pondelok",
+        "tuesday": "Utorok",
+        "wednesday": "Streda",
+        "thursday": "Štvrtok",
+        "friday": "Piatok",
+        "saturday": "Sobota",
+        "sunday": "Nedeľa"
+      }
+    },
+    "exerciseCalendarTitle": "Kalendár cvičenia",
+    "today": "Dnes",
+    "weeklyProgress": "{{completed}} / {{goal}} dní cvičenia tento týždeň"
+  },
+  "welcome": {
+    "title": "Vitajte v Pebee Therapist",
+    "subtitle": "Pre prístup k dotazníku a personalizovaným cvičebným programom sa prihláste do svojho účtu.",
+    "signIn": "Prihlásiť sa",
+    "movementTitle": "Pohyb bez bolesti",
+    "features": "Funkcie Pebee Therapist",
+    "alt": {
+      "mobileApps": "Mobilné aplikácie",
+      "calendar": "Kalendár cvičenia a úspory",
+      "programs": "Moje cviky a aktívne programy",
+      "assessment": "Hodnotenie muskuloskeletálnej bolesti"
+    },
+    "calendar": {
+      "title": "Kalendár cvičenia",
+      "text": "Sledujte svoj pokrok s naším intuitívnym kalendárom cvičenia. Môžete vidieť presne kedy ste cvičili, koľko dní ste boli aktívni a aké úspory ste dosiahli. Motivujte sa dennými výsledkami a udržiavajte pravidelný cvičebný režim."
+    },
+    "programs": {
+      "title": "Moje cviky a programy",
+      "text": "Prístup k personalizovaným cvičebným programom prispôsobeným vašim potrebám. Každý cvik je navrhnutý pre váš typ bolesti a stav. Sledujte aktívne programy a zostaňte motivovaní s jasným prehľadom vašich cvikov."
+    },
+    "assessment": {
+      "title": "Hodnotenie bolesti",
+      "text": "Komplexné hodnotenie vašej muskuloskeletálnej bolesti pomocou interaktívneho 3D modelu. Identifikujte problémové oblasti a získajte personalizované odporúčania. Náš systém analyzuje symptómy a navrhuje vhodný liečebný plán."
+    },
+    "footer": {
+      "title": "Pebee Therapist",
+      "rights": "© 2024 Pebee Therapist. Všetky práva vyhradené."
+    }
+  },
+  "home": {
+    "progressTitle": "Môj pokrok",
+    "setGoals": "Nastaviť osobné ciele",
+    "exerciseStats": {
+      "title": "Moje cviky",
+      "weekLabel": "dní cvičenia tento týždeň",
+      "goalDone": "🎉 Gratulujeme! Dosiahli ste svoj týždenný cieľ.",
+      "goalRemaining": "{{count}} dní zostáva na dosiahnutie cieľa.",
+      "noGoal": "Nastavte si týždenný cieľ v sekcii \"Moje ciele\" na vašej profilovej stránke."
+    },
+    "blogStats": {
+      "title": "Čítanie blogov",
+      "weekLabel": "blogov prečítaných tento týždeň",
+      "goalDone": "🎉 Gratulujeme! Dosiahli ste svoj týždenný cieľ.",
+      "goalRemaining": "{{count}} blogov zostáva na dosiahnutie cieľa.",
+      "noGoal": "Nastavte si týždenný cieľ v sekcii \"Moje ciele\" na vašej profilovej stránke."
+    },
+    "favoriteExercises": {
+      "title": "Obľúbené cviky",
+      "empty": "Zatiaľ nemáte žiadne obľúbené cviky. Môžete ich pridať označením hviezdy pri cvikoch vo vašom cvičebnom pláne."
+    },
+    "savedBlogs": {
+      "title": "Uložené články",
+      "empty": "Zatiaľ nemáte žiadne uložené články. Môžete uložiť články v sekcii Blog pomocou tlačidla \"Pridať k obľúbeným\"."
+    },
+    "generalProgram": {
+      "title": "Všeobecný program",
+      "needMore": "Potrebujete aspoň 2 hodnotenia (máte {{count}})",
+      "generating": "Program sa generuje...",
+      "hint": "Dokončite viac dotazníkov bolesti na vytvorenie personalizovaného programu",
+      "description": "Nemáte čas na individuálne cvičebné programy? Tu nájdete personalizovaný program s najdôležitejšími cvikmi z vašich programov.",
+      "exerciseCount": "{{count}} cvikov z vašich programov",
+      "view": "Zobraziť program"
+    },
+    "banner": {
+      "message": "Je tu! Nový týždeň, nová výzva. Neodkladajte svoje cviky a začnite dnes 🏋️‍♂️",
+      "open": "Otvoriť program"
+    },
+    "greeting": {
+      "hello": "Ahoj {{name}}",
+      "question": "ako sa dnes cítite?"
+    },
+    "mood": {
+      "week": "týždeň",
+      "month": "mesiac",
+      "periodWeek": "7 dní",
+      "periodMonth": "30 dní",
+      "emptyWeek": "posledných 7 dní",
+      "emptyMonth": "posledných 30 dní",
+      "avgScore": "Priemerné skóre za {{period}}",
+      "infoLabel": "Informácie o skóre",
+      "infoText": "Priemerné skóre za posledných {{days}} dní je založené na vašich denných záznamoch o tom, ako sa cítite. Čím bližšie je vaše skóre k číslu 3, tým lepšia je vaša nálada.",
+      "infoGrades": "Dobré = 3, Neutrálne = 2, Zlé = 1.",
+      "infoFollow": "Sledujte, ako sa vaše celkové skóre mení v čase.",
+      "better": "Lepší trend za posledných {{days}} dní.",
+      "worse": "Horší trend za posledných {{days}} dní.",
+      "noChange": "Žiadna zmena.",
+      "noRecords": "(Nemáte žiadne záznamy za {{period}})",
+      "happy": "Dobré",
+      "neutral": "Neutrálne",
+      "sad": "Zlé"
+    }
+  },
+  "auth": {
+    "signIn": "Prihlásiť sa",
+    "signUp": "Vytvoriť účet",
+    "google": "Pokračovať s Google",
+    "toggleSignUp": "Nemáte účet? Zaregistrujte sa",
+    "toggleSignIn": "Už máte účet? Prihláste sa",
+    "signUpSubtitle": "Vytvorte si nový účet pre začiatok",
+    "signInSubtitle": "Prihláste sa do svojho účtu",
+    "firstName": "Meno",
+    "email": "Email",
+    "password": "Heslo",
+    "privacyConsent": "Súhlasím so spracovaním osobných údajov",
+    "or": "alebo",
+    "backHome": "Späť na domovskú stránku"
+  },
+  "myExercises": {
+    "title": "Moje cviky",
+    "activeProgramsTitle": "Aktívne programy",
+    "activeProgramsDescription": "Nižšie nájdete všetky vaše aktívne cvičebné programy z dokončených hodnotení.",
+    "endedProgramsTitle": "Ukončené programy",
+    "endedProgramsDescription": "Nižšie nájdete všetky programy, ktoré ste už dokončili.",
+    "noEndedPrograms": "Žiadne ukončené programy.",
+    "backHome": "Späť domov",
+    "newAssessment": "Nové hodnotenie"
+  },
+  "blog": {
+    "title": "Blog",
+    "readMore": "Čítať viac",
+    "posts": {
+      "1": {
+        "title": "Neurodynamické cvičenia: čo? prečo? kedy?",
+        "description": "Už ste počuli o nerve flossing? Ak máte bolesť spôsobenú podráždením alebo útlakom nervu, nerve flossing vám môže pomôcť."
+      },
+      "2": {
+        "title": "Prevencia bolesti chrbta v práci",
+        "description": "Tipy pre správne sedenie, ergonomické nastavenie pracoviska a cvičenia počas pracovného dňa."
+      },
+      "3": {
+        "title": "Strečing pre zdravú chrbticu",
+        "description": "Jednoduchý strečingový program, ktorý pomôže udržať vašu chrbticu zdravú a flexibilnú."
+      },
+      "4": {
+        "title": "Cvičenie a výživa",
+        "description": "Ako správna výživa prispieva k lepšej regenerácii a posilneniu chrbtových svalov."
+      },
+      "5": {
+        "title": "Najčastejšie chyby pri cvičení",
+        "description": "Vyhnite sa chybám, ktoré môžu zhoršiť bolesť chrbta namiesto jej zmierňovania."
+      },
+      "6": {
+        "title": "Rehabilitačné cvičenia po zranení",
+        "description": "Odporúčané postupy a cvičenia pre rehabilitáciu po zranení alebo operácii chrbtice."
+      }
+    },
+    "favorite": "Obľúbené",
+    "read": "Čítať"
+  },
+  "assessment": {
+    "title": "Hodnotenie muskuloskeletálnej bolesti",
+    "subtitle": "Vyplňte dotazník pre získanie personalizovaných odporúčaní cvikov",
+    "new": "Nové hodnotenie",
+    "painArea": {
+      "specify": "Pre spustenie hodnotenia vyberte oblasť bolesti",
+      "neck": "Krk",
+      "middleBack": "Stredná časť chrbta",
+      "lowerBack": "Spodná časť chrbta",
+      "upperLimb": "Horná končatina"
+    },
+    "consent": {
+      "disclaimer": "Súhlasím s podmienkami použitia",
+      "privacy": "Súhlasím so spracovaním osobných údajov"
+    },
+    "startAssessment": "Spustiť hodnotenie"
+  },
+  "cookie": {
+    "message": "Táto stránka používa cookies na zlepšenie vášho zážitku. Používaním našej stránky súhlasíte s našimi podmienkami používania cookies.",
+    "accept": "Súhlasím"
+  },
+  "importantNotice": {
+    "title": "Dôležité upozornenie",
+    "text": "Tieto cvičenia slúžia len ako všeobecné odporúčania a nenahrádzajú návštevu fyzioterapeuta alebo lekára. Ak počas cvičenia pociťujete zvýšenú bolesť, závrat alebo akékoľvek nepríjemné pocity, okamžite prestaňte cvičiť a vyhľadajte odbornú pomoc."
+  },
+  "rotationControls": {
+    "modelControls": "Ovládanie modelu",
+    "reset": "Resetovať",
+    "resetTitle": "Vrátiť do neutrálnej polohy",
+    "horizontal": "Horizontálne otáčanie",
+    "vertical": "Vertikálne otáčanie",
+    "position": "Vertikálna poloha",
+    "zoom": "Priblíženie"
+  },
+  "exerciseCvik": {
+    "one": "cvik",
+    "few": "cviky",
+    "many": "cvikov"
+  },
+  "goals": {
+    "title": "Moje ciele",
+    "weekly": "Týždenné ciele",
+    "exerciseText": "Chcem cvičiť {dropdown} krát za týždeň",
+    "blogText": "Chcem prečítať {dropdown} blogov za týždeň",
+    "save": "Uložiť",
+    "cancel": "Zrušiť",
+    "successTitle": "Úspech",
+    "successExercise": "Cieľ cvičenia bol úspešne uložený.",
+    "successBlog": "Cieľ čítania bol úspešne uložený.",
+    "errorTitle": "Chyba",
+    "error": "Nepodarilo sa uložiť cieľ."
+  },
+  "profileForm": {
+    "title": "Vyplňte vaše osobné údaje",
+    "personalInfo": "Osobné údaje",
+    "firstName": "Meno *",
+    "firstNamePlaceholder": "Zadajte vaše meno",
+    "lastName": "Priezvisko *",
+    "lastNamePlaceholder": "Zadajte vaše priezvisko",
+    "gender": "Pohlavie *",
+    "male": "Muž",
+    "female": "Žena",
+    "age": "Vek *",
+    "agePlaceholder": "Zadajte váš vek",
+    "job": "Práca *",
+    "manual": "manuálna práca",
+    "manualSpec": "Špecifikácia:",
+    "heavyLifting": "zdvíhanie ťažkých predmetov",
+    "standingWork": "práca v stoji na mieste",
+    "awkwardPositions": "práca v neprirodených polohách",
+    "desk": "sedavá práca",
+    "officeWork": "práca v kancelárii",
+    "driver": "vodič",
+    "goalsTitle": "Moje ciele (voliteľné)",
+    "goalsSubtitle": "Môžete si nastaviť ciele alebo ich preskočiť a nastaviť neskôr vo svojom profile.",
+    "weeklyExercise": "Chcem cvičiť týždenne",
+    "times": "krát",
+    "weeklyBlog": "Chcem čítať týždenne",
+    "skip": "Preskočiť ciele",
+    "saveAll": "Uložiť všetko",
+    "saving": "Ukladanie...",
+    "success": "Osobné údaje boli úspešne uložené.",
+    "error": "Nepodarilo sa uložiť osobné údaje."
+  },
+  "resultsFooter": {
+    "startNew": "Spustiť nové hodnotenie",
+    "myExercises": "Moje cviky"
+  },
+  "exerciseStats": {
+    "noneToday": "Žiadne cviky dnes",
+    "completed": "Dokončené: {{count}}x",
+    "lastExercise": "Posledný cvik: {{date}}"
+  },
+  "privacy": {
+    "title": "Zásady ochrany osobných údajov - Dotazník muskuloskeletálnej bolesti",
+    "intro": "Vaša dôvera a bezpečnosť vašich údajov sú pre nás kľúčové. Preto vás chceme informovať o tom, ako spracúvame osobné údaje, ktoré nám poskytujete prostredníctvom dotazníka muskuloskeletálnej bolesti.",
+    "whatTitle": "Aké údaje spracúvame?",
+    "email": "E-mailová adresa: Ukladáme a spracúvame iba vašu e-mailovú adresu. Slúži na to, aby sme vám mohli zaslať výsledky dotazníka, prípadné odporúčania alebo vás kontaktovať s informáciami o našich službách, ak ste k tomu dali súhlas.",
+    "health": "Údaje o zdravotnom stave: Informácie o vašej bolesti a zdravotnom stave, ktoré zadávate v dotazníku, neukladáme a nespracúvame. Slúžia výlučne pre okamžité vyhodnotenie a personalizáciu odporúčaní v reálnom čase. Po dokončení vyhodnotenia tieto údaje žiadnym spôsobom neuchovávame.",
+    "whyTitle": "Prečo spracúvame e-mailovú adresu?",
+    "whyList": [
+      "Na zaslanie výsledkov vyhodnotenia dotazníka.",
+      "Na prípadné zaslanie dodatočných odporúčaní alebo vzdelávacieho obsahu.",
+      "Na komunikáciu v súvislosti s ponukou našich služieb, ak ste vyjadrili súhlas s prijímaním marketingových informácií."
+    ],
+    "protectTitle": "Ako chránime vaše údaje?",
+    "protectText": "Vašu e-mailovú adresu chránime modernými technickými a organizačnými opatreniami na zabránenie neoprávneného prístupu, zmeny alebo straty údajov.",
+    "rightsTitle": "Vaše práva:",
+    "rightsIntro": "V súlade s GDPR máte právo:",
+    "rightsList": [
+      "na prístup k vašim osobným údajom,",
+      "na opravu alebo vymazanie osobných údajov,",
+      "na obmedzenie spracovania,",
+      "na námietku proti spracovaniu,",
+      "na prenosnosť údajov,",
+      "kedykoľvek odvolať súhlas so spracovaním údajov."
+    ],
+    "contact": "Na uplatnenie vašich práv nás môžete kontaktovať na <a href=\"mailto:privacy@example.com\">privacy@example.com</a>.",
+    "endTitle": "Záver",
+    "endText": "Vaše súkromie je našou prioritou. Spracúvame iba nevyhnutné minimum údajov a zdravotné informácie neukladáme ani nearchivujeme."
+  },
+  "followUp": {
+    "progressRecorded": "Pokrok zaznamenaný",
+    "responsesSaved": "Vaše odpovede boli úspešne uložené",
+    "title": "Sledovanie pokroku"
+  },
+  "slider": {
+    "selected": "Vybrané: {{value}}"
+  },
+  "emptyState": {
+    "noAssessments": "Zatiaľ nemáte žiadne uložené hodnotenia.",
+    "createNew": "Vytvoriť nové"
+  },
+  "notFound": {
+    "title": "Stránka nebola nájdená",
+    "message": "Stránka, ktorú hľadáte, neexistuje.",
+    "returnHome": "Vrátiť sa na domovskú stránku"
+  },
+  "consentSection": {
+    "privacyTitle": "Ochrana súkromia",
+    "privacyText": "Súhlasím so spracovaním osobných údajov v súlade s podmienkami ochrany súkromia.",
+    "viewPrivacyPolicy": "Zobraziť zásady ochrany súkromia",
+    "mustAgree": "Musíte súhlasiť s podmienkami ochrany súkromia."
+  },
+  "painAreaSection": {
+    "title": "Označte bolestivé oblasti na modeli",
+    "instruction": "Kliknite na oblasti tela, kde pociťujete bolesť",
+    "selectedAreas": "Vybrané oblasti:",
+    "noAreasSelected": "Žiadne oblasti nie sú vybrané",
+    "selectAtLeastOne": "Vyberte aspoň jednu oblasť bolesti"
+  },
+  "assessmentAccordion": {
+    "followUpProgress": "Sledovanie pokroku",
+    "showExercises": "Zobraziť cviky",
+    "endProgram": "Ukončiť program",
+    "renewProgram": "Obnoviť program",
+    "ended": "Ukončené",
+    "ending": "Ukončovanie...",
+    "renewing": "Obnovuje sa...",
+    "yourPainInitial": "Vaša počiatočná bolesť:",
+    "yourPainLatest": "Vaša najnovšia zaznamenaná bolesť:",
+    "programStart": "Začiatok programu:",
+    "painMechanismLabel": "Mechanizmus bolesti:",
+    "diagnosisLabel": "Diagnóza:",
+    "recordProgress": "Zaznamenať pokrok",
+    "viewExercises": "Zobraziť cviky",
+    "delivered": "Doručené:",
+    "lastExercise": "Posledný cvik:",
+    "programRequest": "Žiadosť o program:"
+  },
+  "assessmentDetails": {
+    "painArea": "Oblasť bolesti:",
+    "painMechanism": "Mechanizmus bolesti:",
+    "diagnosis": "Diagnóza:",
+    "exerciseCount": "Počet cvikov:",
+    "createdAt": "Vytvorené:",
+    "lastFollowUp": "Posledné sledovanie:",
+    "noFollowUp": "Zatiaľ žiadne sledovanie"
+  },
+  "exerciseVideoDialog": {
+    "title": "Náhľad cviku",
+    "exerciseName": "Názov cviku:",
+    "description": "Popis:",
+    "duration": "Trvanie:",
+    "repetitions": "Opakovania:",
+    "close": "Zatvoriť"
+  },
+  "followUpQuestionnaire": {
+    "back": "Späť",
+    "next": "Ďalej",
+    "finish": "Dokončiť",
+    "question": "Otázka {{current}} z {{total}}",
+    "thankYou": "Ďakujeme za vyplnenie dotazníka pokroku."
+  },
+  "genderField": {
+    "selectGender": "Vyberte pohlavie"
+  },
+  "exerciseDialog": {
+    "description": "Popis"
   }
 }
