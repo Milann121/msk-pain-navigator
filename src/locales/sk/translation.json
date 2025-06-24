@@ -1,3 +1,4 @@
+
 {
   "profile": {
     "title": "Môj profil",
@@ -359,7 +360,7 @@
     "renewProgram": "Obnoviť program",
     "ended": "Ukončené",
     "ending": "Ukončuje sa...",
-    "renewing": "Obnovuje sa...",
+    "renewing": "Obnov... sa...",
     "yourPainInitial": "Vaša počiatočná bolesť:",
     "yourPainLatest": "Vaša posledná zaznamenaná bolesť:",
     "programStart": "Začiatok programu:",
