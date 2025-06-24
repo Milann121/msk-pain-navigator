@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { format, isAfter, isBefore, subDays, isSameDay } from 'date-fns';
 import { useTranslation } from 'react-i18next';
@@ -35,7 +36,7 @@ export const MoodCalendar = () => {
   // Get current day and date with translated day name
   const today = new Date();
   const dayOfWeek = format(today, 'EEEE').toLowerCase();
-  const translatedDay = t(`calendar.days.long.${dayOfWeek}`);
+  const translatedDay = t(`calendar.days.long.${dayOfWeek}`, dayOfWeek);
   const currentDayAndDate = `${translatedDay}, ${format(today, 'dd.MM.yyyy')}`;
 
   // Utility: filter and map moods for a period
