@@ -1,130 +1,60 @@
-import React, { useState, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useAuth } from '@/contexts/AuthContext';
-import { supabase } from '@/integrations/supabase/client';
-import { Exercise } from '@/types/exercise';
-import { generateGeneralProgram } from '@/utils/generalProgramGenerator';
+
+import React from 'react';
 import { Button } from '@/components/ui/button';
-import { PlayCircle, ChevronRight } from 'lucide-react';
+import { PlayCircle, Info } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useAssessments } from '@/hooks/useAssessments';
+import { generateGeneralProgram } from '@/utils/generalProgramGenerator';
+import { useTranslation } from 'react-i18next';
 
 export const GeneralProgram = () => {
-  const { user } = useAuth();
-  const { t } = useTranslation();
   const navigate = useNavigate();
-  const [generalProgram, setGeneralProgram] = useState<Exercise[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [assessmentCount, setAssessmentCount] = useState(0);
+  const { t } = useTranslation();
+  const { assessments } = useAssessments();
 
-  useEffect(() => {
-    if (user) {
-      loadGeneralProgram();
-    }
-  }, [user]);
+  // Generate general program based on user's assessments
+  const generalProgram = generateGeneralProgram('general', 'general', assessments);
+  const hasGeneralProgram = generalProgram.length > 0;
 
-  const loadGeneralProgram = async () => {
-    if (!user) return;
-    
-    setLoading(true);
-    
-    try {
-      console.log('Loading general program for user:', user.id);
-      
-      // Fetch user's assessments
-      const { data: assessments, error } = await supabase
-        .from('user_assessments')
-        .select('*')
-        .eq('user_id', user.id)
-        .order('timestamp', { ascending: false });
-
-      if (error) throw error;
-
-      console.log('Found assessments:', assessments?.length || 0, assessments);
-      setAssessmentCount(assessments?.length || 0);
-
-      if (assessments && assessments.length > 1) {
-        // Generate general program using the utility
-        const program = generateGeneralProgram(
-          assessments[0].primary_mechanism,
-          assessments[0].pain_area,
-          assessments
-        );
-        console.log('Generated general program:', program);
-        setGeneralProgram(program);
-      } else {
-        console.log('Not enough assessments for general program:', assessments?.length);
-      }
-    } catch (error) {
-      console.error('Error loading general program:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleViewProgram = () => {
-    // Navigate to the general program
+  const handleShowGeneral = () => {
     navigate('/exercise-plan', { 
       state: { 
         showGeneral: true,
-        mechanism: 'general',
-        differential: 'general',
-        painArea: 'general'
+        assessments: assessments
       } 
     });
   };
 
-  if (loading) {
-    return (
-      <div className="h-full flex items-center justify-center">
-        <div className="text-blue-600">{t('loading')}</div>
-      </div>
-    );
+  if (!hasGeneralProgram) {
+    return null;
   }
 
-  // Show debug info if no general program exists
-  if (generalProgram.length === 0) {
-    return (
-      <div className="h-full flex flex-col justify-center items-center p-4 text-center">
-        <PlayCircle className="h-8 w-8 text-gray-400 mb-2" />
-        <h3 className="text-lg font-semibold text-gray-600 mb-2">{t('home.generalProgram.title')}</h3>
-        <p className="text-sm text-gray-500 mb-2">
-          {assessmentCount < 2
-            ? t('home.generalProgram.needMore', { count: assessmentCount })
-            : t('home.generalProgram.generating')}
-        </p>
-        <p className="text-xs text-gray-400">
-          {t('home.generalProgram.hint')}
-        </p>
-      </div>
-    );
-  }
-
-  const program = generalProgram[0];
-  const exerciseCount = program.videos.length;
+  const exerciseCount = generalProgram[0]?.videos?.length || 0;
 
   return (
-    <div className="h-full flex flex-col justify-between p-4">
-      <div>
-        <div className="flex items-center gap-2 mb-3">
-          <PlayCircle className="h-5 w-5 text-blue-600" />
-          <h3 className="text-lg font-semibold text-blue-800">{t('home.generalProgram.title')}</h3>
-        </div>
-        
-        <p className="text-sm text-gray-600 mb-4 line-clamp-3">
-          {t('home.generalProgram.description')}
-        </p>
-        
-        <div className="text-sm text-blue-600 mb-4">
-          {t('home.generalProgram.exerciseCount', { count: exerciseCount })}
-        </div>
+    <div className="px-6 pb-6">
+      <div className="flex items-center gap-3 mb-3">
+        <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
+        <h3 className="text-lg font-medium text-gray-900">
+          {t('exercisePlanPage.generalTitle')}
+        </h3>
       </div>
       
-      <Button
-        onClick={handleViewProgram}
+      <p className="text-sm text-gray-600 mb-4">
+        {t('exercisePlanPage.generalDescription')}
+      </p>
+      
+      <div className="flex items-center gap-2 text-sm text-blue-600 mb-4">
+        <Info className="h-4 w-4" />
+        <span>{exerciseCount} {t('profile.exercisesFromPrograms')}</span>
+      </div>
+      
+      <Button 
+        onClick={handleShowGeneral}
         className="w-full bg-blue-600 hover:bg-blue-700 text-white"
       >
-        {t('home.generalProgram.view')}
-        <ChevronRight className="h-4 w-4 ml-1" />
+        <PlayCircle className="h-4 w-4 mr-2" />
+        {t('profile.showProgram')}
       </Button>
     </div>
   );
