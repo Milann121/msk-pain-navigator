@@ -5,6 +5,11 @@ import { useTranslation } from 'react-i18next';
 
 const PrivacyPolicy = () => {
   const { t } = useTranslation();
+  
+  // Type the arrays properly to avoid TypeScript errors
+  const whyList = t('privacy.whyList', { returnObjects: true }) as string[];
+  const rightsList = t('privacy.rightsList', { returnObjects: true }) as string[];
+  
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -28,7 +33,7 @@ const PrivacyPolicy = () => {
 
             <h3>{t('privacy.whyTitle')}</h3>
             <ul>
-              {t('privacy.whyList', { returnObjects: true }).map((item: string) => (
+              {whyList.map((item: string) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
@@ -39,7 +44,7 @@ const PrivacyPolicy = () => {
             <h3>{t('privacy.rightsTitle')}</h3>
             <p>{t('privacy.rightsIntro')}</p>
             <ul>
-              {t('privacy.rightsList', { returnObjects: true }).map((item: string) => (
+              {rightsList.map((item: string) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
