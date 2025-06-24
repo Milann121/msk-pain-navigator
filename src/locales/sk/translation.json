@@ -1,29 +1,34 @@
+
 {
   "profile": {
     "title": "Môj profil",
-    "personalData": "Osobné údaje",
-    "firstName": "Meno",
-    "lastName": "Priezvisko",
-    "age": "Vek",
-    "gender": "Pohlavie",
-    "job": "Práca",
-    "save": "Uložiť",
-    "cancel": "Zrušiť",
-    "male": "Muž",
-    "female": "Žena",
-    "savePlaceholder": "Zadajte vaše {{field}}",
-    "moneySavings": "Ušetrené peniaze",
-    "moneySavingsFootnote": "*vypočítané na základe priemerných cien na Slovensku"
-  },
-  "results": {
-    "savedTitle": "Výsledky boli uložené",
-    "savedDescription": "Vaše hodnotenie bolo úspešne uložené a nájdete ho v sekcii Moje cviky.",
-    "saveErrorTitle": "Chyba pri ukladaní",
-    "saveErrorDescription": "Nepodarilo sa uložiť výsledky hodnotenia.",
-    "autoSaved": "✓ Výsledky boli automaticky uložené. Nájdete ich v sekcii Moje cviky.",
-    "saving": "Ukladanie výsledkov...",
-    "autoSaveFailed": "Automatické ukladanie výsledkov zlyhalo."
-  },
+    "profile": {
+      "title": "Môj profil",
+      "personaData": "Osobné údaje",
+      "firstName": "Meno",
+      "lastName": "Priezvisko",
+      "age": "Vek",
+      "gender": "Pohlavie",
+      "job": "Práca",
+      "save": "Uložiť",
+      "cancel": "Zrušiť",
+      "male": "Muž",
+      "female": "Žena",
+      "savePlaceholder": "Zadajte vaše {{field}}",
+      "moneySavings": "Ušetrené peniaze",
+      "moneySavingsFootnote": "*vypočítané na základe priemerných cien na Slovensku",
+      "moneySavingsTitle": "Ušetrené peniaze",
+      "moneySavingsNote": "*vypočítané na základe priemerných cien na Slovensku"
+    },
+    "results": {
+      "savedTitle": "Výsledky boli uložené",
+      "savedDescription": "Vaše hodnotenie bolo úspešne uložené a nájdete ho v sekcii Moje cviky.",
+      "saveErrorTitle": "Chyba pri ukladaní",
+      "saveErrorDescription": "Nepodarilo sa uložiť výsledky hodnotenia.",
+      "autoSaved": "✔ Výsledky boli automaticky uložené. Nájdete ich v sekcii Moje cviky.",
+      "saving": "Ukladám výsledkov...",
+      "saveFailed": "Automatické ukladanie výsledkov zlyhalo."
+    },
   "loading": "Načítava sa...",
   "header": {
     "home": "Domov",
@@ -61,41 +66,173 @@
   },
   "blog": {
     "title": "Blog",
-    "readMore": "Čítať viac",
-    "posts": {
-      "1": {
-        "title": "Neurodynamické cvičenia: čo? prečo? kedy?",
-        "description": "Už ste niekedy počuli o „flossingu" nervov? Ak máte bolesť spôsobenú podráždením alebo útlakom nervu, nervový flossing môže pomôcť."
-      },
-      "2": {
-        "title": "Prevencia bolestí chrbtice v práci",
-        "description": "Tipy na správne sedenie, ergonomické nastavenie pracoviska a cviky počas pracovného dňa."
-      },
-      "3": {
-        "title": "Strečing pre zdravú chrbticu",
-        "description": "Jednoduchý strečingový program, ktorý pomôže udržať chrbticu zdravú a flexibilnú."
-      },
-      "4": {
-        "title": "Cvičenie a výživa",
-        "description": "Ako správna výživa prispieva k lepšej regenerácii a posilneniu chrbtového svalstva."
-      },
-      "5": {
-        "title": "Najčastejšie chyby pri cvičení",
-        "description": "Vyvarujte sa chybám, ktoré môžu zhoršiť bolesti chrbta namiesto ich zmiernenia."
-      },
-      "6": {
-        "title": "Rehabilitačné cvičenia po zranení",
-        "description": "Odporúčané postupy a cviky pre rehabilitáciu po zranení chrbtice alebo operácii."
-      }
-    }
+"readMore": "Čítať viac",
+"posts": {
+  "1": {
+    "title": "Neurodynamické cvičenia: čo? prečo? kedy?",
+    "description": "Už ste niekedy počuli o „flossingu“ nervov? Ak máte bolesť spôsobenú podráždením alebo útlakom nervu, nervový flossing môže pomôcť."
   },
+  "2": {
+    "title": "Prevencia bolesti chrbtice v práci",
+    "description": "Tipy na správne sedenie, ergonomické nastavenie pracoviska a cviky počas pracovného dňa."
+  },
+  "3": {
+    "title": "Strečing pre zdravú chrbticu",
+    "description": "Jednoduchý strečingový program, ktorý pomôže udržať chrbticu zdravú a flexibilnú."
+  },
+  "4": {
+    "title": "Cvičenie a výživa",
+    "description": "Ako správna výživa prispieva k lepšej regenerácii a posilneniu chrbtového svalstva."
+  },
+  "5": {
+    "title": "Najčastejšie chyby pri cvičení",
+    "description": "Vyvarujte sa chybám, ktoré môžu zhoršiť bolesti chrbta namiesto ich zmiernenia."
+  },
+  "6": {
+    "title": "Rehabilitačné cvičenia po zranení",
+    "description": "Odporúčané postupy a cviky pre rehabilitáciu po zranení chrbtice alebo operácii."
+  }
+}
   "assessment": {
     "title": "Hodnotenie bolesti pohybového aparátu",
     "subtitle": "Vyplňte dotazník pre získanie personalizovaných cvičebných odporúčaní",
     "new": "Nové hodnotenie"
   },
+{
   "cookie": {
     "message": "Táto stránka používa súbory cookie na zlepšenie vášho zážitku. Používaním našej stránky súhlasíte s našimi podmienkami používania súborov cookie.",
     "accept": "Súhlasím"
+  },
+  "results": {
+    "title": "Výsledky hodnotenia",
+    "subtitle": "Ďakujeme za vyplnenie MSK Navigátora bolesti.",
+    "greeting": "Dobrý deň",
+    "painAnalysis": "Na základe vašich odpovedí ohľadom bolesti {area}",
+    "painMechanism": "Primárny mechanizmus bolesti",
+    "painSensitivity": "Úroveň citlivosti na bolesť",
+    "differentialAssessment": "Diferenčná hodnotenie",
+    "exercisePlan": "Váš personalizovaný cvičebný plán",
+    "exercisePlanDescription": "Na základe vášho hodnotenia sme pripravili personalizovaný cvičebný program špeciálne navrhnutý pre váš stav. Prosím, berte na vedomie, že tento program je len odporúčanie.",
+    "openExerciseProgram": "OTVORIŤ CVIČEBNÝ PROGRAM",
+    "disclaimer": "Toto hodnotenie nenahrádza odbornú lekársku pomoc. Pre kompletnú diagnózu a liečebný plán sa prosím poraďte so zdravotníckym pracovníkom.",
+    "resultsSaved": "✔ Výsledky boli automaticky uložené. Nájdete ich v sekcii 'Moje cviky'.",
+    "savingResults": "Ukladanie výsledkov...",
+    "savingFailed": "Automatické ukladanie výsledkov zlyhalo.",
+    "startNewAssessment": "Začať nové hodnotenie"
+  },
+  "exercisePlan": {
+    "title": "Váš cvičebný plán",
+    "generalTitle": "Všeobecný cvičebný plán",
+    "generalDescription": "Personalizovaný program s najdôležitejšími cvičeniami z vašich programov. Postupujte podľa inštrukcií a v prípade bolesti cvičenie prerušte.",
+    "specificDescription": "Cvičenia špecifické pre {diagnosis} v oblasti {area}. Postupujte podľa inštrukcií a v prípade bolesti cvičenie prerušte.",
+    "backToExercises": "Späť na moje cvičenia",
+    "exerciseGood": "Vyhovuje vám cvik?",
+    "yes": "Áno",
+    "no": "Nie",
+    "neutral": "Neutrálne",
+    "whyNotGood": "Prečo nie je cvik dobrý?",
+    "hasPain": "Pociťujete bolesť pri cvičení?",
+    "painAcceptable": "Je bolesť prijateľná?",
+    "wantChange": "Chcete zmeniť tento cvik?",
+    "requestChange": "Požiadať o zmenu cviku",
+    "sendFeedback": "Odoslať spätnú väzbu",
+    "close": "Zavrieť",
+    "exercisesNotFound": "Odporúčané cvičenia neboli nájdené.",
+    "exercisesNotFoundDescription": "Pre vašu kombináciu diagnóz ({diagnosis}) a oblasti bolesti ({area}) nemáme špecifické cvičenia. Prosím, konzultujte s fyzioterapeutom.",
+    "generalNotAvailable": "Všeobecný program nie je k dispozícii.",
+    "generalNotAvailableDescription": "Nemáte dostatok hodnotení na vytvorenie všeobecného programu alebo nie sú k dispozícii cvičenia s definovanou dôležitosťou.",
+    "importantNotice": "Dôležité upozornenie.",
+    "importantNoticeText": "Tieto cvičenia slúžia len ako všeobecné odporúčania a nenahrádzajú návštevu fyzioterapeuta alebo lekára. Ak počas cvičenia pocítite zvýšenú bolesť, prosím, cvičenie prerušte a kontaktujte odborníka.",
+    "exerciseChangeRequested": "Žiadosť o zmenu cviku bola odoslaná.",
+    "newExerciseSuggested": "Navrhnutý nový cvik.",
+    "confirmChange": "Potvrdiť zmenu cviku",
+    "rejectChange": "Odmietnuť zmenu cviku",
+    "sectionContains": "Táto sekcia obsahuje {count} {exercises}"
+  },
+  "painAreas": {
+    "neck": "Krk",
+    "middleBack": "Stredná časť chrbtice",
+    "lowerBack": "Driek",
+    "upperLimb": "Horné končatiny",
+    "shoulder": "Rameno"
+  },
+  "mechanisms": {
+    "nociceptive": "Nociceptívna bolesť",
+    "neuropathic": "Neuropatická bolesť",
+    "central": "Centrálna senzitivizácia",
+    "none": "Neodvážený mechanizmus bolesti",
+    "redFlag": "Symptómy vyžadujúce návštevu lekára"
+  },
+  "differentials": {
+    "none": "Nebola identifikovaná žiadna špecifická diagnóza",
+    "discHerniation": "Hernia medzistavcovej platničky",
+    "facetJointSyndrome": "Syndróm facetových kĺbov",
+    "siJointSyndrome": "Syndróm SI kĺbov",
+    "musclePain": "Svalová bolesť",
+    "redFlag": "Symptómy vyžadujúce návštevu lekára",
+    "ventralSpondylolisthesis": "Ventralná spondylolistéza",
+    "dorsalSpondylolisthesis": "Dorzálna spondylolistéza",
+    "costovertebralJointSyndrome": "Syndróm kostovertebrálneho kĺbu",
+    "radicularPain": "Radikulárna bolesť",
+    "radiculopathy": "Radikulopatia",
+    "centralSensitisation": "Centrálna senzitivizácia",
+    "centralSensitisationAllodynia": "Centrálna senzitivizácia – Alodýnia",
+    "centralSensitisationSensoryHyper": "Centrálna senzitivizácia – Zmyslová precitlivenosť",
+    "centralSensitisationCognitive": "Centrálna senzitivizácia – Kognitívne symptómy",
+    "cervicalRadiculopathy": "Cervikálna radikulopatia",
+    "frozenShoulder": "Zmrznuté rameno",
+    "slapTear": "Lézia labra",
+    "subacromialImpingement": "Impingement syndróm ramena",
+    "stiffShoulder": "Syndróm stuhnutého ramena",
+    "shoulderBursa": "Burzitída",
+    "rotatorCuffTear": "Porucha rotátorovej manžety",
+    "rotatorCuffTendinopathy": "Porucha rotátorovej manžety",
+    "bicepsTendinopathy": "Porucha bicepsovej šľachy",
+    "bicepsTearLongHead": "Porucha bicepsovej šľachy",
+    "shoulderDislocation": "Dislokácia ramena",
+    "unstableShoulder": "Nestabilné rameno",
+    "labralLesion": "Lézia labra"
+  },
+  "followUp": {
+    "recordProgress": "Zaznamenať pokrok",
+    "showExercises": "Zobraziť cviky",
+    "endProgram": "Ukončiť program",
+    "renewProgram": "Obnoviť program",
+    "ended": "Ukončené",
+    "ending": "Ukladanie...",
+    "renewing": "Obnovujem...",
+    "progressRecorded": "Pokrok zaznamenaný",
+    "progressRecordedDescription": "Vaše odpovede boli úspešne uložené",
+    "yourPainInitial": "Vaša bolesť na začiatku:",
+    "yourPainLatest": "Vaša posledná zaznamenaná bolesť:",
+    "programStart": "Začiatok programu:",
+    "painMechanismLabel": "Mechanizmus bolesti:",
+    "diagnosisLabel": "Diagnóza:",
+    "back": "Späť",
+    "next": "Ďalej",
+    "finish": "Dokončiť",
+    "question": "Otázka {current} z {total}",
+    "thankYou": "Ďakujeme za vyplnenie dotazníka o vašom pokroku."
+  },
+  "common": {
+    "error": "Chyba",
+    "success": "Úspech",
+    "save": "Uložiť",
+    "cancel": "Zrušiť",
+    "delete": "Odstrániť",
+    "edit": "Upraviť",
+    "close": "Zavrieť",
+    "confirm": "Potvrdiť",
+    "reject": "Odmietnuť",
+    "reset": "Resetovať",
+    "loading": "Načítava sa...",
+    "noData": "Žiadne údaje k dispozícii",
+    "pageNotFound": "Stránka sa nenašla",
+    "returnHome": "Návrat na úvod",
+    "oops": "Ups!"
+  },
+  "emptyState": {
+    "noAssessments": "Zatiaľ nemáte žiadne uložené hodnotenia.",
+    "createNewAssessment": "Vytvoriť nové hodnotenie"
   }
 }
