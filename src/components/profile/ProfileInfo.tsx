@@ -146,7 +146,7 @@ export const ProfileInfo = () => {
     return (
       <Card className="h-full">
         <CardHeader>
-          <CardTitle>Osobné údaje</CardTitle>
+          <CardTitle>{t('profile.personalData')}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="text-center text-muted-foreground">{t('loading')}</div>
@@ -158,13 +158,13 @@ export const ProfileInfo = () => {
   return (
     <Card className="h-full">
       <CardHeader>
-        <CardTitle>Osobné údaje</CardTitle>
+        <CardTitle>{t('profile.personalData')}</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="space-y-6">
           <div className="grid grid-cols-2 gap-4">
             <EditableField
-              label="Meno"
+              label={t('profile.firstName')}
               field="firstName"
               value={userData.firstName}
               editingField={editingField}
@@ -178,7 +178,7 @@ export const ProfileInfo = () => {
           
           <div className="grid grid-cols-2 gap-4">
             <EditableField
-              label="Priezvisko"
+              label={t('profile.lastName')}
               field="lastName"
               value={userData.lastName}
               editingField={editingField}
@@ -192,7 +192,7 @@ export const ProfileInfo = () => {
           
           <div className="grid grid-cols-2 gap-4">
             <EditableField
-              label="Vek"
+              label={t('profile.age')}
               field="age"
               value={userData.age}
               type="number"

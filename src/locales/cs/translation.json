@@ -1,8 +1,30 @@
 {
   "profile": {
     "title": "Můj profil",
+    "personaData": "Osobní údaje",
+    "firstName": "Jméno",
+    "lastName": "Příjmení",
+    "age": "Věk",
+    "gender": "Pohlaví",
+    "job": "Práce",
+    "save": "Uložit",
+    "cancel": "Zrušit",
+    "male": "Muž",
+    "female": "Žena",
+    "savePlaceholder": "Zadejte své {{field}}",
+    "moneySavings": "Ušetřené peníze",
+    "moneySavingsFootnote": "*vypočteno na základě průměrných cen na Slovensku",
     "moneySavingsTitle": "Ušetřené peníze",
     "moneySavingsNote": "*vypočítáno z průměrných cen na Slovensku"
+  },
+  "results": {
+    "savedTitle": "Výsledky uloženy",
+    "savedDescription": "Vaše hodnocení bylo uloženo a je dostupné v sekci Moje cviky.",
+    "saveErrorTitle": "Chyba při ukládání",
+    "saveErrorDescription": "Nepodařilo se uložit výsledky hodnocení.",
+    "autoSaved": "✔ Výsledky byly automaticky uloženy. Najdete je v sekci Moje cviky.",
+    "saving": "Ukládání výsledků...",
+    "saveFailed": "Automatické ukládání selhalo."
   },
   "loading": "Načítá se...",
   "header": {
@@ -41,11 +63,40 @@
   },
   "blog": {
     "title": "Blog",
-    "readMore": "Číst více"
+"readMore": "Číst více",
+  "posts": {
+    "1": {
+      "title": "Neurodynamická cvičení: co? proč? kdy?",
+      "description": "Už jste slyšeli o flossingu nervů? Pokud máte bolest způsobenou podrážděním nebo útlakem nervu, nerve flossing stojí za vyzkoušení."
+    },
+    "2": {
+      "title": "Prevence bolestí zad v práci",
+      "description": "Tipy na správné sezení, ergonomické nastavení pracoviště a cviky během pracovního dne."
+    },
+    "3": {
+      "title": "Stretching pro zdravou páteř",
+      "description": "Jednoduchý strečinkový program, který pomůže udržet páteř zdravou a flexibilní."
+    },
+    "4": {
+      "title": "Cvičení a výživa",
+      "description": "Jak správná výživa přispívá k lepší regeneraci a posílení zádových svalů."
+    },
+    "5": {
+      "title": "Nejčastější chyby při cvičení",
+      "description": "Vyvarujte se běžným chybám, které mohou zhoršit bolesti zad."
+    },
+    "6": {
+      "title": "Rehabilitační cvičení po zranění",
+      "description": "Doporučené postupy a cviky pro rehabilitaci po zranění páteře nebo operaci."
+    }
   },
   "assessment": {
     "title": "Hodnocení bolesti pohybového aparátu",
     "subtitle": "Vyplňte dotazník pro získání personalizovaných cvičebních doporučení",
     "new": "Nové hodnocení"
+  },
+  "cookie": {
+    "message": "Tato stránka používá soubory cookie ke zlepšení vašeho zážitku. Používáním našeho webu souhlasíte s našimi podmínkami používání cookie.",
+    "accept": "Souhlasím"
   }
 }
