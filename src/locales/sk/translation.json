@@ -29,6 +29,55 @@
       "officeWork": "práca v kancelárii"
     }
   },
+  "home": {
+    "greeting": {
+      "hello": "Ahoj {{name}}",
+      "question": "ako sa dnes cítite?"
+    },
+    "mood": {
+      "happy": "Dobre",
+      "neutral": "Neutrálne", 
+      "sad": "Zle",
+      "week": "Týždeň",
+      "month": "Mesiac",
+      "avgScore": "Priemerné skóre za {{period}}",
+      "periodWeek": "týždeň",
+      "periodMonth": "mesiac",
+      "emptyWeek": "týždeň",
+      "emptyMonth": "mesiac",
+      "noChange": "Bez zmeny",
+      "better": "Lepšie ako predchádzajúcich {{days}} dní",
+      "worse": "Horšie ako predchádzajúcich {{days}} dní",
+      "noRecords": "Žiadne záznamy za {{period}}",
+      "infoLabel": "Informácie o skóre",
+      "infoText": "Toto skóre predstavuje váš priemerný pocit za posledných {{days}} dní.",
+      "infoGrades": "Dobre = 3, Neutrálne = 2, Zle = 1",
+      "infoFollow": "Sledujte svoj trend v čase."
+    },
+    "generalProgram": {
+      "view": "Zobraziť program",
+      "exerciseCount": "cvikov"
+    },
+    "favoriteExercises": {
+      "title": "Obľúbené cviky",
+      "empty": "Zatiaľ nemáte žiadne obľúbené cviky"
+    }
+  },
+  "myExercises": {
+    "title": "Moje cviky",
+    "activeProgramsTitle": "Aktívne programy",
+    "activeProgramsDescription": "Nižšie nájdete všetky vaše aktívne cvičebné programy z dokončených hodnotení.",
+    "endedProgramsTitle": "Ukončené programy", 
+    "endedProgramsDescription": "Programy, ktoré ste ukončili alebo dokončili.",
+    "noActivePrograms": "Momentálne nemáte žiadne aktívne programy.",
+    "noEndedPrograms": "Nemáte žiadne ukončené programy.",
+    "backHome": "Späť domov",
+    "newAssessment": "Nové hodnotenie"
+  },
+  "exercisePlanPage": {
+    "generalTitle": "Všeobecný cvičebný plán",
+    "generalDescription": "Personalizovaný program s najdôležitejšími cvikmi z vašich programov. Dodržiavajte pokyny a prestaňte cvičiť, ak pociťujete bolesť."
+  },
   "bodyParts": {
     "neck": "Krčná chrbtíca",
     "middle back": "Hrudná chrbtíca",
@@ -98,7 +147,7 @@
     "suitableQuestion": "Vyhovuje vám cvik?",
     "feedbackTitle": "Prečo nie je cvik dobrý?",
     "painQuestion": "1. Spôsobuje vám cvik bolesť?",
-    "painAcceptableQuestion": "1a. Je bolesť przyjateľná?",
+    "painAcceptableQuestion": "1a. Je bolesť prijateľná?",
     "yes": "Áno",
     "no": "Nie",
     "yesAcceptable": "Áno, je prijateľná",
