@@ -28,6 +28,18 @@ export const GenderField: React.FC<GenderFieldProps> = ({
   const isEditing = editingField === 'gender';
   const { t } = useTranslation();
 
+  // Function to translate gender values from database to current language
+  const translateGenderValue = (genderValue: string) => {
+    switch (genderValue) {
+      case 'Muž':
+        return t('profile.male');
+      case 'Žena':
+        return t('profile.female');
+      default:
+        return genderValue;
+    }
+  };
+
   if (isEditing) {
     return (
       <div className="col-span-2 space-y-3">
@@ -58,11 +70,15 @@ export const GenderField: React.FC<GenderFieldProps> = ({
     );
   }
 
+  // Translate the display value
+  const translatedGenderValue = value ? translateGenderValue(value) : '';
+  const displayValue = translatedGenderValue || '-';
+
   return (
     <>
       <div className="text-sm text-muted-foreground">{t('profile.gender')}:</div>
       <div className="flex items-center justify-between">
-        <span className="font-medium">{value || '-'}</span>
+        <span className="font-medium">{displayValue}</span>
         <Button
           size="sm"
           variant="ghost"
