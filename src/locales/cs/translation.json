@@ -14,17 +14,17 @@
     "female": "Žena",
     "savePlaceholder": "Zadejte vaše {{field}}",
     "moneySavings": "Ušetřené peníze",
-    "moneySavingsFootnote": "*vypočítáno na základě průměrných cen v České republice",
+    "moneySavingsFootnote": "*vypočítáno na základě průměrných cen ve vaší zemi",
     "modelTitle": "Model těla",
     "jobTypes": {
       "manual": "manuální práce",
-      "desk": "sedavá práce", 
+      "desk": "sedavá práce",
       "driver": "řidič"
     },
     "jobSubtypes": {
       "manualSpec": "Specifikace:",
       "heavyLifting": "zvedání těžkých předmětů",
-      "standingWork": "práce vstoje na místě",
+      "standingWork": "práce ve stoji na místě",
       "awkwardPositions": "práce v nepřirozených polohách",
       "officeWork": "kancelářská práce"
     },
@@ -40,9 +40,9 @@
     }
   },
   "bodyParts": {
-    "neck": "Krční páteř",
+    "neck": "Krk",
     "middle back": "Hrudní páteř",
-    "lower back": "Bederní páteř",
+    "lower back": "Dolní záda",
     "upper limb": "Horní končetina",
     "shoulder": "Rameno"
   },
@@ -51,7 +51,7 @@
     "neuropathic": "Neuropatická bolest",
     "central": "Centrální senzitizace",
     "none": "Nedefinovaný mechanismus bolesti",
-    "red-flag": "Symptomy vyžadující návštěvu lékaře"
+    "red-flag": "Příznaky vyžadující lékařskou pomoc"
   },
   "diagnoses": {
     "none": "Nebyla identifikována žádná specifická diagnóza",
@@ -59,20 +59,20 @@
     "facet joint syndrome": "Syndrom facetových kloubů",
     "SIJ syndrome": "Syndrom SI kloubu",
     "muscle pain": "Svalová bolest",
-    "red-flag": "Symptomy vyžadující návštěvu lékaře",
+    "red-flag": "Příznaky vyžadující lékařskou pomoc",
     "ventral spondylolisthesis": "Ventrální spondylolistéza",
     "dorsal spondylolisthesis": "Dorzální spondylolistéza",
     "costovertebral joint syndrome": "Syndrom kostovertebrálního kloubu",
-    "Radicular Pain": "Radikulární bolest",
+    "Radicular Pain": "Radikulární Bolest",
     "Radiculopathy": "Radikulopatie",
-    "Central Sensitisation": "Centrální senzitizace",
-    "Central Sensitisation - Allodynia": "Centrální senzitizace - Alodynie",
-    "Central Sensitisation - Sensory Hypersensitivity": "Centrální senzitizace - Smyslová hypersenzitivita",
-    "Central Sensitisation - Cognitive Symptoms": "Centrální senzitizace - Kognitivní symptomy",
+    "Central Sensitisation": "Centrální Senzitizace",
+    "Central Sensitisation - Allodynia": "Centrální Senzitizace - Alodynie",
+    "Central Sensitisation - Sensory Hypersensitivity": "Centrální Senzitizace - Senzorická Hypersenzitivita",
+    "Central Sensitisation - Cognitive Symptoms": "Centrální Senzitizace - Kognitivní Příznaky",
     "cervical-radiculopathy": "Cervikální radikulopatie",
     "frozen-shoulder": "Zmrzlé rameno",
     "slap-tear": "SLAP léze",
-    "subacromial-impingement-syndrome": "Impingement syndrom ramene",
+    "subacromial-impingement-syndrome": "Subakromiální impingement syndrom",
     "stiff-shoulder": "Syndrom ztuhlého ramene",
     "shoulder-bursa": "Burzitida ramene",
     "rotator-cuff-tear": "Porucha rotátorové manžety",
@@ -85,10 +85,10 @@
   },
   "results": {
     "savedTitle": "Výsledky byly uloženy",
-    "savedDescription": "Vaše hodnocení bylo úspěšně uloženo a najdete ho v sekci Moje cviky.",
+    "savedDescription": "Vaše hodnocení bylo úspěšně uloženo a najdete ho v sekci Moje cvičení.",
     "saveErrorTitle": "Chyba při ukládání",
     "saveErrorDescription": "Nepodařilo se uložit výsledky hodnocení.",
-    "autoSaved": "✓ Výsledky byly automaticky uloženy. Najdete je v sekci Moje cviky.",
+    "autoSaved": "✓ Výsledky byly automaticky uloženy. Najdete je v sekci Moje cvičení.",
     "saving": "Ukládání výsledků...",
     "autoSaveFailed": "Automatické ukládání výsledků selhalo."
   },
@@ -96,7 +96,7 @@
   "header": {
     "home": "Domů",
     "profile": "Můj profil",
-    "myExercises": "Moje cviky",
+    "myExercises": "Moje cvičení",
     "blog": "Blog",
     "assessment": "Dotazník bolesti",
     "signOut": "Odhlásit se",
@@ -156,8 +156,8 @@
   },
   "home": {
     "greeting": {
-      "hello": "Ahoj",
-      "question": "Jak se dnes cítíte?"
+      "hello": "Ahoj {{name}}",
+      "question": "jak se dnes cítíte?"
     },
     "mood": {
       "week": "Týden",
@@ -186,9 +186,9 @@
       "exerciseCount": "cvičení"
     },
     "exerciseStats": {
-      "title": "Pokrok ve cvičení",
-      "weekLabel": "dnů cvičených tento týden",
-      "goalRemaining": "{{count}} dalších dnů do dosažení cíle",
+      "title": "Pokrok v cvičení",
+      "weekLabel": "dní cvičených tento týden",
+      "goalRemaining": "{{count}} dalších dní do dosažení cíle",
       "goalDone": "🎉 Cíl splněn!",
       "noGoal": "Nastavte si týdenní cíl pro sledování pokroku"
     },
@@ -216,7 +216,7 @@
     "officeWork": "Kancelářská práce"
   },
   "goals": {
-    "title": "Moje cíle",
+    "title": "Cíle",
     "weekly": "Týdenní cíle",
     "exerciseText": "Chci cvičit {dropdown} krát za týden",
     "blogText": "Chci přečíst {dropdown} blogů za týden",
@@ -229,11 +229,11 @@
     "error": "Nepodařilo se uložit cíl."
   },
   "myExercises": {
-    "title": "Moje cviky",
+    "title": "Moje cvičení",
     "activeProgramsTitle": "Aktivní programy",
-    "activeProgramsDescription": "Vaše současné cvičební programy založené na hodnocení bolesti",
-    "endedProgramsTitle": "Dokončené programy",
-    "endedProgramsDescription": "Dříve dokončené cvičební programy",
+    "activeProgramsDescription": "Vaše současné cvičební programy založené na hodnoceních bolesti",
+    "endedProgramsTitle": "Ukončené programy",
+    "endedProgramsDescription": "Dříve ukončené cvičební programy",
     "backHome": "Zpět domů",
     "newAssessment": "Nové hodnocení"
   },
@@ -281,9 +281,9 @@
     "description": "Popis"
   },
   "exercisePlanPage": {
-    "generalTitle": "Obecný cvičební program",
-    "generalDescription": "Zde naleznete personalizovaný program s nejdůležitějšími cvičeními z vašich programů. Dodržujte pokyny a přestaňte cvičit, pokud pociťujete bolest.",
-    "backToExercises": "Zpět na Moje cviky",
+    "generalTitle": "Všeobecný cvičební program",
+    "generalDescription": "Nemáte čas na individuální programy? Zde najdete personalizovaný program s nejdůležitějšími cvičeními z vašich programů. Dodržujte pokyny a přestaňte cvičit, pokud pociťujete bolest.",
+    "backToExercises": "Zpět na Moje cvičení",
     "title": "Plán cvičení",
     "specificDescription": "Personalizovaný cvičební program pro {{diagnosis}} ovlivňující {{painArea}}"
   },
@@ -311,27 +311,27 @@
   },
   "resultsFooter": {
     "startNew": "Začít nové hodnocení",
-    "myExercises": "Moje cviky"
+    "myExercises": "Moje cvičení"
   },
   "followUp": {
     "title": "Sledování pokroku",
     "progressRecorded": "Pokrok zaznamenán",
     "responsesSaved": "Vaše odpovědi byly úspěšně uloženy.",
     "questionNumber": "Otázka {{current}} z {{total}}",
-    "back": "Zpět",
-    "next": "Další",
+    "back": "Zpět", 
+    "next": "Dále",
     "finish": "Dokončit",
     "questions": {
-      "painLevelChange": "Jak byste hodnotili svou bolest v porovnání s posledním hodnocením?",
+      "painLevelChange": "Jak byste hodnotili vaši bolest ve srovnání s posledním hodnocením?",
       "painNatureChanged": "Změnila se povaha vaší bolesti od posledního hodnocení?",
       "painNatureDescription": "Jak se změnila povaha vaší bolesti?",
       "painSpreading": "Rozšířila se vaše bolest do nových oblastí?",
-      "newPainArea": "Do jakých nových oblastí se bolest rozšířila?",
+      "newPainArea": "Do kterých nových oblastí se bolest rozšířila?",
       "exerciseEffectiveness": "Jak účinná jsou cvičení na zmírnění vaší bolesti?",
       "exerciseCompliance": "Jak často dodržujete doporučený plán cvičení?",
       "painTriggers": "Změnily se faktory, které vyvolávají vaši bolest?",
       "painReliefFactors": "Změnily se faktory, které zmírňují vaši bolest?",
-      "overallImprovement": "Jak hodnotíte celkové zlepšení svého stavu?",
+      "overallImprovement": "Jak hodnotíte celkové zlepšení vašeho stavu?",
       "medicationUse": "Používáte nějaké léky na bolest?",
       "medicationEffectiveness": "Jak účinné jsou vaše léky na bolest?",
       "sleepQuality": "Jak bolest ovlivňuje kvalitu vašeho spánku?",
@@ -344,7 +344,7 @@
     "options": {
       "painLevel": {
         "muchBetter": "Výrazně lepší",
-        "better": "Lepší", 
+        "better": "Lepší",
         "same": "Stejná",
         "worse": "Horší",
         "muchWorse": "Výrazně horší"
@@ -369,7 +369,7 @@
       "improvement": {
         "muchBetter": "Výrazně lepší",
         "better": "Lepší",
-        "same": "Beze změny",
+        "same": "Bez změny",
         "worse": "Horší",
         "muchWorse": "Výrazně horší"
       },
@@ -388,12 +388,21 @@
         "extremeImpact": "Extrémní vliv"
       },
       "satisfaction": {
-        "verySatisfied": "Velmi spokojen/a",
-        "satisfied": "Spokojen/a",
-        "neutral": "Neutrální",
-        "dissatisfied": "Nespokojen/a",
-        "veryDissatisfied": "Velmi nespokojen/a"
+        "verySatisfied": "Velmi spokojený/á",
+        "satisfied": "Spokojený/á",
+        "neutral": "Neutrálně",
+        "dissatisfied": "Nespokojený/á",
+        "veryDissatisfied": "Velmi nespokojený/á"
       }
+    },
+    "painScale": {
+      "noPain": "Žádná bolest",
+      "worstPain": "Nejhorší bolest"
+    },
+    "navigation": {
+      "back": "Zpět",
+      "next": "Dále", 
+      "finish": "Dokončit"
     }
   },
   "slider": {

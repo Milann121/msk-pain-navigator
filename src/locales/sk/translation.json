@@ -1,3 +1,4 @@
+
 {
   "profile": {
     "title": "Môj profil",
@@ -155,7 +156,7 @@
   },
   "home": {
     "greeting": {
-      "hello": "Ahoj",
+      "hello": "Ahoj {{name}}",
       "question": "ako sa dnes cítite?"
     },
     "mood": {
@@ -393,6 +394,15 @@
         "dissatisfied": "Nespokojný/á",
         "veryDissatisfied": "Veľmi nespokojný/á"
       }
+    },
+    "painScale": {
+      "noPain": "Žiadna bolesť",
+      "worstPain": "Najhoršia bolesť"
+    },
+    "navigation": {
+      "back": "Späť",
+      "next": "Ďalej",
+      "finish": "Dokončiť"
     }
   },
   "slider": {

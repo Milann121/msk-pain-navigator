@@ -23,9 +23,9 @@
     },
     "jobSubtypes": {
       "manualSpec": "Specification:",
-      "heavyLifting": "lifting heavy objects",
+      "heavyLifting": "heavy lifting",
       "standingWork": "standing work in place",
-      "awkwardPositions": "work in unnatural positions",
+      "awkwardPositions": "work in awkward positions",
       "officeWork": "office work"
     },
     "goals": {
@@ -65,10 +65,10 @@
     "costovertebral joint syndrome": "Costovertebral Joint Syndrome",
     "Radicular Pain": "Radicular Pain",
     "Radiculopathy": "Radiculopathy",
-    "Central Sensitisation": "Central Sensitization",
-    "Central Sensitisation - Allodynia": "Central Sensitization - Allodynia",
-    "Central Sensitisation - Sensory Hypersensitivity": "Central Sensitization - Sensory Hypersensitivity",
-    "Central Sensitisation - Cognitive Symptoms": "Central Sensitization - Cognitive Symptoms",
+    "Central Sensitisation": "Central Sensitisation",
+    "Central Sensitisation - Allodynia": "Central Sensitisation - Allodynia",
+    "Central Sensitisation - Sensory Hypersensitivity": "Central Sensitisation - Sensory Hypersensitivity",
+    "Central Sensitisation - Cognitive Symptoms": "Central Sensitisation - Cognitive Symptoms",
     "cervical-radiculopathy": "Cervical Radiculopathy",
     "frozen-shoulder": "Frozen Shoulder",
     "slap-tear": "SLAP Tear",
@@ -80,13 +80,13 @@
     "biceps-tendinopathy": "Biceps Tendinopathy",
     "biceps-tear-long-head": "Biceps Tendon Tear",
     "shoulder-dislocation": "Shoulder Dislocation",
-    "unstable-shoulder": "Shoulder Instability",
+    "unstable-shoulder": "Unstable Shoulder",
     "labral-leason": "Labral Lesion"
   },
   "results": {
-    "savedTitle": "Results have been saved",
-    "savedDescription": "Your assessment has been successfully saved and you can find it in the My Exercises section.",
-    "saveErrorTitle": "Save error",
+    "savedTitle": "Results Saved",
+    "savedDescription": "Your assessment has been successfully saved and can be found in the My Exercises section.",
+    "saveErrorTitle": "Save Error",
     "saveErrorDescription": "Failed to save assessment results.",
     "autoSaved": "✓ Results have been automatically saved. You can find them in the My Exercises section.",
     "saving": "Saving results...",
@@ -101,29 +101,29 @@
     "assessment": "Pain Assessment",
     "signOut": "Sign Out",
     "brand": "Pebee Therapist",
-    "toggleMenu": "Show Menu"
+    "toggleMenu": "Toggle Menu"
   },
   "auth": {
     "signIn": "Sign In",
-    "signUp": "Create Account",
+    "signUp": "Sign Up",
     "google": "Continue with Google",
     "toggleSignUp": "Don't have an account? Sign up",
     "toggleSignIn": "Already have an account? Sign in",
-    "signUpSubtitle": "Create a new account to get started",
+    "signUpSubtitle": "Create your new account",
     "signInSubtitle": "Sign in to your account",
     "firstName": "First Name",
     "email": "Email",
     "password": "Password",
     "privacyConsent": "I agree to the processing of personal data",
     "or": "or",
-    "backHome": "Back to homepage"
+    "backHome": "Back to Home"
   },
   "assessment": {
     "title": "Musculoskeletal Pain Assessment",
-    "subtitle": "Fill out the questionnaire to get personalized exercise recommendations",
+    "subtitle": "Complete the questionnaire and get personalized exercise recommendations",
     "new": "New Assessment",
     "painArea": {
-      "specify": "To start the assessment please select pain area",
+      "specify": "To begin the assessment, please select the area of pain",
       "neck": "Neck",
       "middleBack": "Middle Back",
       "lowerBack": "Lower Back",
@@ -133,10 +133,10 @@
       "forearm": "Forearm",
       "hand": "Hand",
       "fingers": "Fingers",
-      "specifyUpperLimb": "Specify upper limb area"
+      "specifyUpperLimb": "Specify the upper limb area"
     },
     "consent": {
-      "disclaimer": "I agree to terms of use",
+      "disclaimer": "I agree to the terms of use",
       "privacy": "I agree to the processing of personal data"
     },
     "startAssessment": "Start Assessment"
@@ -144,31 +144,31 @@
   "consentSection": {
     "privacyTitle": "Privacy Protection",
     "privacyText": "I agree to the processing of personal data in accordance with privacy protection terms.",
-    "viewPrivacyPolicy": "View privacy policy",
+    "viewPrivacyPolicy": "View Privacy Policy",
     "mustAgree": "You must agree to the privacy protection terms."
   },
   "painAreaSection": {
     "title": "Mark pain areas on the model",
-    "instruction": "Click on body areas where you feel pain",
+    "instruction": "Click on the body areas where you feel pain",
     "selectedAreas": "Selected areas:",
     "noAreasSelected": "No areas selected",
     "selectAtLeastOne": "Select at least one pain area"
   },
   "home": {
     "greeting": {
-      "hello": "Hello",
-      "question": "How are you feeling today?"
+      "hello": "Hello {{name}}",
+      "question": "how are you feeling today?"
     },
     "mood": {
       "week": "Week",
       "month": "Month",
       "periodWeek": "week",
       "periodMonth": "month",
-      "avgScore": "Average score ({{period}})",
-      "infoLabel": "Information about mood scoring",
-      "infoText": "The average mood score is calculated from your records over the last {{days}} days.",
+      "avgScore": "Average Score ({{period}})",
+      "infoLabel": "Mood assessment information",
+      "infoText": "Average mood score is calculated from your records over the last {{days}} days.",
       "infoGrades": "Good = 3, Neutral = 2, Bad = 1",
-      "infoFollow": "Follow your progress to better understand your wellbeing patterns.",
+      "infoFollow": "Track your progress for better understanding of your wellness patterns.",
       "noChange": "No significant change",
       "better": "Better than previous {{days}} days",
       "worse": "Worse than previous {{days}} days",
@@ -188,16 +188,16 @@
     "exerciseStats": {
       "title": "Exercise Progress",
       "weekLabel": "days exercised this week",
-      "goalRemaining": "{{count}} more days to reach your goal",
+      "goalRemaining": "{{count}} more days to reach goal",
       "goalDone": "🎉 Goal achieved!",
-      "noGoal": "Set a weekly goal to track your progress"
+      "noGoal": "Set a weekly goal to track progress"
     },
     "blogStats": {
       "title": "Blog Reading",
       "weekLabel": "blogs read this week",
-      "goalRemaining": "{{count}} more blogs to reach your goal",
+      "goalRemaining": "{{count}} more blogs to reach goal",
       "goalDone": "🎉 Goal achieved!",
-      "noGoal": "Set a weekly goal to track your progress"
+      "noGoal": "Set a weekly goal to track progress"
     },
     "savedBlogs": {
       "title": "Saved Articles",
@@ -209,11 +209,11 @@
     }
   },
   "profileForm": {
-    "manual": "Manual work",
-    "desk": "Desk work",
+    "manual": "Manual Work",
+    "desk": "Desk Work",
     "driver": "Driver",
     "manualSpec": "Manual work specification:",
-    "officeWork": "Office work"
+    "officeWork": "Office Work"
   },
   "goals": {
     "title": "Goals",
@@ -232,9 +232,9 @@
     "title": "My Exercises",
     "activeProgramsTitle": "Active Programs",
     "activeProgramsDescription": "Your current exercise programs based on pain assessments",
-    "endedProgramsTitle": "Completed Programs",
-    "endedProgramsDescription": "Previously completed exercise programs",
-    "backHome": "Back to Home",
+    "endedProgramsTitle": "Ended Programs",
+    "endedProgramsDescription": "Previously ended exercise programs",
+    "backHome": "Back Home",
     "newAssessment": "New Assessment"
   },
   "calendar": {
@@ -256,11 +256,11 @@
   "assessmentAccordion": {
     "painMechanismLabel": "Pain Mechanism",
     "diagnosisLabel": "Diagnosis",
-    "yourPainInitial": "Your pain (initial)",
-    "yourPainLatest": "Your pain (latest)",
+    "yourPainInitial": "Your Pain (Initial)",
+    "yourPainLatest": "Your Pain (Latest)",
     "delivered": "Delivered",
-    "lastExercise": "Last exercise",
-    "programStart": "Program start",
+    "lastExercise": "Last Exercise",
+    "programStart": "Program Start",
     "endProgram": "End Program",
     "recordProgress": "Record Progress",
     "viewExercises": "View Exercises",
@@ -273,7 +273,7 @@
     "posts": {
       "1": {
         "title": "Understanding Back Pain",
-        "description": "Learn about the common causes of back pain and how to manage it effectively."
+        "description": "Learn about common causes of back pain and how to manage it effectively."
       }
     }
   },
@@ -282,7 +282,7 @@
   },
   "exercisePlanPage": {
     "generalTitle": "General Exercise Program",
-    "generalDescription": "Don't have time for individual programs? Here you will find a personalized program with the most important exercises from your programs. Follow the instructions and stop exercising if you feel pain.",
+    "generalDescription": "Don't have time for individual programs? Here you'll find a personalized program with the most important exercises from your programs. Follow the instructions and stop exercising if you feel pain.",
     "backToExercises": "Back to My Exercises",
     "title": "Exercise Plan",
     "specificDescription": "Personalized exercise program for {{diagnosis}} affecting {{painArea}}"
@@ -293,7 +293,7 @@
     "no": "No",
     "suitableQuestion": "Is this exercise suitable for you?",
     "feedbackTitle": "Exercise Feedback",
-    "painQuestion": "1. Does this exercise cause you pain?",
+    "painQuestion": "1. Does the exercise cause you pain?",
     "painAcceptableQuestion": "1a. Is the pain acceptable?",
     "yesAcceptable": "Yes, it's acceptable",
     "noAcceptable": "No, it's not acceptable",
@@ -307,14 +307,14 @@
   },
   "importantNotice": {
     "title": "Important Notice",
-    "text": "These exercises are recommended based on your assessment. If you experience severe pain or discomfort, please consult with a healthcare professional."
+    "text": "These exercises are recommended based on your assessment. If you experience severe pain or discomfort, consult a healthcare professional."
   },
   "resultsFooter": {
     "startNew": "Start New Assessment",
     "myExercises": "My Exercises"
   },
   "followUp": {
-    "title": "Progress Follow-up",
+    "title": "Progress Tracking",
     "progressRecorded": "Progress Recorded",
     "responsesSaved": "Your responses have been successfully saved.",
     "questionNumber": "Question {{current}} of {{total}}",
@@ -322,11 +322,11 @@
     "next": "Next",
     "finish": "Finish",
     "questions": {
-      "painLevelChange": "How would you rate your pain compared to your last assessment?",
-      "painNatureChanged": "Has the nature of your pain changed since your last assessment?",
+      "painLevelChange": "How would you rate your pain compared to the last assessment?",
+      "painNatureChanged": "Has the nature of your pain changed since the last assessment?",
       "painNatureDescription": "How has the nature of your pain changed?",
       "painSpreading": "Has your pain spread to new areas?",
-      "newPainArea": "Which new areas has the pain spread to?",
+      "newPainArea": "To which new areas has the pain spread?",
       "exerciseEffectiveness": "How effective are the exercises in relieving your pain?",
       "exerciseCompliance": "How often do you follow the recommended exercise plan?",
       "painTriggers": "Have the factors that trigger your pain changed?",
@@ -339,7 +339,7 @@
       "workImpact": "How does pain affect your work or studies?",
       "moodImpact": "How does pain affect your mood?",
       "socialImpact": "How does pain affect your social activities?",
-      "treatmentSatisfaction": "How satisfied are you with your current treatment?"
+      "treatmentSatisfaction": "How satisfied are you with your treatment so far?"
     },
     "options": {
       "painLevel": {
@@ -394,6 +394,15 @@
         "dissatisfied": "Dissatisfied",
         "veryDissatisfied": "Very dissatisfied"
       }
+    },
+    "painScale": {
+      "noPain": "No pain",
+      "worstPain": "Worst pain"
+    },
+    "navigation": {
+      "back": "Back",
+      "next": "Next",
+      "finish": "Finish"
     }
   },
   "slider": {
@@ -401,6 +410,6 @@
   },
   "questionExplanation": {
     "title": "Question Explanation",
-    "explain": "Explain question"
+    "explain": "Explain Question"
   }
 }
