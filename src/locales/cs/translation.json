@@ -1,4 +1,4 @@
-M
+
 {
   "profile": {
     "title": "Můj profil",
@@ -410,6 +410,6 @@ M
   },
   "questionExplanation": {
     "title": "Vysvětlení otázky",
-    "explain": "Vysvětlit otázku"
+    "explain": "Vysvetliť otázku"
   }
 }
