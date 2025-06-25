@@ -155,6 +155,10 @@
     "selectAtLeastOne": "Vyberte alespoň jednu oblast bolesti"
   },
   "home": {
+    "greeting": {
+      "hello": "Ahoj",
+      "question": "Jak se dnes cítíte?"
+    },
     "mood": {
       "week": "Týden",
       "month": "Měsíc",
@@ -170,16 +174,66 @@
       "worse": "Horší než předchozích {{days}} dní",
       "noRecords": "Žádné záznamy pro {{period}}",
       "emptyWeek": "tento týden",
-      "emptyMonth": "tento měsíc"
+      "emptyMonth": "tento měsíc",
+      "happy": "Dobře",
+      "neutral": "Neutrálně",
+      "sad": "Špatně"
     },
     "progressTitle": "Týdenní pokrok",
     "setGoals": "Nastavit cíle",
     "generalProgram": {
       "view": "Zobrazit program",
       "exerciseCount": "cvičení"
+    },
+    "exerciseStats": {
+      "title": "Pokrok ve cvičení",
+      "weekLabel": "dnů cvičených tento týden",
+      "goalRemaining": "{{count}} dalších dnů do dosažení cíle",
+      "goalDone": "🎉 Cíl splněn!",
+      "noGoal": "Nastavte si týdenní cíl pro sledování pokroku"
+    },
+    "blogStats": {
+      "title": "Čtení blogů",
+      "weekLabel": "přečtených blogů tento týden",
+      "goalRemaining": "{{count}} dalších blogů do dosažení cíle",
+      "goalDone": "🎉 Cíl splněn!",
+      "noGoal": "Nastavte si týdenní cíl pro sledování pokroku"
+    },
+    "savedBlogs": {
+      "title": "Uložené články",
+      "empty": "Zatím žádné uložené články"
+    },
+    "favoriteExercises": {
+      "title": "Oblíbená cvičení",
+      "empty": "Zatím žádná oblíbená cvičení"
     }
   },
+  "profileForm": {
+    "manual": "Manuální práce",
+    "desk": "Sedavá práce",
+    "driver": "Řidič",
+    "manualSpec": "Specifikace manuální práce:",
+    "officeWork": "Kancelářská práce"
+  },
+  "goals": {
+    "title": "Cíle",
+    "weekly": "Týdenní cíle",
+    "exerciseText": "Chci cvičit",
+    "blogText": "Chci přečíst"
+  },
+  "myExercises": {
+    "title": "Moje cviky",
+    "activeProgramsTitle": "Aktivní programy",
+    "activeProgramsDescription": "Vaše současné cvičební programy založené na hodnocení bolesti",
+    "endedProgramsTitle": "Dokončené programy",
+    "endedProgramsDescription": "Dříve dokončené cvičební programy",
+    "backHome": "Zpět domů",
+    "newAssessment": "Nové hodnocení"
+  },
   "calendar": {
+    "exerciseCalendarTitle": "Kalendář cvičení",
+    "today": "Dnes",
+    "weeklyProgress": "Týdenní pokrok",
     "days": {
       "long": {
         "monday": "Pondělí",
@@ -189,6 +243,28 @@
         "friday": "Pátek",
         "saturday": "Sobota",
         "sunday": "Neděle"
+      }
+    }
+  },
+  "assessmentAccordion": {
+    "painMechanismLabel": "Mechanismus bolesti",
+    "diagnosisLabel": "Diagnóza",
+    "yourPainInitial": "Vaše bolest (počáteční)",
+    "yourPainLatest": "Vaše bolest (nejnovější)",
+    "delivered": "Doručeno",
+    "lastExercise": "Poslední cvičení",
+    "programStart": "Začátek programu",
+    "endProgram": "Ukončit program",
+    "recordProgress": "Zaznamenat pokrok",
+    "viewExercises": "Zobrazit cvičení"
+  },
+  "blog": {
+    "title": "Blog o zdraví a wellness",
+    "readMore": "Číst více",
+    "posts": {
+      "1": {
+        "title": "Porozumění bolesti zad",
+        "description": "Naučte se o běžných příčinách bolesti zad a jak ji efektivně zvládat."
       }
     }
   },

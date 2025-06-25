@@ -155,6 +155,10 @@
     "selectAtLeastOne": "Select at least one pain area"
   },
   "home": {
+    "greeting": {
+      "hello": "Hello",
+      "question": "How are you feeling today?"
+    },
     "mood": {
       "week": "Week",
       "month": "Month",
@@ -170,16 +174,66 @@
       "worse": "Worse than previous {{days}} days",
       "noRecords": "No records for {{period}}",
       "emptyWeek": "this week",
-      "emptyMonth": "this month"
+      "emptyMonth": "this month",
+      "happy": "Good",
+      "neutral": "Neutral",
+      "sad": "Bad"
     },
     "progressTitle": "Weekly Progress",
     "setGoals": "Set Goals",
     "generalProgram": {
       "view": "View Program",
       "exerciseCount": "exercises"
+    },
+    "exerciseStats": {
+      "title": "Exercise Progress",
+      "weekLabel": "days exercised this week",
+      "goalRemaining": "{{count}} more days to reach your goal",
+      "goalDone": "🎉 Goal achieved!",
+      "noGoal": "Set a weekly goal to track your progress"
+    },
+    "blogStats": {
+      "title": "Blog Reading",
+      "weekLabel": "blogs read this week",
+      "goalRemaining": "{{count}} more blogs to reach your goal",
+      "goalDone": "🎉 Goal achieved!",
+      "noGoal": "Set a weekly goal to track your progress"
+    },
+    "savedBlogs": {
+      "title": "Saved Articles",
+      "empty": "No saved articles yet"
+    },
+    "favoriteExercises": {
+      "title": "Favorite Exercises",
+      "empty": "No favorite exercises yet"
     }
   },
+  "profileForm": {
+    "manual": "Manual work",
+    "desk": "Desk work",
+    "driver": "Driver",
+    "manualSpec": "Manual work specification:",
+    "officeWork": "Office work"
+  },
+  "goals": {
+    "title": "Goals",
+    "weekly": "Weekly Goals",
+    "exerciseText": "I want to exercise",
+    "blogText": "I want to read"
+  },
+  "myExercises": {
+    "title": "My Exercises",
+    "activeProgramsTitle": "Active Programs",
+    "activeProgramsDescription": "Your current exercise programs based on pain assessments",
+    "endedProgramsTitle": "Completed Programs",
+    "endedProgramsDescription": "Previously completed exercise programs",
+    "backHome": "Back to Home",
+    "newAssessment": "New Assessment"
+  },
   "calendar": {
+    "exerciseCalendarTitle": "Exercise Calendar",
+    "today": "Today",
+    "weeklyProgress": "Weekly Progress",
     "days": {
       "long": {
         "monday": "Monday",
@@ -189,6 +243,28 @@
         "friday": "Friday",
         "saturday": "Saturday",
         "sunday": "Sunday"
+      }
+    }
+  },
+  "assessmentAccordion": {
+    "painMechanismLabel": "Pain Mechanism",
+    "diagnosisLabel": "Diagnosis",
+    "yourPainInitial": "Your pain (initial)",
+    "yourPainLatest": "Your pain (latest)",
+    "delivered": "Delivered",
+    "lastExercise": "Last exercise",
+    "programStart": "Program start",
+    "endProgram": "End Program",
+    "recordProgress": "Record Progress",
+    "viewExercises": "View Exercises"
+  },
+  "blog": {
+    "title": "Health & Wellness Blog",
+    "readMore": "Read More",
+    "posts": {
+      "1": {
+        "title": "Understanding Back Pain",
+        "description": "Learn about the common causes of back pain and how to manage it effectively."
       }
     }
   },
