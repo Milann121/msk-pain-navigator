@@ -1,4 +1,4 @@
-M
+
 {
   "profile": {
     "title": "Můj profil",
@@ -220,7 +220,7 @@ M
     "weekly": "Týdenní cíle",
     "exerciseText": "Chci cvičit {dropdown} krát za týden",
     "blogText": "Chci přečíst {dropdown} blogů za týden",
-    "save": "Uložit",
+    "save": "Uložiť",
     "cancel": "Zrušit",
     "successTitle": "Úspěch",
     "successExercise": "Cíl cvičení byl úspěšně uložen.",
