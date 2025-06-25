@@ -281,7 +281,7 @@
   },
   "exercisePlanPage": {
     "generalTitle": "Obecný cvičební program",
-    "generalDescription": "Nemáte čas na individuální programy? Zde naleznete personalizovaný program s nejdůležitějšími cvičeními z vašich programů. Dodržujte pokyny a přestaňte cvičit, pokud pociťujete bolest.",
+    "generalDescription": "Zde naleznete personalizovaný program s nejdůležitějšími cvičeními z vašich programů. Dodržujte pokyny a přestaňte cvičit, pokud pociťujete bolest.",
     "backToExercises": "Zpět na Moje cviky",
     "title": "Plán cvičení",
     "specificDescription": "Personalizovaný cvičební program pro {{diagnosis}} ovlivňující {{painArea}}"
