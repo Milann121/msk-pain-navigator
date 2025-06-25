@@ -1,4 +1,4 @@
-M
+
 {
   "profile": {
     "title": "Můj profil",
@@ -156,7 +156,7 @@ M
   },
   "home": {
     "greeting": {
-      "hello": "Ahoj {{name}}",
+      "hello": "Ahoj{{name}}",
       "question": "jak se dnes cítíš?"
     },
     "mood": {
@@ -300,7 +300,10 @@ M
     "changeQuestion": "2. Chceš změnit tento cvik?",
     "submitFeedback": "Odeslat zpětnou vazbu",
     "changeExercise": "Změnit cvik",
-    "changeRequestInfo": "Po odeslání této žádosti ti vyměníme cvik."
+    "changeRequestInfo": "Po odeslání této žádosti ti vyměníme cvik.",
+    "newExerciseProposed": "Navrhované nové cvičení",
+    "confirmChange": "Potvrdit změnu",
+    "declineChange": "Odmítnout změnu"
   },
   "exerciseCvik": {
     "few": "cvičení"
