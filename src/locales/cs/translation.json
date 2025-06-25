@@ -1,4 +1,4 @@
-
+M
 {
   "profile": {
     "title": "Můj profil",
@@ -120,10 +120,10 @@
   },
   "assessment": {
     "title": "Hodnocení muskuloskeletální bolesti",
-    "subtitle": "Vyplňte dotazník a získejte personalizovaná doporučení cvičení",
+    "subtitle": "Vyplň dotazník a získej personalizovaná doporučení cvičení",
     "new": "Nové hodnocení",
     "painArea": {
-      "specify": "Pro začátek hodnocení prosím vyberte oblast bolesti",
+      "specify": "Pro začátek hodnocení prosím vyber oblast bolesti",
       "neck": "Krk",
       "middleBack": "Střední část zad",
       "lowerBack": "Dolní část zad",
@@ -133,7 +133,7 @@
       "forearm": "Předloktí",
       "hand": "Ruka",
       "fingers": "Prsty",
-      "specifyUpperLimb": "Specifikujte oblast horní končetiny"
+      "specifyUpperLimb": "Specifikuj oblast horní končetiny"
     },
     "consent": {
       "disclaimer": "Souhlasím s podmínkami používání",
@@ -145,14 +145,14 @@
     "privacyTitle": "Ochrana soukromí",
     "privacyText": "Souhlasím se zpracováním osobních údajů v souladu s podmínkami ochrany soukromí.",
     "viewPrivacyPolicy": "Zobrazit zásady ochrany osobních údajů",
-    "mustAgree": "Musíte souhlasit s podmínkami ochrany soukromí."
+    "mustAgree": "Musíš souhlasit s podmínkami ochrany soukromí."
   },
   "painAreaSection": {
-    "title": "Označte oblasti bolesti na modelu",
-    "instruction": "Klikněte na oblasti těla, kde pociťujete bolest",
+    "title": "Označ oblasti bolesti na modelu",
+    "instruction": "Klikni na oblasti těla, kde pociťuješ bolest",
     "selectedAreas": "Vybrané oblasti:",
     "noAreasSelected": "Žádné oblasti nejsou vybrány",
-    "selectAtLeastOne": "Vyberte alespoň jednu oblast bolesti"
+    "selectAtLeastOne": "Vyber alespoň jednu oblast bolesti"
   },
   "home": {
     "greeting": {
@@ -165,10 +165,10 @@
       "periodWeek": "týden",
       "periodMonth": "měsíc",
       "avgScore": "Průměrné skóre ({{period}})",
-      "infoLabel": "Informace o hodnocení nálady",
-      "infoText": "Průměrné skóre nálady je vypočítáno z vašich záznamů za posledních {{days}} dní.",
+      "infoLabel": "Informace o hodnocení bolesti",
+      "infoText": "Průměrné skóre nálady je vypočítáno z tvých záznamů za posledních {{days}} dní.",
       "infoGrades": "Dobře = 3, Neutrálně = 2, Špatně = 1",
-      "infoFollow": "Sledujte svůj pokrok pro lepší pochopení vzorců vaší pohody.",
+      "infoFollow": "Sleduj svůj pokrok pro lepší pochopení vzorců bolesti.",
       "noChange": "Žádná významná změna",
       "better": "Lepší než předchozích {{days}} dní",
       "worse": "Horší než předchozích {{days}} dní",
@@ -190,14 +190,14 @@
       "weekLabel": "dní cvičených tento týden",
       "goalRemaining": "{{count}} dalších dní do dosažení cíle",
       "goalDone": "🎉 Cíl splněn!",
-      "noGoal": "Nastavte si týdenní cíl pro sledování pokroku"
+      "noGoal": "Nastav si týdenní cíl pro sledování pokroku"
     },
     "blogStats": {
       "title": "Čtení blogů",
       "weekLabel": "přečtených blogů tento týden",
       "goalRemaining": "{{count}} dalších blogů do dosažení cíle",
       "goalDone": "🎉 Cíl splněn!",
-      "noGoal": "Nastavte si týdenní cíl pro sledování pokroku"
+      "noGoal": "Nastav si týdenní cíl pro sledování pokroku"
     },
     "savedBlogs": {
       "title": "Uložené články",
@@ -231,7 +231,7 @@
   "myExercises": {
     "title": "Moje cvičení",
     "activeProgramsTitle": "Aktivní programy",
-    "activeProgramsDescription": "Vaše současné cvičební programy založené na hodnoceních bolesti",
+    "activeProgramsDescription": "Tvé současné cvičební programy založené na hodnoceních bolesti",
     "endedProgramsTitle": "Ukončené programy",
     "endedProgramsDescription": "Dříve ukončené cvičební programy",
     "backHome": "Zpět domů",
@@ -273,7 +273,7 @@
     "posts": {
       "1": {
         "title": "Porozumění bolesti zad",
-        "description": "Naučte se o běžných příčinách bolesti zad a jak ji efektivně zvládat."
+        "description": "Nauč se o běžných příčinách bolesti zad a jak ji efektivně zvládat."
       }
     }
   },
@@ -282,7 +282,7 @@
   },
   "exercisePlanPage": {
     "generalTitle": "Všeobecný cvičební program",
-    "generalDescription": "Nemáte čas na individuální programy? Zde najdete personalizovaný program s nejdůležitějšími cvičeními z vašich programů. Dodržujte pokyny a přestaňte cvičit, pokud pociťujete bolest.",
+    "generalDescription": "Nemáš čas na individuální programy? Zde najdeš personalizovaný program s nejdůležitějšími cvičeními z tvých programů. Dodržuj pokyny a přestaň cvičit, pokud pociťuješ bolest.",
     "backToExercises": "Zpět na Moje cvičení",
     "title": "Plán cvičení",
     "specificDescription": "Personalizovaný cvičební program pro {{diagnosis}} ovlivňující {{painArea}}"
@@ -291,23 +291,23 @@
     "sectionSummary": "{{count}} {{label}}",
     "yes": "Ano",
     "no": "Ne",
-    "suitableQuestion": "Je pro vás toto cvičení vhodné?",
+    "suitableQuestion": "Je pro tebe toto cvičení vhodné?",
     "feedbackTitle": "Zpětná vazba ke cviku",
-    "painQuestion": "1. Způsobuje vám cvik bolest?",
+    "painQuestion": "1. Způsobuje ti cvik bolest?",
     "painAcceptableQuestion": "1a. Je bolest přijatelná?",
     "yesAcceptable": "Ano, je přijatelná",
     "noAcceptable": "Ne, není přijatelná",
-    "changeQuestion": "2. Chcete změnit tento cvik?",
+    "changeQuestion": "2. Chceš změnit tento cvik?",
     "submitFeedback": "Odeslat zpětnou vazbu",
     "changeExercise": "Změnit cvik",
-    "changeRequestInfo": "Po odeslání této žádosti vás budeme kontaktovat ohledně vhodné náhrady cviku."
+    "changeRequestInfo": "Po odeslání této žádosti ti vyměníme cvik."
   },
   "exerciseCvik": {
     "few": "cvičení"
   },
   "importantNotice": {
     "title": "Důležité upozornění",
-    "text": "Tato cvičení jsou doporučena na základě vašeho hodnocení. Pokud pociťujete silnou bolest nebo nepohodlí, obraťte se na zdravotníka."
+    "text": "Tato cvičení jsou doporučena na základě tvého hodnocení. Pokud pociťuješ silnou bolest nebo nepohodlí, obrať se na zdravotníka."
   },
   "resultsFooter": {
     "startNew": "Začít nové hodnocení",
@@ -410,6 +410,6 @@
   },
   "questionExplanation": {
     "title": "Vysvětlení otázky",
-    "explain": "Vysvetliť otázku"
+    "explain": "Vysvětlit otázku"
   }
 }
