@@ -6,6 +6,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { useAuth } from '@/contexts/AuthContext';
+import LanguageDropdown from './LanguageDropdown';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -65,6 +66,11 @@ const Header = () => {
                 {user ? t('header.signOut') : t('header.signIn')}
               </Button>
             </li>
+            <li className="pt-2 border-t">
+              <div className="px-4">
+                <LanguageDropdown />
+              </div>
+            </li>
           </ul>
         </nav>
       </SheetContent>
@@ -119,6 +125,7 @@ const Header = () => {
               {link.label}
             </Button>
           ))}
+          <LanguageDropdown />
           <Button
             onClick={handleAuthClick}
             variant="outline"
