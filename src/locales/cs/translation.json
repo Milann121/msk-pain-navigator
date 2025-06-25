@@ -1,4 +1,4 @@
-
+M
 {
   "profile": {
     "title": "Můj profil",
@@ -17,9 +17,9 @@
     "moneySavingsFootnote": "*vypočítáno na základě průměrných cen ve vaší zemi",
     "modelTitle": "Model těla",
     "jobTypes": {
-      "manual": "manuální práce",
-      "desk": "sedavá práce",
-      "driver": "řidič"
+      "manual": "Manuální práce",
+      "desk": "Sedavá práce",
+      "driver": "Řidič"
     },
     "jobSubtypes": {
       "manualSpec": "Specifikace:",
@@ -85,10 +85,10 @@
   },
   "results": {
     "savedTitle": "Výsledky byly uloženy",
-    "savedDescription": "Vaše hodnocení bylo úspěšně uloženo a najdete ho v sekci Moje cvičení.",
+    "savedDescription": "Tvé hodnocení bylo úspěšně uloženo a najdeš ho v sekci Moje cvičení.",
     "saveErrorTitle": "Chyba při ukládání",
     "saveErrorDescription": "Nepodařilo se uložit výsledky hodnocení.",
-    "autoSaved": "✓ Výsledky byly automaticky uloženy. Najdete je v sekci Moje cvičení.",
+    "autoSaved": "✓ Výsledky byly automaticky uloženy. Najdeš je v sekci Moje cvičení.",
     "saving": "Ukládání výsledků...",
     "autoSaveFailed": "Automatické ukládání výsledků selhalo."
   },
