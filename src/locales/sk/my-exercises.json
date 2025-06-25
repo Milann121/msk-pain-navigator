@@ -1,0 +1,19 @@
+
+{
+  "title": "Moje cviky",
+  "activePrograms": "Aktívne programy",
+  "endedPrograms": "Ukončené programy",
+  "noActivePrograms": "Momentálne nemáte žiadne aktívne programy",
+  "noEndedPrograms": "Nemáte žiadne ukončené programy",
+  "startAssessment": "Začať hodnotenie",
+  "weeklyGoal": "Týždenný cieľ",
+  "progress": "Pokrok",
+  "daysCompleted": "{{completed}} z {{total}} dní dokončených",
+  "exercisesCompleted": "{{completed}} cvikov dokončených",
+  "lastActivity": "Posledná aktivita",
+  "programStatus": {
+    "active": "Aktívny",
+    "ended": "Ukončený",
+    "paused": "Pozastavený"
+  }
+}

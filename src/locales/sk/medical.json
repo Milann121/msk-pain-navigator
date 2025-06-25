@@ -1,0 +1,47 @@
+
+{
+  "bodyParts": {
+    "neck": "Krčná chrbtíca",
+    "middle back": "Hrudná chrbtíca",
+    "lower back": "Bedrová chrbtíca",
+    "upper limb": "Horná končatina",
+    "shoulder": "Rameno"
+  },
+  "painMechanisms": {
+    "nociceptive": "Nociceptívna bolesť",
+    "neuropathic": "Neuropatická bolesť",
+    "central": "Centrálna senzitizácia",
+    "none": "Nedefinovaný mechanizmus bolesti",
+    "red-flag": "Symptómy vyžadujúce návštevu lekára"
+  },
+  "diagnoses": {
+    "none": "Nebola identifikovaná žiadna špecifická diagnóza",
+    "disc herniation": "Hernia medziobratlového disku",
+    "facet joint syndrome": "Syndróm facetových kĺbov",
+    "SIJ syndrome": "Syndróm SI kĺbu",
+    "muscle pain": "Svalová bolesť",
+    "red-flag": "Symptómy vyžadujúce návštevu lekára",
+    "ventral spondylolisthesis": "Ventrálna spondylolistéza",
+    "dorsal spondylolisthesis": "Dorzálna spondylolistéza",
+    "costovertebral joint syndrome": "Syndróm kostovertebrálneho kĺbu",
+    "Radicular Pain": "Radikulárna bolesť",
+    "Radiculopathy": "Radikulopatia",
+    "Central Sensitisation": "Centrálna senzitizácia",
+    "Central Sensitisation - Allodynia": "Centrálna senzitizácia - Alodýnia",
+    "Central Sensitisation - Sensory Hypersensitivity": "Centrálna senzitizácia - Zmyslová hypersenzitivita",
+    "Central Sensitisation - Cognitive Symptoms": "Centrálna senzitizácia - Kognitívne symptómy",
+    "cervical-radiculopathy": "Cervikálna radikulopatia",
+    "frozen-shoulder": "Zmrznuté rameno",
+    "slap-tear": "SLAP lézia",
+    "subacromial-impingement-syndrome": "Impingement syndróm ramena",
+    "stiff-shoulder": "Syndróm stuhnutého ramena",
+    "shoulder-bursa": "Burzitída ramena",
+    "rotator-cuff-tear": "Porucha rotátorovej manžety",
+    "rotator-cuff-tendinopathy": "Tendinopatia rotátorovej manžety",
+    "biceps-tendinopathy": "Tendinopatia bicepsu",
+    "biceps-tear-long-head": "Porucha bicepsovej šľachy",
+    "shoulder-dislocation": "Dislokácia ramena",
+    "unstable-shoulder": "Nestabilné rameno",
+    "labral-leason": "Lézia labra"
+  }
+}

@@ -1,0 +1,49 @@
+
+{
+  "greeting": {
+    "hello": "Ahoj {{name}}",
+    "question": "Ako sa dnes cítite?"
+  },
+  "mood": {
+    "happy": "Dobre",
+    "neutral": "Neutrálne",
+    "sad": "Zle",
+    "avgScore": "Priemerné skóre ({{period}})",
+    "periodWeek": "týždeň",
+    "periodMonth": "mesiac",
+    "week": "Týždeň",
+    "month": "Mesiac",
+    "better": "Lepšie ako za posledných {{days}} dní",
+    "worse": "Horšie ako za posledných {{days}} dní",
+    "noChange": "Bez zmeny",
+    "emptyWeek": "tohto týždňa",
+    "emptyMonth": "tohto mesiaca",
+    "noRecords": "Žiadne záznamy {{period}}",
+    "infoLabel": "Informácie o skóre",
+    "infoText": "Skóre sa vypočítava z vašich nálad za posledných {{days}} dní.",
+    "infoGrades": "Dobre (3), Neutrálne (2), Zle (1)",
+    "infoFollow": "Sledujte svoj pokrok v čase."
+  },
+  "progress": {
+    "weeklyGoals": "Týždenné ciele",
+    "exerciseGoal": "Cieľ cvičenia",
+    "blogGoal": "Cieľ čítania",
+    "setGoals": "Nastaviť ciele",
+    "editGoals": "Upraviť ciele",
+    "completed": "dokončené",
+    "remaining": "zostáva",
+    "days": "dní",
+    "articles": "článkov"
+  },
+  "favoriteExercises": "Obľúbené cviky",
+  "savedBlogs": "Uložené blogy",
+  "generalProgram": {
+    "title": "Všeobecný program",
+    "description": "Základné cviky pre celkové zdravie",
+    "startNow": "Začať teraz"
+  },
+  "banner": {
+    "message": "Nezabudnite si nastaviť týždenné ciele!",
+    "open": "Otvoriť"
+  }
+}
