@@ -1,5 +1,15 @@
 
 {
+  "welcome":{
+    "welcome.title": "Vitajte v aplikácii Pebee Terapeut",
+    "welcome.subtitle":"",
+    "welcome.signIn": ""
+
+    
+
+
+
+  },
   "profile": {
     "title": "My Profile",
     "personalData": "Personal Data",
