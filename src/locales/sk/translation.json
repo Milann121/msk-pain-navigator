@@ -155,7 +155,7 @@
   },
   "home": {
     "greeting": {
-      "hello": "Ahoj {firstName},",
+      "hello": "Ahoj {'firstName'},",
       "question": "ako sa dnes cítite?"
     },
     "mood": {
