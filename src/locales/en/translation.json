@@ -1,4 +1,3 @@
-
 {
   "profile": {
     "title": "My Profile",
@@ -286,7 +285,16 @@
     "sectionSummary": "{{count}} {{label}}",
     "yes": "Yes",
     "no": "No",
-    "suitableQuestion": "Is this exercise suitable for you?"
+    "suitableQuestion": "Is this exercise suitable for you?",
+    "feedbackTitle": "Exercise Feedback",
+    "painQuestion": "1. Does this exercise cause you pain?",
+    "painAcceptableQuestion": "1a. Is the pain acceptable?",
+    "yesAcceptable": "Yes, it's acceptable",
+    "noAcceptable": "No, it's not acceptable",
+    "changeQuestion": "2. Do you want to change this exercise?",
+    "submitFeedback": "Submit Feedback",
+    "changeExercise": "Change Exercise",
+    "changeRequestInfo": "After submitting this request, we will contact you regarding a suitable exercise replacement."
   },
   "exerciseCvik": {
     "few": "exercises"

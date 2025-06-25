@@ -1,3 +1,4 @@
+
 {
   "profile": {
     "title": "Môj profil",
@@ -336,13 +337,13 @@
   "exercisePlan": {
     "changeRequestAlert": "Žiadosť o zmenu cviku bola odoslaná.",
     "suitableQuestion": "Vyhovuje vám cvik?",
-    "feedbackTitle": "Prečo nie je cvik dobrý?",
+    "feedbackTitle": "Spätná väzba k cviku",
     "painQuestion": "1. Spôsobuje vám cvik bolesť?",
     "painAcceptableQuestion": "1a. Je bolesť prijateľná?",
     "yes": "Áno",
     "no": "Nie",
     "yesAcceptable": "Áno, je prijateľná",
-    "noAcceptable": "Nie, nie je",
+    "noAcceptable": "Nie, nie je prijateľná",
     "changeQuestion": "2. Chcete zmeniť tento cvik?",
     "submitFeedback": "Odoslať spätnú väzbu",
     "changeExercise": "Zmeniť cvik",

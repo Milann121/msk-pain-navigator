@@ -1,4 +1,3 @@
-
 {
   "profile": {
     "title": "Můj profil",
@@ -286,7 +285,16 @@
     "sectionSummary": "{{count}} {{label}}",
     "yes": "Ano",
     "no": "Ne",
-    "suitableQuestion": "Je pro vás toto cvičení vhodné?"
+    "suitableQuestion": "Je pro vás toto cvičení vhodné?",
+    "feedbackTitle": "Zpětná vazba ke cviku",
+    "painQuestion": "1. Způsobuje vám cvik bolest?",
+    "painAcceptableQuestion": "1a. Je bolest přijatelná?",
+    "yesAcceptable": "Ano, je přijatelná",
+    "noAcceptable": "Ne, není přijatelná",
+    "changeQuestion": "2. Chcete změnit tento cvik?",
+    "submitFeedback": "Odeslat zpětnou vazbu",
+    "changeExercise": "Změnit cvik",
+    "changeRequestInfo": "Po odeslání této žádosti vás budeme kontaktovat ohledně vhodné náhrady cviku."
   },
   "exerciseCvik": {
     "few": "cvičení"
