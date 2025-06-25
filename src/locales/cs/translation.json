@@ -219,7 +219,9 @@
     "title": "Cíle",
     "weekly": "Týdenní cíle",
     "exerciseText": "Chci cvičit",
-    "blogText": "Chci přečíst"
+    "blogText": "Chci přečíst",
+    "save": "Uložit",
+    "cancel": "Zrušit"
   },
   "myExercises": {
     "title": "Moje cviky",
@@ -256,7 +258,9 @@
     "programStart": "Začátek programu",
     "endProgram": "Ukončit program",
     "recordProgress": "Zaznamenat pokrok",
-    "viewExercises": "Zobrazit cvičení"
+    "viewExercises": "Zobrazit cvičení",
+    "ended": "Ukončeno",
+    "renewProgram": "Obnovit program"
   },
   "blog": {
     "title": "Blog o zdraví a wellness",
@@ -273,7 +277,19 @@
   },
   "exercisePlanPage": {
     "generalTitle": "Obecný cvičební program",
-    "generalDescription": "Základní cvičení vhodná pro obecný pohyb a udržení zdraví."
+    "generalDescription": "Základní cvičení vhodná pro obecný pohyb a udržení zdraví.",
+    "backToExercises": "Zpět na Moje cviky",
+    "title": "Plán cvičení",
+    "specificDescription": "Personalizovaný cvičební program pro {{diagnosis}} ovlivňující {{painArea}}"
+  },
+  "exercisePlan": {
+    "sectionSummary": "{{count}} {{label}}",
+    "yes": "Ano",
+    "no": "Ne"
+  },
+  "importantNotice": {
+    "title": "Důležité upozornění",
+    "text": "Tato cvičení jsou doporučena na základě vašeho hodnocení. Pokud pociťujete silnou bolest nebo nepohodlí, obraťte se na zdravotníka."
   },
   "resultsFooter": {
     "startNew": "Začít nové hodnocení",

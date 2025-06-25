@@ -219,7 +219,9 @@
     "title": "Goals",
     "weekly": "Weekly Goals",
     "exerciseText": "I want to exercise",
-    "blogText": "I want to read"
+    "blogText": "I want to read",
+    "save": "Save",
+    "cancel": "Cancel"
   },
   "myExercises": {
     "title": "My Exercises",
@@ -256,7 +258,9 @@
     "programStart": "Program start",
     "endProgram": "End Program",
     "recordProgress": "Record Progress",
-    "viewExercises": "View Exercises"
+    "viewExercises": "View Exercises",
+    "ended": "Ended",
+    "renewProgram": "Renew Program"
   },
   "blog": {
     "title": "Health & Wellness Blog",
@@ -273,7 +277,19 @@
   },
   "exercisePlanPage": {
     "generalTitle": "General Exercise Program",
-    "generalDescription": "Basic exercises suitable for general movement and health maintenance."
+    "generalDescription": "Basic exercises suitable for general movement and health maintenance.",
+    "backToExercises": "Back to My Exercises",
+    "title": "Exercise Plan",
+    "specificDescription": "Personalized exercise program for {{diagnosis}} affecting {{painArea}}"
+  },
+  "exercisePlan": {
+    "sectionSummary": "{{count}} {{label}}",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "importantNotice": {
+    "title": "Important Notice",
+    "text": "These exercises are recommended based on your assessment. If you experience severe pain or discomfort, please consult with a healthcare professional."
   },
   "resultsFooter": {
     "startNew": "Start New Assessment",
