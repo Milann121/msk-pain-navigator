@@ -30,8 +30,8 @@
     "goals": {
       "title": "My Goals",
       "weeklyGoals": "Weekly Goals",
-      "exerciseGoal": "I want to exercise",
-      "blogGoal": "I want to read",
+      "exerciseGoal": "I want to exercise {dropdown} times per week",
+      "blogGoal": "I want to read {dropdown} blogs per week",
       "timesPerWeek": "times per week",
       "blogsPerWeek": "blogs per week",
       "saveGoals": "Save Goals",
@@ -217,10 +217,15 @@
   "goals": {
     "title": "Goals",
     "weekly": "Weekly Goals",
-    "exerciseText": "I want to exercise",
-    "blogText": "I want to read",
+    "exerciseText": "I want to exercise {dropdown} times per week",
+    "blogText": "I want to read {dropdown} blogs per week",
     "save": "Save",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "successTitle": "Success",
+    "successExercise": "Exercise goal has been successfully saved.",
+    "successBlog": "Reading goal has been successfully saved.",
+    "errorTitle": "Error",
+    "error": "Failed to save goal."
   },
   "myExercises": {
     "title": "My Exercises",

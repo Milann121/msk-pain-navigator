@@ -217,10 +217,15 @@
   "goals": {
     "title": "Cíle",
     "weekly": "Týdenní cíle",
-    "exerciseText": "Chci cvičit",
-    "blogText": "Chci přečíst",
+    "exerciseText": "Chci cvičit {dropdown} krát za týden",
+    "blogText": "Chci přečíst {dropdown} blogů za týden",
     "save": "Uložit",
-    "cancel": "Zrušit"
+    "cancel": "Zrušit",
+    "successTitle": "Úspěch",
+    "successExercise": "Cíl cvičení byl úspěšně uložen.",
+    "successBlog": "Cíl čtení byl úspěšně uložen.",
+    "errorTitle": "Chyba",
+    "error": "Nepodařilo se uložit cíl."
   },
   "myExercises": {
     "title": "Moje cviky",
