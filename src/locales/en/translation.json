@@ -285,7 +285,11 @@
   "exercisePlan": {
     "sectionSummary": "{{count}} {{label}}",
     "yes": "Yes",
-    "no": "No"
+    "no": "No",
+    "suitableQuestion": "Is this exercise suitable for you?"
+  },
+  "exerciseCvik": {
+    "few": "exercises"
   },
   "importantNotice": {
     "title": "Important Notice",

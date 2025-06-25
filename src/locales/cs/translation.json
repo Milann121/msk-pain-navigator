@@ -285,7 +285,11 @@
   "exercisePlan": {
     "sectionSummary": "{{count}} {{label}}",
     "yes": "Ano",
-    "no": "Ne"
+    "no": "Ne",
+    "suitableQuestion": "Je pro vás toto cvičení vhodné?"
+  },
+  "exerciseCvik": {
+    "few": "cvičení"
   },
   "importantNotice": {
     "title": "Důležité upozornění",
