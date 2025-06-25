@@ -1,0 +1,20 @@
+name: Translation Check
+
+on:
+  pull_request:
+    paths:
+      - 'src/locales/**'
+      - 'scripts/checkTranslations.ts'
+      - '.github/workflows/translation-check.yml'
+      - 'package.json'
+
+jobs:
+  lint-translations:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci
+      - run: npm run lint:translations

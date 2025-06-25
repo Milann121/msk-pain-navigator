@@ -71,3 +71,15 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+
+## Checking translations
+
+Maintain completeness of translations by running:
+
+```sh
+npm run lint:translations
+```
+
+This script verifies that every language file under `src/locales` contains the
+same keys as the English translation. The CI workflow also runs this command on
+pull requests.
