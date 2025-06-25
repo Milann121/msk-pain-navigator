@@ -157,7 +157,7 @@
   "home": {
     "greeting": {
       "hello": "Ahoj {{name}}",
-      "question": "jak se dnes cítíte?"
+      "question": "jak se dnes cítíš?"
     },
     "mood": {
       "week": "Týden",
