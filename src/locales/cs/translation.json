@@ -1,3 +1,4 @@
+
 {
   "profile": {
     "title": "Můj profil",
@@ -30,8 +31,8 @@
     "goals": {
       "title": "Moje cíle",
       "weeklyGoals": "Týdenní cíle",
-      "exerciseGoal": "Chci cvičit",
-      "blogGoal": "Chci přečíst",
+      "exerciseGoal": "Chci cvičit {dropdown} krát za týden",
+      "blogGoal": "Chci přečíst {dropdown} blogů za týden",
       "timesPerWeek": "krát za týden",
       "blogsPerWeek": "blogů za týden",
       "saveGoals": "Uložit cíle",
@@ -311,5 +312,95 @@
   "resultsFooter": {
     "startNew": "Začít nové hodnocení",
     "myExercises": "Moje cviky"
+  },
+  "followUp": {
+    "title": "Sledování pokroku",
+    "progressRecorded": "Pokrok zaznamenán",
+    "responsesSaved": "Vaše odpovědi byly úspěšně uloženy.",
+    "questionNumber": "Otázka {{current}} z {{total}}",
+    "back": "Zpět",
+    "next": "Další",
+    "finish": "Dokončit",
+    "questions": {
+      "painLevelChange": "Jak byste hodnotili svou bolest v porovnání s posledním hodnocením?",
+      "painNatureChanged": "Změnila se povaha vaší bolesti od posledního hodnocení?",
+      "painNatureDescription": "Jak se změnila povaha vaší bolesti?",
+      "painSpreading": "Rozšířila se vaše bolest do nových oblastí?",
+      "newPainArea": "Do jakých nových oblastí se bolest rozšířila?",
+      "exerciseEffectiveness": "Jak účinná jsou cvičení na zmírnění vaší bolesti?",
+      "exerciseCompliance": "Jak často dodržujete doporučený plán cvičení?",
+      "painTriggers": "Změnily se faktory, které vyvolávají vaši bolest?",
+      "painReliefFactors": "Změnily se faktory, které zmírňují vaši bolest?",
+      "overallImprovement": "Jak hodnotíte celkové zlepšení svého stavu?",
+      "medicationUse": "Používáte nějaké léky na bolest?",
+      "medicationEffectiveness": "Jak účinné jsou vaše léky na bolest?",
+      "sleepQuality": "Jak bolest ovlivňuje kvalitu vašeho spánku?",
+      "dailyActivities": "Jak bolest ovlivňuje vaše každodenní aktivity?",
+      "workImpact": "Jak bolest ovlivňuje vaši práci nebo studium?",
+      "moodImpact": "Jak bolest ovlivňuje vaši náladu?",
+      "socialImpact": "Jak bolest ovlivňuje vaše sociální aktivity?",
+      "treatmentSatisfaction": "Jak jste spokojeni s dosavadní léčbou?"
+    },
+    "options": {
+      "painLevel": {
+        "muchBetter": "Výrazně lepší",
+        "better": "Lepší", 
+        "same": "Stejná",
+        "worse": "Horší",
+        "muchWorse": "Výrazně horší"
+      },
+      "yesNo": {
+        "yes": "Ano",
+        "no": "Ne"
+      },
+      "effectiveness": {
+        "veryEffective": "Velmi účinné",
+        "somewhatEffective": "Částečně účinné",
+        "notEffective": "Neúčinné",
+        "makesWorse": "Zhoršuje stav"
+      },
+      "compliance": {
+        "always": "Vždy",
+        "usually": "Obvykle",
+        "sometimes": "Někdy",
+        "rarely": "Zřídka",
+        "never": "Nikdy"
+      },
+      "improvement": {
+        "muchBetter": "Výrazně lepší",
+        "better": "Lepší",
+        "same": "Beze změny",
+        "worse": "Horší",
+        "muchWorse": "Výrazně horší"
+      },
+      "frequency": {
+        "never": "Nikdy",
+        "rarely": "Zřídka",
+        "sometimes": "Někdy",
+        "often": "Často",
+        "always": "Vždy"
+      },
+      "impact": {
+        "noImpact": "Žádný vliv",
+        "mildImpact": "Mírný vliv",
+        "moderateImpact": "Střední vliv",
+        "severeImpact": "Silný vliv",
+        "extremeImpact": "Extrémní vliv"
+      },
+      "satisfaction": {
+        "verySatisfied": "Velmi spokojen/a",
+        "satisfied": "Spokojen/a",
+        "neutral": "Neutrální",
+        "dissatisfied": "Nespokojen/a",
+        "veryDissatisfied": "Velmi nespokojen/a"
+      }
+    }
+  },
+  "slider": {
+    "selected": "Vybráno"
+  },
+  "questionExplanation": {
+    "title": "Vysvětlení otázky",
+    "explain": "Vysvětlit otázku"
   }
 }
