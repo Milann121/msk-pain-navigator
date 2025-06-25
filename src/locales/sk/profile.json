@@ -17,7 +17,7 @@
   "modelTitle": "Model tela",
   "jobTypes": {
     "manual": "manuálna práca",
-    "desk": "sedavá práca",
+    "desk": "sedavá práca", 
     "driver": "vodič"
   },
   "jobSubtypes": {
@@ -26,5 +26,15 @@
     "standingWork": "práca v stoji na mieste",
     "awkwardPositions": "práca v neprirodených polohách",
     "officeWork": "práca v kancelárii"
+  },
+  "goals": {
+    "title": "Moje ciele",
+    "weeklyGoals": "Týždenné ciele",
+    "exerciseGoal": "Chcem cvičiť",
+    "blogGoal": "Chcem prečítať",
+    "timesPerWeek": "krát za týždeň",
+    "blogsPerWeek": "blogov za týždeň",
+    "saveGoals": "Uložiť ciele",
+    "goalsUpdated": "Ciele boli aktualizované!"
   }
 }

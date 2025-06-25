@@ -42,7 +42,7 @@
   },
   "exerciseCvik": {
     "one": "cvik",
-    "few": "cviky",
+    "few": "cviky", 
     "many": "cvikov"
   }
 }

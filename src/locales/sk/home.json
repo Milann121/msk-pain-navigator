@@ -6,7 +6,7 @@
   },
   "mood": {
     "happy": "Dobre",
-    "neutral": "Neutrálne",
+    "neutral": "Neutrálne", 
     "sad": "Zle",
     "avgScore": "Priemerné skóre ({{period}})",
     "periodWeek": "týždeň",
@@ -24,6 +24,7 @@
     "infoGrades": "Dobre (3), Neutrálne (2), Zle (1)",
     "infoFollow": "Sledujte svoj pokrok v čase."
   },
+  "progressTitle": "Týždenný pokrok",
   "progress": {
     "weeklyGoals": "Týždenné ciele",
     "exerciseGoal": "Cieľ cvičenia",
@@ -35,11 +36,41 @@
     "days": "dní",
     "articles": "článkov"
   },
-  "favoriteExercises": "Obľúbené cviky",
-  "savedBlogs": "Uložené blogy",
+  "setGoals": "Nastaviť ciele",
+  "exerciseStats": {
+    "title": "Štatistiky cvičenia",
+    "weekLabel": "Tento týždeň",
+    "goalDone": "Cieľ splnený!",
+    "goalProgress": "{{completed}} z {{goal}} dní dokončených",
+    "noGoalSet": "Žiadny cieľ nenastavený",
+    "setGoal": "Nastaviť cieľ"
+  },
+  "blogStats": {
+    "title": "Štatistiky čítania blogov",
+    "weekLabel": "Tento týždeň",
+    "goalDone": "Cieľ splnený!",
+    "goalProgress": "{{completed}} z {{goal}} článkov prečítaných",
+    "noGoalSet": "Žiadny cieľ nenastavený",
+    "setGoal": "Nastaviť cieľ"
+  },
+  "favoriteExercises": {
+    "title": "Obľúbené cviky",
+    "empty": "Zatiaľ nemáte žiadne obľúbené cviky. Pridajte si obľúbené cviky z vašich programov."
+  },
+  "savedBlogs": {
+    "title": "Uložené blogy",
+    "empty": "Zatiaľ nemáte žiadne uložené blogy. Uložte si zaujímavé články pre neskoršie čítanie."
+  },
   "generalProgram": {
     "title": "Všeobecný program",
+    "needMore": "Potrebujete viac cvikov?",
+    "generating": "Generujem všeobecný program...",
+    "hint": "Tip: Dokončte hodnotenie bolesti pre personalizované cviky",
     "description": "Základné cviky pre celkové zdravie",
+    "exerciseCount": "{{count}} cvik_one",
+    "exerciseCount_few": "{{count}} cviky", 
+    "exerciseCount_many": "{{count}} cvikov",
+    "view": "Zobraziť program",
     "startNow": "Začať teraz"
   },
   "banner": {

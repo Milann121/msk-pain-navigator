@@ -7,5 +7,6 @@
   "loading": "Načítavam cvičebný plán...",
   "error": "Chyba pri načítaní cvičebného plánu",
   "noExercises": "Pre tento plán nie sú dostupné žiadne cviky",
-  "backToAssessments": "Späť na hodnotenia"
+  "backToAssessments": "Späť na hodnotenia",
+  "view": "Zobraziť"
 }

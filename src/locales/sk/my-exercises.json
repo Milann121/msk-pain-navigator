@@ -1,6 +1,10 @@
 
 {
   "title": "Moje cviky",
+  "activeProgramsTitle": "Aktívne programy",
+  "activeProgramsDescription": "Nižšie nájdete všetky svoje aktívne cvičebné programy z dokončených hodnotení.",
+  "endedProgramsTitle": "Ukončené programy", 
+  "endedProgramsDescription": "Nižšie nájdete všetky programy, ktoré ste už ukončili.",
   "activePrograms": "Aktívne programy",
   "endedPrograms": "Ukončené programy",
   "noActivePrograms": "Momentálne nemáte žiadne aktívne programy",
@@ -11,6 +15,8 @@
   "daysCompleted": "{{completed}} z {{total}} dní dokončených",
   "exercisesCompleted": "{{completed}} cvikov dokončených",
   "lastActivity": "Posledná aktivita",
+  "backHome": "Späť domov",
+  "newAssessment": "Nové hodnotenie",
   "programStatus": {
     "active": "Aktívny",
     "ended": "Ukončený",
