@@ -14,7 +14,7 @@ M
     "female": "Žena",
     "savePlaceholder": "Zadejte vaše {{field}}",
     "moneySavings": "Ušetřené peníze",
-    "moneySavingsFootnote": "*vypočítáno na základě průměrných cen ve vaší zemi",
+    "moneySavingsFootnote": "*vypočítáno na základě průměrných cen v tvé zemi",
     "modelTitle": "Model těla",
     "jobTypes": {
       "manual": "Manuální práce",
