@@ -1,4 +1,3 @@
-
 {
   "profile": {
     "title": "Môj profil",
@@ -165,11 +164,17 @@
     "subtitle": "Vyplňte dotazník a získajte personalizované odporúčania cvičení",
     "new": "Nové hodnotenie",
     "painArea": {
-      "specify": "Pre začatie hodnotenia vyberte oblasť bolesti",
+      "specify": "Pre začatie hodnotenia prosím vyberte oblasť bolesti",
       "neck": "Krk",
       "middleBack": "Stredná časť chrbta",
       "lowerBack": "Dolná časť chrbta",
-      "upperLimb": "Horná končatina"
+      "upperLimb": "Horná končatina",
+      "shoulder": "Rameno",
+      "elbow": "Lakeť",
+      "forearm": "Predlaktie",
+      "hand": "Ruka",
+      "fingers": "Prsty",
+      "specifyUpperLimb": "Špecifikujte oblasť hornej končatiny"
     },
     "consent": {
       "disclaimer": "Súhlasím s podmienkami používania",
@@ -357,7 +362,7 @@
     "sectionSummary": "Táto sekcia obsahuje {{count}} {{label}}",
     "moveLabel": "Presuňte pre výber možnosti",
     "errorSave": "Nepodarilo sa uložiť spätnú väzbu.",
-    "backToExercises": "Späť na moje cvičenie"
+    "backToExercises": "Späť na moje cviky"
   },
   "importantNotice": {
     "title": "Dôležité upozornenie",
@@ -451,13 +456,13 @@
       "na prístup k svojim osobným údajom,",
       "na opravu alebo vymazanie osobných údajov,",
       "na obmedzenie spracúvania,",
-      "namietať proti spracúvaniu,",
+      "namietať proti spracúvaním,",
       "na prenosnosť údajov,",
       "kedykoľvek odvolať súhlas so spracúvaním údajov."
     ],
     "contact": "Na uplatnenie svojich práv nás môžete kontaktovať na <a href=\"mailto:privacy@example.com\">privacy@example.com</a>.",
     "endTitle": "Záver",
-    "endText": "Vaše súkromie je naša priorita. Spracúvame len nevyhnutné minimum údajov a neuchovávame ani nearchivujeme zdravotné informácie."
+    "endText": "Vaše súkromie je naša priorita. Spracúvame len nevyhnutné minimum údajov a neuchovávame ani narchivujeme zdravotné informácie."
   },
   "followUp": {
     "progressRecorded": "Pokrok zaznamenaný",

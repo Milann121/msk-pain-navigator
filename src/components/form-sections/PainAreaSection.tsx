@@ -31,7 +31,7 @@ const PainAreaSection = ({
 
   return (
     <div className="space-y-3">
-      <Label>{t('painArea.specify')}</Label>
+      <Label>{t('assessment.painArea.specify')}</Label>
       <RadioGroup 
         defaultValue="neck" 
         value={painArea}
@@ -40,25 +40,25 @@ const PainAreaSection = ({
       >
         <div className="flex items-center space-x-2">
           <RadioGroupItem value="neck" id="neck" />
-          <Label htmlFor="neck" className="cursor-pointer">{t('painArea.neck')}</Label>
+          <Label htmlFor="neck" className="cursor-pointer">{t('assessment.painArea.neck')}</Label>
         </div>
         <div className="flex items-center space-x-2">
           <RadioGroupItem value="middle back" id="middle-back" />
-          <Label htmlFor="middle-back" className="cursor-pointer">{t('painArea.middleBack')}</Label>
+          <Label htmlFor="middle-back" className="cursor-pointer">{t('assessment.painArea.middleBack')}</Label>
         </div>
         <div className="flex items-center space-x-2">
           <RadioGroupItem value="lower back" id="lower-back" />
-          <Label htmlFor="lower-back" className="cursor-pointer">{t('painArea.lowerBack')}</Label>
+          <Label htmlFor="lower-back" className="cursor-pointer">{t('assessment.painArea.lowerBack')}</Label>
         </div>
         <div className="flex items-center space-x-2">
           <RadioGroupItem value="upper limb" id="upper-limb" />
-          <Label htmlFor="upper-limb" className="cursor-pointer">{t('painArea.upperLimb')}</Label>
+          <Label htmlFor="upper-limb" className="cursor-pointer">{t('assessment.painArea.upperLimb')}</Label>
         </div>
       </RadioGroup>
 
       {painArea === 'upper limb' && (
         <div className="ml-6 space-y-3">
-          <Label>{t('painArea.specifyUpperLimb')}</Label>
+          <Label>{t('assessment.painArea.specifyUpperLimb')}</Label>
           <div className="flex flex-col space-y-2">
             <div className="flex items-center space-x-2">
               <Checkbox 
@@ -68,7 +68,7 @@ const PainAreaSection = ({
                   handleUpperLimbSubAreaChange('shoulder', checked as boolean)
                 }
               />
-              <Label htmlFor="shoulder" className="cursor-pointer">{t('painArea.shoulder')}</Label>
+              <Label htmlFor="shoulder" className="cursor-pointer">{t('assessment.painArea.shoulder')}</Label>
             </div>
             <div className="flex items-center space-x-2">
               <Checkbox 
@@ -78,7 +78,7 @@ const PainAreaSection = ({
                   handleUpperLimbSubAreaChange('elbow', checked as boolean)
                 }
               />
-              <Label htmlFor="elbow" className="cursor-pointer">{t('painArea.elbow')}</Label>
+              <Label htmlFor="elbow" className="cursor-pointer">{t('assessment.painArea.elbow')}</Label>
             </div>
             <div className="flex items-center space-x-2">
               <Checkbox 
@@ -88,7 +88,7 @@ const PainAreaSection = ({
                   handleUpperLimbSubAreaChange('forearm', checked as boolean)
                 }
               />
-              <Label htmlFor="forearm" className="cursor-pointer">{t('painArea.forearm')}</Label>
+              <Label htmlFor="forearm" className="cursor-pointer">{t('assessment.painArea.forearm')}</Label>
             </div>
             <div className="flex items-center space-x-2">
               <Checkbox 
@@ -98,7 +98,7 @@ const PainAreaSection = ({
                   handleUpperLimbSubAreaChange('hand', checked as boolean)
                 }
               />
-              <Label htmlFor="hand" className="cursor-pointer">{t('painArea.hand')}</Label>
+              <Label htmlFor="hand" className="cursor-pointer">{t('assessment.painArea.hand')}</Label>
             </div>
             <div className="flex items-center space-x-2">
               <Checkbox 
@@ -108,7 +108,7 @@ const PainAreaSection = ({
                   handleUpperLimbSubAreaChange('fingers', checked as boolean)
                 }
               />
-              <Label htmlFor="fingers" className="cursor-pointer">{t('painArea.fingers')}</Label>
+              <Label htmlFor="fingers" className="cursor-pointer">{t('assessment.painArea.fingers')}</Label>
             </div>
           </div>
         </div>

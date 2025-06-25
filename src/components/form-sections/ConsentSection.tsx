@@ -28,7 +28,7 @@ const ConsentSection = ({
           onCheckedChange={(checked) => setDisclaimerConsent(checked as boolean)}
         />
         <Label htmlFor="disclaimer" className="text-sm text-gray-600">
-          {t('consent.disclaimer')}
+          {t('assessment.consent.disclaimer')}
         </Label>
       </div>
 
@@ -39,13 +39,13 @@ const ConsentSection = ({
           onCheckedChange={(checked) => setPrivacyConsent(checked as boolean)}
         />
         <Label htmlFor="privacy" className="text-sm text-gray-600">
-          {t('consent.privacy')}{' '}
+          {t('assessment.consent.privacy')}{' '}
           <Link
             to="/privacy-policy"
             className="text-blue-600 hover:text-blue-800 underline"
             target="_blank"
           >
-            {t('consent.privacy')}
+            {t('consentSection.viewPrivacyPolicy')}
           </Link>
         </Label>
       </div>
