@@ -1,5 +1,33 @@
-
 {
+  "welcome": {
+    "title": "Váš osobní průvodce zvládáním bolesti",
+    "subtitle": "Získejte personalizované cvičební programy založené na vědeckém hodnocení vaší muskuloskeletální bolesti. Začněte svou cestu k lepšímu zdraví ještě dnes.",
+    "signIn": "Začít",
+    "movementTitle": "Pohyb je lék",
+    "features": "Objevte personalizované cvičební programy, sledujte svůj pokrok a převezměte kontrolu nad zvládáním bolesti.",
+    "alt": {
+      "mobileApps": "Ukázka mobilních aplikací",
+      "calendar": "Rozhraní kalendáře cvičení",
+      "programs": "Přehled cvičebních programů",
+      "assessment": "Rozhraní hodnocení bolesti"
+    },
+    "calendar": {
+      "title": "Sledujte svůj pokrok",
+      "text": "Monitorujte svou denní cvičební rutinu s naším intuitivním kalendářem. Vidíte své úspěchy a zůstanete motivováni na cestě k uzdravení."
+    },
+    "programs": {
+      "title": "Personalizované cvičební programy",
+      "text": "Získejte přizpůsobené cvičební plány založené na vašem specifickém hodnocení bolesti. Každý program je přizpůsoben vašemu stavu a adaptován podle vašeho pokroku."
+    },
+    "assessment": {
+      "title": "Vědecké hodnocení bolesti",
+      "text": "Vyplňte náš komplexní dotazník pro získání přesné analýzy vašeho stavu a obdržení nejvhodnějších doporučení pro léčbu."
+    },
+    "footer": {
+      "title": "Pebee terapeut",
+      "rights": "© 2024 Všechna práva vyhrazena"
+    }
+  },
   "profile": {
     "title": "Můj profil",
     "personalData": "Osobní údaje",
@@ -119,7 +147,7 @@
     "backHome": "Zpět na domovskou stránku"
   },
   "assessment": {
-    "title": "Hodnocení muskuloskeletální bolesti",
+    "title": "Hodnocení muskuloskeletární bolesti",
     "subtitle": "Vyplň dotazník a získej personalizovaná doporučení cvičení",
     "new": "Nové hodnocení",
     "painArea": {

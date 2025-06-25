@@ -1,5 +1,33 @@
-
 {
+  "welcome": {
+    "title": "Váš osobný sprievodca zvládaním bolesti",
+    "subtitle": "Získajte personalizované cvičebné programy založené na vedeckom hodnotení vašej muskuloskeletálnej bolesti. Začnite svoju cestu k lepšiemu zdraviu už dnes.",
+    "signIn": "Začať",
+    "movementTitle": "Pohyb je liek",
+    "features": "Objavte personalizované cvičebné programy, sledujte svoj pokrok a prevezmite kontrolu nad zvládaním bolesti.",
+    "alt": {
+      "mobileApps": "Ukážka mobilných aplikácií",
+      "calendar": "Rozhranie kalendára cvičení",
+      "programs": "Prehľad cvičebných programov",
+      "assessment": "Rozhranie hodnotenia bolesti"
+    },
+    "calendar": {
+      "title": "Sledujte svoj pokrok",
+      "text": "Monitorujte svoju dennú cvičebnú rutinu s naším intuitívnym kalendárom. Vidíte svoje úspechy a zostanete motivovaní na ceste k uzdraveniu."
+    },
+    "programs": {
+      "title": "Personalizované cvičebné programy",
+      "text": "Získajte prispôsobené cvičebné plány založené na vašom špecifickom hodnotení bolesti. Každý program je prispôsobený vášmu stavu a adaptovaný podľa vášho pokroku."
+    },
+    "assessment": {
+      "title": "Vedecké hodnotenie bolesti",
+      "text": "Vyplňte náš komplexný dotazník pre získanie presnej analýzy vášho stavu a obdržanie najvhodnejších odporúčaní pre liečbu."
+    },
+    "footer": {
+      "title": "Pebee terapeut",
+      "rights": "© 2024 Všetky práva vyhradené"
+    }
+  },
   "profile": {
     "title": "Môj profil",
     "personalData": "Osobné údaje",

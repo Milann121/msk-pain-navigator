@@ -1,4 +1,33 @@
 {
+  "welcome": {
+    "title": "Your Personal Pain Management Companion",
+    "subtitle": "Get personalized exercise programs based on scientific assessment of your musculoskeletal pain. Start your journey to better health today.",
+    "signIn": "Get Started",
+    "movementTitle": "Movement is Medicine",
+    "features": "Discover personalized exercise programs, track your progress, and take control of your pain management journey.",
+    "alt": {
+      "mobileApps": "Mobile applications showcase",
+      "calendar": "Exercise calendar interface",
+      "programs": "Exercise programs overview",
+      "assessment": "Pain assessment interface"
+    },
+    "calendar": {
+      "title": "Track Your Progress",
+      "text": "Monitor your daily exercise routine with our intuitive calendar. See your achievements and stay motivated on your path to recovery."
+    },
+    "programs": {
+      "title": "Personalized Exercise Programs",
+      "text": "Receive customized exercise plans based on your specific pain assessment. Each program is tailored to your condition and adapted to your progress."
+    },
+    "assessment": {
+      "title": "Scientific Pain Assessment",
+      "text": "Complete our comprehensive questionnaire to get an accurate analysis of your condition and receive the most suitable treatment recommendations."
+    },
+    "footer": {
+      "title": "Pebee Therapist",
+      "rights": "© 2024 All rights reserved"
+    }
+  },
   "profile": {
     "title": "My Profile",
     "personalData": "Personal Data",
