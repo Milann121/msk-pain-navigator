@@ -298,5 +298,85 @@
   "resultsFooter": {
     "startNew": "Začít nové hodnocení",
     "myExercises": "Moje cviky"
+  },
+  "exercises": {
+    "shoulderNociceptive": {
+      "frozenShoulderPhase1": {
+        "title": "Zmrzlé rameno - Fáze 1",
+        "description": "Počáteční cvičení na uvolnění ramene a snížení bolesti",
+        "pendulumExercises": {
+          "title": "Kyvadlové pohyby ramene",
+          "description": "Jemné kyvadlové pohyby na uvolnění ramene a snížení ztuhlosti"
+        },
+        "isometricExternalRotation": {
+          "title": "Izometrická vnější rotace",
+          "description": "Posilovací cvičení bez pohybu na stabilizaci ramene"
+        },
+        "rotatorCuffRelease": {
+          "title": "Uvolnění rotátorové manžety",
+          "description": "Masáž a uvolnění svalů rotátorové manžety"
+        },
+        "shoulderHeating": {
+          "title": "Zahřátí ramene",
+          "description": "Přípravná cvičení na zahřátí ramene před dalšími cviky"
+        }
+      },
+      "frozenShoulderPhase2": {
+        "title": "Zmrzlé rameno - Fáze 2",
+        "description": "Pokročilejší cvičení na obnovení pohyblivosti ramene",
+        "isometricShoulderPresses": {
+          "title": "Izometrické tlaky ramene",
+          "description": "Statická posilovací cvičení pro rameno"
+        },
+        "wallPushUps": {
+          "title": "Kliky o stěnu",
+          "description": "Jemné posilovací cvičení pro rameno a hrudník"
+        },
+        "interscapularStrengthening": {
+          "title": "Posílení meziloplatkových svalů",
+          "description": "Cvičení na posílení svalů mezi lopatkami"
+        }
+      },
+      "subacromialImpingement": {
+        "title": "Subacromiální impingement syndrom",
+        "description": "Cvičení na snížení tlaku v ramenním kloubu",
+        "interscapularStrengthening": {
+          "title": "Posílení meziloplatkových svalů",
+          "description": "Posílení svalů mezi lopatkami pro lepší stabilitu ramene"
+        },
+        "gentlePendulum": {
+          "title": "Jemné kyvadlové pohyby",
+          "description": "Jemná kyvadlová cvičení na uvolnění ramene"
+        },
+        "preExerciseHeating": {
+          "title": "Zahřátí před cvičením",
+          "description": "Přípravná zahřívací cvičení"
+        }
+      },
+      "rotatorCuffTear": {
+        "title": "Porucha rotátorové manžety",
+        "description": "Rehabilitační cvičení po poruše rotátorové manžety",
+        "isometricStrengthening": {
+          "title": "Izometrické posilování",
+          "description": "Statická posilovací cvičení pro rotátorovou manžetu"
+        },
+        "rotatorCuffMassage": {
+          "title": "Masáž rotátorové manžety",
+          "description": "Technika masáže na uvolnění napjatých svalů"
+        }
+      },
+      "defaultNociceptive": {
+        "title": "Základní cvičení pro rameno",
+        "description": "Obecná cvičení na udržení zdraví ramene",
+        "basicMobility": {
+          "title": "Základní mobilita",
+          "description": "Základní pohybová cvičení pro rameno"
+        },
+        "basicStrengthening": {
+          "title": "Základní posilování",
+          "description": "Základní posilovací cvičení pro rameno"
+        }
+      }
+    }
   }
 }

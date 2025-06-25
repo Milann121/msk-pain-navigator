@@ -298,5 +298,85 @@
   "resultsFooter": {
     "startNew": "Start New Assessment",
     "myExercises": "My Exercises"
+  },
+  "exercises": {
+    "shoulderNociceptive": {
+      "frozenShoulderPhase1": {
+        "title": "Frozen Shoulder - Phase 1",
+        "description": "Initial exercises to release shoulder and reduce pain",
+        "pendulumExercises": {
+          "title": "Pendulum Shoulder Movements",
+          "description": "Gentle swinging movements to release shoulder and reduce stiffness"
+        },
+        "isometricExternalRotation": {
+          "title": "Isometric External Rotation",
+          "description": "Strengthening exercise without movement to stabilize shoulder"
+        },
+        "rotatorCuffRelease": {
+          "title": "Rotator Cuff Release",
+          "description": "Massage and release of rotator cuff muscles"
+        },
+        "shoulderHeating": {
+          "title": "Shoulder Warm-up",
+          "description": "Preparatory exercises to warm up shoulder before other exercises"
+        }
+      },
+      "frozenShoulderPhase2": {
+        "title": "Frozen Shoulder - Phase 2",
+        "description": "Advanced exercises to restore shoulder mobility",
+        "isometricShoulderPresses": {
+          "title": "Isometric Shoulder Presses",
+          "description": "Static strengthening exercises for shoulder"
+        },
+        "wallPushUps": {
+          "title": "Wall Push-ups",
+          "description": "Gentle strengthening exercise for shoulder and chest"
+        },
+        "interscapularStrengthening": {
+          "title": "Interscapular Strengthening",
+          "description": "Exercises to strengthen muscles between shoulder blades"
+        }
+      },
+      "subacromialImpingement": {
+        "title": "Subacromial Impingement Syndrome",
+        "description": "Exercises to reduce pressure in shoulder joint",
+        "interscapularStrengthening": {
+          "title": "Interscapular Strengthening",
+          "description": "Strengthening muscles between shoulder blades for better shoulder stability"
+        },
+        "gentlePendulum": {
+          "title": "Gentle Pendulum Movements",
+          "description": "Gentle swinging exercises to release shoulder"
+        },
+        "preExerciseHeating": {
+          "title": "Pre-exercise Warm-up",
+          "description": "Preparatory warm-up exercises"
+        }
+      },
+      "rotatorCuffTear": {
+        "title": "Rotator Cuff Tear",
+        "description": "Rehabilitation exercises after rotator cuff tear",
+        "isometricStrengthening": {
+          "title": "Isometric Strengthening",
+          "description": "Static strengthening exercises for rotator cuff"
+        },
+        "rotatorCuffMassage": {
+          "title": "Rotator Cuff Massage",
+          "description": "Massage technique to release tight muscles"
+        }
+      },
+      "defaultNociceptive": {
+        "title": "Basic Shoulder Exercises",
+        "description": "General exercises to maintain shoulder health",
+        "basicMobility": {
+          "title": "Basic Mobility",
+          "description": "Basic movement exercises for shoulder"
+        },
+        "basicStrengthening": {
+          "title": "Basic Strengthening",
+          "description": "Basic strengthening exercises for shoulder"
+        }
+      }
+    }
   }
 }
