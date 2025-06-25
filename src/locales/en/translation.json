@@ -1,3 +1,4 @@
+
 {
   "profile": {
     "title": "My Profile",
@@ -26,6 +27,16 @@
       "standingWork": "standing work in place",
       "awkwardPositions": "work in unnatural positions",
       "officeWork": "office work"
+    },
+    "goals": {
+      "title": "My Goals",
+      "weeklyGoals": "Weekly Goals",
+      "exerciseGoal": "I want to exercise",
+      "blogGoal": "I want to read",
+      "timesPerWeek": "times per week",
+      "blogsPerWeek": "blogs per week",
+      "saveGoals": "Save Goals",
+      "goalsUpdated": "Goals have been updated!"
     }
   },
   "bodyParts": {
@@ -142,5 +153,54 @@
     "selectedAreas": "Selected areas:",
     "noAreasSelected": "No areas selected",
     "selectAtLeastOne": "Select at least one pain area"
+  },
+  "home": {
+    "mood": {
+      "week": "Week",
+      "month": "Month",
+      "periodWeek": "week",
+      "periodMonth": "month",
+      "avgScore": "Average score ({{period}})",
+      "infoLabel": "Information about mood scoring",
+      "infoText": "The average mood score is calculated from your records over the last {{days}} days.",
+      "infoGrades": "Good = 3, Neutral = 2, Bad = 1",
+      "infoFollow": "Follow your progress to better understand your wellbeing patterns.",
+      "noChange": "No significant change",
+      "better": "Better than previous {{days}} days",
+      "worse": "Worse than previous {{days}} days",
+      "noRecords": "No records for {{period}}",
+      "emptyWeek": "this week",
+      "emptyMonth": "this month"
+    },
+    "progressTitle": "Weekly Progress",
+    "setGoals": "Set Goals",
+    "generalProgram": {
+      "view": "View Program",
+      "exerciseCount": "exercises"
+    }
+  },
+  "calendar": {
+    "days": {
+      "long": {
+        "monday": "Monday",
+        "tuesday": "Tuesday",
+        "wednesday": "Wednesday",
+        "thursday": "Thursday",
+        "friday": "Friday",
+        "saturday": "Saturday",
+        "sunday": "Sunday"
+      }
+    }
+  },
+  "exerciseDialog": {
+    "description": "Description"
+  },
+  "exercisePlanPage": {
+    "generalTitle": "General Exercise Program",
+    "generalDescription": "Basic exercises suitable for general movement and health maintenance."
+  },
+  "resultsFooter": {
+    "startNew": "Start New Assessment",
+    "myExercises": "My Exercises"
   }
 }

@@ -153,5 +153,54 @@
     "selectedAreas": "Vybrané oblasti:",
     "noAreasSelected": "Žádné oblasti nejsou vybrány",
     "selectAtLeastOne": "Vyberte alespoň jednu oblast bolesti"
+  },
+  "home": {
+    "mood": {
+      "week": "Týden",
+      "month": "Měsíc",
+      "periodWeek": "týden",
+      "periodMonth": "měsíc",
+      "avgScore": "Průměrné skóre ({{period}})",
+      "infoLabel": "Informace o hodnocení nálady",
+      "infoText": "Průměrné skóre nálady je vypočítáno z vašich záznamů za posledních {{days}} dní.",
+      "infoGrades": "Dobře = 3, Neutrálně = 2, Špatně = 1",
+      "infoFollow": "Sledujte svůj pokrok pro lepší pochopení vzorců vaší pohody.",
+      "noChange": "Žádná významná změna",
+      "better": "Lepší než předchozích {{days}} dní",
+      "worse": "Horší než předchozích {{days}} dní",
+      "noRecords": "Žádné záznamy pro {{period}}",
+      "emptyWeek": "tento týden",
+      "emptyMonth": "tento měsíc"
+    },
+    "progressTitle": "Týdenní pokrok",
+    "setGoals": "Nastavit cíle",
+    "generalProgram": {
+      "view": "Zobrazit program",
+      "exerciseCount": "cvičení"
+    }
+  },
+  "calendar": {
+    "days": {
+      "long": {
+        "monday": "Pondělí",
+        "tuesday": "Úterý",
+        "wednesday": "Středa",
+        "thursday": "Čtvrtek",
+        "friday": "Pátek",
+        "saturday": "Sobota",
+        "sunday": "Neděle"
+      }
+    }
+  },
+  "exerciseDialog": {
+    "description": "Popis"
+  },
+  "exercisePlanPage": {
+    "generalTitle": "Obecný cvičební program",
+    "generalDescription": "Základní cvičení vhodná pro obecný pohyb a udržení zdraví."
+  },
+  "resultsFooter": {
+    "startNew": "Začít nové hodnocení",
+    "myExercises": "Moje cviky"
   }
 }
