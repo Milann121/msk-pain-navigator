@@ -1,4 +1,5 @@
 
+// Common interface for all advices
 export interface Advice {
   adviceId: number;
   adviceTitle: string; // translation key
@@ -14,7 +15,9 @@ export interface Advice {
   differentials?: Array<string>; // Optional for more specific targeting
 }
 
+// Advice data sorted by ID for easy reference
 export const advices: Advice[] = [
+  // Advice 1 - Regular Position Change
   {
     adviceId: 1,
     adviceTitle: "regularPositionChange",
@@ -28,6 +31,7 @@ export const advices: Advice[] = [
     bodyParts: ['neck', 'middle-back', 'lower-back', 'upper limb'],
     mechanisms: ['nociceptive', 'neuropathic', 'central']
   },
+  // Advice 2 - Gradual Load Increase
   {
     adviceId: 2,
     adviceTitle: "gradualLoadIncrease",
@@ -40,6 +44,7 @@ export const advices: Advice[] = [
     bodyParts: ['lower-back', 'middle-back', 'neck'],
     mechanisms: ['nociceptive']
   },
+  // Advice 3 - Watch for Neural Symptoms
   {
     adviceId: 3,
     adviceTitle: "neuralSymptomsWarning",
@@ -52,6 +57,7 @@ export const advices: Advice[] = [
     bodyParts: ['lower-back', 'neck', 'upper limb'],
     mechanisms: ['neuropathic']
   },
+  // Advice 4 - Respect Pain with Central Sensitization
   {
     adviceId: 4,
     adviceTitle: "respectPainCentral",
@@ -64,6 +70,7 @@ export const advices: Advice[] = [
     bodyParts: ['neck', 'middle-back', 'lower-back', 'upper limb'],
     mechanisms: ['central']
   },
+  // Advice 5 - Special Shoulder Care
   {
     adviceId: 5,
     adviceTitle: "shoulderSpecialCare",
