@@ -1,4 +1,3 @@
-
 {
   "welcome": {
     "title": "Vitaj, som tvoj osobný Pebee terapeut",
@@ -21,13 +20,41 @@
       "text": "Získaj prispôsobené cvičebné plány založené na tvojom špecifickom hodnotení bolesti. Každý program je prispôsobený tvojmu stavu a adaptovaný podľa tvojho pokroku."
     },
     "assessment": {
-      "title": "Hodnotenie bolesti založené na štúdiach",
+      "title": "Hodnotenie bolesti založené na štúdiách",
       "text": "Vyplň náš dotazník pre získanie presnej analýzy tvojhp stavu a obdržanie najvhodnejších odporúčaní pre odstránenie bolesti."
     },
     "footer": {
       "title": "Pebee terapeut",
       "rights": "© 2024 Všetky práva vyhradené"
     }
+  },
+  "advice": {
+    "notFound": "Rada nebola nájdená",
+    "notFoundDescription": "Rada s ID {{adviceId}} neexistuje v databáze.",
+    "rule": "Pravidlo",
+    "moreInfo": "Viac informácií",
+    "regularPositionChange": "Pravidelná zmena polohy",
+    "forNociceptivePain": "Pre nociceptívnu bolesť",
+    "forNeuropathicPain": "Pre neuropatickú bolesť",
+    "forCentralPain": "Pre centrálnu bolesť",
+    "forShoulderProblems": "Pre problémy ramena",
+    "high": "Vysoká",
+    "medium": "Stredná",
+    "low": "Nízka",
+    "every45to60min": "Každých 45-60min.",
+    "increaseIntensityWeekly": "Zvyšujte intenzitu postupne každý týždeň",
+    "stopImmediatelyIfWorse": "Okamžite prestaňte pri zhoršení symptómov",
+    "dontForceExercise": "Nevynucujte si cvičenie cez bolesť",
+    "avoidPainfulPositions": "Vyhýbajte sa bolestivým pozíciám",
+    "regularPositionChangeDescription": "Vaše bolesti môžu byť spôsobované aj statickou záťažou, ktorá pri vašom probléme nie je vhodná. Snažte sa pravidelné meniť polohy, čo vám zabezpečí potrebnú úľavu od bolesti a zníženie rizika ďalších bolestí.",
+    "gradualLoadIncrease": "Postupné zvyšovanie záťaže",
+    "gradualLoadIncreaseDescription": "Pri nociceptívnej bolesti je dôležité postupne zvyšovať záťaž cvičenia. Začnite pomaly a každý týždeň mierne zvýšte intenzitu alebo počet opakovaní.",
+    "neuralSymptomsWarning": "Pozor na neurálne symptómy",
+    "neuralSymptomsWarningDescription": "Pri neuropatickej bolesti dávajte pozor na príznaky ako brnenie, mravčenie alebo žuborenie. Ak sa tieto symptómy zhoršia počas cvičenia, okamžite prestaňte.",
+    "respectPainCentral": "Rešpektovanie bolesti pri centrálnej senzitizácii",
+    "respectPainCentralDescription": "Pri centrálnej senzitizácii je dôležité rešpektovať vaše hranice. Cvičenie by nemalo zvyšovať bolesť. Začnite veľmi jemne a postupne sa adaptujte.",
+    "shoulderSpecialCare": "Špeciálne opatrenia pre rameno",
+    "shoulderSpecialCareDescription": "Pri problémoch ramena sa vyhýbajte pohybom nad hlavu v akútnej fáze. Začnite s pohybmi v rozsahu, ktorý nebolí."
   },
   "profile": {
     "title": "Môj profil",
