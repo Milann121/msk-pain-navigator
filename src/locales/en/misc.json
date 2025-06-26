@@ -1,0 +1,132 @@
+
+{
+  "profileForm": {
+    "manual": "Manual Work",
+    "desk": "Desk Work",
+    "driver": "Driver",
+    "manualSpec": "Manual work specification:",
+    "officeWork": "Office Work"
+  },
+  "goals": {
+    "title": "Goals",
+    "weekly": "Weekly Goals",
+    "exerciseText": "I want to exercise {dropdown} times per week",
+    "blogText": "I want to read {dropdown} blogs per week",
+    "save": "Save",
+    "cancel": "Cancel",
+    "successTitle": "Success",
+    "successExercise": "Exercise goal has been successfully saved.",
+    "successBlog": "Reading goal has been successfully saved.",
+    "errorTitle": "Error",
+    "error": "Failed to save goal."
+  },
+  "blog": {
+    "title": "Health & Wellness Blog",
+    "readMore": "Read More",
+    "posts": {
+      "1": {
+        "title": "Understanding Back Pain",
+        "description": "Learn about common causes of back pain and how to manage it effectively."
+      }
+    }
+  },
+  "followUp": {
+    "title": "Progress Tracking",
+    "progressRecorded": "Progress Recorded",
+    "responsesSaved": "Your responses have been successfully saved.",
+    "questionNumber": "Question {{current}} of {{total}}",
+    "back": "Back",
+    "next": "Next",
+    "finish": "Finish",
+    "questions": {
+      "painLevelChange": "How would you rate your pain compared to the last assessment?",
+      "painNatureChanged": "Has the nature of your pain changed since the last assessment?",
+      "painNatureDescription": "How has the nature of your pain changed?",
+      "painSpreading": "Has your pain spread to new areas?",
+      "newPainArea": "To which new areas has the pain spread?",
+      "exerciseEffectiveness": "How effective are the exercises in relieving your pain?",
+      "exerciseCompliance": "How often do you follow the recommended exercise plan?",
+      "painTriggers": "Have the factors that trigger your pain changed?",
+      "painReliefFactors": "Have the factors that relieve your pain changed?",
+      "overallImprovement": "How do you rate the overall improvement of your condition?",
+      "medicationUse": "Are you using any pain medication?",
+      "medicationEffectiveness": "How effective is your pain medication?",
+      "sleepQuality": "How does pain affect the quality of your sleep?",
+      "dailyActivities": "How does pain affect your daily activities?",
+      "workImpact": "How does pain affect your work or studies?",
+      "moodImpact": "How does pain affect your mood?",
+      "socialImpact": "How does pain affect your social activities?",
+      "treatmentSatisfaction": "How satisfied are you with your treatment so far?"
+    },
+    "options": {
+      "painLevel": {
+        "muchBetter": "Much better",
+        "better": "Better",
+        "same": "Same",
+        "worse": "Worse",
+        "muchWorse": "Much worse"
+      },
+      "yesNo": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "effectiveness": {
+        "veryEffective": "Very effective",
+        "somewhatEffective": "Somewhat effective",
+        "notEffective": "Not effective",
+        "makesWorse": "Makes it worse"
+      },
+      "compliance": {
+        "always": "Always",
+        "usually": "Usually",
+        "sometimes": "Sometimes",
+        "rarely": "Rarely",
+        "never": "Never"
+      },
+      "improvement": {
+        "muchBetter": "Much better",
+        "better": "Better",
+        "same": "No change",
+        "worse": "Worse",
+        "muchWorse": "Much worse"
+      },
+      "frequency": {
+        "never": "Never",
+        "rarely": "Rarely",
+        "sometimes": "Sometimes",
+        "often": "Often",
+        "always": "Always"
+      },
+      "impact": {
+        "noImpact": "No impact",
+        "mildImpact": "Mild impact",
+        "moderateImpact": "Moderate impact",
+        "severeImpact": "Severe impact",
+        "extremeImpact": "Extreme impact"
+      },
+      "satisfaction": {
+        "verySatisfied": "Very satisfied",
+        "satisfied": "Satisfied",
+        "neutral": "Neutral",
+        "dissatisfied": "Dissatisfied",
+        "veryDissatisfied": "Very dissatisfied"
+      }
+    },
+    "painScale": {
+      "noPain": "No pain",
+      "worstPain": "Worst pain"
+    },
+    "navigation": {
+      "back": "Back",
+      "next": "Next",
+      "finish": "Finish"
+    }
+  },
+  "slider": {
+    "selected": "Selected"
+  },
+  "questionExplanation": {
+    "title": "Question Explanation",
+    "explain": "Explain Question"
+  }
+}

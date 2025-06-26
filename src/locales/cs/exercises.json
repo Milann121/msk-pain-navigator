@@ -1,0 +1,81 @@
+
+{
+  "myExercises": {
+    "title": "Moje cvičení",
+    "activeProgramsTitle": "Aktivní programy",
+    "activeProgramsDescription": "Tvé současné cvičební programy založené na hodnoceních bolesti",
+    "endedProgramsTitle": "Ukončené programy",
+    "endedProgramsDescription": "Dříve ukončené cvičební programy",
+    "backHome": "Zpět domů",
+    "newAssessment": "Nové hodnocení"
+  },
+  "calendar": {
+    "exerciseCalendarTitle": "Kalendář cvičení",
+    "today": "Dnes",
+    "weeklyProgress": "Týdenní pokrok",
+    "days": {
+      "long": {
+        "monday": "Pondělí",
+        "tuesday": "Úterý",
+        "wednesday": "Středa",
+        "thursday": "Čtvrtek",
+        "friday": "Pátek",
+        "saturday": "Sobota",
+        "sunday": "Neděle"
+      }
+    }
+  },
+  "assessmentAccordion": {
+    "painMechanismLabel": "Mechanismus bolesti",
+    "diagnosisLabel": "Diagnóza",
+    "yourPainInitial": "Vaše bolest (počáteční)",
+    "yourPainLatest": "Vaše bolest (nejnovější)",
+    "delivered": "Doručeno",
+    "lastExercise": "Poslední cvičení",
+    "programStart": "Začátek programu",
+    "endProgram": "Ukončit program",
+    "recordProgress": "Zaznamenat pokrok",
+    "viewExercises": "Zobrazit cvičení",
+    "ended": "Ukončeno",
+    "renewProgram": "Obnovit program"
+  },
+  "exerciseDialog": {
+    "description": "Popis"
+  },
+  "exercisePlanPage": {
+    "generalTitle": "Všeobecný cvičební program",
+    "generalDescription": "Nemáš čas na individuální programy? Zde najdeš personalizovaný program s nejdůležitějšími cvičeními z tvých programů. Dodržuj pokyny a přestaň cvičit, pokud pociťuješ bolest.",
+    "backToExercises": "Zpět na Moje cvičení",
+    "title": "Plán cvičení",
+    "specificDescription": "Personalizovaný cvičební program pro {{diagnosis}} ovlivňující {{painArea}}"
+  },
+  "exercisePlan": {
+    "sectionSummary": "{{count}} {{label}}",
+    "yes": "Ano",
+    "no": "Ne",
+    "suitableQuestion": "Je pro tebe toto cvičení vhodné?",
+    "feedbackTitle": "Zpětná vazba ke cviku",
+    "painQuestion": "1. Způsobuje ti cvik bolest?",
+    "painAcceptableQuestion": "1a. Je bolest přijatelná?",
+    "yesAcceptable": "Ano, je přijatelná",
+    "noAcceptable": "Ne, není přijatelná",
+    "changeQuestion": "2. Chceš změnit tento cvik?",
+    "submitFeedback": "Odeslat zpětnou vazbu",
+    "changeExercise": "Změnit cvik",
+    "changeRequestInfo": "Po odeslání této žádosti ti vyměníme cvik.",
+    "newExerciseProposed": "Navrhované nové cvičení",
+    "confirmChange": "Potvrdit změnu",
+    "declineChange": "Odmítnout změnu"
+  },
+  "exerciseCvik": {
+    "few": "cvičení"
+  },
+  "importantNotice": {
+    "title": "Důležité upozornění",
+    "text": "Tato cvičení jsou doporučena na základě tvého hodnocení. Pokud pociťuješ silnou bolest nebo nepohodlí, obrať se na zdravotníka."
+  },
+  "resultsFooter": {
+    "startNew": "Začít nové hodnocení",
+    "myExercises": "Moje cvičení"
+  }
+}

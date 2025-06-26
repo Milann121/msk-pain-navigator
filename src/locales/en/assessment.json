@@ -1,0 +1,37 @@
+
+{
+  "title": "Musculoskeletal Pain Assessment",
+  "subtitle": "Complete the questionnaire and get personalized exercise recommendations",
+  "new": "New Assessment",
+  "painArea": {
+    "specify": "To begin the assessment, please select the area of pain",
+    "neck": "Neck",
+    "middleBack": "Middle Back",
+    "lowerBack": "Lower Back",
+    "upperLimb": "Upper Limb",
+    "shoulder": "Shoulder",
+    "elbow": "Elbow",
+    "forearm": "Forearm",
+    "hand": "Hand",
+    "fingers": "Fingers",
+    "specifyUpperLimb": "Specify the upper limb area"
+  },
+  "consent": {
+    "disclaimer": "I agree to the terms of use",
+    "privacy": "I agree to the processing of personal data"
+  },
+  "startAssessment": "Start Assessment",
+  "consentSection": {
+    "privacyTitle": "Privacy Protection",
+    "privacyText": "I agree to the processing of personal data in accordance with privacy protection terms.",
+    "viewPrivacyPolicy": "View Privacy Policy",
+    "mustAgree": "You must agree to the privacy protection terms."
+  },
+  "painAreaSection": {
+    "title": "Mark pain areas on the model",
+    "instruction": "Click on the body areas where you feel pain",
+    "selectedAreas": "Selected areas:",
+    "noAreasSelected": "No areas selected",
+    "selectAtLeastOne": "Select at least one pain area"
+  }
+}

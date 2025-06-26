@@ -1,0 +1,29 @@
+
+{
+  "header": {
+    "home": "Domů",
+    "profile": "Můj profil",
+    "myExercises": "Moje cvičení",
+    "blog": "Blog",
+    "assessment": "Dotazník bolesti",
+    "signOut": "Odhlásit se",
+    "signIn": "Přihlásit se",
+    "brand": "Pebee terapeut",
+    "toggleMenu": "Zobrazit menu"
+  },
+  "auth": {
+    "signIn": "Přihlásit se",
+    "signUp": "Registrovat se",
+    "google": "Pokračovat s Google",
+    "toggleSignUp": "Nemáte účet? Zaregistrujte se",
+    "toggleSignIn": "Už máte účet? Přihlaste se",
+    "signUpSubtitle": "Vytvořte si nový účet",
+    "signInSubtitle": "Přihlaste se do svého účtu",
+    "firstName": "Jméno",
+    "email": "E-mail",
+    "password": "Heslo",
+    "privacyConsent": "Souhlasím se zpracováním osobních údajů",
+    "or": "nebo",
+    "backHome": "Zpět na domovskou stránku"
+  }
+}

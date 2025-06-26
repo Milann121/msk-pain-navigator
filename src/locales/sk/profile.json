@@ -1,0 +1,40 @@
+
+{
+  "title": "Môj profil",
+  "personalData": "Osobné údaje",
+  "firstName": "Meno",
+  "lastName": "Priezvisko",
+  "age": "Vek",
+  "gender": "Pohlavie",
+  "job": "Práca",
+  "save": "Uložiť",
+  "cancel": "Zrušiť",
+  "male": "Muž",
+  "female": "Žena",
+  "savePlaceholder": "Zadaj tvoje {{field}}",
+  "moneySavings": "Ušetrené peniaze",
+  "moneySavingsFootnote": "*vypočítané na základe priemerných cien v tvojej krajine",
+  "modelTitle": "Model tela",
+  "jobTypes": {
+    "manual": "Manuálna práca",
+    "desk": "Sedavá práca",
+    "driver": "Vodič"
+  },
+  "jobSubtypes": {
+    "manualSpec": "Špecifikácia:",
+    "heavyLifting": "zdvíhanie ťažkých predmetov",
+    "standingWork": "práca v stoji na mieste",
+    "awkwardPositions": "práca v neprirodzených polohách",
+    "officeWork": "kancelárska práca"
+  },
+  "goals": {
+    "title": "Moje ciele",
+    "weeklyGoals": "Týždenné ciele",
+    "exerciseGoal": "Chcem cvičiť {dropdown} krát za týždeň",
+    "blogGoal": "Chcem prečítať {dropdown} blogov za týždeň",
+    "timesPerWeek": "krát za týždeň",
+    "blogsPerWeek": "blogov za týždeň",
+    "saveGoals": "Uložiť ciele",
+    "goalsUpdated": "Ciele boli aktualizované!"
+  }
+}

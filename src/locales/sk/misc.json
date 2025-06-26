@@ -1,0 +1,132 @@
+
+{
+  "profileForm": {
+    "manual": "Manuálna práce",
+    "desk": "Sedavá práce",
+    "driver": "Vodič",
+    "manualSpec": "Špecifikácia manuálnej práce:",
+    "officeWork": "Kancelárska práca"
+  },
+  "goals": {
+    "title": "Ciele",
+    "weekly": "Týždenné ciele",
+    "exerciseText": "Chcem cvičiť {dropdown} krát za týždeň",
+    "blogText": "Chcem prečítať {dropdown} blogov za týždeň",
+    "save": "Uložiť",
+    "cancel": "Zrušiť",
+    "successTitle": "Úspech",
+    "successExercise": "Cieľ cvičenia bol úspešne uložený.",
+    "successBlog": "Cieľ čítania bol úspešne uložený.",
+    "errorTitle": "Chyba",
+    "error": "Nepodarilo sa uložiť cieľ."
+  },
+  "blog": {
+    "title": "Blog o zdraví a wellness",
+    "readMore": "Čítať viac",
+    "posts": {
+      "1": {
+        "title": "Porozumenie bolesti chrbta",
+        "description": "Nauč sa o bežných príčinách bolesti chrbta a ako ju efektívne zvládať."
+      }
+    }
+  },
+  "followUp": {
+    "title": "Sledovanie pokroku",
+    "progressRecorded": "Pokrok zaznamenaný",
+    "responsesSaved": "Tvoje odpovede boli úspešne uložené.",
+    "questionNumber": "Otázka {{current}} z {{total}}",
+    "back": "Späť",
+    "next": "Ďalej",
+    "finish": "Dokončiť",
+    "questions": {
+      "painLevelChange": "Ako by si hodnotil/a tvoju bolesť v porovnaní s posledným hodnotením?",
+      "painNatureChanged": "Zmenila sa povaha tvojej bolesti od posledného hodnotenia?",
+      "painNatureDescription": "Ako sa zmenila povaha tvojej bolesti?",
+      "painSpreading": "Rozšírila sa tvoja bolesť do nových oblastí?",
+      "newPainArea": "Do ktorých nových oblastí sa bolesť rozšírila?",
+      "exerciseEffectiveness": "Ako účinné sú cvičenia na zmiernenie bolesti?",
+      "exerciseCompliance": "Ako často dodržiavaš odporučený plán cvičenia?",
+      "painTriggers": "Zmenili sa faktory, ktoré vyvolávajú bolesť?",
+      "painReliefFactors": "Zmenili sa faktory, ktoré zmierňujú bolesť?",
+      "overallImprovement": "Ako hodnotíte celkové zlepšenie stavu?",
+      "medicationUse": "Používaš nejaké lieky na bolesť?",
+      "medicationEffectiveness": "Ako účinné sú lieky na bolesť?",
+      "sleepQuality": "Ako bolesť ovplyvňuje kvalitu spánku?",
+      "dailyActivities": "Ako bolesť ovplyvňuje tvoje každodenné aktivity?",
+      "workImpact": "Ako bolesť ovplyvňuje tvoju prácu alebo štúdium?",
+      "moodImpact": "Ako bolesť ovplyvňuje tvoju náladu?",
+      "socialImpact": "Ako bolesť ovplyvňuje tvoje sociálne aktivity?",
+      "treatmentSatisfaction": "Ako si spokojný/á s doterajším programom?"
+    },
+    "options": {
+      "painLevel": {
+        "muchBetter": "Výrazne lepšia",
+        "better": "Lepšia",
+        "same": "Rovnaká",
+        "worse": "Horšia",
+        "muchWorse": "Výrazne horšia"
+      },
+      "yesNo": {
+        "yes": "Áno",
+        "no": "Nie"
+      },
+      "effectiveness": {
+        "veryEffective": "Veľmi účinné",
+        "somewhatEffective": "Čiastočne účinné",
+        "notEffective": "Neúčinné",
+        "makesWorse": "Zhoršuje stav"
+      },
+      "compliance": {
+        "always": "Vždy",
+        "usually": "Obvykle",
+        "sometimes": "Niekedy",
+        "rarely": "Zriedka",
+        "never": "Nikdy"
+      },
+      "improvement": {
+        "muchBetter": "Výrazne lepší",
+        "better": "Lepší",
+        "same": "Bez zmeny",
+        "worse": "Horší",
+        "muchWorse": "Výrazne horší"
+      },
+      "frequency": {
+        "never": "Nikdy",
+        "rarely": "Zriedka",
+        "sometimes": "Niekedy",
+        "often": "Často",
+        "always": "Vždy"
+      },
+      "impact": {
+        "noImpact": "Žiadny vplyv",
+        "mildImpact": "Mierny vplyv",
+        "moderateImpact": "Stredný vplyv",
+        "severeImpact": "Silný vplyv",
+        "extremeImpact": "Extrémny vplyv"
+      },
+      "satisfaction": {
+        "verySatisfied": "Veľmi spokojný/á",
+        "satisfied": "Spokojný/á",
+        "neutral": "Neutrálne",
+        "dissatisfied": "Nespokojný/á",
+        "veryDissatisfied": "Veľmi nespokojný/á"
+      }
+    },
+    "painScale": {
+      "noPain": "Žiadna bolesť",
+      "worstPain": "Najhoršia bolesť"
+    },
+    "navigation": {
+      "back": "Späť",
+      "next": "Ďalej",
+      "finish": "Dokončiť"
+    }
+  },
+  "slider": {
+    "selected": "Vybrané"
+  },
+  "questionExplanation": {
+    "title": "Vysvetlenie otázky",
+    "explain": "Vysvetliť otázku"
+  }
+}

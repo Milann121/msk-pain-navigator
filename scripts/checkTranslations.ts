@@ -1,3 +1,4 @@
+
 import { promises as fs } from 'fs';
 import path from 'path';
 
@@ -22,17 +23,37 @@ function collectKeys(obj: Record<string, any>, prefix = ''): string[] {
   return keys;
 }
 
+async function loadAllTranslations(langDir: string): Promise<Record<string, any>> {
+  const files = await fs.readdir(langDir);
+  const jsonFiles = files.filter(f => f.endsWith('.json'));
+  
+  let combined: Record<string, any> = {};
+  
+  for (const file of jsonFiles) {
+    const filePath = path.join(langDir, file);
+    const json = await readJson(filePath);
+    const section = file.replace('.json', '');
+    
+    // Handle special cases for sections that should be merged at root level
+    if (['common', 'navigation', 'exercises', 'misc'].includes(section)) {
+      combined = { ...combined, ...json };
+    } else {
+      combined[section] = json;
+    }
+  }
+  
+  return combined;
+}
+
 async function verifyTranslation(langDir: string, canonicalKeys: string[]) {
-  const file = path.join(langDir, 'translation.json');
-  const json = await readJson(file);
-  const keys = collectKeys(json);
+  const combinedJson = await loadAllTranslations(langDir);
+  const keys = collectKeys(combinedJson);
   const missing = canonicalKeys.filter(k => !keys.includes(k));
   return missing;
 }
 
 async function main() {
-  const enFile = path.join(EN_DIR, 'translation.json');
-  const enJson = await readJson(enFile);
+  const enJson = await loadAllTranslations(EN_DIR);
   const canonicalKeys = collectKeys(enJson);
 
   const languages = await fs.readdir(LOCALES_DIR);

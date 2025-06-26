@@ -1,0 +1,30 @@
+
+{
+  "title": "Vitaj, som tvoj osobný Pebee terapeut",
+  "subtitle": "Získaj personalizované cvičebné programy založené na štúdiách a tvojich príznakoch. Začni svoju cestu k lepšiemu zdraviu už dnes.",
+  "signIn": "Začať",
+  "movementTitle": "Pohybom k životu bez bolesti",
+  "features": "Objav personalizované cvičebné programy, sleduj svoj pokrok a prevezmi kontrolu nad zvládaním bolesti.",
+  "alt": {
+    "mobileApps": "Ukážka mobilných aplikácií",
+    "calendar": "Rozhranie kalendára cvičení",
+    "programs": "Prehľad cvičebných programov",
+    "assessment": "Rozhranie hodnotenia bolesti"
+  },
+  "calendar": {
+    "title": "Sleduj svoj pokrok",
+    "text": "Monitoruj svoju dennú cvičebnú rutinu s naším intuitívnym kalendárom. Sleduj svoje úspechy a zostaň motivovaný/á na ceste k uzdraveniu."
+  },
+  "programs": {
+    "title": "Personalizované cvičebné programy",
+    "text": "Získaj prispôsobené cvičebné plány založené na tvojom špecifickom hodnotení bolesti. Každý program je prispôsobený tvojmu stavu a adaptovaný podľa tvojho pokroku."
+  },
+  "assessment": {
+    "title": "Hodnotenie bolesti založené na štúdiách",
+    "text": "Vyplň náš dotazník pre získanie presnej analýzy tvojhp stavu a obdržanie najvhodnejších odporúčaní pre odstránenie bolesti."
+  },
+  "footer": {
+    "title": "Pebee terapeut",
+    "rights": "© 2024 Všetky práva vyhradené"
+  }
+}

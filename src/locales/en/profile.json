@@ -1,0 +1,40 @@
+
+{
+  "title": "My Profile",
+  "personalData": "Personal Data",
+  "firstName": "First Name",
+  "lastName": "Last Name",
+  "age": "Age",
+  "gender": "Gender",
+  "job": "Job",
+  "save": "Save",
+  "cancel": "Cancel",
+  "male": "Male",
+  "female": "Female",
+  "savePlaceholder": "Enter your {{field}}",
+  "moneySavings": "Money Saved",
+  "moneySavingsFootnote": "*calculated based on average prices in your country",
+  "modelTitle": "Body Model",
+  "jobTypes": {
+    "manual": "manual work",
+    "desk": "desk work",
+    "driver": "driver"
+  },
+  "jobSubtypes": {
+    "manualSpec": "Specification:",
+    "heavyLifting": "heavy lifting",
+    "standingWork": "standing work in place",
+    "awkwardPositions": "work in awkward positions",
+    "officeWork": "office work"
+  },
+  "goals": {
+    "title": "My Goals",
+    "weeklyGoals": "Weekly Goals",
+    "exerciseGoal": "I want to exercise {dropdown} times per week",
+    "blogGoal": "I want to read {dropdown} blogs per week",
+    "timesPerWeek": "times per week",
+    "blogsPerWeek": "blogs per week",
+    "saveGoals": "Save Goals",
+    "goalsUpdated": "Goals have been updated!"
+  }
+}

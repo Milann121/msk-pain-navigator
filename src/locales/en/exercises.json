@@ -1,0 +1,78 @@
+
+{
+  "myExercises": {
+    "title": "My Exercises",
+    "activeProgramsTitle": "Active Programs",
+    "activeProgramsDescription": "Your current exercise programs based on pain assessments",
+    "endedProgramsTitle": "Ended Programs",
+    "endedProgramsDescription": "Previously ended exercise programs",
+    "backHome": "Back Home",
+    "newAssessment": "New Assessment"
+  },
+  "calendar": {
+    "exerciseCalendarTitle": "Exercise Calendar",
+    "today": "Today",
+    "weeklyProgress": "Weekly Progress",
+    "days": {
+      "long": {
+        "monday": "Monday",
+        "tuesday": "Tuesday",
+        "wednesday": "Wednesday",
+        "thursday": "Thursday",
+        "friday": "Friday",
+        "saturday": "Saturday",
+        "sunday": "Sunday"
+      }
+    }
+  },
+  "assessmentAccordion": {
+    "painMechanismLabel": "Pain Mechanism",
+    "diagnosisLabel": "Diagnosis",
+    "yourPainInitial": "Your Pain (Initial)",
+    "yourPainLatest": "Your Pain (Latest)",
+    "delivered": "Delivered",
+    "lastExercise": "Last Exercise",
+    "programStart": "Program Start",
+    "endProgram": "End Program",
+    "recordProgress": "Record Progress",
+    "viewExercises": "View Exercises",
+    "ended": "Ended",
+    "renewProgram": "Renew Program"
+  },
+  "exerciseDialog": {
+    "description": "Description"
+  },
+  "exercisePlanPage": {
+    "generalTitle": "General Exercise Program",
+    "generalDescription": "Don't have time for individual programs? Here you'll find a personalized program with the most important exercises from your programs. Follow the instructions and stop exercising if you feel pain.",
+    "backToExercises": "Back to My Exercises",
+    "title": "Exercise Plan",
+    "specificDescription": "Personalized exercise program for {{diagnosis}} affecting {{painArea}}"
+  },
+  "exercisePlan": {
+    "sectionSummary": "{{count}} {{label}}",
+    "yes": "Yes",
+    "no": "No",
+    "suitableQuestion": "Is this exercise suitable for you?",
+    "feedbackTitle": "Exercise Feedback",
+    "painQuestion": "1. Does the exercise cause you pain?",
+    "painAcceptableQuestion": "1a. Is the pain acceptable?",
+    "yesAcceptable": "Yes, it's acceptable",
+    "noAcceptable": "No, it's not acceptable",
+    "changeQuestion": "2. Do you want to change this exercise?",
+    "submitFeedback": "Submit Feedback",
+    "changeExercise": "Change Exercise",
+    "changeRequestInfo": "After submitting this request, we will contact you regarding a suitable exercise replacement."
+  },
+  "exerciseCvik": {
+    "few": "exercises"
+  },
+  "importantNotice": {
+    "title": "Important Notice",
+    "text": "These exercises are recommended based on your assessment. If you experience severe pain or discomfort, consult a healthcare professional."
+  },
+  "resultsFooter": {
+    "startNew": "Start New Assessment",
+    "myExercises": "My Exercises"
+  }
+}

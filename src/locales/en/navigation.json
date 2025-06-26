@@ -1,0 +1,29 @@
+
+{
+  "header": {
+    "home": "Home",
+    "profile": "My Profile",
+    "myExercises": "My Exercises",
+    "blog": "Blog",
+    "assessment": "Pain Assessment",
+    "signOut": "Sign Out",
+    "signIn": "Sign In",
+    "brand": "Pebee Therapist",
+    "toggleMenu": "Toggle Menu"
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "google": "Continue with Google",
+    "toggleSignUp": "Don't have an account? Sign up",
+    "toggleSignIn": "Already have an account? Sign in",
+    "signUpSubtitle": "Create your new account",
+    "signInSubtitle": "Sign in to your account",
+    "firstName": "First Name",
+    "email": "Email",
+    "password": "Password",
+    "privacyConsent": "I agree to the processing of personal data",
+    "or": "or",
+    "backHome": "Back to Home"
+  }
+}

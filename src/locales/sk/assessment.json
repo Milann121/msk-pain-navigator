@@ -1,0 +1,37 @@
+
+{
+  "title": "Hodnotenie muskuloskeletálnej bolesti",
+  "subtitle": "Vyplň dotazník a získaj personalizované odporúčania cvičení",
+  "new": "Nové hodnotenie",
+  "painArea": {
+    "specify": "Pre začiatok hodnotenia prosím vyber oblasť bolesti",
+    "neck": "Krk",
+    "middleBack": "Stredná časť chrbta",
+    "lowerBack": "Dolná časť chrbta",
+    "upperLimb": "Horná končatina",
+    "shoulder": "Rameno",
+    "elbow": "Lakeť",
+    "forearm": "Predlaktie",
+    "hand": "Ruka",
+    "fingers": "Prsty",
+    "specifyUpperLimb": "Špecifikuj oblasť hornej končatiny"
+  },
+  "consent": {
+    "disclaimer": "Súhlasím s podmienkami používania",
+    "privacy": "Súhlasím so spracovaním osobných údajov"
+  },
+  "startAssessment": "Začať hodnotenie",
+  "consentSection": {
+    "privacyTitle": "Ochrana súkromia",
+    "privacyText": "Súhlasím so spracovaním osobných údajov v súlade s podmienkami ochrany súkromia.",
+    "viewPrivacyPolicy": "Zobraziť zásady ochrany osobných údajov",
+    "mustAgree": "Musíš súhlasiť s podmienkami ochrany súkromia."
+  },
+  "painAreaSection": {
+    "title": "Označ oblasti bolesti na modeli",
+    "instruction": "Klikni na oblasti tela, kde pociťuješ bolesť",
+    "selectedAreas": "Vybrané oblasti:",
+    "noAreasSelected": "Žiadne oblasti nie sú vybraté",
+    "selectAtLeastOne": "Vyber aspoň jednu oblasť bolesti"
+  }
+}

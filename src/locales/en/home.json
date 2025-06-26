@@ -1,0 +1,55 @@
+
+{
+  "greeting": {
+    "hello": "Hello {{name}}",
+    "question": "how are you feeling today?"
+  },
+  "mood": {
+    "week": "Week",
+    "month": "Month",
+    "periodWeek": "week",
+    "periodMonth": "month",
+    "avgScore": "Average Score ({{period}})",
+    "infoLabel": "Mood assessment information",
+    "infoText": "Average mood score is calculated from your records over the last {{days}} days.",
+    "infoGrades": "Good = 3, Neutral = 2, Bad = 1",
+    "infoFollow": "Track your progress for better understanding of your wellness patterns.",
+    "noChange": "No significant change",
+    "better": "Better than previous {{days}} days",
+    "worse": "Worse than previous {{days}} days",
+    "noRecords": "No records for {{period}}",
+    "emptyWeek": "this week",
+    "emptyMonth": "this month",
+    "happy": "Good",
+    "neutral": "Neutral",
+    "sad": "Bad"
+  },
+  "progressTitle": "Weekly Progress",
+  "setGoals": "Set Goals",
+  "generalProgram": {
+    "view": "View Program",
+    "exerciseCount": "exercises"
+  },
+  "exerciseStats": {
+    "title": "Exercise Progress",
+    "weekLabel": "days exercised this week",
+    "goalRemaining": "{{count}} more days to reach goal",
+    "goalDone": "🎉 Goal achieved!",
+    "noGoal": "Set a weekly goal to track progress"
+  },
+  "blogStats": {
+    "title": "Blog Reading",
+    "weekLabel": "blogs read this week",
+    "goalRemaining": "{{count}} more blogs to reach goal",
+    "goalDone": "🎉 Goal achieved!",
+    "noGoal": "Set a weekly goal to track progress"
+  },
+  "savedBlogs": {
+    "title": "Saved Articles",
+    "empty": "No saved articles yet"
+  },
+  "favoriteExercises": {
+    "title": "Favorite Exercises",
+    "empty": "No favorite exercises yet"
+  }
+}

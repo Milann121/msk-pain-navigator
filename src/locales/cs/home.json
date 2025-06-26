@@ -1,0 +1,55 @@
+
+{
+  "greeting": {
+    "hello": "Ahoj{{name}}",
+    "question": "jak se dnes cítíš?"
+  },
+  "mood": {
+    "week": "Týden",
+    "month": "Měsíc",
+    "periodWeek": "týden",
+    "periodMonth": "měsíc",
+    "avgScore": "Průměrné skóre ({{period}})",
+    "infoLabel": "Informace o hodnocení bolesti",
+    "infoText": "Průměrné skóre nálady je vypočítáno z tvých záznamů za posledních {{days}} dní.",
+    "infoGrades": "Dobře = 3, Neutrálně = 2, Špatně = 1",
+    "infoFollow": "Sleduj svůj pokrok pro lepší pochopení vzorců bolesti.",
+    "noChange": "Žádná významná změna",
+    "better": "Lepší než předchozích {{days}} dní",
+    "worse": "Horší než předchozích {{days}} dní",
+    "noRecords": "Žádné záznamy pro {{period}}",
+    "emptyWeek": "tento týden",
+    "emptyMonth": "tento měsíc",
+    "happy": "Dobře",
+    "neutral": "Neutrálně",
+    "sad": "Špatně"
+  },
+  "progressTitle": "Týdenní pokrok",
+  "setGoals": "Nastavit cíle",
+  "generalProgram": {
+    "view": "Zobrazit program",
+    "exerciseCount": "cvičení"
+  },
+  "exerciseStats": {
+    "title": "Pokrok v cvičení",
+    "weekLabel": "dní cvičených tento týden",
+    "goalRemaining": "{{count}} dalších dní do dosažení cíle",
+    "goalDone": "🎉 Cíl splněn!",
+    "noGoal": "Nastav si týdenní cíl pro sledování pokroku"
+  },
+  "blogStats": {
+    "title": "Čtení blogů",
+    "weekLabel": "přečtených blogů tento týden",
+    "goalRemaining": "{{count}} dalších blogů do dosažení cíle",
+    "goalDone": "🎉 Cíl splněn!",
+    "noGoal": "Nastav si týdenní cíl pro sledování pokroku"
+  },
+  "savedBlogs": {
+    "title": "Uložené články",
+    "empty": "Zatím žádné uložené články"
+  },
+  "favoriteExercises": {
+    "title": "Oblíbená cvičení",
+    "empty": "Zatím žádná oblíbená cvičení"
+  }
+}

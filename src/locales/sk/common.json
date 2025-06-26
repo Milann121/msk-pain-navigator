@@ -1,0 +1,57 @@
+
+{
+  "loading": "Načítavam...",
+  "bodyParts": {
+    "neck": "Krk",
+    "middle back": "Hrudná chrbtica",
+    "lower back": "Dolný chrbát",
+    "upper limb": "Horná končatina",
+    "shoulder": "Rameno"
+  },
+  "painMechanisms": {
+    "nociceptive": "Nociceptívna bolesť",
+    "neuropathic": "Neuropatická bolesť",
+    "central": "Centrálna senzitizácia",
+    "none": "Nedefinovaný mechanizmus bolesti",
+    "red-flag": "Symptómy vyžadujúce lekársku pomoc"
+  },
+  "diagnoses": {
+    "none": "Nebola identifikovaná žiadna špecifická diagnóza",
+    "disc herniation": "Hernia medzistavcovej platničky",
+    "facet joint syndrome": "Syndróm facetových kĺbov",
+    "SIJ syndrome": "Syndróm SI kĺbu",
+    "muscle pain": "Svalová bolesť",
+    "red-flag": "Symptómy vyžadujúce lekársku pomoc",
+    "ventral spondylolisthesis": "Ventrálna spondylolistéza",
+    "dorsal spondylolisthesis": "Dorzálna spondylolistéza",
+    "costovertebral joint syndrome": "Syndróm kostovertebrálneho kĺbu",
+    "Radicular Pain": "Radikulárna Bolesť",
+    "Radiculopathy": "Radikulopatia",
+    "Central Sensitisation": "Centrálna Senzitizácia",
+    "Central Sensitisation - Allodynia": "Centrálna Senzitizácia - Alodýnia",
+    "Central Sensitisation - Sensory Hypersensitivity": "Centrálna Senzitizácia - Senzorická Hypersenzitivita",
+    "Central Sensitisation - Cognitive Symptoms": "Centrálna Senzitizácia - Kognitívne Symptómy",
+    "cervical-radiculopathy": "Cervikálna radikulopatia",
+    "frozen-shoulder": "Zamrznuté rameno",
+    "slap-tear": "SLAP lézia",
+    "subacromial-impingement-syndrome": "Subakromiálny impingement syndróm",
+    "stiff-shoulder": "Syndróm stuhnutého ramena",
+    "shoulder-bursa": "Burzitída ramena",
+    "rotator-cuff-tear": "Porucha rotátorovej manžety",
+    "rotator-cuff-tendinopathy": "Tendinopatia rotátorovej manžety",
+    "biceps-tendinopathy": "Tendinopatia bicepsu",
+    "biceps-tear-long-head": "Porucha bicepsovej šľachy",
+    "shoulder-dislocation": "Dislokácia ramena",
+    "unstable-shoulder": "Nestabilné rameno",
+    "labral-leason": "Lézia labra"
+  },
+  "results": {
+    "savedTitle": "Výsledky boli uložené",
+    "savedDescription": "Tvoje hodnotenie bolo úspešne uložené a nájdeš ho v sekcii Moje cvičenia.",
+    "saveErrorTitle": "Chyba pri ukladaní",
+    "saveErrorDescription": "Nepodarilo sa uložiť výsledky hodnotenia.",
+    "autoSaved": "✓ Výsledky boli automaticky uložené. Nájdeš ich v sekcii Moje cvičenia.",
+    "saving": "Ukladanie výsledkov...",
+    "autoSaveFailed": "Automatické ukladanie výsledkov zlyhalo."
+  }
+}
