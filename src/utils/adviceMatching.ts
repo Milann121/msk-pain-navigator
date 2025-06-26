@@ -8,21 +8,21 @@ export const getAdvicesForExerciseProgram = (
 ): number[] => {
   // Normalize pain area to match our advice body parts
   const normalizedPainArea = normalizePainArea(painArea);
+  const normalizedDifferential = normalizeDifferential(differential);
   
   // Filter advices based on matching criteria
   const matchingAdvices = advices.filter(advice => {
     // Check if the advice applies to this body part
     const bodyPartMatch = advice.bodyParts.includes(normalizedPainArea as any);
-    
+
     // Check if the advice applies to this mechanism
     const mechanismMatch = advice.mechanisms.includes(mechanism as any);
-    
-    // If advice has specific differentials, check if it matches
-    let differentialMatch = true;
-    if (advice.differentials && advice.differentials.length > 0) {
-      differentialMatch = advice.differentials.includes(differential);
-    }
-    
+
+    // Differential must be explicitly provided and match after normalization
+    const differentialMatch =
+      Array.isArray(advice.differentials) &&
+      advice.differentials.some(d => normalizeDifferential(d) === normalizedDifferential);
+
     return bodyPartMatch && mechanismMatch && differentialMatch;
   });
   
@@ -46,6 +46,9 @@ const normalizePainArea = (painArea: string): string => {
     'lower back': 'lower-back',
     'upper limb': 'upper limb'
   };
-  
+
   return mapping[painArea] || painArea;
 };
+
+const normalizeDifferential = (differential: string): string =>
+  differential.toLowerCase().replace(/-/g, ' ').trim();
