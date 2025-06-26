@@ -7,6 +7,7 @@ export const centralExercises: Record<string, Exercise[]> = {
     {
       title: 'Všeobecné cvičenie na zníženie bolestí krčnej chrbtice',
       description: '',
+      advices: [1], // Reference to advice IDs
       videos: [
         {
           videoId: '844ILxo5xsA',
@@ -41,6 +42,7 @@ export const centralExercises: Record<string, Exercise[]> = {
     {
       title: 'Všeobecné cvičenie pre zníženie bolesti v hrudnej chrbtici',
       description: '',
+      advices: [1], // Reference to advice IDs
       videos: [
         {
           videoId: 'PK62xMsZfG0',
@@ -83,6 +85,7 @@ export const centralExercises: Record<string, Exercise[]> = {
     {
       title: 'Všeobecné cvičenie pre zníženie bolesti v driekovej chrbtici',
       description: '',
+      advices: [1], // Reference to advice IDs
       videos: [
         {
         videoId: 'PMJsVceAnnY',
@@ -119,6 +122,7 @@ export const centralExercises: Record<string, Exercise[]> = {
     {
       title: 'Všeobecné cvičenie na zníženie bolestí krčnej chrbtice',
       description: '',
+      advices: [1], // Reference to advice IDs
       videos: [
         {
           videoId: '844ILxo5xsA',
@@ -153,6 +157,7 @@ export const centralExercises: Record<string, Exercise[]> = {
     {
       title: '0-2 týždeň',
       description: 'Jemné rotačné pohyby pre zlepšenie mobility v hrudnej oblasti a redukciu bolesti.',
+      advices: [1], // Reference to advice IDs
       videos: [
         {
           videoId: 'oAxVF_ktAi0',
@@ -175,6 +180,7 @@ export const centralExercises: Record<string, Exercise[]> = {
     {
       title: '3-5 týždeň',
       description: 'Jemné rotačné pohyby pre zlepšenie mobility v hrudnej oblasti a redukciu bolesti.',
+      advices: [1], // Reference to advice IDs
       videos: [
         {
           videoId: 'oVJqu0FEw-Y',
@@ -209,6 +215,7 @@ export const centralExercises: Record<string, Exercise[]> = {
     {
       title: 'Všeobecné cvičenie pre zníženie bolesti v driekovej chrbtici',
       description: '',
+      advices: [1], // Reference to advice IDs
       videos: [
         {
         videoId: 'PMJsVceAnnY',

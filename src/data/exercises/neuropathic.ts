@@ -7,6 +7,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
     {
       title: '0-3 týžeň',
       description: 'Jemné cvičenia na uvoľnenie nervových koreňov v krčnej oblasti a zníženie neurologických príznakov.',
+      advices: [1], // Reference to advice IDs
       videos: [
         {
           videoId: 'oaB4o_qeMdQ',
@@ -37,6 +38,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
     {
       title: '4-6 týždeň',
       description: 'Zvýšenie pohyblivosti v krčnej chrbtici a redukcia bolesti.',
+      advices: [1], // Reference to advice IDs
       videos: [
         {
           videoId: 'PK62xMsZfG0',
@@ -63,6 +65,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
     {
       title: '0-3 týždeň',
       description: 'Cvičenia zamerané na jemnú mobilizáciu nervových štruktúr v driekovej oblasti.',
+      advices: [1], // Reference to advice IDs
       videos: [
         {
           videoId: '3A27NLPe2bs',
@@ -93,6 +96,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
     {
       title: '4-6 týždeň',
       description: 'Cvičenia zamerané na posilnenie sedacích svalov a adaptáciu na záťaž.',
+      advices: [1], // Reference to advice IDs
       videos: [
         {
           videoId: 'Xp33YgPZgns',
@@ -121,6 +125,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
     {
       title: '0-2 týždne',
       description: 'Cvičenia na zníženie neurologických symptómov a redukciu tlaku na koreň nervu.',
+      advices: [1], // Reference to advice IDs
       videos: [
         {
           videoId: 'oFQwLC6iea4',
@@ -143,6 +148,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
     {
       title: '3-5 týždeň',
       description: 'Posilnenie svalov v oblasti krku a medzilopatkového priestoru.',
+      advices: [1], // Reference to advice IDs
       videos: [
         {
           videoId: 'oVJqu0FEw-Y',
@@ -169,6 +175,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
     {
       title: '0-2 týždeň',
       description: 'Cvičenia zamerané na zníženie neurologických symptómov dolnej končatiny.',
+      advices: [1], // Reference to advice IDs
       videos: [
         {
           videoId: 'XP1yzpFR6ho',
@@ -191,6 +198,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
     {
       title: '3-5 týždeň',
       description: 'Cvičenia zamerané na zvyšovanie záťaže driekovej chrbtice a sedacích svalov.',
+      advices: [1], // Reference to advice IDs
       videos: [
         {
           videoId: 'UaG3eY_wNQg',
@@ -226,6 +234,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
     {
       title: 'Základné cvičenia na krčnú chrbticu',
       description: 'Všeobecné cvičenia na mobilizáciu nervových štruktúr v krčnej oblasti.',
+      advices: [1], // Reference to advice IDs
       videos: [
         {
           videoId: 'oaB4o_qeMdQ',
@@ -260,6 +269,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
     {
       title: 'Základné cvičenia na hrudnú chrbticu',
       description: 'Všeobecné cvičenia na hrudnú chrbticu.',
+      advices: [1], // Reference to advice IDs
       videos: [
         {
           videoId: 'PK62xMsZfG0',
@@ -294,6 +304,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
     {
       title: 'Základné cvičenia na drekovú chrbticu',
       description: 'Základné cvičenia na posilnenie a mobilizáciu driekovej chrbtice',
+      advices: [1], // Reference to advice IDs
       videos: [
         {
           videoId: 'PMJsVceAnnY',

@@ -10,4 +10,5 @@ export interface Exercise {
     mainGroup: Array<'mobility' | 'stability' | 'pain-relief'| 'neuro-mobs' >;
     bodyPart: Array<'neck' | 'middle-back' | 'lower-back' | 'shoulder' | 'elbow' | 'forearm' | 'hand' | 'fingers'>;
   }>;
+  advices?: number[]; // Array of advice IDs
 }
