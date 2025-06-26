@@ -25,7 +25,7 @@ export const advices: Advice[] = [
     advicePriority: "high",
     adviceRule: "every45to60min",
     adviceDescription: "regularPositionChangeDescription",
-    adviceImageUrl: "http://www.w3.org/2000/svg",
+    adviceImageUrl: "",
     adviceLink: "",
     bodyParts: ['neck', 'middle-back', 'lower-back'],
     mechanisms: ['nociceptive', 'neuropathic'],
