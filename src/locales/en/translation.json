@@ -1,4 +1,3 @@
-
 {
   "welcome": {
     "title": "Hello, I'm your personal Pebee therapist.",
@@ -36,7 +35,7 @@
     "moreInfo": "More Information",
     "programAdviceTitle": "Important Tips for Your Program",
     "programAdviceSubtitle": "Recommendations specific to your type of pain and area",
-    "adviceCount": "{{count}} {{count, plural, one {tip} other {tips}}",
+    "adviceCount": "{{count}} {{count, plural, one {tip} other {tips}}}",
     "regularPositionChange": "Regular Position Change",
     "forNociceptivePain": "For Nociceptive Pain",
     "forNeuropathicPain": "For Neuropathic Pain",
