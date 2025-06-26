@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ExternalLink } from 'lucide-react';
-import { advices, type Advice as AdviceType } from '@/data/UpperLimb/Advices/advicesDatabase';
+import { advices, type Advice as AdviceType } from '@/data/Advices/advicesDatabase';
 
 interface AdviceProps {
   adviceId: number;

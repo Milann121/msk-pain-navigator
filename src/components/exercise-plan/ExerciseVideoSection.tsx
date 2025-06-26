@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ExerciseCompletionCheckbox } from '@/components/ExerciseCompletionCheckbox';
@@ -15,8 +16,8 @@ interface Video {
   title?: string;
   description?: string;
   importance?: 1 | 2 | 3;
-  bodyPart?: string;
-  mainGroup?: string;
+  bodyPart?: Array<'neck' | 'middle-back' | 'lower-back' | 'shoulder' | 'elbow' | 'forearm' | 'hand' | 'fingers'>;
+  mainGroup?: Array<'mobility' | 'stability' | 'pain-relief'| 'neuro-mobs'>;
 }
 
 interface ExerciseVideoSectionProps {
@@ -106,8 +107,8 @@ export const ExerciseVideoSection = ({
     if (video.bodyPart && video.mainGroup) {
       const newExercise = findReplacementExercise(
         video.videoId,
-        video.bodyPart,
-        video.mainGroup
+        video.bodyPart[0], // Use first body part for replacement
+        video.mainGroup[0] // Use first main group for replacement
       );
       if (newExercise) {
         setProposedExercise(newExercise);
