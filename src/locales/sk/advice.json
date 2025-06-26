@@ -21,7 +21,10 @@
 
   //Advice 2 - Gradual Load Increase
   "gradualLoadIncrease": "Postupné zvyšovanie záťaže",
-  "forNociceptivePain": "Pre nociceptívnu bolesť",
   "increaseIntensityWeekly": "Zvyšujte intenzitu postupne každý týždeň",
-  "gradualLoadIncreaseDescription": "Pri nociceptívnej bolesti je dôležité postupne zvyšovať záťaž cvičenia. Začnite pomaly a každý týždeň mierne zvýšte intenzitu alebo počet opakovaní."
+  "gradualLoadIncreaseDescription": "Pri nociceptívnej bolesti je dôležité postupne zvyšovať záťaž cvičenia. Začnite pomaly a každý týždeň mierne zvýšte intenzitu alebo počet opakovaní.",
+
+  //Advice 3 - Sleep Positions
+  "sleepPositionNeck": "Pozor na polohu v spánku na bruchu",
+  "sleepPositionNeckDescription": "V prípade bolestí krčnej chrbtice vám neodporúčame spať na bruchu. V prípade tejto polohy spánku dochádza k rotácii krčnej chrbtice, čo môže podporovať bolesť a tuhnutie v tejto oblasti. Spánok na boku alebo na chrbte je ideálnou variantou pre váš krk. V prípade ľahu na boku môžete použiť tehotenský vankúš ako pomôcku proti otáčaniu sa."
 }
