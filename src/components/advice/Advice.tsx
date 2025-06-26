@@ -50,6 +50,13 @@ export const Advice: React.FC<AdviceProps> = ({ adviceId }) => {
             {advice.adviceSubtitle && advice.adviceSubtitle.trim() && (
               <p className="text-sm text-gray-600 mt-1">{advice.adviceSubtitle}</p>
             )}
+            {/* Rule inline on desktop */}
+            {advice.adviceRule && (
+              <div className="mt-2">
+                <span className="text-sm font-medium text-blue-900">Pravidlo: </span>
+                <span className="text-sm text-blue-800">{advice.adviceRule}</span>
+              </div>
+            )}
           </div>
           <Badge className={`${getPriorityColor(advice.advicePriority)} font-medium`}>
             {advice.advicePriority}
@@ -58,20 +65,13 @@ export const Advice: React.FC<AdviceProps> = ({ adviceId }) => {
       </CardHeader>
       
       <CardContent className="space-y-4">
-        {advice.adviceRule && (
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
-            <p className="text-sm font-medium text-blue-900">Pravidlo:</p>
-            <p className="text-sm text-blue-800">{advice.adviceRule}</p>
-          </div>
-        )}
-        
         <div className="flex gap-4">
           {advice.adviceImageUrl && (
             <div className="flex-shrink-0">
               <img
                 src={advice.adviceImageUrl}
                 alt={advice.adviceTitle}
-                className="w-24 h-24 object-cover rounded-lg border border-gray-200"
+                className="w-16 h-16 object-cover rounded-full border border-gray-200"
               />
             </div>
           )}
@@ -83,7 +83,7 @@ export const Advice: React.FC<AdviceProps> = ({ adviceId }) => {
           </div>
         </div>
         
-        {advice.adviceLink && (
+        {advice.adviceLink && advice.adviceLink.trim() && (
           <div className="pt-2 border-t border-gray-100">
             <Button
               variant="outline"
