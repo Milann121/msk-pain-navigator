@@ -1,4 +1,5 @@
 
+
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Card, CardContent } from '@/components/ui/card';
@@ -16,6 +17,7 @@ import { ExercisePeriodAccordion } from '@/components/exercise-plan/ExercisePeri
 import { ImportantNotice } from '@/components/exercise-plan/ImportantNotice';
 import { Advice } from '@/components/advice/Advice';
 import { getAdvicesForExerciseProgram } from '@/utils/adviceMatching';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 interface Exercise {
   title: string;
@@ -149,18 +151,28 @@ const ExercisePlan = () => {
             mechanism={mechanism}
           />
           <CardContent className="space-y-8">
-            {/* Program-specific advices */}
+            {/* Program-specific advices as accordion */}
             {programAdvices.length > 0 && (
-              <div className="space-y-4">
-                <h2 className="text-2xl font-bold text-gray-900">Dôležité rady pre váš program</h2>
-                <div className="space-y-4">
-                  {programAdvices.map((adviceId) => (
-                    <div key={adviceId} className="bg-blue-50 border border-blue-200 rounded-lg p-1">
-                      <Advice adviceId={adviceId} />
+              <Accordion type="multiple" className="w-full">
+                <AccordionItem value="program-advice" className="border rounded-lg">
+                  <AccordionTrigger className="px-6 py-4 text-left hover:no-underline">
+                    <div className="text-left">
+                      <h2 className="text-2xl font-bold text-gray-900">Dôležité rady pre váš program</h2>
+                      <p className="text-gray-600 mt-2">Odporúčania špecifické pre váš typ bolesti a oblasť</p>
+                      <div className="mt-3 px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium inline-block">
+                        {programAdvices.length} {programAdvices.length === 1 ? 'rada' : programAdvices.length <= 4 ? 'rady' : 'rád'}
+                      </div>
                     </div>
-                  ))}
-                </div>
-              </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-6 pb-6">
+                    <div className="space-y-4">
+                      {programAdvices.map((adviceId) => (
+                        <Advice key={adviceId} adviceId={adviceId} />
+                      ))}
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
             )}
             
             <ExercisePeriodAccordion
@@ -178,3 +190,4 @@ const ExercisePlan = () => {
 };
 
 export default ExercisePlan;
+
