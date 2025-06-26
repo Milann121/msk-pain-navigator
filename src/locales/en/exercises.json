@@ -13,6 +13,8 @@
     "exerciseCalendarTitle": "Exercise Calendar",
     "today": "Today",
     "weeklyProgress": "Weekly Progress",
+    "daysLeft": "{{count}} more days to reach goal",
+    "goalAchieved": "Goal achieved!",
     "days": {
       "long": {
         "monday": "Monday",

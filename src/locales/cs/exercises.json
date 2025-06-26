@@ -13,6 +13,8 @@
     "exerciseCalendarTitle": "Kalendář cvičení",
     "today": "Dnes",
     "weeklyProgress": "Týdenní pokrok",
+    "daysLeft": "{{count}} dní do splnění cíle",
+    "goalAchieved": "Cíl splněn!",
     "days": {
       "long": {
         "monday": "Pondělí",
