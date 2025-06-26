@@ -12,19 +12,12 @@
   "high": "Vysoká",
   "medium": "Stredná",
   "low": "Nízka",
-
-
-  //Advice 1 - Regular Position Change
   "regularPositionChange": "Pravidelná zmena polohy",
   "every45to60min": "Každých 45-60min.",
   "regularPositionChangeDescription": "Vaše bolesti môžu byť spôsobované aj statickou záťažou, ktorá pri vašom probléme nie je vhodná. Snažte sa pravidelné meniť polohy, čo vám zabezpečí potrebnú úľavu od bolesti a zníženie rizika ďalších bolestí.",
-
-  //Advice 2 - Gradual Load Increase
   "gradualLoadIncrease": "Postupné zvyšovanie záťaže",
   "increaseIntensityWeekly": "Zvyšujte intenzitu postupne každý týždeň",
   "gradualLoadIncreaseDescription": "Pri nociceptívnej bolesti je dôležité postupne zvyšovať záťaž cvičenia. Začnite pomaly a každý týždeň mierne zvýšte intenzitu alebo počet opakovaní.",
-
-  //Advice 3 - Sleep Positions
   "sleepPositionNeck": "Pozor na polohu v spánku na bruchu",
   "sleepPositionNeckDescription": "V prípade bolestí krčnej chrbtice vám neodporúčame spať na bruchu. V prípade tejto polohy spánku dochádza k rotácii krčnej chrbtice, čo môže podporovať bolesť a tuhnutie v tejto oblasti. Spánok na boku alebo na chrbte je ideálnou variantou pre váš krk. V prípade ľahu na boku môžete použiť tehotenský vankúš ako pomôcku proti otáčaniu sa."
 }

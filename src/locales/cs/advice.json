@@ -12,19 +12,13 @@
   "high": "Vysoká",
   "medium": "Střední",
   "low": "Nízká",
-
-  //Advice 1 - Regular Position Change
   "regularPositionChange": "Pravidelná změna polohy",
   "every45to60min": "Každých 45-60 minut",
   "regularPositionChangeDescription": "Vaše bolesti mohou být způsobeny také statickým zatížením, které při vašem problému není vhodné. Snažte se pravidelně měnit polohy, což vám zajistí potřebnou úlevu od bolesti a snížení rizika dalších bolestí.",
-
-  //Advice 2 - Gradual Load Increase
   "gradualLoadIncrease": "Postupné zvyšování zátěže",
   "forNociceptivePain": "Pro nociceptivní bolest",
   "increaseIntensityWeekly": "Zvyšujte intenzitu postupně každý týden",
   "gradualLoadIncreaseDescription": "Při nociceptivní bolesti je důležité postupně zvyšovat zátěž cvičení. Začněte pomalu a každý týden mírně zvyšte intenzitu nebo počet opakování.",
-
-  //Advice 3 - Sleep Positions
   "sleepPositionNeck": "Pozor na polohu ve spánku na břiše",
   "sleepPositionNeckDescription": "V případě bolestí krční páteře vám nedoporučujeme spát na břiše. V případě této polohy spánku dochází k rotaci krční páteře, což může podporovat bolest a tuhnutí v této oblasti. Spánek na boku nebo na zádech je ideální variantou pro váš krk. jako pomůcku proti otáčení se."
 }
