@@ -33,9 +33,9 @@ export const advices: Advice[] = [
   },
   // Advice 2 - Gradual Load Increase
   {
-    adviceId: 2,
     adviceTitle: "gradualLoadIncrease",
-    adviceSubtitle: "forNociceptivePain",
+    adviceId: 2,
+    adviceSubtitle: "",
     advicePriority: "medium",
     adviceRule: "increaseIntensityWeekly",
     adviceDescription: "gradualLoadIncreaseDescription",
@@ -45,4 +45,19 @@ export const advices: Advice[] = [
     mechanisms: ['nociceptive'],
     differentials:[''],
   },
+  //Advice 3 - Sleep Positions
+  {
+    adviceTitle: "sleepPositionNeck",
+    adviceId: 3,
+    adviceSubtitle:"",
+    advicePriority: "medium",
+    adviceRule:"",
+    adviceDescription: "sleepPositionNeckDescription",
+    adviceImageUrl:"",
+    adviceLink:"",
+    bodyParts: ['neck', "middle-back"],
+    mechanisms: ['nociceptive', 'neuropathic'],
+    differentials: ['disc-herniation', 'facet-joint-syndrome']
+  },
+
 ];
