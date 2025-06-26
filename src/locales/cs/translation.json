@@ -1,9 +1,9 @@
+
 {
   "welcome": {
     "title": "Vítej, jsem tvůj osobní Pebee terapeut",
-    "subtitle": "Získej personalizované cvičební programy založené na vědeckém hodnocení tvé muskuloskeletální bolesti. Začni svou cestu k lepšímu zdraví ještě dnes.",
+    "subtitle": "Získej personalizované cvičební programy založené na vědeckém hodnocení tvé muskuloskeletární bolesti. Začni svou cestu k lepšímu zdraví ještě dnes.",
     "signIn": "Začít",
-    "header.signIn": "Přihlásit se",
     "movementTitle": "Pohybem k životu bez bolesti",
     "features": "Objev personalizované cvičební programy, sleduj svůj pokrok a převezmi kontrolu nad zvládáním bolesti.",
     "alt": {
@@ -129,6 +129,7 @@
     "blog": "Blog",
     "assessment": "Dotazník bolesti",
     "signOut": "Odhlásit se",
+    "signIn": "Přihlásit se",
     "brand": "Pebee terapeut",
     "toggleMenu": "Zobrazit menu"
   },
