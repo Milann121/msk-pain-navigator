@@ -18,9 +18,14 @@
   "every45to60min": "Every 45-60 minutes",
   "regularPositionChangeDescription": "Your pain may be caused by static loading, which is not suitable for your condition. Try to change positions regularly to provide necessary relief from pain and reduce the risk of further pain.",
 
-   //Advice 2 - Gradual Load Increase
+  //Advice 2 - Gradual Load Increase
   "gradualLoadIncrease": "Gradual Load Increase",
   "forNociceptivePain": "For Nociceptive Pain",
   "increaseIntensityWeekly": "Increase intensity gradually each week",
   "gradualLoadIncreaseDescription": "With nociceptive pain, it's important to gradually increase exercise load. Start slowly and slightly increase intensity or repetitions each week.",
+
+  //Advice 3 - Sleep Positions
+  "sleepPositionNeck": "Be careful with your stomach sleeping position",
+  "sleepPositionNeckDescription": "If you have neck pain, we do not recommend sleeping on your stomach. This sleeping position causes the cervical spine to rotate, which can contribute to pain and stiffness in this area. Sleeping on your side or back is ideal for your neck. If you sleep on your side, you can use a pregnancy pillow to help prevent twisting."
+
 }
