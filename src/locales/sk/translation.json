@@ -1,10 +1,11 @@
 {
   "welcome": {
-    "title": "Váš osobný sprievodca zvládaním bolesti",
-    "subtitle": "Získajte personalizované cvičebné programy založené na vedeckom hodnotení vašej muskuloskeletálnej bolesti. Začnite svoju cestu k lepšiemu zdraviu už dnes.",
-    "signIn": "Začať",
-    "movementTitle": "Pohyb je liek",
-    "features": "Objavte personalizované cvičebné programy, sledujte svoj pokrok a prevezmite kontrolu nad zvládaním bolesti.",
+    "title": "Vitaj, som tvoj osobný Pebee terapeut",
+    "subtitle": "Získaj personalizované cvičebné programy založené na štúdiach a tvojich príznakoch. Začni svoju cestu k lepšiemu zdraviu už dnes.",
+    "signIn": "Prihlásiť sa",
+    "header.signIn": "Prihlásiť sa",
+    "movementTitle": "Pohybom k životu bez bolesti",
+    "features": "Objav personalizované cvičebné programy, sleduj svoj pokrok a prevezmi kontrolu nad zvládaním bolesti.",
     "alt": {
       "mobileApps": "Ukážka mobilných aplikácií",
       "calendar": "Rozhranie kalendára cvičení",
@@ -12,16 +13,16 @@
       "assessment": "Rozhranie hodnotenia bolesti"
     },
     "calendar": {
-      "title": "Sledujte svoj pokrok",
-      "text": "Monitorujte svoju dennú cvičebnú rutinu s naším intuitívnym kalendárom. Vidíte svoje úspechy a zostanete motivovaní na ceste k uzdraveniu."
+      "title": "Sleduj svoj pokrok",
+      "text": "Monitoruj svoju dennú cvičebnú rutinu s naším intuitívnym kalendárom. Sleduj svoje úspechy a zostaň motivovaný/á na ceste k uzdraveniu."
     },
     "programs": {
       "title": "Personalizované cvičebné programy",
-      "text": "Získajte prispôsobené cvičebné plány založené na vašom špecifickom hodnotení bolesti. Každý program je prispôsobený vášmu stavu a adaptovaný podľa vášho pokroku."
+      "text": "Získaj prispôsobené cvičebné plány založené na tvojom špecifickom hodnotení bolesti. Každý program je prispôsobený tvojmu stavu a adaptovaný podľa tvojho pokroku."
     },
     "assessment": {
-      "title": "Vedecké hodnotenie bolesti",
-      "text": "Vyplňte náš komplexný dotazník pre získanie presnej analýzy vášho stavu a obdržanie najvhodnejších odporúčaní pre liečbu."
+      "title": "Hodnotenie bolesti založené na štúdiach",
+      "text": "Vyplň náš dotazník pre získanie presnej analýzy tvojhp stavu a obdržanie najvhodnejších odporúčaní pre odstránenie bolesti."
     },
     "footer": {
       "title": "Pebee terapeut",
@@ -40,14 +41,14 @@
     "cancel": "Zrušiť",
     "male": "Muž",
     "female": "Žena",
-    "savePlaceholder": "Zadajte vaše {{field}}",
+    "savePlaceholder": "Zadaj tvoje {{field}}",
     "moneySavings": "Ušetrené peniaze",
-    "moneySavingsFootnote": "*vypočítané na základe priemerných cien vo vašej krajine",
+    "moneySavingsFootnote": "*vypočítané na základe priemerných cien v tvojej krajine",
     "modelTitle": "Model tela",
     "jobTypes": {
-      "manual": "manuálna práca",
-      "desk": "sedavá práca",
-      "driver": "vodič"
+      "manual": "Manuálna práca",
+      "desk": "Sedavá práca",
+      "driver": "Vodič"
     },
     "jobSubtypes": {
       "manualSpec": "Špecifikácia:",
@@ -113,10 +114,10 @@
   },
   "results": {
     "savedTitle": "Výsledky boli uložené",
-    "savedDescription": "Vaše hodnotenie bolo úspešne uložené a nájdete ho v sekcii Moje cvičenia.",
+    "savedDescription": "Tvoje hodnotenie bolo úspešne uložené a nájdeš ho v sekcii Moje cvičenia.",
     "saveErrorTitle": "Chyba pri ukladaní",
     "saveErrorDescription": "Nepodarilo sa uložiť výsledky hodnotenia.",
-    "autoSaved": "✓ Výsledky boli automaticky uložené. Nájdete ich v sekcii Moje cvičenia.",
+    "autoSaved": "✓ Výsledky boli automaticky uložené. Nájdeš ich v sekcii Moje cvičenia.",
     "saving": "Ukladanie výsledkov...",
     "autoSaveFailed": "Automatické ukladanie výsledkov zlyhalo."
   },
@@ -135,10 +136,10 @@
     "signIn": "Prihlásiť sa",
     "signUp": "Registrovať sa",
     "google": "Pokračovať s Google",
-    "toggleSignUp": "Nemáte účet? Zaregistrujte sa",
-    "toggleSignIn": "Už máte účet? Prihláste sa",
-    "signUpSubtitle": "Vytvorte si nový účet",
-    "signInSubtitle": "Prihláste sa do svojho účtu",
+    "toggleSignUp": "Nemáš účet? Zaregistruj sa",
+    "toggleSignIn": "Už máš účet? Prihlás sa",
+    "signUpSubtitle": "Vytvor si nový účet",
+    "signInSubtitle": "Prihlás sa do svojho účtu",
     "firstName": "Meno",
     "email": "E-mail",
     "password": "Heslo",
@@ -148,10 +149,10 @@
   },
   "assessment": {
     "title": "Hodnotenie muskuloskeletálnej bolesti",
-    "subtitle": "Vyplňte dotazník a získajte personalizované odporúčania cvičení",
+    "subtitle": "Vyplň dotazník a získaj personalizované odporúčania cvičení",
     "new": "Nové hodnotenie",
     "painArea": {
-      "specify": "Pre začiatok hodnotenia prosím vyberte oblasť bolesti",
+      "specify": "Pre začiatok hodnotenia prosím vyber oblasť bolesti",
       "neck": "Krk",
       "middleBack": "Stredná časť chrbta",
       "lowerBack": "Dolná časť chrbta",
@@ -161,7 +162,7 @@
       "forearm": "Predlaktie",
       "hand": "Ruka",
       "fingers": "Prsty",
-      "specifyUpperLimb": "Špecifikujte oblasť hornej končatiny"
+      "specifyUpperLimb": "Špecifikuj oblasť hornej končatiny"
     },
     "consent": {
       "disclaimer": "Súhlasím s podmienkami používania",
@@ -173,14 +174,14 @@
     "privacyTitle": "Ochrana súkromia",
     "privacyText": "Súhlasím so spracovaním osobných údajov v súlade s podmienkami ochrany súkromia.",
     "viewPrivacyPolicy": "Zobraziť zásady ochrany osobných údajov",
-    "mustAgree": "Musíte súhlasiť s podmienkami ochrany súkromia."
+    "mustAgree": "Musíš súhlasiť s podmienkami ochrany súkromia."
   },
   "painAreaSection": {
-    "title": "Označte oblasti bolesti na modeli",
-    "instruction": "Kliknite na oblasti tela, kde pociťujete bolesť",
+    "title": "Označ oblasti bolesti na modeli",
+    "instruction": "Klikni na oblasti tela, kde pociťuješ bolesť",
     "selectedAreas": "Vybrané oblasti:",
     "noAreasSelected": "Žiadne oblasti nie sú vybraté",
-    "selectAtLeastOne": "Vyberte aspoň jednu oblasť bolesti"
+    "selectAtLeastOne": "Vyber aspoň jednu oblasť bolesti"
   },
   "home": {
     "greeting": {
@@ -194,9 +195,9 @@
       "periodMonth": "mesiac",
       "avgScore": "Priemerné skóre ({{period}})",
       "infoLabel": "Informácie o hodnotení nálady",
-      "infoText": "Priemerné skóre nálady je vypočítané z vašich záznamov za posledných {{days}} dní.",
+      "infoText": "Priemerné skóre nálady je vypočítané z tvojich záznamov za posledných {{days}} dní.",
       "infoGrades": "Dobre = 3, Neutrálne = 2, Zle = 1",
-      "infoFollow": "Sledujte svoj pokrok pre lepšie pochopenie vzorcov vašej pohody.",
+      "infoFollow": "Sleduj svoj pokrok pre lepšie pochopenie vzorcov tvojich symptómov.",
       "noChange": "Žiadna významná zmena",
       "better": "Lepšie ako predchádzajúcich {{days}} dní",
       "worse": "Horšie ako predchádzajúcich {{days}} dní",
@@ -218,14 +219,14 @@
       "weekLabel": "dní cvičených tento týždeň",
       "goalRemaining": "{{count}} ďalších dní do dosiahnutia cieľa",
       "goalDone": "🎉 Cieľ splnený!",
-      "noGoal": "Nastavte si týždenný cieľ pre sledovanie pokroku"
+      "noGoal": "Nastav si týždenný cieľ pre sledovanie pokroku"
     },
     "blogStats": {
       "title": "Čítanie blogov",
       "weekLabel": "prečítaných blogov tento týždeň",
       "goalRemaining": "{{count}} ďalších blogov do dosiahnutia cieľa",
       "goalDone": "🎉 Cieľ splnený!",
-      "noGoal": "Nastavte si týždenný cieľ pre sledovanie pokroku"
+      "noGoal": "Nastav si týždenný cieľ pre sledovanie pokroku"
     },
     "savedBlogs": {
       "title": "Uložené články",
@@ -259,7 +260,7 @@
   "myExercises": {
     "title": "Moje cvičenia",
     "activeProgramsTitle": "Aktívne programy",
-    "activeProgramsDescription": "Vaše súčasné cvičebné programy založené na hodnoteniach bolesti",
+    "activeProgramsDescription": "Tvoje súčasné cvičebné programy založené na hodnoteniach bolesti",
     "endedProgramsTitle": "Ukončené programy",
     "endedProgramsDescription": "Predtým ukončené cvičebné programy",
     "backHome": "Späť domov",
@@ -284,8 +285,8 @@
   "assessmentAccordion": {
     "painMechanismLabel": "Mechanizmus bolesti",
     "diagnosisLabel": "Diagnóza",
-    "yourPainInitial": "Vaša bolesť (počiatočná)",
-    "yourPainLatest": "Vaša bolesť (najnovšia)",
+    "yourPainInitial": "Tvoja bolesť (počiatočná)",
+    "yourPainLatest": "Tvoja bolesť (najnovšia)",
     "delivered": "Doručené",
     "lastExercise": "Posledné cvičenie",
     "programStart": "Začiatok programu",
@@ -301,7 +302,7 @@
     "posts": {
       "1": {
         "title": "Porozumenie bolesti chrbta",
-        "description": "Naučte sa o bežných príčinách bolesti chrbta a ako ju efektívne zvládať."
+        "description": "Nauč sa o bežných príčinách bolesti chrbta a ako ju efektívne zvládať."
       }
     }
   },
@@ -310,7 +311,7 @@
   },
   "exercisePlanPage": {
     "generalTitle": "Všeobecný cvičebný program",
-    "generalDescription": "Nemáte čas na individuálne programy? Tu nájdete personalizovaný program s najdôležitejšími cvičeniami z vašich programov. Dodržujte pokyny a prestaňte cvičiť, ak pociťujete bolesť.",
+    "generalDescription": "Nemá čas na individuálne programy? Tu nájdeš personalizovaný program s najdôležitejšími cvičeniami z tvojich programov. Dodržuj pokyny a prestaň cvičiť, ak pociťuješ bolesť.",
     "backToExercises": "Späť na Moje cvičenia",
     "title": "Plán cvičenia",
     "specificDescription": "Personalizovaný cvičebný program pre {{diagnosis}} ovplyvňujúci {{painArea}}"
@@ -319,23 +320,23 @@
     "sectionSummary": "{{count}} {{label}}",
     "yes": "Áno",
     "no": "Nie",
-    "suitableQuestion": "Je pre vás toto cvičenie vhodné?",
+    "suitableQuestion": "Je pre teba toto cvičenie vhodné?",
     "feedbackTitle": "Spätná väzba ku cviku",
-    "painQuestion": "1. Spôsobuje vám cvik bolesť?",
+    "painQuestion": "1. Spôsobuje ti cvik bolesť?",
     "painAcceptableQuestion": "1a. Je bolesť prijateľná?",
     "yesAcceptable": "Áno, je prijateľná",
     "noAcceptable": "Nie, nie je prijateľná",
-    "changeQuestion": "2. Chcete zmeniť tento cvik?",
+    "changeQuestion": "2. Chceš zmeniť tento cvik?",
     "submitFeedback": "Odoslať spätnú väzbu",
     "changeExercise": "Zmeniť cvik",
-    "changeRequestInfo": "Po odoslaní tejto žiadosti vás budeme kontaktovať ohľadom vhodnej náhrady cviku."
+    "changeRequestInfo": "Po odoslaní tejto žiadosti ti zmeníme cvik."
   },
   "exerciseCvik": {
     "few": "cvičenia"
   },
   "importantNotice": {
     "title": "Dôležité upozornenie",
-    "text": "Tieto cvičenia sú odporúčané na základe vášho hodnotenia. Ak pociťujete silnú bolesť alebo nepohodlie, obráťte sa na zdravotníka."
+    "text": "Tieto cvičenia sú odporúčané na základe tvojho hodnotenia. Ak pociťuješ silnú bolesť alebo nepohodlie, obráť sa na zdravotníka."
   },
   "resultsFooter": {
     "startNew": "Začať nové hodnotenie",
@@ -344,30 +345,30 @@
   "followUp": {
     "title": "Sledovanie pokroku",
     "progressRecorded": "Pokrok zaznamenaný",
-    "responsesSaved": "Vaše odpovede boli úspešne uložené.",
+    "responsesSaved": "Tvoje odpovede boli úspešne uložené.",
     "questionNumber": "Otázka {{current}} z {{total}}",
     "back": "Späť",
     "next": "Ďalej",
     "finish": "Dokončiť",
     "questions": {
-      "painLevelChange": "Ako by ste hodnotili vašu bolesť v porovnaní s posledným hodnotením?",
-      "painNatureChanged": "Zmenila sa povaha vašej bolesti od posledného hodnotenia?",
-      "painNatureDescription": "Ako sa zmenila povaha vašej bolesti?",
-      "painSpreading": "Rozšírila sa vaša bolesť do nových oblastí?",
+      "painLevelChange": "Ako by si hodnotil/a tvoju bolesť v porovnaní s posledným hodnotením?",
+      "painNatureChanged": "Zmenila sa povaha tvojej bolesti od posledného hodnotenia?",
+      "painNatureDescription": "Ako sa zmenila povaha tvojej bolesti?",
+      "painSpreading": "Rozšírila sa tvoja bolesť do nových oblastí?",
       "newPainArea": "Do ktorých nových oblastí sa bolesť rozšírila?",
-      "exerciseEffectiveness": "Ako účinné sú cvičenia na zmiernenie vašej bolesti?",
-      "exerciseCompliance": "Ako často dodržiavate odporučený plán cvičenia?",
-      "painTriggers": "Zmenili sa faktory, ktoré vyvolávajú vašu bolesť?",
-      "painReliefFactors": "Zmenili sa faktory, ktoré zmierňujú vašu bolesť?",
-      "overallImprovement": "Ako hodnotíte celkové zlepšenie vášho stavu?",
-      "medicationUse": "Používate nejaké lieky na bolesť?",
-      "medicationEffectiveness": "Ako účinné sú vaše lieky na bolesť?",
-      "sleepQuality": "Ako bolesť ovplyvňuje kvalitu vášho spánku?",
-      "dailyActivities": "Ako bolesť ovplyvňuje vaše každodenné aktivity?",
-      "workImpact": "Ako bolesť ovplyvňuje vašu prácu alebo štúdium?",
-      "moodImpact": "Ako bolesť ovplyvňuje vašu náladu?",
-      "socialImpact": "Ako bolesť ovplyvňuje vaše sociálne aktivity?",
-      "treatmentSatisfaction": "Ako ste spokojní s doterajšou liečbou?"
+      "exerciseEffectiveness": "Ako účinné sú cvičenia na zmiernenie bolesti?",
+      "exerciseCompliance": "Ako často dodržiavaš odporučený plán cvičenia?",
+      "painTriggers": "Zmenili sa faktory, ktoré vyvolávajú bolesť?",
+      "painReliefFactors": "Zmenili sa faktory, ktoré zmierňujú bolesť?",
+      "overallImprovement": "Ako hodnotíte celkové zlepšenie stavu?",
+      "medicationUse": "Používaš nejaké lieky na bolesť?",
+      "medicationEffectiveness": "Ako účinné sú lieky na bolesť?",
+      "sleepQuality": "Ako bolesť ovplyvňuje kvalitu spánku?",
+      "dailyActivities": "Ako bolesť ovplyvňuje tvoje každodenné aktivity?",
+      "workImpact": "Ako bolesť ovplyvňuje tvoju prácu alebo štúdium?",
+      "moodImpact": "Ako bolesť ovplyvňuje tvoju náladu?",
+      "socialImpact": "Ako bolesť ovplyvňuje tvoje sociálne aktivity?",
+      "treatmentSatisfaction": "Ako si spokojný/á s doterajším programom?"
     },
     "options": {
       "painLevel": {
