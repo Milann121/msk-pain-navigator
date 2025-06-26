@@ -13,10 +13,12 @@
   "medium": "Medium",
   "low": "Low",
 
+  //Advice 1 - Regular Position Change
   "regularPositionChange": "Regular Position Change",
   "every45to60min": "Every 45-60 minutes",
   "regularPositionChangeDescription": "Your pain may be caused by static loading, which is not suitable for your condition. Try to change positions regularly to provide necessary relief from pain and reduce the risk of further pain.",
 
+   //Advice 2 - Gradual Load Increase
   "gradualLoadIncrease": "Gradual Load Increase",
   "forNociceptivePain": "For Nociceptive Pain",
   "increaseIntensityWeekly": "Increase intensity gradually each week",
