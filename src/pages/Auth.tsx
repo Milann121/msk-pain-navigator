@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Navigate, Link } from 'react-router-dom';
@@ -15,6 +16,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Home } from 'lucide-react';
+import LanguageDropdown from '@/components/LanguageDropdown';
 
 const Auth = () => {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -81,13 +83,14 @@ const Auth = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-50 to-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-md">
-        <div className="mb-4">
+        <div className="mb-4 flex justify-between items-center">
           <Link to="/">
             <Button variant="ghost" className="flex items-center gap-2">
               <Home className="h-4 w-4" />
               {t('auth.backHome')}
             </Button>
           </Link>
+          <LanguageDropdown />
         </div>
         
         <Card>
