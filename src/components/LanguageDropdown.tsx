@@ -1,5 +1,6 @@
 
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
 import {
   DropdownMenu,
@@ -11,6 +12,8 @@ import { Button } from '@/components/ui/button';
 
 const LanguageDropdown = () => {
   const { i18n } = useTranslation();
+  const location = useLocation();
+  const isAuthPage = location.pathname === '/auth';
 
   const languages = [
     {
@@ -36,17 +39,23 @@ const LanguageDropdown = () => {
     i18n.changeLanguage(languageCode);
   };
 
+  const buttonClasses = isAuthPage 
+    ? "border border-blue-500 text-blue-600 hover:bg-blue-50 flex items-center gap-2" 
+    : "text-white hover:bg-blue-600 flex items-center gap-2";
+
+  const iconColor = isAuthPage ? "text-blue-600" : "";
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="text-white hover:bg-blue-600 flex items-center gap-2">
+        <Button variant="ghost" className={buttonClasses}>
           <img 
             src={currentLanguage.flag} 
             alt={currentLanguage.name}
             className="w-5 h-4 object-cover rounded-sm"
           />
           <span>{currentLanguage.name}</span>
-          <ChevronDown className="h-4 w-4" />
+          <ChevronDown className={`h-4 w-4 ${iconColor}`} />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="bg-white shadow-lg border rounded-md z-50">
