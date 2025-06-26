@@ -1,3 +1,4 @@
+
 {
   "welcome": {
     "title": "Vítej, jsem tvůj osobní Pebee terapeut",
@@ -33,6 +34,9 @@
     "notFoundDescription": "Rada s ID {{adviceId}} neexistuje v databázi.",
     "rule": "Pravidlo",
     "moreInfo": "Více informací",
+    "programAdviceTitle": "Důležité rady pro váš program",
+    "programAdviceSubtitle": "Doporučení specifická pro váš typ bolesti a oblast",
+    "adviceCount": "{{count}} {{count, plural, one {rada} few {rady} other {rad}}}",
     "regularPositionChange": "Pravidelná změna polohy",
     "forNociceptivePain": "Pro nociceptivní bolest",
     "forNeuropathicPain": "Pro neuropatickou bolest",
