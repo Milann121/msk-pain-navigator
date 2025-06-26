@@ -43,6 +43,6 @@ export const advices: Advice[] = [
     adviceLink: "",
     bodyParts: ['lower-back', 'middle-back', 'neck'],
     mechanisms: ['nociceptive'],
-    differential:[''],
+    differentials:[''],
   },
 ];
