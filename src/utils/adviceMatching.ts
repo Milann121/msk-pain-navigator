@@ -13,16 +13,15 @@ export const getAdvicesForExerciseProgram = (
   const matchingAdvices = advices.filter(advice => {
     // Check if the advice applies to this body part
     const bodyPartMatch = advice.bodyParts.includes(normalizedPainArea as any);
-    
+
     // Check if the advice applies to this mechanism
     const mechanismMatch = advice.mechanisms.includes(mechanism as any);
-    
-    // If advice has specific differentials, check if it matches
-    let differentialMatch = true;
-    if (advice.differentials && advice.differentials.length > 0) {
-      differentialMatch = advice.differentials.includes(differential);
-    }
-    
+
+    // Differential must be explicitly provided and match
+    const differentialMatch =
+      Array.isArray(advice.differentials) &&
+      advice.differentials.includes(differential);
+
     return bodyPartMatch && mechanismMatch && differentialMatch;
   });
   
