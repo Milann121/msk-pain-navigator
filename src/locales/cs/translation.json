@@ -1,10 +1,10 @@
 {
   "welcome": {
-    "title": "Váš osobní průvodce zvládáním bolesti",
-    "subtitle": "Získejte personalizované cvičební programy založené na vědeckém hodnocení vaší muskuloskeletální bolesti. Začněte svou cestu k lepšímu zdraví ještě dnes.",
+    "title": "Vítej, jsem tvůj osobní Pebee terapeut",
+    "subtitle": "Získej personalizované cvičební programy založené na vědeckém hodnocení tvé muskuloskeletální bolesti. Začni svou cestu k lepšímu zdraví ještě dnes.",
     "signIn": "Začít",
     "movementTitle": "Pohyb je lék",
-    "features": "Objevte personalizované cvičební programy, sledujte svůj pokrok a převezměte kontrolu nad zvládáním bolesti.",
+    "features": "Objev personalizované cvičební programy, sleduj svůj pokrok a převezmi kontrolu nad zvládáním bolesti.",
     "alt": {
       "mobileApps": "Ukázka mobilních aplikací",
       "calendar": "Rozhraní kalendáře cvičení",
@@ -12,16 +12,16 @@
       "assessment": "Rozhraní hodnocení bolesti"
     },
     "calendar": {
-      "title": "Sledujte svůj pokrok",
-      "text": "Monitorujte svou denní cvičební rutinu s naším intuitivním kalendářem. Vidíte své úspěchy a zůstanete motivováni na cestě k uzdravení."
+      "title": "Sleduj svůj pokrok",
+      "text": "Monitoruj svou denní cvičební rutinu s naším intuitivním kalendářem. Sleduj své úspěchy a zůstaň motivován na cestě k uzdravení."
     },
     "programs": {
       "title": "Personalizované cvičební programy",
-      "text": "Získejte přizpůsobené cvičební plány založené na vašem specifickém hodnocení bolesti. Každý program je přizpůsoben vašemu stavu a adaptován podle vašeho pokroku."
+      "text": "Získej přizpůsobené cvičební plány založené na tvém specifickém hodnocení bolesti. Každý program je přizpůsoben tvému stavu a adaptován podle tvého pokroku."
     },
     "assessment": {
       "title": "Vědecké hodnocení bolesti",
-      "text": "Vyplňte náš komplexní dotazník pro získání přesné analýzy vašeho stavu a obdržení nejvhodnějších doporučení pro léčbu."
+      "text": "Vyplň náš dotazník pro získání přesné analýzy tvého stavu a obdržení nejvhodnějších doporučení pro odstranění bolesti."
     },
     "footer": {
       "title": "Pebee terapeut",
@@ -40,7 +40,7 @@
     "cancel": "Zrušit",
     "male": "Muž",
     "female": "Žena",
-    "savePlaceholder": "Zadejte vaše {{field}}",
+    "savePlaceholder": "Zadej tvé {{field}}",
     "moneySavings": "Ušetřené peníze",
     "moneySavingsFootnote": "*vypočítáno na základě průměrných cen v tvé zemi",
     "modelTitle": "Model těla",
