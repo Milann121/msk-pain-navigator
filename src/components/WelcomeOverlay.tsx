@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
@@ -54,7 +55,7 @@ const WelcomeOverlay = () => {
         </div>
       </div>
 
-      {/* Third image with full width and text overlay on the right */}
+      {/* Third image with mobile-responsive layout */}
       <div className="w-full bg-blue-50 relative">
         <div className="w-full h-full min-h-[400px] relative">
           <img
@@ -62,8 +63,8 @@ const WelcomeOverlay = () => {
             alt={t('welcome.alt.calendar')}
             className="w-full h-full object-cover object-center"
           />
-          {/* Text overlay positioned on the right */}
-          <div className="absolute inset-0 flex items-center justify-end px-4 md:px-8">
+          {/* Desktop text overlay positioned on the right */}
+          <div className="hidden md:block absolute inset-0 flex items-center justify-end px-4 md:px-8">
             <div className="bg-white/90 backdrop-blur-sm p-6 md:p-8 rounded-lg shadow-lg max-w-md md:max-w-lg space-y-4 mr-4 md:mr-8">
               <h3 className="text-2xl font-bold text-blue-800">{t('welcome.calendar.title')}</h3>
               <p className="text-gray-700 leading-relaxed">
@@ -72,9 +73,18 @@ const WelcomeOverlay = () => {
             </div>
           </div>
         </div>
+        {/* Mobile text content below image */}
+        <div className="md:hidden bg-blue-50 py-8 px-4">
+          <div className="max-w-md mx-auto text-center space-y-4">
+            <h3 className="text-2xl font-bold text-blue-800">{t('welcome.calendar.title')}</h3>
+            <p className="text-gray-700 leading-relaxed">
+              {t('welcome.calendar.text')}
+            </p>
+          </div>
+        </div>
       </div>
 
-      {/* Fourth image with full width and text overlay on the left */}
+      {/* Fourth image with mobile-responsive layout */}
       <div className="w-full relative">
         <div className="w-full h-full min-h-[400px] relative">
           <img
@@ -82,8 +92,8 @@ const WelcomeOverlay = () => {
             alt={t('welcome.alt.programs')}
             className="w-full h-full object-cover object-center"
           />
-          {/* Text overlay positioned on the left */}
-          <div className="absolute inset-0 flex items-center justify-start px-4 md:px-8">
+          {/* Desktop text overlay positioned on the left */}
+          <div className="hidden md:block absolute inset-0 flex items-center justify-start px-4 md:px-8">
             <div className="bg-white/90 backdrop-blur-sm p-6 md:p-8 rounded-lg shadow-lg max-w-md md:max-w-lg space-y-4 ml-4 md:ml-8">
               <h3 className="text-2xl font-bold text-blue-800">{t('welcome.programs.title')}</h3>
               <p className="text-gray-700 leading-relaxed">
@@ -92,9 +102,18 @@ const WelcomeOverlay = () => {
             </div>
           </div>
         </div>
+        {/* Mobile text content below image */}
+        <div className="md:hidden bg-white py-8 px-4">
+          <div className="max-w-md mx-auto text-center space-y-4">
+            <h3 className="text-2xl font-bold text-blue-800">{t('welcome.programs.title')}</h3>
+            <p className="text-gray-700 leading-relaxed">
+              {t('welcome.programs.text')}
+            </p>
+          </div>
+        </div>
       </div>
 
-      {/* Fifth image with full width and text overlay on the right */}
+      {/* Fifth image with mobile-responsive layout */}
       <div className="w-full bg-blue-50 relative">
         <div className="w-full h-full min-h-[400px] relative">
           <img
@@ -102,14 +121,23 @@ const WelcomeOverlay = () => {
             alt={t('welcome.alt.assessment')}
             className="w-full h-full object-cover object-center"
           />
-          {/* Text overlay positioned on the right */}
-          <div className="absolute inset-0 flex items-center justify-end px-4 md:px-8">
+          {/* Desktop text overlay positioned on the right */}
+          <div className="hidden md:block absolute inset-0 flex items-center justify-end px-4 md:px-8">
             <div className="bg-white/90 backdrop-blur-sm p-6 md:p-8 rounded-lg shadow-lg max-w-md md:max-w-lg space-y-4 mr-4 md:mr-8">
               <h3 className="text-2xl font-bold text-blue-800">{t('welcome.assessment.title')}</h3>
               <p className="text-gray-700 leading-relaxed">
                 {t('welcome.assessment.text')}
               </p>
             </div>
+          </div>
+        </div>
+        {/* Mobile text content below image */}
+        <div className="md:hidden bg-blue-50 py-8 px-4">
+          <div className="max-w-md mx-auto text-center space-y-4">
+            <h3 className="text-2xl font-bold text-blue-800">{t('welcome.assessment.title')}</h3>
+            <p className="text-gray-700 leading-relaxed">
+              {t('welcome.assessment.text')}
+            </p>
           </div>
         </div>
       </div>
