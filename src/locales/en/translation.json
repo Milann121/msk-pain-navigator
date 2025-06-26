@@ -1,9 +1,9 @@
 {
   "welcome": {
-    "title": "Your Personal Pain Management Companion",
-    "subtitle": "Get personalized exercise programs based on scientific assessment of your musculoskeletal pain. Start your journey to better health today.",
+    "title": "Hello, I'm your personal Pebee therapist.",
+    "subtitle": "Get personalized exercise programs based on studies and your symptoms. Start your journey to better health today.",
     "signIn": "Get Started",
-    "movementTitle": "Movement is Medicine",
+    "movementTitle": "Moving towards a life without pain",
     "features": "Discover personalized exercise programs, track your progress, and take control of your pain management journey.",
     "alt": {
       "mobileApps": "Mobile applications showcase",
