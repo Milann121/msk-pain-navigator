@@ -1,5 +1,3 @@
-
-
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Card, CardContent } from '@/components/ui/card';
@@ -157,10 +155,10 @@ const ExercisePlan = () => {
                 <AccordionItem value="program-advice" className="border rounded-lg">
                   <AccordionTrigger className="px-6 py-4 text-left hover:no-underline">
                     <div className="text-left">
-                      <h2 className="text-2xl font-bold text-gray-900">Dôležité rady pre váš program</h2>
-                      <p className="text-gray-600 mt-2">Odporúčania špecifické pre váš typ bolesti a oblasť</p>
+                      <h2 className="text-2xl font-bold text-gray-900">{t('advice.programAdviceTitle')}</h2>
+                      <p className="text-gray-600 mt-2">{t('advice.programAdviceSubtitle')}</p>
                       <div className="mt-3 px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium inline-block">
-                        {programAdvices.length} {programAdvices.length === 1 ? 'rada' : programAdvices.length <= 4 ? 'rady' : 'rád'}
+                        {t('advice.adviceCount', { count: programAdvices.length })}
                       </div>
                     </div>
                   </AccordionTrigger>
@@ -190,4 +188,3 @@ const ExercisePlan = () => {
 };
 
 export default ExercisePlan;
-
