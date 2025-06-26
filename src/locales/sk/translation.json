@@ -1,3 +1,4 @@
+
 {
   "welcome": {
     "title": "Vitaj, som tvoj osobný Pebee terapeut",
@@ -35,7 +36,7 @@
     "moreInfo": "Viac informácií",
     "programAdviceTitle": "Dôležité rady pre váš program",
     "programAdviceSubtitle": "Odporúčania špecifické pre váš typ bolesti a oblasť",
-    "adviceCount": "{{count}} {{count, plural, one {rada} few {rady} other {rád}}}",
+    "adviceCount": "{{count, plural, one {# rada} few {# rady} other {# rád}}}",
     "regularPositionChange": "Pravidelná zmena polohy",
     "forNociceptivePain": "Pre nociceptívnu bolesť",
     "forNeuropathicPain": "Pre neuropatickú bolesť",
