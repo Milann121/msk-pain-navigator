@@ -25,11 +25,11 @@ export const advices: Advice[] = [
     advicePriority: "high",
     adviceRule: "every45to60min",
     adviceDescription: "regularPositionChangeDescription",
-    adviceImageUrl: "https://via.placeholder.com/150",
-    adviceLink: "https://www.google.com",
-    // Matching criteria - applies to all body parts and mechanisms
-    bodyParts: ['neck', 'middle-back', 'lower-back', 'upper limb'],
-    mechanisms: ['nociceptive', 'neuropathic', 'central']
+    adviceImageUrl: "",
+    adviceLink: "",
+    bodyParts: ['neck', 'middle-back', 'lower-back'],
+    mechanisms: ['nociceptive', 'neuropathic'],
+    differentials: 
   },
   // Advice 2 - Gradual Load Increase
   {
@@ -39,10 +39,11 @@ export const advices: Advice[] = [
     advicePriority: "medium",
     adviceRule: "increaseIntensityWeekly",
     adviceDescription: "gradualLoadIncreaseDescription",
-    adviceImageUrl: "https://via.placeholder.com/150",
-    adviceLink: "https://www.google.com",
+    adviceImageUrl: "",
+    adviceLink: "",
     bodyParts: ['lower-back', 'middle-back', 'neck'],
-    mechanisms: ['nociceptive']
+    mechanisms: ['nociceptive'],
+    differential:,
   },
   // Advice 3 - Watch for Neural Symptoms
   {
@@ -52,8 +53,8 @@ export const advices: Advice[] = [
     advicePriority: "high",
     adviceRule: "stopImmediatelyIfWorse",
     adviceDescription: "neuralSymptomsWarningDescription",
-    adviceImageUrl: "https://via.placeholder.com/150",
-    adviceLink: "https://www.google.com",
+    adviceImageUrl: "",
+    adviceLink: "",
     bodyParts: ['lower-back', 'neck', 'upper limb'],
     mechanisms: ['neuropathic']
   },
@@ -65,8 +66,8 @@ export const advices: Advice[] = [
     advicePriority: "high",
     adviceRule: "dontForceExercise",
     adviceDescription: "respectPainCentralDescription",
-    adviceImageUrl: "https://via.placeholder.com/150",
-    adviceLink: "https://www.google.com",
+    adviceImageUrl: "",
+    adviceLink: "",
     bodyParts: ['neck', 'middle-back', 'lower-back', 'upper limb'],
     mechanisms: ['central']
   },
@@ -78,8 +79,8 @@ export const advices: Advice[] = [
     advicePriority: "medium",
     adviceRule: "avoidPainfulPositions",
     adviceDescription: "shoulderSpecialCareDescription",
-    adviceImageUrl: "https://via.placeholder.com/150",
-    adviceLink: "https://www.google.com",
+    adviceImageUrl: "",
+    adviceLink: ",
     bodyParts: ['upper limb'],
     mechanisms: ['nociceptive'],
     differentials: ['frozen-shoulder', 'rotator-cuff-tear', 'subacromional-impingement-syndrome']
