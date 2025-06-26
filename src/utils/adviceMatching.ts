@@ -22,6 +22,10 @@ export const getAdvicesForExerciseProgram = (
     const differentialMatch =
       Array.isArray(advice.differentials) &&
       advice.differentials.some(d => normalizeDifferential(d) === normalizedDifferential);
+    // Differential must be explicitly provided and match
+    const differentialMatch =
+      Array.isArray(advice.differentials) &&
+      advice.differentials.includes(differential);
 
     return bodyPartMatch && mechanismMatch && differentialMatch;
   });
