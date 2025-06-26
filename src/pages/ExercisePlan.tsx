@@ -13,6 +13,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { ExercisePlanHeader } from '@/components/exercise-plan/ExercisePlanHeader';
 import { ExercisePeriodAccordion } from '@/components/exercise-plan/ExercisePeriodAccordion';
 import { ImportantNotice } from '@/components/exercise-plan/ImportantNotice';
+import { Advice } from '@/components/advice/Advice';
 
 interface Exercise {
   title: string;
@@ -31,6 +32,7 @@ const ExercisePlan = () => {
   const [userAssessments, setUserAssessments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [effectiveAssessmentId, setEffectiveAssessmentId] = useState<string | undefined>(assessmentId);
+  const [programAdvices, setProgramAdvices] = useState<number[]>([]);
   const { t } = useTranslation();
   
   // Redirect to login if not authenticated
@@ -70,6 +72,15 @@ const ExercisePlan = () => {
     
     fetchUserAssessments();
   }, [user, showGeneral]);
+
+  // Get program-specific advices
+  useEffect(() => {
+    if (!showGeneral) {
+      const { getAdvicesForExerciseProgram } = await import('@/utils/adviceMatching');
+      const matchingAdvices = getAdvicesForExerciseProgram(mechanism, differential, painArea);
+      setProgramAdvices(matchingAdvices);
+    }
+  }, [mechanism, differential, painArea, showGeneral]);
 
   // Log state props on mount to help with debugging
   useEffect(() => {
@@ -137,6 +148,20 @@ const ExercisePlan = () => {
             mechanism={mechanism}
           />
           <CardContent className="space-y-8">
+            {/* Program-specific advices */}
+            {programAdvices.length > 0 && (
+              <div className="space-y-4">
+                <h2 className="text-2xl font-bold text-gray-900">Dôležité rady pre váš program</h2>
+                <div className="space-y-4">
+                  {programAdvices.map((adviceId) => (
+                    <div key={adviceId} className="bg-blue-50 border border-blue-200 rounded-lg p-1">
+                      <Advice adviceId={adviceId} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            
             <ExercisePeriodAccordion
               exercises={exercises}
               showGeneral={showGeneral}
