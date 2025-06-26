@@ -29,7 +29,7 @@ export const advices: Advice[] = [
     adviceLink: "",
     bodyParts: ['neck', 'middle-back', 'lower-back'],
     mechanisms: ['nociceptive', 'neuropathic'],
-    differentials: 
+    differentials: ['disc-herniation']
   },
   // Advice 2 - Gradual Load Increase
   {
@@ -43,46 +43,6 @@ export const advices: Advice[] = [
     adviceLink: "",
     bodyParts: ['lower-back', 'middle-back', 'neck'],
     mechanisms: ['nociceptive'],
-    differential:,
+    differential:[''],
   },
-  // Advice 3 - Watch for Neural Symptoms
-  {
-    adviceId: 3,
-    adviceTitle: "neuralSymptomsWarning",
-    adviceSubtitle: "forNeuropathicPain",
-    advicePriority: "high",
-    adviceRule: "stopImmediatelyIfWorse",
-    adviceDescription: "neuralSymptomsWarningDescription",
-    adviceImageUrl: "",
-    adviceLink: "",
-    bodyParts: ['lower-back', 'neck', 'upper limb'],
-    mechanisms: ['neuropathic']
-  },
-  // Advice 4 - Respect Pain with Central Sensitization
-  {
-    adviceId: 4,
-    adviceTitle: "respectPainCentral",
-    adviceSubtitle: "forCentralPain",
-    advicePriority: "high",
-    adviceRule: "dontForceExercise",
-    adviceDescription: "respectPainCentralDescription",
-    adviceImageUrl: "",
-    adviceLink: "",
-    bodyParts: ['neck', 'middle-back', 'lower-back', 'upper limb'],
-    mechanisms: ['central']
-  },
-  // Advice 5 - Special Shoulder Care
-  {
-    adviceId: 5,
-    adviceTitle: "shoulderSpecialCare",
-    adviceSubtitle: "forShoulderProblems",
-    advicePriority: "medium",
-    adviceRule: "avoidPainfulPositions",
-    adviceDescription: "shoulderSpecialCareDescription",
-    adviceImageUrl: "",
-    adviceLink: ",
-    bodyParts: ['upper limb'],
-    mechanisms: ['nociceptive'],
-    differentials: ['frozen-shoulder', 'rotator-cuff-tear', 'subacromional-impingement-syndrome']
-  }
 ];
