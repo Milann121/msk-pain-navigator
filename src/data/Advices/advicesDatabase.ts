@@ -41,7 +41,7 @@ export const advices: Advice[] = [
     adviceDescription: "gradualLoadIncreaseDescription",
     adviceImageUrl: "",
     adviceLink: "",
-    bodyParts: ['lower-back', 'middle-back', 'neck'],
+    bodyParts: ['lower-back'],
     mechanisms: ['nociceptive'],
     differentials:[''],
   },
