@@ -9,26 +9,31 @@
   "adviceCount_one": "{{count}} tip",
   "adviceCount_few": "{{count}} tips",
   "adviceCount_other": "{{count}} tips",
-  "regularPositionChange": "Regular Position Change",
-  "forNociceptivePain": "For Nociceptive Pain",
-  "forNeuropathicPain": "For Neuropathic Pain",
-  "forCentralPain": "For Central Pain",
-  "forShoulderProblems": "For Shoulder Problems",
   "high": "High",
   "medium": "Medium",
   "low": "Low",
+
+  "regularPositionChange": "Regular Position Change",
   "every45to60min": "Every 45-60 minutes",
-  "increaseIntensityWeekly": "Increase intensity gradually each week",
-  "stopImmediatelyIfWorse": "Stop immediately if symptoms worsen",
-  "dontForceExercise": "Don't force exercise through pain",
-  "avoidPainfulPositions": "Avoid painful positions",
   "regularPositionChangeDescription": "Your pain may be caused by static loading, which is not suitable for your condition. Try to change positions regularly to provide necessary relief from pain and reduce the risk of further pain.",
+
   "gradualLoadIncrease": "Gradual Load Increase",
+  "forNociceptivePain": "For Nociceptive Pain",
+  "increaseIntensityWeekly": "Increase intensity gradually each week",
   "gradualLoadIncreaseDescription": "With nociceptive pain, it's important to gradually increase exercise load. Start slowly and slightly increase intensity or repetitions each week.",
+
   "neuralSymptomsWarning": "Watch for Neural Symptoms",
+  "forNeuropathicPain": "For Neuropathic Pain",
+  "stopImmediatelyIfWorse": "Stop immediately if symptoms worsen",
   "neuralSymptomsWarningDescription": "With neuropathic pain, watch for symptoms like tingling, numbness, or burning. If these symptoms worsen during exercise, stop immediately.",
+
   "respectPainCentral": "Respect Pain with Central Sensitization",
+  "forCentralPain": "For Central Pain",
+  "dontForceExercise": "Don't force exercise through pain",
   "respectPainCentralDescription": "With central sensitization, it's important to respect your limits. Exercise should not increase pain. Start very gently and gradually adapt.",
+
   "shoulderSpecialCare": "Special Shoulder Care",
+  "forShoulderProblems": "For Shoulder Problems",
+  "avoidPainfulPositions": "Avoid painful positions",
   "shoulderSpecialCareDescription": "With shoulder problems, avoid overhead movements in the acute phase. Start with movements in a range that doesn't hurt."
 }

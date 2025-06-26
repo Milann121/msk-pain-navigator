@@ -9,26 +9,31 @@
   "adviceCount_one": "{{count}} rada",
   "adviceCount_few": "{{count}} rady",
   "adviceCount_other": "{{count}} rád",
-  "regularPositionChange": "Pravidelná zmena polohy",
-  "forNociceptivePain": "Pre nociceptívnu bolesť",
-  "forNeuropathicPain": "Pre neuropatickú bolesť",
-  "forCentralPain": "Pre centrálnu bolesť",
-  "forShoulderProblems": "Pre problémy ramena",
   "high": "Vysoká",
   "medium": "Stredná",
   "low": "Nízka",
+
+  "regularPositionChange": "Pravidelná zmena polohy",
   "every45to60min": "Každých 45-60min.",
-  "increaseIntensityWeekly": "Zvyšujte intenzitu postupne každý týždeň",
-  "stopImmediatelyIfWorse": "Okamžite prestaňte pri zhoršení symptómov",
-  "dontForceExercise": "Nevynucujte si cvičenie cez bolesť",
-  "avoidPainfulPositions": "Vyhýbajte sa bolestivým pozíciám",
   "regularPositionChangeDescription": "Vaše bolesti môžu byť spôsobované aj statickou záťažou, ktorá pri vašom probléme nie je vhodná. Snažte sa pravidelné meniť polohy, čo vám zabezpečí potrebnú úľavu od bolesti a zníženie rizika ďalších bolestí.",
+
   "gradualLoadIncrease": "Postupné zvyšovanie záťaže",
+  "forNociceptivePain": "Pre nociceptívnu bolesť",
+  "increaseIntensityWeekly": "Zvyšujte intenzitu postupne každý týždeň",
   "gradualLoadIncreaseDescription": "Pri nociceptívnej bolesti je dôležité postupne zvyšovať záťaž cvičenia. Začnite pomaly a každý týždeň mierne zvýšte intenzitu alebo počet opakovaní.",
+
   "neuralSymptomsWarning": "Pozor na neurálne symptómy",
+  "forNeuropathicPain": "Pre neuropatickú bolesť",
+  "stopImmediatelyIfWorse": "Okamžite prestaňte pri zhoršení symptómov",
   "neuralSymptomsWarningDescription": "Pri neuropatickej bolesti dávajte pozor na príznaky ako brnenie, mravčenie alebo žuborenie. Ak sa tieto symptómy zhoršia počas cvičenia, okamžite prestaňte.",
+
   "respectPainCentral": "Rešpektovanie bolesti pri centrálnej senzitizácii",
+  "forCentralPain": "Pre centrálnu bolesť",
+  "dontForceExercise": "Nevynucujte si cvičenie cez bolesť",
   "respectPainCentralDescription": "Pri centrálnej senzitizácii je dôležité rešpektovať vaše hranice. Cvičenie by nemalo zvyšovať bolesť. Začnite veľmi jemne a postupne sa adaptujte.",
+
   "shoulderSpecialCare": "Špeciálne opatrenia pre rameno",
+  "forShoulderProblems": "Pre problémy ramena",
+  "avoidPainfulPositions": "Vyhýbajte sa bolestivým pozíciám",
   "shoulderSpecialCareDescription": "Pri problémoch ramena sa vyhýbajte pohybom nad hlavu v akútnej fáze. Začnite s pohybmi v rozsahu, ktorý nebolí."
 }
