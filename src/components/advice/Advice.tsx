@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -65,9 +64,10 @@ export const Advice: React.FC<AdviceProps> = ({ adviceId }) => {
       </CardHeader>
       
       <CardContent className="space-y-4">
-        <div className="flex gap-4">
+        {/* Mobile: Stack image and description vertically, Desktop: Keep horizontal layout */}
+        <div className="flex flex-col md:flex-row gap-4">
           {advice.adviceImageUrl && (
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0 flex justify-center md:justify-start">
               <img
                 src={advice.adviceImageUrl}
                 alt={advice.adviceTitle}
