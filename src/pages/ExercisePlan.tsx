@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Card, CardContent } from '@/components/ui/card';
@@ -14,6 +15,7 @@ import { ExercisePlanHeader } from '@/components/exercise-plan/ExercisePlanHeade
 import { ExercisePeriodAccordion } from '@/components/exercise-plan/ExercisePeriodAccordion';
 import { ImportantNotice } from '@/components/exercise-plan/ImportantNotice';
 import { Advice } from '@/components/advice/Advice';
+import { getAdvicesForExerciseProgram } from '@/utils/adviceMatching';
 
 interface Exercise {
   title: string;
@@ -76,7 +78,6 @@ const ExercisePlan = () => {
   // Get program-specific advices
   useEffect(() => {
     if (!showGeneral) {
-      const { getAdvicesForExerciseProgram } = await import('@/utils/adviceMatching');
       const matchingAdvices = getAdvicesForExerciseProgram(mechanism, differential, painArea);
       setProgramAdvices(matchingAdvices);
     }
