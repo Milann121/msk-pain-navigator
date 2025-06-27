@@ -57,7 +57,7 @@ export const advices: Advice[] = [
     adviceLink:"",
     bodyParts: ['neck', "middle-back"],
     mechanisms: ['nociceptive', 'neuropathic'],
-    differentials: ['disc-herniation', 'facet-joint-syndrome', 'muscle-pain']
+    differentials: ['disc-herniation', 'facet-joint-syndrome']
   },
 
 ];
