@@ -12,9 +12,11 @@
   "high": "Vysoká",
   "medium": "Střední",
   "low": "Nízká",
+  
   "regularPositionChange": "Pravidelná změna polohy",
   "every45to60min": "Každých 45-60 minut",
   "regularPositionChangeDescription": "Vaše bolesti mohou být způsobeny také statickým zatížením, které při vašem problému není vhodné. Snažte se pravidelně měnit polohy, což vám zajistí potřebnou úlevu od bolesti a snížení rizika dalších bolestí.",
+  
   "gradualLoadIncrease": "Postupné zvyšování zátěže",
   "forNociceptivePain": "Pro nociceptivní bolest",
   "increaseIntensityWeekly": "Zvyšujte intenzitu postupně každý týden",
