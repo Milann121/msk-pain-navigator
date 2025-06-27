@@ -15,7 +15,7 @@ export interface Advice {
   differentials?: Array<string>; // Optional for more specific targeting
 }
 
-// Advice data sorted by ID for easy reference
+#Advice data sorted by ID for easy reference
 export const advices: Advice[] = [
   // Advice 1 - Regular Position Change
   {
@@ -31,7 +31,7 @@ export const advices: Advice[] = [
     mechanisms: ['nociceptive', 'neuropathic'],
     differentials: ['disc-herniation']
   },
-  // Advice 2 - Gradual Load Increase
+  Advice 2 - Gradual Load Increase
   {
     adviceTitle: "gradualLoadIncrease",
     adviceId: 2,
