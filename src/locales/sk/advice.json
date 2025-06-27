@@ -12,9 +12,11 @@
   "high": "Vysoká",
   "medium": "Stredná",
   "low": "Nízka",
+  
   "regularPositionChange": "Pravidelná zmena polohy",
   "every45to60min": "Každých 45-60min.",
   "regularPositionChangeDescription": "Vaše bolesti môžu byť spôsobované aj statickou záťažou, ktorá pri vašom probléme nie je vhodná. Snažte sa pravidelné meniť polohy, čo vám zabezpečí potrebnú úľavu od bolesti a zníženie rizika ďalších bolestí.",
+  
   "gradualLoadIncrease": "Postupné zvyšovanie záťaže",
   "increaseIntensityWeekly": "Zvyšujte intenzitu postupne každý týždeň",
   "gradualLoadIncreaseDescription": "Pri nociceptívnej bolesti je dôležité postupne zvyšovať záťaž cvičenia. Začnite pomaly a každý týždeň mierne zvýšte intenzitu alebo počet opakovaní.",
