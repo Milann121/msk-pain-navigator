@@ -31,7 +31,7 @@ export const advices: Advice[] = [
     mechanisms: ['nociceptive', 'neuropathic'],
     differentials: ['disc-herniation']
   },
-  Advice 2 - Gradual Load Increase
+  //Advice 2 - Gradual Load Increase
   {
     adviceTitle: "gradualLoadIncrease",
     adviceId: 2,
