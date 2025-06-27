@@ -15,7 +15,7 @@ export interface Advice {
   differentials?: Array<string>; // Optional for more specific targeting
 }
 
-#Advice data sorted by ID for easy reference
+// Advice data sorted by ID for easy reference
 export const advices: Advice[] = [
   // Advice 1 - Regular Position Change
   {
@@ -25,13 +25,13 @@ export const advices: Advice[] = [
     advicePriority: "high",
     adviceRule: "every45to60min",
     adviceDescription: "regularPositionChangeDescription",
-    adviceImageUrl: "",
+    adviceImageUrl: "/lovable-uploads/133826c0-fff0-4a91-91fe-4e633b6f23ae.png",
     adviceLink: "",
     bodyParts: ['neck', 'middle-back', 'lower-back'],
     mechanisms: ['nociceptive', 'neuropathic'],
     differentials: ['disc-herniation']
   },
-  //Advice 2 - Gradual Load Increase
+  // Advice 2 - Gradual Load Increase
   {
     adviceTitle: "gradualLoadIncrease",
     adviceId: 2,
@@ -39,13 +39,13 @@ export const advices: Advice[] = [
     advicePriority: "medium",
     adviceRule: "increaseIntensityWeekly",
     adviceDescription: "gradualLoadIncreaseDescription",
-    adviceImageUrl: "",
+    adviceImageUrl: "/lovable-uploads/16d5e659-d4bc-4980-b090-fc7512bd2ace.png",
     adviceLink: "",
     bodyParts: ['lower-back'],
     mechanisms: ['nociceptive'],
     differentials:[''],
   },
-  //Advice 3 - Sleep Positions
+  // Advice 3 - Sleep Positions
   {
     adviceTitle: "sleepPositionNeck",
     adviceId: 3,
@@ -53,13 +53,13 @@ export const advices: Advice[] = [
     advicePriority: "medium",
     adviceRule:"",
     adviceDescription: "sleepPositionNeckDescription",
-    adviceImageUrl:"",
+    adviceImageUrl: "/lovable-uploads/2b0f850b-8374-47d7-bc43-d873e567633c.png",
     adviceLink:"",
     bodyParts: ['neck', "middle-back"],
     mechanisms: ['nociceptive', 'neuropathic'],
     differentials: ['disc-herniation', 'facet-joint-syndrome', 'muscle-pain']
   },
-  //Advice 4 - Lumbar Pad
+  // Advice 4 - Lumbar Pad
   {
     adviceTitle: "lumbarPad",
     adviceId: 4,
@@ -67,11 +67,10 @@ export const advices: Advice[] = [
     advicePriority: "low",
     adviceRule: "lumbarPadBreaks",
     adviceDescription: "lumbarPadDescription",
-    adviceImageUrl:"",
+    adviceImageUrl: "/lovable-uploads/603332be-d99c-428d-af60-0062a83a4b91.png",
     adviceLink:"",
     bodyParts: ['lumbar-spine','middle-back'],
     mechanisms: ['nociceptive', 'neuropathic'],
     differentials: ['disc-herniation', 'facet-joint-syndrome', 'SIJ-syndrome']
   },
-
 ];
