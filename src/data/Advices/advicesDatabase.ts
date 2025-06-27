@@ -59,5 +59,19 @@ export const advices: Advice[] = [
     mechanisms: ['nociceptive', 'neuropathic'],
     differentials: ['disc-herniation', 'facet-joint-syndrome', 'muscle-pain']
   },
+  //Advice 4 - Lumbar Pad
+  {
+    adviceTitle: "lumbarPad",
+    adviceId: 4,
+    adviceSubtitle:"",
+    advicePriority: "low",
+    adviceRule: "lumbarPadBreaks",
+    adviceDescription: "lumbarPadDescription",
+    adviceImageUrl:"",
+    adviceLink:"",
+    bodyParts: ['lumbar-spine','middle-back'],
+    mechanisms: ['nociceptive', 'neuropathic'],
+    differentials: ['disc-herniation', 'facet-joint-syndrome', 'SIJ-syndrome']
+  },
 
 ];
