@@ -3,13 +3,13 @@ import { Question } from '@/utils/types';
 
 export const painIntensityQuestion: Question = {
   id: 'pain-intensity',
-  text: 'Aká je vaša intenzita bolesti v priemere?',
-  description: '', // Add description here later
+  text: 'questionnaire.general.questions.painIntensity',
+  description: 'questionnaire.general.descriptions.painIntensity',
   type: 'scale',
   scale: {
     min: 0,
     max: 10,
-    minLabel: 'Žiadna bolesť',
-    maxLabel: 'Najhoršia predstaviteľná bolesť'
+    minLabel: 'questionnaire.general.painScale.noPain',
+    maxLabel: 'questionnaire.general.painScale.worstPain'
   }
 };

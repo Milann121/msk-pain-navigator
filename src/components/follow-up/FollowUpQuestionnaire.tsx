@@ -13,6 +13,7 @@ import { safeDatabase, FollowUpResponse } from '@/utils/database-helpers';
 
 // Add import for icon arrows
 import { ArrowUp, ArrowDown } from "lucide-react";
+import { useTranslation } from 'react-i18next';
 
 interface FollowUpQuestionnaireProps {
   assessment: UserAssessment;
@@ -22,6 +23,7 @@ interface FollowUpQuestionnaireProps {
 const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaireProps) => {
   const { toast } = useToast();
   const { user } = useAuth();
+  const { t } = useTranslation();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, any>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -94,16 +96,16 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
       if (error) throw error;
 
       toast({
-        title: "Pokrok zaznamenaný",
-        description: "Ďakujeme za vyplnenie dotazníka o vašom pokroku.",
+        title: t('questionnaire.followUp.progressRecorded'),
+        description: t('questionnaire.followUp.responsesSaved'),
       });
 
       onComplete();
     } catch (error) {
       console.error('Error saving follow-up questionnaire:', error);
       toast({
-        title: "Chyba",
-        description: "Nepodarilo sa uložiť vaše odpovede.",
+        title: t('goals.errorTitle'),
+        description: t('goals.error'),
         variant: "destructive"
       });
     } finally {
@@ -119,7 +121,7 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
         <div className="mb-6">
           <Progress value={progress} className="h-2" />
           <p className="text-sm text-gray-500 mt-1">
-            Otázka {currentQuestionIndex + 1} z {questions.length}
+            {t('misc.questionNumber', { current: currentQuestionIndex + 1, total: questions.length })}
           </p>
         </div>
         <div className="space-y-6">
@@ -137,14 +139,16 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
           onClick={handleBack}
           disabled={currentQuestionIndex === 0 || isSubmitting}
         >
-          Späť
+          {t('misc.navigation.back')}
         </Button>
         <Button
           onClick={handleNext}
           disabled={!canProceed || isSubmitting}
           className="bg-blue-600 hover:bg-blue-700"
         >
-          {currentQuestionIndex < questions.length - 1 ? 'Ďalej' : 'Dokončiť'}
+          {currentQuestionIndex < questions.length - 1
+            ? t('misc.navigation.next')
+            : t('misc.navigation.finish')}
         </Button>
       </CardFooter>
     </Card>

@@ -2,6 +2,7 @@
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { FollowUpQuestion } from './types';
+import { useTranslation } from 'react-i18next';
 
 interface MultipleChoiceQuestionProps {
   question: FollowUpQuestion;
@@ -10,6 +11,7 @@ interface MultipleChoiceQuestionProps {
 }
 
 const MultipleChoiceQuestion = ({ question, value = [], onChange }: MultipleChoiceQuestionProps) => {
+  const { t } = useTranslation();
   if (!question.options) return null;
 
   return (
@@ -23,7 +25,9 @@ const MultipleChoiceQuestion = ({ question, value = [], onChange }: MultipleChoi
               onChange(option.id, checked as boolean)
             }
           />
-          <Label htmlFor={option.id} className="cursor-pointer">{option.text}</Label>
+          <Label htmlFor={option.id} className="cursor-pointer">
+            {option.text.startsWith('questionnaire.') ? t(option.text) : option.text}
+          </Label>
         </div>
       ))}
     </div>
