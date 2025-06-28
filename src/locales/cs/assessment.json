@@ -3,6 +3,8 @@
   "title": "Hodnocení muskuloskeletární bolesti",
   "subtitle": "Vyplň dotazník a získej personalizovaná doporučení cvičení",
   "new": "Nové hodnocení",
+  "painQuestionnaireTitle": "Dotazník bolesti",
+  "painQuestionnaireSubtitle": "Pro začátek hodnocení prosím vyber oblast bolesti",
   "painArea": {
     "specify": "Pro začátek hodnocení prosím vyber oblast bolesti",
     "neck": "Krční páteř",

@@ -6,12 +6,14 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { UserInfo } from '@/utils/types';
 import PainAreaSection from './form-sections/PainAreaSection';
 import ConsentSection from './form-sections/ConsentSection';
+import { useTranslation } from 'react-i18next';
 
 interface UserFormProps {
   onSubmit: (data: UserInfo) => void;
 }
 
 const UserForm = ({ onSubmit }: UserFormProps) => {
+  const { t } = useTranslation();
   const [disclaimerConsent, setDisclaimerConsent] = useState(false);
   const [privacyConsent, setPrivacyConsent] = useState(false);
   
@@ -38,10 +40,10 @@ const UserForm = ({ onSubmit }: UserFormProps) => {
     <Card className="w-full max-w-md mx-auto">
       <CardHeader>
         <CardTitle className="text-center text-2xl font-bold text-blue-700">
-          Dotazník bolesti
+          {t('assessment.painQuestionnaireTitle')}
         </CardTitle>
         <CardDescription className="text-center">
-          Pre začatie hodnotenia prosím vyberte oblasť bolesti
+          {t('assessment.painQuestionnaireSubtitle')}
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -64,7 +66,7 @@ const UserForm = ({ onSubmit }: UserFormProps) => {
             className="w-full bg-blue-600 hover:bg-blue-700"
             disabled={!disclaimerConsent || !privacyConsent}
           >
-            Začať hodnotenie
+            {t('assessment.startAssessment')}
           </Button>
         </form>
       </CardContent>

@@ -3,6 +3,8 @@
   "title": "Hodnotenie muskuloskeletálnej bolesti",
   "subtitle": "Vyplň dotazník a získaj personalizované odporúčania cvičení",
   "new": "Nové hodnotenie",
+  "painQuestionnaireTitle": "Dotazník bolesti",
+  "painQuestionnaireSubtitle": "Pre začatie hodnotenia prosím vyber oblasť bolesti",
   "painArea": {
     "specify": "Pre začiatok hodnotenia prosím vyber oblasť bolesti",
     "neck": "Krčná chrbtica",

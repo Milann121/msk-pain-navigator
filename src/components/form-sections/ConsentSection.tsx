@@ -45,7 +45,7 @@ const ConsentSection = ({
             className="text-blue-600 hover:text-blue-800 underline"
             target="_blank"
           >
-            {t('consentSection.viewPrivacyPolicy')}
+            {t('assessment.consentSection.viewPrivacyPolicy')}
           </Link>
         </Label>
       </div>

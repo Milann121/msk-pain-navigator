@@ -3,6 +3,8 @@
   "title": "Musculoskeletal Pain Assessment",
   "subtitle": "Complete the questionnaire and get personalized exercise recommendations",
   "new": "New Assessment",
+  "painQuestionnaireTitle": "Pain Questionnaire",
+  "painQuestionnaireSubtitle": "To begin the assessment, please select the area of pain",
   "painArea": {
     "specify": "To begin the assessment, please select the area of pain",
     "neck": "Neck",
