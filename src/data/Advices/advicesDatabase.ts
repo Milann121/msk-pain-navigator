@@ -86,5 +86,5 @@ export const advices: Advice[] = [
     bodyParts: ['lower-back'],
     mechanisms: ['nociceptive', 'neuropathic'],
     differentials: ['disc-herniation', 'facet-joint-syndrome', 'SIJ-syndrome', 'sciatica']
-  }
+  },
 ];
