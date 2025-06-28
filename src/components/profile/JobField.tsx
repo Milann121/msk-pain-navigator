@@ -38,9 +38,11 @@ export const JobField: React.FC<JobFieldProps> = ({
   const translateJobValue = (jobValue: string) => {
     switch (jobValue) {
       case 'manuálna práca':
-        return t('profileForm.manual');
+        return t('profile.jobTypes.manual');
       case 'sedavá práca':
-        return t('profileForm.desk');
+        return t('profile.jobTypes.desk');
+      case 'šofér':
+        return t('profile.jobTypes.driver');
       default:
         return jobValue;
     }
@@ -49,15 +51,15 @@ export const JobField: React.FC<JobFieldProps> = ({
   const translateJobSubtype = (subtypeValue: string) => {
     switch (subtypeValue) {
       case 'zdvíhanie ťažkých predmetov':
-        return t('profileForm.heavyLifting');
+        return t('profile.jobSubtypes.heavyLifting');
       case 'práca v stoji na mieste':
-        return t('profileForm.standingWork');
+        return t('profile.jobSubtypes.standingWork');
       case 'práca v neprirodzených polohách':
-        return t('profileForm.awkwardPositions');
+        return t('profile.jobSubtypes.awkwardPositions');
       case 'práca v kancelárii':
-        return t('profileForm.officeWork');
+        return t('profile.jobSubtypes.officeWork');
       case 'šofér':
-        return t('profileForm.driver');
+        return t('profile.jobTypes.driver');
       default:
         return subtypeValue;
     }
@@ -78,11 +80,11 @@ export const JobField: React.FC<JobFieldProps> = ({
           <div className="space-y-2">
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="manuálna práca" id="manual-job-edit" />
-              <Label htmlFor="manual-job-edit" className="cursor-pointer text-sm">{t('profileForm.manual')}</Label>
+              <Label htmlFor="manual-job-edit" className="cursor-pointer text-sm">{t('profile.jobTypes.manual')}</Label>
             </div>
             {tempValue === 'manuálna práca' && (
               <div className="space-y-2 pl-6">
-                <Label className="text-sm font-medium">{t('profileForm.manualSpec')}</Label>
+                <Label className="text-sm font-medium">{t('profile.jobSubtypes.manualSpec')}</Label>
                 <RadioGroup 
                   value={tempJobSubtype}
                   onValueChange={onTempJobSubtypeChange}
@@ -90,15 +92,15 @@ export const JobField: React.FC<JobFieldProps> = ({
                 >
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="zdvíhanie ťažkých predmetov" id="heavy-lifting" />
-                    <Label htmlFor="heavy-lifting" className="cursor-pointer text-sm">{t('profileForm.heavyLifting')}</Label>
+                    <Label htmlFor="heavy-lifting" className="cursor-pointer text-sm">{t('profile.jobSubtypes.heavyLifting')}</Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="práca v stoji na mieste" id="standing-work" />
-                    <Label htmlFor="standing-work" className="cursor-pointer text-sm">{t('profileForm.standingWork')}</Label>
+                    <Label htmlFor="standing-work" className="cursor-pointer text-sm">{t('profile.jobSubtypes.standingWork')}</Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="práca v neprirodzených polohách" id="awkward-positions" />
-                    <Label htmlFor="awkward-positions" className="cursor-pointer text-sm">{t('profileForm.awkwardPositions')}</Label>
+                    <Label htmlFor="awkward-positions" className="cursor-pointer text-sm">{t('profile.jobSubtypes.awkwardPositions')}</Label>
                   </div>
                 </RadioGroup>
               </div>
@@ -108,11 +110,11 @@ export const JobField: React.FC<JobFieldProps> = ({
           <div className="space-y-2">
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="sedavá práca" id="desk-job-edit" />
-              <Label htmlFor="desk-job-edit" className="cursor-pointer text-sm">{t('profileForm.desk')}</Label>
+              <Label htmlFor="desk-job-edit" className="cursor-pointer text-sm">{t('profile.jobTypes.desk')}</Label>
             </div>
             {tempValue === 'sedavá práca' && (
               <div className="space-y-2 pl-6">
-                <Label className="text-sm font-medium">{t('profileForm.manualSpec')}</Label>
+                <Label className="text-sm font-medium">{t('profile.jobSubtypes.manualSpec')}</Label>
                 <RadioGroup 
                   value={tempJobSubtype}
                   onValueChange={onTempJobSubtypeChange}
@@ -120,11 +122,11 @@ export const JobField: React.FC<JobFieldProps> = ({
                 >
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="práca v kancelárii" id="office-work" />
-                    <Label htmlFor="office-work" className="cursor-pointer text-sm">{t('profileForm.officeWork')}</Label>
+                    <Label htmlFor="office-work" className="cursor-pointer text-sm">{t('profile.jobSubtypes.officeWork')}</Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="šofér" id="driver" />
-                    <Label htmlFor="driver" className="cursor-pointer text-sm">{t('profileForm.driver')}</Label>
+                    <Label htmlFor="driver" className="cursor-pointer text-sm">{t('profile.jobTypes.driver')}</Label>
                   </div>
                 </RadioGroup>
               </div>
