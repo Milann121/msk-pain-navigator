@@ -29,7 +29,7 @@ export const advices: Advice[] = [
     adviceLink: "",
     bodyParts: ['neck', 'middle-back', 'lower-back'],
     mechanisms: ['nociceptive', 'neuropathic'],
-    differentials: ['disc-herniation']
+    differentials: ['disc-herniation','sciatica']
   },
   // Advice 2 - Gradual Load Increase
   {
@@ -57,7 +57,7 @@ export const advices: Advice[] = [
     adviceLink:"",
     bodyParts: ['neck', "middle-back"],
     mechanisms: ['nociceptive', 'neuropathic'],
-    differentials: ['disc-herniation', 'facet-joint-syndrome', 'muscle-pain']
+    differentials: ['disc-herniation', 'facet-joint-syndrome', 'muscle-pain', 'cervical-radiculopathy']
   },
   // Advice 4 - Lumbar Pad
   {
@@ -73,4 +73,17 @@ export const advices: Advice[] = [
     mechanisms: ['nociceptive', 'neuropathic'],
     differentials: ['disc-herniation', 'facet-joint-syndrome', 'SIJ-syndrome']
   },
+  // Advice 5 - Object lifting
+  {
+    adviceTitle: "objectLifting",
+    adviceId: 5,
+    adviceSubtitle:"",
+    advicePriority: "medium",
+    adviceRule: "",
+    adviceDescription: "objectLiftingDescription",
+    adviceImageUrl: "",
+    adviceLink:"",
+    bodyParts: ['lower-back'],
+    mechanisms: ['nociceptive', 'neuropathic'],
+    differentials: ['disc-herniation', 'facet-joint-syndrome', 'SIJ-syndrome', 'sciatica']
 ];
