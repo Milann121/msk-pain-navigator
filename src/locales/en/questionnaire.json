@@ -98,8 +98,7 @@
       "next": "Next",
       "finish": "Finish"
     }
-  }
-  ,
+  },
   "general": {
     "title": "Basic Pain Assessment",
     "description": "This questionnaire helps us understand your pain symptoms.",
@@ -117,41 +116,48 @@
       "variableImpact": "Is the effect of the same movements/activities on pain unpredictable?"
     },
     "descriptions": {
+      "painIntensity": "Rate your pain on a scale from 0 to 10, where 0 means no pain and 10 means the worst pain imaginable.",
+      "painWithMovement": "Consider activities like bending, lifting, walking, or specific movements that make your pain worse.",
+      "painIntensityIncrease": "Think about how much more intense your pain becomes during these triggering movements or activities.",
+      "painOnsetTiming": "Consider whether the pain starts immediately during the movement or appears later.",
+      "painSubsiding": "Think about how long it takes for your pain to return to its baseline level after the triggering activity.",
+      "painDescription": "Select all descriptions that match your pain experience. You can choose multiple options.",
       "injuryStart": "We want to know if your pain began directly after a trauma such as a fall or impact.",
-      "activityStart": "Describe the specific activity that triggered your pain.",
-      "reflexes": "Loss of reflexes can reveal a lot about your condition.",
-      "sensitivity": "Answer yes only if this sensitivity appeared with your pain.",
-      "variableImpact": "Answer yes if you cannot predict when your pain will appear."
+      "activityStart": "Consider if your pain started after a specific physical activity, movement, or posture.",
+      "reflexes": "This refers to medical testing where a doctor checks your reflexes with a small hammer. Loss of reflexes can reveal important information about your condition.",
+      "sensitivity": "Answer yes only if this sensitivity appeared together with your pain and is more pronounced than before.",
+      "variableImpact": "Answer yes if you cannot predict when the same activities will cause pain - sometimes they hurt, sometimes they don't."
     },
     "options": {
       "yesNo": {
         "yes": "Yes",
         "no": "No"
       },
+      "notVisited": "Haven't visited a doctor yet",
       "intensityIncrease": {
-        "significantly": "Significantly",
-        "moderately": "Moderately",
-        "minimally": "Minimally"
+        "significantly": "Significantly (becomes much worse)",
+        "moderately": "Moderately (becomes noticeably worse)",
+        "minimally": "Minimally (becomes slightly worse)"
       },
       "onsetTiming": {
-        "immediately": "Immediately",
-        "later": "Later"
+        "immediately": "Immediately (during the movement)",
+        "later": "Later (after the movement is finished)"
       },
       "subsiding": {
-        "immediately": "Immediately",
-        "later": "Later"
+        "immediately": "Immediately (stops right after)",
+        "later": "Takes time to subside"
       },
       "painDescription": {
-        "burning": "Burning",
-        "electric-shocks": "Electric shocks",
-        "shooting": "Shooting",
-        "dull": "Dull",
+        "burning": "Burning sensation",
+        "electric-shocks": "Electric shock-like",
+        "shooting": "Shooting pain",
+        "dull": "Dull, aching pain",
         "pins-needles": "Pins and needles",
-        "numbness": "Numbness",
-        "toothache-like": "Toothache-like",
-        "diffuse": "Diffuse",
-        "stiffness": "Stiffness",
-        "changes": "Changes"
+        "numbness": "Numbness or loss of sensation",
+        "toothache-like": "Deep, throbbing (like toothache)",
+        "diffuse": "Widespread, hard to pinpoint",
+        "stiffness": "Stiffness and tightness",
+        "changes": "Pain that changes in character"
       }
     },
     "painScale": {

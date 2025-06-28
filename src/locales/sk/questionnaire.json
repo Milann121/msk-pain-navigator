@@ -116,41 +116,48 @@
       "variableImpact": "Je vplyv rovnakých pohybov na bolesť nepredvídateľný?"
     },
     "descriptions": {
-      "injuryStart": "Chceme zistiť, či bolesť vznikla priamo po úraze.",
-      "activityStart": "Popíšte konkrétnu aktivitu, ktorá bolesť vyvolala.",
-      "reflexes": "Strata reflexov vie veľa napovedať o vašom stave.",
-      "sensitivity": "Odpovedzte áno len ak sa táto citlivosť objavila s bolesťou.",
-      "variableImpact": "Odpovedzte áno, ak nedokážete predvídať vznik bolesti."
+      "painIntensity": "Ohodnoťte svoju bolesť na stupnici od 0 do 10, kde 0 znamená žiadnu bolesť a 10 najhoršiu predstaviteľnú bolesť.",
+      "painWithMovement": "Zvážte aktivity ako ohýbanie, dvíhanie, chôdza alebo špecifické pohyby, ktoré zhoršujú vašu bolesť.",
+      "painIntensityIncrease": "Premyslite si, o koľko sa vaša bolesť zosilní počas týchto spúšťajúcich pohybov alebo aktivít.",
+      "painOnsetTiming": "Zvážte, či sa bolesť začína okamžite počas pohybu alebo sa objaví neskôr.",
+      "painSubsiding": "Premyslite si, ako dlho trvá, kým sa vaša bolesť vráti na svoju základnú úroveň po spúšťajúcej aktivite.",
+      "painDescription": "Vyberte všetky opisy, ktoré zodpovedajú vašej bolesti. Môžete vybrať viacero možností.",
+      "injuryStart": "Chceme zistiť, či bolesť vznikla priamo po úraze ako je pád alebo náraz.",
+      "activityStart": "Zvážte, či sa vaša bolesť začala po konkrétnej fyzickej aktivite, pohybe alebo držaní tela.",
+      "reflexes": "Týka sa to lekárskeho vyšetrenia, kde lekár kontroluje vaše reflexy malým kladivkom. Strata reflexov vie odhaliť dôležité informácie o vašom stave.",
+      "sensitivity": "Odpovedzte áno len ak sa táto citlivosť objavila spolu s bolesťou a je výraznejšia ako predtým.",
+      "variableImpact": "Odpovedzte áno, ak nedokážete predvídať, kedy rovnaké aktivity spôsobia bolesť - niekedy bolia, niekedy nie."
     },
     "options": {
       "yesNo": {
         "yes": "Áno",
         "no": "Nie"
       },
+      "notVisited": "Ešte som nenavštívil/a lekára",
       "intensityIncrease": {
-        "significantly": "Výrazne",
-        "moderately": "Stredne",
-        "minimally": "Minimálne"
+        "significantly": "Výrazne (stane sa oveľa horšou)",
+        "moderately": "Stredne (stane sa výrazne horšou)",
+        "minimally": "Minimálne (stane sa mierne horšou)"
       },
       "onsetTiming": {
-        "immediately": "Okamžite",
-        "later": "Neskôr"
+        "immediately": "Okamžite (počas pohybu)",
+        "later": "Neskôr (po skončení pohybu)"
       },
       "subsiding": {
-        "immediately": "Okamžite",
-        "later": "Neskôr"
+        "immediately": "Okamžite (prestane hneď potom)",
+        "later": "Trvá nejaký čas, kým ustúpi"
       },
       "painDescription": {
-        "burning": "Pálivá",
-        "electric-shocks": "Elektrizujúca",
-        "shooting": "Vystreľujúca",
-        "dull": "Tupá",
+        "burning": "Pálivý pocit",
+        "electric-shocks": "Ako elektrický šok",
+        "shooting": "Vystreľujúca bolesť",
+        "dull": "Tupá, bolestivá bolesť",
         "pins-needles": "Pichanie a mravčenie",
-        "numbness": "Necitlivosť",
-        "toothache-like": "Ako bolesť zuba",
-        "diffuse": "Rozptýlená",
-        "stiffness": "Stuhnutosť",
-        "changes": "Mení sa"
+        "numbness": "Necitlivosť alebo strata pocitu",
+        "toothache-like": "Hlboká, pulzujúca (ako bolesť zuba)",
+        "diffuse": "Rozšírená, ťažko lokalizovateľná",
+        "stiffness": "Stuhnutosť a napätie",
+        "changes": "Bolesť, ktorá sa mení v charaktere"
       }
     },
     "painScale": {

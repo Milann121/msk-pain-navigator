@@ -2,7 +2,7 @@
 {
   "profileForm": {
     "manual": "Manuálna práce",
-    "desk": "Sedavá práce",
+    "desk": "Sedavá práca",
     "driver": "Vodič",
     "manualSpec": "Špecifikácia manuálnej práce:",
     "officeWork": "Kancelárska práca"
@@ -30,13 +30,11 @@
       }
     }
   },
-  "misc": {
-    "questionNumber": "Otázka {{current}} z {{total}}",
-    "navigation": {
-      "back": "Späť",
-      "next": "Ďalej",
-      "finish": "Dokončiť"
-    }
+  "questionNumber": "Otázka {{current}} z {{total}}",
+  "navigation": {
+    "back": "Späť",
+    "next": "Ďalej",
+    "finish": "Dokončiť"
   },
   "followUp": {
     "title": "Sledovanie pokroku",

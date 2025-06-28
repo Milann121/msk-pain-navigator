@@ -30,15 +30,6 @@
       }
     }
   },
-
-  "misc": {
-    "questionNumber": "Question {{current}} of {{total}}",
-    "navigation": {
-      "back": "Back",
-      "next": "Next",
-      "finish": "Finish"
-    }
-
   "questionNumber": "Question {{current}} of {{total}}",
   "navigation": {
     "back": "Back",
