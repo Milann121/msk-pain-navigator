@@ -49,7 +49,7 @@ const enTranslations = {
   assessment: enAssessment,
   home: enHome,
   ...enExercises,
-  ...enMisc,
+  misc: enMisc,
   questionnaire: enQuestionnaire
 };
 
@@ -62,7 +62,7 @@ const skTranslations = {
   assessment: skAssessment,
   home: skHome,
   ...skExercises,
-  ...skMisc,
+  misc: skMisc,
   questionnaire: skQuestionnaire
 };
 
@@ -75,7 +75,7 @@ const csTranslations = {
   assessment: csAssessment,
   home: csHome,
   ...csExercises,
-  ...csMisc,
+  misc: csMisc,
   questionnaire: csQuestionnaire
 };
 
