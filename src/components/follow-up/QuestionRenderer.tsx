@@ -41,7 +41,9 @@ const QuestionRenderer = ({ question, answer, onAnswerChange, onSliderChange }: 
   return (
     <div className="space-y-6 pt-4">
       <div className="flex items-start gap-3">
-        <h3 className="text-lg font-medium text-blue-700 flex-1">{question.text}</h3>
+        <h3 className="text-lg font-medium text-blue-700 flex-1">
+          {question.text.startsWith('questionnaire.') ? t(question.text) : question.text}
+        </h3>
         {question.description && (
           <Popover>
             <PopoverTrigger asChild>
@@ -49,10 +51,10 @@ const QuestionRenderer = ({ question, answer, onAnswerChange, onSliderChange }: 
                 variant="ghost"
                 size="sm"
                 className="p-2 h-auto text-gray-500 hover:text-blue-600 hover:bg-blue-50 flex-shrink-0"
-                title={t('questionExplanation.explain')}
+                title={t('questionnaire.common.explainQuestion')}
               >
                 <Info className="h-4 w-4" />
-                <span className="sr-only">{t('questionExplanation.explain')}</span>
+                <span className="sr-only">{t('questionnaire.common.explainQuestion')}</span>
               </Button>
             </PopoverTrigger>
             <PopoverContent 
@@ -65,9 +67,9 @@ const QuestionRenderer = ({ question, answer, onAnswerChange, onSliderChange }: 
               sideOffset={isMobile ? 8 : 4}
             >
               <div className="p-3">
-                <h4 className="font-medium text-blue-700 mb-2">{t('questionExplanation.title')}</h4>
+                <h4 className="font-medium text-blue-700 mb-2">{t('questionnaire.common.questionExplanation')}</h4>
                 <p className="text-sm text-gray-700 leading-relaxed">
-                  {question.description}
+                  {question.description.startsWith('questionnaire.') ? t(question.description) : question.description}
                 </p>
               </div>
             </PopoverContent>

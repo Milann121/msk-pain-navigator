@@ -13,6 +13,7 @@ import enAssessment from './locales/en/assessment.json';
 import enHome from './locales/en/home.json';
 import enExercises from './locales/en/exercises.json';
 import enMisc from './locales/en/misc.json';
+import enQuestionnaire from './locales/en/questionnaire.json';
 
 // Slovak translations
 import skWelcome from './locales/sk/welcome.json';
@@ -24,6 +25,7 @@ import skAssessment from './locales/sk/assessment.json';
 import skHome from './locales/sk/home.json';
 import skExercises from './locales/sk/exercises.json';
 import skMisc from './locales/sk/misc.json';
+import skQuestionnaire from './locales/sk/questionnaire.json';
 
 // Czech translations
 import csWelcome from './locales/cs/welcome.json';
@@ -35,6 +37,7 @@ import csAssessment from './locales/cs/assessment.json';
 import csHome from './locales/cs/home.json';
 import csExercises from './locales/cs/exercises.json';
 import csMisc from './locales/cs/misc.json';
+import csQuestionnaire from './locales/cs/questionnaire.json';
 
 // Combine all translations
 const enTranslations = {
@@ -46,7 +49,8 @@ const enTranslations = {
   assessment: enAssessment,
   home: enHome,
   ...enExercises,
-  ...enMisc
+  ...enMisc,
+  questionnaire: enQuestionnaire
 };
 
 const skTranslations = {
@@ -58,7 +62,8 @@ const skTranslations = {
   assessment: skAssessment,
   home: skHome,
   ...skExercises,
-  ...skMisc
+  ...skMisc,
+  questionnaire: skQuestionnaire
 };
 
 const csTranslations = {
@@ -70,7 +75,8 @@ const csTranslations = {
   assessment: csAssessment,
   home: csHome,
   ...csExercises,
-  ...csMisc
+  ...csMisc,
+  questionnaire: csQuestionnaire
 };
 
 void i18n
