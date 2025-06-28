@@ -30,11 +30,13 @@
       }
     }
   },
-  "questionNumber": "Otázka {{current}} z {{total}}",
-  "navigation": {
-    "back": "Späť",
-    "next": "Ďalej",
-    "finish": "Dokončiť"
+  "misc": {
+    "questionNumber": "Otázka {{current}} z {{total}}",
+    "navigation": {
+      "back": "Späť",
+      "next": "Ďalej",
+      "finish": "Dokončiť"
+    }
   },
   "followUp": {
     "title": "Sledovanie pokroku",
