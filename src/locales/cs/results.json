@@ -7,7 +7,9 @@
     "name": "Jméno",
     "age": "Věk",
     "painArea": "Oblast bolesti",
-    "gender": "Pohlaví"
+    "gender": "Pohlaví",
+    "greeting": "Dobrý den",
+    "analysisText": "Analyzovali jsme vaše odpovědi ohledně bolesti {{painArea}}."
   },
   "mechanism": {
     "title": "Primární mechanismus bolesti",

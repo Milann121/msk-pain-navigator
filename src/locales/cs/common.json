@@ -2,18 +2,18 @@
 {
   "loading": "Načítám...",
   "bodyParts": {
-    "neck": "Krk",
-    "middle back": "Hrudní páteř",
-    "lower back": "Dolní záda",
-    "upper limb": "Horní končetina",
-    "shoulder": "Rameno"
+    "neck": "krku",
+    "middle back": "hrudní páteře",
+    "lower back": "bederní páteře",
+    "upper limb": "horní končetiny",
+    "shoulder": "ramene"
   },
   "painMechanisms": {
     "nociceptive": "Nociceptivní bolest",
     "neuropathic": "Neuropatická bolest",
-    "central": "Centrální senzitizace",
+    "central": "Centrální senzitivizace",
     "none": "Nedefinovaný mechanismus bolesti",
-    "red-flag": "Příznaky vyžadující lékařskou pomoc"
+    "red-flag": "Symptomy vyžadující lékařskou péči"
   },
   "diagnoses": {
     "none": "Nebyla identifikována žádná specifická diagnóza",
@@ -21,37 +21,37 @@
     "facet joint syndrome": "Syndrom facetových kloubů",
     "SIJ syndrome": "Syndrom SI kloubu",
     "muscle pain": "Svalová bolest",
-    "red-flag": "Příznaky vyžadující lékařskou pomoc",
+    "red-flag": "Symptomy vyžadující lékařskou péči",
     "ventral spondylolisthesis": "Ventrální spondylolistéza",
     "dorsal spondylolisthesis": "Dorzální spondylolistéza",
     "costovertebral joint syndrome": "Syndrom kostovertebrálního kloubu",
-    "Radicular Pain": "Radikulární Bolest",
+    "Radicular Pain": "Radikulární bolest",
     "Radiculopathy": "Radikulopatie",
-    "Central Sensitisation": "Centrální Senzitizace",
-    "Central Sensitisation - Allodynia": "Centrální Senzitizace - Alodynie",
-    "Central Sensitisation - Sensory Hypersensitivity": "Centrální Senzitizace - Senzorická Hypersenzitivita",
-    "Central Sensitisation - Cognitive Symptoms": "Centrální Senzitizace - Kognitivní Příznaky",
+    "Central Sensitisation": "Centrální senzitivizace",
+    "Central Sensitisation - Allodynia": "Centrální senzitivizace - Alodynie",
+    "Central Sensitisation - Sensory Hypersensitivity": "Centrální senzitivizace - Smyslová hypersenzitivita",
+    "Central Sensitisation - Cognitive Symptoms": "Centrální senzitivizace - Kognitivní symptomy",
     "cervical-radiculopathy": "Cervikální radikulopatie",
     "frozen-shoulder": "Zmrzlé rameno",
-    "slap-tear": "SLAP léze",
-    "subacromial-impingement-syndrome": "Subakromiální impingement syndrom",
+    "slap-tear": "Léze labra",
+    "subacromial-impingement-syndrome": "Impingement syndrom ramene",
     "stiff-shoulder": "Syndrom ztuhlého ramene",
-    "shoulder-bursa": "Burzitida ramene",
+    "shoulder-bursa": "Bursitida",
     "rotator-cuff-tear": "Porucha rotátorové manžety",
-    "rotator-cuff-tendinopathy": "Tendinopatie rotátorové manžety",
-    "biceps-tendinopathy": "Tendinopatie bicepsu",
+    "rotator-cuff-tendinopathy": "Porucha rotátorové manžety",
+    "biceps-tendinopathy": "Porucha bicepsové šlachy",
     "biceps-tear-long-head": "Porucha bicepsové šlachy",
     "shoulder-dislocation": "Dislokace ramene",
     "unstable-shoulder": "Nestabilní rameno",
     "labral-leason": "Léze labra"
   },
   "results": {
-    "savedTitle": "Výsledky byly uloženy",
-    "savedDescription": "Tvé hodnocení bylo úspěšně uloženo a najdeš ho v sekci Moje cvičení.",
+    "savedTitle": "Výsledky uloženy",
+    "savedDescription": "Vaše hodnocení bylo úspěšně uloženo a můžete ho najít v sekci Moje cvičení.",
     "saveErrorTitle": "Chyba při ukládání",
     "saveErrorDescription": "Nepodařilo se uložit výsledky hodnocení.",
-    "autoSaved": "✓ Výsledky byly automaticky uloženy. Najdeš je v sekci Moje cvičení.",
-    "saving": "Ukládání výsledků...",
+    "autoSaved": "✓ Výsledky byly automaticky uloženy. Můžete je najít v sekci Moje cvičení.",
+    "saving": "Ukládám výsledky...",
     "autoSaveFailed": "Automatické ukládání výsledků selhalo."
   }
 }

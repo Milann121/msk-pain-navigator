@@ -19,7 +19,7 @@ const ResultsFooter = ({ onRestart, userLoggedIn }: ResultsFooterProps) => {
         variant="outline" 
         className="flex-1"
       >
-        {t('resultsFooter.startNew')}
+        {t('results.footer.startNew')}
       </Button>
       {userLoggedIn && (
         <Button 
@@ -27,7 +27,7 @@ const ResultsFooter = ({ onRestart, userLoggedIn }: ResultsFooterProps) => {
           variant="secondary"
           className="flex-1"
         >
-          {t('resultsFooter.myExercises')}
+          {t('results.footer.myExercises')}
         </Button>
       )}
     </div>

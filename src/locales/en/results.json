@@ -7,7 +7,9 @@
     "name": "Name",
     "age": "Age",
     "painArea": "Pain Area",
-    "gender": "Gender"
+    "gender": "Gender",
+    "greeting": "Good day",
+    "analysisText": "We have analyzed your responses regarding {{painArea}} pain."
   },
   "mechanism": {
     "title": "Primary Pain Mechanism",
