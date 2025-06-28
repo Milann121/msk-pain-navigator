@@ -69,7 +69,7 @@ export const advices: Advice[] = [
     adviceDescription: "lumbarPadDescription",
     adviceImageUrl: "/lovable-uploads/603332be-d99c-428d-af60-0062a83a4b91.png",
     adviceLink:"",
-    bodyParts: ['lumbar-spine','middle-back'],
+    bodyParts: ['lower-back','middle-back'],
     mechanisms: ['nociceptive', 'neuropathic'],
     differentials: ['disc-herniation', 'facet-joint-syndrome', 'SIJ-syndrome']
   },
