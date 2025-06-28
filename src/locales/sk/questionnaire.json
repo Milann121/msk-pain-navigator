@@ -98,5 +98,142 @@
       "next": "Ďalej",
       "finish": "Dokončiť"
     }
+
+  },
+  "general": {
+    "title": "Základné hodnotenie bolesti",
+    "description": "Tento dotazník nám pomôže lepšie pochopiť vašu bolesť.",
+    "questions": {
+      "painIntensity": "Aká je vaša intenzita bolesti v priemere?",
+      "painWithMovement": "Zvyšuje sa bolesť pri určitých pohyboch alebo aktivitách?",
+      "painIntensityIncrease": "Ako intenzívnou sa vtedy stáva bolesť?",
+      "painOnsetTiming": "Ako rýchlo sa bolesť objaví po týchto pohyboch?",
+      "painSubsiding": "Ako dlho trvá, kým bolesť ustúpi?",
+      "painDescription": "Ako by ste opísali vašu bolesť?",
+      "injuryStart": "Začala sa vaša bolesť po zranení?",
+      "activityStart": "Začala sa vaša bolesť po konkrétnej aktivite/pohybe?",
+      "reflexes": "Boli ste informovaný/á, že máte výrazne znížené alebo chýbajúce reflexy?",
+      "sensitivity": "Máte zvýšenú citlivosť na svetlo, zvuk alebo vône?",
+      "variableImpact": "Je vplyv rovnakých pohybov na bolesť nepredvídateľný?"
+    },
+    "descriptions": {
+      "injuryStart": "Chceme zistiť, či bolesť vznikla priamo po úraze.",
+      "activityStart": "Popíšte konkrétnu aktivitu, ktorá bolesť vyvolala.",
+      "reflexes": "Strata reflexov vie veľa napovedať o vašom stave.",
+      "sensitivity": "Odpovedzte áno len ak sa táto citlivosť objavila s bolesťou.",
+      "variableImpact": "Odpovedzte áno, ak nedokážete predvídať vznik bolesti."
+    },
+    "options": {
+      "yesNo": {
+        "yes": "Áno",
+        "no": "Nie"
+      },
+      "intensityIncrease": {
+        "significantly": "Výrazne",
+        "moderately": "Stredne",
+        "minimally": "Minimálne"
+      },
+      "onsetTiming": {
+        "immediately": "Okamžite",
+        "later": "Neskôr"
+      },
+      "subsiding": {
+        "immediately": "Okamžite",
+        "later": "Neskôr"
+      },
+      "painDescription": {
+        "burning": "Pálivá",
+        "electric-shocks": "Elektrizujúca",
+        "shooting": "Vystreľujúca",
+        "dull": "Tupá",
+        "pins-needles": "Pichanie a mravčenie",
+        "numbness": "Necitlivosť",
+        "toothache-like": "Ako bolesť zuba",
+        "diffuse": "Rozptýlená",
+        "stiffness": "Stuhnutosť",
+        "changes": "Mení sa"
+      }
+    },
+    "painScale": {
+      "noPain": "Žiadna bolesť",
+      "worstPain": "Najhoršia predstaviteľná bolesť"
+    }
+  },
+  "nociceptive": {
+    "title": "Hodnotenie nociceptívnej bolesti",
+    "description": "Tento dotazník nám pomôže lepšie pochopiť príznaky súvisiace s tkanivovou bolesťou.",
+    "questions": {
+      "restHelps": "Pomáha vám odpočinok alebo vyhýbanie sa pohybom, ktoré vyvolávajú bolesť?",
+      "worstTime": "V ktorej časti dňa je bolesť zvyčajne najhoršia?",
+      "spineAbnormality": "Všimli ste si priehlbinu v chrbtici alebo vystupujúci stavec?",
+      "lyingHelps": "Zistili ste, že ľah na chrbte zmierňuje príznaky?",
+      "chestTightness": "Pociťujete stuhnutosť v hrudníku?",
+      "breathingPain": "Cítite pri nádychu bolesť alebo iné príznaky?"
+    },
+    "descriptions": {
+      "restHelps": "Má oddych priamo pozitívny vplyv na vašu bolesť?",
+      "worstTime": "Zamyslite sa, ktorá časť dňa je pre vás najhoršia a odpovedajte presne.",
+      "spineAbnormality": "Ak si nie ste istí, požiadajte blízkeho o kontrolu chrbtice.",
+      "lyingHelps": "Ak neviete, skúste si ľahnúť na chrbát a sledujte úľavu.",
+      "chestTightness": "Snažíme sa zistiť príznaky aj v prednej časti hrudníka.",
+      "breathingPain": "Napríklad pichanie v hrudníku alebo tuhosť pri nádychu."
+    },
+    "options": {
+      "yesNo": {
+        "yes": "Áno",
+        "no": "Nie"
+      },
+      "worstTime": {
+        "morning": "Ráno, po prebudení",
+        "daytime": "Počas dňa, pri aktivitách",
+        "nighttime": "V noci"
+      }
+    }
+  },
+  "neuropathic": {
+    "title": "Hodnotenie neuropatickej bolesti",
+    "description": "Tento dotazník nám pomôže lepšie pochopiť príznaky súvisiace s nervovou bolesťou.",
+    "questions": {
+      "coughingPain": "Zhoršuje sa bolesť pri kašľaní, kýchaní alebo napínaní sa?",
+      "abnormalSensations": "Cítite mravčenie, pálenie alebo \"elektrické šoky\"?",
+      "numbness": "Pociťujete znecitlivenie alebo oťažievanie v končatine?",
+      "muscleWeakness": "Všimli ste si svalovú slabosť v postihnutej končatine?",
+      "reflexLoss": "Stratili ste reflexy v postihnutej končatine?",
+      "spineAbnormality": "Všimli ste si priehlbinu v chrbtici alebo vystupujúci stavec?",
+      "lyingHelps": "Máte pocit, že ľah na chrbte zmierňuje príznaky?"
+    },
+    "descriptions": {
+      "coughingPain": "Zaujíma nás, či kašeľ priamo zhoršuje symptómy.",
+      "abnormalSensations": "Odpovedzte áno, ak viete presne ukázať dráhu ostrej bolesti.",
+      "numbness": "Odpovedzte áno, ak máte pocit necitlivosti alebo oťažievania.",
+      "muscleWeakness": "Odpovedzte áno, ak slabosť sťažuje bežné pohyby.",
+      "reflexLoss": "Strata reflexov veľa napovie o vašom stave.",
+      "spineAbnormality": "Ak si nie ste istí, požiadajte blízkeho o kontrolu chrbtice.",
+      "lyingHelps": "Ľahnite si na chrbát na pár minút a sledujte zlepšenie symptómov."
+    },
+    "options": {
+      "yesNo": {
+        "yes": "Áno",
+        "no": "Nie"
+      }
+    }
+  },
+  "central": {
+    "title": "Hodnotenie centrálnej senzitizácie",
+    "description": "Tento dotazník nám pomôže pochopiť príznaky spojené so spracovaním bolesti.",
+    "questions": {
+      "painSpread": "Šíri sa vaša bolesť do oblastí, ktoré pôvodne neboli postihnuté?",
+      "allodynia": "Spôsobujú bežné dotyky bolesť?",
+      "disproportionate": "Zdá sa vám intenzita bolesti neprimeraná stavu?",
+      "sensorySensitivity": "Ste citlivejší na svetlo, hluk alebo vône?",
+      "cognitiveSymptoms": "Máte únavu alebo zhoršenú koncentráciu spolu s bolesťou?"
+    },
+    "descriptions": {},
+    "options": {
+      "yesNo": {
+        "yes": "Áno",
+        "no": "Nie"
+      }
+    }
   }
 }

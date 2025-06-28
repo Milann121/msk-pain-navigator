@@ -98,5 +98,143 @@
       "next": "Next",
       "finish": "Finish"
     }
+
+  }
+  ,
+  "general": {
+    "title": "Basic Pain Assessment",
+    "description": "This questionnaire helps us understand your pain symptoms.",
+    "questions": {
+      "painIntensity": "What is your average pain intensity?",
+      "painWithMovement": "Does your pain increase with certain movements or activities?",
+      "painIntensityIncrease": "How intense does the pain become then?",
+      "painOnsetTiming": "How quickly does the pain start after those movements/activities?",
+      "painSubsiding": "How long does it take for the pain to subside afterwards?",
+      "painDescription": "How would you describe your pain?",
+      "injuryStart": "Did your pain start after an injury?",
+      "activityStart": "Did your pain start after a specific activity/movement?",
+      "reflexes": "Have you been told that you have markedly reduced or absent reflexes?",
+      "sensitivity": "Do you have increased sensitivity to light, sound or smells?",
+      "variableImpact": "Is the effect of the same movements/activities on pain unpredictable?"
+    },
+    "descriptions": {
+      "injuryStart": "We want to know if your pain began directly after a trauma such as a fall or impact.",
+      "activityStart": "Describe the specific activity that triggered your pain.",
+      "reflexes": "Loss of reflexes can reveal a lot about your condition.",
+      "sensitivity": "Answer yes only if this sensitivity appeared with your pain.",
+      "variableImpact": "Answer yes if you cannot predict when your pain will appear."
+    },
+    "options": {
+      "yesNo": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "intensityIncrease": {
+        "significantly": "Significantly",
+        "moderately": "Moderately",
+        "minimally": "Minimally"
+      },
+      "onsetTiming": {
+        "immediately": "Immediately",
+        "later": "Later"
+      },
+      "subsiding": {
+        "immediately": "Immediately",
+        "later": "Later"
+      },
+      "painDescription": {
+        "burning": "Burning",
+        "electric-shocks": "Electric shocks",
+        "shooting": "Shooting",
+        "dull": "Dull",
+        "pins-needles": "Pins and needles",
+        "numbness": "Numbness",
+        "toothache-like": "Toothache-like",
+        "diffuse": "Diffuse",
+        "stiffness": "Stiffness",
+        "changes": "Changes"
+      }
+    },
+    "painScale": {
+      "noPain": "No pain",
+      "worstPain": "Worst imaginable pain"
+    }
+  },
+  "nociceptive": {
+    "title": "Nociceptive Pain Assessment",
+    "description": "Helps us understand your tissue-related pain symptoms.",
+    "questions": {
+      "restHelps": "Does rest or avoiding painful movements help?",
+      "worstTime": "At what time of day is the pain usually worst?",
+      "spineAbnormality": "Have you noticed a pit in the spine or a protruding vertebra?",
+      "lyingHelps": "Does lying on your back relieve your symptoms?",
+      "chestTightness": "Do you feel any tightness in the chest?",
+      "breathingPain": "Do you feel pain or other symptoms when breathing in?"
+    },
+    "descriptions": {
+      "restHelps": "Does rest directly improve your pain?",
+      "worstTime": "Think about which part of the day is the worst for you and answer precisely.",
+      "spineAbnormality": "If unsure, ask a family member to check for a pit or protruding vertebra.",
+      "lyingHelps": "If you are unsure, try lying on your back and see if symptoms ease.",
+      "chestTightness": "We want to know if you have symptoms in the front of the chest.",
+      "breathingPain": "For example stabbing chest pain or stiffness when inhaling."
+    },
+    "options": {
+      "yesNo": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "worstTime": {
+        "morning": "Morning after waking",
+        "daytime": "During the day while active",
+        "nighttime": "At night"
+      }
+    }
+  },
+  "neuropathic": {
+    "title": "Neuropathic Pain Assessment",
+    "description": "Helps us understand your nerve-related pain symptoms.",
+    "questions": {
+      "coughingPain": "Does coughing, sneezing or straining worsen your pain?",
+      "abnormalSensations": "Do you feel tingling, burning or electric-shock sensations?",
+      "numbness": "Do you feel numbness or heaviness in a specific area?",
+      "muscleWeakness": "Have you noticed muscle weakness affecting movement?",
+      "reflexLoss": "Have you lost reflexes in the affected limb?",
+      "spineAbnormality": "Have you noticed a pit in the spine or a protruding vertebra?",
+      "lyingHelps": "Does lying on your back relieve your symptoms?"
+    },
+    "descriptions": {
+      "coughingPain": "We want to know if coughing directly increases your symptoms.",
+      "abnormalSensations": "Answer yes if you can point to a specific path of sharp electric pain.",
+      "numbness": "Answer yes if you feel numbness or heaviness in the limb.",
+      "muscleWeakness": "Answer yes if weakness makes normal movement difficult.",
+      "reflexLoss": "Loss of reflexes can tell a lot about your condition.",
+      "spineAbnormality": "If unsure, ask a family member to check your spine.",
+      "lyingHelps": "Lie on your back for a couple of minutes and see if symptoms improve."
+    },
+    "options": {
+      "yesNo": {
+        "yes": "Yes",
+        "no": "No"
+      }
+    }
+  },
+  "central": {
+    "title": "Central Sensitization Assessment",
+    "description": "Helps us understand symptoms related to pain processing.",
+    "questions": {
+      "painSpread": "Is your pain spreading to areas that were originally unaffected?",
+      "allodynia": "Do normally non-painful stimuli cause pain?",
+      "disproportionate": "Does the pain feel disproportionate to your condition?",
+      "sensorySensitivity": "Along with pain, are you sensitive to light, noise or smells?",
+      "cognitiveSymptoms": "Along with pain, do you have fatigue or poor concentration?"
+    },
+    "descriptions": {},
+    "options": {
+      "yesNo": {
+        "yes": "Yes",
+        "no": "No"
+      }
+    }
   }
 }

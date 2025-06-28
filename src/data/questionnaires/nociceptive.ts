@@ -2,46 +2,46 @@ import { Questionnaire } from '@/utils/types';
 
 export const nociceptiveQuestionnaire: Questionnaire = {
   id: 'nociceptive',
-  title: 'Hodnotenie nociceptívnej bolesti',
-  description: 'Tento dotazník nám pomôže lepšie pochopiť vaše príznaky súvisiace s tkanivovou bolesťou.',
+  title: 'questionnaire.nociceptive.title',
+  description: 'questionnaire.nociceptive.description',
   questions: [
     {
       id: 'rest-helps',
-      text: 'Pomáha vám odpočinok alebo vyhýbanie sa pohybom, ktoré vyvolávajú bolesť?',
-      description: 'Má oddych priamo pozitívny vplyv na vašu bolesť/stav?',
+      text: 'questionnaire.nociceptive.questions.restHelps',
+      description: 'questionnaire.nociceptive.descriptions.restHelps',
       type: 'radio',
       options: [
         {
           id: 'yes-rest',
-          text: 'Áno, moja bolesť sa pri odpočinku zlepšuje',
+          text: 'questionnaire.nociceptive.options.yesRest',
           differentials: ['facet joint syndrome']
         },
         {
           id: 'no-rest',
-          text: 'Nie',
+          text: 'questionnaire.nociceptive.options.no',
           differentials: ['disc herniation']
         }
       ]
     },
     {
       id: 'worst-time',
-      text: 'V ktorej časti dňa je bolesť zvyčajne najhoršia?',
-      description: 'Snažte sa zamyslieť, ktorá časť dňa je pre vás najhoršia a odpovedajte čo najpresnejšie. Ak máte bolesti počas celého dňa, kedy je bolesť najčastejšie najhoršia? Napríklad, ráno pri vstávaní? Alebo počas dňa v práci? Dajte si záležať na odpovedi.',
+      text: 'questionnaire.nociceptive.questions.worstTime',
+      description: 'questionnaire.nociceptive.descriptions.worstTime',
       type: 'radio',
       options: [
         {
           id: 'morning',
-          text: 'Ráno, po prebudení',
+          text: 'questionnaire.nociceptive.options.worstTime.morning',
           differentials: ['disc herniation']
         },
         {
           id: 'daytime',
-          text: 'Počas dňa, pri aktivitách',
+          text: 'questionnaire.nociceptive.options.worstTime.daytime',
           differentials: ['facet joint syndrome', 'SIJ syndrome', 'muscle pain']
         },
         {
           id: 'nighttime',
-          text: 'V noci',
+          text: 'questionnaire.nociceptive.options.worstTime.nighttime',
           differentials: ['red flag']
         }
       ]
