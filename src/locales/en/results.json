@@ -1,0 +1,56 @@
+
+{
+  "title": "Assessment Results",
+  "subtitle": "Thank you for completing the MSK Pain Navigator",
+  "userInfo": {
+    "title": "Your Information",
+    "name": "Name",
+    "age": "Age",
+    "painArea": "Pain Area",
+    "gender": "Gender"
+  },
+  "mechanism": {
+    "title": "Primary Pain Mechanism",
+    "nociceptive": "Nociceptive Pain",
+    "neuropathic": "Neuropathic Pain", 
+    "central": "Central Sensitization",
+    "descriptions": {
+      "nociceptive": "Your pain appears to be primarily nociceptive, which means it comes from damage or inflammation of tissues like muscles, ligaments or joints.",
+      "neuropathic": "Your pain appears to be primarily neuropathic, which means it is caused by nerve damage or dysfunction.",
+      "central": "Your pain appears to involve central sensitization, which means your nervous system has become hypersensitive to pain signals."
+    }
+  },
+  "sinGroup": {
+    "title": "Pain Sensitivity Level",
+    "high": "High Severity, High Irritability, High Nature",
+    "mid": "Mid SIN",
+    "low": "Low SIN",
+    "descriptions": {
+      "high": "Your pain has high severity, is easily triggered, and tends to be intense and long-lasting.",
+      "mid": "Your pain has moderate severity, moderate irritability, and moderate persistence.",
+      "low": "Your pain has low severity, is not easily triggered, and tends to be less intense."
+    }
+  },
+  "differential": {
+    "title": "Differential Assessment",
+    "muscleStrain": "Muscle Strain",
+    "svalovalBolesť": "Muscle Pain",
+    "cervicalRadiculopathy": "Cervical Radiculopathy",
+    "descriptions": {
+      "muscleStrain": "Muscle strain is often caused by overexertion, poor posture, or sudden movements.",
+      "svalovalBolesť": "Muscle pain is often caused by overexertion, stretching, or inflammation of muscle tissues.",
+      "cervicalRadiculopathy": "Cervical radiculopathy is often caused by nerve compression or inflammation in the cervical spine area."
+    }
+  },
+  "exercisePlan": {
+    "title": "Your Personalized Exercise Plan",
+    "description": "Based on your assessment, we have prepared a personalized exercise program specifically designed for your condition. Please note that this program should not replace professional medical care. For a complete diagnosis and treatment plan, please consult with a healthcare professional.",
+    "openProgram": "OPEN EXERCISE PROGRAM",
+    "savedNote": "Results have been automatically saved. You can find them in the My Exercises section."
+  },
+  "footer": {
+    "disclaimer": "This assessment does not replace professional medical care. For a complete diagnosis and treatment plan, please consult with a healthcare professional.",
+    "startNew": "Start New Assessment",
+    "myExercises": "My Exercises"
+  }
+}

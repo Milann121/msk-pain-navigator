@@ -1,4 +1,3 @@
-
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
@@ -14,6 +13,7 @@ import enHome from './locales/en/home.json';
 import enExercises from './locales/en/exercises.json';
 import enMisc from './locales/en/misc.json';
 import enQuestionnaire from './locales/en/questionnaire.json';
+import enResults from './locales/en/results.json';
 
 // Slovak translations
 import skWelcome from './locales/sk/welcome.json';
@@ -26,6 +26,7 @@ import skHome from './locales/sk/home.json';
 import skExercises from './locales/sk/exercises.json';
 import skMisc from './locales/sk/misc.json';
 import skQuestionnaire from './locales/sk/questionnaire.json';
+import skResults from './locales/sk/results.json';
 
 // Czech translations
 import csWelcome from './locales/cs/welcome.json';
@@ -38,6 +39,7 @@ import csHome from './locales/cs/home.json';
 import csExercises from './locales/cs/exercises.json';
 import csMisc from './locales/cs/misc.json';
 import csQuestionnaire from './locales/cs/questionnaire.json';
+import csResults from './locales/cs/results.json';
 
 // Combine all translations
 const enTranslations = {
@@ -50,7 +52,8 @@ const enTranslations = {
   home: enHome,
   ...enExercises,
   misc: enMisc,
-  questionnaire: enQuestionnaire
+  questionnaire: enQuestionnaire,
+  results: enResults
 };
 
 const skTranslations = {
@@ -63,7 +66,8 @@ const skTranslations = {
   home: skHome,
   ...skExercises,
   misc: skMisc,
-  questionnaire: skQuestionnaire
+  questionnaire: skQuestionnaire,
+  results: skResults
 };
 
 const csTranslations = {
@@ -76,7 +80,8 @@ const csTranslations = {
   home: csHome,
   ...csExercises,
   misc: csMisc,
-  questionnaire: csQuestionnaire
+  questionnaire: csQuestionnaire,
+  results: csResults
 };
 
 void i18n

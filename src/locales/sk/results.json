@@ -1,0 +1,56 @@
+
+{
+  "title": "Výsledky hodnotenia",
+  "subtitle": "Ďakujeme za vyplnenie MSK Navigátora bolesti",
+  "userInfo": {
+    "title": "Vaše informácie",
+    "name": "Meno",
+    "age": "Vek",
+    "painArea": "Oblasť bolesti",
+    "gender": "Pohlavie"
+  },
+  "mechanism": {
+    "title": "Primárny mechanizmus bolesti",
+    "nociceptive": "Nociceptívna bolesť",
+    "neuropathic": "Neuropatická bolesť",
+    "central": "Centrálna senzitivizácia",
+    "descriptions": {
+      "nociceptive": "Vaša bolesť sa javí ako primárne nociceptívna, čo znamená, že pochádza z poškodenia alebo zápalu tkanív ako sú svaly, kĺby alebo iných tkanivách.",
+      "neuropathic": "Vaša bolesť sa javí ako primárne neuropatická, čo znamená, že je spôsobená poškodením alebo dysfunkciou nervov.",
+      "central": "Vaša bolesť má vysokú závažnosť, dráždivosť a povahu, čo znamená, že je intenzívna, ľahko vyvolateľná a trvá dlhšie, kým po spustení ustúpi."
+    }
+  },
+  "sinGroup": {
+    "title": "Úroveň citlivosti na bolesť",
+    "high": "Vysoká závažnosť, dráždivosť a povaha",
+    "mid": "Stredná SIN",
+    "low": "Nízka SIN",
+    "descriptions": {
+      "high": "Vaša bolesť má vysokú závažnosť, je ľahko vyvolateľná a má tendenciu byť intenzívna a dlhotrvajúca.",
+      "mid": "Vaša bolesť má strednú závažnosť, strednú dráždivosť a strednú vytrvalosť.",
+      "low": "Vaša bolesť má nízku závažnosť, nie je ľahko vyvolateľná a má tendenciu byť menej intenzívna."
+    }
+  },
+  "differential": {
+    "title": "Diferenciálne hodnotenie",
+    "muscleStrain": "Svalové napätie",
+    "svalovalBolesť": "Svalová bolesť",
+    "cervicalRadiculopathy": "Cervikálna radikulopatia",
+    "descriptions": {
+      "muscleStrain": "Svalové napätie je často spôsobené preťažením, zlým držaním tela alebo náhlymi pohybmi.",
+      "svalovalBolesť": "Svalová bolesť je často spôsobená preťažením, natiahnutím alebo zápalom svalových tkanív.",
+      "cervicalRadiculopathy": "Cervikálna radikulopatia je často spôsobená stlačením alebo zápalom nervu v oblasti krčnej chrbtice."
+    }
+  },
+  "exercisePlan": {
+    "title": "Váš personalizovaný cvičebný plán",
+    "description": "Na základe vášho hodnotenia sme pripravili personalizovaný cvičebný program špeciálne navrhnutý pre váš stav. Prosím, berte na vedomie, že tento program aj tak nemôže byť pre vás vhodný a v žiadnom prípade nenahradí návštevu lekára alebo fyzioterapeuta. V prípade akéhokoľvek pocitu diskomfortu alebo zhoršenia stavu, okamžite prestaňte s cvičením!",
+    "openProgram": "OTVORIŤ CVIČEBNÝ PROGRAM",
+    "savedNote": "Výsledky boli automaticky uložené. Môžete ich nájsť v sekcii Moje cvičenia."
+  },
+  "footer": {
+    "disclaimer": "Toto hodnotenie nenahrádza odbornú lekársku pomoc. Pre kompletnú diagnózu a liečebný plán sa prosím poraďte so zdravotníckym pracovníkom.",
+    "startNew": "Začať nové hodnotenie",
+    "myExercises": "Moje cvičenia"
+  }
+}

@@ -13,8 +13,8 @@ import {
 
 export const generalQuestionnaire: Questionnaire = {
   id: 'general',
-  title: 'Základné hodnotenie bolesti',
-  description: 'Tento dotazník nám pomôže lepšie pochopiť povahu vašej bolesti.',
+  title: 'questionnaire.general.title',
+  description: 'questionnaire.general.description',
   questions: [
     painIntensityQuestion,
     painMovementQuestion,
