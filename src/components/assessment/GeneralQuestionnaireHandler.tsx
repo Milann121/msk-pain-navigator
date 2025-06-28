@@ -100,8 +100,8 @@ const GeneralQuestionnaireHandler = () => {
       return;
     }
     
-    const { scores: newScores, primaryMechanism: newMechanism, sinGroup: newSinGroup } = 
-      processGeneralQuestionnaire(answers);
+    const { scores: newScores, primaryMechanism: newMechanism, sinGroup: newSinGroup } =
+      processGeneralQuestionnaire(answers, currentQuestionnaire);
     
     console.log('🔍 GeneralQuestionnaireHandler: Processing results:', {
       newScores,

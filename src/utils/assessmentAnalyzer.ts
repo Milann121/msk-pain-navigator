@@ -1,15 +1,20 @@
 
-import { 
-  UserInfo, 
-  PainMechanism, 
-  SINGroup, 
-  Differential, 
-  Questionnaire, 
+import {
+  UserInfo,
+  PainMechanism,
+  SINGroup,
+  Differential,
+  Questionnaire,
+  Question,
   ScoreTracker,
   AssessmentResults
 } from '@/utils/types';
+import { mapPainIntensityToSIN } from './scoreHelpers';
 
-export const processGeneralQuestionnaire = (answers: Record<string, any>): {
+export const processGeneralQuestionnaire = (
+  answers: Record<string, any>,
+  questionnaire: Questionnaire
+): {
   scores: ScoreTracker;
   primaryMechanism: PainMechanism;
   sinGroup: SINGroup;
@@ -62,37 +67,60 @@ export const processGeneralQuestionnaire = (answers: Record<string, any>): {
   let primaryMechanism: PainMechanism = 'none';
   let sinGroup: SINGroup = 'none';
 
-  // Nociceptive questions
-  if (answers['pain-description'] === 'sharp' || answers['pain-description'] === 'throbbing') {
-    scores.nociceptive += 2;
-  }
+  const addMechanisms = (mechs?: PainMechanism[]) => {
+    if (!mechs) return;
+    mechs.forEach(m => {
+      if (m === 'nociceptive') scores.nociceptive += 1;
+      if (m === 'neuropathic') scores.neuropathic += 1;
+      if (m === 'central') scores.central += 1;
+    });
+  };
 
-  // Neuropathic questions
-  if (answers['pain-description'] === 'burning' || answers['pain-description'] === 'shooting') {
-    scores.neuropathic += 2;
-  }
+  const addSinGroups = (groups?: SINGroup[]) => {
+    if (!groups) return;
+    groups.forEach(g => {
+      if (g === 'high SIN') scores.highSIN += 1;
+      if (g === 'mid SIN') scores.midSIN += 1;
+      if (g === 'low SIN') scores.lowSIN += 1;
+    });
+  };
 
-  // Central sensitization questions
-  if (answers['pain-description'] === 'diffuse' || answers['pain-description'] === 'unpredictable') {
-    scores.central += 2;
-  }
+  const processQuestion = (question: Question, answer: any) => {
+    if (question.type === 'scale' && typeof answer === 'number') {
+      addSinGroups([mapPainIntensityToSIN(answer)]);
+      return;
+    }
 
-  // SIN group questions
-  if (answers['pain-intensity'] >= 7 || answers['pain-intensity-upper-limb'] >= 7) {
-    scores.highSIN += 2;
-  }
+    if (!question.options) return;
 
-  if (answers['pain-movement'] === 'yes') {
-    scores.highSIN += 1;
-  }
+    const handleOption = (optionId: string) => {
+      const option = question.options!.find(o => o.id === optionId);
+      if (!option) return;
+      addMechanisms(option.mechanisms);
+      addSinGroups(option.sinGroups);
+      if (option.followUp) {
+        option.followUp.forEach(fq => {
+          const followAns = answers[fq.id];
+          if (followAns !== undefined) {
+            processQuestion(fq, followAns);
+          }
+        });
+      }
+    };
 
-  if (answers['activity-start'] === 'yes') {
-    scores.lowSIN += 2;
-  }
+    if (Array.isArray(answer)) {
+      answer.forEach(id => handleOption(id));
+    } else {
+      handleOption(answer);
+    }
+  };
 
-  if (answers['variable-impact'] === 'yes') {
-    scores.midSIN += 2;
-  }
+  questionnaire.questions.forEach(q => {
+    const ans = answers[q.id];
+    if (ans !== undefined) {
+      processQuestion(q, ans);
+    }
+  });
 
   // Determine primary mechanism
   if (scores.nociceptive >= scores.neuropathic && scores.nociceptive >= scores.central) {
