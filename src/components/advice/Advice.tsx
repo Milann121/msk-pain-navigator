@@ -6,7 +6,6 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ExternalLink } from 'lucide-react';
 import { advices, type Advice as AdviceType } from '@/data/Advices/advicesDatabase';
-import { getAdviceIconClasses, getAdviceIconContainerClasses, getIconStyles } from '@/utils/iconUtils';
 
 interface AdviceProps {
   adviceId: number;
@@ -74,12 +73,11 @@ export const Advice: React.FC<AdviceProps> = ({ adviceId }) => {
         {/* Mobile: Stack image and description vertically, Desktop: Keep horizontal layout */}
         <div className="flex flex-col md:flex-row gap-4">
           {advice.adviceImageUrl && (
-            <div className={getAdviceIconContainerClasses()}>
+            <div className="flex-shrink-0 flex justify-center md:justify-start">
               <img
                 src={advice.adviceImageUrl}
                 alt={t(`advice.${advice.adviceTitle}`)}
-                className={getAdviceIconClasses()}
-                style={getIconStyles(advice.adviceImageUrl)}
+                className="w-16 h-16 object-cover rounded-full border border-gray-200"
               />
             </div>
           )}
