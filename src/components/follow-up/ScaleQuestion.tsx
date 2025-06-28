@@ -26,14 +26,22 @@ const ScaleQuestion = ({ question, value = 5, onChange }: ScaleQuestionProps) =>
       />
       <div className="flex justify-between items-start text-sm text-gray-500 gap-4">
         <div className="text-left flex-1">
-          <span className="block">{question.scale.minLabel}</span>
+          <span className="block">
+            {question.scale.minLabel.startsWith('questionnaire.')
+              ? t(question.scale.minLabel)
+              : question.scale.minLabel}
+          </span>
           <span className="text-xs">({question.scale.min})</span>
         </div>
         <div className="text-center flex-shrink-0 px-3 py-1 bg-blue-50 rounded-md">
           <span className="text-blue-600 font-medium">{t('slider.selected', { value })}</span>
         </div>
         <div className="text-right flex-1">
-          <span className="block">{question.scale.maxLabel}</span>
+          <span className="block">
+            {question.scale.maxLabel.startsWith('questionnaire.')
+              ? t(question.scale.maxLabel)
+              : question.scale.maxLabel}
+          </span>
           <span className="text-xs">({question.scale.max})</span>
         </div>
       </div>

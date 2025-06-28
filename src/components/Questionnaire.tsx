@@ -7,6 +7,7 @@ import QuestionRenderer from '@/components/QuestionRenderer';
 import { Questionnaire as QuestionnaireType, Question, PainMechanism, SINGroup, Differential, ScoreTracker } from '@/utils/types';
 import { useAssessment } from '@/contexts/AssessmentContext';
 import { upperLimbQuestionnaires } from '@/data/UpperLimb/questionnaires';
+import { useTranslation } from 'react-i18next';
 
 interface QuestionnaireProps {
   questionnaire: QuestionnaireType;
@@ -20,6 +21,7 @@ const Questionnaire = ({ questionnaire, onComplete, onBack, onRedirect }: Questi
   const [answers, setAnswers] = useState<Record<string, any>>({});
   const [progress, setProgress] = useState(0);
   const { userInfo } = useAssessment();
+  const { t } = useTranslation();
 
   // Filter questions based on showIf conditions
   const filteredQuestions = questionnaire.questions.filter(question => {
@@ -87,12 +89,16 @@ const Questionnaire = ({ questionnaire, onComplete, onBack, onRedirect }: Questi
   return (
     <Card className="w-full max-w-2xl mx-auto">
       <CardHeader>
-        <CardTitle className="text-xl font-bold text-blue-700">{questionnaire.title}</CardTitle>
-        <CardDescription>{questionnaire.description}</CardDescription>
+        <CardTitle className="text-xl font-bold text-blue-700">
+          {questionnaire.title.startsWith('questionnaire.') ? t(questionnaire.title) : questionnaire.title}
+        </CardTitle>
+        <CardDescription>
+          {questionnaire.description.startsWith('questionnaire.') ? t(questionnaire.description) : questionnaire.description}
+        </CardDescription>
         <div className="mt-4">
           <Progress value={progress} className="h-2" />
           <p className="text-sm text-gray-500 mt-1">
-            Otázka {currentQuestionIndex + 1} z {filteredQuestions.length}
+            {t('misc.questionNumber', { current: currentQuestionIndex + 1, total: filteredQuestions.length })}
           </p>
         </div>
       </CardHeader>
@@ -105,18 +111,20 @@ const Questionnaire = ({ questionnaire, onComplete, onBack, onRedirect }: Questi
         )}
       </CardContent>
       <CardFooter className="flex justify-between">
-        <Button 
-          variant="outline" 
+        <Button
+          variant="outline"
           onClick={handleBack}
         >
-          Späť
+          {t('misc.navigation.back')}
         </Button>
-        <Button 
+        <Button
           onClick={handleNext}
           disabled={!canProceed}
           className="bg-blue-600 hover:bg-blue-700"
         >
-          {currentQuestionIndex < filteredQuestions.length - 1 ? 'Ďalej' : 'Dokončiť'}
+          {currentQuestionIndex < filteredQuestions.length - 1
+            ? t('misc.navigation.next')
+            : t('misc.navigation.finish')}
         </Button>
       </CardFooter>
     </Card>
