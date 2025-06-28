@@ -27,5 +27,9 @@
 
   "lumbarPad": "Lumbar pillow",
   "lumbarPadBreaks": "Do not use the pillow all day, but rather as a temporary aid. Remember that there is no such thing as a good sitting position, and therefore even prolonged sitting upright can contribute to your symptoms.",
-  "lumbarPadDescription": "Regularly changing the type of sitting can positively affect your back, preventing or reducing pain. The lumbar pillow serves to support an upright sitting position without the need to actively hold yourself in an upright position, which could lead to overloading the back erectors. In this way, you can give your spine and muscles a different position than a slouched sitting position for a while."
+  "lumbarPadDescription": "Regularly changing the type of sitting can positively affect your back, preventing or reducing pain. The lumbar pillow serves to support an upright sitting position without the need to actively hold yourself in an upright position, which could lead to overloading the back erectors. In this way, you can give your spine and muscles a different position than a slouched sitting position for a while.",
+
+  "objectLifting": "Be careful of your center of gravity when lifting objects",
+  "objectLiftigRule": "Avoid lifting objects that are further away from you (or in front of you).",
+  "adviceDescription": "When lifting objects (no matter how light or heavy) make sure that your center of gravity is as close to your body as possible, i.e. try to keep the objects you are lifting under you when you lift them. Avoid lifting, pulling or pushing objects that are significantly in front of you (or away from you).",
 }
