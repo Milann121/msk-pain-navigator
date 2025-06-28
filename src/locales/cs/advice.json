@@ -23,13 +23,13 @@
   "gradualLoadIncreaseDescription": "Při nociceptivní bolesti je důležité postupně zvyšovat zátěž cvičení. Začněte pomalu a každý týden mírně zvyšte intenzitu nebo počet opakování.",
   
   "sleepPositionNeck": "Pozor na polohu ve spánku na břiše",
-  "sleepPositionNeckDescription": "V případě bolestí krční páteře vám nedoporučujeme spát na břiše. V případě této polohy spánku dochází k rotaci krční páteře, což může podporovat bolest a tuhnutí v této oblasti. Spánek na boku nebo na zádech je ideální variantou pro váš krk. jako pomůcku proti otáčení se.",
+  "sleepPositionNeckDescription": "V případě bolestí krční páteře vám nedoporučujeme spát na břiše. V případě této polohy spánku dochází k rotaci krční páteře, což může podporovat bolest a tuhnutí v této oblasti. Spánek na boku nebo na zádech je ideální variantou pro váš krk. V případě ležení na boku můžete použít těhotenský polštář jako pomůcku proti otáčení se.",
 
-  "lumbarPad": "Dříková poduška",
-  "lumbarPadBreaks": "Nepoužívejte podušku celý den, ale spíše jako pomůcku na určitou dobu. Pamatujte, že nic jako správný sed neexistuje a proto i delší vzpřímený sed může přispívat k vašim symptomům.",
-  "lumbarPadDescription": "Pravidelná změna typu sedu může pozitivně ovlivnit vaše záda, předcházet nebo snížit bolesti. Dříková poduška slouží k podpoře vzpřímeného sedu bez nutnosti aktivního držení se ve zpřímené poloze, které by mohlo vést k přetížení vzpřimovačů zad. jinou polohu než shrbený sed.",
+  "lumbarPad": "Bederní polštář",
+  "lumbarPadBreaks": "Nepoužívejte polštář celý den, ale spíše jako pomůcku na určitou dobu. Pamatujte, že nic jako správný sed neexistuje a proto i delší vzpřímený sed může přispívat k vašim symptomům.",
+  "lumbarPadDescription": "Pravidelná změna typu sedu může pozitivně ovlivnit vaše záda, předcházet nebo snížit bolesti. Bederní polštář slouží k podpoře vzpřímeného sedu bez nutnosti aktivního držení se ve zpřímené poloze, které by mohlo vést k přetížení vzpřimovačů zad. Tímto způsobem můžete na určitou dobu svým zádům a svalům dopřát jinou polohu než shrbený sed.",
 
   "objectLifting": "Pozor na těžiště při zvedání předmětů",
-  "objectLiftigRule": "Vyhýbejte se zvedání předmětů, které se nacházejí dále od vás (nebo před vámi).",
-  "adviceDescription": "Při zvedání předmětů (jakkoli lehkých nebo těžkých) dbejte na to, abyste měli těžiště vašeho těla co nejblíže středu těla, tj. předměty na zvedání se snažte mít pod sebou když je jdete zvedat. Vyhýbejte se zvedání, tahání nebo tlačení vás).",
+  "objectLiftingRule": "Vyhýbejte se zvedání předmětů, které se nacházejí dále od vás (nebo před vámi).",
+  "objectLiftingDescription": "Při zvedání předmětů (jakkoli lehkých nebo těžkých) dbejte na to, abyste měli těžiště vašeho těla co nejblíže středu těla, tj. předměty na zvedání se snažte mít pod sebou když je jdete zvedat. Vyhýbejte se zvedání, tahání nebo tlačení předmětů, které se nacházejí výrazněji před vámi (nebo od vás)."
 }
