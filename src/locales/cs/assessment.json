@@ -6,8 +6,8 @@
   "painArea": {
     "specify": "Pro začátek hodnocení prosím vyber oblast bolesti",
     "neck": "Krk",
-    "middleBack": "Střední část zad",
-    "lowerBack": "Dolní část zad",
+    "middleBack": "Hrudní páteř",
+    "lowerBack": "Dříková páteř",
     "upperLimb": "Horní končetina",
     "shoulder": "Rameno",
     "elbow": "Loket",
