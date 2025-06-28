@@ -79,11 +79,12 @@ export const advices: Advice[] = [
     adviceId: 5,
     adviceSubtitle:"",
     advicePriority: "medium",
-    adviceRule: "",
+    adviceRule: "objectLiftingRule",
     adviceDescription: "objectLiftingDescription",
     adviceImageUrl: "",
     adviceLink:"",
     bodyParts: ['lower-back'],
     mechanisms: ['nociceptive', 'neuropathic'],
     differentials: ['disc-herniation', 'facet-joint-syndrome', 'SIJ-syndrome', 'sciatica']
+  }
 ];
