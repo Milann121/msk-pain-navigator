@@ -86,10 +86,11 @@ export const GoalsContainer = ({ onBlogGoalChange, onExerciseGoalChange, externa
   const exerciseOptions = Array.from({ length: 14 }, (_, i) => i + 1);
   const blogOptions = Array.from({ length: 10 }, (_, i) => i + 1);
 
-  // Function to get the correct word form for blogs
+  // Function to get the correct word form for blogs in Slovak/Czech
   const getBlogWord = (count: number | null) => {
+    if (!count) return 'blogov';
     if (count === 1) return 'blog';
-    if (count && count >= 2 && count <= 4) return 'blogy';
+    if (count >= 2 && count <= 4) return 'blogy';
     return 'blogov';
   };
 
@@ -150,22 +151,22 @@ export const GoalsContainer = ({ onBlogGoalChange, onExerciseGoalChange, externa
         await saveGoalToDatabase('weekly_exercise', tempValue);
         setWeeklyExerciseGoal(tempValue);
         toast({
-          title: t('goals.successTitle'),
-          description: t('goals.successExercise'),
+          title: t('profile.goals.goalsUpdated'),
+          description: t('profile.goals.goalsUpdated'),
         });
       } else if (field === 'weeklyBlogGoal') {
         await saveGoalToDatabase('weekly_blog', tempValue);
         setWeeklyBlogGoal(tempValue);
         toast({
-          title: t('goals.successTitle'),
-          description: t('goals.successBlog'),
+          title: t('profile.goals.goalsUpdated'),
+          description: t('profile.goals.goalsUpdated'),
         });
       }
     } catch (error) {
       console.error('Error saving goal:', error);
       toast({
-        title: t('goals.errorTitle'),
-        description: t('goals.error'),
+        title: 'Error',
+        description: 'Failed to save goal',
         variant: 'destructive',
       });
     } finally {
@@ -199,9 +200,9 @@ export const GoalsContainer = ({ onBlogGoalChange, onExerciseGoalChange, externa
     const getDisplayText = () => {
       if (field === 'weeklyBlogGoal') {
         const blogWord = isEditing ? getBlogWord(tempValue) : getBlogWord(goalValue);
-        return t('goals.blogText').replace('{dropdown}', '{dropdown}').replace('blogov', blogWord);
+        return t('profile.goals.blogGoal').replace('{dropdown}', '{dropdown}').replace('blogov', blogWord);
       }
-      return text as string;
+      return text;
     };
 
     const displayText = getDisplayText();
@@ -240,7 +241,7 @@ export const GoalsContainer = ({ onBlogGoalChange, onExerciseGoalChange, externa
                 className="px-4 h-8 flex-1 sm:flex-none"
                 disabled={loading}
               >
-                {t('goals.save')}
+                {t('profile.save')}
               </Button>
               <Button 
                 size="default" 
@@ -249,7 +250,7 @@ export const GoalsContainer = ({ onBlogGoalChange, onExerciseGoalChange, externa
                 className="px-4 h-8 flex-1 sm:flex-none"
                 disabled={loading}
               >
-                {t('goals.cancel')}
+                {t('profile.cancel')}
               </Button>
             </div>
           </div>
@@ -288,24 +289,24 @@ export const GoalsContainer = ({ onBlogGoalChange, onExerciseGoalChange, externa
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <Target className="h-5 w-5" />
-          {t('goals.title')}
+          {t('profile.goals.title')}
         </CardTitle>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
           {/* Weekly Goals Section */}
           <div>
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">{t('goals.weekly')}</h3>
+            <h3 className="text-lg font-semibold mb-3 text-blue-800">{t('profile.goals.weeklyGoals')}</h3>
             <div className="space-y-1">
               <GoalRow
-                text={t('goals.exerciseText')}
+                text={t('profile.goals.exerciseGoal')}
                 field="weeklyExerciseGoal"
                 goalValue={weeklyExerciseGoal}
                 onGoalChange={(value) => setWeeklyExerciseGoal(parseInt(value))}
                 options={exerciseOptions}
               />
               <GoalRow
-                text={t('goals.blogText')}
+                text={t('profile.goals.blogGoal')}
                 field="weeklyBlogGoal"
                 goalValue={weeklyBlogGoal}
                 onGoalChange={(value) => setWeeklyBlogGoal(parseInt(value))}
