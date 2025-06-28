@@ -5,9 +5,9 @@
   "new": "Nové hodnotenie",
   "painArea": {
     "specify": "Pre začiatok hodnotenia prosím vyber oblasť bolesti",
-    "neck": "Krk",
-    "middleBack": "Stredná časť chrbta",
-    "lowerBack": "Dolná časť chrbta",
+    "neck": "Krčná chrbtica",
+    "middleBack": "Hrudná chrbtica",
+    "lowerBack": "Drieková chrbtica",
     "upperLimb": "Horná končatina",
     "shoulder": "Rameno",
     "elbow": "Lakeť",
