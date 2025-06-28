@@ -30,6 +30,12 @@
       }
     }
   },
+  "questionNumber": "Question {{current}} of {{total}}",
+  "navigation": {
+    "back": "Back",
+    "next": "Next",
+    "finish": "Finish"
+  },
   "followUp": {
     "title": "Progress Tracking",
     "progressRecorded": "Progress Recorded",

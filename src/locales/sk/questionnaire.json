@@ -3,5 +3,100 @@
   "common": {
     "explainQuestion": "Vysvetliť otázku",
     "questionExplanation": "Vysvetlenie otázky"
+  },
+  "followUp": {
+    "title": "Sledovanie pokroku",
+    "progressRecorded": "Pokrok zaznamenaný",
+    "responsesSaved": "Tvoje odpovede boli úspešne uložené.",
+    "questionNumber": "Otázka {{current}} z {{total}}",
+    "back": "Späť",
+    "next": "Ďalej",
+    "finish": "Dokončiť",
+    "questions": {
+      "painLevelChange": "Ako by si hodnotil/a tvoju bolesť v porovnaní s posledným hodnotením?",
+      "painNatureChanged": "Zmenila sa povaha tvojej bolesti od posledného hodnotenia?",
+      "painNatureDescription": "Ako sa zmenila povaha tvojej bolesti?",
+      "painSpreading": "Rozšírila sa tvoja bolesť do nových oblastí?",
+      "newPainArea": "Do ktorých nových oblastí sa bolesť rozšírila?",
+      "exerciseEffectiveness": "Ako účinné sú cvičenia na zmiernenie bolesti?",
+      "exerciseCompliance": "Ako často dodržiavaš odporučený plán cvičenia?",
+      "painTriggers": "Zmenili sa faktory, ktoré vyvolávajú bolesť?",
+      "painReliefFactors": "Zmenili sa faktory, ktoré zmierňujú bolesť?",
+      "overallImprovement": "Ako hodnotíte celkové zlepšenie stavu?",
+      "medicationUse": "Používaš nejaké lieky na bolesť?",
+      "medicationEffectiveness": "Ako účinné sú lieky na bolesť?",
+      "sleepQuality": "Ako bolesť ovplyvňuje kvalitu spánku?",
+      "dailyActivities": "Ako bolesť ovplyvňuje tvoje každodenné aktivity?",
+      "workImpact": "Ako bolesť ovplyvňuje tvoju prácu alebo štúdium?",
+      "moodImpact": "Ako bolesť ovplyvňuje tvoju náladu?",
+      "socialImpact": "Ako bolesť ovplyvňuje tvoje sociálne aktivity?",
+      "treatmentSatisfaction": "Ako si spokojný/á s doterajším programom?",
+      "overallFeel": "Ako sa celkovo cítiš po programe?",
+      "nerveSymptoms": "Zmenili sa príznaky mravčenia alebo necitlivosti?",
+      "sensitivityChange": "Zmenila sa citlivosť na dotyky, svetlo alebo zvuky?"
+    },
+    "descriptions": {
+      "painLevelChange": "Ohodnoť aktuálnu intenzitu bolesti na stupnici 0 (žiadna bolesť) až 10 (najhoršia predstaviteľná bolesť)."
+    },
+    "options": {
+      "painLevel": {
+        "muchBetter": "Výrazne lepšie",
+        "better": "Lepšie",
+        "same": "Rovnaké",
+        "worse": "Horšie",
+        "muchWorse": "Výrazne horšie"
+      },
+      "yesNo": {
+        "yes": "Áno",
+        "no": "Nie"
+      },
+      "overallFeel": {
+        "better": "Lepšie",
+        "same": "Rovnako",
+        "worse": "Horšie"
+      },
+      "painNatureDescription": {
+        "burning": "Pálenie",
+        "shooting": "Vystreľovanie",
+        "dull": "Tupá",
+        "pins-needles": "Mravčenie",
+        "numbness": "Necitlivosť",
+        "toothache-like": "Zubovité bolesti",
+        "diffuse": "Difúzna",
+        "stiffness": "Stuhnutosť",
+        "changes": "Mení sa"
+      },
+      "newPainArea": {
+        "upper-limb-elbow-up": "Horná končatina – po lakeť",
+        "upper-limb-below-elbow": "Horná končatina – pod lakeť",
+        "upper-limb-hand-fingers": "Horná končatina – až do ruky/prstov",
+        "lower-limb-buttock": "Dolná končatina – v sedacej oblasti",
+        "lower-limb-knee-up": "Dolná končatina – po koleno",
+        "lower-limb-below-knee": "Dolná končatina – pod koleno",
+        "lower-limb-feet-fingers": "Dolná končatina – až do chodidla/prstov",
+        "chest": "Hrudník",
+        "head": "Hlava",
+        "face": "Tvár"
+      },
+      "nerveSymptoms": {
+        "improved": "Zlepšili sa",
+        "unchanged": "Bez zmeny",
+        "worse": "Zhoršili sa"
+      },
+      "sensitivityChange": {
+        "less-sensitive": "Menej citlivý/á",
+        "same": "Rovnako",
+        "more-sensitive": "Viac citlivý/á"
+      }
+    },
+    "painScale": {
+      "noPain": "Žiadna bolesť",
+      "worstPain": "Najhoršia bolesť"
+    },
+    "navigation": {
+      "back": "Späť",
+      "next": "Ďalej",
+      "finish": "Dokončiť"
+    }
   }
 }
