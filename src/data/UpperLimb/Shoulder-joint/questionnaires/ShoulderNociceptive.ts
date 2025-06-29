@@ -2,7 +2,7 @@
 import { Questionnaire } from '@/utils/types';
 import { painLocationQuestion } from './pain-location';
 import { nightPainQuestion, restPositionQuestion } from './rest-and-timing';
-import { movementAggravationQuestion, overheadActivitiesQuestion } from './movement-aggravation';
+import { movementAggravationQuestion } from './movement-aggravation';
 import { clickingLockingQuestion, shoulderDislocationQuestion } from './mechanical-symptoms';
 
 export const shoulderNociceptiveQuestionnaire: Questionnaire = {
@@ -14,7 +14,6 @@ export const shoulderNociceptiveQuestionnaire: Questionnaire = {
     nightPainQuestion,
     restPositionQuestion,
     movementAggravationQuestion,
-    overheadActivitiesQuestion,
     clickingLockingQuestion,
     shoulderDislocationQuestion,
   ]
