@@ -2,11 +2,11 @@
 {
   "loading": "Načítavam...",
   "bodyParts": {
-    "neck": "krku",
-    "middle back": "hrudnej chrbtice",
-    "lower back": "drieku",
-    "upper limb": "hornej končatiny",
-    "shoulder": "ramena"
+    "neck": "Krčná chrbtica",
+    "middle back": "Hrudná chrbtice",
+    "lower back": "Drieková chrbtica",
+    "upper limb": "Horná končatina",
+    "shoulder": "Rameno"
   },
   "painMechanisms": {
     "nociceptive": "Nociceptívna bolesť",
