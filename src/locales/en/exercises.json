@@ -77,5 +77,83 @@
   "resultsFooter": {
     "startNew": "Start New Assessment",
     "myExercises": "My Exercises"
+  },
+  "shoulderNociceptive": {
+    "frozenShoulderPhase1": {
+      "title": "Frozen Shoulder - Phase 1: Pain Relief and Gentle Mobility",
+      "description": "Initial phase focusing on pain management and gentle range of motion exercises. Perform these exercises 2-3 times daily during the acute phase.",
+      "pendulumExercises": {
+        "title": "Pendulum Exercises",
+        "description": "Gentle swinging movements to maintain shoulder mobility without forcing movement. Perform 10-15 swings in each direction, 2-3 times daily."
+      },
+      "isometricExternalRotation": {
+        "title": "Isometric External Rotation",
+        "description": "Gentle strengthening without movement to maintain muscle tone. Hold for 5-10 seconds, repeat 10 times, 2-3 times daily."
+      },
+      "rotatorCuffRelease": {
+        "title": "Rotator Cuff Self-Massage",
+        "description": "Gentle self-massage techniques to reduce muscle tension and improve circulation. Perform for 5-10 minutes daily."
+      },
+      "shoulderHeating": {
+        "title": "Shoulder Warming Exercises",
+        "description": "Gentle warming movements to prepare the shoulder for other exercises and reduce stiffness. Perform before other exercises."
+      }
+    },
+    "frozenShoulderPhase2": {
+      "title": "Frozen Shoulder - Phase 2: Progressive Strengthening",
+      "description": "Progressive strengthening phase when pain begins to subside. Focus on rebuilding shoulder strength and stability.",
+      "isometricShoulderPresses": {
+        "title": "Isometric Shoulder Presses",
+        "description": "Progressive strengthening exercises to rebuild shoulder muscle strength. Hold for 10-15 seconds, repeat 10-15 times."
+      },
+      "wallPushUps": {
+        "title": "Wall Push-Ups",
+        "description": "Modified push-ups against the wall to strengthen shoulder and chest muscles safely. Start with 10 repetitions, progress gradually."
+      },
+      "interscapularStrengthening": {
+        "title": "Upper Back and Shoulder Blade Strengthening",
+        "description": "Strengthening exercises for the muscles between shoulder blades to improve posture and shoulder stability. Perform 10-15 repetitions."
+      }
+    },
+    "subacromialImpingement": {
+      "title": "Subacromial Impingement Syndrome - Pain Relief and Mobility",
+      "description": "Exercises designed to reduce impingement and improve shoulder mechanics. Focus on creating space in the shoulder joint.",
+      "interscapularStrengthening": {
+        "title": "Shoulder Blade Strengthening",
+        "description": "Strengthening the muscles that pull shoulder blades together to improve shoulder alignment and reduce impingement."
+      },
+      "gentlePendulum": {
+        "title": "Gentle Pendulum Swings",
+        "description": "Light pendulum movements to maintain mobility without aggravating impingement. Keep movements small and pain-free."
+      },
+      "preExerciseHeating": {
+        "title": "Pre-Exercise Warming",
+        "description": "Warming exercises to prepare the shoulder joint before performing other therapeutic exercises."
+      }
+    },
+    "rotatorCuffTear": {
+      "title": "Rotator Cuff Tear - Conservative Management",
+      "description": "Conservative treatment focusing on pain management and maintaining available range of motion.",
+      "isometricStrengthening": {
+        "title": "Isometric Strengthening",
+        "description": "Gentle strengthening without movement to avoid further damage while maintaining muscle tone."
+      },
+      "rotatorCuffMassage": {
+        "title": "Rotator Cuff Massage",
+        "description": "Self-massage techniques to improve circulation and reduce muscle tension around the rotator cuff."
+      }
+    },
+    "defaultNociceptive": {
+      "title": "General Shoulder Pain Management",
+      "description": "General exercises for shoulder pain when specific diagnosis is unclear. Focus on basic mobility and gentle strengthening.",
+      "basicMobility": {
+        "title": "Basic Shoulder Mobility",
+        "description": "Fundamental exercises to maintain or restore basic shoulder range of motion."
+      },
+      "basicStrengthening": {
+        "title": "Basic Shoulder Strengthening",
+        "description": "Simple strengthening exercises suitable for most shoulder conditions."
+      }
+    }
   }
 }

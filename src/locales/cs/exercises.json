@@ -80,5 +80,83 @@
   "resultsFooter": {
     "startNew": "Začít nové hodnocení",
     "myExercises": "Moje cvičení"
+  },
+  "shoulderNociceptive": {
+    "frozenShoulderPhase1": {
+      "title": "Zmrzlé rameno - Fáze 1: Úleva od bolesti a jemná mobilita",
+      "description": "Počáteční fáze zaměřená na zvládání bolesti a jemná cvičení pohyblivosti. Provádějte tato cvičení 2-3krát denně během akutní fáze.",
+      "pendulumExercises": {
+        "title": "Kyvadlová cvičení",
+        "description": "Jemné houpací pohyby na udržení pohyblivosti ramene bez nucení pohybu. Proveďte 10-15 kyvů v každém směru, 2-3krát denně."
+      },
+      "isometricExternalRotation": {
+        "title": "Izometrická vnější rotace",
+        "description": "Jemné posilování bez pohybu na udržení svalového tonu. Držte 5-10 sekund, opakujte 10krát, 2-3krát denně."
+      },
+      "rotatorCuffRelease": {
+        "title": "Vlastní masáž rotátorové manžety",
+        "description": "Jemné techniky vlastní masáže na snížení svalového napětí a zlepšení cirkulace. Provádějte 5-10 minut denně."
+      },
+      "shoulderHeating": {
+        "title": "Zahřívací cvičení ramene",
+        "description": "Jemné zahřívací pohyby na přípravu ramene na další cvičení a snížení ztuhlosti. Provádějte před ostatními cvičeními."
+      }
+    },
+    "frozenShoulderPhase2": {
+      "title": "Zmrzlé rameno - Fáze 2: Progresivní posilování",
+      "description": "Fáze progresivního posilování, kdy bolest začíná ustupovat. Zaměřte se na obnovení síly a stability ramene.",
+      "isometricShoulderPresses": {
+        "title": "Izometrické tlaky ramene",
+        "description": "Progresivní posilovací cvičení na obnovení síly svalů ramene. Držte 10-15 sekund, opakujte 10-15krát."
+      },
+      "wallPushUps": {
+        "title": "Kliky o stěnu",
+        "description": "Upravené kliky o stěnu na bezpečné posílení svalů ramene a hrudi. Začněte s 10 opakováními, postupně zvyšujte."
+      },
+      "interscapularStrengthening": {
+        "title": "Posilování horních zad a lopatek",
+        "description": "Posilovací cvičení pro svaly mezi lopatkami na zlepšení držení těla a stability ramene. Proveďte 10-15 opakování."
+      }
+    },
+    "subacromialImpingement": {
+      "title": "Subakromiální impingement syndrom - Úleva od bolesti a mobilita",
+      "description": "Cvičení navržená na snížení impingementu a zlepšení mechaniky ramene. Zaměřte se na vytvoření prostoru v ramenním kloubu.",
+      "interscapularStrengthening": {
+        "title": "Posilování lopatek",
+        "description": "Posilování svalů, které stahují lopatky k sobě, na zlepšení postavení ramene a snížení impingementu."
+      },
+      "gentlePendulum": {
+        "title": "Jemné kyvadlové pohyby",
+        "description": "Lehké kyvadlové pohyby na udržení pohyblivosti bez zhoršení impingementu. Pohyby držte malé a bezbolestné."
+      },
+      "preExerciseHeating": {
+        "title": "Předcvičební zahřívání",
+        "description": "Zahřívací cvičení na přípravu ramenního kloubu před prováděním dalších terapeutických cvičení."
+      }
+    },
+    "rotatorCuffTear": {
+      "title": "Trhlina rotátorové manžety - Konzervativní léčba",
+      "description": "Konzervativní léčba zaměřená na zvládání bolesti a udržení dostupného rozsahu pohybu.",
+      "isometricStrengthening": {
+        "title": "Izometrické posilování",
+        "description": "Jemné posilování bez pohybu, aby se zabránilo dalšímu poškození při udržení svalového tonu."
+      },
+      "rotatorCuffMassage": {
+        "title": "Masáž rotátorové manžety",
+        "description": "Techniky vlastní masáže na zlepšení cirkulace a snížení svalového napětí okolo rotátorové manžety."
+      }
+    },
+    "defaultNociceptive": {
+      "title": "Obecné zvládání bolesti ramene",
+      "description": "Obecná cvičení pro bolest ramene, kdy specifická diagnóza není jasná. Zaměřte se na základní mobilitu a jemné posilování.",
+      "basicMobility": {
+        "title": "Základní mobilita ramene",
+        "description": "Základní cvičení na udržení nebo obnovení základního rozsahu pohybu ramene."
+      },
+      "basicStrengthening": {
+        "title": "Základní posilování ramene",
+        "description": "Jednoduchá posilovací cvičení vhodná pro většinu stavů ramene."
+      }
+    }
   }
 }
