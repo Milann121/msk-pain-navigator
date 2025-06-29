@@ -2,11 +2,11 @@
 {
   "loading": "Načítám...",
   "bodyParts": {
-    "neck": "krku",
-    "middle back": "hrudní páteře",
-    "lower back": "bederní páteře",
-    "upper limb": "horní končetiny",
-    "shoulder": "ramene"
+    "neck": "Krční páteř",
+    "middle back": "Hrudní páteře",
+    "lower back": "Bederní páteř",
+    "upper limb": "Horní končetina",
+    "shoulder": "Rameno"
   },
   "painMechanisms": {
     "nociceptive": "Nociceptivní bolest",
