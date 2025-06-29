@@ -48,14 +48,14 @@ const SaveResultsManager = ({
       
       setAssessmentSaved(true);
       toast({
-        title: t('results.savedTitle'),
-        description: t('results.savedDescription'),
+        title: t('common.results.savedTitle'),
+        description: t('common.results.savedDescription'),
       });
     } catch (error) {
       console.error('Error saving results:', error);
       toast({
-        title: t('results.saveErrorTitle'),
-        description: t('results.saveErrorDescription'),
+        title: t('common.results.saveErrorTitle'),
+        description: t('common.results.saveErrorDescription'),
         variant: 'destructive',
       });
     } finally {
@@ -80,10 +80,10 @@ const SaveResultsManager = ({
   return (
     <p className="mt-2">
       {assessmentSaved ?
-        t('results.autoSaved') :
+        t('common.results.autoSaved') :
         isSaving ?
-          t('results.saving') :
-          t('results.autoSaveFailed')}
+          t('common.results.saving') :
+          t('common.results.autoSaveFailed')}
     </p>
   );
 };

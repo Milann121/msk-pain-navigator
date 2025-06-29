@@ -45,7 +45,7 @@ export const painDescriptionQuestion: Question = {
     {
       id: 'diffuse',
       text: 'questionnaire.general.options.painDescription.diffuse',
-      mechanisms: ['central']
+      mechanisms: ['central', 'nociceptive']
     },
     {
       id: 'stiffness',

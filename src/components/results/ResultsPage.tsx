@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { AssessmentResults } from '@/utils/types';
 import { useAuth } from '@/contexts/AuthContext';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import UserInfoSection from './UserInfoSection';
 import MechanismSection from './MechanismSection';
@@ -21,15 +22,16 @@ interface ResultsPageProps {
 
 const ResultsPage = ({ results, onRestart, assessmentId, assessmentSaved = false }: ResultsPageProps) => {
   const { user } = useAuth();
+  const { t } = useTranslation();
   const [isSaved, setIsSaved] = useState(assessmentSaved);
   const { userInfo, primaryMechanism, sinGroup, primaryDifferential } = results;
   
   return (
     <Card className="w-full max-w-2xl mx-auto">
       <CardHeader className="text-center bg-blue-50">
-        <CardTitle className="text-2xl font-bold text-blue-700">Výsledky hodnotenia</CardTitle>
+        <CardTitle className="text-2xl font-bold text-blue-700">{t('results.title')}</CardTitle>
         <CardDescription>
-          Ďakujeme za vyplnenie MSK Navigátora bolesti
+          {t('results.subtitle')}
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-6 py-6">
@@ -49,7 +51,7 @@ const ResultsPage = ({ results, onRestart, assessmentId, assessmentSaved = false
         />
         
         <div className="text-sm text-gray-500 mt-6">
-          <p>Toto hodnotenie nenahrádza odbornú lekársku pomoc. Pre kompletnú diagnózu a liečebný plán sa prosím poraďte so zdravotníckym pracovníkom.</p>
+          <p>{t('results.footer.disclaimer')}</p>
           {user && (
             <SaveResultsManager 
               results={results}

@@ -1,0 +1,58 @@
+
+{
+  "title": "Výsledky hodnocení",
+  "subtitle": "Děkujeme za vyplnění MSK Navigátoru bolesti",
+  "userInfo": {
+    "title": "Vaše informace",
+    "name": "Jméno",
+    "age": "Věk",
+    "painArea": "Oblast bolesti",
+    "gender": "Pohlaví",
+    "greeting": "Dobrý den",
+    "analysisText": "Analyzovali jsme vaše odpovědi ohledně bolesti {{painArea}}."
+  },
+  "mechanism": {
+    "title": "Primární mechanismus bolesti",
+    "nociceptive": "Nociceptivní bolest",
+    "neuropathic": "Neuropatická bolest",
+    "central": "Centrální senzitivizace",
+    "descriptions": {
+      "nociceptive": "Vaše bolest se jeví jako primárně nociceptivní, což znamená, že pochází z poškození nebo zánětu tkání jako jsou svaly, klouby nebo jiné tkáně.",
+      "neuropathic": "Vaše bolest se jeví jako primárně neuropatická, což znamená, že je způsobená poškozením nebo dysfunkcí nervů.",
+      "central": "Vaše bolest má vysokou závažnost, dráždivost a povahu, což znamená, že je intenzivní, snadno vyvolatelná a trvá déle, než po spuštění ustoupí."
+    }
+  },
+  "sinGroup": {
+    "title": "Úroveň citlivosti na bolest",
+    "high": "Vysoká závažnost, dráždivost a povaha",
+    "mid": "Střední SIN",
+    "low": "Nízká SIN",
+    "descriptions": {
+      "high": "Vaše bolest má vysokou závažnost, je snadno vyvolatelná a má tendenci být intenzivní a dlouhotrvající.",
+      "mid": "Vaše bolest má střední závažnost, střední dráždivost a střední vytrvalost.",
+      "low": "Vaše bolest má nízkou závažnost, není snadno vyvolatelná a má tendenci být méně intenzivní."
+    }
+  },
+  "differential": {
+    "title": "Diferenciální hodnocení",
+    "muscleStrain": "Svalové napětí",
+    "svalovalBolesť": "Svalová bolest",
+    "cervicalRadiculopathy": "Cervikální radikulopatie",
+    "descriptions": {
+      "muscleStrain": "Svalové napětí je často způsobeno přetížením, špatným držením těla nebo náhlými pohyby.",
+      "svalovalBolesť": "Svalová bolest je často způsobena přetížením, natažením nebo zánětem svalových tkání.",
+      "cervicalRadiculopathy": "Cervikální radikulopatie je často způsobena stlačením nebo zánětem nervu v oblasti krční páteře."
+    }
+  },
+  "exercisePlan": {
+    "title": "Váš personalizovaný cvičební plán",
+    "description": "Na základě vašeho hodnocení jsme připravili personalizovaný cvičební program speciálně navržený pro váš stav. Prosím, berte na vědomí, že tento program i tak nemusí být pro vás vhodný a v žádném případě nenahradí návštěvu lékaře nebo fyzioterapeuta. V případě jakéhokoli pocitu diskomfortu nebo zhoršení stavu okamžitě přestaňte s cvičením!",
+    "openProgram": "OTEVŘÍT CVIČEBNÍ PROGRAM",
+    "savedNote": "Výsledky byly automaticky uloženy. Můžete je najít v sekci Moje cvičení."
+  },
+  "footer": {
+    "disclaimer": "Toto hodnocení nenahrazuje odbornou lékařskou pomoc. Pro kompletní diagnózu a léčebný plán se prosím poraďte se zdravotnickým pracovníkem.",
+    "startNew": "Začít nové hodnocení",
+    "myExercises": "Moje cvičení"
+  }
+}
