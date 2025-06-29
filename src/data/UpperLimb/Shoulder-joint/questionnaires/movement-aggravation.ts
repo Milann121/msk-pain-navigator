@@ -97,4 +97,3 @@ export const aggravatingMovementsQuestion: Question = {
 
 // Export the movement aggravation question with the correct name
 export const movementAggravationQuestion = aggravatingMovementsQuestion;
-export const overheadActivitiesQuestion = aggravatingMovementsQuestion;
