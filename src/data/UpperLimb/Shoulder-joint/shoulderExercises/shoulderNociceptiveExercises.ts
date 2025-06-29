@@ -25,7 +25,7 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           bodyPart: ['shoulder']
         },
         {
-          videoId: '61JrYLQQ',
+          videoId: 'eV-61JrYLQQ',
           title: 'exercises.shoulderNociceptive.frozenShoulderPhase1.rotatorCuffRelease.title',
           description: 'exercises.shoulderNociceptive.frozenShoulderPhase1.rotatorCuffRelease.description',
           importance: 1,
