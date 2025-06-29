@@ -3,58 +3,58 @@ import { Question } from '@/utils/types';
 
 export const painDescriptionQuestion: Question = {
   id: 'pain-description',
-  text: 'Ako by ste opísali vašu bolesť?',
-  description: 'Zamyslite sa, ako by ste opísali vašu bolesť/bolesti a zvolte najvhodnejší opis VŽDY IBA K JEDNEJ BOLESTI v danom mieste. Ak máte bolesť na viacerích miestach tela, najprv dokončite dotazník k jednej časti tela a potom vyplňte dotazník k druhej bolestivej časti tela. Týmto spôsobom výrazne zvýšite efektivitu dotazníka.', // Add description here later
+  text: 'questionnaire.general.questions.painDescription',
+  description: 'questionnaire.general.descriptions.painDescription',
   type: 'multiple',
   options: [
     {
       id: 'burning',
-      text: 'Pálivá',
+      text: 'questionnaire.general.options.painDescription.burning',
       mechanisms: ['neuropathic']
     },
     {
       id: 'electric-shocks',
-      text: 'Elektrizujúca',
+      text: 'questionnaire.general.options.painDescription.electric-shocks',
       mechanisms: ['neuropathic']
     },
     {
       id: 'shooting',
-      text: 'Vystreľujúca',
+      text: 'questionnaire.general.options.painDescription.shooting',
       mechanisms: ['neuropathic']
     },
     {
       id: 'dull',
-      text: 'Tupá',
+      text: 'questionnaire.general.options.painDescription.dull',
       mechanisms: ['nociceptive']
     },
     {
       id: 'pins-needles',
-      text: 'Pichanie a mravčenie',
+      text: 'questionnaire.general.options.painDescription.pins-needles',
       mechanisms: ['neuropathic']
     },
     {
       id: 'numbness',
-      text: 'Necitlivosť',
+      text: 'questionnaire.general.options.painDescription.numbness',
       mechanisms: ['neuropathic']
     },
     {
       id: 'toothache-like',
-      text: 'Ako bolesť zuba',
+      text: 'questionnaire.general.options.painDescription.toothache-like',
       mechanisms: ['nociceptive']
     },
     {
       id: 'diffuse',
-      text: 'Rozptýlená (ťažko lokalizovateľná)',
+      text: 'questionnaire.general.options.painDescription.diffuse',
       mechanisms: ['central']
     },
     {
       id: 'stiffness',
-      text: 'Stuhnutosť/napätie',
+      text: 'questionnaire.general.options.painDescription.stiffness',
       mechanisms: ['nociceptive']
     },
     {
       id: 'changes',
-      text: 'Neustále sa mení',
+      text: 'questionnaire.general.options.painDescription.changes',
       mechanisms: ['central']
     }
   ]

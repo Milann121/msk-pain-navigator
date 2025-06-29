@@ -3,34 +3,34 @@ import { Question } from '@/utils/types';
 
 export const restHelpsPainQuestion: Question = {
   id: 'rest-helps-pain',
-  text: 'Pomáha odpočinok alebo vyhýbanie sa pohybom, ktoré zhoršujú bolesť, znížiť vašu bolesť?',
+  text: 'questionnaire.shoulderNociceptive.questions.restHelpsPain',
   description: '',
   type: 'radio',
   options: [
     {
       id: 'yes-rest-helps',
-      text: 'Áno, moja bolesť sa zlepší, keď si oddýchnem',      
+      text: 'questionnaire.shoulderNociceptive.options.restPain.yes-rest-helps',
       differentials: ["none"]
     },
     {
       id: 'no-rest-not-help',
-      text: 'Nie',      
+      text: 'questionnaire.shoulderNociceptive.options.restPain.no-rest-not-help',
       differentials: ["frozen-shoulder", "labral-leason"],
       followUp: [
         {
           id: 'pain-24-hours',
-          text: 'Je vaša bolesť 24 hodín denne alebo zažívate v priebehu dňa obdobia bez bolesti?',
+          text: 'questionnaire.shoulderNociceptive.questions.pain24Hours',
           description: '',
           type: 'radio',
           options: [
             {
               id: '24-hour-pain',
-              text: 'Je to 24-hodinová bolesť bez akéhokoľvek zníženia úrovne bolesti',              
+              text: 'questionnaire.shoulderNociceptive.options.restPain.24-hour-pain',
               differentials: ["red flag"]
             },
             {
               id: 'can-find-relief',
-              text: 'Niekedy si viem nájsť pozície, ktoré bolesť zmierňujú',              
+              text: 'questionnaire.shoulderNociceptive.options.restPain.can-find-relief',
               differentials: ["frozen-shoulder", "labral-leason"]
             }
           ]
@@ -42,23 +42,23 @@ export const restHelpsPainQuestion: Question = {
 
 export const painTimingQuestion: Question = {
   id: 'when-pain-noticeable',
-  text: 'Kedy je bolesť najvýraznejšia?',
+  text: 'questionnaire.shoulderNociceptive.questions.whenPainNoticeable',
   description: '',
   type: 'radio',
   options: [
     {
       id: 'during-activity-overhead',
-      text: 'Počas aktivity, najmä nad hlavou',      
+      text: 'questionnaire.shoulderNociceptive.options.whenPainNoticeable.during-activity-overhead',
       differentials: ["subacromional-impingement-syndrome", "labral-leason", "biceps-tear-long-head", "rotator-cuff-tendinopathy", "rotator-cuff-tear"]
     },
     {
       id: 'at-rest-night',
-      text: 'V pokoji a v noci, najmä pri ležaní na ramene',      
+      text: 'questionnaire.shoulderNociceptive.options.whenPainNoticeable.at-rest-night',
       differentials: ["frozen-shoulder", "labral-leason"]
     },
     {
       id: 'randomly-sleep-light',
-      text: 'Náhodne, dokonca aj počas spánku alebo ľahkej aktivity',      
+      text: 'questionnaire.shoulderNociceptive.options.whenPainNoticeable.randomly-sleep-light',
       differentials: ["frozen-shoulder"]
     }
   ]

@@ -3,58 +3,58 @@ import { Question } from '@/utils/types';
 
 export const painDescriptionQuestion: Question = {
   id: 'pain-description-upper-limb',
-  text: 'Ako by ste opísali vašu bolesť?',
+  text: 'questionnaire.upperLimbGeneral.questions.painDescription',
   description: '',
   type: 'multiple',
   options: [
     {
       id: 'burning-upper-limb',
-      text: 'Pálivá',
+      text: 'questionnaire.upperLimbGeneral.options.painDescription.burning',
       mechanisms: ['neuropathic', 'nociceptive'],      
     },
     {
       id: 'electric-shocks-upper-limb',
-      text: 'Elektrizujúca',
+      text: 'questionnaire.upperLimbGeneral.options.painDescription.electric-shocks',
       mechanisms: ['neuropathic'],      
     },
     {
       id: 'shooting-upper-limb',
-      text: 'Vystreľujúca',
+      text: 'questionnaire.upperLimbGeneral.options.painDescription.shooting',
       mechanisms: ['neuropathic'],      
     },
     {
       id: 'dull-upper-limb',
-      text: 'Tupá',
+      text: 'questionnaire.upperLimbGeneral.options.painDescription.dull',
       mechanisms: ['nociceptive'],      
     },
     {
       id: 'pins-needles-upper-limb',
-      text: 'Pichanie a mravčenie',
+      text: 'questionnaire.upperLimbGeneral.options.painDescription.pins-needles',
       mechanisms: ['neuropathic'],      
     },
     {
       id: 'numbness-upper-limb',
-      text: 'Necitlivosť',
+      text: 'questionnaire.upperLimbGeneral.options.painDescription.numbness',
       mechanisms: ['neuropathic'],      
     },
     {
       id: 'toothache-like-upper-limb',
-      text: 'Ako bolesť zuba',
+      text: 'questionnaire.upperLimbGeneral.options.painDescription.toothache-like',
       mechanisms: ['nociceptive'],      
     },
     {
       id: 'diffuse-upper-limb',
-      text: 'Rozptýlená (ťažko lokalizovateľná)',
+      text: 'questionnaire.upperLimbGeneral.options.painDescription.diffuse',
       mechanisms: ['central'],      
     },
     {
       id: 'stiffness-upper-limb',
-      text: 'Stuhnutosť/napätie',
+      text: 'questionnaire.upperLimbGeneral.options.painDescription.stiffness',
       mechanisms: ['nociceptive'],      
     },
     {
       id: 'changes-upper-limb',
-      text: 'Neustále sa mení',
+      text: 'questionnaire.upperLimbGeneral.options.painDescription.changes',
       mechanisms: ['central'],      
     }
   ]

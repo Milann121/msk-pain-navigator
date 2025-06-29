@@ -3,60 +3,60 @@ import { Question } from '@/utils/types';
 
 export const aggravatingMovementsQuestion: Question = {
   id: 'aggravating-movements',
-  text: 'Aký druh pohybu(ov) najviac zhoršuje vašu bolesť?',
+  text: 'questionnaire.shoulderNociceptive.questions.aggravatingMovements',
   description: '',
   type: 'multiple',
   options: [
     {
       id: 'lifting-arm-overhead',
-      text: 'Zdvíhanie paže nad hlavu',      
+      text: 'questionnaire.shoulderNociceptive.options.aggravatingMovements.lifting-arm-overhead',
       differentials: ["subacromional-impingement-syndrome", "frozen-shoulder", "stiff-shoulder"],
       followUp: [
         {
           id: 'painful-degree',
-          text: 'Pri zdvíhaní paže nad hlavu, pri akom stupni je to bolestivé?',
+          text: 'questionnaire.shoulderNociceptive.questions.painfulDegree',
           description: '',
           type: 'radio',
           options: [
             {
               id: 'around-45-60-degrees',
-              text: 'Približne 45-60 stupňov',              
+              text: 'questionnaire.shoulderNociceptive.options.aggravatingMovements.around-45-60-degrees',
               differentials: ["stiff-shoulder", "frozen-shoulder"]
             },
             {
               id: 'around-90-degrees',
-              text: 'Približne 90 stupňov',              
+              text: 'questionnaire.shoulderNociceptive.options.aggravatingMovements.around-90-degrees',
               differentials: ["subacromional-impingement-syndrome"]
             },
             {
               id: 'above-90-degrees',
-              text: 'Nad 90 stupňov',              
+              text: 'questionnaire.shoulderNociceptive.options.aggravatingMovements.above-90-degrees',
               differentials: ["subacromional-impingement-syndrome","slap-tear"],
               followUp: [
                 {
                   id: 'palm-facing-up',
-                  text: 'Je tento pohyb bolestivý aj s dlaňou otočenou nahor?',
+                  text: 'questionnaire.shoulderNociceptive.questions.palmFacingUp',
                   description: '',
                   type: 'radio',
                   options: [
                     {
                       id: 'same-pain',
-                      text: 'Áno, je to rovnaké',                      
+                      text: 'questionnaire.shoulderNociceptive.options.aggravatingMovements.same-pain',
                       differentials: ["slap-tear"]
                     },
                     {
                       id: 'more-painful-palm-up',
-                      text: 'Áno, bolestivejšie s dlaňou otočenou nahor',                      
+                      text: 'questionnaire.shoulderNociceptive.options.aggravatingMovements.more-painful-palm-up',
                       differentials: ["slap-tear", "labral-leason", "biceps-tear-long-head"]
                     },
                     {
                       id: 'less-painful',
-                      text: 'Menej bolestivé',                      
+                      text: 'questionnaire.shoulderNociceptive.options.aggravatingMovements.less-painful',
                       differentials: ["subacromional-impingement-syndrome"]
                     },
                     {
                       id: 'do-not-want-try',
-                      text: 'Nechcem to skúšať',                      
+                      text: 'questionnaire.shoulderNociceptive.options.aggravatingMovements.do-not-want-try',
                       differentials: ["none"]
                     }
                   ]
@@ -65,7 +65,7 @@ export const aggravatingMovementsQuestion: Question = {
             },
             {
               id: 'do-not-know-degree',
-              text: 'Neviem',              
+              text: 'questionnaire.shoulderNociceptive.options.aggravatingMovements.do-not-know-degree',
               differentials: ["none"]
             }
           ]
@@ -74,22 +74,22 @@ export const aggravatingMovementsQuestion: Question = {
     },
     {
       id: 'reaching-behind-back',
-      text: 'Siahanie za chrbát, obliekanie kabáta alebo zapínanie podprsenky (vnútorná rotácia)',      
+      text: 'questionnaire.shoulderNociceptive.options.aggravatingMovements.reaching-behind-back',
       differentials: ["subacromional-impingement-syndrome","frozen-shoulder","biceps-tear-long-head"]
     },
     {
       id: 'scratching-back-head',
-      text: 'Škrabanie sa na zadnej časti hlavy (vonkajšia rotácia)',      
+      text: 'questionnaire.shoulderNociceptive.options.aggravatingMovements.scratching-back-head',
       differentials: ["frozen-shoulder"]
     },
     {
       id: 'throwing-overhead-sports',
-      text: 'Hádzanie alebo športová aktivita nad hlavou',      
+      text: 'questionnaire.shoulderNociceptive.options.aggravatingMovements.throwing-overhead-sports',
       differentials: ["rotator-cuff-tendinopathy","rotator-cuff-tear", "subacromional-impingement-syndrome"]
     },
     {
       id: 'sudden-movement-heavy',
-      text: 'Náhly pohyb alebo nosenie ťažkého predmetu',      
+      text: 'questionnaire.shoulderNociceptive.options.aggravatingMovements.sudden-movement-heavy',
       differentials: ["unstable-shoulder", "subacromional-impingement-syndrome"]
     }
   ]

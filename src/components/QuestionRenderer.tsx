@@ -10,6 +10,7 @@ import { Question } from '@/utils/types';
 import { cn } from '@/lib/utils';
 import { Info } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useTranslation } from 'react-i18next';
 
 interface QuestionRendererProps {
   question: Question;
@@ -21,6 +22,7 @@ const QuestionRenderer = ({ question, onAnswer }: QuestionRendererProps) => {
   const [followUpVisible, setFollowUpVisible] = useState<string | null>(null);
   const [sliderValue, setSliderValue] = useState<number[]>([0]);
   const isMobile = useIsMobile();
+  const { t } = useTranslation();
 
   const handleSingleOptionChange = (optionId: string) => {
     setSelectedOptions([optionId]);
@@ -52,7 +54,9 @@ const QuestionRenderer = ({ question, onAnswer }: QuestionRendererProps) => {
   return (
     <div className="space-y-6 py-4">
       <div className="flex items-start gap-3">
-        <h3 className="text-lg font-medium text-blue-700 flex-1">{question.text}</h3>
+        <h3 className="text-lg font-medium text-blue-700 flex-1">
+          {question.text.startsWith('questionnaire.') ? t(question.text) : question.text}
+        </h3>
         {question.description && (
           <Popover>
             <PopoverTrigger asChild>
@@ -60,10 +64,10 @@ const QuestionRenderer = ({ question, onAnswer }: QuestionRendererProps) => {
                 variant="ghost"
                 size="sm"
                 className="p-2 h-auto text-gray-500 hover:text-blue-600 hover:bg-blue-50 flex-shrink-0"
-                title="Vysvetliť otázku"
+                title={t('questionnaire.common.explainQuestion')}
               >
                 <Info className="h-4 w-4" />
-                <span className="sr-only">Vysvetliť otázku</span>
+                <span className="sr-only">{t('questionnaire.common.explainQuestion')}</span>
               </Button>
             </PopoverTrigger>
             <PopoverContent 
@@ -76,9 +80,9 @@ const QuestionRenderer = ({ question, onAnswer }: QuestionRendererProps) => {
               sideOffset={isMobile ? 8 : 4}
             >
               <div className="p-3">
-                <h4 className="font-medium text-blue-700 mb-2">Vysvetlenie otázky</h4>
+                <h4 className="font-medium text-blue-700 mb-2">{t('questionnaire.common.questionExplanation')}</h4>
                 <p className="text-sm text-gray-700 leading-relaxed">
-                  {question.description}
+                  {question.description.startsWith('questionnaire.') ? t(question.description) : question.description}
                 </p>
               </div>
             </PopoverContent>
@@ -96,7 +100,9 @@ const QuestionRenderer = ({ question, onAnswer }: QuestionRendererProps) => {
               <div key={option.id} className="flex flex-col space-y-2">
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value={option.id} id={option.id} />
-                  <Label htmlFor={option.id} className="cursor-pointer">{option.text}</Label>
+                  <Label htmlFor={option.id} className="cursor-pointer">
+                    {option.text.startsWith('questionnaire.') ? t(option.text) : option.text}
+                  </Label>
                 </div>
                 
                 {/* Render follow-up questions if this option is selected */}
@@ -128,7 +134,9 @@ const QuestionRenderer = ({ question, onAnswer }: QuestionRendererProps) => {
                   handleMultipleOptionChange(option.id, checked as boolean)
                 }
               />
-              <Label htmlFor={option.id} className="cursor-pointer">{option.text}</Label>
+              <Label htmlFor={option.id} className="cursor-pointer">
+                {option.text.startsWith('questionnaire.') ? t(option.text) : option.text}
+              </Label>
             </div>
           ))}
         </div>
@@ -146,14 +154,24 @@ const QuestionRenderer = ({ question, onAnswer }: QuestionRendererProps) => {
           />
           <div className="flex justify-between items-start text-sm text-gray-500 gap-4">
             <div className="text-left flex-1">
-              <span className="block">{question.scale.minLabel}</span>
+              <span className="block">
+                {question.scale.minLabel.startsWith('questionnaire.')
+                  ? t(question.scale.minLabel)
+                  : question.scale.minLabel}
+              </span>
               <span className="text-xs">({question.scale.min})</span>
             </div>
             <div className="text-center flex-shrink-0 px-3 py-1 bg-blue-50 rounded-md">
-              <span className="text-blue-600 font-medium">Vybrané: {sliderValue[0]}</span>
+              <span className="text-blue-600 font-medium">
+                {t('slider.selected', { value: sliderValue[0] })}
+              </span>
             </div>
             <div className="text-right flex-1">
-              <span className="block">{question.scale.maxLabel}</span>
+              <span className="block">
+                {question.scale.maxLabel.startsWith('questionnaire.')
+                  ? t(question.scale.maxLabel)
+                  : question.scale.maxLabel}
+              </span>
               <span className="text-xs">({question.scale.max})</span>
             </div>
           </div>

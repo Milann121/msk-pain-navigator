@@ -3,5 +3,375 @@
   "common": {
     "explainQuestion": "Vysvětlit otázku",
     "questionExplanation": "Vysvětlení otázky"
+  },
+  "followUp": {
+    "title": "Sledování pokroku",
+    "progressRecorded": "Pokrok zaznamenán",
+    "responsesSaved": "Tvé odpovědi byly úspěšně uloženy.",
+    "questionNumber": "Otázka {{current}} z {{total}}",
+    "back": "Zpět",
+    "next": "Dále",
+    "finish": "Dokončit",
+    "questions": {
+      "painLevelChange": "Jak bys hodnotil/a tvou bolest ve srovnání s posledním hodnocením?",
+      "painNatureChanged": "Změnila se povaha tvé bolesti od posledního hodnocení?",
+      "painNatureDescription": "Jak se změnila povaha tvé bolesti?",
+      "painSpreading": "Rozšířila se tvá bolest do nových oblastí?",
+      "newPainArea": "Do kterých nových oblastí se bolest rozšířila?",
+      "exerciseEffectiveness": "Jak účinná jsou cvičení na zmírnění tvé bolesti?",
+      "exerciseCompliance": "Jak často dodržuješ doporučený plán cvičení?",
+      "painTriggers": "Změnily se faktory, které vyvolávají tvou bolest?",
+      "painReliefFactors": "Změnily se faktory, které zmírňují tvou bolest?",
+      "overallImprovement": "Jak hodnotíš celkové zlepšení tvého stavu?",
+      "medicationUse": "Používáš nějaké léky na bolest?",
+      "medicationEffectiveness": "Jak účinné jsou tvé léky na bolest?",
+      "sleepQuality": "Jak bolest ovlivňuje kvalitu tvého spánku?",
+      "dailyActivities": "Jak bolest ovlivňuje tvé každodenní aktivity?",
+      "workImpact": "Jak bolest ovlivňuje tvou práci nebo studium?",
+      "moodImpact": "Jak bolest ovlivňuje tvou náladu?",
+      "socialImpact": "Jak bolest ovlivňuje tvou sociální aktivity?",
+      "treatmentSatisfaction": "Jak jsi spokojen/á s dosavadní terapií?",
+      "overallFeel": "Jak se celkově cítíš po programu?",
+      "nerveSymptoms": "Změnily se příznaky mravenčení nebo necitlivosti?",
+      "sensitivityChange": "Změnila se citlivost na dotyk, světlo nebo zvuky?"
+    },
+    "descriptions": {
+      "painLevelChange": "Ohodnoť aktuální intenzitu bolesti na stupnici 0 (žádná bolest) až 10 (nejhorší představitelná bolest)."
+    },
+    "options": {
+      "painLevel": {
+        "muchBetter": "Výrazně lepší",
+        "better": "Lepší",
+        "same": "Stejná",
+        "worse": "Horší",
+        "muchWorse": "Výrazně horší"
+      },
+      "yesNo": {
+        "yes": "Ano",
+        "no": "Ne"
+      },
+      "overallFeel": {
+        "better": "Lepší",
+        "same": "Stejná",
+        "worse": "Horší"
+      },
+      "painNatureDescription": {
+        "burning": "Pálení",
+        "shooting": "Vystřelování",
+        "dull": "Tupá",
+        "pins-needles": "Mravenčení",
+        "numbness": "Necitlivost",
+        "toothache-like": "Jako bolest zubu",
+        "diffuse": "Difuzní",
+        "stiffness": "Ztuhlost",
+        "changes": "Mění se"
+      },
+      "newPainArea": {
+        "upper-limb-elbow-up": "Horní končetina – po loket",
+        "upper-limb-below-elbow": "Horní končetina – pod loket",
+        "upper-limb-hand-fingers": "Horní končetina – až do ruky/prstů",
+        "lower-limb-buttock": "Dolní končetina – v sedací oblasti",
+        "lower-limb-knee-up": "Dolní končetina – po koleno",
+        "lower-limb-below-knee": "Dolní končetina – pod koleno",
+        "lower-limb-feet-fingers": "Dolní končetina – až do chodidla/prstů",
+        "chest": "Hrudník",
+        "head": "Hlava",
+        "face": "Tvář"
+      },
+      "nerveSymptoms": {
+        "improved": "Zlepšily se",
+        "unchanged": "Bez změny",
+        "worse": "Zhoršily se"
+      },
+      "sensitivityChange": {
+        "less-sensitive": "Méně citlivý/á",
+        "same": "Stejně",
+        "more-sensitive": "Více citlivý/á"
+      }
+    },
+    "painScale": {
+      "noPain": "Žádná bolest",
+      "worstPain": "Nejhorší bolest"
+    },
+    "navigation": {
+      "back": "Zpět",
+      "next": "Dále",
+      "finish": "Dokončit"
+    }
+  },
+  "general": {
+    "title": "Základní hodnocení bolesti",
+    "description": "Tento dotazník nám pomůže lépe pochopit tvou bolest.",
+    "questions": {
+      "painIntensity": "Jaká je intenzita tvé bolesti v průměru?",
+      "painWithMovement": "Zvyšuje se bolest při určitých pohybech nebo aktivitách?",
+      "painIntensityIncrease": "Jak intenzivní se tehdy bolest stává?",
+      "painOnsetTiming": "Jak rychle se bolest objeví po těchto pohybech?",
+      "painSubsiding": "Jak dlouho trvá, než bolest odezní?",
+      "painDescription": "Jak bys popsal/a svou bolest?",
+      "injuryStart": "Začala tvá bolest po zranění?",
+      "activityStart": "Začala tvá bolest po konkrétní aktivitě/pohybu?",
+      "reflexes": "Byl/a jsi informován/a o výrazně snížených či chybějících reflexech?",
+      "sensitivity": "Máš zvýšenou citlivost na světlo, zvuk nebo vůně?",
+      "variableImpact": "Je vliv stejných pohybů na bolest nepředvídatelný?"
+    },
+    "descriptions": {
+      "injuryStart": "Chceme vědět, zda bolest vznikla přímo po úrazu.",
+      "activityStart": "Popiš konkrétní aktivitu, která bolest vyvolala.",
+      "reflexes": "Ztráta reflexů může hodně napovědět o tvém stavu.",
+      "sensitivity": "Odpověz ano jen pokud se tato citlivost objevila s bolestí.",
+      "variableImpact": "Odpověz ano, pokud nedokážeš předvídat vznik bolesti."
+    },
+    "options": {
+      "yesNo": {
+        "yes": "Ano",
+        "no": "Ne"
+      },
+      "intensityIncrease": {
+        "significantly": "Výrazně",
+        "moderately": "Středně",
+        "minimally": "Minimálně"
+      },
+      "onsetTiming": {
+        "immediately": "Okamžitě",
+        "later": "Později"
+      },
+      "subsiding": {
+        "immediately": "Okamžitě",
+        "later": "Později"
+      },
+      "painDescription": {
+        "burning": "Pálení",
+        "electric-shocks": "Elektrické šoky",
+        "shooting": "Vystřelování",
+        "dull": "Tupá",
+        "pins-needles": "Mravenčení",
+        "numbness": "Necitlivost",
+        "toothache-like": "Jako bolest zubu",
+        "diffuse": "Difuzní",
+        "stiffness": "Ztuhlost",
+        "changes": "Mění se"
+      }
+    },
+    "painScale": {
+      "noPain": "Žádná bolest",
+      "worstPain": "Nejhorší představitelná bolest"
+    }
+  },
+  "nociceptive": {
+    "title": "Hodnocení nociceptivní bolesti",
+    "description": "Tento dotazník nám pomůže lépe pochopit příznaky související s tkáňovou bolestí.",
+    "questions": {
+      "restHelps": "Pomáhá ti odpočinek nebo vyhýbání se pohybům, které vyvolávají bolest?",
+      "worstTime": "V které části dne je bolest obvykle nejhorší?",
+      "spineAbnormality": "Všiml/a sis prohlubně v páteři nebo vystupujícího obratle?",
+      "lyingHelps": "Zmírňuje leh na zádech tvé příznaky?",
+      "chestTightness": "Pociťuješ ztuhlost na hrudníku?",
+      "breathingPain": "Cítíš při nádechu bolest nebo jiné příznaky?"
+    },
+    "descriptions": {
+      "restHelps": "Má odpočinek přímý pozitivní vliv na tvou bolest?",
+      "worstTime": "Zamysli se, která část dne je pro tebe nejhorší a odpověz co nejpřesněji.",
+      "spineAbnormality": "Pokud si nejsi jistý/á, požádej blízkého o kontrolu páteře.",
+      "lyingHelps": "Pokud nevíš, zkus si lehnout na záda a sleduj úlevu.",
+      "chestTightness": "Zajímá nás, zda máš příznaky i v přední části hrudníku.",
+      "breathingPain": "Například píchání v hrudníku nebo tuhost při nádechu."
+    },
+    "options": {
+      "yesNo": {
+        "yes": "Ano",
+        "no": "Ne"
+      },
+      "worstTime": {
+        "morning": "Ráno po probuzení",
+        "daytime": "Během dne při aktivitách",
+        "nighttime": "V noci"
+      }
+    }
+  },
+  "neuropathic": {
+    "title": "Hodnocení neuropatické bolesti",
+    "description": "Tento dotazník nám pomůže lépe pochopit příznaky spojené s nervovou bolestí.",
+    "questions": {
+      "coughingPain": "Zhoršuje se bolest při kašli, kýchání nebo napínání?",
+      "abnormalSensations": "Cítíš nezvyklé pocity jako mravenčení, pálení nebo \"elektrické šoky\"?",
+      "numbness": "Pociťuješ necitlivost nebo oťažklost v konkrétní oblasti končetiny?",
+      "muscleWeakness": "Všiml/a sis svalové slabosti v postižené končetině?",
+      "reflexLoss": "Ztratil/a jsi reflexy v postižené končetině?",
+      "spineAbnormality": "Všiml/a sis prohlubně v páteři nebo vystupujícího obratle?",
+      "lyingHelps": "Zmírňuje leh na zádech tvé příznaky?"
+    },
+    "descriptions": {
+      "coughingPain": "Zajímá nás, zda kašel priamo zvyšuje tvoje příznaky.",
+      "abnormalSensations": "Odpověz ano, pokud můžeš přesně ukázat dráhu ostré bolesti.",
+      "numbness": "Odpověz ano, pokud máš pocit necitlivosti nebo oťažklosti.",
+      "muscleWeakness": "Odpověz ano, pokud slabost ztěžuje běžné pohyby.",
+      "reflexLoss": "Ztráta reflexů může hodně napovědět o stavu.",
+      "spineAbnormality": "Pokud si nejsi jistý/á, požádej blízkého o kontrolu páteře.",
+      "lyingHelps": "Lehni si na záda na pár minut a sleduj, zda se příznaky zlepší."
+    },
+    "options": {
+      "yesNo": {
+        "yes": "Ano",
+        "no": "Ne"
+      }
+    }
+  },
+  "central": {
+    "title": "Hodnocení centrální senzitivizace",
+    "description": "Tento dotazník nám pomůže pochopit příznaky související se zpracováním bolesti.",
+    "questions": {
+      "painSpread": "Šíří se tvá bolest do oblastí, které původně nebyly postiženy?",
+      "allodynia": "Způsobují běžné dotyky bolest?",
+      "disproportionate": "Zdá se ti bolest nepřiměřená tvému stavu?",
+      "sensorySensitivity": "Jsi citlivější na světlo, hluk nebo vůně?",
+      "cognitiveSymptoms": "Máte spolu s bolestí únavu nebo zhoršenou koncentraci?"
+    },
+    "descriptions": {},
+    "options": {
+      "yesNo": {
+        "yes": "Ano",
+        "no": "Ne"
+      }
+    }
+,
+  "upperLimbGeneral": {
+    "title": "Hodnocení bolesti horní končetiny",
+    "description": "Tento dotazník nám pomůže lépe pochopit tvou bolest horní končetiny.",
+    "questions": {
+      "painLocation": "Cítíš bolest jen na jedné straně nebo na obou stranách?",
+      "neckPainConnection": "Je bolest ruky provázena bolestí krku?",
+      "neckMovementCausesPain": "Způsobuje pohyb krku přímo bolest v ruce?",
+      "painSpreadLocation": "Kam se bolest šíří?",
+      "painIntensity": "Jaká je průměrná intenzita bolesti ruky?",
+      "painWithMovement": "Zvyšuje se bolest při určitých pohybech nebo aktivitách?",
+      "painIntensityIncrease": "Jak intenzivní se tehdy bolest stává?",
+      "painOnsetTiming": "Jak rychle se bolest objeví po těchto pohybech/aktivitách?",
+      "painSubsiding": "Jak dlouho trvá, než bolest poté odezní?",
+      "painDescription": "Jak bys popsal/a svou bolest?",
+      "nightPain": "Pociťuješ bolest i v noci?",
+      "injuryStart": "Začala tvá bolest po úrazu nebo traumatu?",
+      "activityStart": "Začala tvá bolest po konkrétní aktivitě/pohybu?",
+      "reflexes": "Řekl ti odborník, že máš výrazně snížené nebo chybějící reflexy?",
+      "sensitivity": "Máš zvýšenou citlivost na světlo, zvuk nebo vůně?",
+      "variableImpact": "Je vliv stejných pohybů na bolest nepředvídatelný?"
+    },
+    "descriptions": {},
+    "options": {
+      "yesNo": {
+        "yes": "Ano",
+        "no": "Ne"
+      },
+      "location": {
+        "unilateral": "Pouze na jedné straně (unilaterálně)",
+        "bilateral": "Na obou stranách (bilaterálně)"
+      },
+      "intensityIncrease": {
+        "significantly": "Výrazně",
+        "moderately": "Středně",
+        "minimally": "Minimálně"
+      },
+      "onsetTiming": {
+        "immediately": "Okamžitě",
+        "later": "Později"
+      },
+      "subsiding": {
+        "immediately": "Okamžitě",
+        "later": "Později"
+      },
+      "painDescription": {
+        "burning": "Pálení",
+        "electric-shocks": "Elektrické šoky",
+        "shooting": "Vystřelování",
+        "dull": "Tupá",
+        "pins-needles": "Mravenčení",
+        "numbness": "Necitlivost",
+        "toothache-like": "Jako bolest zubu",
+        "diffuse": "Difuzní",
+        "stiffness": "Ztuhlost",
+        "changes": "Mění se"
+      },
+      "spreadLocation": {
+        "shoulder": "Rameno",
+        "elbow": "Loket",
+        "forearm": "Předloktí",
+        "hand": "Ruka",
+        "fingers": "Prsty"
+      },
+      "reflexes": {
+        "notVisited": "Nenavštívil/a jsem zdravotníka"
+      }
+    },
+    "painScale": {
+      "noPain": "Žádná bolest",
+      "worstPain": "Nejhorší představitelná bolest"
+    }
+  },
+  "shoulderNociceptive": {
+    "title": "Hodnocení bolesti ramene - nociceptivní",
+    "description": "Specifické otázky pro nociceptivní bolest ramene.",
+    "questions": {
+      "shoulderPainLocation": "Kde se tvá bolest ramene převážně nachází?",
+      "restHelpsPain": "Pomáhá odpočinek nebo vyhýbání se bolestivým pohybům zmírnit bolest?",
+      "pain24Hours": "Je bolest přítomna 24 hodin denně, nebo máš období bez bolesti?",
+      "whenPainNoticeable": "Kdy je bolest nejvýraznější?",
+      "aggravatingMovements": "Jaký typ pohybu nejvíce zhoršuje bolest?",
+      "painfulDegree": "Při zdvihání paže nad hlavu, při jakém stupni je to bolestivé?",
+      "palmFacingUp": "Je tento pohyb bolestivý i s dlaní otočenou nahoru?",
+      "clickingLockingCatching": "Cítíš v rameni cvakání, blokování nebo přeskočení?",
+      "shoulderDislocationPast": "Měl/a jsi v minulosti vykloubené rameno?"
+    },
+    "descriptions": {},
+    "options": {
+      "yesNo": {
+        "yes": "Ano",
+        "no": "Ne"
+      },
+      "painLocation": {
+        "lateral-upper-arm": "Boční strana horní paže",
+        "deep-shoulder-joint": "Hluboko v ramenním kloubu",
+        "front-shoulder": "Přední část ramene",
+        "below-behind-bone": "Pod a trochu za kostěnou strukturou nad ramenem",
+        "from-shoulderblade": "Od lopatky dopředu",
+        "entire-shoulder": "Celé rameno, těžko lokalizovatelné"
+      },
+      "restPain": {
+        "yes-rest-helps": "Ano, bolest se zlepší, když odpočívám",
+        "no-rest-not-help": "Ne",
+        "24-hour-pain": "Je to 24hodinová bolest bez úlevy",
+        "can-find-relief": "Někdy si dokážu najít polohy, které bolest zmírní"
+      },
+      "whenPainNoticeable": {
+        "during-activity-overhead": "Během aktivity, zejména nad hlavou",
+        "at-rest-night": "V klidu a v noci, hlavně při ležení na rameni",
+        "randomly-sleep-light": "Náhodně, i během spánku nebo lehké aktivity"
+      },
+      "aggravatingMovements": {
+        "lifting-arm-overhead": "Zdvihání paže nad hlavu",
+        "around-45-60-degrees": "Přibližně 45-60 stupňů",
+        "around-90-degrees": "Přibližně 90 stupňů",
+        "above-90-degrees": "Nad 90 stupňů",
+        "do-not-know-degree": "Nevím",
+        "palm-facing-up": "Je tento pohyb bolestivý i s dlaní nahoru?",
+        "same-pain": "Ano, je to stejné",
+        "more-painful-palm-up": "Ano, bolestivější s dlaní nahoru",
+        "less-painful": "Méně bolestivé",
+        "do-not-want-try": "Nechci to zkoušet",
+        "reaching-behind-back": "Sahání za záda, oblékání kabátu nebo zapínání podprsenky",
+        "scratching-back-head": "Škrábání zadní části hlavy",
+        "throwing-overhead-sports": "Házení nebo sport nad hlavou",
+        "sudden-movement-heavy": "Náhlý pohyb nebo zvedání těžkého předmětu"
+      },
+      "clickingLocking": {
+        "yes-clicking": "Ano",
+        "no-clicking": "Ne",
+        "rarely-sports-only": "Zřídka, jen při sportu"
+      },
+      "shoulderDislocation": {
+        "yes-confirmed-diagnosis": "Ano, potvrzeno lékařem",
+        "no-dislocation": "Ne",
+        "not-sure-popped-out": "Nejsem si jistý/á, ale rameno jako by vyskočilo"
+      }
+    }
   }
 }

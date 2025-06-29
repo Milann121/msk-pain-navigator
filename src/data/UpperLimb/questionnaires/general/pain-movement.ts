@@ -3,70 +3,70 @@ import { Question } from '@/utils/types';
 
 export const painMovementQuestion: Question = {
   id: 'pain-with-movement-upper-limb',
-  text: 'Zvyšuje sa vaša bolesť pri určitých pohyboch alebo aktivitách?',
+  text: 'questionnaire.upperLimbGeneral.questions.painWithMovement',
   description: '',
   type: 'radio',
   options: [
     {
       id: 'yes-movement-upper-limb',
-      text: 'Áno',
+      text: 'questionnaire.upperLimbGeneral.options.yesNo.yes',
       mechanisms: ['nociceptive', 'neuropathic'],      
       followUp: [
         {
           id: 'pain-intensity-increase-upper-limb',
-          text: 'Ako intenzívnou sa vtedy stáva vaša bolesť?',
+          text: 'questionnaire.upperLimbGeneral.questions.painIntensityIncrease',
           description: '',
           type: 'radio',
           options: [
             {
               id: 'significantly-upper-limb',
-              text: 'Výrazne',
+              text: 'questionnaire.upperLimbGeneral.options.intensityIncrease.significantly',
               sinGroups: ['high SIN']
             },
             {
               id: 'moderately-upper-limb',
-              text: 'Stredne',
+              text: 'questionnaire.upperLimbGeneral.options.intensityIncrease.moderately',
               sinGroups: ['mid SIN']
             },
             {
               id: 'minimally-upper-limb',
-              text: 'Minimálne',
+              text: 'questionnaire.upperLimbGeneral.options.intensityIncrease.minimally',
               sinGroups: ['low SIN']
             }
           ]
         },
         {
           id: 'pain-onset-timing-upper-limb',
-          text: 'Ako rýchlo sa bolesť objaví po týchto pohyboch/aktivitách?',
+          text: 'questionnaire.upperLimbGeneral.questions.painOnsetTiming',
           description: '',
           type: 'radio',
           options: [
             {
               id: 'immediately-upper-limb',
-              text: 'Okamžite',             
+              text: 'questionnaire.upperLimbGeneral.options.onsetTiming.immediately',
               sinGroups: ['high SIN']
             },
             {
               id: 'later-upper-limb',
-              text: 'Neskôr',
+              text: 'questionnaire.upperLimbGeneral.options.onsetTiming.later',
               sinGroups: ['mid SIN']
             }
           ]
         },
         {
           id: 'pain-subsiding-upper-limb',
-          text: 'Ako dlho trvá, kým bolesť ustúpi/zníži sa po ukončení týchto aktivít/pohybu?',
+          text: 'questionnaire.upperLimbGeneral.questions.painSubsiding',
           description: '',
           type: 'radio',
           options: [
             {
               id: 'immediately-subside-upper-limb',
-              text: 'Okamžite',              
+              text: 'questionnaire.upperLimbGeneral.options.subsiding.immediately',
               sinGroups: ['low SIN']
             },
             {
               id: 'later-subside-upper-limb',
-              text: 'Neskôr',              
+              text: 'questionnaire.upperLimbGeneral.options.subsiding.later',
               sinGroups: ['mid SIN']
             }
           ]
@@ -75,7 +75,7 @@ export const painMovementQuestion: Question = {
     },
     {
       id: 'no-movement-upper-limb',
-      text: 'Nie',
+      text: 'questionnaire.upperLimbGeneral.options.yesNo.no',
       mechanisms: ['none'],      
     }
   ]

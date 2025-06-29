@@ -16,8 +16,8 @@ import {
 
 export const upperLimbGeneralQuestionnaire: Questionnaire = {
   id: 'upper-limb-general',
-  title: 'Hodnotenie bolesti hornej končatiny',
-  description: 'Tento dotazník nám pomôže lepšie pochopiť povahu vašej bolesti hornej končatiny.',
+  title: 'questionnaire.upperLimbGeneral.title',
+  description: 'questionnaire.upperLimbGeneral.description',
   questions: [
     painLocationQuestion,
     neckPainConnectionQuestion,

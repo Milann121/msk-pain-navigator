@@ -30,6 +30,14 @@
       }
     }
   },
+  "misc": {
+    "questionNumber": "Otázka {{current}} z {{total}}",
+    "navigation": {
+      "back": "Späť",
+      "next": "Ďalej",
+      "finish": "Dokončiť"
+    }
+  },
   "followUp": {
     "title": "Sledovanie pokroku",
     "progressRecorded": "Pokrok zaznamenaný",
