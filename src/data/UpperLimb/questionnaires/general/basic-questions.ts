@@ -3,18 +3,18 @@ import { Question } from '@/utils/types';
 
 export const nightPainQuestion: Question = {
   id: 'night-pain-upper-limb',
-  text: 'Pociťujete aj nočnú bolesť?',
+  text: 'questionnaire.upperLimbGeneral.questions.nightPain',
   description: '',
   type: 'radio',
   options: [
     {
       id: 'yes-night-pain',
-      text: 'Áno',
+      text: 'questionnaire.upperLimbGeneral.options.yesNo.yes',
       mechanisms: ['nociceptive', "red-flag"],
     },
     {
       id: 'no-night-pain',
-      text: 'Nie',
+      text: 'questionnaire.upperLimbGeneral.options.yesNo.no',
       mechanisms: ['none'],      
     }
   ]
@@ -22,18 +22,18 @@ export const nightPainQuestion: Question = {
 
 export const injuryStartQuestion: Question = {
   id: 'injury-start-upper-limb',
-  text: 'Začala sa vaša bolesť po zranení alebo úraze?',
+  text: 'questionnaire.upperLimbGeneral.questions.injuryStart',
   description: '',
   type: 'radio',
   options: [
     {
       id: 'yes-injury-upper-limb',
-      text: 'Áno',
+      text: 'questionnaire.upperLimbGeneral.options.yesNo.yes',
       mechanisms: ['nociceptive'],      
     },
     {
       id: 'no-injury-upper-limb',
-      text: 'Nie',
+      text: 'questionnaire.upperLimbGeneral.options.yesNo.no',
       mechanisms: ['none'],      
     }
   ]
@@ -41,18 +41,18 @@ export const injuryStartQuestion: Question = {
 
 export const activityStartQuestion: Question = {
   id: 'activity-start-upper-limb',
-  text: 'Začala sa vaša bolesť po konkrétnej aktivite/pohybe?',
+  text: 'questionnaire.upperLimbGeneral.questions.activityStart',
   description: '',
   type: 'radio',
   options: [
     {
       id: 'yes-activity-upper-limb',
-      text: 'Áno',
+      text: 'questionnaire.upperLimbGeneral.options.yesNo.yes',
       mechanisms: ['nociceptive', 'neuropathic'],      
     },
     {
       id: 'no-activity-upper-limb',
-      text: 'Nie',
+      text: 'questionnaire.upperLimbGeneral.options.yesNo.no',
       mechanisms: ['central'],      
     }
   ]
@@ -60,23 +60,23 @@ export const activityStartQuestion: Question = {
 
 export const reflexesQuestion: Question = {
   id: 'reflexes-upper-limb',
-  text: 'Boli ste informovaný/á lekárom, že máte výrazne znížené alebo chýbajúce reflexy?',
+  text: 'questionnaire.upperLimbGeneral.questions.reflexes',
   description: '',
   type: 'radio',
   options: [
     {
       id: 'yes-reflexes-upper-limb',
-      text: 'Áno',
+      text: 'questionnaire.upperLimbGeneral.options.yesNo.yes',
       mechanisms: ['neuropathic'],      
     },
     {
       id: 'no-reflexes-upper-limb',
-      text: 'Nie',
+      text: 'questionnaire.upperLimbGeneral.options.yesNo.no',
       mechanisms: ['neuropathic'],
     },
     {
       id: 'not-visited-upper-limb',
-      text: 'Nenavštívil/a som zdravotníckeho pracovníka',
+      text: 'questionnaire.upperLimbGeneral.options.reflexes.notVisited',
       mechanisms: ['none'],
     }
   ]
@@ -84,18 +84,18 @@ export const reflexesQuestion: Question = {
 
 export const sensitivityQuestion: Question = {
   id: 'sensitivity-upper-limb',
-  text: 'Máte zvýšenú citlivosť na svetlo, zvuk alebo vône?',
+  text: 'questionnaire.upperLimbGeneral.questions.sensitivity',
   description: '',
   type: 'radio',
   options: [
     {
       id: 'yes-sensitivity-upper-limb',
-      text: 'Áno',
+      text: 'questionnaire.upperLimbGeneral.options.yesNo.yes',
       mechanisms: ['central'],
     },
     {
       id: 'no-sensitivity-upper-limb',
-      text: 'Nie',
+      text: 'questionnaire.upperLimbGeneral.options.yesNo.no',
       mechanisms: ['none'],
     }
   ]
@@ -103,18 +103,18 @@ export const sensitivityQuestion: Question = {
 
 export const variableImpactQuestion: Question = {
   id: 'variable-impact-upper-limb',
-  text: 'Je vplyv pohybov/aktivít (rovnakých) na bolesť premenlivý, nepredvídateľný alebo nekonzistentný?',
+  text: 'questionnaire.upperLimbGeneral.questions.variableImpact',
   description: '',
   type: 'radio',
   options: [
     {
       id: 'yes-variable-upper-limb',
-      text: 'Áno',
+      text: 'questionnaire.upperLimbGeneral.options.yesNo.yes',
       mechanisms: ['central'],
     },
     {
       id: 'no-variable-upper-limb',
-      text: 'Nie',
+      text: 'questionnaire.upperLimbGeneral.options.yesNo.no',
       mechanisms: ['none'],
     }
   ]

@@ -98,6 +98,8 @@
       "next": "Next",
       "finish": "Finish"
     }
+  }
+  ,
   },
   "general": {
     "title": "Basic Pain Assessment",
@@ -116,6 +118,11 @@
       "variableImpact": "Is the effect of the same movements/activities on pain unpredictable?"
     },
     "descriptions": {
+      "injuryStart": "We want to know if your pain began directly after a trauma such as a fall or impact.",
+      "activityStart": "Describe the specific activity that triggered your pain.",
+      "reflexes": "Loss of reflexes can reveal a lot about your condition.",
+      "sensitivity": "Answer yes only if this sensitivity appeared with your pain.",
+      "variableImpact": "Answer yes if you cannot predict when your pain will appear."
       "painIntensity": "Rate your pain on a scale from 0 to 10, where 0 means no pain and 10 means the worst pain imaginable.",
       "painWithMovement": "Consider activities like bending, lifting, walking, or specific movements that make your pain worse.",
       "painIntensityIncrease": "Think about how much more intense your pain becomes during these triggering movements or activities.",
@@ -127,12 +134,37 @@
       "reflexes": "This refers to medical testing where a doctor checks your reflexes with a small hammer. Loss of reflexes can reveal important information about your condition.",
       "sensitivity": "Answer yes only if this sensitivity appeared together with your pain and is more pronounced than before.",
       "variableImpact": "Answer yes if you cannot predict when the same activities will cause pain - sometimes they hurt, sometimes they don't."
+
     },
     "options": {
       "yesNo": {
         "yes": "Yes",
         "no": "No"
       },
+      "intensityIncrease": {
+        "significantly": "Significantly",
+        "moderately": "Moderately",
+        "minimally": "Minimally"
+      },
+      "onsetTiming": {
+        "immediately": "Immediately",
+        "later": "Later"
+      },
+      "subsiding": {
+        "immediately": "Immediately",
+        "later": "Later"
+      },
+      "painDescription": {
+        "burning": "Burning",
+        "electric-shocks": "Electric shocks",
+        "shooting": "Shooting",
+        "dull": "Dull",
+        "pins-needles": "Pins and needles",
+        "numbness": "Numbness",
+        "toothache-like": "Toothache-like",
+        "diffuse": "Diffuse",
+        "stiffness": "Stiffness",
+        "changes": "Changes"
       "notVisited": "Haven't visited a doctor yet",
       "intensityIncrease": {
         "significantly": "Significantly (becomes much worse)",
@@ -239,6 +271,146 @@
       "yesNo": {
         "yes": "Yes",
         "no": "No"
+      }
+    }
+  }
+,
+  "upperLimbGeneral": {
+    "title": "Upper Limb Pain Assessment",
+    "description": "This questionnaire helps us understand your upper limb pain.",
+    "questions": {
+      "painLocation": "Do you feel pain on one side or both sides?",
+      "neckPainConnection": "Is your arm pain accompanied by neck pain?",
+      "neckMovementCausesPain": "Does moving your neck directly cause arm pain?",
+      "painSpreadLocation": "Where does the pain spread?",
+      "painIntensity": "What is your average arm pain intensity?",
+      "painWithMovement": "Does your pain increase with certain movements or activities?",
+      "painIntensityIncrease": "How intense does the pain become then?",
+      "painOnsetTiming": "How quickly does the pain start after those movements/activities?",
+      "painSubsiding": "How long does it take for the pain to subside afterwards?",
+      "painDescription": "How would you describe your pain?",
+      "nightPain": "Do you experience night pain?",
+      "injuryStart": "Did your pain start after an injury or trauma?",
+      "activityStart": "Did your pain start after a specific activity/movement?",
+      "reflexes": "Have you been told by a professional that you have markedly reduced or absent reflexes?",
+      "sensitivity": "Do you have increased sensitivity to light, sound or smells?",
+      "variableImpact": "Is the effect of the same movements/activities on pain unpredictable?"
+    },
+    "descriptions": {},
+    "options": {
+      "yesNo": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "location": {
+        "unilateral": "Only on one side (unilateral)",
+        "bilateral": "On both sides (bilateral)"
+      },
+      "intensityIncrease": {
+        "significantly": "Significantly",
+        "moderately": "Moderately",
+        "minimally": "Minimally"
+      },
+      "onsetTiming": {
+        "immediately": "Immediately",
+        "later": "Later"
+      },
+      "subsiding": {
+        "immediately": "Immediately",
+        "later": "Later"
+      },
+      "painDescription": {
+        "burning": "Burning",
+        "electric-shocks": "Electric shocks",
+        "shooting": "Shooting",
+        "dull": "Dull",
+        "pins-needles": "Pins and needles",
+        "numbness": "Numbness",
+        "toothache-like": "Toothache-like",
+        "diffuse": "Diffuse",
+        "stiffness": "Stiffness",
+        "changes": "Changes"
+      },
+      "spreadLocation": {
+        "shoulder": "Shoulder",
+        "elbow": "Elbow",
+        "forearm": "Forearm",
+        "hand": "Hand",
+        "fingers": "Fingers"
+      },
+      "reflexes": {
+        "notVisited": "I haven't seen a healthcare professional"
+      }
+    },
+    "painScale": {
+      "noPain": "No pain",
+      "worstPain": "Worst imaginable pain"
+    }
+  },
+  "shoulderNociceptive": {
+    "title": "Shoulder Pain Assessment - Nociceptive",
+    "description": "Specific questions for nociceptive shoulder pain.",
+    "questions": {
+      "shoulderPainLocation": "Where is your shoulder pain primarily located?",
+      "restHelpsPain": "Does rest or avoiding painful movements reduce your pain?",
+      "pain24Hours": "Is your pain present 24 hours a day or do you have pain-free periods?",
+      "whenPainNoticeable": "When is the pain most noticeable?",
+      "aggravatingMovements": "What type of movement aggravates your pain the most?",
+      "painfulDegree": "When lifting your arm overhead, at what degree is it painful?",
+      "palmFacingUp": "Is this movement painful with the palm facing up?",
+      "clickingLockingCatching": "Do you feel clicking, locking or catching in the shoulder?",
+      "shoulderDislocationPast": "Have you had a shoulder dislocation in the past?"
+    },
+    "descriptions": {},
+    "options": {
+      "yesNo": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "painLocation": {
+        "lateral-upper-arm": "Lateral upper arm",
+        "deep-shoulder-joint": "Deep inside the shoulder joint",
+        "front-shoulder": "Front of the shoulder",
+        "below-behind-bone": "Below and slightly behind the bony structure above the shoulder",
+        "from-shoulderblade": "From the shoulder blade to the front",
+        "entire-shoulder": "Entire shoulder, hard to pinpoint"
+      },
+      "restPain": {
+        "yes-rest-helps": "Yes, my pain improves with rest",
+        "no-rest-not-help": "No",
+        "24-hour-pain": "It is 24-hour pain with no relief",
+        "can-find-relief": "I can sometimes find positions that relieve it"
+      },
+      "whenPainNoticeable": {
+        "during-activity-overhead": "During activity, especially overhead",
+        "at-rest-night": "At rest and at night, especially lying on the shoulder",
+        "randomly-sleep-light": "Randomly, even during sleep or light activity"
+      },
+      "aggravatingMovements": {
+        "lifting-arm-overhead": "Lifting the arm overhead",
+        "around-45-60-degrees": "Around 45-60 degrees",
+        "around-90-degrees": "Around 90 degrees",
+        "above-90-degrees": "Above 90 degrees",
+        "do-not-know-degree": "I don't know",
+        "palm-facing-up": "Is this movement painful with the palm facing up?",
+        "same-pain": "Yes, the same",
+        "more-painful-palm-up": "Yes, more painful with palm up",
+        "less-painful": "Less painful",
+        "do-not-want-try": "I don't want to try",
+        "reaching-behind-back": "Reaching behind back, putting on a coat or fastening a bra",
+        "scratching-back-head": "Scratching the back of the head",
+        "throwing-overhead-sports": "Throwing or overhead sports activity",
+        "sudden-movement-heavy": "Sudden movement or carrying a heavy object"
+      },
+      "clickingLocking": {
+        "yes-clicking": "Yes",
+        "no-clicking": "No",
+        "rarely-sports-only": "Rarely, and only during sports"
+      },
+      "shoulderDislocation": {
+        "yes-confirmed-diagnosis": "Yes, confirmed by a doctor",
+        "no-dislocation": "No",
+        "not-sure-popped-out": "Not sure, it felt like it popped out"
       }
     }
   }

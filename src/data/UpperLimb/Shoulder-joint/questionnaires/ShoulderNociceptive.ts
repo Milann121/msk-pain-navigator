@@ -7,8 +7,8 @@ import { clickingLockingQuestion, shoulderDislocationQuestion } from './mechanic
 
 export const shoulderNociceptiveQuestionnaire: Questionnaire = {
   id: 'shoulder-nociceptive',
-  title: 'Hodnotenie bolesti ramena - Nociceptívna bolesť',
-  description: 'Špecifické otázky pre nociceptívnu bolesť ramena',
+  title: 'questionnaire.shoulderNociceptive.title',
+  description: 'questionnaire.shoulderNociceptive.description',
   questions: [
     painLocationQuestion,
     nightPainQuestion,

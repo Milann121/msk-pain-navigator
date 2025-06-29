@@ -3,38 +3,38 @@ import { Question } from '@/utils/types';
 
 export const painLocationQuestion: Question = {
   id: 'shoulder-pain-location',
-  text: 'Kde sa nachádza vaša bolesť ramena predovšetkým?',
+  text: 'questionnaire.shoulderNociceptive.questions.shoulderPainLocation',
   description: '',
   type: 'multiple',
   options: [
     {
       id: 'lateral-upper-arm',
-      text: 'Bočná strana hornej časti paže',      
+      text: 'questionnaire.shoulderNociceptive.options.painLocation.lateral-upper-arm',
       differentials: ["frozen-shoulder", "stiff-shoulder"]
     },
     {
       id: 'deep-shoulder-joint',
-      text: 'Hlboko vo vnútri ramenného kĺbu',
+      text: 'questionnaire.shoulderNociceptive.options.painLocation.deep-shoulder-joint',
       differentials: ["frozen-shoulder","subacromional-impingement-syndrome"]
     },
     {
       id: 'front-shoulder',
-      text: 'Predná časť ramena',
+      text: 'questionnaire.shoulderNociceptive.options.painLocation.front-shoulder',
       differentials: ["slap-tear","labral-leason" ]
     },
     {
       id: 'below-behind-bone',
-      text: 'Pod a trochu za kostnatou štruktúrou nad ramenom',
+      text: 'questionnaire.shoulderNociceptive.options.painLocation.below-behind-bone',
       differentials: ["shoulder-bursa","subacromional-impingement-syndrome", "labral-leason"]
     },
     {
       id: 'from-shoulderblade',
-      text: 'Od lopatky až dopredu',
+      text: 'questionnaire.shoulderNociceptive.options.painLocation.from-shoulderblade',
       differentials: ["frozen-shoulder", "stiff-shoulder", "rotator-cuff-tear", "rotator-cuff-tendinopathy"]
     },
     {
       id: 'entire-shoulder',
-      text: 'Celé rameno, ťažko lokalizovateľné',
+      text: 'questionnaire.shoulderNociceptive.options.painLocation.entire-shoulder',
       differentials: ["frozen-shoulder", "stiff-shoulder"]
     }
   ]

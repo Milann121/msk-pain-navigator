@@ -30,6 +30,13 @@
       }
     }
   },
+  "misc": {
+    "questionNumber": "Otázka {{current}} z {{total}}",
+    "navigation": {
+      "back": "Späť",
+      "next": "Ďalej",
+      "finish": "Dokončiť"
+    }
   "questionNumber": "Otázka {{current}} z {{total}}",
   "navigation": {
     "back": "Späť",
