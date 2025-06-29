@@ -7,7 +7,6 @@ import Header from '@/components/Header';
 import { ProfileInfo } from '@/components/profile/ProfileInfo';
 import { ProfileFormPopup } from '@/components/profile/ProfileFormPopup';
 import { GoalsContainer } from '@/components/profile/GoalsContainer';
-import LanguageSwitcher from '@/components/LanguageSwitcher';
 import { useProfileCompletion } from '@/hooks/useProfileCompletion';
 
 const Profile = () => {
@@ -61,7 +60,6 @@ const Profile = () => {
       <div className="flex-1 bg-gradient-to-b from-blue-50 to-white py-10 px-2 md:px-4">
         <div className="container mx-auto w-full max-w-full md:max-w-4xl px-2 md:px-0">
           <h1 className="text-3xl font-bold text-blue-800 mb-6">{t('profile.title')}</h1>
-          <LanguageSwitcher />
           
           <div className="grid grid-cols-1 gap-6 mb-6">
             {/* User Profile Info */}
