@@ -16,16 +16,16 @@
   "moneySavingsFootnote": "*calculated based on average prices in your country",
   "modelTitle": "Body Model",
   "jobTypes": {
-    "manual": "manual work",
-    "desk": "desk work",
-    "driver": "driver"
+    "manual": "Manual work",
+    "desk": "Desk work",
+    "driver": "Driver"
   },
   "jobSubtypes": {
     "manualSpec": "Specification:",
-    "heavyLifting": "heavy lifting",
-    "standingWork": "standing work in place",
-    "awkwardPositions": "work in awkward positions",
-    "officeWork": "office work"
+    "heavyLifting": "Heavy lifting",
+    "standingWork": "Atanding work in place",
+    "awkwardPositions": "Work in awkward positions",
+    "officeWork": "Office work"
   },
   "goals": {
     "title": "My Goals",
