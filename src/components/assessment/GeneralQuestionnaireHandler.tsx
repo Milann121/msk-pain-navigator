@@ -1,3 +1,4 @@
+
 import { useAuth } from '@/contexts/AuthContext';
 import { useToast } from '@/hooks/use-toast';
 import { useAssessment, AssessmentStage } from '@/contexts/AssessmentContext';
@@ -8,6 +9,7 @@ import { processGeneralQuestionnaire, createAssessmentResults } from '@/utils/as
 import { supabase } from '@/integrations/supabase/client';
 import { safeDatabase } from '@/utils/database-helpers';
 import { useState } from 'react';
+import { Differential } from '@/utils/types';
 
 const GeneralQuestionnaireHandler = () => {
   const { user } = useAuth();
@@ -53,7 +55,7 @@ const GeneralQuestionnaireHandler = () => {
       setSINGroup('mid SIN');
       
       // Determine differential based on answers
-      let primaryDifferential = 'cervical-radiculopathy';
+      let primaryDifferential: Differential = 'cervical-radiculopathy';
       if (answers['abnormal-sensations'] === 'yes-sensations') {
         primaryDifferential = 'radicular-pain';
       } else if (answers['abnormal-sensations'] === 'no-sensations') {
