@@ -6,6 +6,7 @@
     "activeProgramsDescription": "Your current exercise programs based on pain assessments",
     "endedProgramsTitle": "Ended Programs",
     "endedProgramsDescription": "Previously ended exercise programs",
+    "noEndedPrograms": "You don't have any ended programs yet.",
     "backHome": "Back Home",
     "newAssessment": "New Assessment"
   },

@@ -6,6 +6,7 @@
     "activeProgramsDescription": "Tvé současné cvičební programy založené na hodnoceních bolesti",
     "endedProgramsTitle": "Ukončené programy",
     "endedProgramsDescription": "Dříve ukončené cvičební programy",
+    "noEndedPrograms": "Zatím nemáte žádné ukončené programy.",
     "backHome": "Zpět domů",
     "newAssessment": "Nové hodnocení"
   },
