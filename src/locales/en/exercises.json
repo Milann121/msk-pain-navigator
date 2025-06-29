@@ -85,23 +85,23 @@
   },
   "shoulderNociceptive": {
     "frozenShoulderPhase1": {
-      "title": "Frozen Shoulder - Phase 1: Pain Relief and Gentle Mobility",
-      "description": "Initial phase focusing on pain management and gentle range of motion exercises. Perform these exercises 2-3 times daily during the acute phase.",
-      "pendulumExercises": {
-        "title": "Pendulum Exercises",
-        "description": "Gentle swinging movements to maintain shoulder mobility without forcing movement. Perform 10-15 swings in each direction, 2-3 times daily."
+    "title": "Frozen Shoulder - Phase 1: Pain Relief and Gentle Mobility",
+    "description": "Initial phase focused on pain management and gentle mobility exercises. Perform these exercises 2-3 times daily during the acute phase.",
+    "pendulumExercises": {
+    "title": "Pendulum Exercises",
+    "description": "Lean forward and perform rocking movements to maintain shoulder mobility without active movement. Perform 10-15 swings in each direction, 2-3 times daily."
+    },
+    "isometricExternalRotation": {
+      "title": "Isometric External Rotation",
+      "description": "Lend your hand against the wall as shown in the video. Keep your elbow close to your body and press the wall with moderate force by rotating your arm. Be careful not to lift your shoulders towards your ears during the exercise. Hold for 8-10 seconds, repeat 5 times, 1-2 times a day."
+    },
+    "rotatorCuffRelease": {
+      "title": "Rotator cuff and trapezius massage with a ball",
+      "description": "Take a tennis ball, place it on your trapezius and lean against the wall. Press lightly with your body weight and massage the trapezius and shoulder blade area. You may feel pain during the exercise, as long as it is tolerable. When you find a painful point, statically press for about 20-30 seconds and then move lower. Perform the exercise at least 1 time a day. "
       },
-      "isometricExternalRotation": {
-        "title": "Isometric External Rotation",
-        "description": "Gentle strengthening without movement to maintain muscle tone. Hold for 5-10 seconds, repeat 10 times, 2-3 times daily."
-      },
-      "rotatorCuffRelease": {
-        "title": "Rotator Cuff Self-Massage",
-        "description": "Gentle self-massage techniques to reduce muscle tension and improve circulation. Perform for 5-10 minutes daily."
-      },
-      "shoulderHeating": {
-        "title": "Shoulder Warming Exercises",
-        "description": "Gentle warming movements to prepare the shoulder for other exercises and reduce stiffness. Perform before other exercises."
+    "shoulderHeating": {
+      "title": "Shoulder Heating",
+      "description": "Use a heating pad/pad and heat the entire shoulder and shoulder blade area. Alternatively, you can use the shoulder blow-drying technique, but ALWAYS WITH A TOWEL PLACED ON THE HEATED BODY PART to protect against burns. Heat for at least 15-20 minutes."
       }
     },
     "frozenShoulderPhase2": {
