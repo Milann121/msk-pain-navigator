@@ -22,10 +22,10 @@
   },
   "jobSubtypes": {
     "manualSpec": "Špecifikácia:",
-    "heavyLifting": "zdvíhanie ťažkých predmetov",
-    "standingWork": "práca v stoji na mieste",
-    "awkwardPositions": "práca v neprirodzených polohách",
-    "officeWork": "kancelárska práca"
+    "heavyLifting": "Zdvíhanie ťažkých predmetov",
+    "standingWork": "Práca v stoji na mieste",
+    "awkwardPositions": "Práca v neprirodzených polohách",
+    "officeWork": "Kancelárska práca"
   },
   "goals": {
     "title": "Moje ciele",
