@@ -84,10 +84,10 @@ export const generateGeneralProgram = (
   // Shuffle the selected videos for variety
   const shuffledVideos = selectedVideos.sort(() => Math.random() - 0.5);
 
-  // Create the general program exercise - using translation key placeholder
+  // Create the general program exercise
   const generalProgram: Exercise = {
-    title: 'generalProgram.title', // This will be translated in the component
-    description: 'generalProgram.description', // This will be translated in the component
+    title: 'Všeobecný program',
+    description: 'Nemáte čas na individuálne programy? Tu nájdete personalizovaný program s najdôležitejšími cvičeniami z vašich programov. Dodržiavajte pokyny a prestaňte cvičiť, ak pociťujete bolesť.',
     videos: shuffledVideos.map(video => ({
       videoId: video.videoId,
       title: video.title,

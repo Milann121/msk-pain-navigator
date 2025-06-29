@@ -36,12 +36,12 @@ export const GeneralProgram = () => {
       <div className="flex items-center gap-3 mb-3">
         <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
         <h3 className="text-lg font-medium text-gray-900">
-          {t('generalProgram.title')}
+          {t('exercisePlanPage.generalTitle')}
         </h3>
       </div>
       
       <p className="text-sm text-gray-600 mb-4">
-        {t('generalProgram.description')}
+        {t('exercisePlanPage.generalDescription')}
       </p>
       
       <p className="text-sm text-blue-600 mb-4">
