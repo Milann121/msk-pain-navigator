@@ -1,7 +1,7 @@
 
 {
   "greeting": {
-    "hello": "Ahoj{{name}}",
+    "hello": "Ahoj {{name}}",
     "question": "jak se dnes cítíš?"
   },
   "mood": {
