@@ -54,5 +54,12 @@
     "disclaimer": "This assessment does not replace professional medical care. For a complete diagnosis and treatment plan, please consult with a healthcare professional.",
     "startNew": "Start New Assessment",
     "myExercises": "My Exercises"
-  }
+  },
+  "savedTitle": "Results Saved",
+  "savedDescription": "Your assessment has been successfully saved and can be found in the My Exercises section.",
+  "saveErrorTitle": "Save Error",
+  "saveErrorDescription": "Failed to save assessment results.",
+  "autoSaved": "✓ Results have been automatically saved. You can find them in the My Exercises section.",
+  "saving": "Saving results...",
+  "autoSaveFailed": "Automatic saving of results failed."
 }

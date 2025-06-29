@@ -54,5 +54,12 @@
     "disclaimer": "Toto hodnocení nenahrazuje odbornou lékařskou pomoc. Pro kompletní diagnózu a léčebný plán se prosím poraďte se zdravotnickým pracovníkem.",
     "startNew": "Začít nové hodnocení",
     "myExercises": "Moje cvičení"
-  }
+  },
+  "savedTitle": "Výsledky uloženy",
+  "savedDescription": "Vaše hodnocení bylo úspěšně uloženo a můžete ho najít v sekci Moje cvičení.",
+  "saveErrorTitle": "Chyba při ukládání",
+  "saveErrorDescription": "Nepodařilo se uložit výsledky hodnocení.",
+  "autoSaved": "✓ Výsledky byly automaticky uloženy. Můžete je najít v sekci Moje cvičení.",
+  "saving": "Ukládám výsledky...",
+  "autoSaveFailed": "Automatické ukládání výsledků selhalo."
 }

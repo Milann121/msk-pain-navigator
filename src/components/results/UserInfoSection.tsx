@@ -12,7 +12,7 @@ const UserInfoSection = ({ userInfo }: UserInfoSectionProps) => {
   return (
     <div className="space-y-1">
       <h3 className="text-lg font-medium">{t('results.userInfo.greeting')}</h3>
-      <p className="text-gray-500">{t('results.userInfo.analysisText', { painArea: t(`common.bodyParts.${userInfo.painArea}`) })}</p>
+      <p className="text-gray-500">{t('results.userInfo.analysisText', { painArea: t(`bodyParts.${userInfo.painArea}`) })}</p>
     </div>
   );
 };
