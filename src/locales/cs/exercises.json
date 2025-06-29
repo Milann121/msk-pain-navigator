@@ -92,19 +92,24 @@
       "description": "Počáteční fáze zaměřená na zvládání bolesti a jemná cvičení pohyblivosti. Provádějte tato cvičení 2-3krát denně během akutní fáze.",
       "pendulumExercises": {
         "title": "Kyvadlová cvičení",
-        "description": "Jemné houpací pohyby na udržení pohyblivosti ramene bez nucení pohybu. Proveďte 10-15 kyvů v každém směru, 2-3krát denně."
+        "description": "Předkloňte se a provádějte houpací pohyby k udržení pohyblivosti ramene bez aktivního pohybu. Proveďte 10-15 kyvání v každém směru, 2-3krát denně."
       },
       "isometricExternalRotation": {
         "title": "Izometrická vnější rotace",
-        "description": "Jemné posilování bez pohybu na udržení svalového tonu. Držte 5-10 sekund, opakujte 10krát, 2-3krát denně."
+        "description": "Opřete se rukou o zeď podle videa. Loket držte u těla a rotačním pohybem ramene zatlačte do zdi mírnou silou. Dávejte pozor, abyste během cvičení nezvedali ramena směrem k uším. Držte 8-10 sekund, opakujte 5krát, 1-2krát denně."
       },
       "rotatorCuffRelease": {
-        "title": "Vlastní masáž rotátorové manžety",
-        "description": "Jemné techniky vlastní masáže na snížení svalového napětí a zlepšení cirkulace. Provádějte 5-10 minut denně."
+        "title": "Masáž rotátorové manžety a trapézů míčkem",
+        "description": "Vezměte tenisový míček, položte jej na trapézy a opřete se o zeď. Lehce zatlačte váhou těla a masírujte oblast trapézů a lopatky. Při cvičení můžete cítit bolest, pokud je snesitelná. Najděte bolestivý bod, staticky zatlačte asi 20-30 sekund a poté se posuňte níže. Cvičte minimálně jednou denně."
       },
       "shoulderHeating": {
-        "title": "Zahřívací cvičení ramene",
-        "description": "Jemné zahřívací pohyby na přípravu ramene na další cvičení a snížení ztuhlosti. Provádějte před ostatními cvičeními."
+        "title": "Zahřívání ramene",
+        "description": "Použijte vyhřívací polštářek/podložku a prohřejte oblast celého ramene a lopatky. Alternativně lze použít techniku fénování ramene, ale VŽDY S RUČNÍKEM NA ZAHŘÍVANÉ ČÁSTI TĚLA jako ochranu před popálením. Hřejte alespoň 15-20 minut."
+        "description": "Vezměte tenisový míček, uložte si jej na trapézy a opřete se o zeď. Mírně zatlačte váhou svého těla a promasírujte oblast trapézů a lopatky. Během cviku můžete pociťovat bolest, pokud je v toleranci. Když najdete bolestivý bod, staticky zatlačte na cca. provádějte minimálně 1x denně.",
+      },
+      "shoulderHeating": {
+        "title": "Ohřívání ramene",
+        "description": "Použijte topný polštářek/podložku a prohřejte oblast celého ramene a lopatky. Jako variantu můžete použít techniku ​​fénování ramene, ale VŽDY S RUČNÍKEM ULOŽENÝM NA OHŘÍVANÉ ČÁSTI TĚLA jako ochranu před popálením. Zahřívejte alespoň 15-20min."
       }
     },
     "frozenShoulderPhase2": {
