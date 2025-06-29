@@ -37,7 +37,8 @@ export const ExercisePeriodSection = ({ exercise, showGeneral = false }: Exercis
           <ExerciseVideoSection
             key={video.videoId}
             video={video}
-            exerciseIndex={index}
+            exerciseTitle={displayTitle}
+            showGeneral={showGeneral}
           />
         ))}
       </div>
