@@ -79,6 +79,10 @@
     "startNew": "Začať nové hodnotenie",
     "myExercises": "Moje cvičenia"
   },
+  "generalProgram": {
+    "title": "Všeobecný program",
+    "description": "Nemáte čas na individuálne programy? Tu nájdete personalizovaný program s najdôležitejšími cvičeniami z vašich programov. Dodržiavajte pokyny a prestaňte cvičiť, ak pociťujete bolesť."
+  },
   "shoulderNociceptive": {
     "frozenShoulderPhase1": {
       "title": "Zmrznuté rameno - Fáza 1: Úľava od bolesti a jemná mobilita",
