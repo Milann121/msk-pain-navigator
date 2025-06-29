@@ -51,6 +51,7 @@ const enTranslations = {
   assessment: enAssessment,
   home: enHome,
   ...enExercises,
+  exercises: { shoulderNociceptive: enExercises.shoulderNociceptive },
   misc: enMisc,
   questionnaire: enQuestionnaire,
   results: enResults
@@ -65,6 +66,7 @@ const skTranslations = {
   assessment: skAssessment,
   home: skHome,
   ...skExercises,
+  exercises: { shoulderNociceptive: skExercises.shoulderNociceptive },
   misc: skMisc,
   questionnaire: skQuestionnaire,
   results: skResults
@@ -79,6 +81,7 @@ const csTranslations = {
   assessment: csAssessment,
   home: csHome,
   ...csExercises,
+  exercises: { shoulderNociceptive: csExercises.shoulderNociceptive },
   misc: csMisc,
   questionnaire: csQuestionnaire,
   results: csResults
