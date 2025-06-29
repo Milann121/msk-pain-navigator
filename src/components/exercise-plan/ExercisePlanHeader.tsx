@@ -23,11 +23,11 @@ export const ExercisePlanHeader = ({
   return (
     <CardHeader>
       <CardTitle>
-        {showGeneral ? t('exercisePlanPage.generalTitle') : t('exercisePlanPage.title')}
+        {showGeneral ? t('generalProgram.title') : t('exercisePlanPage.title')}
       </CardTitle>
       <CardDescription>
         {showGeneral 
-          ? t('exercisePlanPage.generalDescription')
+          ? t('generalProgram.description')
           : t('exercisePlanPage.specificDescription', { 
               diagnosis: formatDifferential(differential, t), 
               painArea: formatPainArea(painArea, t) 

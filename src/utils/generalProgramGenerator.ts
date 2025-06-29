@@ -84,10 +84,10 @@ export const generateGeneralProgram = (
   // Shuffle the selected videos for variety
   const shuffledVideos = selectedVideos.sort(() => Math.random() - 0.5);
 
-  // Create the general program exercise - using translation key placeholder
+  // Create the general program exercise - use actual title, not translation key
   const generalProgram: Exercise = {
-    title: 'generalProgram.title', // This will be translated in the component
-    description: 'generalProgram.description', // This will be translated in the component
+    title: 'General Program', // Use actual title that will be translated in the component
+    description: 'Personalized program with the most important exercises from your programs', // Use actual description that will be translated in the component
     videos: shuffledVideos.map(video => ({
       videoId: video.videoId,
       title: video.title,
