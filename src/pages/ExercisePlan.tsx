@@ -1,189 +1,93 @@
-import React, { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Card, CardContent } from '@/components/ui/card';
-import { useLocation } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import exercisesByDifferential from '@/data/exercises';
-import { useAuth } from '@/contexts/AuthContext';
-import { Navigate } from 'react-router-dom';
-import Header from '@/components/Header';
-import { generateGeneralProgram } from '@/utils/generalProgramGenerator';
-import { supabase } from '@/integrations/supabase/client';
-import { ExercisePlanHeader } from '@/components/exercise-plan/ExercisePlanHeader';
-import { ExercisePeriodAccordion } from '@/components/exercise-plan/ExercisePeriodAccordion';
-import { ImportantNotice } from '@/components/exercise-plan/ImportantNotice';
-import { Advice } from '@/components/advice/Advice';
-import { getAdvicesForExerciseProgram } from '@/utils/adviceMatching';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
-interface Exercise {
-  title: string;
-  description: string;
-  videos: Array<{
-    videoId: string;
-    title?: string;
-    description?: string;
-  }>;
-}
+import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
+import { ArrowLeft } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { ExercisePlanHeader } from '@/components/exercise-plan/ExercisePlanHeader';
+import { ExercisePeriodSection } from '@/components/exercise-plan/ExercisePeriodSection';
+import { ImportantNotice } from '@/components/exercise-plan/ImportantNotice';
+import { generateGeneralProgram } from '@/utils/generalProgramGenerator';
+import exercisesByDifferential from '@/data/exercises';
+import Header from '@/components/Header';
 
 const ExercisePlan = () => {
-  const { user } = useAuth();
   const location = useLocation();
-  const { mechanism = 'nociceptive', differential = 'none', painArea = 'lower back', assessmentId, showGeneral = false } = location.state || {};
-  const [userAssessments, setUserAssessments] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [effectiveAssessmentId, setEffectiveAssessmentId] = useState<string | undefined>(assessmentId);
-  const [programAdvices, setProgramAdvices] = useState<number[]>([]);
+  const navigate = useNavigate();
   const { t } = useTranslation();
   
-  // Redirect to login if not authenticated
-  if (!user) {
-    return <Navigate to="/auth" replace />;
-  }
+  const { 
+    showGeneral = false,
+    assessments = [],
+    mechanism,
+    differential,
+    painArea
+  } = location.state || {};
 
-  // Fetch user assessments for general program
-  useEffect(() => {
-    const fetchUserAssessments = async () => {
-      if (!user) return;
-      
-      try {
-        const { data, error } = await supabase
-          .from('user_assessments')
-          .select('*')
-          .eq('user_id', user.id)
-          .order('timestamp', { ascending: false });
-          
-        if (error) {
-          console.error('Error fetching user assessments:', error);
-          return;
-        }
-        
-        setUserAssessments(data || []);
-        
-        // For general program, use the latest assessment ID for completion tracking
-        if (showGeneral && data && data.length > 0) {
-          setEffectiveAssessmentId(data[0].id);
-        }
-      } catch (error) {
-        console.error('Error fetching user assessments:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    
-    fetchUserAssessments();
-  }, [user, showGeneral]);
-
-  // Get program-specific advices
-  useEffect(() => {
-    if (!showGeneral) {
-      const matchingAdvices = getAdvicesForExerciseProgram(mechanism, differential, painArea);
-      setProgramAdvices(matchingAdvices);
-    }
-  }, [mechanism, differential, painArea, showGeneral]);
-
-  // Log state props on mount to help with debugging
-  useEffect(() => {
-    console.log("ExercisePlan props:", { mechanism, differential, painArea, assessmentId, showGeneral });
-  }, [mechanism, differential, painArea, assessmentId, showGeneral]);
-  
-  // Determine which exercises to show
   let exercises = [];
   
-  if (showGeneral && !loading) {
-    // Show general program
-    exercises = generateGeneralProgram(mechanism, painArea, userAssessments);
-    if (exercises.length === 0) {
-      exercises = [{
-        title: t('exercisePlanPage.generalNotAvailable'),
-        description: t('exercisePlanPage.generalNotAvailableDescription'),
-        videos: []
-      }];
-    }
+  if (showGeneral) {
+    // Generate general program
+    exercises = generateGeneralProgram('general', 'general', assessments);
   } else {
-    // Show specific program
+    // Generate specific program
     const specificKey = `${mechanism}-${differential}-${painArea}`;
     const defaultKey = `${mechanism}-default-${painArea}`;
     
-    console.log('Looking for exercises with keys:', { specificKey, defaultKey });
-    console.log('Available exercise keys:', Object.keys(exercisesByDifferential));
-    
     exercises = exercisesByDifferential[specificKey] || 
-                exercisesByDifferential[defaultKey] || 
-                [{
-                  title: t('exercisePlanPage.notFoundTitle'),
-                  description: t('exercisePlanPage.notFoundDescription', { 
-                    diagnosis: differential, 
-                    painArea: painArea 
-                  }),
-                  videos: []
-                }];
-  }
-
-  if (loading) {
-    return (
-      <>
-        <Header />
-        <div className="container mx-auto py-8 px-4">
-          <div className="text-center">{t('loading')}</div>
-        </div>
-      </>
-    );
+               exercisesByDifferential[defaultKey] || [];
   }
 
   return (
-    <>
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       <Header />
-      <div className="container mx-auto py-8 px-4">
-        <Link to="/my-exercises" className="inline-flex items-center gap-2 mb-6">
-          <ArrowLeft className="h-4 w-4" />
-          {t('exercisePlanPage.backToExercises')}
-        </Link>
-        
-        <Card>
-          <ExercisePlanHeader
+      <div className="container mx-auto px-4 py-8 max-w-4xl">
+        <div className="mb-6">
+          <Button
+            variant="ghost" 
+            onClick={() => navigate('/my-exercises')}
+            className="mb-4 text-blue-600 hover:text-blue-700"
+          >
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            {t('exercisePlanPage.backToExercises')}
+          </Button>
+        </div>
+
+        <Card className="mb-6">
+          <ExercisePlanHeader 
             showGeneral={showGeneral}
-            differential={differential}
-            painArea={painArea}
-            mechanism={mechanism}
+            differential={differential || ''}
+            painArea={painArea || ''}
+            mechanism={mechanism || 'nociceptive'}
           />
-          <CardContent className="space-y-8">
-            {/* Program-specific advices as accordion */}
-            {programAdvices.length > 0 && (
-              <Accordion type="multiple" className="w-full">
-                <AccordionItem value="program-advice" className="border rounded-lg">
-                  <AccordionTrigger className="px-6 py-4 text-left hover:no-underline">
-                    <div className="text-left">
-                      <h2 className="text-2xl font-bold text-gray-900">{t('advice.programAdviceTitle')}</h2>
-                      <p className="text-gray-600 mt-2">{t('advice.programAdviceSubtitle')}</p>
-                      <div className="mt-3 px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium inline-block">
-                        {t('advice.adviceCount', { count: programAdvices.length })}
-                      </div>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="px-6 pb-6">
-                    <div className="space-y-4">
-                      {programAdvices.map((adviceId) => (
-                        <Advice key={adviceId} adviceId={adviceId} />
-                      ))}
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
-            )}
-            
-            <ExercisePeriodAccordion
-              exercises={exercises}
-              showGeneral={showGeneral}
-              assessmentId={effectiveAssessmentId}
-            />
-            
-            <ImportantNotice />
-          </CardContent>
         </Card>
+
+        <ImportantNotice />
+
+        <div className="space-y-8">
+          {exercises.map((exercise, index) => (
+            <Card key={index} className="p-6">
+              <ExercisePeriodSection 
+                exercise={exercise} 
+                showGeneral={showGeneral}
+              />
+            </Card>
+          ))}
+        </div>
+
+        {exercises.length === 0 && (
+          <Card className="p-8 text-center">
+            <p className="text-gray-600">
+              {showGeneral 
+                ? "No general program available. Complete more assessments to generate a personalized program."
+                : "No exercises available for this condition."
+              }
+            </p>
+          </Card>
+        )}
       </div>
-    </>
+    </div>
   );
 };
 

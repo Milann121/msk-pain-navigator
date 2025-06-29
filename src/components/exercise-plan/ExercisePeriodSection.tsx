@@ -2,41 +2,45 @@
 import React from 'react';
 import { Exercise } from '@/types/exercise';
 import { ExerciseVideoSection } from './ExerciseVideoSection';
-import { AdviceList } from '@/components/advice';
+import { useTranslation } from 'react-i18next';
 
 interface ExercisePeriodSectionProps {
   exercise: Exercise;
-  showGeneral: boolean;
-  assessmentId?: string;
+  showGeneral?: boolean;
 }
 
-export const ExercisePeriodSection = ({
-  exercise,
-  showGeneral,
-  assessmentId
-}: ExercisePeriodSectionProps) => {
+export const ExercisePeriodSection = ({ exercise, showGeneral = false }: ExercisePeriodSectionProps) => {
+  const { t } = useTranslation();
+  
+  // For general program, translate the title and description
+  const displayTitle = showGeneral && exercise.title === 'General Program' 
+    ? t('generalProgram.title') 
+    : exercise.title;
+    
+  const displayDescription = showGeneral && exercise.description === 'Personalized program with the most important exercises from your programs'
+    ? t('generalProgram.description')
+    : exercise.description;
+
   return (
-    <div className="space-y-8">
-      {/* Exercise videos */}
+    <div className="mb-8">
+      <div className="mb-6">
+        <h2 className="text-xl font-semibold text-gray-900 mb-2">
+          {displayTitle}
+        </h2>
+        <p className="text-gray-600 text-sm">
+          {displayDescription}
+        </p>
+      </div>
+      
       <div className="space-y-6">
-        {exercise.videos.map((video, videoIndex) => (
+        {exercise.videos.map((video, index) => (
           <ExerciseVideoSection
-            key={videoIndex}
+            key={video.videoId}
             video={video}
-            exerciseTitle={exercise.title}
-            showGeneral={showGeneral}
-            assessmentId={assessmentId}
+            exerciseIndex={index}
           />
         ))}
       </div>
-
-      {/* Advices section */}
-      {exercise.advices && exercise.advices.length > 0 && (
-        <div className="space-y-4">
-          <h3 className="text-xl font-semibold text-gray-900">Dôležité rady</h3>
-          <AdviceList adviceIds={exercise.advices} />
-        </div>
-      )}
     </div>
   );
 };
