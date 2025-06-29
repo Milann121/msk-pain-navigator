@@ -67,7 +67,8 @@
     "changeRequestInfo": "After submitting this request, we will contact you regarding a suitable exercise replacement."
   },
   "exerciseCvik": {
-    "few": "exercises"
+    "few": "exercises",
+    "many": "exercises"
   },
   "importantNotice": {
     "title": "Important Notice",

@@ -46,7 +46,7 @@
   },
   "exercisePlanPage": {
     "generalTitle": "Všeobecný cvičební program",
-    "generalDescription": "Nemáš čas na individuální programy? Zde najdeš personalizovaný program s nejdůležitějšími cvičeními z tvých programů. Dodržuj pokyny a přestaň cvičit, pokud pociťuješ bolest.",
+    "generalDescription": "Nemáte čas na individuální programy? Zde najdete personalizovaný program s nejdůležitějšími cvičeními z vašich programů. Dodržujte pokyny a přestaňte cvičit, pokud pociťujete bolest.",
     "backToExercises": "Zpět na Moje cvičení",
     "title": "Plán cvičení",
     "specificDescription": "Personalizovaný cvičební program pro {{diagnosis}} ovlivňující {{painArea}}"
@@ -70,7 +70,8 @@
     "declineChange": "Odmítnout změnu"
   },
   "exerciseCvik": {
-    "few": "cvičení"
+    "few": "cvičení",
+    "many": "cvičení"
   },
   "importantNotice": {
     "title": "Důležité upozornění",
