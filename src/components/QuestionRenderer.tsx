@@ -19,7 +19,6 @@ interface QuestionRendererProps {
 
 const QuestionRenderer = ({ question, onAnswer }: QuestionRendererProps) => {
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
-  const [followUpVisible, setFollowUpVisible] = useState<string | null>(null);
   const [sliderValue, setSliderValue] = useState<number[]>([0]);
   const isMobile = useIsMobile();
   const { t } = useTranslation();
@@ -27,14 +26,6 @@ const QuestionRenderer = ({ question, onAnswer }: QuestionRendererProps) => {
   const handleSingleOptionChange = (optionId: string) => {
     setSelectedOptions([optionId]);
     onAnswer(question.id, optionId);
-    
-    // Check if this option has follow-up questions
-    const selectedOption = question.options?.find(opt => opt.id === optionId);
-    if (selectedOption?.followUp?.length) {
-      setFollowUpVisible(optionId);
-    } else {
-      setFollowUpVisible(null);
-    }
   };
 
   const handleMultipleOptionChange = (optionId: string, checked: boolean) => {
@@ -106,7 +97,7 @@ const QuestionRenderer = ({ question, onAnswer }: QuestionRendererProps) => {
                 </div>
                 
                 {/* Render follow-up questions if this option is selected */}
-                {followUpVisible === option.id && option.followUp && (
+                {selectedOptions.includes(option.id) && option.followUp && (
                   <div className="ml-6 mt-3 p-3 border-l-2 border-blue-200 bg-blue-50 rounded-r-md">
                     {option.followUp.map(followUpQuestion => (
                       <QuestionRenderer
@@ -126,17 +117,32 @@ const QuestionRenderer = ({ question, onAnswer }: QuestionRendererProps) => {
       {question.type === 'multiple' && question.options && (
         <div className="space-y-3">
           {question.options.map(option => (
-            <div key={option.id} className="flex items-center space-x-2">
-              <Checkbox
-                id={option.id}
-                checked={selectedOptions.includes(option.id)}
-                onCheckedChange={(checked) => 
-                  handleMultipleOptionChange(option.id, checked as boolean)
-                }
-              />
-              <Label htmlFor={option.id} className="cursor-pointer">
-                {option.text.startsWith('questionnaire.') ? t(option.text) : option.text}
-              </Label>
+            <div key={option.id} className="flex flex-col space-y-2">
+              <div className="flex items-center space-x-2">
+                <Checkbox
+                  id={option.id}
+                  checked={selectedOptions.includes(option.id)}
+                  onCheckedChange={(checked) =>
+                    handleMultipleOptionChange(option.id, checked as boolean)
+                  }
+                />
+                <Label htmlFor={option.id} className="cursor-pointer">
+                  {option.text.startsWith('questionnaire.') ? t(option.text) : option.text}
+                </Label>
+              </div>
+
+              {/* Render follow-up questions if this option is selected */}
+              {selectedOptions.includes(option.id) && option.followUp && (
+                <div className="ml-6 mt-3 p-3 border-l-2 border-blue-200 bg-blue-50 rounded-r-md">
+                  {option.followUp.map(followUpQuestion => (
+                    <QuestionRenderer
+                      key={followUpQuestion.id}
+                      question={followUpQuestion}
+                      onAnswer={onAnswer}
+                    />
+                  ))}
+                </div>
+              )}
             </div>
           ))}
         </div>
