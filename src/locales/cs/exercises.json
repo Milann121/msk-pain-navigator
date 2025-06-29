@@ -105,6 +105,11 @@
       "shoulderHeating": {
         "title": "Zahřívání ramene",
         "description": "Použijte vyhřívací polštářek/podložku a prohřejte oblast celého ramene a lopatky. Alternativně lze použít techniku fénování ramene, ale VŽDY S RUČNÍKEM NA ZAHŘÍVANÉ ČÁSTI TĚLA jako ochranu před popálením. Hřejte alespoň 15-20 minut."
+        "description": "Vezměte tenisový míček, uložte si jej na trapézy a opřete se o zeď. Mírně zatlačte váhou svého těla a promasírujte oblast trapézů a lopatky. Během cviku můžete pociťovat bolest, pokud je v toleranci. Když najdete bolestivý bod, staticky zatlačte na cca. provádějte minimálně 1x denně.",
+      },
+      "shoulderHeating": {
+        "title": "Ohřívání ramene",
+        "description": "Použijte topný polštářek/podložku a prohřejte oblast celého ramene a lopatky. Jako variantu můžete použít techniku ​​fénování ramene, ale VŽDY S RUČNÍKEM ULOŽENÝM NA OHŘÍVANÉ ČÁSTI TĚLA jako ochranu před popálením. Zahřívejte alespoň 15-20min."
       }
     },
     "frozenShoulderPhase2": {
