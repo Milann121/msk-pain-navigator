@@ -37,6 +37,7 @@
       "next": "Dále",
       "finish": "Dokončit"
     }
+  },
   "questionNumber": "Otázka {{current}} z {{total}}",
   "navigation": {
     "back": "Zpět",

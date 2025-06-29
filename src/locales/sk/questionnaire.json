@@ -116,11 +116,6 @@
       "variableImpact": "Je vplyv rovnakých pohybov na bolesť nepredvídateľný?"
     },
     "descriptions": {
-      "injuryStart": "Chceme zistiť, či bolesť vznikla priamo po úraze.",
-      "activityStart": "Popíšte konkrétnu aktivitu, ktorá bolesť vyvolala.",
-      "reflexes": "Strata reflexov vie veľa napovedať o vašom stave.",
-      "sensitivity": "Odpovedzte áno len ak sa táto citlivosť objavila s bolesťou.",
-      "variableImpact": "Odpovedzte áno, ak nedokážete predvídať vznik bolesti."
       "painIntensity": "Ohodnoťte svoju bolesť na stupnici od 0 do 10, kde 0 znamená žiadnu bolesť a 10 najhoršiu predstaviteľnú bolesť.",
       "painWithMovement": "Zvážte aktivity ako ohýbanie, dvíhanie, chôdza alebo špecifické pohyby, ktoré zhoršujú vašu bolesť.",
       "painIntensityIncrease": "Premyslite si, o koľko sa vaša bolesť zosilní počas týchto spúšťajúcich pohybov alebo aktivít.",
@@ -138,30 +133,6 @@
         "yes": "Áno",
         "no": "Nie"
       },
-      "intensityIncrease": {
-        "significantly": "Výrazne",
-        "moderately": "Stredne",
-        "minimally": "Minimálne"
-      },
-      "onsetTiming": {
-        "immediately": "Okamžite",
-        "later": "Neskôr"
-      },
-      "subsiding": {
-        "immediately": "Okamžite",
-        "later": "Neskôr"
-      },
-      "painDescription": {
-        "burning": "Pálivá",
-        "electric-shocks": "Elektrizujúca",
-        "shooting": "Vystreľujúca",
-        "dull": "Tupá",
-        "pins-needles": "Pichanie a mravčenie",
-        "numbness": "Necitlivosť",
-        "toothache-like": "Ako bolesť zuba",
-        "diffuse": "Rozptýlená",
-        "stiffness": "Stuhnutosť",
-        "changes": "Mení sa"
       "notVisited": "Ešte som nenavštívil/a lekára",
       "intensityIncrease": {
         "significantly": "Výrazne (stane sa oveľa horšou)",
@@ -270,7 +241,7 @@
         "no": "Nie"
       }
     }
-,
+  },
   "upperLimbGeneral": {
     "title": "Hodnotenie bolesti hornej končatiny",
     "description": "Tento dotazník nám pomôže lepšie pochopiť vašu bolesť hornej končatiny.",

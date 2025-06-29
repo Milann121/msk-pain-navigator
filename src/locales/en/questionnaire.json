@@ -98,8 +98,6 @@
       "next": "Next",
       "finish": "Finish"
     }
-  }
-  ,
   },
   "general": {
     "title": "Basic Pain Assessment",
@@ -118,11 +116,6 @@
       "variableImpact": "Is the effect of the same movements/activities on pain unpredictable?"
     },
     "descriptions": {
-      "injuryStart": "We want to know if your pain began directly after a trauma such as a fall or impact.",
-      "activityStart": "Describe the specific activity that triggered your pain.",
-      "reflexes": "Loss of reflexes can reveal a lot about your condition.",
-      "sensitivity": "Answer yes only if this sensitivity appeared with your pain.",
-      "variableImpact": "Answer yes if you cannot predict when your pain will appear."
       "painIntensity": "Rate your pain on a scale from 0 to 10, where 0 means no pain and 10 means the worst pain imaginable.",
       "painWithMovement": "Consider activities like bending, lifting, walking, or specific movements that make your pain worse.",
       "painIntensityIncrease": "Think about how much more intense your pain becomes during these triggering movements or activities.",
@@ -134,37 +127,12 @@
       "reflexes": "This refers to medical testing where a doctor checks your reflexes with a small hammer. Loss of reflexes can reveal important information about your condition.",
       "sensitivity": "Answer yes only if this sensitivity appeared together with your pain and is more pronounced than before.",
       "variableImpact": "Answer yes if you cannot predict when the same activities will cause pain - sometimes they hurt, sometimes they don't."
-
     },
     "options": {
       "yesNo": {
         "yes": "Yes",
         "no": "No"
       },
-      "intensityIncrease": {
-        "significantly": "Significantly",
-        "moderately": "Moderately",
-        "minimally": "Minimally"
-      },
-      "onsetTiming": {
-        "immediately": "Immediately",
-        "later": "Later"
-      },
-      "subsiding": {
-        "immediately": "Immediately",
-        "later": "Later"
-      },
-      "painDescription": {
-        "burning": "Burning",
-        "electric-shocks": "Electric shocks",
-        "shooting": "Shooting",
-        "dull": "Dull",
-        "pins-needles": "Pins and needles",
-        "numbness": "Numbness",
-        "toothache-like": "Toothache-like",
-        "diffuse": "Diffuse",
-        "stiffness": "Stiffness",
-        "changes": "Changes"
       "notVisited": "Haven't visited a doctor yet",
       "intensityIncrease": {
         "significantly": "Significantly (becomes much worse)",
@@ -273,8 +241,7 @@
         "no": "No"
       }
     }
-  }
-,
+  },
   "upperLimbGeneral": {
     "title": "Upper Limb Pain Assessment",
     "description": "This questionnaire helps us understand your upper limb pain.",

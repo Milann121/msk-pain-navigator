@@ -116,12 +116,6 @@
       "variableImpact": "Je vliv stejných pohybů na bolest nepředvídatelný?"
     },
     "descriptions": {
-
-      "injuryStart": "Chceme vědět, zda bolest vznikla přímo po úrazu.",
-      "activityStart": "Popiš konkrétní aktivitu, která bolest vyvolala.",
-      "reflexes": "Ztráta reflexů může hodně napovědět o tvém stavu.",
-      "sensitivity": "Odpověz ano jen pokud se tato citlivost objevila s bolestí.",
-      "variableImpact": "Odpověz ano, pokud nedokážeš předvídat vznik bolesti."
       "painIntensity": "Ohodnoť svou bolest na stupnici od 0 do 10, kde 0 znamená žádnou bolest a 10 nejhorší představitelnou bolest.",
       "painWithMovement": "Zvaž aktivity jako ohýbání, zvedání, chůze nebo specifické pohyby, které zhoršují tvou bolest.",
       "painIntensityIncrease": "Přemýšlej o tom, o kolik se tvá bolest zesílí během těchto spouštějících pohybů nebo aktivit.",
@@ -139,30 +133,6 @@
         "yes": "Ano",
         "no": "Ne"
       },
-      "intensityIncrease": {
-        "significantly": "Výrazně",
-        "moderately": "Středně",
-        "minimally": "Minimálně"
-      },
-      "onsetTiming": {
-        "immediately": "Okamžitě",
-        "later": "Později"
-      },
-      "subsiding": {
-        "immediately": "Okamžitě",
-        "later": "Později"
-      },
-      "painDescription": {
-        "burning": "Pálení",
-        "electric-shocks": "Elektrické šoky",
-        "shooting": "Vystřelování",
-        "dull": "Tupá",
-        "pins-needles": "Mravenčení",
-        "numbness": "Necitlivost",
-        "toothache-like": "Jako bolest zubu",
-        "diffuse": "Difuzní",
-        "stiffness": "Ztuhlost",
-        "changes": "Mění se"
       "notVisited": "Ještě jsem nenavštívil/a lékaře",
       "intensityIncrease": {
         "significantly": "Výrazně (stane se mnohem horší)",
@@ -271,7 +241,7 @@
         "no": "Ne"
       }
     }
-,
+  },
   "upperLimbGeneral": {
     "title": "Hodnocení bolesti horní končetiny",
     "description": "Tento dotazník nám pomůže lépe pochopit tvou bolest horní končetiny.",
