@@ -1,0 +1,31 @@
+
+{
+  "title": "Blog o zdraví a pohybu",
+  "readMore": "Číst více",
+  "posts": {
+    "1": {
+      "title": "Pochopení managementu bolesti prostřednictvím cvičení",
+      "description": "Objevte efektivní strategie pro zvládání chronické bolesti pomocí cílených cvičebních rutin a fyzioterapeutických technik."
+    },
+    "2": {
+      "title": "Začněte své hodnocení bolesti",
+      "description": "Absolvujte naše komplexní hodnocení a získejte personalizovaná doporučení cvičení pro váš specifický stav bolesti."
+    },
+    "3": {
+      "title": "Důležitost denního protahování",
+      "description": "Naučte se, jak začlenění denního protahování do vaší rutiny může zlepšit flexibilitu a snížit bolest."
+    },
+    "4": {
+      "title": "Výživa a cvičení: Dokonalé partnerství",
+      "description": "Prozkoumejte, jak správná výživa podporuje vaši cvičební rutinu a zlepšuje zotavení z bolestivých stavů."
+    },
+    "5": {
+      "title": "Časté chyby při cvičení, kterým se vyhnout",
+      "description": "Identifikujte a opravte časté chyby při cvičení, které by mohly bránit vašemu pokroku nebo způsobovat dodatečnou bolest."
+    },
+    "6": {
+      "title": "Sledujte svůj pokrok v cvičení",
+      "description": "Monitorujte svou cestu cvičení a sledujte zlepšení v managementu bolesti pomocí našich nástrojů pro sledování cvičení."
+    }
+  }
+}

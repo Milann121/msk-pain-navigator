@@ -1,0 +1,31 @@
+
+{
+  "title": "Blog o zdraví a pohybe",
+  "readMore": "Čítaj viac",
+  "posts": {
+    "1": {
+      "title": "Pochopenie manažmentu bolesti prostredníctvom cvičenia",
+      "description": "Objavte efektívne stratégie na zvládanie chronickej bolesti pomocou cielených cvičebných rutín a fyzioterapeutických techník."
+    },
+    "2": {
+      "title": "Začnite svoje hodnotenie bolesti",
+      "description": "Absolvujte naše komplexné hodnotenie a získajte personalizované odporúčania cvičení pre vašu špecifickú bolesť."
+    },
+    "3": {
+      "title": "Dôležitosť denného strečingu",
+      "description": "Naučte sa, ako začlenenie denného strečingu do vašej rutiny môže zlepšiť flexibilitu a znížiť bolesť."
+    },
+    "4": {
+      "title": "Výživa a cvičenie: Dokonalé partnerstvo",
+      "description": "Preskúmajte, ako správna výživa podporuje vašu cvičebnú rutinu a zlepšuje zotavenie z bolestivých stavov."
+    },
+    "5": {
+      "title": "Časté chyby pri cvičení, ktorým sa treba vyhnúť",
+      "description": "Identifikujte a opravte časté chyby pri cvičení, ktoré by mohli brániť vášmu pokroku alebo spôsobovať dodatočnú bolesť."
+    },
+    "6": {
+      "title": "Sledujte svoj pokrok v cvičení",
+      "description": "Monitorujte svoju cestu cvičenia a sledujte zlepšenia v manažmente bolesti pomocou našich nástrojov na sledovanie cvičenia."
+    }
+  }
+}

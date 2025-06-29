@@ -1,0 +1,31 @@
+
+{
+  "title": "Health & Wellness Blog",
+  "readMore": "Read More",
+  "posts": {
+    "1": {
+      "title": "Understanding Pain Management Through Exercise",
+      "description": "Discover effective strategies for managing chronic pain through targeted exercise routines and physiotherapy techniques."
+    },
+    "2": {
+      "title": "Start Your Pain Assessment",
+      "description": "Take our comprehensive assessment to get personalized exercise recommendations for your specific pain condition."
+    },
+    "3": {
+      "title": "The Importance of Daily Stretching",
+      "description": "Learn how incorporating daily stretching into your routine can improve flexibility and reduce pain."
+    },
+    "4": {
+      "title": "Nutrition and Exercise: A Perfect Partnership",
+      "description": "Explore how proper nutrition supports your exercise routine and enhances recovery from pain conditions."
+    },
+    "5": {
+      "title": "Common Exercise Mistakes to Avoid",
+      "description": "Identify and correct common exercise mistakes that could be hindering your progress or causing additional pain."
+    },
+    "6": {
+      "title": "Track Your Exercise Progress",
+      "description": "Monitor your exercise journey and track improvements in your pain management with our exercise tracking tools."
+    }
+  }
+}

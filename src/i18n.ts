@@ -1,3 +1,4 @@
+
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
@@ -14,6 +15,7 @@ import enExercises from './locales/en/exercises.json';
 import enMisc from './locales/en/misc.json';
 import enQuestionnaire from './locales/en/questionnaire.json';
 import enResults from './locales/en/results.json';
+import enBlog from './locales/en/blog.json';
 
 // Slovak translations
 import skWelcome from './locales/sk/welcome.json';
@@ -27,6 +29,7 @@ import skExercises from './locales/sk/exercises.json';
 import skMisc from './locales/sk/misc.json';
 import skQuestionnaire from './locales/sk/questionnaire.json';
 import skResults from './locales/sk/results.json';
+import skBlog from './locales/sk/blog.json';
 
 // Czech translations
 import csWelcome from './locales/cs/welcome.json';
@@ -40,6 +43,7 @@ import csExercises from './locales/cs/exercises.json';
 import csMisc from './locales/cs/misc.json';
 import csQuestionnaire from './locales/cs/questionnaire.json';
 import csResults from './locales/cs/results.json';
+import csBlog from './locales/cs/blog.json';
 
 // Combine all translations
 const enTranslations = {
@@ -54,7 +58,8 @@ const enTranslations = {
   exercises: { shoulderNociceptive: enExercises.shoulderNociceptive },
   misc: enMisc,
   questionnaire: enQuestionnaire,
-  results: enResults
+  results: enResults,
+  blog: enBlog
 };
 
 const skTranslations = {
@@ -69,7 +74,8 @@ const skTranslations = {
   exercises: { shoulderNociceptive: skExercises.shoulderNociceptive },
   misc: skMisc,
   questionnaire: skQuestionnaire,
-  results: skResults
+  results: skResults,
+  blog: skBlog
 };
 
 const csTranslations = {
@@ -84,7 +90,8 @@ const csTranslations = {
   exercises: { shoulderNociceptive: csExercises.shoulderNociceptive },
   misc: csMisc,
   questionnaire: csQuestionnaire,
-  results: csResults
+  results: csResults,
+  blog: csBlog
 };
 
 void i18n
