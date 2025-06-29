@@ -89,19 +89,19 @@
       "description": "Počiatočná fáza zameraná na zvládanie bolesti a jemné cvičenia pohyblivosti. Vykonávajte tieto cvičenia 2-3 krát denne počas akútnej fázy.",
       "pendulumExercises": {
         "title": "Kyvadlové cvičenia",
-        "description": "Jemné hojdacie pohyby na udržanie pohyblivosti ramena bez núteného pohybu. Vykonajte 10-15 kyvaní v každom smere, 2-3 krát denne."
+        "description": "Predkloňte sa a vykonávajte hojdacie pohyby na udržanie pohyblivosti ramena bez aktívneho pohybu. Vykonajte 10-15 kyvaní v každom smere, 2-3 krát denne."
       },
       "isometricExternalRotation": {
         "title": "Izometrická vonkajšia rotácia",
-        "description": "Jemné posilňovanie bez pohybu na udržanie svalového tonusu. Držte 5-10 sekúnd, opakujte 10-krát, 2-3 krát denne."
+        "description": "Oprite sa rukou o stenu podľa videa. Lakeť zdržujte pri tele a rotačným pohybom ramena zatlačte do steny miernou silou. Dávajte pozor, aby ste počas cvičenia nedzvíhali ramená smerom k ušiam. Držte 8-10 sekúnd, opakujte 5-krát, 1-2 krát denne."
       },
       "rotatorCuffRelease": {
-        "title": "Samotná masáž rotátorovej manžety",
-        "description": "Jemné techniky samomasáže na zníženie svalového napätia a zlepšenie cirkulácie. Vykonávajte 5-10 minút denne."
+        "title": "Masáž rotátorovej manžety a trapézov loptičkou",
+        "description": "Vezmite tenisovú loptičku, uložte si ju na trapézy a oprite sa o stenu. Mierne zatlačte váhou svojho tela a premasírujte oblasť trapézov a lopatky. Počas cviku môžete pociťovať bolesť, pokiaľ je v tolerancii. Keď nájdete bolestivý bod, staticky zatlačte na cca 20-30 sekúnd a následne sa presuňte nižšie. Cvik vykonávajte minimálne 1x denne. "
       },
       "shoulderHeating": {
-        "title": "Zahriavacie cvičenia ramena",
-        "description": "Jemné zahriavacie pohyby na prípravu ramena na ďalšie cvičenia a zníženie stuhnutosti. Vykonávajte pred ostatnými cvičeniami."
+        "title": "Zohrievanie ramena",
+        "description": "Použite výhrevný vankúšik/podložku a prehrejte oblasť celého ramena a lopatky. Ako variantu môžete použiť techniku fénovania ramena, ale VŽDY S UTERÁKOM ULOŽENÝM NA ZOHRIEVANEJ ČASTI TELA ako ochranu pred popálením. Zohrievajte aspoň 15-20min."
       }
     },
     "frozenShoulderPhase2": {
