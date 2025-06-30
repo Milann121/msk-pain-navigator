@@ -83,6 +83,484 @@
     "title": "General Program",
     "description": "Don't have time for individual programs? Here you'll find a personalized program with the most important exercises from your programs. Follow the instructions and stop exercising if you feel pain."
   },
+  "central": {
+    "centralSensitisationNeck": {
+      "title": "General exercises for cervical spine pain reduction",
+      "description": "",
+      "wallBallMassage": {
+        "title": "Wall ball massage",
+        "description": "Use a tennis ball for this exercise. Place the ball on your trapezius, lean against the wall and massage the neck muscles as shown in the video. If you find painful spots, you can apply static pressure for 20-30 seconds. Massage the entire trapezius and interscapular area."
+      },
+      "interscapularStrengthening": {
+        "title": "Interscapular muscle strengthening",
+        "description": "Hold the resistance band as shown in the video. You can alternate between these 3 exercises or choose any one of them.\n➜ WARNING: You must not feel strain in the trapezius during these exercises! Always try to push the shoulder blades and shoulders down away from the ears so the interscapular muscles work. Make sure you feel the muscles between the shoulder blades more during the exercises, not the shoulders and trapezius - achieve this by pressing the shoulders down.\n➜ REPETITIONS: 10-15x / 3 series / 1x daily."
+      },
+      "wallPushUps": {
+        "title": "Wall push-ups",
+        "description": "Place your hands against the wall wider than your shoulders. Step 1 step away from the wall (the further you are from the wall, the harder the push-ups will be). Make sure your hands are positioned lower than your shoulders.\n➜ WARNING: Do not arch your lower back during the exercise, but maintain a firm core. Do not lift your shoulders during the exercise to prevent trapezius tightness, but try to push the shoulder blades down.\n➜ REPETITIONS: 8-15 push-ups / 3 series."
+      }
+    },
+    "centralSensitisationMiddleBack": {
+      "title": "General exercises for thoracic spine pain reduction",
+      "description": "",
+      "prayer": {
+        "title": "Prayer - neck and shoulder blade release",
+        "description": "Join your palms and elbows at 90-degree angles in the elbows and shoulders. With continuous connection, slowly raise your elbows higher, but still KEEP JOINED elbows and palms. WARNING: try to keep your fingers pointing toward the ceiling. REPETITIONS: 20 seconds / 2x in a row / 2x daily."
+      },
+      "thoracicSpineMassage": {
+        "title": "Thoracic spine massage with ball",
+        "description": "Place the ball in the interscapular space and release painful and stiff muscles with vertical movement.\n➜ REPETITIONS: anytime during the day."
+      },
+      "bookOpening": {
+        "title": "Book opening",
+        "description": "This exercise will increase chest mobility.\n➜ Lie on your side, bend your legs and join your palms in front of you. Together with the upper limb, rotate to the opposite side while exhaling. The head should follow the hand throughout. Stay in this position for 3 seconds.\n➜ REPETITIONS: 5x to each side, anytime during the day."
+      },
+      "interscapularStrengthening": {
+        "title": "Interscapular muscle strengthening",
+        "description": "Hold the resistance band as shown in the video. You can alternate between these 3 exercises or choose any one of them.\n➜ WARNING: You must not feel strain in the trapezius during these exercises! Always try to push the shoulder blades and shoulders down away from the ears so the interscapular muscles work. Make sure you feel the muscles between the shoulder blades more during the exercises, not the shoulders and trapezius - achieve this by pressing the shoulders down.\n➜ REPETITIONS: 10-15x / 3 series / 1x daily."
+      }
+    },
+    "centralSensitisationLowerBack": {
+      "title": "General exercises for lumbar spine pain reduction",
+      "description": "",
+      "glutealStretching": {
+        "title": "Gluteal muscle stretching",
+        "description": "Description in video.\nREPETITIONS: 5x daily."
+      },
+      "bridge": {
+        "title": "Bridge",
+        "description": "Lie on your back and place bent legs shoulder-width apart.\n➜ Place your hands along your body.\n➜ Press your feet into the surface and lift your buttocks above the surface, to the height where you straighten your back\n➜ Then slowly lower your buttocks just above the surface and repeat\n➜ REPETITIONS: 8-12x / 4 series / 1x daily"
+      },
+      "squats90": {
+        "title": "90-degree squats",
+        "description": "Stand with feet shoulder-width apart.\n➜ Perform squats max. to 90 degrees of knee flexion and without bending in the back.\n➜ REPETITIONS: 10x / 3 series / 1x daily"
+      }
+    },
+    "defaultNeck": {
+      "title": "General exercises for cervical spine pain reduction",
+      "description": "",
+      "wallBallMassage": {
+        "title": "Wall ball massage",
+        "description": "Use a tennis ball for this exercise. Place the ball on your trapezius, lean against the wall and massage the neck muscles as shown in the video. If you find painful spots, you can apply static pressure for 20-30 seconds. Massage the entire trapezius and interscapular area."
+      },
+      "interscapularStrengthening": {
+        "title": "Interscapular muscle strengthening",
+        "description": "Hold the resistance band as shown in the video. You can alternate between these 3 exercises or choose any one of them.\n➜ WARNING: You must not feel strain in the trapezius during these exercises! Always try to push the shoulder blades and shoulders down away from the ears so the interscapular muscles work. Make sure you feel the muscles between the shoulder blades more during the exercises, not the shoulders and trapezius - achieve this by pressing the shoulders down.\n➜ REPETITIONS: 10-15x / 3 series / 1x daily."
+      },
+      "wallPushUps": {
+        "title": "Wall push-ups",
+        "description": "Place your hands against the wall wider than your shoulders. Step 1 step away from the wall (the further you are from the wall, the harder the push-ups will be). Make sure your hands are positioned lower than your shoulders.\n➜ WARNING: Do not arch your lower back during the exercise, but maintain a firm core. Do not lift your shoulders during the exercise to prevent trapezius tightness, but try to push the shoulder blades down.\n➜ REPETITIONS: 8-15 push-ups / 3 series."
+      }
+    },
+    "defaultMiddleBackWeek02": {
+      "title": "Week 0-2",
+      "description": "Gentle rotational movements to improve thoracic mobility and reduce pain.",
+      "thoracicRotationWithExtension": {
+        "title": "Thoracic rotation with extension",
+        "description": "Sit and place your hands behind your head.\n➜ Slowly rotate in the thoracic spine to the side to a range that is comfortable for you. Stop in this position and slightly extend. Then return and repeat the exercise to the opposite side.\n➜ REPETITIONS: repeat 5-8x to each side, anytime during the day."
+      },
+      "thoracicSpineMassage": {
+        "title": "Thoracic spine massage with ball",
+        "description": "Place the ball in the interscapular space and release painful and stiff muscles with vertical movement.\n➜ REPETITIONS: anytime during the day."
+      }
+    },
+    "defaultMiddleBackWeek35": {
+      "title": "Week 3-5",
+      "description": "Gentle rotational movements to improve thoracic mobility and reduce pain.",
+      "interscapularStrengthening": {
+        "title": "Interscapular muscle strengthening",
+        "description": "Hold the resistance band as shown in the video. You can alternate between these 3 exercises or choose any one of them.\n➜ WARNING: You must not feel strain in the trapezius during these exercises! Always try to push the shoulder blades and shoulders down away from the ears so the interscapular muscles work. Make sure you feel the muscles between the shoulder blades more during the exercises, not the shoulders and trapezius - achieve this by pressing the shoulders down.\n➜ REPETITIONS: 10-15x / 3 series / 1x daily."
+      },
+      "thoracicExtension": {
+        "title": "Thoracic spine extension",
+        "description": "Press your palms against the wall, step away from it so you are in a slight forward lean and exhale to release the trunk into extension. Try to keep your shoulders relaxed throughout, head in extension of the spine and breathe 1-2 times in the extension position.\n➜ REPETITIONS: Repeat extension 3-4x, anytime during the day."
+      },
+      "bookOpening": {
+        "title": "Book opening",
+        "description": "This exercise will increase chest mobility.\n➜ Lie on your side, bend your legs and join your palms in front of you. Together with the upper limb, rotate to the opposite side while exhaling. The head should follow the hand throughout. Stay in this position for 3 seconds.\n➜ REPETITIONS: 5x to each side, anytime during the day."
+      }
+    },
+    "defaultLowerBack": {
+      "title": "General exercises for lumbar spine pain reduction",
+      "description": "",
+      "glutealStretching": {
+        "title": "Gluteal muscle stretching",
+        "description": "Description in video.\n➜ REPETITIONS: 5x daily."
+      },
+      "bridge": {
+        "title": "Bridge",
+        "description": "Lie on your back and place bent legs shoulder-width apart.\n➜ Place your hands along your body.\n➜ Press your feet into the surface and lift your buttocks above the surface, to the height where you straighten your back\n➜ Then slowly lower your buttocks just above the surface and repeat\n➜ REPETITIONS: 8-12x / 4 series / 1x daily"
+      },
+      "squats90": {
+        "title": "90-degree squats",
+        "description": "Stand with feet shoulder-width apart.\n➜ Perform squats max. to 90 degrees of knee flexion and without bending in the back.\n➜ REPETITIONS: 10x / 3 series / 1x daily"
+      }
+    }
+  },
+  "neuropathic": {
+    "radicularPainNeckWeek03": {
+      "title": "Week 0-3",
+      "description": "Gentle exercises for nerve root release in the cervical area and reduction of neurological symptoms.",
+      "neckRetraction": {
+        "title": "Neck retraction",
+        "description": "Sit and relax your shoulders. Place the index finger of one hand on your chin and slowly retract your chin inward (as shown in the video). Perform the retraction range only as far as comfortable, this exercise should not produce any pain! Then extend your chin slightly forward again. Throughout, try to keep your shoulders relaxed, not tense them and keep your head level without forward or backward movements.\n➜ REPETITIONS: 10x / anytime during the day."
+      },
+      "upperLimbNeurodynamics": {
+        "title": "Upper limb neurodynamics",
+        "description": "Procedure: Sit and relax trapezius\n➜ raise arm with palm facing up\n➜ bend palm away from you, along with extended fingers\nReturn palm back and bend elbow to 90 degrees\n➜ repeat movement\nREPETITIONS: repeat 10-15 x / 5x daily"
+      },
+      "neckSideBending": {
+        "title": "Neck side bending",
+        "description": "Sit and start performing side bends. Perform the bending range maximum to pain and do not stay in this position - immediately return to neutral position.\n➜ REPETITIONS: 6-8x to each side.\n➜ WARNING: if one side is more painful, limit the range and repetitions to this position."
+      }
+    },
+    "radicularPainNeckWeek46": {
+      "title": "Week 4-6",
+      "description": "Increased mobility in the cervical spine and pain reduction.",
+      "prayer": {
+        "title": "Prayer - neck and shoulder blade release",
+        "description": "Join your palms and elbows at 90-degree angles in the elbows and shoulders. With continuous connection, slowly raise your elbows higher, but still KEEP JOINED elbows and palms. WARNING: try to keep your fingers still pointing toward the ceiling. REPETITIONS: 20 seconds / 2x in a row / 2x daily."
+      },
+      "wallBallMassage": {
+        "title": "Wall ball massage",
+        "description": "Use a tennis ball for this exercise. Place the ball on your trapezius, lean against the wall and massage the neck muscles as shown in the video. If you find painful spots, you can apply static pressure for 20-30 seconds. Massage the entire trapezius and interscapular area."
+      }
+    },
+    "radicularPainLowerBackWeek03": {
+      "title": "Week 0-3",
+      "description": "Exercises focused on gentle mobilization of nerve structures in the lumbar area.",
+      "sciaticNeurodynamics": {
+        "title": "Sciatic nerve neurodynamics",
+        "description": "Description in video.\n➜ REPETITIONS: 15x / 3-5x daily\n➜ WARNING: immediately after exercise you may feel slight leg numbness. It should pass within half a minute, otherwise reduce the number of repetitions or skip the exercise."
+      },
+      "glutealStretching": {
+        "title": "Gluteal muscle stretching",
+        "description": "Description in video.\nREPETITIONS: 5x daily."
+      },
+      "pelvicTilting": {
+        "title": "Pelvic tilting",
+        "description": "Anytime during the day, relieve stiff lumbar muscles by tilting the pelvis. Perform the range of motion only as far as comfortable and does not cause more pain.\n➜ REPETITIONS: Repeat 15x anytime during the day."
+      }
+    },
+    "radicularPainLowerBackWeek46": {
+      "title": "Week 4-6",
+      "description": "Exercises focused on strengthening gluteal muscles and adaptation to load.",
+      "bridge": {
+        "title": "Bridge",
+        "description": "Lie on your back and place bent legs shoulder-width apart.\n➜ Place your hands along your body.\n➜ Press your feet into the surface and lift your buttocks above the surface, to the height where you straighten your back\n➜ Then slowly lower your buttocks just above the surface and repeat\n➜ REPETITIONS: 8-12x / 4 series / 1x daily"
+      },
+      "squats90": {
+        "title": "90-degree squats",
+        "description": "Stand with feet shoulder-width apart.\n➜ Perform squats max. to 90 degrees of knee flexion and without bending in the back.\n➜ REPETITIONS: 10x / 3 series / 1x daily"
+      }
+    },
+    "radiculopathyNeckWeek02": {
+      "title": "Week 0-2",
+      "description": "Exercises to reduce neurological symptoms and reduce pressure on nerve root.",
+      "tensionNeurodynamics": {
+        "title": "Tension neurodynamics",
+        "description": "Procedure:\nSit and relax trapezius\n➜ raise arm with palm facing up\n➜ bend palm away from you, along with extended fingers and head pull away from arm.\nReturn palm back and bend elbow to 90 degrees repeat movement\nREPETITIONS: repeat 10-15 x / 5x daily.\n➜ WARNING: Pull head away only to pain. When you feel strong pull in arm or pain, immediately return head and arm to neutral position!"
+      },
+      "mckenzieExtensions": {
+        "title": "McKenzie cervical spine extensions",
+        "description": "Procedure:\n➜ sit and relax trapezius\n➜ retract chin (retraction), but do not lift shoulders or flex head forward\n➜ extend head to a range that is comfortable and does not cause much pain\n➜ in extension make short head rotations to both sides\n➜ REPETITIONS: repeat extension 5-10x in a row with 3-5 rotations to each side ➜ 5x daily."
+      }
+    },
+    "radiculopathyNeckWeek35": {
+      "title": "Week 3-5",
+      "description": "Strengthening muscles in the neck and interscapular area.",
+      "interscapularStrengthening": {
+        "title": "Interscapular muscle strengthening",
+        "description": "Hold the resistance band as shown in the video. You can alternate between these 3 exercises or choose any one of them.\n➜ WARNING: You must not feel strain in the trapezius during these exercises! Always try to push the shoulder blades and shoulders down away from the ears so the interscapular muscles work. Make sure you feel the muscles between the shoulder blades more during the exercises, not the shoulders and trapezius - achieve this by pressing the shoulders down.\n➜ REPETITIONS: 10-15x / 3 series / 1x daily."
+      },
+      "neckStrengthening": {
+        "title": "Neck muscle strengthening",
+        "description": "Sit and place both hands behind your head. Try to keep your shoulders relaxed.\n➜ Press your head into your palms and palms into your head, so that the neck muscles on the back of the cervical spine are tensed. Throughout, try to keep your head upright.\n➜ REPETITIONS: 10sec. pressure / 10sec. pause / 5x in a row. You can repeat the exercise 2-3x daily."
+      }
+    },
+    "radiculopathyLowerBackWeek02": {
+      "title": "Week 0-2",
+      "description": "Exercises focused on reducing neurological symptoms of the lower limb.",
+      "proximalSciaticNeurodynamics": {
+        "title": "Proximal sciatic nerve neurodynamics",
+        "description": "Lie on your back and bend your legs. Lift the lower limb with symptoms and hold behind the knee. Carefully pull your toe toward you and slowly straighten your knee until you feel a pull in your leg, then immediately return to the original position.\n➜ WARNING: this exercise may cause slight limb numbness after completion, which should go away within a minute - this is normal. If you feel symptoms persist longer, stop this exercise.\n➜ REPETITIONS: 10-12 repetitions / 4-5x daily."
+      },
+      "mckenzieExtensions": {
+        "title": "McKenzie extensions",
+        "description": "Procedure:\n➜ lie on your stomach with hands as shown in video\n➜ push trunk away from surface into extension with palms\n➜ warning: keep buttocks relaxed, do not clench gluteal muscles!\n➜ extend only to the point where movement is comfortable and does not cause you more pain\nREPETITIONS: 10x / 4-5x daily"
+      }
+    },
+    "radiculopathyLowerBackWeek35": {
+      "title": "Week 3-5",
+      "description": "Exercises focused on increasing load on lumbar spine and gluteal muscles.",
+      "glutealMassage": {
+        "title": "Gluteal muscle massage",
+        "description": "Take a tennis ball, place it on your gluteal muscles and lean against the wall with it (as shown in video).\n➜ Carefully press into the ball and massage the gluteal muscle area just below the pelvic rim with horizontal movements.\n➜ REPETITIONS: a few minutes daily."
+      },
+      "bridge": {
+        "title": "Bridge",
+        "description": "Lie on your back and place bent legs shoulder-width apart.\n➜ Place your hands along your body.\n➜ Press your feet into the surface and lift your buttocks above the surface, to the height where you straighten your back\n➜ Then slowly lower your buttocks just above the surface and repeat\n➜ REPETITIONS: 8-12x / 4 series / 1x daily"
+      },
+      "squats90": {
+        "title": "90-degree squats",
+        "description": "Stand with feet shoulder-width apart.\n➜ Perform squats max. to 90 degrees of knee flexion and without bending in the back.\n➜ REPETITIONS: 10x / 3 series / 1x daily"
+      }
+    },
+    "defaultNeck": {
+      "title": "Basic cervical spine exercises",
+      "description": "General exercises for mobilization of nerve structures in the cervical area.",
+      "neckRetraction": {
+        "title": "Neck retraction",
+        "description": "Sit and relax your shoulders. Place the index finger of one hand on your chin and slowly retract your chin inward (as shown in the video). Perform the retraction range only as far as comfortable, this exercise should not produce any pain! Then extend your chin slightly forward again. Throughout, try to keep your shoulders relaxed, not tense them and keep your head level without forward or backward movements.\n➜ REPETITIONS: 10x / anytime during the day."
+      },
+      "upperLimbNeurodynamics": {
+        "title": "Upper limb neurodynamics",
+        "description": "Procedure: Sit and relax trapezius\n➜ raise arm with palm facing up\n➜ bend palm away from you, along with extended fingers\nReturn palm back and bend elbow to 90 degrees\n➜ repeat movement\nREPETITIONS: repeat 10-15 x / 5x daily"
+      },
+      "prayer": {
+        "title": "Prayer - neck and shoulder blade release",
+        "description": "Join your palms and elbows at 90-degree angles in the elbows and shoulders. With continuous connection, slowly raise your elbows higher, but still KEEP JOINED elbows and palms. WARNING: try to keep your fingers still pointing toward the ceiling. REPETITIONS: 20 seconds / 2x in a row / 2x daily."
+      }
+    },
+    "defaultMiddleBack": {
+      "title": "Basic thoracic spine exercises",
+      "description": "General exercises for thoracic spine.",
+      "prayer": {
+        "title": "Prayer - neck and shoulder blade release",
+        "description": "Join your palms and elbows at 90-degree angles in the elbows and shoulders. With continuous connection, slowly raise your elbows higher, but still KEEP JOINED elbows and palms. WARNING: try to keep your fingers still pointing toward the ceiling. REPETITIONS: 20 seconds / 2x in a row / 2x daily."
+      },
+      "thoracicSpineMassage": {
+        "title": "Thoracic spine massage with ball",
+        "description": "Place the ball in the interscapular space and release painful and stiff muscles with vertical movement.\n➜ REPETITIONS: anytime during the day."
+      },
+      "upperLimbNeurodynamics": {
+        "title": "Upper limb neurodynamics",
+        "description": "Procedure: Sit and relax trapezius\n➜ raise arm with palm facing up\n➜ bend palm away from you, along with extended fingers\nReturn palm back and bend elbow to 90 degrees\n➜ repeat movement\nREPETITIONS: repeat 10-15 x / 5x daily"
+      }
+    },
+    "defaultLowerBack": {
+      "title": "Basic lumbar spine exercises",
+      "description": "Basic exercises for strengthening and mobilization of lumbar spine",
+      "glutealStretching": {
+        "title": "Gluteal muscle stretching",
+        "description": "Description in video.\n➜ REPETITIONS: 5x daily."
+      },
+      "pelvicTilting": {
+        "title": "Pelvic tilting",
+        "description": "Anytime during the day, relieve stiff lumbar muscles by tilting the pelvis. Perform the range of motion only as far as comfortable and does not cause more pain.\n➜ REPETITIONS: Repeat 15x anytime during the day."
+      },
+      "upperLimbNeurodynamics": {
+        "title": "Upper limb neurodynamics",
+        "description": "Procedure: Sit and relax trapezius\n➜ raise arm with palm facing up\n➜ bend palm away from you, along with extended fingers\nReturn palm back and bend elbow to 90 degrees\n➜ repeat movement\nREPETITIONS: repeat 10-15 x / 5x daily"
+      }
+    }
+  },
+  "nociceptive": {
+    "discHerniationNeckWeek03": {
+      "title": "Program 0-3 weeks",
+      "description": "Pain reduction exercises that help stabilize the cervical spine and reduce pressure on intervertebral discs.",
+      "mckenzieExtensions": {
+        "title": "McKenzie cervical spine extensions",
+        "description": "Procedure:\n➜ sit and relax trapezius\n➜ retract chin (retraction), but do not lift shoulders or flex head forward\n➜ extend head to a range that is comfortable and does not cause much pain\n➜ in extension make short head rotations to both sides\n➜ REPETITIONS: repeat extension 5-10x in a row with 3-5 rotations to each side ➜ 5x daily."
+      },
+      "upperLimbNeurodynamics": {
+        "title": "Upper limb neurodynamics",
+        "description": "Procedure:\nSit and relax trapezius\n➜ raise arm with palm facing up\n➜ bend palm away from you, along with extended fingers\nReturn palm back and bend elbow to 90 degrees\n➜ repeat movement\nREPETITIONS: repeat 10-15 x / 5x daily"
+      },
+      "wallBallMassage": {
+        "title": "Wall ball massage",
+        "description": "Use a tennis ball for this exercise. Place the ball on your trapezius, lean against the wall and massage the neck muscles as shown in the video. If you find painful spots, you can apply static pressure for 20-30 seconds. Massage the entire trapezius and interscapular area."
+      }
+    },
+    "discHerniationNeckWeek46": {
+      "title": "Program 4-6 weeks",
+      "description": "Move to a more advanced program to release the cervical spine and reduce pressure on your discs",
+      "prayer": {
+        "title": "Prayer - neck and shoulder blade release",
+        "description": "Join your palms and elbows at 90-degree angles in the elbows and shoulders. With continuous connection, slowly raise your elbows higher, but still KEEP JOINED elbows and palms. WARNING: try to keep your fingers still pointing toward the ceiling. REPETITIONS: 20 seconds / 2x in a row / 2x daily."
+      },
+      "interscapularStrengthening": {
+        "title": "Interscapular muscle strengthening",
+        "description": "Hold the resistance band as shown in the video. You can alternate between these 3 exercises or choose any one of them.\n➜ WARNING: You must not feel strain in the trapezius during these exercises! Always try to push the shoulder blades and shoulders down away from the ears so the interscapular muscles work. Make sure you feel the muscles between the shoulder blades more during the exercises, not the shoulders and trapezius - achieve this by pressing the shoulders down.\n➜ REPETITIONS: 10-15x / 3 series / 1x daily."
+      }
+    },
+    "discHerniationLowerBackWeek03": {
+      "title": "Exercise program 0-3 weeks",
+      "description": "Basic exercises for probable disc damage with the aim of reducing pain and preventing further damage.",
+      "mckenzieExtensions": {
+        "title": "McKenzie extensions",
+        "description": "Procedure:\n➜ lie on your stomach with hands as shown in video\n➜ push trunk away from surface into extension with palms\n➜ warning: keep buttocks relaxed, do not clench gluteal muscles!\n➜ extend only to the point where movement is comfortable and does not cause you more pain\nREPETITIONS: 10x / 4-5x daily"
+      },
+      "sciaticNeurodynamics": {
+        "title": "Sciatic nerve neurodynamics",
+        "description": "Description in video.\n➜ REPETITIONS: 15x / 3-5x daily\n➜ WARNING: immediately after exercise you may feel slight leg numbness. It should pass within half a minute, otherwise reduce the number of repetitions or skip the exercise."
+      },
+      "glutealStretching": {
+        "title": "Gluteal muscle stretching",
+        "description": "Description in video.\nREPETITIONS: 5x daily."
+      }
+    },
+    "discHerniationLowerBackWeek46": {
+      "title": "Exercise program 4-6 weeks",
+      "description": "Advanced exercises for strengthening the lumbar spine and preventing further damage to your discs.",
+      "bridge": {
+        "title": "Bridge",
+        "description": "Lie on your back and place bent legs shoulder-width apart.\n➜ Place your hands along your body.\n➜ Press your feet into the surface and lift your buttocks above the surface, to the height where you straighten your back\n➜ Then slowly lower your buttocks just above the surface and repeat\n➜ REPETITIONS: 8-12x / 4 series / 1x daily"
+      },
+      "squats90": {
+        "title": "90-degree squats",
+        "description": "Stand with feet shoulder-width apart.\n➜ Perform squats max. to 90 degrees of knee flexion and without bending in the back.\n➜ REPETITIONS: 10x / 3 series / 1x daily"
+      }
+    },
+    "facetJointSyndromeNeckWeek02": {
+      "title": "Week 0-2",
+      "description": "Exercises to increase range of motion in the neck and reduce pain.",
+      "cervicalRotationWithTowel": {
+        "title": "Cervical spine rotation with towel",
+        "description": "This exercise will help you increase your range of motion into rotation.\n➜ Hold the towel as shown in the video - the upper hand determines the direction you will turn your head, the lower hand fixes. Pull down with the lower hand and maintain tension while simultaneously pulling forward and up with the upper hand while maintaining tension. Then perform rotation toward the upper limb side with continuous tension of both hands.\n➜ During this exercise you should feel increased range of motion and less pain when rotating your head.\n➜ REPETITIONS: 6x rotation to one side / anytime during the day."
+      },
+      "trapezoidMassage": {
+        "title": "Trapezius massage against wall",
+        "description": "Use a tennis ball for this exercise. Place the ball on your trapezius, lean against the wall and massage the neck muscles as shown in the video. If you find painful spots, you can apply static pressure for 20-30 seconds. Massage the entire trapezius and interscapular area."
+      },
+      "upperCervicalMassage": {
+        "title": "Upper cervical spine massage",
+        "description": "Sit and palpate the skull edge behind and slightly below your ear.\n➜ Press with thumbs under the skull and massage the occiput with circular movements. Always when you return to the skull edge after circling, press into the bone and proceed to the center of the spine.\n➜ WARNING: This exercise may be slightly painful, so sitting is appropriate! Pain may radiate to the head or behind the eye when pressed.\n➜ Repeat as needed anytime during the day, especially if you feel stiffness and head and neck pain."
+      }
+    },
+    "facetJointSyndromeNeckWeek35": {
+      "title": "Week 3-5",
+      "description": "Exercises for strengthening the interscapular area and neck + emphasis on prevention.",
+      "interscapularStrengthening": {
+        "title": "Interscapular muscle strengthening",
+        "description": "Hold the resistance band as shown in the video. You can alternate between these 3 exercises or choose any one of them.\n➜ WARNING: You must not feel strain in the trapezius during these exercises! Always try to push the shoulder blades and shoulders down away from the ears so the interscapular muscles work. Make sure you feel the muscles between the shoulder blades more during the exercises, not the shoulders and trapezius - achieve this by pressing the shoulders down.\n➜ REPETITIONS: 10-15x / 3 series / 1x daily."
+      },
+      "neckStrengthening": {
+        "title": "Neck muscle strengthening",
+        "description": "Sit and place both hands behind your head. Try to keep your shoulders relaxed.\n➜ Press your head into your palms and palms into your head, so that the neck muscles on the back of the cervical spine are tensed. Throughout, try to keep your head upright.\n➜ REPETITIONS: 10sec. pressure / 10sec. pause / 5x in a row. You can repeat the exercise 2-3x daily."
+      }
+    },
+    "facetJointSyndromeMiddleBackWeek02": {
+      "title": "Week 0-2",
+      "description": "Gentle rotational movements to improve thoracic mobility and reduce pain.",
+      "thoracicRotationWithExtension": {
+        "title": "Thoracic rotation with extension",
+        "description": "Sit and place your hands behind your head.\n➜ Slowly rotate in the thoracic spine to the side to a range that is comfortable for you. Stop in this position and slightly extend. Then return and repeat the exercise to the opposite side.\n➜ REPETITIONS: repeat 5-8x to each side, anytime during the day."
+      },
+      "thoracicSpineMassage": {
+        "title": "Thoracic spine massage with ball",
+        "description": "Place the ball in the interscapular space and release painful and stiff muscles with vertical movement.\n➜ REPETITIONS: anytime during the day."
+      }
+    },
+    "facetJointSyndromeMiddleBackWeek35": {
+      "title": "Week 3-5",
+      "description": "Gentle rotational movements to improve thoracic mobility and reduce pain.",
+      "interscapularStrengthening": {
+        "title": "Interscapular muscle strengthening",
+        "description": "Hold the resistance band as shown in the video. You can alternate between these 3 exercises or choose any one of them.\n➜ WARNING: You must not feel strain in the trapezius during these exercises! Always try to push the shoulder blades and shoulders down away from the ears so the interscapular muscles work. Make sure you feel the muscles between the shoulder blades more during the exercises, not the shoulders and trapezius - achieve this by pressing the shoulders down.\n➜ REPETITIONS: 10-15x / 3 series / 1x daily."
+      },
+      "thoracicExtension": {
+        "title": "Thoracic spine extension",
+        "description": "Press your palms against the wall, step away from it so you are in a slight forward lean and exhale to release the trunk into extension. Try to keep your shoulders relaxed throughout, head in extension of the spine and breathe 1-2 times in the extension position.\n➜ REPETITIONS: Repeat extension 3-4x, anytime during the day."
+      },
+      "bookOpening": {
+        "title": "Book opening",
+        "description": "This exercise will increase chest mobility.\n➜ Lie on your side, bend your legs and join your palms in front of you. Together with the upper limb, rotate to the opposite side while exhaling. The head should follow the hand throughout. Stay in this position for 3 seconds.\n➜ REPETITIONS: 5x to each side, anytime during the day."
+      }
+    },
+    "facetJointSyndromeLowerBackWeek03": {
+      "title": "Week 0-3",
+      "description": "Releasing lumbar muscles and increasing mobility",
+      "pelvicTilting": {
+        "title": "Pelvic tilting",
+        "description": "Anytime during the day, relieve stiff lumbar muscles by tilting the pelvis. Perform the range of motion only as far as comfortable and does not cause more pain.\n➜ REPETITIONS: Repeat 15x anytime during the day."
+      },
+      "glutealStretching": {
+        "title": "Gluteal muscle stretching",
+        "description": "Description in video.\nREPETITIONS: 5x daily."
+      },
+      "spinalStretching": {
+        "title": "Spinal muscle stretching",
+        "description": "Sit and place your chin on your chest. Slowly flex forward by rounding your back and still keep your chin on your chest. In full flexion, breathe 2-3 times into your abdomen and then slowly straighten. The last movement will be straightening your head to neutral position.\n➜ WARNING: After straightening from flexion, you may feel dizzy. Always keep your eyes open and do not stand up immediately from sitting.\n➜ REPETITIONS: 2x in a row, anytime during the day."
+      }
+    },
+    "facetJointSyndromeLowerBackWeek46": {
+      "title": "Week 4-6",
+      "description": "Strengthen the gluteal area and prevent lumbar overload.",
+      "bridge": {
+        "title": "Bridge",
+        "description": "Lie on your back and place bent legs shoulder-width apart.\n➜ Place your hands along your body.\n➜ Press your feet into the surface and lift your buttocks above the surface, to the height where you straighten your back\n➜ Then slowly lower your buttocks just above the surface and repeat\n➜ REPETITIONS: 8-12x / 4 series / 1x daily"
+      },
+      "squats90": {
+        "title": "90-degree squats",
+        "description": "Stand with feet shoulder-width apart.\n➜ Perform squats max. to 90 degrees of knee flexion and without bending in the back.\n➜ REPETITIONS: 10x / 3 series / 1x daily"
+      }
+    },
+    "sijSyndromeWeek02": {
+      "title": "Week 0-2",
+      "description": "Stabilization exercises for SI joint.",
+      "sijMobilization": {
+        "title": "SI joint mobilization",
+        "description": "Get on all fours with knees shoulder-width apart and feet pointing toward each other.\n➜ Slowly sit on your heels and during the movement round your back with your head down. Perform the movement with exhalation and relax for a few seconds in the sitting position on your heels.\n➜ REPETITIONS: 5x in a row, anytime during the day."
+      },
+      "squats90": {
+        "title": "90-degree squats",
+        "description": "Stand with feet shoulder-width apart.\n➜ Perform squats max. to 90 degrees of knee flexion and without bending in the back.\n➜ REPETITIONS: 10x / 3 series / 1x daily"
+      }
+    },
+    "sijSyndromeWeek36": {
+      "title": "Week 3-6",
+      "description": "Strengthening gluteal and back muscles.",
+      "glutealStrengthening": {
+        "title": "Gluteal muscle strengthening",
+        "description": "Choose one or more exercises from the video to strengthen gluteal muscles. Be careful not to arch your lower back and to feel the work of gluteal muscles and hamstrings during exercise.\n➜ REPETITIONS: 8-10x / 2-3 series / 1x daily"
+      }
+    },
+    "defaultNeck": {
+      "title": "Basic cervical spine exercises",
+      "description": "General exercises for strengthening and mobilization of cervical spine.",
+      "wallBallMassage": {
+        "title": "Wall ball massage",
+        "description": "Use a tennis ball for this exercise. Place the ball on your trapezius, lean against the wall and massage the neck muscles as shown in the video. If you find painful spots, you can apply static pressure for 20-30 seconds. Massage the entire trapezius and interscapular area."
+      },
+      "prayer": {
+        "title": "Prayer - neck and shoulder blade release",
+        "description": "Join your palms and elbows at 90-degree angles in the elbows and shoulders. With continuous connection, slowly raise your elbows higher, but still KEEP JOINED elbows and palms. WARNING: try to keep your fingers still pointing toward the ceiling. REPETITIONS: 20 seconds / 2x in a row / 2x daily."
+      },
+      "upperCervicalMassage": {
+        "title": "Upper cervical spine massage",
+        "description": "Sit and palpate the skull edge behind and slightly below your ear.\n➜ Press with thumbs under the skull and massage the occiput with circular movements. Always when you return to the skull edge after circling, press into the bone and proceed to the center of the spine.\n➜ WARNING: This exercise may be slightly painful, so sitting is appropriate! Pain may radiate to the head or behind the eye when pressed.\n➜ Repeat as needed anytime during the day, especially if you feel stiffness and head and neck pain."
+      }
+    },
+    "defaultMiddleBack": {
+      "title": "Basic thoracic spine exercises",
+      "description": "General exercises for strengthening and mobilization of thoracic spine.",
+      "prayer": {
+        "title": "Prayer - neck and shoulder blade release",
+        "description": "Join your palms and elbows at 90-degree angles in the elbows and shoulders. With continuous connection, slowly raise your elbows higher, but still KEEP JOINED elbows and palms. WARNING: try to keep your fingers still pointing toward the ceiling. REPETITIONS: 20 seconds / 2x in a row / 2x daily."
+      },
+      "thoracicSpineMassage": {
+        "title": "Thoracic spine massage with ball",
+        "description": "Place the ball in the interscapular space and release painful and stiff muscles with vertical movement.\n➜ REPETITIONS: anytime during the day."
+      },
+      "bookOpening": {
+        "title": "Book opening",
+        "description": "This exercise will increase chest mobility.\n➜ Lie on your side, bend your legs and join your palms in front of you. Together with the upper limb, rotate to the opposite side while exhaling. The head should follow the hand throughout. Stay in this position for 3 seconds.\n➜ REPETITIONS: 5x to each side, anytime during the day."
+      }
+    },
+    "defaultLowerBack": {
+      "title": "Basic lumbar spine exercises",
+      "description": "Basic exercises for strengthening and mobilization of lumbar spine",
+      "glutealStretching": {
+        "title": "Gluteal muscle stretching",
+        "description": "Description in video.\n➜ REPETITIONS: 5x daily."
+      },
+      "pelvicTilting": {
+        "title": "Pelvic tilting",
+        "description": "Anytime during the day, relieve stiff lumbar muscles by tilting the pelvis. Perform the range of motion only as far as comfortable and does not cause more pain.\n➜ REPETITIONS: Repeat 15x anytime during the day."
+      }
+    }
+  },
   "shoulderNociceptive": {
     "frozenShoulderPhase1": {
     "title": "Frozen Shoulder - Phase 1: Pain Relief and Gentle Mobility",
