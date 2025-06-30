@@ -4,7 +4,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { supabase } from '@/integrations/supabase/client';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'sonner';
@@ -28,6 +27,9 @@ interface B2BEmployee {
 const B2BLogin = () => {
   const { t } = useTranslation();
   const [partners, setPartners] = useState<B2BPartner[]>([]);
+  const [filteredPartners, setFilteredPartners] = useState<B2BPartner[]>([]);
+  const [searchValue, setSearchValue] = useState('');
+  const [showDropdown, setShowDropdown] = useState(false);
   const [selectedPartner, setSelectedPartner] = useState<string>('');
   const [showLoginDialog, setShowLoginDialog] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -41,6 +43,19 @@ const B2BLogin = () => {
     fetchPartners();
   }, []);
 
+  useEffect(() => {
+    if (searchValue.length >= 3) {
+      const filtered = partners.filter(partner =>
+        partner.name.toLowerCase().includes(searchValue.toLowerCase())
+      );
+      setFilteredPartners(filtered);
+      setShowDropdown(filtered.length > 0);
+    } else {
+      setShowDropdown(false);
+      setFilteredPartners([]);
+    }
+  }, [searchValue, partners]);
+
   const fetchPartners = async () => {
     try {
       const { data, error } = await supabase
@@ -52,18 +67,25 @@ const B2BLogin = () => {
       setPartners(data || []);
     } catch (error) {
       console.error('Error fetching B2B partners:', error);
-      toast.error('Failed to load partners');
+      toast.error(t('b2b.errors.loadPartners'));
     }
+  };
+
+  const handleSearchChange = (value: string) => {
+    setSearchValue(value);
+    setSelectedPartner('');
   };
 
   const handlePartnerSelect = (partnerName: string) => {
     setSelectedPartner(partnerName);
+    setSearchValue(partnerName);
+    setShowDropdown(false);
     setShowLoginDialog(true);
   };
 
   const handleLogin = async () => {
     if (!loginData.employeeId || !loginData.firstName || !loginData.lastName) {
-      toast.error('Please fill in all required fields');
+      toast.error(t('b2b.errors.fillFields'));
       return;
     }
 
@@ -80,20 +102,20 @@ const B2BLogin = () => {
         .single();
 
       if (error || !employee) {
-        toast.error('Invalid employee credentials. Please check your information.');
+        toast.error(t('b2b.errors.invalidCredentials'));
         return;
       }
 
       // Store B2B session in localStorage for now
       localStorage.setItem('b2bEmployee', JSON.stringify(employee));
-      toast.success(`Welcome ${employee.first_name}!`);
+      toast.success(t('b2b.welcomeMessage', { name: employee.first_name }));
       
       // Redirect to main app or specific B2B dashboard
       window.location.href = '/domov';
       
     } catch (error) {
       console.error('B2B login error:', error);
-      toast.error('Login failed. Please try again.');
+      toast.error(t('b2b.errors.loginFailed'));
     } finally {
       setIsLoading(false);
     }
@@ -102,6 +124,7 @@ const B2BLogin = () => {
   const resetLoginDialog = () => {
     setShowLoginDialog(false);
     setSelectedPartner('');
+    setSearchValue('');
     setLoginData({
       employeeId: '',
       firstName: '',
@@ -113,63 +136,72 @@ const B2BLogin = () => {
     <div className="space-y-4">
       <div className="text-center">
         <h3 className="text-xl font-semibold text-blue-800 mb-4">
-          Employee Login
+          {t('b2b.title')}
         </h3>
         <p className="text-gray-600 mb-6">
-          Select your employer to access your personalized health program
+          {t('b2b.subtitle')}
         </p>
       </div>
 
-      <div className="space-y-3">
-        <Label htmlFor="partner-select">Select Your Employer</Label>
-        <Select onValueChange={handlePartnerSelect}>
-          <SelectTrigger className="w-full">
-            <SelectValue placeholder="Choose your employer..." />
-          </SelectTrigger>
-          <SelectContent>
-            {partners.map((partner) => (
-              <SelectItem key={partner.id} value={partner.name}>
+      <div className="space-y-3 relative">
+        <Label htmlFor="partner-search">{t('b2b.selectEmployer')}</Label>
+        <Input
+          id="partner-search"
+          placeholder={t('b2b.typeEmployer')}
+          value={searchValue}
+          onChange={(e) => handleSearchChange(e.target.value)}
+          className="w-full"
+        />
+        
+        {showDropdown && (
+          <div className="absolute top-full left-0 right-0 z-50 bg-white border border-gray-200 rounded-md shadow-lg max-h-60 overflow-y-auto">
+            {filteredPartners.map((partner) => (
+              <button
+                key={partner.id}
+                onClick={() => handlePartnerSelect(partner.name)}
+                className="w-full px-4 py-2 text-left hover:bg-gray-100 focus:bg-gray-100 focus:outline-none"
+              >
                 {partner.name}
-              </SelectItem>
+              </button>
             ))}
-          </SelectContent>
-        </Select>
+          </div>
+        )}
       </div>
 
       <Dialog open={showLoginDialog} onOpenChange={resetLoginDialog}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
             <DialogTitle className="text-blue-800">
-              Employee Login - {selectedPartner}
+              {t('b2b.loginTitle')} - {selectedPartner}
             </DialogTitle>
           </DialogHeader>
           
           <div className="space-y-4 py-4">
             <div className="space-y-2">
-              <Label htmlFor="employee-id">Employee ID</Label>
+              <Label htmlFor="employee-id">{t('b2b.employeeId')}</Label>
               <Input
                 id="employee-id"
-                placeholder="Enter your employee ID"
+                placeholder={t('b2b.employeeIdPlaceholder')}
                 value={loginData.employeeId}
                 onChange={(e) => setLoginData({ ...loginData, employeeId: e.target.value })}
               />
             </div>
             
             <div className="space-y-2">
-              <Label htmlFor="first-name">First Name</Label>
+              <Label htmlFor="first-name">{t('b2b.firstName')}</Label>
               <Input
                 id="first-name"
-                placeholder="Enter your first name"
+                placeholder={t('b2b.firstNamePlaceholder')}
                 value={loginData.firstName}
                 onChange={(e) => setLoginData({ ...loginData, firstName: e.target.value })}
               />
             </div>
             
             <div className="space-y-2">
-              <Label htmlFor="last-name">Last Name</Label>
+              <Label htmlFor="last-name">{t('b2b.lastName')}</Label>
               <Input
                 id="last-name"
-                placeholder="Enter your last name"
+                placeholder={t('b2b.lastNamePlaceholder')}
                 value={loginData.lastName}
                 onChange={(e) => setLoginData({ ...loginData, lastName: e.target.value })}
               />
@@ -178,14 +210,14 @@ const B2BLogin = () => {
           
           <div className="flex gap-3 justify-end">
             <Button variant="outline" onClick={resetLoginDialog}>
-              Cancel
+              {t('b2b.cancel')}
             </Button>
             <Button 
               onClick={handleLogin} 
               disabled={isLoading}
               className="bg-blue-600 hover:bg-blue-700"
             >
-              {isLoading ? 'Logging in...' : 'Login'}
+              {isLoading ? t('b2b.loggingIn') : t('b2b.login')}
             </Button>
           </div>
         </DialogContent>

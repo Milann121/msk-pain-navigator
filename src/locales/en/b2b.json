@@ -1,0 +1,24 @@
+
+{
+  "title": "Employee Login",
+  "subtitle": "Select your employer to access your personalized health program",
+  "selectEmployer": "Select Your Employer",
+  "typeEmployer": "Type your employer name...",
+  "loginTitle": "Employee Login",
+  "employeeId": "Employee ID",
+  "employeeIdPlaceholder": "Enter your employee ID",
+  "firstName": "First Name",
+  "firstNamePlaceholder": "Enter your first name",
+  "lastName": "Last Name",
+  "lastNamePlaceholder": "Enter your last name",
+  "cancel": "Cancel",
+  "login": "Login",
+  "loggingIn": "Logging in...",
+  "welcomeMessage": "Welcome {{name}}!",
+  "errors": {
+    "loadPartners": "Failed to load partners",
+    "fillFields": "Please fill in all required fields",
+    "invalidCredentials": "Invalid employee credentials. Please check your information.",
+    "loginFailed": "Login failed. Please try again."
+  }
+}

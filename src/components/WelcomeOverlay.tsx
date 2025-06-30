@@ -37,7 +37,7 @@ const WelcomeOverlay = () => {
                 variant="outline"
                 className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-6 text-lg"
               >
-                Employee Login
+                {t('b2b.title')}
               </Button>
             </div>
           </div>
@@ -131,7 +131,7 @@ const WelcomeOverlay = () => {
       <Dialog open={showB2BDialog} onOpenChange={setShowB2BDialog}>
         <DialogContent className="sm:max-w-lg">
           <DialogHeader>
-            <DialogTitle className="text-blue-800">B2B Employee Access</DialogTitle>
+            <DialogTitle className="text-blue-800">{t('b2b.title')}</DialogTitle>
           </DialogHeader>
           <B2BLogin />
         </DialogContent>
