@@ -566,27 +566,27 @@
   },
   "shoulderNociceptive": {
     "frozenShoulderPhase1": {
-      "title": "Zmrzlé rameno - Fáze 1: Úleva od bolesti a jemná mobilita",
-      "description": "Počáteční fáze zaměřená na zvládání bolesti a jemná cvičení pohyblivosti. Provádějte tato cvičení 2-3krát denně během akutní fáze.",
+      "title": "0-2 týden",
+      "description": "Počáteční fáze cvičení je zaměřena na zvládání bolesti a jemné cvičení pohyblivosti. Prováděj tato cvičení 2-3 krát denně.",
       "pendulumExercises": {
         "title": "Kyvadlová cvičení",
-        "description": "Předkloňte se a provádějte houpací pohyby k udržení pohyblivosti ramene bez aktivního pohybu. Proveďte 10-15 kyvání v každém směru, 2-3 krát denně."
+        "description": "Předkloň se a prováděj houpací pohyby k udržení pohyblivosti ramene bez aktivního pohybu. Proveď 10-15 kyvání v každém směru, 2-3 krát denně."
       },
       "isometricExternalRotation": {
         "title": "Izometrická vnější rotace",
-        "description": "Opřete se rukou o zeď podle videa. Loket zdržujte při těle a rotačním pohybem ramene zatlačte do zdi mírnou silou. Dávejte pozor, abyste během cvičení nezvedali ramena směrem k uším. Držte 8-10 sekund, opakujte 5 krát, 1-2 krát denně."
+        "description": "Opři se rukou o zeď podle videa. Loket zdržuj u těla a rotačním pohybem ramene zatlač do stěny mírnou silou. Dávej pozor, abys během cvičení nezvedel/a ramena směrem k uším. Drž 8-10 sekund, opakuj 5krát," 1-2 krát.
       },
       "rotatorCuffRelease": {
         "title": "Masáž rotátorové manžety a trapézů míčkem",
-        "description": "Vezměte tenisový míček, uložte si jej na trapézy a opřete se o zeď. Mírně zatlačte váhou svého těla a promasírujte oblast trapézů a lopatky. Během cviku můžete pociťovat bolest, pokud je v toleranci. Když najdete bolestivý bod, staticky zatlačte na cca 20-30 sekund a následně se přesuňte níže. Cvik provádějte minimálně 1x denně."
+        "description": "Vezmi tenisový míček, ulož si ho na trapézy a opře se o zeď. Mírně zatlač váhou svého těla a promasíruj oblast trapézů a lopatky. Během cviku můžeš pociťovat bolest, pokud je v toleranci. Když najdeš bolestivý bod, staticky zatlač na cca 20. prováděj minimálně 1x denně."
       },
       "shoulderHeating": {
         "title": "Ohřívání ramene",
-        "description": "Použijte topný polštářek/podložku a prohřejte oblast celého ramene a lopatky. Jako variantu můžete použít techniku ​​fénování ramene, ale VŽDY S RUČNÍKEM ULOŽENÝM NA OHŘÍVANÉ ČÁSTI TĚLA jako ochranu před popálením. Zahřívejte alespoň 15-20min."
+        "description": "Použijte topný polštářek/podložku a prohřejte oblast celého ramene a lopatky. Jako variantu můžete použít techniku ​​fénování ramene, ale VŽDY S RUČNÍKEM ULOŽENÝM NA OHŘÍVANÉ ČÁSTI TĚLA jako ochranu před popálením." Zahřívejte alespoň 1.
       }
     },
     "frozenShoulderPhase2": {
-      "title": "Zmrzlé rameno - Fáze 2: Progresivní posilování",
+      "title": "3-5 týden",
       "description": "Fáze progresivního posilování, kdy bolest začíná ustupovat. Zaměřte se na obnovení síly a stability ramene.",
       "isometricShoulderPresses": {
         "title": "Izometrické tlaky ramene",
