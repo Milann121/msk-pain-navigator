@@ -58,19 +58,19 @@ const LanguageDropdown = () => {
           <ChevronDown className={`h-4 w-4 ${iconColor}`} />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="bg-white shadow-lg border rounded-md z-50">
+      <DropdownMenuContent align="end" className="bg-white shadow-lg border rounded-md z-50 min-w-[120px]">
         {languages.map((language) => (
           <DropdownMenuItem
             key={language.code}
             onClick={() => handleLanguageChange(language.code)}
-            className="flex items-center gap-2 px-3 py-2 hover:bg-gray-100 cursor-pointer"
+            className="flex items-center gap-3 px-3 py-2 hover:bg-gray-100 cursor-pointer"
           >
             <img 
               src={language.flag} 
               alt={language.name}
-              className="w-5 h-4 object-cover rounded-sm"
+              className="w-5 h-4 object-cover rounded-sm flex-shrink-0"
             />
-            <span>{language.name}</span>
+            <span className="text-sm font-medium">{language.name}</span>
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
