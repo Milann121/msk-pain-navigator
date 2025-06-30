@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Navigate, Link } from 'react-router-dom';
 import { useToast } from '@/components/ui/use-toast';
@@ -18,6 +18,17 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Home } from 'lucide-react';
 import LanguageDropdown from '@/components/LanguageDropdown';
 
+interface B2BEmployee {
+  id: string;
+  b2b_partner_name: string;
+  employee_id: string;
+  first_name: string;
+  last_name: string;
+  job_post?: string;
+  pain_area?: string;
+  differentials?: string;
+}
+
 const Auth = () => {
   const [isSignUp, setIsSignUp] = useState(false);
   const [email, setEmail] = useState('');
@@ -25,9 +36,28 @@ const Auth = () => {
   const [firstName, setFirstName] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [privacyConsent, setPrivacyConsent] = useState(false);
+  const [b2bEmployee, setB2bEmployee] = useState<B2BEmployee | null>(null);
   const { signIn, signUp, signInWithGoogle, user } = useAuth();
   const { t } = useTranslation();
   const { toast } = useToast();
+
+  useEffect(() => {
+    // Check if there's B2B employee data in localStorage
+    const storedB2BEmployee = localStorage.getItem('b2bEmployee');
+    if (storedB2BEmployee) {
+      try {
+        const employeeData = JSON.parse(storedB2BEmployee);
+        setB2bEmployee(employeeData);
+        // Pre-fill first name if available
+        if (employeeData.first_name) {
+          setFirstName(employeeData.first_name);
+        }
+      } catch (error) {
+        console.error('Error parsing B2B employee data:', error);
+        localStorage.removeItem('b2bEmployee');
+      }
+    }
+  }, []);
 
   if (user) {
     return <Navigate to="/" replace />;
@@ -80,6 +110,12 @@ const Auth = () => {
     }
   };
 
+  const clearB2BData = () => {
+    localStorage.removeItem('b2bEmployee');
+    setB2bEmployee(null);
+    setFirstName('');
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-50 to-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-md">
@@ -101,6 +137,45 @@ const Auth = () => {
             </CardDescription>
           </CardHeader>
           <CardContent>
+            {/* B2B Employee Information Display */}
+            {b2bEmployee && (
+              <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                <div className="flex justify-between items-start mb-3">
+                  <h3 className="text-sm font-semibold text-blue-800">
+                    {t('b2b.title')} - Informácie
+                  </h3>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={clearB2BData}
+                    className="text-blue-600 hover:text-blue-800 h-auto p-1"
+                  >
+                    ×
+                  </Button>
+                </div>
+                
+                <div className="space-y-3">
+                  <div className="space-y-1">
+                    <Label className="text-xs text-blue-700">Spoločnosť</Label>
+                    <Input
+                      value={b2bEmployee.b2b_partner_name}
+                      readOnly
+                      className="bg-white border-blue-200 text-sm"
+                    />
+                  </div>
+                  
+                  <div className="space-y-1">
+                    <Label className="text-xs text-blue-700">ID zamestnanca</Label>
+                    <Input
+                      value={b2bEmployee.employee_id}
+                      readOnly
+                      className="bg-white border-blue-200 text-sm"
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
+
             <div className="mb-4">
               <Button 
                 type="button" 
