@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ExerciseCompletionCheckbox } from '@/components/ExerciseCompletionCheckbox';
 import { FavoriteExerciseButton } from '@/components/FavoriteExerciseButton';
@@ -62,11 +62,53 @@ export const ExerciseVideoSection = ({
     return text;
   };
 
+  // Load existing feedback on component mount
+  useEffect(() => {
+    const loadExistingFeedback = async () => {
+      if (!user) return;
+      
+      try {
+        const { data: existingFeedback, error } = await supabase
+          .from('exercise_feedback')
+          .select('video_id, feedback_value')
+          .eq('user_id', user.id)
+          .eq('video_id', video.videoId)
+          .order('created_at', { ascending: false })
+          .limit(1);
+
+        if (error) {
+          console.error('Error loading feedback:', error);
+          return;
+        }
+
+        if (existingFeedback && existingFeedback.length > 0) {
+          const feedback = existingFeedback[0];
+          let feedbackValue: "good" | "neutral" | "not-good" = "neutral";
+          
+          if (feedback.feedback_value === 1) {
+            feedbackValue = "good";
+          } else if (feedback.feedback_value === -1) {
+            feedbackValue = "not-good";
+          }
+          
+          setFeedbackMap(prev => ({
+            ...prev,
+            [video.videoId]: feedbackValue
+          }));
+        }
+      } catch (error) {
+        console.error('Error loading existing feedback:', error);
+      }
+    };
+
+    loadExistingFeedback();
+  }, [user, video.videoId]);
+
   // Neutral is the default
   const feedbackValue = feedbackMap[video.videoId] ?? "neutral";
 
   // Feedback logic (store feedback in supabase)
-  const handleStoreFeedback = async (value: 1 | -1) => {
+  const handleStoreFeedback = async (value: 1 | -1 | 0) => {
     if (!user) return;
     // Write feedback
     const { error } = await supabase.from("exercise_feedback").upsert([
@@ -84,20 +126,27 @@ export const ExerciseVideoSection = ({
         variant: 'destructive',
       });
     } else {
+      const message = value === 1 ? t('exercisePlan.markedGood') : 
+                     value === -1 ? t('exercisePlan.requestedChange') : 
+                     t('exercisePlan.feedbackSaved');
       toast({
         title: t('exercisePlan.feedbackSaved'),
-        description: value === 1 ? t('exercisePlan.markedGood') : t('exercisePlan.requestedChange'),
+        description: message,
       });
     }
   };
 
   const handleToggleChange = (value: "good" | "neutral" | "not-good") => {
     setFeedbackMap((prev) => ({ ...prev, [video.videoId]: value }));
-    if (value === "not-good") {
+    
+    // Save feedback immediately when user changes toggle
+    if (value === "good") {
+      handleStoreFeedback(1);
+    } else if (value === "not-good") {
       setFeedbackDialogOpen(true);
       // Don't write feedback yet, wait for confirm.
-    } else if (value === "good") {
-      handleStoreFeedback(1);
+    } else if (value === "neutral") {
+      handleStoreFeedback(0);
     }
   };
 
