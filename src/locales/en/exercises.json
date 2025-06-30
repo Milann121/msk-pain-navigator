@@ -566,8 +566,8 @@
   },
   "shoulderNociceptive": {
     "frozenShoulderPhase1": {
-      "title": "Frozen Shoulder - Phase 1: Pain Relief and Gentle Mobility",
-      "description": "Initial phase focused on pain management and gentle mobility exercises. Perform these exercises 2-3 times daily during the acute phase.",
+      "title": "0-2 week",
+      "description": "The initial phase of exercises focuses on pain management and gentle mobility exercises. Perform these exercises 2-3 times a day.",
       "pendulumExercises": {
         "title": "Pendulum Exercises",
         "description": "Lean forward and perform swinging motions to maintain shoulder mobility without active movement. Perform 10-15 swings in each direction, 2-3 times daily."
@@ -586,7 +586,7 @@
       }
     },
     "frozenShoulderPhase2": {
-      "title": "Frozen Shoulder - Phase 2: Progressive Strengthening",
+      "title": "3-5 week",
       "description": "Progressive strengthening phase as pain begins to subside. Focus on restoring shoulder strength and stability.",
       "isometricShoulderPresses": {
         "title": "Isometric Shoulder Presses",
