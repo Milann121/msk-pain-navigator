@@ -45,9 +45,14 @@ const B2BLogin = () => {
 
   useEffect(() => {
     if (searchValue.length >= 3) {
+      console.log('Searching for:', searchValue);
+      console.log('Available partners:', partners);
+      
       const filtered = partners.filter(partner =>
         partner.name.toLowerCase().includes(searchValue.toLowerCase())
       );
+      
+      console.log('Filtered partners:', filtered);
       setFilteredPartners(filtered);
       setShowDropdown(filtered.length > 0);
     } else {
@@ -58,31 +63,81 @@ const B2BLogin = () => {
 
   const fetchPartners = async () => {
     try {
-      const { data, error } = await supabase
+      console.log('Fetching partners...');
+      
+      // First, get partners from B2B_partners table
+      const { data: b2bPartners, error: partnersError } = await supabase
         .from('B2B_partners')
         .select('id, name')
         .order('name');
 
-      if (error) throw error;
-      setPartners(data || []);
+      if (partnersError) {
+        console.error('Error fetching B2B_partners:', partnersError);
+      }
+
+      // Also get unique partner names from b2b_employees table
+      const { data: employeePartners, error: employeesError } = await supabase
+        .from('b2b_employees')
+        .select('b2b_partner_name')
+        .order('b2b_partner_name');
+
+      if (employeesError) {
+        console.error('Error fetching b2b_employees:', employeesError);
+      }
+
+      console.log('B2B Partners from B2B_partners:', b2bPartners);
+      console.log('Employee partners from b2b_employees:', employeePartners);
+
+      // Combine and deduplicate partner names
+      const allPartners: B2BPartner[] = [];
+      const partnerNames = new Set<string>();
+
+      // Add partners from B2B_partners table
+      if (b2bPartners) {
+        b2bPartners.forEach(partner => {
+          if (!partnerNames.has(partner.name.toLowerCase())) {
+            partnerNames.add(partner.name.toLowerCase());
+            allPartners.push(partner);
+          }
+        });
+      }
+
+      // Add unique partners from b2b_employees table
+      if (employeePartners) {
+        employeePartners.forEach((emp, index) => {
+          if (emp.b2b_partner_name && !partnerNames.has(emp.b2b_partner_name.toLowerCase())) {
+            partnerNames.add(emp.b2b_partner_name.toLowerCase());
+            allPartners.push({
+              id: 1000 + index, // Use a different ID range for employee-derived partners
+              name: emp.b2b_partner_name
+            });
+          }
+        });
+      }
+
+      console.log('Combined partners:', allPartners);
+      setPartners(allPartners || []);
     } catch (error) {
-      console.error('Error fetching B2B partners:', error);
+      console.error('Error fetching partners:', error);
       toast.error(t('b2b.errors.loadPartners'));
     }
   };
 
   const handleSearchChange = (value: string) => {
+    console.log('Search value changed to:', value);
     setSearchValue(value);
     setSelectedPartner('');
   };
 
   const handlePartnerSelect = (partnerName: string) => {
+    console.log('Partner selected:', partnerName);
     setSelectedPartner(partnerName);
     setSearchValue(partnerName);
     setShowDropdown(false);
   };
 
   const handleContinue = () => {
+    console.log('Continue clicked with selected partner:', selectedPartner);
     if (!selectedPartner) {
       toast.error(t('b2b.errors.selectEmployer'));
       return;
@@ -98,6 +153,13 @@ const B2BLogin = () => {
 
     setIsLoading(true);
     try {
+      console.log('Attempting login with:', {
+        partner: selectedPartner,
+        employeeId: loginData.employeeId,
+        firstName: loginData.firstName,
+        lastName: loginData.lastName
+      });
+
       // Verify employee exists and data matches
       const { data: employee, error } = await supabase
         .from('b2b_employees')
@@ -108,7 +170,10 @@ const B2BLogin = () => {
         .eq('last_name', loginData.lastName)
         .single();
 
+      console.log('Employee lookup result:', { employee, error });
+
       if (error || !employee) {
+        console.error('Login failed:', error);
         toast.error(t('b2b.errors.invalidCredentials'));
         return;
       }
@@ -181,15 +246,16 @@ const B2BLogin = () => {
         )}
       </div>
 
-      <div className="mt-4">
-        <Button
-          onClick={handleContinue}
-          disabled={!selectedPartner}
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white"
-        >
-          {t('b2b.continue')}
-        </Button>
-      </div>
+      {selectedPartner && (
+        <div className="mt-4">
+          <Button
+            onClick={handleContinue}
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+          >
+            {t('b2b.continue')}
+          </Button>
+        </div>
+      )}
 
       <Dialog open={showLoginDialog} onOpenChange={resetLoginDialog}>
         <DialogContent className="sm:max-w-md">
