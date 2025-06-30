@@ -18,6 +18,7 @@
   "welcomeMessage": "Welcome {{name}}!",
   "errors": {
     "loadPartners": "Failed to load partners",
+    "noResults": "No matching employer found",
     "selectEmployer": "Please select an employer first",
     "fillFields": "Please fill in all required fields",
     "invalidCredentials": "Invalid employee credentials. Please check your information.",

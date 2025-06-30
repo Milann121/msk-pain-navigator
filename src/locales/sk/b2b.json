@@ -18,6 +18,7 @@
   "welcomeMessage": "Vitajte {{name}}!",
   "errors": {
     "loadPartners": "Nepodarilo sa načítať partnerov",
+    "noResults": "Nenašiel sa žiadny zamestnávateľ",
     "selectEmployer": "Prosím najprv vyberte zamestnávateľa",
     "fillFields": "Prosím vyplňte všetky povinné polia",
     "invalidCredentials": "Neplatné údaje zamestnanca. Skontrolujte prosím vaše informácie.",

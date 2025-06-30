@@ -173,18 +173,23 @@ const B2BLogin = () => {
             ))}
           </div>
         )}
+
+        {searchValue.length >= 3 && filteredPartners.length === 0 && (
+          <div className="text-sm text-red-600 mt-1">
+            {t('b2b.errors.noResults')}
+          </div>
+        )}
       </div>
 
-      {selectedPartner && (
-        <div className="mt-4">
-          <Button 
-            onClick={handleContinue}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white"
-          >
-            {t('b2b.continue')}
-          </Button>
-        </div>
-      )}
+      <div className="mt-4">
+        <Button
+          onClick={handleContinue}
+          disabled={!selectedPartner}
+          className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+        >
+          {t('b2b.continue')}
+        </Button>
+      </div>
 
       <Dialog open={showLoginDialog} onOpenChange={resetLoginDialog}>
         <DialogContent className="sm:max-w-md">
