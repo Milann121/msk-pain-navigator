@@ -1,17 +1,21 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { useTranslation } from 'react-i18next';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import B2BLogin from './B2BLogin';
 
 const WelcomeOverlay = () => {
   const navigate = useNavigate();
   const isMobile = useIsMobile();
   const { t } = useTranslation();
+  const [showB2BDialog, setShowB2BDialog] = useState(false);
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Header section with title, text and button */}
+      {/* Header section with title, text and buttons */}
       <div className="py-20 px-4">
         <div className="max-w-4xl mx-auto text-center space-y-8 mb-1.5">
           <div className="max-w-2xl mx-auto space-y-6">
@@ -21,12 +25,21 @@ const WelcomeOverlay = () => {
             <p className="text-lg text-gray-600">
               {t('welcome.subtitle')}
             </p>
-            <Button
-              onClick={() => navigate('/auth')}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg"
-            >
-              {t('welcome.signIn')}
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                onClick={() => navigate('/auth')}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg"
+              >
+                {t('welcome.signIn')}
+              </Button>
+              <Button
+                onClick={() => setShowB2BDialog(true)}
+                variant="outline"
+                className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-6 text-lg"
+              >
+                Employee Login
+              </Button>
+            </div>
           </div>
         </div>
       </div>
@@ -113,6 +126,16 @@ const WelcomeOverlay = () => {
           </div>
         </div>
       </div>
+
+      {/* B2B Login Dialog */}
+      <Dialog open={showB2BDialog} onOpenChange={setShowB2BDialog}>
+        <DialogContent className="sm:max-w-lg">
+          <DialogHeader>
+            <DialogTitle className="text-blue-800">B2B Employee Access</DialogTitle>
+          </DialogHeader>
+          <B2BLogin />
+        </DialogContent>
+      </Dialog>
 
       {/* Footer matching header design */}
       <footer className="bg-gradient-to-r from-blue-700 to-blue-500 text-white py-4 px-3 md:px-6 shadow-md mt-auto">
