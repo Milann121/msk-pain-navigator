@@ -80,6 +80,13 @@ const B2BLogin = () => {
     setSelectedPartner(partnerName);
     setSearchValue(partnerName);
     setShowDropdown(false);
+  };
+
+  const handleContinue = () => {
+    if (!selectedPartner) {
+      toast.error(t('b2b.errors.selectEmployer'));
+      return;
+    }
     setShowLoginDialog(true);
   };
 
@@ -167,6 +174,17 @@ const B2BLogin = () => {
           </div>
         )}
       </div>
+
+      {selectedPartner && (
+        <div className="mt-4">
+          <Button 
+            onClick={handleContinue}
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+          >
+            {t('b2b.continue')}
+          </Button>
+        </div>
+      )}
 
       <Dialog open={showLoginDialog} onOpenChange={resetLoginDialog}>
         <DialogContent className="sm:max-w-md">

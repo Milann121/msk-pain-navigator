@@ -4,6 +4,7 @@
   "subtitle": "Select your employer to access your personalized health program",
   "selectEmployer": "Select Your Employer",
   "typeEmployer": "Type your employer name...",
+  "continue": "Continue",
   "loginTitle": "Employee Login",
   "employeeId": "Employee ID",
   "employeeIdPlaceholder": "Enter your employee ID",
@@ -17,6 +18,7 @@
   "welcomeMessage": "Welcome {{name}}!",
   "errors": {
     "loadPartners": "Failed to load partners",
+    "selectEmployer": "Please select an employer first",
     "fillFields": "Please fill in all required fields",
     "invalidCredentials": "Invalid employee credentials. Please check your information.",
     "loginFailed": "Login failed. Please try again."

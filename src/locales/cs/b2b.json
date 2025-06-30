@@ -4,6 +4,7 @@
   "subtitle": "Vyberte svého zaměstnavatele pro přístup k vašemu personalizovanému zdravotnímu programu",
   "selectEmployer": "Vyberte svého zaměstnavatele",
   "typeEmployer": "Napište název vašeho zaměstnavatele...",
+  "continue": "Pokračovat",
   "loginTitle": "Přihlášení zaměstnance",
   "employeeId": "ID zaměstnance",
   "employeeIdPlaceholder": "Zadejte vaše ID zaměstnance",
@@ -17,6 +18,7 @@
   "welcomeMessage": "Vítejte {{name}}!",
   "errors": {
     "loadPartners": "Nepodařilo se načíst partnery",
+    "selectEmployer": "Prosím nejprve vyberte zaměstnavatele",
     "fillFields": "Prosím vyplňte všechna povinná pole",
     "invalidCredentials": "Neplatné údaje zaměstnance. Zkontrolujte prosím vaše informace.",
     "loginFailed": "Přihlášení selhalo. Zkuste to znovu."
