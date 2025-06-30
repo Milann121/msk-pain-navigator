@@ -156,7 +156,7 @@
       }
     },
     "defaultMiddleBackWeek02": {
-      "title": "Úleva od bolesti středních zad - Týden 0-2",
+      "title": "0-2 týden",
       "description": "Počáteční cvičení na úlevu od bolesti středních zad.",
       "thoracicRotationWithExtension": {
         "title": "Rotace hrudníku s extenzí",
@@ -168,7 +168,7 @@
       }
     },
     "defaultMiddleBackWeek35": {
-      "title": "Úleva od bolesti středních zad - Týden 3-5",
+      "title": "3-5 týden",
       "description": "Progresivní cvičení na úlevu od bolesti středních zad.",
       "interscapularStrengthening": {
         "title": "Posilování mezilopatkové oblasti",
@@ -202,7 +202,7 @@
   },
   "neuropathic": {
     "radicularPainNeckWeek03": {
-      "title": "Radikulární bolest - Krk týden 0-3",
+      "title": "0-3 týden",
       "description": "Počáteční léčba radikulární bolesti krku.",
       "neckRetraction": {
         "title": "Retrakce krku",
@@ -218,7 +218,7 @@
       }
     },
     "radicularPainNeckWeek46": {
-      "title": "Radikulární bolest - Krk týden 4-6",
+      "title": "4-6 týden",
       "description": "Progresivní léčba radikulární bolesti krku.",
       "prayer": {
         "title": "Modlitební natažení",
@@ -230,7 +230,7 @@
       }
     },
     "radicularPainLowerBackWeek03": {
-      "title": "Radikulární bolest - Spodní záda týden 0-3",
+      "title": "0-3 týden",
       "description": "Počáteční léčba radikulární bolesti spodních zad.",
       "sciaticNeurodynamics": {
         "title": "Neurodynamika sedacího nervu",
@@ -246,7 +246,7 @@
       }
     },
     "radicularPainLowerBackWeek46": {
-      "title": "Radikulární bolest - Spodní záda týden 4-6",
+      "title": "4-6 týden",
       "description": "Progresivní léčba radikulární bolesti spodních zad.",
       "bridge": {
         "title": "Mostek",
@@ -258,7 +258,7 @@
       }
     },
     "radiculopathyNeckWeek02": {
-      "title": "Radikulopatie - Krk týden 0-2",
+      "title": "0-2 týden",
       "description": "Počáteční léčba radikulopatie krku.",
       "tensionNeurodynamics": {
         "title": "Neurodynamika napětí",
@@ -270,7 +270,7 @@
       }
     },
     "radiculopathyNeckWeek35": {
-      "title": "Radikulopatie - Krk týden 3-5",
+      "title": "3-5 týden",
       "description": "Progresivní léčba radikulopatie krku.",
       "interscapularStrengthening": {
         "title": "Posilování mezilopatkové oblasti",
@@ -282,7 +282,7 @@
       }
     },
     "radiculopathyLowerBackWeek02": {
-      "title": "Radikulopatie - Spodní záda týden 0-2",
+      "title": "0-2 týden",
       "description": "Počáteční léčba radikulopatie spodních zad.",
       "proximalSciaticNeurodynamics": {
         "title": "Proximální neurodynamika sedacího nervu",
@@ -294,7 +294,7 @@
       }
     },
     "radiculopathyLowerBackWeek35": {
-      "title": "Radikulopatie - Spodní záda týden 3-5",
+      "title": "3-5 týden",
       "description": "Progresivní léčba radikulopatie spodních zad.",
       "glutealMassage": {
         "title": "Masáž sedacích svalů",
@@ -360,7 +360,7 @@
   },
   "nociceptive": {
     "discHerniationNeckWeek03": {
-      "title": "Hernie disku - Krk týden 0-3",
+      "title": "0-3 týden",
       "description": "Počáteční léčba cervikální hernie disku.",
       "mckenzieExtensions": {
         "title": "McKenzie extenze",
@@ -376,7 +376,7 @@
       }
     },
     "discHerniationNeckWeek46": {
-      "title": "Hernie disku - Krk týden 4-6",
+      "title": "4-6 týden",
       "description": "Progresivní léčba cervikální hernie disku.",
       "prayer": {
         "title": "Modlitební natažení",
@@ -388,7 +388,7 @@
       }
     },
     "discHerniationLowerBackWeek03": {
-      "title": "Hernie disku - Spodní záda týden 0-3",
+      "title": "0-3 týden",
       "description": "Počáteční léčba lumbální hernie disku.",
       "mckenzieExtensions": {
         "title": "McKenzie extenze",
@@ -404,7 +404,7 @@
       }
     },
     "discHerniationLowerBackWeek46": {
-      "title": "Hernie disku - Spodní záda týden 4-6",
+      "title": "4-6 týden",
       "description": "Progresivní léčba lumbální hernie disku.",
       "bridge": {
         "title": "Mostek",
@@ -416,7 +416,7 @@
       }
     },
     "facetJointSyndromeNeckWeek02": {
-      "title": "Syndrom fazetových kloubů - Krk týden 0-2",
+      "title": "0-2 týden",
       "description": "Počáteční léčba syndromu cervikálních fazetových kloubů.",
       "cervicalRotationWithTowel": {
         "title": "Cervikální rotace s ručníkem",
@@ -432,7 +432,7 @@
       }
     },
     "facetJointSyndromeNeckWeek35": {
-      "title": "Syndrom fazetových kloubů - Krk týden 3-5",
+      "title": "3-5 týden",
       "description": "Progresivní léčba syndromu cervikálních fazetových kloubů.",
       "interscapularStrengthening": {
         "title": "Posilování mezilopatkové oblasti",
@@ -444,7 +444,7 @@
       }
     },
     "facetJointSyndromeMiddleBackWeek02": {
-      "title": "Syndrom fazetových kloubů - Střední záda týden 0-2",
+      "title": "0-2 týden",
       "description": "Počáteční léčba syndromu hrudních fazetových kloubů.",
       "thoracicRotationWithExtension": {
         "title": "Hrudní rotace s extenzí",
@@ -456,7 +456,7 @@
       }
     },
     "facetJointSyndromeMiddleBackWeek35": {
-      "title": "Syndrom fazetových kloubů - Střední záda týden 3-5",
+      "title": "3-5 týden",
       "description": "Progresivní léčba syndromu hrudních fazetových kloubů.",
       "interscapularStrengthening": {
         "title": "Posilování mezilopatkové oblasti",
@@ -472,7 +472,7 @@
       }
     },
     "facetJointSyndromeLowerBackWeek03": {
-      "title": "Syndrom fazetových kloubů - Spodní záda týden 0-3",
+      "title": "0-3 týden",
       "description": "Počáteční léčba syndromu lumbálních fazetových kloubů.",
       "pelvicTilting": {
         "title": "Naklánění pánve",
@@ -488,7 +488,7 @@
       }
     },
     "facetJointSyndromeLowerBackWeek46": {
-      "title": "Syndrom fazetových kloubů - Spodní záda týden 4-6",
+      "title": "4-6 týden",
       "description": "Progresivní léčba syndromu lumbálních fazetových kloubů.",
       "bridge": {
         "title": "Mostek",
@@ -500,7 +500,7 @@
       }
     },
     "sijSyndromeWeek02": {
-      "title": "SIJ syndrom - Týden 0-2",
+      "title": "0-2 týden",
       "description": "Počáteční léčba syndromu sakroiliakálního kloubu.",
       "sijMobilization": {
         "title": "SIJ mobilizace",
@@ -512,7 +512,7 @@
       }
     },
     "sijSyndromeWeek36": {
-      "title": "SIJ syndrom - Týden 3-6",
+      "title": "3-6 týden",
       "description": "Progresivní léčba syndromu sakroiliakálního kloubu.",
       "glutealStrengthening": {
         "title": "Posilování sedacích svalů",
