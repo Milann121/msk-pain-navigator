@@ -50,9 +50,15 @@ export const ExerciseVideoSection = ({
   
   // Helper function to get translated text
   const getTranslatedText = (text: string) => {
+    if (!text) return '';
+    
+    // If it's a translation key, translate it
     if (text.startsWith('exercises.')) {
-      return t(text);
+      const translated = t(text);
+      // If translation returns the same key, it means translation wasn't found
+      return translated === text ? text : translated;
     }
+    
     return text;
   };
 

@@ -12,14 +12,28 @@ interface ExercisePeriodSectionProps {
 export const ExercisePeriodSection = ({ exercise, showGeneral = false }: ExercisePeriodSectionProps) => {
   const { t } = useTranslation();
   
+  // Helper function to get translated text
+  const getTranslatedText = (text: string) => {
+    if (!text) return '';
+    
+    // If it's a translation key, translate it
+    if (text.startsWith('exercises.')) {
+      const translated = t(text);
+      // If translation returns the same key, it means translation wasn't found
+      return translated === text ? text : translated;
+    }
+    
+    return text;
+  };
+  
   // For general program, translate the title and description
   const displayTitle = showGeneral && exercise.title === 'General Program' 
     ? t('generalProgram.title') 
-    : exercise.title;
+    : getTranslatedText(exercise.title);
     
   const displayDescription = showGeneral && exercise.description === 'Personalized program with the most important exercises from your programs'
     ? t('generalProgram.description')
-    : exercise.description;
+    : getTranslatedText(exercise.description);
 
   return (
     <div className="mb-8">
