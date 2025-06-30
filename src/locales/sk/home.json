@@ -24,6 +24,10 @@
     "neutral": "Neutrálne",
     "sad": "Zle"
   },
+  "banner": {
+    "message": "Začni svoj týždenný cvičebný program a sleduj svoj pokrok",
+    "open": "Začať cvičenie"
+  },
   "progressTitle": "Týždenný pokrok",
   "setGoals": "Nastaviť ciele",
   "generalProgram": {

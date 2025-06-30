@@ -24,6 +24,10 @@
     "neutral": "Neutral",
     "sad": "Bad"
   },
+  "banner": {
+    "message": "Start your weekly exercise routine and track your progress",
+    "open": "Start Exercises"
+  },
   "progressTitle": "Weekly Progress",
   "setGoals": "Set Goals",
   "generalProgram": {
