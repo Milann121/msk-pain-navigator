@@ -566,51 +566,51 @@
   },
   "shoulderNociceptive": {
     "frozenShoulderPhase1": {
-      "title": "Zmrznuté rameno - Fáza 1: Úľava od bolesti a jemná mobilita",
-      "description": "Počiatočná fáza zameraná na zvládanie bolesti a jemné cvičenia pohyblivosti. Vykonávajte tieto cvičenia 2-3 krát denne počas akútnej fázy.",
+      "title": "0-2 týždeň",
+      "description": "Počiatočná fáza cvičení je zameraná na zvládanie bolesti a jemné cvičenia pohyblivosti. Vykonávaj tieto cvičenia 2-3 krát denne.",
       "pendulumExercises": {
         "title": "Kyvadlové cvičenia",
-        "description": "Predkloňte sa a vykonávajte hojdacie pohyby na udržanie pohyblivosti ramena bez aktívneho pohybu. Vykonajte 10-15 kyvaní v každom smere, 2-3 krát denne."
+        "description": "Predkloň sa a vykonávaj hojdacie pohyby na udržanie pohyblivosti ramena bez aktívneho pohybu. Vykonaj 10-15 kyvaní v každom smere, 2-3 krát denne."
       },
       "isometricExternalRotation": {
         "title": "Izometrická vonkajšia rotácia",
-        "description": "Oprite sa rukou o stenu podľa videa. Lakeť zdržujte pri tele a rotačným pohybom ramena zatlačte do steny miernou silou. Dávajte pozor, aby ste počas cvičenia nedzvíhali ramená smerom k ušiam. Držte 8-10 sekúnd, opakujte 5-krát, 1-2 krát denne."
+        "description": "Opri sa rukou o stenu podľa videa. Lakeť zdržuj pri tele a rotačným pohybom ramena zatlač do steny miernou silou. Dávaj pozor, aby si počas cvičenia nedzvíhal/a ramená smerom k ušiam. Drž 8-10 sekúnd, opakuj 5-krát, 1-2 krát denne."
       },
       "rotatorCuffRelease": {
         "title": "Masáž rotátorovej manžety a trapézov loptičkou",
-        "description": "Vezmite tenisovú loptičku, uložte si ju na trapézy a oprite sa o stenu. Mierne zatlačte váhou svojho tela a premasírujte oblasť trapézov a lopatky. Počas cviku môžete pociťovať bolesť, pokiaľ je v tolerancii. Keď nájdete bolestivý bod, staticky zatlačte na cca 20-30 sekúnd a následne sa presuňte nižšie. Cvik vykonávajte minimálne 1x denne."
+        "description": "Vezmi tenisovú loptičku, ulož si ju na trapézy a opri sa o stenu. Mierne zatlač váhou svojho tela a premasíruj oblasť trapézov a lopatky. Počas cviku môžeš pociťovať bolesť, pokiaľ je v tolerancii. Keď nájdeš bolestivý bod, staticky zatlač na cca 20-30 sekúnd a následne sa presuň nižšie. Cvik vykonávaj minimálne 1x denne."
       },
       "shoulderHeating": {
         "title": "Zohrievanie ramena",
-        "description": "Použite výhrevný vankúšik/podložku a prehrejte oblasť celého ramena a lopatky. Ako variantu môžete použiť techniku fénovania ramena, ale VŽDY S UTERÁKOM ULOŽENÝM NA ZOHRIEVANEJ ČASTI TELA ako ochranu pred popálením. Zohrievajte aspoň 15-20min."
+        "description": "Použi výhrevný vankúšik/podložku a prehrej oblasť celého ramena a lopatky. Ako variantu môžeš použiť techniku fénovania ramena, ale VŽDY S UTERÁKOM ULOŽENÝM NA ZOHRIEVANEJ ČASTI TELA ako ochranu pred popálením. Zohrievaj aspoň 15-20min."
       }
     },
     "frozenShoulderPhase2": {
-      "title": "Zmrznuté rameno - Fáza 2: Progresívne posilňovanie",
-      "description": "Fáza progresívneho posilňovania, keď bolesť začína ustupovať. Zamerajte sa na obnovenie sily a stability ramena.",
+      "title": "3-5 týždeň",
+      "description": "Fáza progresívneho posilňovania, keď bolesť začína ustupovať. Zameraj sa na obnovenie sily a stability ramena.",
       "isometricShoulderPresses": {
         "title": "Izometrické tlaky ramena",
-        "description": "Progresívne posilňovacie cvičenia na obnovenie sily svalov ramena. Držte 10-15 sekúnd, opakujte 10-15 krát."
+        "description": "Progresívne posilňovacie cvičenia na obnovenie sily svalov ramena. Drž 10-15 sekúnd, opakuj 10-15 krát."
       },
       "wallPushUps": {
         "title": "Kliky o stenu",
-        "description": "Upravené kliky o stenu na bezpečné posilnenie svalov ramena a hrude. Začnite s 10 opakovaní, postupne zvyšujte."
+        "description": "Upravené kliky o stenu na bezpečné posilnenie svalov ramena a hrude. Začni s 10 opakovaní, postupne zvyšuj."
       },
       "interscapularStrengthening": {
         "title": "Posilňovanie horného chrbta a lopatiek",
-        "description": "Posilňovacie cvičenia pre svaly medzi lopatkami na zlepšenie držania tela a stability ramena. Vykonajte 10-15 opakovaní."
+        "description": "Posilňovacie cvičenia pre svaly medzi lopatkami na zlepšenie držania tela a stability ramena. Vykonaj 10-15 opakovaní."
       }
     },
     "subacromialImpingement": {
       "title": "Subakromiálny impingement syndróm - Úľava od bolesti a mobilita",
-      "description": "Cvičenia navrhnuté na zníženie impingementu a zlepšenie mechaniky ramena. Zamerajte sa na vytvorenie priestoru v ramennom kĺbe.",
+      "description": "Cvičenia navrhnuté na zníženie impingementu a zlepšenie mechaniky ramena. Zameraj sa na vytvorenie priestoru v ramennom kĺbe.",
       "interscapularStrengthening": {
         "title": "Posilňovanie lopatiek",
         "description": "Posilňovanie svalov, ktoré stiahnu lopatky k sebe, na zlepšenie postavenia ramena a zníženie impingementu."
       },
       "gentlePendulum": {
         "title": "Jemné kyvadlové pohyby",
-        "description": "Ľahké kyvadlové pohyby na udržanie pohyblivosti bez zhoršenia impingementu. Pohyby držte malé a bezbolestné."
+        "description": "Ľahké kyvadlové pohyby na udržanie pohyblivosti bez zhoršenia impingementu. Pohyby drž malé a bezbolestné."
       },
       "preExerciseHeating": {
         "title": "Predcvičebné zahrievanie",
