@@ -71,7 +71,7 @@ const B2BLogin = () => {
     try {
       // Verify employee exists and data matches
       const { data: employee, error } = await supabase
-        .from('B2B_employees')
+        .from('b2b_employees')
         .select('*')
         .eq('b2b_partner_name', selectedPartner)
         .eq('employee_id', loginData.employeeId)
