@@ -86,21 +86,499 @@
     "title": "Všeobecný program",
     "description": "Nemáte čas na individuální programy? Zde najdete personalizovaný program s nejdůležitějšími cvičeními z vašich programů. Dodržujte pokyny a přestaňte cvičit, pokud pociťujete bolest."
   },
+  "central": {
+    "centralSensitisationNeck": {
+      "title": "Centrální senzitizace - Úleva od bolesti krku",
+      "description": "Cvičební program pro centrální senzitizaci ovlivňující oblast krku. Zaměřte se na jemné pohyby a zvládání bolesti.",
+      "wallBallMassage": {
+        "title": "Masáž trapézu míčkem o zeď",
+        "description": "Použijte tenisový míček proti zdi na masáž trapézového svalu. Aplikujte jemný tlak a pomalu pohybujte míčkem po citlivých oblastech 2-3 minuty."
+      },
+      "interscapularStrengthening": {
+        "title": "Posilování mezilopatkové oblasti",
+        "description": "Posilte svaly mezi lopatkami. Stáhněte lopatky k sobě, držte 5-10 sekund, opakujte 10-15krát."
+      },
+      "wallPushUps": {
+        "title": "Kliky o zeď",
+        "description": "Upravené kliky o zeď na bezpečné posílení ramen a hrudi. Začněte s 10 opakováními, postupně zvyšujte."
+      }
+    },
+    "centralSensitisationMiddleBack": {
+      "title": "Centrální senzitizace - Úleva od bolesti středních zad",
+      "description": "Cílená cvičení pro centrální senzitizaci ovlivňující oblast středních zad.",
+      "prayer": {
+        "title": "Modlitební natažení",
+        "description": "Klekněte si a sedněte zpět na paty, natáhněte ruce dopředu a natáhněte střední záda. Držte 30 sekund, opakujte 3krát."
+      },
+      "thoracicSpineMassage": {
+        "title": "Masáž hrudní páteře",
+        "description": "Použijte pěnový váleček nebo tenisový míček na masáž hrudní páteře. Pomalu se kotulte po středních zádech 2-3 minuty."
+      },
+      "bookOpening": {
+        "title": "Cvičení otvírání knihy",
+        "description": "Lehněte si na bok, otevřete ruce jako knihu na natažení hrudní páteře. Držte 30 sekund na každou stranu."
+      },
+      "interscapularStrengthening": {
+        "title": "Posilování mezilopatkové oblasti",
+        "description": "Posilte svaly mezi lopatkami na zlepšení držení těla a snížení bolesti."
+      }
+    },
+    "centralSensitisationLowerBack": {
+      "title": "Centrální senzitizace - Úleva od bolesti spodních zad",
+      "description": "Cvičební program pro centrální senzitizaci ovlivňující oblast spodních zad.",
+      "glutealStretching": {
+        "title": "Natažení sedacích svalů",
+        "description": "Natáhněte sedací svaly na úlevu od napětí ve spodních zádech. Držte každé natažení 30 sekund, opakujte 3krát na stranu."
+      },
+      "bridge": {
+        "title": "Mostek",
+        "description": "Posilte sedací svaly a spodní záda. Lehněte si na záda, zvedněte boky nahoru, držte 5-10 sekund, opakujte 10-15krát."
+      },
+      "squats90": {
+        "title": "90-stupňové dřepy",
+        "description": "Provádějte dřepy se zády opřenými o zeď, kolena v 90 stupních. Držte 10-30 sekund, opakujte 5-10krát."
+      }
+    },
+    "defaultNeck": {
+      "title": "Obecná úleva od bolesti krku",
+      "description": "Obecný cvičební program na úlevu od bolesti krku.",
+      "wallBallMassage": {
+        "title": "Masáž míčkem o zeď",
+        "description": "Použijte tenisový míček proti zdi na masáž svalů krku a ramen."
+      },
+      "interscapularStrengthening": {
+        "title": "Posilování mezilopatkové oblasti",
+        "description": "Posilte svaly mezi lopatkami pro lepší podporu krku."
+      },
+      "wallPushUps": {
+        "title": "Kliky o zeď",
+        "description": "Upravené kliky na posílení podpůrných svalů krku a ramen."
+      }
+    },
+    "defaultMiddleBackWeek02": {
+      "title": "Úleva od bolesti středních zad - Týden 0-2",
+      "description": "Počáteční cvičení na úlevu od bolesti středních zad.",
+      "thoracicRotationWithExtension": {
+        "title": "Rotace hrudníku s extenzí",
+        "description": "Jemné rotační a extenční pohyby pro hrudní páteř."
+      },
+      "thoracicSpineMassage": {
+        "title": "Masáž hrudní páteře",
+        "description": "Techniky vlastní masáže pro oblast hrudní páteře."
+      }
+    },
+    "defaultMiddleBackWeek35": {
+      "title": "Úleva od bolesti středních zad - Týden 3-5",
+      "description": "Progresivní cvičení na úlevu od bolesti středních zad.",
+      "interscapularStrengthening": {
+        "title": "Posilování mezilopatkové oblasti",
+        "description": "Posilte svaly mezi lopatkami."
+      },
+      "thoracicExtension": {
+        "title": "Extenze hrudníku",
+        "description": "Extenční cvičení na zlepšení pohyblivosti hrudní páteře."
+      },
+      "bookOpening": {
+        "title": "Cvičení otvírání knihy",
+        "description": "Rotační cvičení na zlepšení pohyblivosti hrudní páteře."
+      }
+    },
+    "defaultLowerBack": {
+      "title": "Obecná úleva od bolesti spodních zad",
+      "description": "Obecný cvičební program pro bolest spodních zad.",
+      "glutealStretching": {
+        "title": "Natažení sedacích svalů",
+        "description": "Natáhněte sedací svaly na úlevu napětí ve spodních zádech."
+      },
+      "bridge": {
+        "title": "Mostek",
+        "description": "Posilte sedací svaly a svaly spodních zad."
+      },
+      "squats90": {
+        "title": "90-stupňové dřepy",
+        "description": "Dřepy s podporou zdi na posílení spodních zad."
+      }
+    }
+  },
+  "neuropathic": {
+    "radicularPainNeckWeek03": {
+      "title": "Radikulární bolest - Krk týden 0-3",
+      "description": "Počáteční léčba radikulární bolesti krku.",
+      "neckRetraction": {
+        "title": "Retrakce krku",
+        "description": "Jemně táhněte bradu dozadu, abyste vytvořili dvojitou bradu. Držte 5 sekund, opakujte 10krát."
+      },
+      "upperLimbNeurodynamics": {
+        "title": "Neurodynamika horních končetin",
+        "description": "Cvičení na mobilizaci nervů horních končetin na snížení podráždění nervů."
+      },
+      "neckSideBending": {
+        "title": "Bočné ohýbání krku",
+        "description": "Jemně ohnete krk na každou stranu, držte 15-30 sekund na stranu."
+      }
+    },
+    "radicularPainNeckWeek46": {
+      "title": "Radikulární bolest - Krk týden 4-6",
+      "description": "Progresivní léčba radikulární bolesti krku.",
+      "prayer": {
+        "title": "Modlitební natažení",
+        "description": "Natažení pro střední záda a ramena."
+      },
+      "wallBallMassage": {
+        "title": "Masáž míčkem o zeď",
+        "description": "Vlastní masáž na úlevu napětí krku a ramen."
+      }
+    },
+    "radicularPainLowerBackWeek03": {
+      "title": "Radikulární bolest - Spodní záda týden 0-3",
+      "description": "Počáteční léčba radikulární bolesti spodních zad.",
+      "sciaticNeurodynamics": {
+        "title": "Neurodynamika sedacího nervu",
+        "description": "Cvičení na mobilizaci nervů při podráždění sedacího nervu."
+      },
+      "glutealStretching": {
+        "title": "Natažení sedacích svalů",
+        "description": "Natáhněte sedací svaly na úlevu komprese nervů."
+      },
+      "pelvicTilting": {
+        "title": "Naklánění pánve",
+        "description": "Jemné pohyby pánve na zlepšení pohyblivosti spodních zad."
+      }
+    },
+    "radicularPainLowerBackWeek46": {
+      "title": "Radikulární bolest - Spodní záda týden 4-6",
+      "description": "Progresivní léčba radikulární bolesti spodních zad.",
+      "bridge": {
+        "title": "Mostek",
+        "description": "Posilte sedací svaly a podporujte stabilitu spodních zad."
+      },
+      "squats90": {
+        "title": "90-stupňové dřepy",
+        "description": "Progresivní posílení na podporu spodních zad."
+      }
+    },
+    "radiculopathyNeckWeek02": {
+      "title": "Radikulopatie - Krk týden 0-2",
+      "description": "Počáteční léčba radikulopatie krku.",
+      "tensionNeurodynamics": {
+        "title": "Neurodynamika napětí",
+        "description": "Cvičení na mobilizaci nervů na snížení neurálního napětí."
+      },
+      "mckenzieExtensions": {
+        "title": "McKenzie extenze",
+        "description": "Extenční cvičení na úlevu od bolesti krku."
+      }
+    },
+    "radiculopathyNeckWeek35": {
+      "title": "Radikulopatie - Krk týden 3-5",
+      "description": "Progresivní léčba radikulopatie krku.",
+      "interscapularStrengthening": {
+        "title": "Posilování mezilopatkové oblasti",
+        "description": "Posilte svaly mezi lopatkami."
+      },
+      "neckStrengthening": {
+        "title": "Posilování krku",
+        "description": "Progresivní posilovací cvičení pro svaly krku."
+      }
+    },
+    "radiculopathyLowerBackWeek02": {
+      "title": "Radikulopatie - Spodní záda týden 0-2",
+      "description": "Počáteční léčba radikulopatie spodních zad.",
+      "proximalSciaticNeurodynamics": {
+        "title": "Proximální neurodynamika sedacího nervu",
+        "description": "Mobilizace nervů pro proximální podráždění sedacího nervu."
+      },
+      "mckenzieExtensions": {
+        "title": "McKenzie extenze",
+        "description": "Extenční cvičení na úlevu od bolesti spodních zad."
+      }
+    },
+    "radiculopathyLowerBackWeek35": {
+      "title": "Radikulopatie - Spodní záda týden 3-5",
+      "description": "Progresivní léčba radikulopatie spodních zad.",
+      "glutealMassage": {
+        "title": "Masáž sedacích svalů",
+        "description": "Techniky vlastní masáže pro napětí sedacích svalů."
+      },
+      "bridge": {
+        "title": "Mostek",
+        "description": "Posilte sedací svaly a podporujte stabilitu páteře."
+      },
+      "squats90": {
+        "title": "90-stupňové dřepy",
+        "description": "Progresivní posílení na podporu páteře."
+      }
+    },
+    "defaultNeck": {
+      "title": "Obecná neuropatická bolest krku",
+      "description": "Obecná cvičení pro neuropatickou bolest krku.",
+      "neckRetraction": {
+        "title": "Retrakce krku",
+        "description": "Základní cvičení retrakce krku na zlepšení držení těla."
+      },
+      "upperLimbNeurodynamics": {
+        "title": "Neurodynamika horních končetin",
+        "description": "Mobilizace nervů pro příznaky horních končetin."
+      },
+      "prayer": {
+        "title": "Modlitební natažení",
+        "description": "Jemné natažení pro oblast krku a ramen."
+      }
+    },
+    "defaultMiddleBack": {
+      "title": "Obecná neuropatická bolest středních zad",
+      "description": "Obecná cvičení pro neuropatickou bolest středních zad.",
+      "prayer": {
+        "title": "Modlitební natažení",
+        "description": "Natažení pro střední záda a ramena."
+      },
+      "thoracicSpineMassage": {
+        "title": "Masáž hrudní páteře",
+        "description": "Vlastní masáž pro oblast hrudní páteře."
+      },
+      "upperLimbNeurodynamics": {
+        "title": "Neurodynamika horních končetin",
+        "description": "Cvičení na mobilizaci nervů."
+      }
+    },
+    "defaultLowerBack": {
+      "title": "Obecná neuropatická bolest spodních zad",
+      "description": "Obecná cvičení pro neuropatickou bolest spodních zad.",
+      "glutealStretching": {
+        "title": "Natažení sedacích svalů",
+        "description": "Natáhněte sedací svaly na dekompresi nervů."
+      },
+      "pelvicTilting": {
+        "title": "Naklánění pánve",
+        "description": "Jemná cvičení pohyblivosti pánve."
+      },
+      "upperLimbNeurodynamics": {
+        "title": "Neurodynamika horních končetin",
+        "description": "Techniky mobilizace nervů."
+      }
+    }
+  },
+  "nociceptive": {
+    "discHerniationNeckWeek03": {
+      "title": "Hernie disku - Krk týden 0-3",
+      "description": "Počáteční léčba cervikální hernie disku.",
+      "mckenzieExtensions": {
+        "title": "McKenzie extenze",
+        "description": "Extenční cvičení na snížení tlaku disku a podporu hojení."
+      },
+      "upperLimbNeurodynamics": {
+        "title": "Neurodynamika horních končetin",
+        "description": "Mobilizace nervů na snížení neurálního podráždění z hernie disku."
+      },
+      "wallBallMassage": {
+        "title": "Masáž míčkem o zeď",
+        "description": "Vlastní masáž na snížení svalového napětí okolo krku."
+      }
+    },
+    "discHerniationNeckWeek46": {
+      "title": "Hernie disku - Krk týden 4-6",
+      "description": "Progresivní léčba cervikální hernie disku.",
+      "prayer": {
+        "title": "Modlitební natažení",
+        "description": "Jemné natažení na zlepšení pohyblivosti krku a ramen."
+      },
+      "interscapularStrengthening": {
+        "title": "Posilování mezilopatkové oblasti",
+        "description": "Posilte svaly na podporu správného zarovnání krku."
+      }
+    },
+    "discHerniationLowerBackWeek03": {
+      "title": "Hernie disku - Spodní záda týden 0-3",
+      "description": "Počáteční léčba lumbální hernie disku.",
+      "mckenzieExtensions": {
+        "title": "McKenzie extenze",
+        "description": "Extenční cvičení na centralizaci materiálu disku a snížení bolesti."
+      },
+      "sciaticNeurodynamics": {
+        "title": "Neurodynamika sedacího nervu",
+        "description": "Jemná mobilizace nervů pro podráždění sedacího nervu."
+      },
+      "glutealStretching": {
+        "title": "Natažení sedacích svalů",
+        "description": "Natáhněte sedací svaly na snížení tlaku na páteř."
+      }
+    },
+    "discHerniationLowerBackWeek46": {
+      "title": "Hernie disku - Spodní záda týden 4-6",
+      "description": "Progresivní léčba lumbální hernie disku.",
+      "bridge": {
+        "title": "Mostek",
+        "description": "Posilte jádro a sedací svaly na podporu stability páteře."
+      },
+      "squats90": {
+        "title": "90-stupňové dřepy",
+        "description": "Progresivní posílení na podporu spodních zad."
+      }
+    },
+    "facetJointSyndromeNeckWeek02": {
+      "title": "Syndrom fazetových kloubů - Krk týden 0-2",
+      "description": "Počáteční léčba syndromu cervikálních fazetových kloubů.",
+      "cervicalRotationWithTowel": {
+        "title": "Cervikální rotace s ručníkem",
+        "description": "Jemná rotační cvičení s podporou ručníku pro kontrolovaný pohyb."
+      },
+      "trapezoidMassage": {
+        "title": "Masáž trapézu",
+        "description": "Techniky vlastní masáže na úlevu napětí trapézového svalu."
+      },
+      "upperCervicalMassage": {
+        "title": "Masáž horního krku",
+        "description": "Cílená masáž horní cervikální oblasti na snížení podráždění fazetových kloubů."
+      }
+    },
+    "facetJointSyndromeNeckWeek35": {
+      "title": "Syndrom fazetových kloubů - Krk týden 3-5",
+      "description": "Progresivní léčba syndromu cervikálních fazetových kloubů.",
+      "interscapularStrengthening": {
+        "title": "Posilování mezilopatkové oblasti",
+        "description": "Posilte svaly na podporu správného cervikálního zarovnání."
+      },
+      "neckStrengthening": {
+        "title": "Posilování krku",
+        "description": "Progresivní posilovací cvičení pro stabilitu krku."
+      }
+    },
+    "facetJointSyndromeMiddleBackWeek02": {
+      "title": "Syndrom fazetových kloubů - Střední záda týden 0-2",
+      "description": "Počáteční léčba syndromu hrudních fazetových kloubů.",
+      "thoracicRotationWithExtension": {
+        "title": "Hrudní rotace s extenzí",
+        "description": "Jemné rotační a extenční pohyby na zlepšení pohyblivosti fazetových kloubů."
+      },
+      "thoracicSpineMassage": {
+        "title": "Masáž hrudní páteře",
+        "description": "Techniky vlastní masáže na úlevu napětí hrudní páteře."
+      }
+    },
+    "facetJointSyndromeMiddleBackWeek35": {
+      "title": "Syndrom fazetových kloubů - Střední záda týden 3-5",
+      "description": "Progresivní léčba syndromu hrudních fazetových kloubů.",
+      "interscapularStrengthening": {
+        "title": "Posilování mezilopatkové oblasti",
+        "description": "Posilte svaly mezi lopatkami na podporu páteře."
+      },
+      "thoracicExtension": {
+        "title": "Hrudní extenze",
+        "description": "Extenční cvičení na zlepšení pohyblivosti hrudní páteře."
+      },
+      "bookOpening": {
+        "title": "Cvičení otvírání knihy",
+        "description": "Rotační cvičení na zlepšení pohyblivosti hrudní páteře."
+      }
+    },
+    "facetJointSyndromeLowerBackWeek03": {
+      "title": "Syndrom fazetových kloubů - Spodní záda týden 0-3",
+      "description": "Počáteční léčba syndromu lumbálních fazetových kloubů.",
+      "pelvicTilting": {
+        "title": "Naklánění pánve",
+        "description": "Jemné pohyby pánve na zlepšení pohyblivosti lumbálních fazetových kloubů."
+      },
+      "glutealStretching": {
+        "title": "Natažení sedacích svalů",
+        "description": "Natáhněte sedací svaly na snížení komprese lumbální páteře."
+      },
+      "spinalStretching": {
+        "title": "Natažení páteře",
+        "description": "Jemná natahovací cvičení pro pohyblivost lumbální páteře."
+      }
+    },
+    "facetJointSyndromeLowerBackWeek46": {
+      "title": "Syndrom fazetových kloubů - Spodní záda týden 4-6",
+      "description": "Progresivní léčba syndromu lumbálních fazetových kloubů.",
+      "bridge": {
+        "title": "Mostek",
+        "description": "Posilte sedací svaly a jádro pro stabilitu páteře."
+      },
+      "squats90": {
+        "title": "90-stupňové dřepy",
+        "description": "Progresivní posílení na podporu lumbální páteře."
+      }
+    },
+    "sijSyndromeWeek02": {
+      "title": "SIJ syndrom - Týden 0-2",
+      "description": "Počáteční léčba syndromu sakroiliakálního kloubu.",
+      "sijMobilization": {
+        "title": "SIJ mobilizace",
+        "description": "Jemná mobilizační cvičení pro dysfunkci sakroiliakálního kloubu."
+      },
+      "squats90": {
+        "title": "90-stupňové dřepy",
+        "description": "Posilovací cvičení na podporu stability SIJ."
+      }
+    },
+    "sijSyndromeWeek36": {
+      "title": "SIJ syndrom - Týden 3-6",
+      "description": "Progresivní léčba syndromu sakroiliakálního kloubu.",
+      "glutealStrengthening": {
+        "title": "Posilování sedacích svalů",
+        "description": "Posilte sedací svaly na podporu stability SIJ."
+      }
+    },
+    "defaultNeck": {
+      "title": "Obecné zvládání bolesti krku",
+      "description": "Obecná cvičení na úlevu od bolesti krku.",
+      "wallBallMassage": {
+        "title": "Masáž míčkem o zeď",
+        "description": "Techniky vlastní masáže pro napětí krku a ramen."
+      },
+      "prayer": {
+        "title": "Modlitební natažení",
+        "description": "Jemné natažení pro pohyblivost krku a ramen."
+      },
+      "upperCervicalMassage": {
+        "title": "Masáž horního krku",
+        "description": "Cílená masáž pro oblast horního krku."
+      }
+    },
+    "defaultMiddleBack": {
+      "title": "Obecné zvládání bolesti středních zad",
+      "description": "Obecná cvičení na úlevu od bolesti středních zad.",
+      "prayer": {
+        "title": "Modlitební natažení",
+        "description": "Natažení pro oblast středních zad a ramen."
+      },
+      "thoracicSpineMassage": {
+        "title": "Masáž hrudní páteře",
+        "description": "Vlastní masáž na úlevu napětí hrudní páteře."
+      },
+      "bookOpening": {
+        "title": "Cvičení otvírání knihy",
+        "description": "Cvičení pohyblivosti pro rotaci hrudní páteře."
+      }
+    },
+    "defaultLowerBack": {
+      "title": "Obecné zvládání bolesti spodních zad",
+      "description": "Obecná cvičení na úlevu od bolesti spodních zad.",
+      "glutealStretching": {
+        "title": "Natažení sedacích svalů",
+        "description": "Natáhněte sedací svaly na úlevu napětí spodních zad."
+      },
+      "pelvicTilting": {
+        "title": "Naklánění pánve",
+        "description": "Jemná cvičení pohyblivosti pánve pro spodní záda."
+      }
+    }
+  },
   "shoulderNociceptive": {
     "frozenShoulderPhase1": {
       "title": "Zmrzlé rameno - Fáze 1: Úleva od bolesti a jemná mobilita",
       "description": "Počáteční fáze zaměřená na zvládání bolesti a jemná cvičení pohyblivosti. Provádějte tato cvičení 2-3krát denně během akutní fáze.",
       "pendulumExercises": {
-       "title": "Kyvadlová cvičení",
+        "title": "Kyvadlová cvičení",
         "description": "Předkloňte se a provádějte houpací pohyby k udržení pohyblivosti ramene bez aktivního pohybu. Proveďte 10-15 kyvání v každém směru, 2-3 krát denně."
       },
       "isometricExternalRotation": {
         "title": "Izometrická vnější rotace",
-        "description": "Opřete se rukou o zeď podle videa. Loket zdržujte při těle a rotačním pohybem ramene zatlačte do zdi mírnou silou. Dávejte pozor, abyste během cvičení nezvedali ramena směrem k uším. Držte 8-10 sekund, opakujte 5 krát, 1-2 krát."
+        "description": "Opřete se rukou o zeď podle videa. Loket zdržujte při těle a rotačním pohybem ramene zatlačte do zdi mírnou silou. Dávejte pozor, abyste během cvičení nezvedali ramena směrem k uším. Držte 8-10 sekund, opakujte 5 krát, 1-2 krát denně."
       },
       "rotatorCuffRelease": {
         "title": "Masáž rotátorové manžety a trapézů míčkem",
-        "description": "Vezměte tenisový míček, uložte si jej na trapézy a opřete se o zeď. Mírně zatlačte váhou svého těla a promasírujte oblast trapézů a lopatky. Během cviku můžete pociťovat bolest, pokud je v toleranci. Když najdete bolestivý bod, staticky zatlačte na cca. provádějte minimálně 1x denně."
+        "description": "Vezměte tenisový míček, uložte si jej na trapézy a opřete se o zeď. Mírně zatlačte váhou svého těla a promasírujte oblast trapézů a lopatky. Během cviku můžete pociťovat bolest, pokud je v toleranci. Když najdete bolestivý bod, staticky zatlačte na cca 20-30 sekund a následně se přesuňte níže. Cvik provádějte minimálně 1x denně."
       },
       "shoulderHeating": {
         "title": "Ohřívání ramene",
