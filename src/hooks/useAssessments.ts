@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
@@ -10,68 +9,6 @@ export const useAssessments = () => {
   const [loading, setLoading] = useState(true);
   const { user } = useAuth();
   const { toast } = useToast();
-
-  const updatePainAreasInProfile = useCallback(async () => {
-    if (!user) return;
-
-    try {
-      // Get all active assessments (not ended)
-      const { data: activeAssessments, error } = await supabase
-        .from('user_assessments')
-        .select('pain_area')
-        .eq('user_id', user.id)
-        .is('program_ended_at', null);
-
-      if (error) {
-        console.error('Error loading active assessments for pain area update:', error);
-        return;
-      }
-
-      if (activeAssessments && activeAssessments.length > 1) {
-        // If user has multiple active programs, collect all unique pain areas
-        const uniquePainAreas = [...new Set(activeAssessments.map(assessment => assessment.pain_area))];
-        const combinedPainAreas = uniquePainAreas.join(', ');
-
-        // Update the user profile with combined pain areas
-        const { error: updateError } = await supabase
-          .from('user_profiles')
-          .upsert({
-            user_id: user.id,
-            pain_area: combinedPainAreas
-          });
-
-        if (updateError) {
-          console.error('Error updating pain areas in profile:', updateError);
-        }
-      } else if (activeAssessments && activeAssessments.length === 1) {
-        // If user has only one active program, use that pain area
-        const { error: updateError } = await supabase
-          .from('user_profiles')
-          .upsert({
-            user_id: user.id,
-            pain_area: activeAssessments[0].pain_area
-          });
-
-        if (updateError) {
-          console.error('Error updating pain area in profile:', updateError);
-        }
-      } else {
-        // No active assessments, clear pain area
-        const { error: updateError } = await supabase
-          .from('user_profiles')
-          .upsert({
-            user_id: user.id,
-            pain_area: ''
-          });
-
-        if (updateError) {
-          console.error('Error clearing pain area in profile:', updateError);
-        }
-      }
-    } catch (error) {
-      console.error('Error updating pain areas in profile:', error);
-    }
-  }, [user]);
 
   const fetchAssessments = useCallback(async () => {
     if (!user) return;
@@ -126,9 +63,6 @@ export const useAssessments = () => {
       );
 
       setAssessments(enrichedAssessments);
-      
-      // Update pain areas in user profile after fetching assessments
-      await updatePainAreasInProfile();
     } catch (error) {
       console.error('Error fetching assessments:', error);
       toast({
@@ -139,7 +73,7 @@ export const useAssessments = () => {
     } finally {
       setLoading(false);
     }
-  }, [user, toast, updatePainAreasInProfile]);
+  }, [user, toast]);
 
   const handleDeleteAssessment = async (assessmentId: string) => {
     try {
