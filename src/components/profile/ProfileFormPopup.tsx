@@ -73,7 +73,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
 
       try {
         const { data, error } = await supabase
-          .from('b2b_employees')
+          .from('test_sro_profiles')
           .select('b2b_partner_name, employee_id')
           .eq('email', user.email)
           .single();
@@ -195,7 +195,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     try {
       // Update B2B employee state to active when they complete their profile
       const { error } = await supabase
-        .from('b2b_employees')
+        .from('test_sro_profiles')
         .update({ state: 'active' })
         .eq('email', user.email);
 

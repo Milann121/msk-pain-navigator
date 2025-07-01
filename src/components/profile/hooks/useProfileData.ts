@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
@@ -87,7 +88,7 @@ export const useProfileData = () => {
 
     try {
       const { data, error } = await supabase
-        .from('b2b_employees')
+        .from('test_sro_profiles')
         .select('b2b_partner_name, employee_id, state')
         .eq('email', user.email)
         .single();
@@ -131,7 +132,7 @@ export const useProfileData = () => {
       // If user has a profile, update B2B employee state to active
       if (profileData && !profileError) {
         const { error: updateError } = await supabase
-          .from('b2b_employees')
+          .from('test_sro_profiles')
           .update({ state: 'active' })
           .eq('email', user.email);
 
