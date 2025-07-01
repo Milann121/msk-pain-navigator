@@ -2,14 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { useTranslation } from 'react-i18next';
+import { ProfileFormPersonalInfo } from './ProfileFormPersonalInfo';
+import { ProfileFormJobSelection } from './ProfileFormJobSelection';
+import { ProfileFormGoals } from './ProfileFormGoals';
+import { ProfileFormButtons } from './ProfileFormButtons';
 
 interface ProfileFormPopupProps {
   isOpen: boolean;
@@ -240,17 +239,6 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     }
   };
 
-  // Generate options for dropdowns
-  const exerciseOptions = Array.from({ length: 14 }, (_, i) => i + 1);
-  const blogOptions = Array.from({ length: 10 }, (_, i) => i + 1);
-
-  // Function to get the correct word form for blogs
-  const getBlogWord = (count: number | null) => {
-    if (count === 1) return 'blog';
-    if (count && count >= 2 && count <= 4) return 'blogy';
-    return 'blogov';
-  };
-
   // Check if all required profile fields are filled
   const isProfileValid = profileData.firstName.trim() !== '' && 
                         profileData.lastName.trim() !== '' && 
@@ -266,192 +254,39 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         
         <div className="space-y-6 py-4">
           {/* Personal Information Section */}
-          <div>
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">{t('profile.profileForm.personalInfo')}</h3>
-            
-            <div className="grid grid-cols-2 gap-4 mb-4">
-              <div className="space-y-2">
-                <Label htmlFor="firstName">{t('profile.profileForm.firstName')}</Label>
-                <Input
-                  id="firstName"
-                  value={profileData.firstName}
-                  onChange={(e) => handleInputChange('firstName', e.target.value)}
-                  placeholder={t('profile.profileForm.firstNamePlaceholder')}
-                  required
-                />
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="lastName">{t('profile.profileForm.lastName')}</Label>
-                <Input
-                  id="lastName"
-                  value={profileData.lastName}
-                  onChange={(e) => handleInputChange('lastName', e.target.value)}
-                  placeholder={t('profile.profileForm.lastNamePlaceholder')}
-                  required
-                />
-              </div>
-            </div>
+          <ProfileFormPersonalInfo
+            data={{
+              firstName: profileData.firstName,
+              lastName: profileData.lastName,
+              gender: profileData.gender,
+              age: profileData.age
+            }}
+            onChange={handleInputChange}
+          />
 
-            <div className="space-y-3 mb-4">
-              <Label>{t('profile.profileForm.gender')}</Label>
-              <RadioGroup 
-                value={profileData.gender}
-                onValueChange={(value) => handleInputChange('gender', value)}
-                className="flex space-x-6"
-              >
-                <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="Muž" id="muz" />
-                  <Label htmlFor="muz" className="cursor-pointer">{t('profile.profileForm.male')}</Label>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="Žena" id="zena" />
-                  <Label htmlFor="zena" className="cursor-pointer">{t('profile.profileForm.female')}</Label>
-                </div>
-              </RadioGroup>
-            </div>
-
-            <div className="space-y-2 mb-4">
-              <Label htmlFor="age">{t('profile.profileForm.age')}</Label>
-              <Input
-                id="age"
-                type="number"
-                value={profileData.age}
-                onChange={(e) => handleInputChange('age', e.target.value === '' ? '' : Number(e.target.value))}
-                placeholder={t('profile.profileForm.agePlaceholder')}
-                required
-              />
-            </div>
-
-            <div className="space-y-4">
-              <Label>{t('profile.profileForm.job')}</Label>
-              <RadioGroup 
-                value={profileData.job}
-                onValueChange={handleJobChange}
-                className="space-y-3"
-              >
-                <div className="space-y-2">
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="manuálna práca" id="manual-job" />
-                    <Label htmlFor="manual-job" className="cursor-pointer">{t('profile.profileForm.manual')}</Label>
-                  </div>
-                  {profileData.job === 'manuálna práca' && (
-                    <div className="space-y-2 pl-6">
-                      <Label className="text-sm font-medium">{t('profile.profileForm.manualSpec')}</Label>
-                      <RadioGroup 
-                        value={profileData.jobSubtype}
-                        onValueChange={(value) => handleInputChange('jobSubtype', value)}
-                        className="space-y-2"
-                      >
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="zdvíhanie ťažkých predmetov" id="heavy-lifting-popup" />
-                          <Label htmlFor="heavy-lifting-popup" className="cursor-pointer text-sm">{t('profile.profileForm.heavyLifting')}</Label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="práca v stoji na mieste" id="standing-work-popup" />
-                          <Label htmlFor="standing-work-popup" className="cursor-pointer text-sm">{t('profile.profileForm.standingWork')}</Label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="práca v neprirodzených polohách" id="awkward-positions-popup" />
-                          <Label htmlFor="awkward-positions-popup" className="cursor-pointer text-sm">{t('profile.profileForm.awkwardPositions')}</Label>
-                        </div>
-                      </RadioGroup>
-                    </div>
-                  )}
-                </div>
-                
-                <div className="space-y-2">
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="sedavá práca" id="desk-job" />
-                    <Label htmlFor="desk-job" className="cursor-pointer">{t('profile.profileForm.desk')}</Label>
-                  </div>
-                  {profileData.job === 'sedavá práca' && (
-                    <div className="space-y-2 pl-6">
-                      <Label className="text-sm font-medium">{t('profile.profileForm.manualSpec')}</Label>
-                      <RadioGroup 
-                        value={profileData.jobSubtype}
-                        onValueChange={(value) => handleInputChange('jobSubtype', value)}
-                        className="space-y-2"
-                      >
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="práca v kancelárii" id="office-work-popup" />
-                          <Label htmlFor="office-work-popup" className="cursor-pointer text-sm">{t('profile.profileForm.officeWork')}</Label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="šofér" id="driver-popup" />
-                          <Label htmlFor="driver-popup" className="cursor-pointer text-sm">{t('profile.profileForm.driver')}</Label>
-                        </div>
-                      </RadioGroup>
-                    </div>
-                  )}
-                </div>
-              </RadioGroup>
-            </div>
-          </div>
+          {/* Job Selection Section */}
+          <ProfileFormJobSelection
+            data={{
+              job: profileData.job,
+              jobSubtype: profileData.jobSubtype
+            }}
+            onJobChange={handleJobChange}
+            onSubtypeChange={handleInputChange}
+          />
 
           {/* Goals Section */}
-          <div>
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">{t('profile.profileForm.goalsTitle')}</h3>
-            <p className="text-sm text-gray-600 mb-4">{t('profile.profileForm.goalsSubtitle')}</p>
-            
-            <div className="space-y-4">
-              <div className="flex items-center gap-2">
-                <span className="text-base">{t('profile.profileForm.weeklyExercise')}</span>
-                <Select 
-                  value={goalsData.weeklyExerciseGoal?.toString() || ""} 
-                  onValueChange={(value) => handleGoalChange('weeklyExerciseGoal', parseInt(value))}
-                >
-                  <SelectTrigger className="w-20 h-8">
-                    <SelectValue placeholder="-" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {exerciseOptions.map((option) => (
-                      <SelectItem key={option} value={option.toString()}>
-                        {option}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                <span className="text-base">{t('profile.profileForm.times')}</span>
-              </div>
+          <ProfileFormGoals
+            data={goalsData}
+            onChange={handleGoalChange}
+          />
 
-              <div className="flex items-center gap-2">
-                <span className="text-base">{t('profile.profileForm.weeklyBlog')}</span>
-                <Select 
-                  value={goalsData.weeklyBlogGoal?.toString() || ""} 
-                  onValueChange={(value) => handleGoalChange('weeklyBlogGoal', parseInt(value))}
-                >
-                  <SelectTrigger className="w-20 h-8">
-                    <SelectValue placeholder="-" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {blogOptions.map((option) => (
-                      <SelectItem key={option} value={option.toString()}>
-                        {option}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                <span className="text-base">{getBlogWord(goalsData.weeklyBlogGoal)}</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex justify-end space-x-3 pt-6">
-            <Button 
-              variant="outline" 
-              onClick={handleSkipGoals} 
-              disabled={!isProfileValid || isLoading}
-            >
-              {isLoading ? t('profile.profileForm.saving') : t('profile.profileForm.skip')}
-            </Button>
-            <Button 
-              onClick={handleSave} 
-              disabled={!isProfileValid || isLoading}
-            >
-              {isLoading ? t('profile.profileForm.saving') : t('profile.profileForm.saveAll')}
-            </Button>
-          </div>
+          {/* Form Buttons */}
+          <ProfileFormButtons
+            isLoading={isLoading}
+            isProfileValid={isProfileValid}
+            onSkip={handleSkipGoals}
+            onSave={handleSave}
+          />
         </div>
       </DialogContent>
     </Dialog>
