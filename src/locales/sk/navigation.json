@@ -24,6 +24,12 @@
     "password": "Heslo",
     "privacyConsent": "Súhlasím so spracovaním osobných údajov",
     "or": "alebo",
-    "backHome": "Späť na domovskú stránku"
+    "backHome": "Späť na domovskú stránku",
+    "emailNotConfirmed": {
+      "title": "Email nie je overený",
+      "message": "Váš email {email} ešte nie je overený.",
+      "instruction": "Skontrolujte svoju emailovú schránku a kliknite na overovací odkaz.",
+      "resendButton": "Odoslať overovací email znovu"
+    }
   }
 }

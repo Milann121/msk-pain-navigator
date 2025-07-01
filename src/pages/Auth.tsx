@@ -412,18 +412,19 @@ const Auth = () => {
                 <AlertDescription>
                   <div className="space-y-2">
                     <p className="text-sm">
-                      Váš email <strong>{emailNotConfirmedAddress}</strong> ešte nie je overený.
+                      {t('auth.emailNotConfirmed.message', { email: emailNotConfirmedAddress })}
                     </p>
                     <p className="text-sm">
-                      Skontrolujte svoju emailovú schránku a kliknite na overovací odkaz.
+                      {t('auth.emailNotConfirmed.instruction')}
                     </p>
                     <Button
                       variant="outline"
                       size="sm"
                       onClick={handleResendConfirmation}
+                      disabled={isLoading}
                       className="mt-2"
                     >
-                      Odoslať overovací email znovu
+                      {t('auth.emailNotConfirmed.resendButton')}
                     </Button>
                   </div>
                 </AlertDescription>

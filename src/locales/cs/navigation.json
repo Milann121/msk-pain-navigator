@@ -24,6 +24,12 @@
     "password": "Heslo",
     "privacyConsent": "Souhlasím se zpracováním osobních údajů",
     "or": "nebo",
-    "backHome": "Zpět na domovskou stránku"
+    "backHome": "Zpět na domovskou stránku",
+    "emailNotConfirmed": {
+      "title": "Email není ověřen",
+      "message": "Váš email {email} ještě není ověřen.",
+      "instruction": "Zkontrolujte svou emailovou schránku a klikněte na ověřovací odkaz.",
+      "resendButton": "Odeslat ověřovací email znovu"
+    }
   }
 }

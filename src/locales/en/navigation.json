@@ -24,6 +24,12 @@
     "password": "Password",
     "privacyConsent": "I agree to the processing of personal data",
     "or": "or",
-    "backHome": "Back to Home"
+    "backHome": "Back to Home",
+    "emailNotConfirmed": {
+      "title": "Email not verified",
+      "message": "Your email {email} is not yet verified.",
+      "instruction": "Check your email inbox and click on the verification link.",
+      "resendButton": "Resend verification email"
+    }
   }
 }
