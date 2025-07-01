@@ -48,6 +48,9 @@ export const useProfileData = () => {
         return;
       }
 
+      // Load active assessments to get all pain areas
+      await updatePainAreasFromActiveAssessments();
+
       if (data) {
         setUserData({
           firstName: data.first_name || '',
@@ -69,6 +72,52 @@ export const useProfileData = () => {
       }
     } catch (error) {
       console.error('Error loading profile:', error);
+    }
+  };
+
+  const updatePainAreasFromActiveAssessments = async () => {
+    if (!user) return;
+
+    try {
+      // Get all active assessments (not ended)
+      const { data: activeAssessments, error } = await supabase
+        .from('user_assessments')
+        .select('pain_area')
+        .eq('user_id', user.id)
+        .is('program_ended_at', null);
+
+      if (error) {
+        console.error('Error loading active assessments:', error);
+        return;
+      }
+
+      if (activeAssessments && activeAssessments.length > 1) {
+        // If user has multiple active programs, collect all unique pain areas
+        const uniquePainAreas = [...new Set(activeAssessments.map(assessment => assessment.pain_area))];
+        const combinedPainAreas = uniquePainAreas.join(', ');
+
+        // Update the user profile with combined pain areas
+        const { error: updateError } = await supabase
+          .from('user_profiles')
+          .update({ pain_area: combinedPainAreas })
+          .eq('user_id', user.id);
+
+        if (updateError) {
+          console.error('Error updating pain areas:', updateError);
+        }
+      } else if (activeAssessments && activeAssessments.length === 1) {
+        // If user has only one active program, use that pain area
+        const { error: updateError } = await supabase
+          .from('user_profiles')
+          .update({ pain_area: activeAssessments[0].pain_area })
+          .eq('user_id', user.id);
+
+        if (updateError) {
+          console.error('Error updating pain area:', updateError);
+        }
+      }
+    } catch (error) {
+      console.error('Error updating pain areas from active assessments:', error);
     }
   };
 
