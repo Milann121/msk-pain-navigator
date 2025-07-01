@@ -340,13 +340,19 @@ const Auth = () => {
   const handleResendConfirmation = async () => {
     if (!emailNotConfirmedAddress) return;
     
+    setIsLoading(true);
+    
     try {
       const { error } = await supabase.auth.resend({
         type: 'signup',
         email: emailNotConfirmedAddress,
+        options: {
+          emailRedirectTo: `${window.location.origin}/auth`
+        }
       });
       
       if (error) {
+        console.error('Resend confirmation error:', error);
         toast({
           title: "Chyba",
           description: error.message,
@@ -365,6 +371,8 @@ const Auth = () => {
         description: "Nepodarilo sa odoslať overovací email",
         variant: "destructive",
       });
+    } finally {
+      setIsLoading(false);
     }
   };
 
