@@ -15,7 +15,7 @@ export type Database = {
           b2b_partner_name: string
           created_at: string
           email: string | null
-          employee_id: string
+          employee_id: string | null
           first_name: string
           id: string
           last_name: string
@@ -27,7 +27,7 @@ export type Database = {
           b2b_partner_name: string
           created_at?: string
           email?: string | null
-          employee_id: string
+          employee_id?: string | null
           first_name: string
           id?: string
           last_name: string
@@ -39,7 +39,7 @@ export type Database = {
           b2b_partner_name?: string
           created_at?: string
           email?: string | null
-          employee_id?: string
+          employee_id?: string | null
           first_name?: string
           id?: string
           last_name?: string

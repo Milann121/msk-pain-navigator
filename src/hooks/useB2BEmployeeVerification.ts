@@ -84,16 +84,8 @@ export const useB2BEmployeeVerification = () => {
     setIsVerifyingEmployee(true);
     
     try {
-      // First check what's in the database for debugging
-      console.log('=== DEBUGGING DATABASE CONTENT ===');
-      const { data: allEmployees, error: debugError } = await supabase
-        .from('b2b_employees')
-        .select('*');
-      
-      console.log('All employees in database:', allEmployees);
-      console.log('Debug query error:', debugError);
-
       // Now perform the actual verification query
+      // The new policies allow anonymous access for verification
       console.log('=== PERFORMING VERIFICATION QUERY ===');
       console.log('Query parameters:', {
         b2b_partner_name: nameToVerify,
