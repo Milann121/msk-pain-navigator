@@ -7,9 +7,10 @@ import { useTranslation } from 'react-i18next';
 interface ExercisePeriodSectionProps {
   exercise: Exercise;
   showGeneral?: boolean;
+  assessmentId?: string;
 }
 
-export const ExercisePeriodSection = ({ exercise, showGeneral = false }: ExercisePeriodSectionProps) => {
+export const ExercisePeriodSection = ({ exercise, showGeneral = false, assessmentId }: ExercisePeriodSectionProps) => {
   const { t } = useTranslation();
   
   // Helper function to get translated text
@@ -53,6 +54,7 @@ export const ExercisePeriodSection = ({ exercise, showGeneral = false }: Exercis
             video={video}
             exerciseTitle={displayTitle}
             showGeneral={showGeneral}
+            assessmentId={assessmentId}
           />
         ))}
       </div>
