@@ -95,6 +95,15 @@ const Auth = () => {
   };
 
   const handleVerifyEmployee = () => {
+    console.log('handleVerifyEmployee called with:', { employerName, employeeId });
+    if (!employerName.trim() || !employeeId.trim()) {
+      toast({
+        title: "Chyba",
+        description: "Zadajte názov zamestnávateľa a ID zamestnanca",
+        variant: "destructive",
+      });
+      return;
+    }
     verifyEmployeeCredentials(undefined, undefined, employerName, employeeId);
   };
 

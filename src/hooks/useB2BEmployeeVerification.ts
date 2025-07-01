@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { useToast } from '@/components/ui/use-toast';
+import { useToast } from '@/hooks/use-toast';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '@/integrations/supabase/client';
 
@@ -58,27 +58,59 @@ export const useB2BEmployeeVerification = () => {
     const nameToVerify = companyName || employerName;
     const idToVerify = empId || employeeId;
     
+    console.log('verifyEmployeeCredentials called with:', {
+      companyName,
+      empId,
+      employerName,
+      employeeId,
+      nameToVerify,
+      idToVerify
+    });
+    
     if (!nameToVerify || !idToVerify) {
       console.log('Missing employer name or employee ID for verification');
+      toast({
+        title: "Chyba overenia",
+        description: "Zadajte názov zamestnávateľa a ID zamestnanca",
+        variant: "destructive",
+      });
       setIsEmployeeVerified(false);
       return;
     }
 
-    console.log('Verifying employee:', { nameToVerify, idToVerify });
+    console.log('Starting verification for:', { nameToVerify, idToVerify });
     setIsVerifyingEmployee(true);
     
     try {
+      // First, let's check what's in the database
+      const { data: allEmployees, error: debugError } = await supabase
+        .from('b2b_employees')
+        .select('*');
+      
+      console.log('All employees in database:', allEmployees);
+      
       const { data, error } = await supabase
         .from('b2b_employees')
         .select('*')
         .eq('b2b_partner_name', nameToVerify)
-        .eq('employee_id', idToVerify)
-        .single();
+        .eq('employee_id', idToVerify);
 
-      console.log('Verification result:', { data, error });
+      console.log('Verification query result:', { data, error, nameToVerify, idToVerify });
 
-      if (error || !data) {
-        console.error('Employee verification failed:', error);
+      if (error) {
+        console.error('Database error during verification:', error);
+        setIsEmployeeVerified(false);
+        setVerifiedEmployeeRecord(null);
+        toast({
+          title: "Databázová chyba",
+          description: "Vyskytla sa chyba pri overovaní údajov",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      if (!data || data.length === 0) {
+        console.log('No matching employee found');
         setIsEmployeeVerified(false);
         setVerifiedEmployeeRecord(null);
         toast({
@@ -87,9 +119,10 @@ export const useB2BEmployeeVerification = () => {
           variant: "destructive",
         });
       } else {
-        console.log('Employee verified successfully:', data);
+        const employeeRecord = data[0];
+        console.log('Employee verified successfully:', employeeRecord);
         setIsEmployeeVerified(true);
-        setVerifiedEmployeeRecord(data);
+        setVerifiedEmployeeRecord(employeeRecord);
         toast({
           title: "Overenie úspešné",
           description: "Údaje zamestnávateľa boli overené",
@@ -101,7 +134,7 @@ export const useB2BEmployeeVerification = () => {
       setVerifiedEmployeeRecord(null);
       toast({
         title: t('auth.verificationFailed'),
-        description: t('auth.verificationFailedMessage'),
+        description: "Vyskytla sa neočakávaná chyba pri overovaní",
         variant: "destructive",
       });
     } finally {
@@ -121,7 +154,8 @@ export const useB2BEmployeeVerification = () => {
       const { error } = await supabase
         .from('b2b_employees')
         .update({ 
-          email: userEmail
+          email: userEmail,
+          state: 'active'
         })
         .eq('id', verifiedEmployeeRecord.id);
 
@@ -141,6 +175,7 @@ export const useB2BEmployeeVerification = () => {
   };
 
   const resetVerification = () => {
+    console.log('Resetting verification state');
     setIsEmployeeVerified(false);
     setVerifiedEmployeeRecord(null);
   };

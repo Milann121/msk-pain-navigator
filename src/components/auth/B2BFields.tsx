@@ -40,6 +40,11 @@ const B2BFields = ({
 }: B2BFieldsProps) => {
   const { t } = useTranslation();
 
+  const handleVerifyClick = () => {
+    console.log('B2BFields: Verify button clicked with:', { employerName, employeeId });
+    onVerifyEmployee();
+  };
+
   return (
     <>
       <div className="space-y-1 relative">
@@ -94,8 +99,8 @@ const B2BFields = ({
           <Button
             type="button"
             variant="outline"
-            onClick={onVerifyEmployee}
-            disabled={!employerName || !employeeId || isVerifyingEmployee}
+            onClick={handleVerifyClick}
+            disabled={!employerName.trim() || !employeeId.trim() || isVerifyingEmployee}
             className="whitespace-nowrap"
           >
             {isVerifyingEmployee ? t('auth.verifying') : t('auth.verify')}
