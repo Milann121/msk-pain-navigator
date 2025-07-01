@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Navigate, Link } from 'react-router-dom';
 import { useToast } from '@/components/ui/use-toast';
@@ -17,6 +17,15 @@ import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Home } from 'lucide-react';
 import LanguageDropdown from '@/components/LanguageDropdown';
+import { supabase } from '@/integrations/supabase/client';
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from '@/components/ui/command';
 
 const Auth = () => {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -25,13 +34,131 @@ const Auth = () => {
   const [firstName, setFirstName] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [privacyConsent, setPrivacyConsent] = useState(false);
+  
+  // B2B registration fields
+  const [employerName, setEmployerName] = useState('');
+  const [employeeId, setEmployeeId] = useState('');
+  const [employers, setEmployers] = useState<string[]>([]);
+  const [showEmployerDropdown, setShowEmployerDropdown] = useState(false);
+  const [isEmployeeVerified, setIsEmployeeVerified] = useState(false);
+  const [isVerifyingEmployee, setIsVerifyingEmployee] = useState(false);
+  
   const { signIn, signUp, signInWithGoogle, user } = useAuth();
   const { t } = useTranslation();
   const { toast } = useToast();
 
+  // Check for pre-filled B2B data from localStorage
+  useEffect(() => {
+    const b2bData = localStorage.getItem('b2b_employee_data');
+    if (b2bData) {
+      try {
+        const parsedData = JSON.parse(b2bData);
+        setEmployerName(parsedData.companyName || '');
+        setEmployeeId(parsedData.employeeId || '');
+        // Auto-verify if data is pre-filled
+        if (parsedData.companyName && parsedData.employeeId) {
+          setIsEmployeeVerified(true);
+        }
+      } catch (error) {
+        console.error('Error parsing B2B data:', error);
+      }
+    }
+  }, []);
+
   if (user) {
     return <Navigate to="/" replace />;
   }
+
+  // Search for employers when user types
+  const searchEmployers = async (query: string) => {
+    if (query.length < 3) {
+      setEmployers([]);
+      setShowEmployerDropdown(false);
+      return;
+    }
+
+    try {
+      // Search in B2B_partners table
+      const { data: partners, error: partnersError } = await supabase
+        .from('B2B_partners')
+        .select('name')
+        .ilike('name', `%${query}%`)
+        .limit(10);
+
+      // Search in b2b_employees table
+      const { data: employees, error: employeesError } = await supabase
+        .from('b2b_employees')
+        .select('b2b_partner_name')
+        .ilike('b2b_partner_name', `%${query}%`)
+        .limit(10);
+
+      if (partnersError && employeesError) {
+        console.error('Error searching employers:', partnersError, employeesError);
+        return;
+      }
+
+      // Combine and deduplicate results
+      const partnerNames = partners?.map(p => p.name) || [];
+      const employeePartnerNames = employees?.map(e => e.b2b_partner_name) || [];
+      const allNames = [...new Set([...partnerNames, ...employeePartnerNames])];
+      
+      setEmployers(allNames);
+      setShowEmployerDropdown(allNames.length > 0);
+    } catch (error) {
+      console.error('Error searching employers:', error);
+    }
+  };
+
+  // Verify employee credentials
+  const verifyEmployee = async () => {
+    if (!employerName || !employeeId) {
+      setIsEmployeeVerified(false);
+      return;
+    }
+
+    setIsVerifyingEmployee(true);
+    try {
+      const { data, error } = await supabase
+        .from('b2b_employees')
+        .select('id')
+        .eq('b2b_partner_name', employerName)
+        .eq('employee_id', employeeId)
+        .single();
+
+      if (error || !data) {
+        setIsEmployeeVerified(false);
+        toast({
+          title: "Chyba overenia",
+          description: "Neplatné údaje zamestnávateľa alebo ID zamestnanca",
+          variant: "destructive",
+        });
+      } else {
+        setIsEmployeeVerified(true);
+        toast({
+          title: "Overenie úspešné",
+          description: "Údaje zamestnávateľa boli overené",
+        });
+      }
+    } catch (error) {
+      console.error('Error verifying employee:', error);
+      setIsEmployeeVerified(false);
+    } finally {
+      setIsVerifyingEmployee(false);
+    }
+  };
+
+  // Handle employer name change
+  const handleEmployerNameChange = (value: string) => {
+    setEmployerName(value);
+    setIsEmployeeVerified(false);
+    searchEmployers(value);
+  };
+
+  // Handle employee ID change
+  const handleEmployeeIdChange = (value: string) => {
+    setEmployeeId(value);
+    setIsEmployeeVerified(false);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -40,6 +167,15 @@ const Auth = () => {
       toast({
         title: "Chyba",
         description: "Pre registráciu je potrebné súhlasiť so spracovaním osobných údajov",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (isSignUp && !isEmployeeVerified) {
+      toast({
+        title: "Chyba",
+        description: "Najprv overte svoje údaje zamestnávateľa",
         variant: "destructive",
       });
       return;
@@ -69,6 +205,15 @@ const Auth = () => {
   };
 
   const handleGoogleSignIn = async () => {
+    if (isSignUp && !isEmployeeVerified) {
+      toast({
+        title: "Chyba",
+        description: "Najprv overte svoje údaje zamestnávateľa",
+        variant: "destructive",
+      });
+      return;
+    }
+
     try {
       await signInWithGoogle();
     } catch (error) {
@@ -78,6 +223,13 @@ const Auth = () => {
         variant: "destructive",
       });
     }
+  };
+
+  const clearB2BData = () => {
+    localStorage.removeItem('b2b_employee_data');
+    setEmployerName('');
+    setEmployeeId('');
+    setIsEmployeeVerified(false);
   };
 
   return (
@@ -101,12 +253,34 @@ const Auth = () => {
             </CardDescription>
           </CardHeader>
           <CardContent>
+            {/* B2B Data Display (if pre-filled) */}
+            {(employerName || employeeId) && (
+              <div className="mb-4 p-3 bg-blue-50 rounded-lg">
+                <div className="flex justify-between items-start">
+                  <div className="text-sm">
+                    <p><strong>Zamestnávateľ:</strong> {employerName}</p>
+                    <p><strong>ID zamestnanca:</strong> {employeeId}</p>
+                  </div>
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="sm"
+                    onClick={clearB2BData}
+                    className="text-blue-600 hover:text-blue-800"
+                  >
+                    Vymazať
+                  </Button>
+                </div>
+              </div>
+            )}
+
             <div className="mb-4">
               <Button 
                 type="button" 
                 variant="outline" 
                 className="w-full flex items-center justify-center gap-2"
                 onClick={handleGoogleSignIn}
+                disabled={isSignUp && !isEmployeeVerified}
               >
                 <svg width="20" height="20" viewBox="0 0 24 24">
                   <path
@@ -140,6 +314,77 @@ const Auth = () => {
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
+              {isSignUp && (
+                <>
+                  {/* Employer Name Field */}
+                  <div className="space-y-1 relative">
+                    <Label htmlFor="employerName">Názov zamestnávateľa *</Label>
+                    <div className="relative">
+                      <Input
+                        id="employerName"
+                        type="text"
+                        value={employerName}
+                        onChange={(e) => handleEmployerNameChange(e.target.value)}
+                        placeholder="Začnite písať názov zamestnávateľa..."
+                        required
+                        className={isEmployeeVerified ? "border-green-500" : ""}
+                      />
+                      {showEmployerDropdown && employers.length > 0 && (
+                        <div className="absolute top-full left-0 right-0 z-50 mt-1">
+                          <Command className="border rounded-md shadow-lg bg-white">
+                            <CommandList className="max-h-40">
+                              <CommandGroup>
+                                {employers.map((employer, index) => (
+                                  <CommandItem
+                                    key={index}
+                                    onSelect={() => {
+                                      setEmployerName(employer);
+                                      setShowEmployerDropdown(false);
+                                      setIsEmployeeVerified(false);
+                                    }}
+                                    className="cursor-pointer"
+                                  >
+                                    {employer}
+                                  </CommandItem>
+                                ))}
+                              </CommandGroup>
+                            </CommandList>
+                          </Command>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Employee ID Field */}
+                  <div className="space-y-1">
+                    <Label htmlFor="employeeId">ID zamestnanca *</Label>
+                    <div className="flex gap-2">
+                      <Input
+                        id="employeeId"
+                        type="text"
+                        value={employeeId}
+                        onChange={(e) => handleEmployeeIdChange(e.target.value)}
+                        placeholder="Zadajte vaše ID zamestnanca"
+                        required
+                        className={isEmployeeVerified ? "border-green-500" : ""}
+                      />
+                      <Button
+                        type="button"
+                        variant="outline"
+                        onClick={verifyEmployee}
+                        disabled={!employerName || !employeeId || isVerifyingEmployee}
+                        className="whitespace-nowrap"
+                      >
+                        {isVerifyingEmployee ? "Overujem..." : "Overiť"}
+                      </Button>
+                    </div>
+                    {isEmployeeVerified && (
+                      <p className="text-sm text-green-600">✓ Údaje overené</p>
+                    )}
+                  </div>
+                </>
+              )}
+
               {isSignUp && (
                 <div className="space-y-1">
                   <Label htmlFor="firstName">{t('auth.firstName')}</Label>
@@ -196,7 +441,7 @@ const Auth = () => {
               <Button 
                 type="submit" 
                 className="w-full" 
-                disabled={isLoading || (isSignUp && !privacyConsent)}
+                disabled={isLoading || (isSignUp && (!privacyConsent || !isEmployeeVerified))}
               >
                 {isLoading
                   ? t('loading')
