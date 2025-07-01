@@ -9,53 +9,6 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      b2b_employees: {
-        Row: {
-          b2b_partner_name: string
-          created_at: string
-          differentials: string | null
-          employee_id: string
-          first_name: string
-          id: string
-          job_post: string | null
-          last_name: string
-          pain_area: string | null
-          updated_at: string
-        }
-        Insert: {
-          b2b_partner_name: string
-          created_at?: string
-          differentials?: string | null
-          employee_id: string
-          first_name: string
-          id?: string
-          job_post?: string | null
-          last_name: string
-          pain_area?: string | null
-          updated_at?: string
-        }
-        Update: {
-          b2b_partner_name?: string
-          created_at?: string
-          differentials?: string | null
-          employee_id?: string
-          first_name?: string
-          id?: string
-          job_post?: string | null
-          last_name?: string
-          pain_area?: string | null
-          updated_at?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "fk_b2b_partner"
-            columns: ["b2b_partner_name"]
-            isOneToOne: false
-            referencedRelation: "B2B_partners"
-            referencedColumns: ["name"]
-          },
-        ]
-      }
       B2B_partners: {
         Row: {
           created_at: string

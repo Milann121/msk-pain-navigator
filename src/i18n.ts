@@ -16,7 +16,6 @@ import enMisc from './locales/en/misc.json';
 import enQuestionnaire from './locales/en/questionnaire.json';
 import enResults from './locales/en/results.json';
 import enBlog from './locales/en/blog.json';
-import enB2B from './locales/en/b2b.json';
 
 // Slovak translations
 import skWelcome from './locales/sk/welcome.json';
@@ -31,7 +30,6 @@ import skMisc from './locales/sk/misc.json';
 import skQuestionnaire from './locales/sk/questionnaire.json';
 import skResults from './locales/sk/results.json';
 import skBlog from './locales/sk/blog.json';
-import skB2B from './locales/sk/b2b.json';
 
 // Czech translations
 import csWelcome from './locales/cs/welcome.json';
@@ -46,7 +44,6 @@ import csMisc from './locales/cs/misc.json';
 import csQuestionnaire from './locales/cs/questionnaire.json';
 import csResults from './locales/cs/results.json';
 import csBlog from './locales/cs/blog.json';
-import csB2B from './locales/cs/b2b.json';
 
 // Combine all translations
 const enTranslations = {
@@ -67,8 +64,7 @@ const enTranslations = {
   misc: enMisc,
   questionnaire: enQuestionnaire,
   results: enResults,
-  blog: enBlog,
-  b2b: enB2B
+  blog: enBlog
 };
 
 const skTranslations = {
@@ -89,8 +85,7 @@ const skTranslations = {
   misc: skMisc,
   questionnaire: skQuestionnaire,
   results: skResults,
-  blog: skBlog,
-  b2b: skB2B
+  blog: skBlog
 };
 
 const csTranslations = {
@@ -111,8 +106,7 @@ const csTranslations = {
   misc: csMisc,
   questionnaire: csQuestionnaire,
   results: csResults,
-  blog: csBlog,
-  b2b: csB2B
+  blog: csBlog
 };
 
 void i18n
