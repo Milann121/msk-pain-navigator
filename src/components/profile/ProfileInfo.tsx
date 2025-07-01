@@ -4,11 +4,12 @@ import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useProfileData } from './hooks/useProfileData';
 import { useProfileEditing } from './hooks/useProfileEditing';
+import { B2BEmployeeSection } from './B2BEmployeeSection';
 import { PersonalInfoSection } from './PersonalInfoSection';
 
 export const ProfileInfo = () => {
   const { t } = useTranslation();
-  const { userData, isLoading, updateUserData, user } = useProfileData();
+  const { userData, b2bData, isLoading, updateUserData, user } = useProfileData();
   
   const {
     editingField,
@@ -49,6 +50,8 @@ export const ProfileInfo = () => {
       </CardHeader>
       <CardContent>
         <div className="space-y-6">
+          <B2BEmployeeSection b2bData={b2bData} />
+          
           <PersonalInfoSection
             userData={userData}
             editingField={editingField}
