@@ -58,7 +58,6 @@ const Auth = () => {
         const parsedData = JSON.parse(b2bData);
         setEmployerName(parsedData.companyName || '');
         setEmployeeId(parsedData.employeeId || '');
-        // Auto-verify if data is pre-filled
         if (parsedData.companyName && parsedData.employeeId) {
           verifyEmployeeCredentials(parsedData.companyName, parsedData.employeeId);
         }
@@ -222,10 +221,27 @@ const Auth = () => {
     }
   };
 
+  // Check if user exists but email is not confirmed
+  const checkUserEmailConfirmation = async (email: string) => {
+    try {
+      // Check if user exists in auth.users but is not confirmed
+      const { data: { users }, error } = await supabase.auth.admin.listUsers();
+      
+      if (!error && users) {
+        const user = users.find(u => u.email === email);
+        if (user && !user.email_confirmed_at) {
+          return true; // User exists but email not confirmed
+        }
+      }
+    } catch (error) {
+      console.log('Could not check user confirmation status:', error);
+    }
+    return false;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Reset email confirmation state
     setShowEmailNotConfirmed(false);
     
     console.log('Form submitted with data:', {
@@ -285,8 +301,27 @@ const Auth = () => {
     } catch (error: any) {
       console.error('Authentication error:', error);
       
-      // Handle specific email not confirmed error
-      if (error?.message === "Email not confirmed" || error?.code === "email_not_confirmed") {
+      // Handle invalid credentials - might be unconfirmed email
+      if (error?.message === "Invalid login credentials" || error?.code === "invalid_credentials") {
+        // Check if this might be an unconfirmed email case
+        const isUnconfirmed = await checkUserEmailConfirmation(email);
+        
+        if (isUnconfirmed) {
+          setShowEmailNotConfirmed(true);
+          setEmailNotConfirmedAddress(email);
+          toast({
+            title: "Email nie je overený",
+            description: "Váš účet existuje, ale email ešte nie je overený. Skontrolujte svoj email a kliknite na overovací odkaz.",
+            variant: "destructive",
+          });
+        } else {
+          toast({
+            title: "Chyba prihlásenia",
+            description: "Neplatné prihlasovacie údaje. Skontrolujte email a heslo.",
+            variant: "destructive",
+          });
+        }
+      } else if (error?.message === "Email not confirmed" || error?.code === "email_not_confirmed") {
         setShowEmailNotConfirmed(true);
         setEmailNotConfirmedAddress(email);
         toast({
@@ -414,7 +449,7 @@ const Auth = () => {
               </Alert>
             )}
 
-            {/* B2B Data Display (if pre-filled) */}
+            {/* B2B Data Display */}
             {(employerName || employeeId) && (
               <div className="mb-4 p-3 bg-blue-50 rounded-lg">
                 <div className="flex justify-between items-start">
