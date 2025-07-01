@@ -5,7 +5,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { UserProfileData, B2BEmployeeData } from '../UserProfileData';
 
 export const useProfileData = () => {
-  const { user, userRole } = useAuth();
+  const { user } = useAuth();
   
   const [userData, setUserData] = useState<UserProfileData>({
     firstName: '',
@@ -33,7 +33,7 @@ export const useProfileData = () => {
       loadUserProfile();
       loadB2BEmployeeData();
     }
-  }, [user, userRole]);
+  }, [user]);
 
   const loadUserProfile = async () => {
     if (!user) return;
@@ -84,29 +84,21 @@ export const useProfileData = () => {
   };
 
   const loadB2BEmployeeData = async () => {
-    if (!user || !userRole?.b2b_employee_id) {
-      console.log('No user or B2B employee ID found');
-      setIsLoading(false);
-      return;
-    }
+    if (!user?.email) return;
 
     try {
-      console.log('Loading B2B employee data for ID:', userRole.b2b_employee_id);
-      
       const { data, error } = await supabase
         .from('b2b_employees')
         .select('b2b_partner_name, employee_id, state')
-        .eq('id', userRole.b2b_employee_id)
+        .eq('email', user.email)
         .single();
 
       if (error && error.code !== 'PGRST116') {
         console.error('Error loading B2B employee data:', error);
-        setIsLoading(false);
         return;
       }
 
       if (data) {
-        console.log('B2B employee data loaded:', data);
         setB2bData({
           employerName: data.b2b_partner_name || '',
           employeeId: data.employee_id || '',
@@ -118,8 +110,6 @@ export const useProfileData = () => {
         if (data.state === 'inactive') {
           await checkAndUpdateB2BEmployeeState();
         }
-      } else {
-        console.log('No B2B employee data found');
       }
     } catch (error) {
       console.error('Error loading B2B employee data:', error);
@@ -129,7 +119,7 @@ export const useProfileData = () => {
   };
 
   const checkAndUpdateB2BEmployeeState = async () => {
-    if (!user?.email || !userRole?.b2b_employee_id) return;
+    if (!user?.email) return;
 
     try {
       // Check if user has a profile (meaning they've completed registration)
@@ -144,7 +134,7 @@ export const useProfileData = () => {
         const { error: updateError } = await supabase
           .from('b2b_employees')
           .update({ state: 'active' })
-          .eq('id', userRole.b2b_employee_id);
+          .eq('email', user.email);
 
         if (updateError) {
           console.error('Error updating B2B employee state:', updateError);
