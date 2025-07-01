@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
@@ -42,7 +41,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
   initialGoals,
   onGoalsChange
 }) => {
-  const { user } = useAuth();
+  const { user, userRole } = useAuth();
   const { toast } = useToast();
   const { t } = useTranslation();
   
@@ -67,16 +66,16 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     b2bPartnerId: number | null;
   } | null>(null);
 
-  // Load B2B employee data if user email matches
+  // Load B2B employee data if user is an employee
   useEffect(() => {
     const loadB2BEmployeeData = async () => {
-      if (!user?.email) return;
+      if (!user?.email || !userRole?.b2b_employee_id) return;
 
       try {
         const { data, error } = await supabase
           .from('b2b_employees')
           .select('b2b_partner_name, employee_id, b2b_partner_id')
-          .eq('email', user.email)
+          .eq('id', userRole.b2b_employee_id)
           .single();
 
         if (error && error.code !== 'PGRST116') {
@@ -96,10 +95,10 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
       }
     };
 
-    if (isOpen && user) {
+    if (isOpen && user && userRole) {
       loadB2BEmployeeData();
     }
-  }, [isOpen, user]);
+  }, [isOpen, user, userRole]);
 
   // Reset form when dialog opens
   useEffect(() => {

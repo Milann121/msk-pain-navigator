@@ -140,6 +140,31 @@ export const useB2BEmployeeVerification = () => {
     }
   };
 
+  const createUserRecord = async (userId: string, employeeRecord: any) => {
+    try {
+      const { error } = await supabase
+        .from('users')
+        .insert({
+          id: userId,
+          user_type: 'employee',
+          b2b_employee_id: employeeRecord.id
+        });
+
+      if (error) {
+        console.error('Error creating user record:', error);
+        toast({
+          title: "Upozornenie",
+          description: "Registrácia bola úspešná, ale nepodarilo sa vytvoriť používateľský záznam",
+          variant: "destructive",
+        });
+      } else {
+        console.log('User record created successfully');
+      }
+    } catch (error) {
+      console.error('Error creating user record:', error);
+    }
+  };
+
   const resetVerification = () => {
     setIsEmployeeVerified(false);
     setVerifiedEmployeeRecord(null);
@@ -154,6 +179,7 @@ export const useB2BEmployeeVerification = () => {
     searchEmployers,
     verifyEmployeeCredentials,
     updateEmployeeEmail,
+    createUserRecord,
     resetVerification,
     setShowEmployerDropdown
   };
