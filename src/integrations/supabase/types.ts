@@ -14,6 +14,7 @@ export type Database = {
           b2b_partner_name: string
           created_at: string
           differentials: string | null
+          email: string | null
           employee_id: string
           first_name: string
           id: string
@@ -26,6 +27,7 @@ export type Database = {
           b2b_partner_name: string
           created_at?: string
           differentials?: string | null
+          email?: string | null
           employee_id: string
           first_name: string
           id?: string
@@ -38,6 +40,7 @@ export type Database = {
           b2b_partner_name?: string
           created_at?: string
           differentials?: string | null
+          email?: string | null
           employee_id?: string
           first_name?: string
           id?: string

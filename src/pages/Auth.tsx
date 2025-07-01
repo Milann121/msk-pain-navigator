@@ -174,13 +174,17 @@ const Auth = () => {
       const { error } = await supabase
         .from('b2b_employees')
         .update({ 
-          // Assuming we need to add an email column to b2b_employees table
-          // For now, we can store it in a JSON field or add proper column
+          email: userEmail
         })
         .eq('id', verifiedEmployeeRecord.id);
 
       if (error) {
         console.error('Error updating employee email:', error);
+        toast({
+          title: "Upozornenie",
+          description: "Registrácia bola úspešná, ale nepodarilo sa aktualizovať záznam zamestnanca",
+          variant: "destructive",
+        });
       }
     } catch (error) {
       console.error('Error updating employee record:', error);
