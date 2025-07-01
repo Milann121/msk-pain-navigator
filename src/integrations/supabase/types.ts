@@ -391,36 +391,42 @@ export type Database = {
         Row: {
           age: number | null
           created_at: string | null
+          email: string | null
           first_name: string | null
           gender: string | null
           id: string
           job: string | null
           job_subtype: string | null
           last_name: string | null
+          pain_area: string | null
           updated_at: string | null
           user_id: string
         }
         Insert: {
           age?: number | null
           created_at?: string | null
+          email?: string | null
           first_name?: string | null
           gender?: string | null
           id?: string
           job?: string | null
           job_subtype?: string | null
           last_name?: string | null
+          pain_area?: string | null
           updated_at?: string | null
           user_id: string
         }
         Update: {
           age?: number | null
           created_at?: string | null
+          email?: string | null
           first_name?: string | null
           gender?: string | null
           id?: string
           job?: string | null
           job_subtype?: string | null
           last_name?: string | null
+          pain_area?: string | null
           updated_at?: string | null
           user_id?: string
         }

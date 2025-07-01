@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/contexts/AuthContext';
@@ -11,10 +12,12 @@ import { supabase } from '@/integrations/supabase/client';
 interface UserProfileData {
   firstName: string;
   lastName: string;
+  email: string;
   gender: string;
   age: number;
   job: string;
   jobSubtype: string;
+  painArea: string;
 }
 
 interface B2BEmployeeData {
@@ -29,10 +32,12 @@ export const ProfileInfo = () => {
   const [userData, setUserData] = useState<UserProfileData>({
     firstName: '',
     lastName: '',
+    email: '',
     gender: 'Muž',
     age: 30,
     job: '',
-    jobSubtype: ''
+    jobSubtype: '',
+    painArea: ''
   });
 
   const [b2bData, setB2bData] = useState<B2BEmployeeData>({
@@ -72,16 +77,19 @@ export const ProfileInfo = () => {
         setUserData({
           firstName: data.first_name || '',
           lastName: data.last_name || '',
+          email: data.email || user.email || '',
           gender: data.gender || 'Muž',
           age: data.age || 30,
           job: data.job || '',
-          jobSubtype: data.job_subtype || ''
+          jobSubtype: data.job_subtype || '',
+          painArea: data.pain_area || ''
         });
       } else {
         // No profile found, use defaults with user metadata
         setUserData(prev => ({
           ...prev,
-          firstName: user.user_metadata?.first_name || 'Používateľ'
+          firstName: user.user_metadata?.first_name || 'Používateľ',
+          email: user.email || ''
         }));
       }
     } catch (error) {
@@ -138,7 +146,8 @@ export const ProfileInfo = () => {
         };
       } else {
         const dbField = field === 'firstName' ? 'first_name' : 
-                       field === 'lastName' ? 'last_name' : field;
+                       field === 'lastName' ? 'last_name' : 
+                       field === 'painArea' ? 'pain_area' : field;
         updateData[dbField] = field === 'age' ? Number(tempValue) : String(tempValue);
       }
 
@@ -214,7 +223,7 @@ export const ProfileInfo = () => {
             />
           </div>
 
-          {/* Existing editable fields */}
+          {/* Personal information fields */}
           <div className="grid grid-cols-2 gap-4">
             <EditableField
               label={t('profile.firstName')}
@@ -240,6 +249,13 @@ export const ProfileInfo = () => {
               onSave={handleSave}
               onCancel={handleCancel}
               onTempValueChange={setTempValue}
+            />
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <ReadOnlyField
+              label={t('profile.email')}
+              value={userData.email}
             />
           </div>
           
@@ -282,6 +298,20 @@ export const ProfileInfo = () => {
               onCancel={handleCancel}
               onTempValueChange={setTempValue}
               onTempJobSubtypeChange={setTempJobSubtype}
+            />
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <EditableField
+              label={t('profile.painArea')}
+              field="painArea"
+              value={userData.painArea}
+              editingField={editingField}
+              tempValue={tempValue}
+              onEdit={handleEdit}
+              onSave={handleSave}
+              onCancel={handleCancel}
+              onTempValueChange={setTempValue}
             />
           </div>
         </div>
