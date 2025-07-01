@@ -58,7 +58,7 @@ const Auth = () => {
         setEmployeeId(parsedData.employeeId || '');
         // Auto-verify if data is pre-filled
         if (parsedData.companyName && parsedData.employeeId) {
-          setIsEmployeeVerified(true);
+          verifyEmployeeCredentials(parsedData.companyName, parsedData.employeeId);
         }
       } catch (error) {
         console.error('Error parsing B2B data:', error);
@@ -79,6 +79,8 @@ const Auth = () => {
     }
 
     try {
+      console.log('Searching for employers with query:', query);
+      
       // Search in B2B_partners table
       const { data: partners, error: partnersError } = await supabase
         .from('B2B_partners')
@@ -93,9 +95,11 @@ const Auth = () => {
         .ilike('b2b_partner_name', `%${query}%`)
         .limit(10);
 
-      if (partnersError && employeesError) {
-        console.error('Error searching employers:', partnersError, employeesError);
-        return;
+      if (partnersError) {
+        console.error('Error searching partners:', partnersError);
+      }
+      if (employeesError) {
+        console.error('Error searching employees:', employeesError);
       }
 
       // Combine and deduplicate results
@@ -103,6 +107,7 @@ const Auth = () => {
       const employeePartnerNames = employees?.map(e => e.b2b_partner_name) || [];
       const allNames = [...new Set([...partnerNames, ...employeePartnerNames])];
       
+      console.log('Found employers:', allNames);
       setEmployers(allNames);
       setShowEmployerDropdown(allNames.length > 0);
     } catch (error) {
@@ -111,22 +116,31 @@ const Auth = () => {
   };
 
   // Verify employee credentials
-  const verifyEmployee = async () => {
-    if (!employerName || !employeeId) {
+  const verifyEmployeeCredentials = async (companyName?: string, empId?: string) => {
+    const nameToVerify = companyName || employerName;
+    const idToVerify = empId || employeeId;
+    
+    if (!nameToVerify || !idToVerify) {
+      console.log('Missing employer name or employee ID for verification');
       setIsEmployeeVerified(false);
       return;
     }
 
+    console.log('Verifying employee:', { nameToVerify, idToVerify });
     setIsVerifyingEmployee(true);
+    
     try {
       const { data, error } = await supabase
         .from('b2b_employees')
         .select('*')
-        .eq('b2b_partner_name', employerName)
-        .eq('employee_id', employeeId)
+        .eq('b2b_partner_name', nameToVerify)
+        .eq('employee_id', idToVerify)
         .single();
 
+      console.log('Verification result:', { data, error });
+
       if (error || !data) {
+        console.error('Employee verification failed:', error);
         setIsEmployeeVerified(false);
         setVerifiedEmployeeRecord(null);
         toast({
@@ -135,6 +149,7 @@ const Auth = () => {
           variant: "destructive",
         });
       } else {
+        console.log('Employee verified successfully:', data);
         setIsEmployeeVerified(true);
         setVerifiedEmployeeRecord(data);
         toast({
@@ -146,6 +161,11 @@ const Auth = () => {
       console.error('Error verifying employee:', error);
       setIsEmployeeVerified(false);
       setVerifiedEmployeeRecord(null);
+      toast({
+        title: "Chyba",
+        description: "Vyskytla sa chyba pri overovaní údajov",
+        variant: "destructive",
+      });
     } finally {
       setIsVerifyingEmployee(false);
     }
@@ -153,6 +173,7 @@ const Auth = () => {
 
   // Handle employer name change
   const handleEmployerNameChange = (value: string) => {
+    console.log('Employer name changed:', value);
     setEmployerName(value);
     setIsEmployeeVerified(false);
     setVerifiedEmployeeRecord(null);
@@ -161,6 +182,7 @@ const Auth = () => {
 
   // Handle employee ID change
   const handleEmployeeIdChange = (value: string) => {
+    console.log('Employee ID changed:', value);
     setEmployeeId(value);
     setIsEmployeeVerified(false);
     setVerifiedEmployeeRecord(null);
@@ -168,8 +190,13 @@ const Auth = () => {
 
   // Update employee record with email after successful registration
   const updateEmployeeEmail = async (userEmail: string) => {
-    if (!verifiedEmployeeRecord) return;
+    if (!verifiedEmployeeRecord) {
+      console.log('No verified employee record found for email update');
+      return;
+    }
 
+    console.log('Updating employee email:', { userEmail, recordId: verifiedEmployeeRecord.id });
+    
     try {
       const { error } = await supabase
         .from('b2b_employees')
@@ -185,6 +212,8 @@ const Auth = () => {
           description: "Registrácia bola úspešná, ale nepodarilo sa aktualizovať záznam zamestnanca",
           variant: "destructive",
         });
+      } else {
+        console.log('Employee email updated successfully');
       }
     } catch (error) {
       console.error('Error updating employee record:', error);
@@ -194,6 +223,16 @@ const Auth = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    console.log('Form submitted with data:', {
+      isSignUp,
+      email,
+      firstName,
+      employerName,
+      employeeId,
+      isEmployeeVerified,
+      privacyConsent
+    });
+
     if (isSignUp && !privacyConsent) {
       toast({
         title: "Chyba",
@@ -216,6 +255,7 @@ const Auth = () => {
 
     try {
       if (isSignUp) {
+        console.log('Starting user registration...');
         // First sign up the user
         await signUp(email, password, firstName);
         
@@ -224,12 +264,21 @@ const Auth = () => {
         
         toast({
           title: "Registrácia úspešná",
-          description: "Prosím skontrolujte svoj email pre overenie účtu.",
+          description: "Prosím skontrolujte svoj email pre overenie účtu a potom sa prihláste.",
         });
+        
+        // Switch to sign-in mode after successful registration
+        setIsSignUp(false);
+        setEmail('');
+        setPassword('');
+        setFirstName('');
+        
       } else {
+        console.log('Starting user sign-in...');
         await signIn(email, password);
       }
     } catch (error) {
+      console.error('Authentication error:', error);
       toast({
         title: "Chyba",
         description: error instanceof Error ? error.message : "Vyskytla sa chyba",
@@ -251,14 +300,10 @@ const Auth = () => {
     }
 
     try {
+      console.log('Starting Google sign-in...');
       await signInWithGoogle();
-      
-      // If this is a sign-up flow, also update the employee record
-      if (isSignUp && verifiedEmployeeRecord) {
-        // Note: For Google sign-in, we might need to handle the email update differently
-        // since we don't have the email immediately available here
-      }
     } catch (error) {
+      console.error('Google sign-in error:', error);
       toast({
         title: "Chyba",
         description: error instanceof Error ? error.message : "Vyskytla sa chyba pri prihlásení cez Google",
@@ -415,7 +460,7 @@ const Auth = () => {
                       <Button
                         type="button"
                         variant="outline"
-                        onClick={verifyEmployee}
+                        onClick={() => verifyEmployeeCredentials()}
                         disabled={!employerName || !employeeId || isVerifyingEmployee}
                         className="whitespace-nowrap"
                       >
