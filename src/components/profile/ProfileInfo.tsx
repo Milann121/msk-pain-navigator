@@ -1,9 +1,9 @@
-
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/contexts/AuthContext';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { EditableField } from './EditableField';
+import { ReadOnlyField } from './ReadOnlyField';
 import { GenderField } from './GenderField';
 import { JobField } from './JobField';
 import { supabase } from '@/integrations/supabase/client';
@@ -15,6 +15,11 @@ interface UserProfileData {
   age: number;
   job: string;
   jobSubtype: string;
+}
+
+interface B2BEmployeeData {
+  employerName: string;
+  employeeId: string;
 }
 
 export const ProfileInfo = () => {
@@ -30,6 +35,11 @@ export const ProfileInfo = () => {
     jobSubtype: ''
   });
 
+  const [b2bData, setB2bData] = useState<B2BEmployeeData>({
+    employerName: '',
+    employeeId: ''
+  });
+
   const [editingField, setEditingField] = useState<string | null>(null);
   const [tempValue, setTempValue] = useState<string | number>('');
   const [tempJobSubtype, setTempJobSubtype] = useState<string>('');
@@ -39,6 +49,7 @@ export const ProfileInfo = () => {
   useEffect(() => {
     if (user) {
       loadUserProfile();
+      loadB2BEmployeeData();
     }
   }, [user]);
 
@@ -75,6 +86,32 @@ export const ProfileInfo = () => {
       }
     } catch (error) {
       console.error('Error loading profile:', error);
+    }
+  };
+
+  const loadB2BEmployeeData = async () => {
+    if (!user?.email) return;
+
+    try {
+      const { data, error } = await supabase
+        .from('b2b_employees')
+        .select('b2b_partner_name, employee_id')
+        .eq('email', user.email)
+        .single();
+
+      if (error && error.code !== 'PGRST116') {
+        console.error('Error loading B2B employee data:', error);
+        return;
+      }
+
+      if (data) {
+        setB2bData({
+          employerName: data.b2b_partner_name || '',
+          employeeId: data.employee_id || ''
+        });
+      }
+    } catch (error) {
+      console.error('Error loading B2B employee data:', error);
     } finally {
       setIsLoading(false);
     }
@@ -162,6 +199,22 @@ export const ProfileInfo = () => {
       </CardHeader>
       <CardContent>
         <div className="space-y-6">
+          {/* B2B Employee fields - Read only */}
+          <div className="grid grid-cols-2 gap-4">
+            <ReadOnlyField
+              label={t('profile.employerName')}
+              value={b2bData.employerName}
+            />
+          </div>
+          
+          <div className="grid grid-cols-2 gap-4">
+            <ReadOnlyField
+              label={t('profile.employeeId')}
+              value={b2bData.employeeId}
+            />
+          </div>
+
+          {/* Existing editable fields */}
           <div className="grid grid-cols-2 gap-4">
             <EditableField
               label={t('profile.firstName')}

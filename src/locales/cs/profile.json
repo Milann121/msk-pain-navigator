@@ -2,6 +2,8 @@
 {
   "title": "Můj profil",
   "personalData": "Osobní údaje",
+  "employerName": "Název zaměstnavatele",
+  "employeeId": "ID zaměstnance",
   "firstName": "Jméno",
   "lastName": "Příjmení",
   "age": "Věk",

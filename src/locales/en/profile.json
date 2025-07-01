@@ -2,6 +2,8 @@
 {
   "title": "My Profile",
   "personalData": "Personal Data",
+  "employerName": "Employer Name",
+  "employeeId": "Employee ID",
   "firstName": "First Name",
   "lastName": "Last Name",
   "age": "Age",
