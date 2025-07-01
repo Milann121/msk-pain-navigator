@@ -18,18 +18,28 @@ export const ProfileFormButtons: React.FC<ProfileFormButtonsProps> = ({
 }) => {
   const { t } = useTranslation();
 
+  console.log('ProfileFormButtons render state:', { isLoading, isProfileValid });
+
   return (
     <div className="flex justify-end space-x-3 pt-6">
       <Button 
         variant="outline" 
-        onClick={onSkip} 
+        onClick={() => {
+          console.log('Skip button clicked');
+          onSkip();
+        }}
         disabled={!isProfileValid || isLoading}
+        type="button"
       >
         {isLoading ? t('profile.profileForm.saving') : t('profile.profileForm.skip')}
       </Button>
       <Button 
-        onClick={onSave} 
+        onClick={() => {
+          console.log('Save button clicked, isProfileValid:', isProfileValid);
+          onSave();
+        }}
         disabled={!isProfileValid || isLoading}
+        type="button"
       >
         {isLoading ? t('profile.profileForm.saving') : t('profile.profileForm.saveAll')}
       </Button>
