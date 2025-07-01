@@ -31,20 +31,94 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
-  const loadUserRole = async (userId: string) => {
+  const linkUserToB2BEmployee = async (userEmail: string, userId: string) => {
     try {
+      console.log('Checking for B2B employee with email:', userEmail);
+      
+      // First, check if user already exists in users table
+      const { data: existingUser, error: userCheckError } = await supabase
+        .from('users')
+        .select('*')
+        .eq('id', userId)
+        .single();
+
+      if (userCheckError && userCheckError.code !== 'PGRST116') {
+        console.error('Error checking existing user:', userCheckError);
+        return;
+      }
+
+      // If user already exists and is linked, no need to proceed
+      if (existingUser && existingUser.b2b_employee_id) {
+        console.log('User already linked to B2B employee');
+        return;
+      }
+
+      // Look for B2B employee by email
+      const { data: b2bEmployee, error: b2bError } = await supabase
+        .from('b2b_employees')
+        .select('*')
+        .eq('email', userEmail)
+        .single();
+
+      if (b2bError && b2bError.code !== 'PGRST116') {
+        console.error('Error finding B2B employee:', b2bError);
+        return;
+      }
+
+      if (b2bEmployee) {
+        console.log('Found B2B employee, linking to user:', b2bEmployee);
+        
+        // Create or update user record with B2B employee link
+        const { error: upsertError } = await supabase
+          .from('users')
+          .upsert({
+            id: userId,
+            user_type: 'employee',
+            b2b_employee_id: b2bEmployee.id
+          });
+
+        if (upsertError) {
+          console.error('Error linking user to B2B employee:', upsertError);
+        } else {
+          console.log('Successfully linked user to B2B employee');
+          
+          // Update B2B employee state to active
+          await supabase
+            .from('b2b_employees')
+            .update({ state: 'active' })
+            .eq('id', b2bEmployee.id);
+        }
+      }
+    } catch (error) {
+      console.error('Error in linkUserToB2BEmployee:', error);
+    }
+  };
+
+  const loadUserRole = async (userId: string, userEmail?: string) => {
+    try {
+      // If we have an email, try to link to B2B employee first
+      if (userEmail) {
+        await linkUserToB2BEmployee(userEmail, userId);
+      }
+
       const { data, error } = await supabase
         .from('users')
         .select('user_type, b2b_employee_id, hr_manager_id')
         .eq('id', userId)
         .single();
 
-      if (error) {
+      if (error && error.code !== 'PGRST116') {
         console.error('Error loading user role:', error);
         return;
       }
 
-      setUserRole(data as UserRole);
+      if (data) {
+        setUserRole(data as UserRole);
+      } else {
+        // If no user record exists, this might be a regular user
+        console.log('No user role found, might be a regular user');
+        setUserRole(null);
+      }
     } catch (error) {
       console.error('Error loading user role:', error);
     }
@@ -57,9 +131,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         setUser(session?.user ?? null);
         
         if (session?.user) {
-          // Load user role after authentication
+          // Load user role after authentication with email for B2B linking
           setTimeout(() => {
-            loadUserRole(session.user.id);
+            loadUserRole(session.user.id, session.user.email);
           }, 0);
         } else {
           setUserRole(null);
@@ -81,7 +155,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       setUser(session?.user ?? null);
       
       if (session?.user) {
-        loadUserRole(session.user.id);
+        loadUserRole(session.user.id, session.user.email);
       }
       
       setIsLoading(false);
