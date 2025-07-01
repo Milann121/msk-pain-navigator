@@ -250,7 +250,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
 
       const { error: profileError } = await supabase
         .from('user_profiles')
-        .upsert(profileUpdateData);
+        .upsert(profileUpdateData, { onConflict: 'user_id' });
 
       if (profileError) {
         console.error('Profile save error:', profileError);
@@ -324,7 +324,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
 
       const { error: profileError } = await supabase
         .from('user_profiles')
-        .upsert(profileUpdateData);
+        .upsert(profileUpdateData, { onConflict: 'user_id' });
 
       if (profileError) {
         console.error('Profile save error (skip goals):', profileError);
