@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
@@ -41,7 +42,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
   initialGoals,
   onGoalsChange
 }) => {
-  const { user, userRole } = useAuth();
+  const { user } = useAuth();
   const { toast } = useToast();
   const { t } = useTranslation();
   
@@ -69,13 +70,15 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
   // Load B2B employee data if user is an employee
   useEffect(() => {
     const loadB2BEmployeeData = async () => {
-      if (!user?.email || !userRole?.b2b_employee_id) return;
+      if (!user?.email) return;
+      
+      console.log('Loading B2B employee data for:', user.email);
 
       try {
         const { data, error } = await supabase
           .from('b2b_employees')
           .select('b2b_partner_name, employee_id, b2b_partner_id')
-          .eq('id', userRole.b2b_employee_id)
+          .eq('email', user.email)
           .single();
 
         if (error && error.code !== 'PGRST116') {
@@ -84,21 +87,24 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         }
 
         if (data) {
+          console.log('B2B employee data found:', data);
           setB2bEmployeeData({
             employerName: data.b2b_partner_name || '',
             employeeId: data.employee_id || '',
             b2bPartnerId: data.b2b_partner_id || null
           });
+        } else {
+          console.log('No B2B employee data found for email:', user.email);
         }
       } catch (error) {
         console.error('Error loading B2B employee data:', error);
       }
     };
 
-    if (isOpen && user && userRole) {
+    if (isOpen && user) {
       loadB2BEmployeeData();
     }
-  }, [isOpen, user, userRole]);
+  }, [isOpen, user]);
 
   // Reset form when dialog opens
   useEffect(() => {
@@ -148,7 +154,12 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
   };
 
   const saveGoalToDatabase = async (goalType: 'weekly_exercise' | 'weekly_blog', value: number) => {
-    if (!user) return;
+    if (!user) {
+      console.error('No user found when saving goal');
+      return;
+    }
+
+    console.log(`Saving goal: ${goalType} = ${value} for user ${user.id}`);
 
     try {
       // First, check if a goal of this type already exists for the user
@@ -159,9 +170,13 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         .eq('goal_type', goalType)
         .maybeSingle();
 
-      if (selectError) throw selectError;
+      if (selectError) {
+        console.error('Error checking existing goal:', selectError);
+        throw selectError;
+      }
 
       if (existingGoal) {
+        console.log('Updating existing goal:', existingGoal.id);
         // Update existing goal
         const { error: updateError } = await supabase
           .from('user_goals')
@@ -171,8 +186,13 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
           })
           .eq('id', existingGoal.id);
 
-        if (updateError) throw updateError;
+        if (updateError) {
+          console.error('Error updating goal:', updateError);
+          throw updateError;
+        }
+        console.log('Goal updated successfully');
       } else {
+        console.log('Creating new goal');
         // Insert new goal
         const { error: insertError } = await supabase
           .from('user_goals')
@@ -182,7 +202,11 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
             goal_value: value
           });
 
-        if (insertError) throw insertError;
+        if (insertError) {
+          console.error('Error inserting goal:', insertError);
+          throw insertError;
+        }
+        console.log('Goal created successfully');
       }
     } catch (error) {
       console.error('Error saving goal:', error);
@@ -191,7 +215,19 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
   };
 
   const handleSave = async () => {
-    if (!user) return;
+    if (!user) {
+      console.error('No user found when saving profile');
+      toast({
+        title: t('profile.goals.errorTitle'),
+        description: 'User not authenticated',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    console.log('Starting profile save for user:', user.id);
+    console.log('Profile data:', profileData);
+    console.log('B2B data:', b2bEmployeeData);
 
     setIsLoading(true);
     try {
@@ -210,18 +246,27 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         employee_id: b2bEmployeeData?.employeeId || null
       };
 
+      console.log('Saving profile with data:', profileUpdateData);
+
       const { error: profileError } = await supabase
         .from('user_profiles')
         .upsert(profileUpdateData);
 
-      if (profileError) throw profileError;
+      if (profileError) {
+        console.error('Profile save error:', profileError);
+        throw profileError;
+      }
+
+      console.log('Profile saved successfully');
 
       // Save goals if they were set
       if (goalsData.weeklyExerciseGoal !== null) {
+        console.log('Saving exercise goal:', goalsData.weeklyExerciseGoal);
         await saveGoalToDatabase('weekly_exercise', goalsData.weeklyExerciseGoal);
       }
       
       if (goalsData.weeklyBlogGoal !== null) {
+        console.log('Saving blog goal:', goalsData.weeklyBlogGoal);
         await saveGoalToDatabase('weekly_blog', goalsData.weeklyBlogGoal);
       }
 
@@ -230,13 +275,14 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         description: t('profile.profileForm.success'),
       });
 
+      console.log('Profile save completed successfully');
       onProfileSaved?.();
       onClose();
     } catch (error) {
       console.error('Error saving profile:', error);
       toast({
         title: t('profile.goals.errorTitle'),
-        description: t('profile.profileForm.error'),
+        description: `${t('profile.profileForm.error')}: ${error.message || 'Unknown error'}`,
         variant: 'destructive',
       });
     } finally {
@@ -245,7 +291,17 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
   };
 
   const handleSkipGoals = async () => {
-    if (!user) return;
+    if (!user) {
+      console.error('No user found when skipping goals');
+      toast({
+        title: t('profile.goals.errorTitle'),
+        description: 'User not authenticated',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    console.log('Skipping goals and saving profile for user:', user.id);
 
     setIsLoading(true);
     try {
@@ -264,11 +320,18 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         employee_id: b2bEmployeeData?.employeeId || null
       };
 
+      console.log('Saving profile (skip goals) with data:', profileUpdateData);
+
       const { error: profileError } = await supabase
         .from('user_profiles')
         .upsert(profileUpdateData);
 
-      if (profileError) throw profileError;
+      if (profileError) {
+        console.error('Profile save error (skip goals):', profileError);
+        throw profileError;
+      }
+
+      console.log('Profile saved successfully (goals skipped)');
 
       toast({
         title: t('profile.goals.successTitle'),
@@ -278,10 +341,10 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
       onProfileSaved?.();
       onClose();
     } catch (error) {
-      console.error('Error saving profile:', error);
+      console.error('Error saving profile (skip goals):', error);
       toast({
         title: t('profile.goals.errorTitle'),
-        description: t('profile.profileForm.error'),
+        description: `${t('profile.profileForm.error')}: ${error.message || 'Unknown error'}`,
         variant: 'destructive',
       });
     } finally {
@@ -294,6 +357,14 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
                         profileData.lastName.trim() !== '' && 
                         profileData.age !== '' && 
                         profileData.job.trim() !== '';
+
+  console.log('Profile validation:', {
+    firstName: profileData.firstName.trim() !== '',
+    lastName: profileData.lastName.trim() !== '',
+    age: profileData.age !== '',
+    job: profileData.job.trim() !== '',
+    isValid: isProfileValid
+  });
 
   return (
     <Dialog open={isOpen} onOpenChange={() => {}}>
