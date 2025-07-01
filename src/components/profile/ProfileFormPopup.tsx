@@ -61,6 +61,43 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
   });
   
   const [isLoading, setIsLoading] = useState(false);
+  const [b2bEmployeeData, setB2bEmployeeData] = useState<{
+    employerName: string;
+    employeeId: string;
+  } | null>(null);
+
+  // Load B2B employee data if user email matches
+  useEffect(() => {
+    const loadB2BEmployeeData = async () => {
+      if (!user?.email) return;
+
+      try {
+        const { data, error } = await supabase
+          .from('b2b_employees')
+          .select('b2b_partner_name, employee_id')
+          .eq('email', user.email)
+          .single();
+
+        if (error && error.code !== 'PGRST116') {
+          console.error('Error loading B2B employee data:', error);
+          return;
+        }
+
+        if (data) {
+          setB2bEmployeeData({
+            employerName: data.b2b_partner_name || '',
+            employeeId: data.employee_id || ''
+          });
+        }
+      } catch (error) {
+        console.error('Error loading B2B employee data:', error);
+      }
+    };
+
+    if (isOpen && user) {
+      loadB2BEmployeeData();
+    }
+  }, [isOpen, user]);
 
   // Reset form when dialog opens
   useEffect(() => {
@@ -152,12 +189,31 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     }
   };
 
+  const updateB2BEmployeeState = async () => {
+    if (!user?.email || !b2bEmployeeData) return;
+
+    try {
+      const { error } = await supabase
+        .from('b2b_employees')
+        .update({ state: 'active' })
+        .eq('email', user.email);
+
+      if (error) {
+        console.error('Error updating B2B employee state:', error);
+      } else {
+        console.log('B2B employee state updated to active');
+      }
+    } catch (error) {
+      console.error('Error updating B2B employee state:', error);
+    }
+  };
+
   const handleSave = async () => {
     if (!user) return;
 
     setIsLoading(true);
     try {
-      // Save profile data
+      // Save profile data with employer name if B2B employee
       const { error: profileError } = await supabase
         .from('user_profiles')
         .upsert({
@@ -167,7 +223,8 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
           gender: profileData.gender,
           age: profileData.age === '' ? null : Number(profileData.age),
           job: profileData.job,
-          job_subtype: profileData.jobSubtype
+          job_subtype: profileData.jobSubtype,
+          employer_name: b2bEmployeeData?.employerName || null
         });
 
       if (profileError) throw profileError;
@@ -179,6 +236,11 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
       
       if (goalsData.weeklyBlogGoal !== null) {
         await saveGoalToDatabase('weekly_blog', goalsData.weeklyBlogGoal);
+      }
+
+      // Update B2B employee state to active if applicable
+      if (b2bEmployeeData) {
+        await updateB2BEmployeeState();
       }
 
       toast({
@@ -215,10 +277,16 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
           gender: profileData.gender,
           age: profileData.age === '' ? null : Number(profileData.age),
           job: profileData.job,
-          job_subtype: profileData.jobSubtype
+          job_subtype: profileData.jobSubtype,
+          employer_name: b2bEmployeeData?.employerName || null
         });
 
       if (profileError) throw profileError;
+
+      // Update B2B employee state to active if applicable
+      if (b2bEmployeeData) {
+        await updateB2BEmployeeState();
+      }
 
       toast({
         title: t('profile.goals.successTitle'),
@@ -253,6 +321,21 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         </DialogHeader>
         
         <div className="space-y-6 py-4">
+          {/* Show B2B Employee Info if applicable */}
+          {b2bEmployeeData && (
+            <div className="bg-blue-50 p-4 rounded-lg mb-4">
+              <h3 className="text-sm font-medium text-blue-800 mb-2">
+                {t('profile.employerInfo')}
+              </h3>
+              <p className="text-sm text-blue-700">
+                <strong>{t('profile.employerName')}:</strong> {b2bEmployeeData.employerName}
+              </p>
+              <p className="text-sm text-blue-700">
+                <strong>{t('profile.employeeId')}:</strong> {b2bEmployeeData.employeeId}
+              </p>
+            </div>
+          )}
+
           {/* Personal Information Section */}
           <ProfileFormPersonalInfo
             data={{

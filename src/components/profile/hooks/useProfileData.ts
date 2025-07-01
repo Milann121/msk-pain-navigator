@@ -15,12 +15,14 @@ export const useProfileData = () => {
     age: 30,
     job: '',
     jobSubtype: '',
-    painArea: ''
+    painArea: '',
+    employerName: ''
   });
 
   const [b2bData, setB2bData] = useState<B2BEmployeeData>({
     employerName: '',
-    employeeId: ''
+    employeeId: '',
+    state: 'inactive'
   });
 
   const [isLoading, setIsLoading] = useState(true);
@@ -57,7 +59,8 @@ export const useProfileData = () => {
           age: data.age || 30,
           job: data.job || '',
           jobSubtype: data.job_subtype || '',
-          painArea: data.pain_area || ''
+          painArea: data.pain_area || '',
+          employerName: data.employer_name || ''
         });
       } else {
         // No profile found, use defaults with user metadata
@@ -78,7 +81,7 @@ export const useProfileData = () => {
     try {
       const { data, error } = await supabase
         .from('b2b_employees')
-        .select('b2b_partner_name, employee_id')
+        .select('b2b_partner_name, employee_id, state')
         .eq('email', user.email)
         .single();
 
@@ -90,7 +93,8 @@ export const useProfileData = () => {
       if (data) {
         setB2bData({
           employerName: data.b2b_partner_name || '',
-          employeeId: data.employee_id || ''
+          employeeId: data.employee_id || '',
+          state: data.state || 'inactive'
         });
       }
     } catch (error) {

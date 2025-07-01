@@ -8,9 +8,11 @@ export interface UserProfileData {
   job: string;
   jobSubtype: string;
   painArea: string;
+  employerName?: string;
 }
 
 export interface B2BEmployeeData {
   employerName: string;
   employeeId: string;
+  state?: string;
 }

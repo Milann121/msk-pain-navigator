@@ -21,6 +21,7 @@ export type Database = {
           job_post: string | null
           last_name: string
           pain_area: string | null
+          state: string
           updated_at: string
         }
         Insert: {
@@ -34,6 +35,7 @@ export type Database = {
           job_post?: string | null
           last_name: string
           pain_area?: string | null
+          state?: string
           updated_at?: string
         }
         Update: {
@@ -47,6 +49,7 @@ export type Database = {
           job_post?: string | null
           last_name?: string
           pain_area?: string | null
+          state?: string
           updated_at?: string
         }
         Relationships: [
@@ -416,6 +419,7 @@ export type Database = {
           age: number | null
           created_at: string | null
           email: string | null
+          employer_name: string | null
           first_name: string | null
           gender: string | null
           id: string
@@ -430,6 +434,7 @@ export type Database = {
           age?: number | null
           created_at?: string | null
           email?: string | null
+          employer_name?: string | null
           first_name?: string | null
           gender?: string | null
           id?: string
@@ -444,6 +449,7 @@ export type Database = {
           age?: number | null
           created_at?: string | null
           email?: string | null
+          employer_name?: string | null
           first_name?: string | null
           gender?: string | null
           id?: string
