@@ -14,11 +14,16 @@ export type Database = {
           b2b_partner_id: number | null
           b2b_partner_name: string
           created_at: string
+          differentials: string | null
           email: string | null
           employee_id: string
           first_name: string
           id: string
+          job_post: string | null
           last_name: string
+          pain_area: string | null
+          pain_leve_initial: number | null
+          pain_level_followup: number | null
           state: string
           updated_at: string
         }
@@ -26,11 +31,16 @@ export type Database = {
           b2b_partner_id?: number | null
           b2b_partner_name: string
           created_at?: string
+          differentials?: string | null
           email?: string | null
           employee_id: string
           first_name: string
           id?: string
+          job_post?: string | null
           last_name: string
+          pain_area?: string | null
+          pain_leve_initial?: number | null
+          pain_level_followup?: number | null
           state?: string
           updated_at?: string
         }
@@ -38,11 +48,16 @@ export type Database = {
           b2b_partner_id?: number | null
           b2b_partner_name?: string
           created_at?: string
+          differentials?: string | null
           email?: string | null
           employee_id?: string
           first_name?: string
           id?: string
+          job_post?: string | null
           last_name?: string
+          pain_area?: string | null
+          pain_leve_initial?: number | null
+          pain_level_followup?: number | null
           state?: string
           updated_at?: string
         }
@@ -298,35 +313,6 @@ export type Database = {
           },
         ]
       }
-      hr_managers: {
-        Row: {
-          b2b_partner: number | null
-          email: string
-          id: string
-          password_hash: string | null
-        }
-        Insert: {
-          b2b_partner?: number | null
-          email: string
-          id?: string
-          password_hash?: string | null
-        }
-        Update: {
-          b2b_partner?: number | null
-          email?: string
-          id?: string
-          password_hash?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "hr_managers_b2b_partner_fkey"
-            columns: ["b2b_partner"]
-            isOneToOne: false
-            referencedRelation: "B2B_partners"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
       mood_entries: {
         Row: {
           created_at: string
@@ -353,41 +339,6 @@ export type Database = {
           user_id?: string
         }
         Relationships: []
-      }
-      msk_profiles: {
-        Row: {
-          b2b_eployee_id: string | null
-          created_at: string
-          id: string
-          pain_areas: Json | null
-          pain_level_followup: number | null
-          pain_level_initial: number | null
-        }
-        Insert: {
-          b2b_eployee_id?: string | null
-          created_at?: string
-          id?: string
-          pain_areas?: Json | null
-          pain_level_followup?: number | null
-          pain_level_initial?: number | null
-        }
-        Update: {
-          b2b_eployee_id?: string | null
-          created_at?: string
-          id?: string
-          pain_areas?: Json | null
-          pain_level_followup?: number | null
-          pain_level_initial?: number | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "msk_profiles_b2b_eployee_id_fkey"
-            columns: ["b2b_eployee_id"]
-            isOneToOne: false
-            referencedRelation: "b2b_employees"
-            referencedColumns: ["id"]
-          },
-        ]
       }
       profiles: {
         Row: {
@@ -547,48 +498,6 @@ export type Database = {
           },
         ]
       }
-      users: {
-        Row: {
-          b2b_employee_id: string | null
-          created_at: string
-          hr_manager_id: string | null
-          id: string
-          updated_at: string
-          user_type: string
-        }
-        Insert: {
-          b2b_employee_id?: string | null
-          created_at?: string
-          hr_manager_id?: string | null
-          id: string
-          updated_at?: string
-          user_type: string
-        }
-        Update: {
-          b2b_employee_id?: string | null
-          created_at?: string
-          hr_manager_id?: string | null
-          id?: string
-          updated_at?: string
-          user_type?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "users_b2b_employee_id_fkey"
-            columns: ["b2b_employee_id"]
-            isOneToOne: false
-            referencedRelation: "b2b_employees"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "users_hr_manager_id_fkey"
-            columns: ["hr_manager_id"]
-            isOneToOne: false
-            referencedRelation: "hr_managers"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
     }
     Views: {
       [_ in never]: never
@@ -600,14 +509,6 @@ export type Database = {
           pain_level: number
           created_at: string
         }[]
-      }
-      get_user_b2b_partner_id: {
-        Args: { user_id: string }
-        Returns: number
-      }
-      is_hr_manager: {
-        Args: { user_id: string }
-        Returns: boolean
       }
     }
     Enums: {

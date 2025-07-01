@@ -67,12 +67,10 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     b2bPartnerId: number | null;
   } | null>(null);
 
-  // Load B2B employee data if user is an employee
+  // Load B2B employee data if user email matches
   useEffect(() => {
     const loadB2BEmployeeData = async () => {
       if (!user?.email) return;
-      
-      console.log('Loading B2B employee data for:', user.email);
 
       try {
         const { data, error } = await supabase
@@ -87,14 +85,11 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         }
 
         if (data) {
-          console.log('B2B employee data found:', data);
           setB2bEmployeeData({
             employerName: data.b2b_partner_name || '',
             employeeId: data.employee_id || '',
             b2bPartnerId: data.b2b_partner_id || null
           });
-        } else {
-          console.log('No B2B employee data found for email:', user.email);
         }
       } catch (error) {
         console.error('Error loading B2B employee data:', error);
@@ -154,12 +149,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
   };
 
   const saveGoalToDatabase = async (goalType: 'weekly_exercise' | 'weekly_blog', value: number) => {
-    if (!user) {
-      console.error('No user found when saving goal');
-      return;
-    }
-
-    console.log(`Saving goal: ${goalType} = ${value} for user ${user.id}`);
+    if (!user) return;
 
     try {
       // First, check if a goal of this type already exists for the user
@@ -170,13 +160,9 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         .eq('goal_type', goalType)
         .maybeSingle();
 
-      if (selectError) {
-        console.error('Error checking existing goal:', selectError);
-        throw selectError;
-      }
+      if (selectError) throw selectError;
 
       if (existingGoal) {
-        console.log('Updating existing goal:', existingGoal.id);
         // Update existing goal
         const { error: updateError } = await supabase
           .from('user_goals')
@@ -186,13 +172,8 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
           })
           .eq('id', existingGoal.id);
 
-        if (updateError) {
-          console.error('Error updating goal:', updateError);
-          throw updateError;
-        }
-        console.log('Goal updated successfully');
+        if (updateError) throw updateError;
       } else {
-        console.log('Creating new goal');
         // Insert new goal
         const { error: insertError } = await supabase
           .from('user_goals')
@@ -202,11 +183,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
             goal_value: value
           });
 
-        if (insertError) {
-          console.error('Error inserting goal:', insertError);
-          throw insertError;
-        }
-        console.log('Goal created successfully');
+        if (insertError) throw insertError;
       }
     } catch (error) {
       console.error('Error saving goal:', error);
@@ -215,19 +192,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
   };
 
   const handleSave = async () => {
-    if (!user) {
-      console.error('No user found when saving profile');
-      toast({
-        title: t('profile.goals.errorTitle'),
-        description: 'User not authenticated',
-        variant: 'destructive',
-      });
-      return;
-    }
-
-    console.log('Starting profile save for user:', user.id);
-    console.log('Profile data:', profileData);
-    console.log('B2B data:', b2bEmployeeData);
+    if (!user) return;
 
     setIsLoading(true);
     try {
@@ -246,27 +211,18 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         employee_id: b2bEmployeeData?.employeeId || null
       };
 
-      console.log('Saving profile with data:', profileUpdateData);
-
       const { error: profileError } = await supabase
         .from('user_profiles')
         .upsert(profileUpdateData);
 
-      if (profileError) {
-        console.error('Profile save error:', profileError);
-        throw profileError;
-      }
-
-      console.log('Profile saved successfully');
+      if (profileError) throw profileError;
 
       // Save goals if they were set
       if (goalsData.weeklyExerciseGoal !== null) {
-        console.log('Saving exercise goal:', goalsData.weeklyExerciseGoal);
         await saveGoalToDatabase('weekly_exercise', goalsData.weeklyExerciseGoal);
       }
       
       if (goalsData.weeklyBlogGoal !== null) {
-        console.log('Saving blog goal:', goalsData.weeklyBlogGoal);
         await saveGoalToDatabase('weekly_blog', goalsData.weeklyBlogGoal);
       }
 
@@ -275,14 +231,13 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         description: t('profile.profileForm.success'),
       });
 
-      console.log('Profile save completed successfully');
       onProfileSaved?.();
       onClose();
     } catch (error) {
       console.error('Error saving profile:', error);
       toast({
         title: t('profile.goals.errorTitle'),
-        description: `${t('profile.profileForm.error')}: ${error.message || 'Unknown error'}`,
+        description: t('profile.profileForm.error'),
         variant: 'destructive',
       });
     } finally {
@@ -291,17 +246,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
   };
 
   const handleSkipGoals = async () => {
-    if (!user) {
-      console.error('No user found when skipping goals');
-      toast({
-        title: t('profile.goals.errorTitle'),
-        description: 'User not authenticated',
-        variant: 'destructive',
-      });
-      return;
-    }
-
-    console.log('Skipping goals and saving profile for user:', user.id);
+    if (!user) return;
 
     setIsLoading(true);
     try {
@@ -320,18 +265,11 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         employee_id: b2bEmployeeData?.employeeId || null
       };
 
-      console.log('Saving profile (skip goals) with data:', profileUpdateData);
-
       const { error: profileError } = await supabase
         .from('user_profiles')
         .upsert(profileUpdateData);
 
-      if (profileError) {
-        console.error('Profile save error (skip goals):', profileError);
-        throw profileError;
-      }
-
-      console.log('Profile saved successfully (goals skipped)');
+      if (profileError) throw profileError;
 
       toast({
         title: t('profile.goals.successTitle'),
@@ -341,10 +279,10 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
       onProfileSaved?.();
       onClose();
     } catch (error) {
-      console.error('Error saving profile (skip goals):', error);
+      console.error('Error saving profile:', error);
       toast({
         title: t('profile.goals.errorTitle'),
-        description: `${t('profile.profileForm.error')}: ${error.message || 'Unknown error'}`,
+        description: t('profile.profileForm.error'),
         variant: 'destructive',
       });
     } finally {
@@ -357,14 +295,6 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
                         profileData.lastName.trim() !== '' && 
                         profileData.age !== '' && 
                         profileData.job.trim() !== '';
-
-  console.log('Profile validation:', {
-    firstName: profileData.firstName.trim() !== '',
-    lastName: profileData.lastName.trim() !== '',
-    age: profileData.age !== '',
-    job: profileData.job.trim() !== '',
-    isValid: isProfileValid
-  });
 
   return (
     <Dialog open={isOpen} onOpenChange={() => {}}>
