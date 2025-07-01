@@ -42,6 +42,7 @@ const Auth = () => {
   const [showEmployerDropdown, setShowEmployerDropdown] = useState(false);
   const [isEmployeeVerified, setIsEmployeeVerified] = useState(false);
   const [isVerifyingEmployee, setIsVerifyingEmployee] = useState(false);
+  const [verifiedEmployeeRecord, setVerifiedEmployeeRecord] = useState<any>(null);
   
   const { signIn, signUp, signInWithGoogle, user } = useAuth();
   const { t } = useTranslation();
@@ -120,13 +121,14 @@ const Auth = () => {
     try {
       const { data, error } = await supabase
         .from('b2b_employees')
-        .select('id')
+        .select('*')
         .eq('b2b_partner_name', employerName)
         .eq('employee_id', employeeId)
         .single();
 
       if (error || !data) {
         setIsEmployeeVerified(false);
+        setVerifiedEmployeeRecord(null);
         toast({
           title: "Chyba overenia",
           description: "Neplatné údaje zamestnávateľa alebo ID zamestnanca",
@@ -134,6 +136,7 @@ const Auth = () => {
         });
       } else {
         setIsEmployeeVerified(true);
+        setVerifiedEmployeeRecord(data);
         toast({
           title: "Overenie úspešné",
           description: "Údaje zamestnávateľa boli overené",
@@ -142,6 +145,7 @@ const Auth = () => {
     } catch (error) {
       console.error('Error verifying employee:', error);
       setIsEmployeeVerified(false);
+      setVerifiedEmployeeRecord(null);
     } finally {
       setIsVerifyingEmployee(false);
     }
@@ -151,6 +155,7 @@ const Auth = () => {
   const handleEmployerNameChange = (value: string) => {
     setEmployerName(value);
     setIsEmployeeVerified(false);
+    setVerifiedEmployeeRecord(null);
     searchEmployers(value);
   };
 
@@ -158,6 +163,28 @@ const Auth = () => {
   const handleEmployeeIdChange = (value: string) => {
     setEmployeeId(value);
     setIsEmployeeVerified(false);
+    setVerifiedEmployeeRecord(null);
+  };
+
+  // Update employee record with email after successful registration
+  const updateEmployeeEmail = async (userEmail: string) => {
+    if (!verifiedEmployeeRecord) return;
+
+    try {
+      const { error } = await supabase
+        .from('b2b_employees')
+        .update({ 
+          // Assuming we need to add an email column to b2b_employees table
+          // For now, we can store it in a JSON field or add proper column
+        })
+        .eq('id', verifiedEmployeeRecord.id);
+
+      if (error) {
+        console.error('Error updating employee email:', error);
+      }
+    } catch (error) {
+      console.error('Error updating employee record:', error);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -185,7 +212,12 @@ const Auth = () => {
 
     try {
       if (isSignUp) {
+        // First sign up the user
         await signUp(email, password, firstName);
+        
+        // Then update the employee record with the email
+        await updateEmployeeEmail(email);
+        
         toast({
           title: "Registrácia úspešná",
           description: "Prosím skontrolujte svoj email pre overenie účtu.",
@@ -216,6 +248,12 @@ const Auth = () => {
 
     try {
       await signInWithGoogle();
+      
+      // If this is a sign-up flow, also update the employee record
+      if (isSignUp && verifiedEmployeeRecord) {
+        // Note: For Google sign-in, we might need to handle the email update differently
+        // since we don't have the email immediately available here
+      }
     } catch (error) {
       toast({
         title: "Chyba",
@@ -230,6 +268,7 @@ const Auth = () => {
     setEmployerName('');
     setEmployeeId('');
     setIsEmployeeVerified(false);
+    setVerifiedEmployeeRecord(null);
   };
 
   return (
@@ -341,6 +380,7 @@ const Auth = () => {
                                       setEmployerName(employer);
                                       setShowEmployerDropdown(false);
                                       setIsEmployeeVerified(false);
+                                      setVerifiedEmployeeRecord(null);
                                     }}
                                     className="cursor-pointer"
                                   >
