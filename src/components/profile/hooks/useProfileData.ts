@@ -96,11 +96,48 @@ export const useProfileData = () => {
           employeeId: data.employee_id || '',
           state: data.state || 'inactive'
         });
+
+        // If B2B employee exists and has logged in (has email), but state is inactive,
+        // check if they have a profile and update state to active
+        if (data.state === 'inactive') {
+          await checkAndUpdateB2BEmployeeState();
+        }
       }
     } catch (error) {
       console.error('Error loading B2B employee data:', error);
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const checkAndUpdateB2BEmployeeState = async () => {
+    if (!user?.email) return;
+
+    try {
+      // Check if user has a profile (meaning they've completed registration)
+      const { data: profileData, error: profileError } = await supabase
+        .from('user_profiles')
+        .select('id')
+        .eq('user_id', user.id)
+        .single();
+
+      // If user has a profile, update B2B employee state to active
+      if (profileData && !profileError) {
+        const { error: updateError } = await supabase
+          .from('b2b_employees')
+          .update({ state: 'active' })
+          .eq('email', user.email);
+
+        if (updateError) {
+          console.error('Error updating B2B employee state:', updateError);
+        } else {
+          console.log('B2B employee state updated to active');
+          // Update local state
+          setB2bData(prev => ({ ...prev, state: 'active' }));
+        }
+      }
+    } catch (error) {
+      console.error('Error checking and updating B2B employee state:', error);
     }
   };
 

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
@@ -190,9 +189,10 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
   };
 
   const updateB2BEmployeeState = async () => {
-    if (!user?.email || !b2bEmployeeData) return;
+    if (!user?.email) return;
 
     try {
+      // Update B2B employee state to active when they complete their profile
       const { error } = await supabase
         .from('b2b_employees')
         .update({ state: 'active' })
@@ -239,9 +239,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
       }
 
       // Update B2B employee state to active if applicable
-      if (b2bEmployeeData) {
-        await updateB2BEmployeeState();
-      }
+      await updateB2BEmployeeState();
 
       toast({
         title: t('profile.goals.successTitle'),
@@ -284,9 +282,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
       if (profileError) throw profileError;
 
       // Update B2B employee state to active if applicable
-      if (b2bEmployeeData) {
-        await updateB2BEmployeeState();
-      }
+      await updateB2BEmployeeState();
 
       toast({
         title: t('profile.goals.successTitle'),
