@@ -30,6 +30,11 @@
       "message": "Váš email {email} ešte nie je overený.",
       "instruction": "Skontrolujte svoju emailovú schránku a kliknite na overovací odkaz.",
       "resendButton": "Odoslať overovací email znovu"
+    },
+    "userExists": {
+      "title": "Účet už existuje",
+      "message": "E-mail {email} je už zaregistrovaný.",
+      "instruction": "Skúste sa prihlásiť alebo znovu odoslať overovací email."
     }
   }
 }

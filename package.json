@@ -9,7 +9,8 @@
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
-    "lint:translations": "ts-node scripts/checkTranslations.ts"
+    "lint:translations": "ts-node scripts/checkTranslations.ts",
+    "delete-user": "ts-node scripts/deleteUser.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

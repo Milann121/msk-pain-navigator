@@ -30,6 +30,11 @@
       "message": "Your email {email} is not yet verified.",
       "instruction": "Check your email inbox and click on the verification link.",
       "resendButton": "Resend verification email"
+    },
+    "userExists": {
+      "title": "Account already exists",
+      "message": "An account with email {email} already exists.",
+      "instruction": "Try signing in or resending the verification email."
     }
   }
 }

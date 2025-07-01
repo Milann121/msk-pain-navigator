@@ -171,6 +171,14 @@ const Auth = () => {
           description: "Prosím skontrolujte svoj email a kliknite na overovací odkaz pred prihlásením.",
           variant: "destructive",
         });
+      } else if (error?.message?.includes('User already registered') || error?.code === 'email_exists') {
+        setShowEmailNotConfirmed(true);
+        setEmailNotConfirmedAddress(email);
+        toast({
+          title: t('auth.userExists.title'),
+          description: t('auth.userExists.message', { email }),
+          variant: 'destructive'
+        });
       } else {
         toast({
           title: "Chyba",
