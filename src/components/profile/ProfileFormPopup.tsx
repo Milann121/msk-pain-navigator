@@ -5,6 +5,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/u
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import { ProfileFormPersonalInfo } from './ProfileFormPersonalInfo';
 import { ProfileFormJobSelection } from './ProfileFormJobSelection';
 import { ProfileFormGoals } from './ProfileFormGoals';
@@ -45,6 +46,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
   const { user } = useAuth();
   const { toast } = useToast();
   const { t } = useTranslation();
+  const navigate = useNavigate();
   
   const [profileData, setProfileData] = useState<ProfileData>({
     firstName: '',
@@ -291,6 +293,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
       console.log('Profile save process completed successfully');
       onProfileSaved?.();
       onClose();
+      navigate('/profile');
     } catch (error) {
       console.error('Error in profile save process:', error);
       toast({
@@ -364,6 +367,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
       console.log('Profile save process completed successfully (skip goals)');
       onProfileSaved?.();
       onClose();
+      navigate('/profile');
     } catch (error) {
       console.error('Error saving profile (skip goals):', error);
       toast({
