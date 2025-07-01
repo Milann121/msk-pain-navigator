@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
@@ -213,13 +214,14 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
 
     setIsLoading(true);
     try {
-      // Save profile data with employer name if B2B employee
+      // Save profile data with employer name if B2B employee AND ensure email is always saved
       const { error: profileError } = await supabase
         .from('user_profiles')
         .upsert({
           user_id: user.id,
           first_name: profileData.firstName,
           last_name: profileData.lastName,
+          email: user.email, // Always ensure email is saved
           gender: profileData.gender,
           age: profileData.age === '' ? null : Number(profileData.age),
           job: profileData.job,
@@ -265,13 +267,14 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
 
     setIsLoading(true);
     try {
-      // Save only profile data without goals
+      // Save only profile data without goals AND ensure email is always saved
       const { error: profileError } = await supabase
         .from('user_profiles')
         .upsert({
           user_id: user.id,
           first_name: profileData.firstName,
           last_name: profileData.lastName,
+          email: user.email, // Always ensure email is saved
           gender: profileData.gender,
           age: profileData.age === '' ? null : Number(profileData.age),
           job: profileData.job,

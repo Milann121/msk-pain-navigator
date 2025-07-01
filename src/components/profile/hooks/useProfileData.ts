@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
@@ -62,8 +61,16 @@ export const useProfileData = () => {
           painArea: data.pain_area || '',
           employerName: data.employer_name || ''
         });
+
+        // If profile exists but email is missing, update it
+        if (!data.email && user.email) {
+          await supabase
+            .from('user_profiles')
+            .update({ email: user.email })
+            .eq('user_id', user.id);
+        }
       } else {
-        // No profile found, use defaults with user metadata
+        // No profile found, use defaults with user metadata and ensure email is set
         setUserData(prev => ({
           ...prev,
           firstName: user.user_metadata?.first_name || 'Používateľ',
