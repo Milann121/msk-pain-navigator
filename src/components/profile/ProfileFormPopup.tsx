@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
@@ -63,6 +64,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
   const [b2bEmployeeData, setB2bEmployeeData] = useState<{
     employerName: string;
     employeeId: string;
+    b2bPartnerId: number | null;
   } | null>(null);
 
   // Load B2B employee data if user email matches
@@ -73,7 +75,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
       try {
         const { data, error } = await supabase
           .from('b2b_employees')
-          .select('b2b_partner_name, employee_id')
+          .select('b2b_partner_name, employee_id, b2b_partner_id')
           .eq('email', user.email)
           .single();
 
@@ -85,7 +87,8 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         if (data) {
           setB2bEmployeeData({
             employerName: data.b2b_partner_name || '',
-            employeeId: data.employee_id || ''
+            employeeId: data.employee_id || '',
+            b2bPartnerId: data.b2b_partner_id || null
           });
         }
       } catch (error) {
@@ -188,45 +191,29 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     }
   };
 
-  const updateB2BEmployeeState = async () => {
-    if (!user?.email) return;
-
-    try {
-      // Update B2B employee state to active when they complete their profile
-      const { error } = await supabase
-        .from('b2b_employees')
-        .update({ state: 'active' })
-        .eq('email', user.email);
-
-      if (error) {
-        console.error('Error updating B2B employee state:', error);
-      } else {
-        console.log('B2B employee state updated to active');
-      }
-    } catch (error) {
-      console.error('Error updating B2B employee state:', error);
-    }
-  };
-
   const handleSave = async () => {
     if (!user) return;
 
     setIsLoading(true);
     try {
-      // Save profile data with employer name if B2B employee AND ensure email is always saved
+      // Save profile data with B2B information if available AND ensure email is always saved
+      const profileUpdateData = {
+        user_id: user.id,
+        first_name: profileData.firstName,
+        last_name: profileData.lastName,
+        email: user.email, // Always ensure email is saved
+        gender: profileData.gender,
+        age: profileData.age === '' ? null : Number(profileData.age),
+        job: profileData.job,
+        job_subtype: profileData.jobSubtype,
+        employer_name: b2bEmployeeData?.employerName || null,
+        b2b_partner_id: b2bEmployeeData?.b2bPartnerId || null,
+        employee_id: b2bEmployeeData?.employeeId || null
+      };
+
       const { error: profileError } = await supabase
         .from('user_profiles')
-        .upsert({
-          user_id: user.id,
-          first_name: profileData.firstName,
-          last_name: profileData.lastName,
-          email: user.email, // Always ensure email is saved
-          gender: profileData.gender,
-          age: profileData.age === '' ? null : Number(profileData.age),
-          job: profileData.job,
-          job_subtype: profileData.jobSubtype,
-          employer_name: b2bEmployeeData?.employerName || null
-        });
+        .upsert(profileUpdateData);
 
       if (profileError) throw profileError;
 
@@ -238,9 +225,6 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
       if (goalsData.weeklyBlogGoal !== null) {
         await saveGoalToDatabase('weekly_blog', goalsData.weeklyBlogGoal);
       }
-
-      // Update B2B employee state to active if applicable
-      await updateB2BEmployeeState();
 
       toast({
         title: t('profile.goals.successTitle'),
@@ -267,24 +251,25 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     setIsLoading(true);
     try {
       // Save only profile data without goals AND ensure email is always saved
+      const profileUpdateData = {
+        user_id: user.id,
+        first_name: profileData.firstName,
+        last_name: profileData.lastName,
+        email: user.email, // Always ensure email is saved
+        gender: profileData.gender,
+        age: profileData.age === '' ? null : Number(profileData.age),
+        job: profileData.job,
+        job_subtype: profileData.jobSubtype,
+        employer_name: b2bEmployeeData?.employerName || null,
+        b2b_partner_id: b2bEmployeeData?.b2bPartnerId || null,
+        employee_id: b2bEmployeeData?.employeeId || null
+      };
+
       const { error: profileError } = await supabase
         .from('user_profiles')
-        .upsert({
-          user_id: user.id,
-          first_name: profileData.firstName,
-          last_name: profileData.lastName,
-          email: user.email, // Always ensure email is saved
-          gender: profileData.gender,
-          age: profileData.age === '' ? null : Number(profileData.age),
-          job: profileData.job,
-          job_subtype: profileData.jobSubtype,
-          employer_name: b2bEmployeeData?.employerName || null
-        });
+        .upsert(profileUpdateData);
 
       if (profileError) throw profileError;
-
-      // Update B2B employee state to active if applicable
-      await updateB2BEmployeeState();
 
       toast({
         title: t('profile.goals.successTitle'),

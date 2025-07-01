@@ -11,6 +11,7 @@ export type Database = {
     Tables: {
       b2b_employees: {
         Row: {
+          b2b_partner_id: number | null
           b2b_partner_name: string
           created_at: string
           differentials: string | null
@@ -21,10 +22,13 @@ export type Database = {
           job_post: string | null
           last_name: string
           pain_area: string | null
+          pain_leve_initial: number | null
+          pain_level_followup: number | null
           state: string
           updated_at: string
         }
         Insert: {
+          b2b_partner_id?: number | null
           b2b_partner_name: string
           created_at?: string
           differentials?: string | null
@@ -35,10 +39,13 @@ export type Database = {
           job_post?: string | null
           last_name: string
           pain_area?: string | null
+          pain_leve_initial?: number | null
+          pain_level_followup?: number | null
           state?: string
           updated_at?: string
         }
         Update: {
+          b2b_partner_id?: number | null
           b2b_partner_name?: string
           created_at?: string
           differentials?: string | null
@@ -49,10 +56,19 @@ export type Database = {
           job_post?: string | null
           last_name?: string
           pain_area?: string | null
+          pain_leve_initial?: number | null
+          pain_level_followup?: number | null
           state?: string
           updated_at?: string
         }
         Relationships: [
+          {
+            foreignKeyName: "b2b_employees_b2b_partner_id_fkey"
+            columns: ["b2b_partner_id"]
+            isOneToOne: false
+            referencedRelation: "B2B_partners"
+            referencedColumns: ["id"]
+          },
           {
             foreignKeyName: "fk_b2b_partner"
             columns: ["b2b_partner_name"]
@@ -417,8 +433,10 @@ export type Database = {
       user_profiles: {
         Row: {
           age: number | null
+          b2b_partner_id: number | null
           created_at: string | null
           email: string | null
+          employee_id: string | null
           employer_name: string | null
           first_name: string | null
           gender: string | null
@@ -427,13 +445,17 @@ export type Database = {
           job_subtype: string | null
           last_name: string | null
           pain_area: string | null
+          pain_level_followup: number | null
+          pain_level_initial: number | null
           updated_at: string | null
           user_id: string
         }
         Insert: {
           age?: number | null
+          b2b_partner_id?: number | null
           created_at?: string | null
           email?: string | null
+          employee_id?: string | null
           employer_name?: string | null
           first_name?: string | null
           gender?: string | null
@@ -442,13 +464,17 @@ export type Database = {
           job_subtype?: string | null
           last_name?: string | null
           pain_area?: string | null
+          pain_level_followup?: number | null
+          pain_level_initial?: number | null
           updated_at?: string | null
           user_id: string
         }
         Update: {
           age?: number | null
+          b2b_partner_id?: number | null
           created_at?: string | null
           email?: string | null
+          employee_id?: string | null
           employer_name?: string | null
           first_name?: string | null
           gender?: string | null
@@ -457,10 +483,20 @@ export type Database = {
           job_subtype?: string | null
           last_name?: string | null
           pain_area?: string | null
+          pain_level_followup?: number | null
+          pain_level_initial?: number | null
           updated_at?: string | null
           user_id?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "user_profiles_b2b_partner_id_fkey"
+            columns: ["b2b_partner_id"]
+            isOneToOne: false
+            referencedRelation: "B2B_partners"
+            referencedColumns: ["id"]
+          },
+        ]
       }
     }
     Views: {
