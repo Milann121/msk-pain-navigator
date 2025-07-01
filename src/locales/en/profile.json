@@ -23,7 +23,7 @@
   "jobSubtypes": {
     "manualSpec": "Specification:",
     "heavyLifting": "Heavy lifting",
-    "standingWork": "Atanding work in place",
+    "standingWork": "Standing work in place",
     "awkwardPositions": "Work in awkward positions",
     "officeWork": "Office work"
   },
@@ -35,6 +35,40 @@
     "timesPerWeek": "times per week",
     "blogsPerWeek": "blogs per week",
     "saveGoals": "Save Goals",
-    "goalsUpdated": "Goals have been updated!"
+    "goalsUpdated": "Goals have been updated!",
+    "successTitle": "Success",
+    "errorTitle": "Error"
+  },
+  "profileForm": {
+    "title": "Complete Your Profile",
+    "personalInfo": "Personal Information",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "firstNamePlaceholder": "Enter your first name",
+    "lastNamePlaceholder": "Enter your last name",
+    "gender": "Gender",
+    "male": "Male",
+    "female": "Female",
+    "age": "Age",
+    "agePlaceholder": "Enter your age",
+    "job": "Job Type",
+    "manual": "Manual work",
+    "desk": "Desk work",
+    "manualSpec": "Specification:",
+    "heavyLifting": "Heavy lifting",
+    "standingWork": "Standing work in place",
+    "awkwardPositions": "Work in awkward positions",
+    "officeWork": "Office work",
+    "driver": "Driver",
+    "goalsTitle": "Set Your Goals",
+    "goalsSubtitle": "These goals are optional and can be changed later",
+    "weeklyExercise": "I want to exercise",
+    "weeklyBlog": "I want to read",
+    "times": "times per week",
+    "skip": "Skip Goals",
+    "saveAll": "Save Profile",
+    "saving": "Saving...",
+    "success": "Profile saved successfully!",
+    "error": "Failed to save profile. Please try again."
   }
 }
