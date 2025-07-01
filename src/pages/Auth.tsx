@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Navigate, Link } from 'react-router-dom';
@@ -15,7 +14,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Home } from 'lucide-react';
+import { Home, Mail } from 'lucide-react';
 import LanguageDropdown from '@/components/LanguageDropdown';
 import { supabase } from '@/integrations/supabase/client';
 import {
@@ -26,6 +25,7 @@ import {
   CommandItem,
   CommandList,
 } from '@/components/ui/command';
+import { Alert, AlertDescription } from '@/components/ui/alert';
 
 const Auth = () => {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -34,6 +34,8 @@ const Auth = () => {
   const [firstName, setFirstName] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [privacyConsent, setPrivacyConsent] = useState(false);
+  const [showEmailNotConfirmed, setShowEmailNotConfirmed] = useState(false);
+  const [emailNotConfirmedAddress, setEmailNotConfirmedAddress] = useState('');
   
   // B2B registration fields
   const [employerName, setEmployerName] = useState('');
@@ -223,6 +225,9 @@ const Auth = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Reset email confirmation state
+    setShowEmailNotConfirmed(false);
+    
     console.log('Form submitted with data:', {
       isSignUp,
       email,
@@ -277,13 +282,25 @@ const Auth = () => {
         console.log('Starting user sign-in...');
         await signIn(email, password);
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('Authentication error:', error);
-      toast({
-        title: "Chyba",
-        description: error instanceof Error ? error.message : "Vyskytla sa chyba",
-        variant: "destructive",
-      });
+      
+      // Handle specific email not confirmed error
+      if (error?.message === "Email not confirmed" || error?.code === "email_not_confirmed") {
+        setShowEmailNotConfirmed(true);
+        setEmailNotConfirmedAddress(email);
+        toast({
+          title: "Email nie je overený",
+          description: "Prosím skontrolujte svoj email a kliknite na overovací odkaz pred prihlásením.",
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Chyba",
+          description: error instanceof Error ? error.message : "Vyskytla sa chyba",
+          variant: "destructive",
+        });
+      }
     } finally {
       setIsLoading(false);
     }
@@ -307,6 +324,37 @@ const Auth = () => {
       toast({
         title: "Chyba",
         description: error instanceof Error ? error.message : "Vyskytla sa chyba pri prihlásení cez Google",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const handleResendConfirmation = async () => {
+    if (!emailNotConfirmedAddress) return;
+    
+    try {
+      const { error } = await supabase.auth.resend({
+        type: 'signup',
+        email: emailNotConfirmedAddress,
+      });
+      
+      if (error) {
+        toast({
+          title: "Chyba",
+          description: error.message,
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Email odoslaný",
+          description: "Overovací email bol znovu odoslaný. Skontrolujte svoju emailovú schránku.",
+        });
+      }
+    } catch (error) {
+      console.error('Error resending confirmation:', error);
+      toast({
+        title: "Chyba",
+        description: "Nepodarilo sa odoslať overovací email",
         variant: "destructive",
       });
     }
@@ -341,6 +389,31 @@ const Auth = () => {
             </CardDescription>
           </CardHeader>
           <CardContent>
+            {/* Email not confirmed alert */}
+            {showEmailNotConfirmed && (
+              <Alert className="mb-4 border-orange-200 bg-orange-50">
+                <Mail className="h-4 w-4" />
+                <AlertDescription>
+                  <div className="space-y-2">
+                    <p className="text-sm">
+                      Váš email <strong>{emailNotConfirmedAddress}</strong> ešte nie je overený.
+                    </p>
+                    <p className="text-sm">
+                      Skontrolujte svoju emailovú schránku a kliknite na overovací odkaz.
+                    </p>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={handleResendConfirmation}
+                      className="mt-2"
+                    >
+                      Odoslať overovací email znovu
+                    </Button>
+                  </div>
+                </AlertDescription>
+              </Alert>
+            )}
+
             {/* B2B Data Display (if pre-filled) */}
             {(employerName || employeeId) && (
               <div className="mb-4 p-3 bg-blue-50 rounded-lg">
@@ -543,7 +616,10 @@ const Auth = () => {
             <div className="mt-4 text-center">
               <Button
                 variant="link"
-                onClick={() => setIsSignUp(!isSignUp)}
+                onClick={() => {
+                  setIsSignUp(!isSignUp);
+                  setShowEmailNotConfirmed(false);
+                }}
                 className="text-sm"
               >
                 {isSignUp
