@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import { useToast } from '@/components/ui/use-toast';
+import { useTranslation } from 'react-i18next';
 import { supabase } from '@/integrations/supabase/client';
 
 export const useB2BEmployeeVerification = () => {
@@ -10,6 +11,7 @@ export const useB2BEmployeeVerification = () => {
   const [isVerifyingEmployee, setIsVerifyingEmployee] = useState(false);
   const [verifiedEmployeeRecord, setVerifiedEmployeeRecord] = useState<any>(null);
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   const searchEmployers = async (query: string) => {
     if (query.length < 3) {
@@ -80,8 +82,8 @@ export const useB2BEmployeeVerification = () => {
         setIsEmployeeVerified(false);
         setVerifiedEmployeeRecord(null);
         toast({
-          title: "Chyba overenia",
-          description: "Neplatné údaje zamestnávateľa alebo ID zamestnanca",
+          title: t('auth.verificationFailed'),
+          description: t('auth.verificationFailedMessage'),
           variant: "destructive",
         });
       } else {
@@ -98,8 +100,8 @@ export const useB2BEmployeeVerification = () => {
       setIsEmployeeVerified(false);
       setVerifiedEmployeeRecord(null);
       toast({
-        title: "Chyba",
-        description: "Vyskytla sa chyba pri overovaní údajov",
+        title: t('auth.verificationFailed'),
+        description: t('auth.verificationFailedMessage'),
         variant: "destructive",
       });
     } finally {

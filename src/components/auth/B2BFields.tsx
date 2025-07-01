@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -37,17 +38,19 @@ const B2BFields = ({
   onEmployerSelect,
   onDropdownClose
 }: B2BFieldsProps) => {
+  const { t } = useTranslation();
+
   return (
     <>
       <div className="space-y-1 relative">
-        <Label htmlFor="employerName">Názov zamestnávateľa *</Label>
+        <Label htmlFor="employerName">{t('auth.employerName')} *</Label>
         <div className="relative">
           <Input
             id="employerName"
             type="text"
             value={employerName}
             onChange={(e) => onEmployerNameChange(e.target.value)}
-            placeholder="Začnite písať názov zamestnávateľa..."
+            placeholder={t('auth.employerNamePlaceholder')}
             required
             className={isEmployeeVerified ? "border-green-500" : ""}
           />
@@ -77,14 +80,14 @@ const B2BFields = ({
       </div>
 
       <div className="space-y-1">
-        <Label htmlFor="employeeId">ID zamestnanca *</Label>
+        <Label htmlFor="employeeId">{t('auth.employeeId')} *</Label>
         <div className="flex gap-2">
           <Input
             id="employeeId"
             type="text"
             value={employeeId}
             onChange={(e) => onEmployeeIdChange(e.target.value)}
-            placeholder="Zadajte vaše ID zamestnanca"
+            placeholder={t('auth.employeeIdPlaceholder')}
             required
             className={isEmployeeVerified ? "border-green-500" : ""}
           />
@@ -95,11 +98,11 @@ const B2BFields = ({
             disabled={!employerName || !employeeId || isVerifyingEmployee}
             className="whitespace-nowrap"
           >
-            {isVerifyingEmployee ? "Overujem..." : "Overiť"}
+            {isVerifyingEmployee ? t('auth.verifying') : t('auth.verify')}
           </Button>
         </div>
         {isEmployeeVerified && (
-          <p className="text-sm text-green-600">✓ Údaje overené</p>
+          <p className="text-sm text-green-600">{t('auth.dataVerified')}</p>
         )}
       </div>
     </>
