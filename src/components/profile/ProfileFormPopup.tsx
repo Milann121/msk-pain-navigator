@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
@@ -73,7 +72,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
 
       try {
         const { data, error } = await supabase
-          .from('test_sro_profiles')
+          .from('b2b_employees')
           .select('b2b_partner_name, employee_id')
           .eq('email', user.email)
           .single();
@@ -195,7 +194,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     try {
       // Update B2B employee state to active when they complete their profile
       const { error } = await supabase
-        .from('test_sro_profiles')
+        .from('b2b_employees')
         .update({ state: 'active' })
         .eq('email', user.email);
 

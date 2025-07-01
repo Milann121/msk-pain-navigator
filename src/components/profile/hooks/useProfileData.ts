@@ -88,7 +88,7 @@ export const useProfileData = () => {
 
     try {
       const { data, error } = await supabase
-        .from('test_sro_profiles')
+        .from('b2b_employees')
         .select('b2b_partner_name, employee_id, state')
         .eq('email', user.email)
         .single();
@@ -132,7 +132,7 @@ export const useProfileData = () => {
       // If user has a profile, update B2B employee state to active
       if (profileData && !profileError) {
         const { error: updateError } = await supabase
-          .from('test_sro_profiles')
+          .from('b2b_employees')
           .update({ state: 'active' })
           .eq('email', user.email);
 

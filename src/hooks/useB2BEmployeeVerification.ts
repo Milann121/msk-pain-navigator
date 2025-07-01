@@ -30,7 +30,7 @@ export const useB2BEmployeeVerification = () => {
         .limit(10);
 
       const { data: employees, error: employeesError } = await supabase
-        .from('test_sro_profiles')
+        .from('b2b_employees')
         .select('b2b_partner_name')
         .ilike('b2b_partner_name', `%${query}%`)
         .limit(10);
@@ -69,7 +69,7 @@ export const useB2BEmployeeVerification = () => {
     
     try {
       const { data, error } = await supabase
-        .from('test_sro_profiles')
+        .from('b2b_employees')
         .select('*')
         .eq('b2b_partner_name', nameToVerify)
         .eq('employee_id', idToVerify)
@@ -119,7 +119,7 @@ export const useB2BEmployeeVerification = () => {
     
     try {
       const { error } = await supabase
-        .from('test_sro_profiles')
+        .from('b2b_employees')
         .update({ 
           email: userEmail
         })
