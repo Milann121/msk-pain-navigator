@@ -40,6 +40,24 @@ const B2BFields = ({
 }: B2BFieldsProps) => {
   const { t } = useTranslation();
 
+  const handleVerifyClick = () => {
+    console.log('=== B2BFields: Verify button clicked ===');
+    console.log('Current state:', { 
+      employerName, 
+      employeeId, 
+      isEmployeeVerified, 
+      isVerifyingEmployee 
+    });
+    
+    if (!employerName.trim() || !employeeId.trim()) {
+      console.log('Missing required fields for verification');
+      return;
+    }
+    
+    console.log('Calling onVerifyEmployee with data:', { employerName, employeeId });
+    onVerifyEmployee();
+  };
+
   return (
     <>
       <div className="space-y-1 relative">
@@ -52,9 +70,10 @@ const B2BFields = ({
             onChange={(e) => onEmployerNameChange(e.target.value)}
             placeholder={t('auth.employerNamePlaceholder')}
             required
-            className={isEmployeeVerified ? "border-green-500" : ""}
+            className={isEmployeeVerified ? "border-green-500 bg-green-50" : ""}
+            disabled={isEmployeeVerified}
           />
-          {showEmployerDropdown && employers.length > 0 && (
+          {showEmployerDropdown && employers.length > 0 && !isEmployeeVerified && (
             <div className="absolute top-full left-0 right-0 z-50 mt-1">
               <Command className="border rounded-md shadow-lg bg-white">
                 <CommandList className="max-h-40">
@@ -89,20 +108,23 @@ const B2BFields = ({
             onChange={(e) => onEmployeeIdChange(e.target.value)}
             placeholder={t('auth.employeeIdPlaceholder')}
             required
-            className={isEmployeeVerified ? "border-green-500" : ""}
+            className={isEmployeeVerified ? "border-green-500 bg-green-50" : ""}
+            disabled={isEmployeeVerified}
           />
           <Button
             type="button"
-            variant="outline"
-            onClick={onVerifyEmployee}
-            disabled={!employerName || !employeeId || isVerifyingEmployee}
-            className="whitespace-nowrap"
+            variant={isEmployeeVerified ? "default" : "outline"}
+            onClick={handleVerifyClick}
+            disabled={!employerName.trim() || !employeeId.trim() || isVerifyingEmployee}
+            className={`whitespace-nowrap ${isEmployeeVerified ? 'bg-green-600 hover:bg-green-700' : ''}`}
           >
-            {isVerifyingEmployee ? t('auth.verifying') : t('auth.verify')}
+            {isVerifyingEmployee ? t('auth.verifying') : isEmployeeVerified ? '✓ Overené' : t('auth.verify')}
           </Button>
         </div>
         {isEmployeeVerified && (
-          <p className="text-sm text-green-600">{t('auth.dataVerified')}</p>
+          <p className="text-sm text-green-600 font-medium">
+            ✓ {t('auth.dataVerified')}
+          </p>
         )}
       </div>
     </>
