@@ -218,7 +218,8 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
 
     console.log('Starting profile save process', { profileData, goalsData, b2bEmployeeData });
     setIsLoading(true);
-    
+    // Immediately close the banner so the user returns to the profile page
+    onClose();
     try {
       // Prepare profile data with B2B information if available AND ensure email is always saved
       const profileUpdateData = {
@@ -311,7 +312,8 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
 
     console.log('Skipping goals, saving profile only');
     setIsLoading(true);
-    
+    // Close banner immediately when skipping
+    onClose();
     try {
       // Save only profile data without goals AND ensure email is always saved
       const profileUpdateData = {
