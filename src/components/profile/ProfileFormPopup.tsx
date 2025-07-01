@@ -183,8 +183,8 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
       }
 
       toast({
-        title: t('goals.successTitle'),
-        description: t('profileForm.success'),
+        title: t('profile.goals.successTitle'),
+        description: t('profile.profileForm.success'),
       });
 
       onProfileSaved?.();
@@ -192,8 +192,8 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     } catch (error) {
       console.error('Error saving profile:', error);
       toast({
-        title: t('goals.errorTitle'),
-        description: t('profileForm.error'),
+        title: t('profile.goals.errorTitle'),
+        description: t('profile.profileForm.error'),
         variant: 'destructive',
       });
     } finally {
@@ -222,8 +222,8 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
       if (profileError) throw profileError;
 
       toast({
-        title: t('goals.successTitle'),
-        description: t('profileForm.success'),
+        title: t('profile.goals.successTitle'),
+        description: t('profile.profileForm.success'),
       });
 
       onProfileSaved?.();
@@ -231,8 +231,8 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     } catch (error) {
       console.error('Error saving profile:', error);
       toast({
-        title: t('goals.errorTitle'),
-        description: t('profileForm.error'),
+        title: t('profile.goals.errorTitle'),
+        description: t('profile.profileForm.error'),
         variant: 'destructive',
       });
     } finally {
@@ -261,40 +261,40 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     <Dialog open={isOpen} onOpenChange={() => {}}>
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>{t('profileForm.title')}</DialogTitle>
+          <DialogTitle>{t('profile.profileForm.title')}</DialogTitle>
         </DialogHeader>
         
         <div className="space-y-6 py-4">
           {/* Personal Information Section */}
           <div>
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">{t('profileForm.personalInfo')}</h3>
+            <h3 className="text-lg font-semibold mb-3 text-blue-800">{t('profile.profileForm.personalInfo')}</h3>
             
             <div className="grid grid-cols-2 gap-4 mb-4">
               <div className="space-y-2">
-                <Label htmlFor="firstName">{t('profileForm.firstName')}</Label>
+                <Label htmlFor="firstName">{t('profile.profileForm.firstName')}</Label>
                 <Input
                   id="firstName"
                   value={profileData.firstName}
                   onChange={(e) => handleInputChange('firstName', e.target.value)}
-                  placeholder={t('profileForm.firstNamePlaceholder')}
+                  placeholder={t('profile.profileForm.firstNamePlaceholder')}
                   required
                 />
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="lastName">{t('profileForm.lastName')}</Label>
+                <Label htmlFor="lastName">{t('profile.profileForm.lastName')}</Label>
                 <Input
                   id="lastName"
                   value={profileData.lastName}
                   onChange={(e) => handleInputChange('lastName', e.target.value)}
-                  placeholder={t('profileForm.lastNamePlaceholder')}
+                  placeholder={t('profile.profileForm.lastNamePlaceholder')}
                   required
                 />
               </div>
             </div>
 
             <div className="space-y-3 mb-4">
-              <Label>{t('profileForm.gender')}</Label>
+              <Label>{t('profile.profileForm.gender')}</Label>
               <RadioGroup 
                 value={profileData.gender}
                 onValueChange={(value) => handleInputChange('gender', value)}
@@ -302,29 +302,29 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
               >
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="Muž" id="muz" />
-                  <Label htmlFor="muz" className="cursor-pointer">{t('profileForm.male')}</Label>
+                  <Label htmlFor="muz" className="cursor-pointer">{t('profile.profileForm.male')}</Label>
                 </div>
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="Žena" id="zena" />
-                  <Label htmlFor="zena" className="cursor-pointer">{t('profileForm.female')}</Label>
+                  <Label htmlFor="zena" className="cursor-pointer">{t('profile.profileForm.female')}</Label>
                 </div>
               </RadioGroup>
             </div>
 
             <div className="space-y-2 mb-4">
-              <Label htmlFor="age">{t('profileForm.age')}</Label>
+              <Label htmlFor="age">{t('profile.profileForm.age')}</Label>
               <Input
                 id="age"
                 type="number"
                 value={profileData.age}
                 onChange={(e) => handleInputChange('age', e.target.value === '' ? '' : Number(e.target.value))}
-                placeholder={t('profileForm.agePlaceholder')}
+                placeholder={t('profile.profileForm.agePlaceholder')}
                 required
               />
             </div>
 
             <div className="space-y-4">
-              <Label>{t('profileForm.job')}</Label>
+              <Label>{t('profile.profileForm.job')}</Label>
               <RadioGroup 
                 value={profileData.job}
                 onValueChange={handleJobChange}
@@ -333,11 +333,11 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
                 <div className="space-y-2">
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="manuálna práca" id="manual-job" />
-                    <Label htmlFor="manual-job" className="cursor-pointer">{t('profileForm.manual')}</Label>
+                    <Label htmlFor="manual-job" className="cursor-pointer">{t('profile.profileForm.manual')}</Label>
                   </div>
                   {profileData.job === 'manuálna práca' && (
                     <div className="space-y-2 pl-6">
-                      <Label className="text-sm font-medium">{t('profileForm.manualSpec')}</Label>
+                      <Label className="text-sm font-medium">{t('profile.profileForm.manualSpec')}</Label>
                       <RadioGroup 
                         value={profileData.jobSubtype}
                         onValueChange={(value) => handleInputChange('jobSubtype', value)}
@@ -345,15 +345,15 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
                       >
                         <div className="flex items-center space-x-2">
                           <RadioGroupItem value="zdvíhanie ťažkých predmetov" id="heavy-lifting-popup" />
-                          <Label htmlFor="heavy-lifting-popup" className="cursor-pointer text-sm">{t('profileForm.heavyLifting')}</Label>
+                          <Label htmlFor="heavy-lifting-popup" className="cursor-pointer text-sm">{t('profile.profileForm.heavyLifting')}</Label>
                         </div>
                         <div className="flex items-center space-x-2">
                           <RadioGroupItem value="práca v stoji na mieste" id="standing-work-popup" />
-                          <Label htmlFor="standing-work-popup" className="cursor-pointer text-sm">{t('profileForm.standingWork')}</Label>
+                          <Label htmlFor="standing-work-popup" className="cursor-pointer text-sm">{t('profile.profileForm.standingWork')}</Label>
                         </div>
                         <div className="flex items-center space-x-2">
                           <RadioGroupItem value="práca v neprirodzených polohách" id="awkward-positions-popup" />
-                          <Label htmlFor="awkward-positions-popup" className="cursor-pointer text-sm">{t('profileForm.awkwardPositions')}</Label>
+                          <Label htmlFor="awkward-positions-popup" className="cursor-pointer text-sm">{t('profile.profileForm.awkwardPositions')}</Label>
                         </div>
                       </RadioGroup>
                     </div>
@@ -363,11 +363,11 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
                 <div className="space-y-2">
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="sedavá práca" id="desk-job" />
-                    <Label htmlFor="desk-job" className="cursor-pointer">{t('profileForm.desk')}</Label>
+                    <Label htmlFor="desk-job" className="cursor-pointer">{t('profile.profileForm.desk')}</Label>
                   </div>
                   {profileData.job === 'sedavá práca' && (
                     <div className="space-y-2 pl-6">
-                      <Label className="text-sm font-medium">{t('profileForm.manualSpec')}</Label>
+                      <Label className="text-sm font-medium">{t('profile.profileForm.manualSpec')}</Label>
                       <RadioGroup 
                         value={profileData.jobSubtype}
                         onValueChange={(value) => handleInputChange('jobSubtype', value)}
@@ -375,11 +375,11 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
                       >
                         <div className="flex items-center space-x-2">
                           <RadioGroupItem value="práca v kancelárii" id="office-work-popup" />
-                          <Label htmlFor="office-work-popup" className="cursor-pointer text-sm">{t('profileForm.officeWork')}</Label>
+                          <Label htmlFor="office-work-popup" className="cursor-pointer text-sm">{t('profile.profileForm.officeWork')}</Label>
                         </div>
                         <div className="flex items-center space-x-2">
                           <RadioGroupItem value="šofér" id="driver-popup" />
-                          <Label htmlFor="driver-popup" className="cursor-pointer text-sm">{t('profileForm.driver')}</Label>
+                          <Label htmlFor="driver-popup" className="cursor-pointer text-sm">{t('profile.profileForm.driver')}</Label>
                         </div>
                       </RadioGroup>
                     </div>
@@ -391,12 +391,12 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
 
           {/* Goals Section */}
           <div>
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">{t('profileForm.goalsTitle')}</h3>
-            <p className="text-sm text-gray-600 mb-4">{t('profileForm.goalsSubtitle')}</p>
+            <h3 className="text-lg font-semibold mb-3 text-blue-800">{t('profile.profileForm.goalsTitle')}</h3>
+            <p className="text-sm text-gray-600 mb-4">{t('profile.profileForm.goalsSubtitle')}</p>
             
             <div className="space-y-4">
               <div className="flex items-center gap-2">
-                <span className="text-base">{t('profileForm.weeklyExercise')}</span>
+                <span className="text-base">{t('profile.profileForm.weeklyExercise')}</span>
                 <Select 
                   value={goalsData.weeklyExerciseGoal?.toString() || ""} 
                   onValueChange={(value) => handleGoalChange('weeklyExerciseGoal', parseInt(value))}
@@ -412,11 +412,11 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
                     ))}
                   </SelectContent>
                 </Select>
-                <span className="text-base">{t('profileForm.times')}</span>
+                <span className="text-base">{t('profile.profileForm.times')}</span>
               </div>
 
               <div className="flex items-center gap-2">
-                <span className="text-base">{t('profileForm.weeklyBlog')}</span>
+                <span className="text-base">{t('profile.profileForm.weeklyBlog')}</span>
                 <Select 
                   value={goalsData.weeklyBlogGoal?.toString() || ""} 
                   onValueChange={(value) => handleGoalChange('weeklyBlogGoal', parseInt(value))}
@@ -443,13 +443,13 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
               onClick={handleSkipGoals} 
               disabled={!isProfileValid || isLoading}
             >
-              {isLoading ? t('profileForm.saving') : t('profileForm.skip')}
+              {isLoading ? t('profile.profileForm.saving') : t('profile.profileForm.skip')}
             </Button>
             <Button 
               onClick={handleSave} 
               disabled={!isProfileValid || isLoading}
             >
-              {isLoading ? t('profileForm.saving') : t('profileForm.saveAll')}
+              {isLoading ? t('profile.profileForm.saving') : t('profile.profileForm.saveAll')}
             </Button>
           </div>
         </div>

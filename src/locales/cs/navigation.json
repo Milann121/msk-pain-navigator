@@ -39,6 +39,11 @@
       "message": "Váš email {email} ještě není ověřen.",
       "instruction": "Zkontrolujte svou emailovou schránku a klikněte na ověřovací odkaz.",
       "resendButton": "Odeslat ověřovací email znovu"
+    },
+    "userExists": {
+      "title": "Účet již existuje",
+      "message": "Účet s emailem {email} již existuje.",
+      "instruction": "Zkuste se přihlásit nebo znovu odeslat ověřovací email."
     }
   }
 }
