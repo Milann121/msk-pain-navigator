@@ -221,24 +221,6 @@ const Auth = () => {
     }
   };
 
-  // Check if user exists but email is not confirmed
-  const checkUserEmailConfirmation = async (email: string) => {
-    try {
-      // Check if user exists in auth.users but is not confirmed
-      const { data: { users }, error } = await supabase.auth.admin.listUsers();
-      
-      if (!error && users) {
-        const user = users.find(u => u.email === email);
-        if (user && !user.email_confirmed_at) {
-          return true; // User exists but email not confirmed
-        }
-      }
-    } catch (error) {
-      console.log('Could not check user confirmation status:', error);
-    }
-    return false;
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -303,24 +285,15 @@ const Auth = () => {
       
       // Handle invalid credentials - might be unconfirmed email
       if (error?.message === "Invalid login credentials" || error?.code === "invalid_credentials") {
-        // Check if this might be an unconfirmed email case
-        const isUnconfirmed = await checkUserEmailConfirmation(email);
-        
-        if (isUnconfirmed) {
-          setShowEmailNotConfirmed(true);
-          setEmailNotConfirmedAddress(email);
-          toast({
-            title: "Email nie je overený",
-            description: "Váš účet existuje, ale email ešte nie je overený. Skontrolujte svoj email a kliknite na overovací odkaz.",
-            variant: "destructive",
-          });
-        } else {
-          toast({
-            title: "Chyba prihlásenia",
-            description: "Neplatné prihlasovacie údaje. Skontrolujte email a heslo.",
-            variant: "destructive",
-          });
-        }
+        // Show email confirmation prompt for invalid credentials
+        // as it might be due to unconfirmed email
+        setShowEmailNotConfirmed(true);
+        setEmailNotConfirmedAddress(email);
+        toast({
+          title: "Chyba prihlásenia",
+          description: "Neplatné prihlasovacie údaje. Ak ste sa už registrovali, skontrolujte či máte overený email.",
+          variant: "destructive",
+        });
       } else if (error?.message === "Email not confirmed" || error?.code === "email_not_confirmed") {
         setShowEmailNotConfirmed(true);
         setEmailNotConfirmedAddress(email);
