@@ -111,20 +111,6 @@ export const PersonalInfoSection: React.FC<PersonalInfoSectionProps> = ({
           onTempJobSubtypeChange={onTempJobSubtypeChange}
         />
       </div>
-
-      <div className="grid grid-cols-2 gap-4">
-        <EditableField
-          label={t('profile.painArea')}
-          field="painArea"
-          value={userData.painArea}
-          editingField={editingField}
-          tempValue={tempValue}
-          onEdit={onEdit}
-          onSave={onSave}
-          onCancel={onCancel}
-          onTempValueChange={onTempValueChange}
-        />
-      </div>
     </>
   );
 };
