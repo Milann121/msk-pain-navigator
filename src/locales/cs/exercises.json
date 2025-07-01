@@ -68,7 +68,9 @@
     "changeRequestInfo": "Po odeslání této žádosti ti vyměníme cvik.",
     "newExerciseProposed": "Navrhované nové cvičení",
     "confirmChange": "Potvrdit změnu",
-    "declineChange": "Odmítnout změnu"
+    "declineChange": "Odmítnout změnu",
+    "markCompleted": "Odcvičené dnes",
+    "completedToday": "Odcvičené dnes ({{count}})"
   },
   "exerciseCvik": {
     "few": "cvičení",

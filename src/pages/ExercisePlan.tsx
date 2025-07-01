@@ -22,7 +22,8 @@ const ExercisePlan = () => {
     assessments = [],
     mechanism,
     differential,
-    painArea
+    painArea,
+    assessmentId
   } = location.state || {};
 
   let exercises = [];
@@ -71,6 +72,7 @@ const ExercisePlan = () => {
               <ExercisePeriodSection 
                 exercise={exercise} 
                 showGeneral={showGeneral}
+                assessmentId={assessmentId}
               />
             </Card>
           ))}

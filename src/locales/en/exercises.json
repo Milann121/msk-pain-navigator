@@ -68,7 +68,9 @@
     "changeRequestInfo": "After submitting this request, we will change your exercise.",
     "newExerciseProposed": "Proposed new exercise",
     "confirmChange": "Confirm change",
-    "declineChange": "Decline change"
+    "declineChange": "Decline change",
+    "markCompleted": "Mark as completed",
+    "completedToday": "Completed today ({{count}})"
   },
   "exerciseCvik": {
     "few": "exercises",
