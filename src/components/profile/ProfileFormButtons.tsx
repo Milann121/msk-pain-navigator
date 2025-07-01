@@ -20,15 +20,17 @@ export const ProfileFormButtons: React.FC<ProfileFormButtonsProps> = ({
 
   return (
     <div className="flex justify-end space-x-3 pt-6">
-      <Button 
-        variant="outline" 
-        onClick={onSkip} 
+      <Button
+        variant="outline"
+        type="button"
+        onClick={onSkip}
         disabled={!isProfileValid || isLoading}
       >
         {isLoading ? t('profile.profileForm.saving') : t('profile.profileForm.skip')}
       </Button>
-      <Button 
-        onClick={onSave} 
+      <Button
+        type="button"
+        onClick={onSave}
         disabled={!isProfileValid || isLoading}
       >
         {isLoading ? t('profile.profileForm.saving') : t('profile.profileForm.saveAll')}
