@@ -58,7 +58,8 @@ export const useB2BEmployeeVerification = () => {
     const nameToVerify = companyName || employerName;
     const idToVerify = empId || employeeId;
     
-    console.log('verifyEmployeeCredentials called with:', {
+    console.log('=== VERIFICATION START ===');
+    console.log('Input parameters:', {
       companyName,
       empId,
       employerName,
@@ -67,7 +68,7 @@ export const useB2BEmployeeVerification = () => {
       idToVerify
     });
     
-    if (!nameToVerify || !idToVerify) {
+    if (!nameToVerify?.trim() || !idToVerify?.trim()) {
       console.log('Missing employer name or employee ID for verification');
       toast({
         title: "Chyba overenia",
@@ -75,6 +76,7 @@ export const useB2BEmployeeVerification = () => {
         variant: "destructive",
       });
       setIsEmployeeVerified(false);
+      setVerifiedEmployeeRecord(null);
       return;
     }
 
@@ -82,20 +84,31 @@ export const useB2BEmployeeVerification = () => {
     setIsVerifyingEmployee(true);
     
     try {
-      // First, let's check what's in the database
+      // First check what's in the database for debugging
+      console.log('=== DEBUGGING DATABASE CONTENT ===');
       const { data: allEmployees, error: debugError } = await supabase
         .from('b2b_employees')
         .select('*');
       
       console.log('All employees in database:', allEmployees);
-      
+      console.log('Debug query error:', debugError);
+
+      // Now perform the actual verification query
+      console.log('=== PERFORMING VERIFICATION QUERY ===');
+      console.log('Query parameters:', {
+        b2b_partner_name: nameToVerify,
+        employee_id: idToVerify
+      });
+
       const { data, error } = await supabase
         .from('b2b_employees')
         .select('*')
         .eq('b2b_partner_name', nameToVerify)
         .eq('employee_id', idToVerify);
 
-      console.log('Verification query result:', { data, error, nameToVerify, idToVerify });
+      console.log('Verification query executed');
+      console.log('Query result data:', data);
+      console.log('Query result error:', error);
 
       if (error) {
         console.error('Database error during verification:', error);
@@ -110,35 +123,39 @@ export const useB2BEmployeeVerification = () => {
       }
 
       if (!data || data.length === 0) {
-        console.log('No matching employee found');
+        console.log('=== VERIFICATION FAILED ===');
+        console.log('No matching employee found for:', { nameToVerify, idToVerify });
         setIsEmployeeVerified(false);
         setVerifiedEmployeeRecord(null);
         toast({
-          title: t('auth.verificationFailed'),
-          description: t('auth.verificationFailedMessage'),
+          title: "Overenie neúspešné",
+          description: "Údaje sa nezhodujú so záznamami v databáze. Skontrolujte názov zamestnávateľa a ID zamestnanca.",
           variant: "destructive",
         });
       } else {
         const employeeRecord = data[0];
+        console.log('=== VERIFICATION SUCCESSFUL ===');
         console.log('Employee verified successfully:', employeeRecord);
         setIsEmployeeVerified(true);
         setVerifiedEmployeeRecord(employeeRecord);
         toast({
           title: "Overenie úspešné",
-          description: "Údaje zamestnávateľa boli overené",
+          description: `Údaje boli úspešne overené pre ${employeeRecord.first_name} ${employeeRecord.last_name}`,
         });
       }
     } catch (error) {
-      console.error('Error verifying employee:', error);
+      console.error('=== VERIFICATION ERROR ===');
+      console.error('Unexpected error during verification:', error);
       setIsEmployeeVerified(false);
       setVerifiedEmployeeRecord(null);
       toast({
-        title: t('auth.verificationFailed'),
+        title: "Chyba overenia",
         description: "Vyskytla sa neočakávaná chyba pri overovaní",
         variant: "destructive",
       });
     } finally {
       setIsVerifyingEmployee(false);
+      console.log('=== VERIFICATION END ===');
     }
   };
 
@@ -148,7 +165,12 @@ export const useB2BEmployeeVerification = () => {
       return;
     }
 
-    console.log('Updating employee email:', { userEmail, recordId: verifiedEmployeeRecord.id });
+    console.log('=== UPDATING EMPLOYEE STATUS ===');
+    console.log('Updating employee email and status:', { 
+      userEmail, 
+      recordId: verifiedEmployeeRecord.id,
+      currentState: verifiedEmployeeRecord.state 
+    });
     
     try {
       const { error } = await supabase
@@ -160,14 +182,16 @@ export const useB2BEmployeeVerification = () => {
         .eq('id', verifiedEmployeeRecord.id);
 
       if (error) {
-        console.error('Error updating employee email:', error);
+        console.error('Error updating employee email and status:', error);
         toast({
           title: "Upozornenie",
           description: "Registrácia bola úspešná, ale nepodarilo sa aktualizovať záznam zamestnanca",
           variant: "destructive",
         });
       } else {
-        console.log('Employee email updated successfully');
+        console.log('Employee email and status updated successfully to active');
+        // Update the local state to reflect the change
+        setVerifiedEmployeeRecord(prev => prev ? { ...prev, email: userEmail, state: 'active' } : null);
       }
     } catch (error) {
       console.error('Error updating employee record:', error);
