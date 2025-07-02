@@ -37,10 +37,7 @@ BEGIN
       employee_id, 
       email, 
       first_name, 
-      last_name, 
-      pain_leve_initial, 
-      pain_level_followup, 
-      pain_area
+      last_name,
     )
     VALUES (
       NOW(), 
@@ -62,9 +59,6 @@ BEGIN
       email = EXCLUDED.email,
       first_name = EXCLUDED.first_name,
       last_name = EXCLUDED.last_name,
-      pain_leve_initial = EXCLUDED.pain_leve_initial,
-      pain_level_followup = EXCLUDED.pain_level_followup,
-      pain_area = EXCLUDED.pain_area,
       state = 'active';
   END IF;
   
