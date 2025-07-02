@@ -158,6 +158,7 @@ export const useProfileData = () => {
     b2bData,
     isLoading,
     updateUserData,
+    refreshUserData: loadUserProfile,
     user
   };
 };

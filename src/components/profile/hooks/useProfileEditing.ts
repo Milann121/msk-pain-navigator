@@ -5,7 +5,8 @@ import { UserProfileData } from '../UserProfileData';
 
 export const useProfileEditing = (
   user: any,
-  updateUserData: (updatedData: Partial<UserProfileData>) => void
+  updateUserData: (updatedData: Partial<UserProfileData>) => void,
+  refreshUserData?: () => void
 ) => {
   const [editingField, setEditingField] = useState<string | null>(null);
   const [tempValue, setTempValue] = useState<string | number>('');
@@ -42,8 +43,9 @@ export const useProfileEditing = (
         .from('user_profiles')
         .upsert({
           user_id: user.id,
+          email: user.email, // Ensure email is always included
           ...updateData
-        });
+        }, { onConflict: 'user_id' });
 
       if (error) throw error;
 
@@ -57,6 +59,11 @@ export const useProfileEditing = (
         updateUserData({
           [field]: field === 'age' ? Number(tempValue) : String(tempValue)
         });
+      }
+
+      // Refresh data from database to ensure consistency
+      if (refreshUserData) {
+        refreshUserData();
       }
     } catch (error) {
       console.error('Error saving profile:', error);

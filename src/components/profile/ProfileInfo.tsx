@@ -9,7 +9,7 @@ import { PersonalInfoSection } from './PersonalInfoSection';
 
 export const ProfileInfo = () => {
   const { t } = useTranslation();
-  const { userData, b2bData, isLoading, updateUserData, user } = useProfileData();
+  const { userData, b2bData, isLoading, updateUserData, refreshUserData, user } = useProfileData();
   
   const {
     editingField,
@@ -20,7 +20,7 @@ export const ProfileInfo = () => {
     handleCancel,
     setTempValue,
     setTempJobSubtype
-  } = useProfileEditing(user, updateUserData);
+  } = useProfileEditing(user, updateUserData, refreshUserData);
 
   // Enhanced handleEdit to set job subtype for job field
   const enhancedHandleEdit = (field: string, currentValue: string | number) => {
