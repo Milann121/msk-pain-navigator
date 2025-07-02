@@ -1,3 +1,4 @@
+
 import { useAuth } from '@/contexts/AuthContext';
 import { useToast } from '@/hooks/use-toast';
 import { useAssessment, AssessmentStage } from '@/contexts/AssessmentContext';
@@ -35,6 +36,48 @@ const GeneralQuestionnaireHandler = () => {
       ? upperLimbQuestionnaires.general 
       : questionnaires.general;
   });
+
+  const syncPainAreasToProfile = async () => {
+    if (!user) return;
+
+    try {
+      // Get all active assessments for the user
+      const { data: assessments, error: assessmentsError } = await supabase
+        .from('user_assessments')
+        .select('id, pain_area, program_ended_at')
+        .eq('user_id', user.id)
+        .is('program_ended_at', null); // Only active programs
+
+      if (assessmentsError) {
+        console.error('Error fetching assessments for sync:', assessmentsError);
+        return;
+      }
+
+      // Extract unique pain areas from active assessments
+      let painAreas: string[] = [];
+      if (assessments && assessments.length > 0) {
+        painAreas = [...new Set(assessments.map(a => a.pain_area))];
+      }
+
+      // Update user profile with current pain areas
+      const { error: updateError } = await supabase
+        .from('user_profiles')
+        .upsert({
+          user_id: user.id,
+          email: user.email,
+          pain_area: painAreas.join(', ') || null
+        }, { onConflict: 'user_id' });
+
+      if (updateError) {
+        console.error('Error syncing pain areas to profile:', updateError);
+      } else {
+        console.log('Pain areas synced to profile:', painAreas);
+      }
+
+    } catch (error) {
+      console.error('Error syncing pain areas:', error);
+    }
+  };
 
   const handleRedirection = (questionnaireId: string, answers: Record<string, any>) => {
     console.log('🔄 GeneralQuestionnaireHandler: Handling redirection to:', questionnaireId);
@@ -229,6 +272,9 @@ const GeneralQuestionnaireHandler = () => {
               });
                 
               if (questionnaireError) throw questionnaireError;
+
+              // Sync pain areas to profile after creating assessment
+              await syncPainAreasToProfile();
             }
           }
         } catch (error) {
@@ -313,6 +359,9 @@ const GeneralQuestionnaireHandler = () => {
                 });
                   
                 if (questionnaireError) throw questionnaireError;
+
+                // Sync pain areas to profile after creating assessment
+                await syncPainAreasToProfile();
               }
             }
           } catch (error) {
@@ -392,6 +441,9 @@ const GeneralQuestionnaireHandler = () => {
             }
             
             console.log('✅ GeneralQuestionnaireHandler: Successfully stored general questionnaire answers');
+
+            // Sync pain areas to profile after creating assessment
+            await syncPainAreasToProfile();
           }
         }
       } catch (error) {

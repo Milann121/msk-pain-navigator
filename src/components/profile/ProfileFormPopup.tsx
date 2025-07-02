@@ -210,6 +210,47 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     }
   };
 
+  const updatePainAreasFromAssessments = async () => {
+    if (!user) return;
+
+    try {
+      // Get all active assessments for the user
+      const { data: assessments, error: assessmentsError } = await supabase
+        .from('user_assessments')
+        .select('id, pain_area, program_ended_at')
+        .eq('user_id', user.id)
+        .is('program_ended_at', null); // Only active programs
+
+      if (assessmentsError) {
+        console.error('Error fetching assessments:', assessmentsError);
+        return;
+      }
+
+      // Extract unique pain areas from active assessments
+      let painAreas: string[] = [];
+      if (assessments && assessments.length > 0) {
+        painAreas = [...new Set(assessments.map(a => a.pain_area))];
+      }
+
+      // Update user profile with current pain areas
+      const { error: updateError } = await supabase
+        .from('user_profiles')
+        .update({
+          pain_area: painAreas.join(', ') || null
+        })
+        .eq('user_id', user.id);
+
+      if (updateError) {
+        console.error('Error updating pain areas in profile:', updateError);
+      } else {
+        console.log('Pain areas updated in profile:', painAreas);
+      }
+
+    } catch (error) {
+      console.error('Error updating pain areas:', error);
+    }
+  };
+
   const handleSave = async () => {
     if (!user) {
       console.error('No user found');
@@ -227,11 +268,11 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         first_name: profileData.firstName.trim(),
         last_name: profileData.lastName.trim(),
         email: user.email, // Always ensure email is saved
-        gender: profileData.gender,
+        gender: profileData.gender, // Ensure gender is saved
         age: profileData.age === '' ? null : Number(profileData.age),
         job: profileData.job,
         job_subtype: profileData.jobSubtype,
-        employer_name: b2bEmployeeData?.employerName || null,
+        b2b_partner_name: b2bEmployeeData?.employerName || null,
         b2b_partner_id: b2bEmployeeData?.b2bPartnerId || null,
         employee_id: b2bEmployeeData?.employeeId || null
       };
@@ -248,6 +289,9 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
       }
 
       console.log('Profile saved successfully');
+
+      // Update pain areas from current active assessments
+      await updatePainAreasFromAssessments();
 
       // Save goals if they were set
       const goalPromises = [];
@@ -321,11 +365,11 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         first_name: profileData.firstName.trim(),
         last_name: profileData.lastName.trim(),
         email: user.email, // Always ensure email is saved
-        gender: profileData.gender,
+        gender: profileData.gender, // Ensure gender is saved
         age: profileData.age === '' ? null : Number(profileData.age),
         job: profileData.job,
         job_subtype: profileData.jobSubtype,
-        employer_name: b2bEmployeeData?.employerName || null,
+        b2b_partner_name: b2bEmployeeData?.employerName || null,
         b2b_partner_id: b2bEmployeeData?.b2bPartnerId || null,
         employee_id: b2bEmployeeData?.employeeId || null
       };
@@ -340,6 +384,9 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         console.error('Error saving profile:', profileError);
         throw profileError;
       }
+
+      // Update pain areas from current active assessments
+      await updatePainAreasFromAssessments();
 
       // If this is a B2B employee, update their state to active
       if (b2bEmployeeData && user.email) {

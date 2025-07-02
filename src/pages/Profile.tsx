@@ -8,6 +8,7 @@ import { ProfileInfo } from '@/components/profile/ProfileInfo';
 import { ProfileFormPopup } from '@/components/profile/ProfileFormPopup';
 import { GoalsContainer } from '@/components/profile/GoalsContainer';
 import { useProfileCompletion } from '@/hooks/useProfileCompletion';
+import { usePainAreaSync } from '@/hooks/usePainAreaSync';
 
 const Profile = () => {
   const { t } = useTranslation();
@@ -17,6 +18,9 @@ const Profile = () => {
     isCheckingProfile, 
     handleProfileCompleted 
   } = useProfileCompletion();
+  
+  // Sync pain areas with database
+  usePainAreaSync();
 
   const [popupGoals, setPopupGoals] = useState<{
     weeklyExerciseGoal: number | null;
