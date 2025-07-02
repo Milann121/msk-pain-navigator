@@ -139,8 +139,8 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
         },
         {
           videoId: '844ILxo5xsA',
-          title: 'exercises.nociceptive.facetJointSyndromeNeckWeek02.trapezoidMassage.title',
-          description: 'exercises.nociceptive.facetJointSyndromeNeckWeek02.trapezoidMassage.description',
+          title: 'exercises.nociceptive.defaultNeck.title',
+          description: 'exercises.nociceptive.defaultNeck.description',
           importance: 1,
           mainGroup: ["pain-relief"],
           bodyPart:["neck","middle-back"],
