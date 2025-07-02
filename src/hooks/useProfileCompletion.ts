@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
 
+const PROFILE_POPUP_SHOWN_KEY = 'profilePopupShown';
+
 export const useProfileCompletion = () => {
   const { user, isLoading: authLoading } = useAuth();
   const [showProfilePopup, setShowProfilePopup] = useState(false);
@@ -10,7 +12,10 @@ export const useProfileCompletion = () => {
 
   useEffect(() => {
     if (!authLoading && user) {
-      checkProfileCompletion();
+      const alreadyShown = localStorage.getItem(PROFILE_POPUP_SHOWN_KEY);
+      if (!alreadyShown) {
+        checkProfileCompletion();
+      }
     }
   }, [user, authLoading]);
 
@@ -25,6 +30,11 @@ export const useProfileCompletion = () => {
         .eq('user_id', user.id)
         .single();
 
+      if (data) {
+        // Profile already exists, remember completion
+        localStorage.setItem(PROFILE_POPUP_SHOWN_KEY, 'true');
+      }
+
       // If no profile exists or error (profile not found), show popup
       if (error && error.code === 'PGRST116') {
         setShowProfilePopup(true);
@@ -37,6 +47,7 @@ export const useProfileCompletion = () => {
   };
 
   const handleProfileCompleted = () => {
+    localStorage.setItem(PROFILE_POPUP_SHOWN_KEY, 'true');
     setShowProfilePopup(false);
   };
 
