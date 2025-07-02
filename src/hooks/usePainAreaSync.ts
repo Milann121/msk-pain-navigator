@@ -70,10 +70,14 @@ export const usePainAreaSync = () => {
 
         const { error: mskError } = await supabase
           .from('msk_profiles')
-          .upsert({
-            b2b_eployee_id: (b2bEmployee as any)?.id || (testEmployee as any)?.id || null,
-            pain_areas: painAreas,
-          }, { onConflict: 'b2b_eployee_id' });
+          .upsert(
+            {
+              b2b_eployee_id:
+                (b2bEmployee as any)?.id || (testEmployee as any)?.id || null,
+              pain_area: painAreas.join(', ') || null,
+            },
+            { onConflict: 'b2b_eployee_id' }
+          );
 
         if (mskError) {
           console.error('❌ Error updating MSK profile:', mskError);
@@ -90,9 +94,31 @@ export const usePainAreaSync = () => {
   };
 
   useEffect(() => {
-    if (user) {
-      syncPainAreas();
-    }
+    if (!user) return;
+
+    syncPainAreas();
+
+    // Listen for changes on user_assessments to keep pain areas up to date
+    const channel = supabase
+      .channel('pain-area-sync')
+      .on(
+        'postgres_changes',
+        {
+          event: '*',
+          schema: 'public',
+          table: 'user_assessments',
+          filter: `user_id=eq.${user.id}`,
+        },
+        () => {
+          console.log('🔔 Assessment change detected, syncing pain areas');
+          syncPainAreas();
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, [user]);
 
   return { syncPainAreas };
