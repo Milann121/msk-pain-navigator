@@ -224,8 +224,12 @@ const Auth = () => {
   };
 
   const handleResendConfirmation = async () => {
-    if (!emailNotConfirmedAddress) return;
+    if (!emailNotConfirmedAddress) {
+      console.log('No email address provided for resend');
+      return;
+    }
     
+    console.log('Attempting to resend confirmation email to:', emailNotConfirmedAddress);
     setIsLoading(true);
     
     try {
@@ -233,9 +237,11 @@ const Auth = () => {
         type: 'signup',
         email: emailNotConfirmedAddress,
         options: {
-          emailRedirectTo: `${window.location.origin}/auth`
+          emailRedirectTo: `${window.location.origin}/`
         }
       });
+      
+      console.log('Resend result:', { error });
       
       if (error) {
         console.error('Resend confirmation error:', error);
@@ -245,6 +251,7 @@ const Auth = () => {
           variant: "destructive",
         });
       } else {
+        console.log('Resend successful');
         toast({
           title: "Email odoslaný",
           description: "Overovací email bol znovu odoslaný. Skontrolujte svoju emailovú schránku.",
