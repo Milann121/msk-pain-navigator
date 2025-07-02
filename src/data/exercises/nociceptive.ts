@@ -139,8 +139,8 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
         },
         {
           videoId: '844ILxo5xsA',
-          title: 'exercises.nociceptive.defaultNeck.title',
-          description: 'exercises.nociceptive.defaultNeck.description',
+          title: 'exercises.nociceptive.defaultNeck.wallBallMassage.title',
+          description: 'exercises.nociceptive.defaultNeck.wallBallMassage.description',
           importance: 1,
           mainGroup: ["pain-relief"],
           bodyPart:["neck","middle-back"],
