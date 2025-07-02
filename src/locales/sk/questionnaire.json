@@ -1,4 +1,3 @@
-
 {
   "common": {
     "explainQuestion": "Vysvetliť otázku",
@@ -126,7 +125,7 @@
       "activityStart": "Zvážte, či sa vaša bolesť začala po konkrétnej fyzickej aktivite, pohybe alebo držaní tela.",
       "reflexes": "Týka sa to lekárskeho vyšetrenia, kde lekár kontroluje vaše reflexy malým kladivkom. Strata reflexov vie odhaliť dôležité informácie o vašom stave.",
       "sensitivity": "Odpovedzte áno len ak sa táto citlivosť objavila spolu s bolesťou a je výraznejšia ako predtým.",
-      "variableImpact": "Odpovedzte áno, ak nedokážete predvídať, kedy rovnaké aktivity spôsobia bolesť - niekedy bolia, niekedy nie."
+      "variableImpact": "Odpovedzte áno ak nedokážete predvídať, kedy rovnaké aktivity spôsobia bolesť - niekedy bolia, niekedy nie."
     },
     "options": {
       "yesNo": {
@@ -185,6 +184,8 @@
       "breathingPain": "Napríklad pichanie v hrudníku alebo tuhosť pri nádychu."
     },
     "options": {
+      "yesRest": "Áno, oddych pomáha",
+      "no": "Nie",
       "yesNo": {
         "yes": "Áno",
         "no": "Nie"

@@ -1,4 +1,3 @@
-
 {
   "common": {
     "explainQuestion": "Vysvětlit otázku",
@@ -185,6 +184,8 @@
       "breathingPain": "Například píchání v hrudníku nebo tuhost při nádechu."
     },
     "options": {
+      "yesRest": "Ano, odpočinek pomáhá",
+      "no": "Ne",
       "yesNo": {
         "yes": "Ano",
         "no": "Ne"

@@ -1,4 +1,3 @@
-
 {
   "common": {
     "explainQuestion": "Explain question",
@@ -185,6 +184,8 @@
       "breathingPain": "For example stabbing chest pain or stiffness when inhaling."
     },
     "options": {
+      "yesRest": "Yes, rest helps",
+      "no": "No",
       "yesNo": {
         "yes": "Yes",
         "no": "No"

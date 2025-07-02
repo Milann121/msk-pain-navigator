@@ -483,10 +483,10 @@ export type Database = {
         Row: {
           age: number | null
           b2b_partner_id: number | null
+          b2b_partner_name: string | null
           created_at: string | null
           email: string | null
           employee_id: string | null
-          employer_name: string | null
           first_name: string | null
           gender: string | null
           id: string
@@ -502,10 +502,10 @@ export type Database = {
         Insert: {
           age?: number | null
           b2b_partner_id?: number | null
+          b2b_partner_name?: string | null
           created_at?: string | null
           email?: string | null
           employee_id?: string | null
-          employer_name?: string | null
           first_name?: string | null
           gender?: string | null
           id?: string
@@ -521,10 +521,10 @@ export type Database = {
         Update: {
           age?: number | null
           b2b_partner_id?: number | null
+          b2b_partner_name?: string | null
           created_at?: string | null
           email?: string | null
           employee_id?: string | null
-          employer_name?: string | null
           first_name?: string | null
           gender?: string | null
           id?: string
