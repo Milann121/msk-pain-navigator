@@ -83,7 +83,7 @@ const QuestionRenderer = ({ question, onAnswer }: QuestionRendererProps) => {
       
       {question.type === 'radio' && question.options && (
         <RadioGroup 
-          value={selectedOptions[0]}
+          value={selectedOptions[0] || ""}
           onValueChange={handleSingleOptionChange}
         >
           <div className="space-y-3">

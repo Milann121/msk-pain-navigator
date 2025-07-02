@@ -17,7 +17,7 @@ const SingleChoiceQuestion = ({ question, value, onChange }: SingleChoiceQuestio
 
   return (
     <RadioGroup 
-      value={value}
+      value={value || ""}
       onValueChange={onChange}
     >
       <div className="space-y-3">
