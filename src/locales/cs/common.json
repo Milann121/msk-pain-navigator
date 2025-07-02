@@ -57,5 +57,8 @@
   "emptyState": {
     "noAssessments": "Zatím nemáte žádná uložená hodnocení.",
     "createNew": "Vytvořit nové hodnocení"
+  },
+  "slider": {
+    "selected": "Vybráno: {{value}}"
   }
 }

@@ -34,7 +34,9 @@ const ScaleQuestion = ({ question, value = 5, onChange }: ScaleQuestionProps) =>
           <span className="text-xs">({question.scale.min})</span>
         </div>
         <div className="text-center flex-shrink-0 px-3 py-1 bg-blue-50 rounded-md">
-          <span className="text-blue-600 font-medium">{value}</span>
+          <span className="text-blue-600 font-medium">
+            {t('slider.selected', { value })}
+          </span>
         </div>
         <div className="text-right flex-1">
           <span className="block">

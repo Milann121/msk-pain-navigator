@@ -57,5 +57,8 @@
   "emptyState": {
     "noAssessments": "You don't have any saved assessments yet.",
     "createNew": "Create New Assessment"
+  },
+  "slider": {
+    "selected": "Selected: {{value}}"
   }
 }
