@@ -15,7 +15,7 @@ export type Database = {
           b2b_partner_name: string
           created_at: string
           email: string | null
-          employee_id: string | null
+          employee_id: number | null
           first_name: string
           id: string
           last_name: string
@@ -27,7 +27,7 @@ export type Database = {
           b2b_partner_name: string
           created_at?: string
           email?: string | null
-          employee_id?: string | null
+          employee_id?: number | null
           first_name: string
           id?: string
           last_name: string
@@ -39,7 +39,7 @@ export type Database = {
           b2b_partner_name?: string
           created_at?: string
           email?: string | null
-          employee_id?: string | null
+          employee_id?: number | null
           first_name?: string
           id?: string
           last_name?: string
@@ -486,7 +486,7 @@ export type Database = {
           b2b_partner_name: string | null
           created_at: string | null
           email: string | null
-          employee_id: string | null
+          employee_id: number | null
           first_name: string | null
           gender: string | null
           id: string
@@ -505,7 +505,7 @@ export type Database = {
           b2b_partner_name?: string | null
           created_at?: string | null
           email?: string | null
-          employee_id?: string | null
+          employee_id?: number | null
           first_name?: string | null
           gender?: string | null
           id?: string
@@ -524,7 +524,7 @@ export type Database = {
           b2b_partner_name?: string | null
           created_at?: string | null
           email?: string | null
-          employee_id?: string | null
+          employee_id?: number | null
           first_name?: string | null
           gender?: string | null
           id?: string

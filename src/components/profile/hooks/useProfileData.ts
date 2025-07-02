@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
@@ -60,7 +59,7 @@ export const useProfileData = () => {
           job: data.job || '',
           jobSubtype: data.job_subtype || '',
           painArea: data.pain_area || '',
-          employerName: data.employer_name || ''
+          employerName: data.b2b_partner_name || ''
         });
 
         // If profile exists but email is missing, update it
