@@ -22,11 +22,13 @@ export const useProfileCompletion = () => {
   const checkProfileCompletion = async () => {
     if (!user) return;
 
+    console.log('Checking profile completion for user:', user.id);
     setIsCheckingProfile(true);
+    
     try {
       const { data, error } = await supabase
         .from('user_profiles')
-        .select('id')
+        .select('first_name, last_name, age, job')
         .eq('user_id', user.id)
         .single();
 
@@ -37,7 +39,27 @@ export const useProfileCompletion = () => {
 
       // If no profile exists or error (profile not found), show popup
       if (error && error.code === 'PGRST116') {
+        console.log('No profile found, showing popup');
         setShowProfilePopup(true);
+      } else if (data) {
+        // Check if required fields are filled
+        const hasRequiredFields = data.first_name && 
+                                 data.last_name && 
+                                 data.age && 
+                                 data.job;
+        
+        console.log('Profile exists, required fields check:', {
+          first_name: !!data.first_name,
+          last_name: !!data.last_name,
+          age: !!data.age,
+          job: !!data.job,
+          hasRequiredFields
+        });
+
+        if (!hasRequiredFields) {
+          console.log('Required fields missing, showing popup');
+          setShowProfilePopup(true);
+        }
       }
     } catch (error) {
       console.error('Error checking profile completion:', error);
@@ -48,6 +70,7 @@ export const useProfileCompletion = () => {
 
   const handleProfileCompleted = () => {
     localStorage.setItem(PROFILE_POPUP_SHOWN_KEY, 'true');
+    console.log('Profile completion confirmed');
     setShowProfilePopup(false);
   };
 
