@@ -1,4 +1,3 @@
-
 import { useAuth } from '@/contexts/AuthContext';
 import { useToast } from '@/hooks/use-toast';
 import { useAssessment, AssessmentStage } from '@/contexts/AssessmentContext';
@@ -19,6 +18,7 @@ const GeneralQuestionnaireHandler = () => {
     userInfo,
     setGeneralAnswers,
     setScores,
+    scores,
     setPrimaryMechanism,
     setSINGroup,
     setPrimaryDifferential,
@@ -263,7 +263,7 @@ const GeneralQuestionnaireHandler = () => {
       setPrimaryDifferential(primaryDifferential);
       
       // Create assessment results for shoulder
-      if (userInfo) {
+      if (userInfo && scores) {
         const shoulderUserInfo = {
           ...userInfo,
           painArea: 'upper limb' as const,
@@ -275,7 +275,7 @@ const GeneralQuestionnaireHandler = () => {
           'nociceptive',
           'mid SIN',
           primaryDifferential,
-          scores!
+          scores
         );
         
         console.log('✅ GeneralQuestionnaireHandler: Created shoulder nociceptive results:', assessmentResults);
