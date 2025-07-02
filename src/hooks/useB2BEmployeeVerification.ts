@@ -35,16 +35,26 @@ export const useB2BEmployeeVerification = () => {
         .ilike('b2b_partner_name', `%${query}%`)
         .limit(10);
 
+      const { data: testEmployees, error: testEmployeesError } = await supabase
+        .from('test_2_employees' as any)
+        .select('b2b_partner_name')
+        .ilike('b2b_partner_name', `%${query}%`)
+        .limit(10);
+
       if (partnersError) {
         console.error('Error searching partners:', partnersError);
       }
       if (employeesError) {
         console.error('Error searching employees:', employeesError);
       }
+      if (testEmployeesError) {
+        console.error('Error searching test employees:', testEmployeesError);
+      }
 
       const partnerNames = partners?.map(p => p.name) || [];
       const employeePartnerNames = employees?.map(e => e.b2b_partner_name) || [];
-      const allNames = [...new Set([...partnerNames, ...employeePartnerNames])];
+      const testEmployeeNames = testEmployees?.map(e => e.b2b_partner_name) || [];
+      const allNames = [...new Set([...partnerNames, ...employeePartnerNames, ...testEmployeeNames])];
       
       console.log('Found employers:', allNames);
       setEmployers(allNames);
@@ -92,18 +102,25 @@ export const useB2BEmployeeVerification = () => {
         employee_id: idToVerify
       });
 
-      const { data, error } = await supabase
-        .from('b2b_employees')
-        .select('*')
-        .eq('b2b_partner_name', nameToVerify)
-        .eq('employee_id', idToVerify);
+      const [{ data, error }, { data: testData, error: testError }] = await Promise.all([
+        supabase
+          .from('b2b_employees')
+          .select('*')
+          .eq('b2b_partner_name', nameToVerify)
+          .eq('employee_id', idToVerify),
+        supabase
+          .from('test_2_employees' as any)
+          .select('*')
+          .eq('b2b_partner_name', nameToVerify)
+          .eq('employee_id', idToVerify)
+      ]);
 
       console.log('Verification query executed');
-      console.log('Query result data:', data);
-      console.log('Query result error:', error);
+      console.log('Query result data:', data, testData);
+      console.log('Query result error:', error, testError);
 
-      if (error) {
-        console.error('Database error during verification:', error);
+      if (error && testError) {
+        console.error('Database error during verification:', error, testError);
         setIsEmployeeVerified(false);
         setVerifiedEmployeeRecord(null);
         toast({
@@ -113,8 +130,10 @@ export const useB2BEmployeeVerification = () => {
         });
         return;
       }
+      const record = data && data.length > 0 ? { entry: data[0], table: 'b2b_employees' } :
+        testData && testData.length > 0 ? { entry: testData[0], table: 'test_2_employees' } : null;
 
-      if (!data || data.length === 0) {
+      if (!record) {
         console.log('=== VERIFICATION FAILED ===');
         console.log('No matching employee found for:', { nameToVerify, idToVerify });
         setIsEmployeeVerified(false);
@@ -125,11 +144,11 @@ export const useB2BEmployeeVerification = () => {
           variant: "destructive",
         });
       } else {
-        const employeeRecord = data[0];
+        const employeeRecord = record.entry;
         console.log('=== VERIFICATION SUCCESSFUL ===');
         console.log('Employee verified successfully:', employeeRecord);
         setIsEmployeeVerified(true);
-        setVerifiedEmployeeRecord(employeeRecord);
+        setVerifiedEmployeeRecord({ ...employeeRecord, sourceTable: record.table });
         toast({
           title: "Overenie úspešné",
           description: `Údaje boli úspešne overené pre ${employeeRecord.first_name} ${employeeRecord.last_name}`,
@@ -165,9 +184,10 @@ export const useB2BEmployeeVerification = () => {
     });
     
     try {
+      const table = (verifiedEmployeeRecord as any).sourceTable || 'b2b_employees';
       const { error } = await supabase
-        .from('b2b_employees')
-        .update({ 
+        .from(table as any)
+        .update({
           email: userEmail,
           state: 'active'
         })

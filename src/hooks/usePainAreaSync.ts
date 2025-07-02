@@ -58,12 +58,20 @@ export const usePainAreaSync = () => {
           .eq('email', user.email)
           .maybeSingle();
 
-        console.log('👤 B2B employee data:', b2bEmployee);
+        const { data: testEmployee } = !b2bEmployee
+          ? await supabase
+              .from('test_2_employees' as any)
+              .select('id')
+              .eq('email', user.email)
+              .maybeSingle()
+          : { data: null };
+
+        console.log('👤 B2B employee data:', b2bEmployee || testEmployee);
 
         const { error: mskError } = await supabase
           .from('msk_profiles')
           .upsert({
-            b2b_eployee_id: b2bEmployee?.id || null,
+            b2b_eployee_id: b2bEmployee?.id || testEmployee?.id || null,
             pain_areas: painAreas,
           }, { onConflict: 'b2b_eployee_id' });
 

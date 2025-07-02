@@ -19,4 +19,5 @@ export interface B2BEmployeeData {
   employerName: string;
   employeeId: string;
   state?: string;
+  sourceTable?: string;
 }
