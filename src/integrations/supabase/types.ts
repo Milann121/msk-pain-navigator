@@ -15,7 +15,7 @@ export type Database = {
           b2b_partner_name: string
           created_at: string
           email: string | null
-          employee_id: string | null
+          employee_id: string
           first_name: string
           id: string
           last_name: string
@@ -27,7 +27,7 @@ export type Database = {
           b2b_partner_name: string
           created_at?: string
           email?: string | null
-          employee_id?: string | null
+          employee_id: string
           first_name: string
           id?: string
           last_name: string
@@ -39,7 +39,7 @@ export type Database = {
           b2b_partner_name?: string
           created_at?: string
           email?: string | null
-          employee_id?: string | null
+          employee_id?: string
           first_name?: string
           id?: string
           last_name?: string
@@ -59,60 +59,6 @@ export type Database = {
             columns: ["b2b_partner_name"]
             isOneToOne: false
             referencedRelation: "B2B_partners"
-            referencedColumns: ["name"]
-          },
-        ]
-      },
-      test_2_employees: {
-        Row: {
-          b2b_partner_id: number | null
-          b2b_partner_name: string
-          created_at: string
-          email: string | null
-          employee_id: string | null
-          first_name: string
-          id: string
-          last_name: string
-          state: string
-          updated_at: string
-        }
-        Insert: {
-          b2b_partner_id?: number | null
-          b2b_partner_name: string
-          created_at?: string
-          email?: string | null
-          employee_id?: string | null
-          first_name: string
-          id?: string
-          last_name: string
-          state?: string
-          updated_at?: string
-        }
-        Update: {
-          b2b_partner_id?: number | null
-          b2b_partner_name?: string
-          created_at?: string
-          email?: string | null
-          employee_id?: string | null
-          first_name?: string
-          id?: string
-          last_name?: string
-          state?: string
-          updated_at?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "test_2_employees_b2b_partner_id_fkey",
-            columns: ["b2b_partner_id"],
-            isOneToOne: false,
-            referencedRelation: "B2B_partners",
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "fk_test2_partner",
-            columns: ["b2b_partner_name"],
-            isOneToOne: false,
-            referencedRelation: "B2B_partners",
             referencedColumns: ["name"]
           },
         ]
@@ -466,6 +412,60 @@ export type Database = {
           updated_at?: string | null
         }
         Relationships: []
+      }
+      test_2_employees: {
+        Row: {
+          b2b_partner_id: number
+          b2b_partner_name: string
+          created_at: string
+          email: string | null
+          employee_id: string
+          first_name: string
+          id: string
+          last_name: string
+          state: string
+          updated_at: string
+        }
+        Insert: {
+          b2b_partner_id: number
+          b2b_partner_name: string
+          created_at?: string
+          email?: string | null
+          employee_id: string
+          first_name: string
+          id?: string
+          last_name: string
+          state?: string
+          updated_at?: string
+        }
+        Update: {
+          b2b_partner_id?: number
+          b2b_partner_name?: string
+          created_at?: string
+          email?: string | null
+          employee_id?: string
+          first_name?: string
+          id?: string
+          last_name?: string
+          state?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "test_2_employees_b2b_partner_id_fkey"
+            columns: ["b2b_partner_id"]
+            isOneToOne: false
+            referencedRelation: "B2B_partners"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "test_2_employees_b2b_partner_name_fkey"
+            columns: ["b2b_partner_name"]
+            isOneToOne: false
+            referencedRelation: "B2B_partners"
+            referencedColumns: ["name"]
+          },
+        ]
       }
       user_assessments: {
         Row: {
