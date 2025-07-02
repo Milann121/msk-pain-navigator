@@ -53,5 +53,9 @@
     "autoSaved": "✓ Results have been automatically saved. You can find them in the My Exercises section.",
     "saving": "Saving results...",
     "autoSaveFailed": "Automatic saving of results failed."
+  },
+  "emptyState": {
+    "noAssessments": "You don't have any saved assessments yet.",
+    "createNew": "Create New Assessment"
   }
 }

@@ -53,5 +53,9 @@
     "autoSaved": "✓ Výsledky byly automaticky uloženy. Můžete je najít v sekci Moje cvičení.",
     "saving": "Ukládám výsledky...",
     "autoSaveFailed": "Automatické ukládání výsledků selhalo."
+  },
+  "emptyState": {
+    "noAssessments": "Zatím nemáte žádná uložená hodnocení.",
+    "createNew": "Vytvořit nové hodnocení"
   }
 }

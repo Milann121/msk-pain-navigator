@@ -2,24 +2,24 @@
 {
   "loading": "Načítavam...",
   "bodyParts": {
-    "neck": "Krčná chrbtica",
-    "middle back": "Hrudná chrbtica",
-    "lower back": "Drieková chrbtica",
+    "neck": "Krk",
+    "middle back": "Stredný chrbát",
+    "lower back": "Spodný chrbát",
     "upper limb": "Horná končatina",
     "shoulder": "Rameno"
   },
   "painMechanisms": {
     "nociceptive": "Nociceptívna bolesť",
     "neuropathic": "Neuropatická bolesť",
-    "central": "Centrálna senzitivizácia",
+    "central": "Centrálna senzitizácia",
     "none": "Nedefinovaný mechanizmus bolesti",
     "red-flag": "Symptómy vyžadujúce lekársku starostlivosť"
   },
   "diagnoses": {
     "none": "Nebola identifikovaná žiadna špecifická diagnóza",
-    "disc herniation": "Hernia medzistavcovej platničky",
-    "facet joint syndrome": "Syndróm facetových kĺbov",
-    "SIJ syndrome": "Syndróm SI kĺbu",
+    "disc herniation": "Hernia disku",
+    "facet joint syndrome": "Syndróm fazetových kĺbov",
+    "SIJ syndrome": "SIJ syndróm",
     "muscle pain": "Svalová bolesť",
     "red-flag": "Symptómy vyžadujúce lekársku starostlivosť",
     "ventral spondylolisthesis": "Ventrálna spondylolistéza",
@@ -29,19 +29,19 @@
     "Radiculopathy": "Radikulopatia",
     "Central Sensitisation": "Centrálna senzitizácia",
     "Central Sensitisation - Allodynia": "Centrálna senzitizácia - Alodýnia",
-    "Central Sensitisation - Sensory Hypersensitivity": "Centrálna senzitizácia - Zmyslová precitlivenosť",
+    "Central Sensitisation - Sensory Hypersensitivity": "Centrálna senzitizácia - Zmyslová hypersenzitivita",
     "Central Sensitisation - Cognitive Symptoms": "Centrálna senzitizácia - Kognitívne symptómy",
     "cervical-radiculopathy": "Cervikálna radikulopatia",
     "frozen-shoulder": "Zmrznuté rameno",
-    "slap-tear": "Lézia labra",
-    "subacromial-impingement-syndrome": "Impingement syndróm ramena",
+    "slap-tear": "SLAP lézie",
+    "subacromial-impingement-syndrome": "Subakromiálny impingement syndróm",
     "stiff-shoulder": "Syndróm stuhnutého ramena",
-    "shoulder-bursa": "Burzitída",
-    "rotator-cuff-tear": "Porucha rotátorovej manžety",
-    "rotator-cuff-tendinopathy": "Porucha rotátorovej manžety",
-    "biceps-tendinopathy": "Porucha bicepsovej šľachy",
-    "biceps-tear-long-head": "Porucha bicepsovej šľachy",
-    "shoulder-dislocation": "Dislokácia ramena",
+    "shoulder-bursa": "Bursitída ramena",
+    "rotator-cuff-tear": "Trhnutie rotátorovej manžety",
+    "rotator-cuff-tendinopathy": "Tendinopatia rotátorovej manžety",
+    "biceps-tendinopathy": "Tendinopatia bicepsu",
+    "biceps-tear-long-head": "Trhnutie dlhej hlavy bicepsu",
+    "shoulder-dislocation": "Vykĺbenie ramena",
     "unstable-shoulder": "Nestabilné rameno",
     "labral-leason": "Lézia labra"
   },
@@ -53,5 +53,9 @@
     "autoSaved": "✓ Výsledky boli automaticky uložené. Môžete ich nájsť v sekcii Moje cvičenia.",
     "saving": "Ukladám výsledky...",
     "autoSaveFailed": "Automatické ukladanie výsledkov zlyhalo."
+  },
+  "emptyState": {
+    "noAssessments": "Zatiaľ nemáte žiadne uložené hodnotenia.",
+    "createNew": "Vytvoriť nové hodnotenie"
   }
 }
