@@ -67,6 +67,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     employerName: string;
     employeeId: string;
     b2bPartnerId: number | null;
+    sourceTable: string;
   } | null>(null);
 
   // Load B2B employee data if user email matches
@@ -82,17 +83,33 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
           .eq('email', user.email)
           .single();
 
-        if (error && error.code !== 'PGRST116') {
+        let record = data ? { entry: data, table: 'b2b_employees' } : null;
+
+        if ((!data || error?.code === 'PGRST116') && !error) {
+          const { data: testData, error: testError } = await supabase
+            .from('test_2_employees' as any)
+            .select('b2b_partner_name, employee_id, b2b_partner_id')
+            .eq('email', user.email)
+            .single();
+
+          if (!testError && testData) {
+            record = { entry: testData, table: 'test_2_employees' };
+          } else if (testError && testError.code !== 'PGRST116') {
+            console.error('Error loading B2B employee data:', testError);
+            return;
+          }
+        } else if (error && error.code !== 'PGRST116') {
           console.error('Error loading B2B employee data:', error);
           return;
         }
 
-        if (data) {
-          console.log('B2B employee data found:', data);
+        if (record) {
+          console.log('B2B employee data found:', record.entry);
           setB2bEmployeeData({
-            employerName: data.b2b_partner_name || '',
-            employeeId: data.employee_id || '',
-            b2bPartnerId: data.b2b_partner_id || null
+            employerName: record.entry.b2b_partner_name || '',
+            employeeId: record.entry.employee_id || '',
+            b2bPartnerId: record.entry.b2b_partner_id || null,
+            sourceTable: record.table
           });
         } else {
           console.log('No B2B employee data found for user');
@@ -314,8 +331,8 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
       if (b2bEmployeeData && user.email) {
         console.log('Updating B2B employee state to active');
         const { error: b2bUpdateError } = await supabase
-          .from('b2b_employees')
-          .update({ 
+          .from(b2bEmployeeData.sourceTable as any)
+          .update({
             state: 'active',
             email: user.email // Ensure email is set
           })
@@ -392,8 +409,8 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
       if (b2bEmployeeData && user.email) {
         console.log('Updating B2B employee state to active (skip goals)');
         const { error: b2bUpdateError } = await supabase
-          .from('b2b_employees')
-          .update({ 
+          .from(b2bEmployeeData.sourceTable as any)
+          .update({
             state: 'active',
             email: user.email // Ensure email is set
           })
