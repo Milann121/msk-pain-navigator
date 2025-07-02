@@ -97,13 +97,13 @@ export const useProfileData = () => {
 
       if ((!data || error?.code === 'PGRST116') && !error) {
         const { data: testData, error: testError } = await supabase
-          .from('test_2_employees' as any)
+          .from('test_2_employees')
           .select('b2b_partner_name, employee_id, state')
           .eq('email', user.email)
           .single();
 
         if (!testError && testData) {
-          record = { entry: testData, table: 'test_2_employees' };
+          record = { entry: testData as any, table: 'test_2_employees' };
         } else if (testError && testError.code !== 'PGRST116') {
           console.error('Error loading B2B employee data:', testError);
           return;
@@ -115,13 +115,13 @@ export const useProfileData = () => {
 
       if (record) {
         setB2bData({
-          employerName: record.entry.b2b_partner_name || '',
-          employeeId: record.entry.employee_id || '',
-          state: record.entry.state || 'inactive',
+          employerName: (record.entry as any).b2b_partner_name || '',
+          employeeId: (record.entry as any).employee_id || '',
+          state: (record.entry as any).state || 'inactive',
           sourceTable: record.table
         });
 
-        if (record.entry.state === 'inactive') {
+        if ((record.entry as any).state === 'inactive') {
           await checkAndUpdateB2BEmployeeState(record.table);
         }
       }
@@ -146,18 +146,28 @@ export const useProfileData = () => {
       // If user has a profile, update B2B employee state to active
       if (profileData && !profileError) {
         const targetTable = table || b2bData.sourceTable || 'b2b_employees';
-        const { error: updateError } = await supabase
-          .from(targetTable as any)
-          .update({ state: 'active' })
-          .eq('email', user.email);
-
-        if (updateError) {
-          console.error('Error updating B2B employee state:', updateError);
+        if (targetTable === 'test_2_employees') {
+          const { error: updateError } = await supabase
+            .from('test_2_employees')
+            .update({ state: 'active' })
+            .eq('email', user.email);
+          if (updateError) {
+            console.error('Error updating B2B employee state:', updateError);
+          }
         } else {
-          console.log('B2B employee state updated to active');
-          // Update local state
-          setB2bData(prev => ({ ...prev, state: 'active' }));
+          const { error: updateError } = await supabase
+            .from('b2b_employees')
+            .update({ state: 'active' })
+            .eq('email', user.email);
+          if (updateError) {
+            console.error('Error updating B2B employee state:', updateError);
+          }
         }
+
+        
+        console.log('B2B employee state updated to active');
+        // Update local state
+        setB2bData(prev => ({ ...prev, state: 'active' }));
       }
     } catch (error) {
       console.error('Error checking and updating B2B employee state:', error);

@@ -36,7 +36,7 @@ export const useB2BEmployeeVerification = () => {
         .limit(10);
 
       const { data: testEmployees, error: testEmployeesError } = await supabase
-        .from('test_2_employees' as any)
+        .from('test_2_employees')
         .select('b2b_partner_name')
         .ilike('b2b_partner_name', `%${query}%`)
         .limit(10);
@@ -53,7 +53,7 @@ export const useB2BEmployeeVerification = () => {
 
       const partnerNames = partners?.map(p => p.name) || [];
       const employeePartnerNames = employees?.map(e => e.b2b_partner_name) || [];
-      const testEmployeeNames = testEmployees?.map(e => e.b2b_partner_name) || [];
+      const testEmployeeNames = testEmployees?.map((e: any) => e.b2b_partner_name) || [];
       const allNames = [...new Set([...partnerNames, ...employeePartnerNames, ...testEmployeeNames])];
       
       console.log('Found employers:', allNames);
@@ -109,7 +109,7 @@ export const useB2BEmployeeVerification = () => {
           .eq('b2b_partner_name', nameToVerify)
           .eq('employee_id', idToVerify),
         supabase
-          .from('test_2_employees' as any)
+          .from('test_2_employees')
           .select('*')
           .eq('b2b_partner_name', nameToVerify)
           .eq('employee_id', idToVerify)
@@ -148,10 +148,10 @@ export const useB2BEmployeeVerification = () => {
         console.log('=== VERIFICATION SUCCESSFUL ===');
         console.log('Employee verified successfully:', employeeRecord);
         setIsEmployeeVerified(true);
-        setVerifiedEmployeeRecord({ ...employeeRecord, sourceTable: record.table });
+        setVerifiedEmployeeRecord({ ...(employeeRecord as any), sourceTable: record.table });
         toast({
           title: "Overenie úspešné",
-          description: `Údaje boli úspešne overené pre ${employeeRecord.first_name} ${employeeRecord.last_name}`,
+          description: `Údaje boli úspešne overené pre ${(employeeRecord as any).first_name} ${(employeeRecord as any).last_name}`,
         });
       }
     } catch (error) {
@@ -185,26 +185,33 @@ export const useB2BEmployeeVerification = () => {
     
     try {
       const table = (verifiedEmployeeRecord as any).sourceTable || 'b2b_employees';
-      const { error } = await supabase
-        .from(table as any)
-        .update({
-          email: userEmail,
-          state: 'active'
-        })
-        .eq('id', verifiedEmployeeRecord.id);
-
-      if (error) {
-        console.error('Error updating employee email and status:', error);
-        toast({
-          title: "Upozornenie",
-          description: "Registrácia bola úspešná, ale nepodarilo sa aktualizovať záznam zamestnanca",
-          variant: "destructive",
-        });
+      if (table === 'test_2_employees') {
+        const { error } = await supabase
+          .from('test_2_employees')
+          .update({
+            email: userEmail,
+            state: 'active'
+          })
+          .eq('id', verifiedEmployeeRecord.id);
+        if (error) {
+          console.error('Error updating employee email and status:', error);
+        }
       } else {
-        console.log('Employee email and status updated successfully to active');
-        // Update the local state to reflect the change
-        setVerifiedEmployeeRecord(prev => prev ? { ...prev, email: userEmail, state: 'active' } : null);
+        const { error } = await supabase
+          .from('b2b_employees')
+          .update({
+            email: userEmail,
+            state: 'active'
+          })
+          .eq('id', verifiedEmployeeRecord.id);
+        if (error) {
+          console.error('Error updating employee email and status:', error);
+        }
       }
+
+      console.log('Employee email and status updated successfully to active');
+      // Update the local state to reflect the change
+      setVerifiedEmployeeRecord(prev => prev ? { ...prev, email: userEmail, state: 'active' } : null);
     } catch (error) {
       console.error('Error updating employee record:', error);
     }
