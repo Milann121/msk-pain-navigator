@@ -11,7 +11,6 @@ export const neckPainConnectionQuestion: Question = {
       id: 'yes-neck-pain',
       text: 'questionnaire.upperLimbGeneral.options.yesNo.yes',
       mechanisms: ["nociceptive", "neuropathic"],
-      redirectTo: 'upper-limb-neck-questions',
       followUp: [
         {
           id: 'neck-movement-causes-pain',
@@ -63,7 +62,8 @@ export const neckPainConnectionQuestion: Question = {
             {
               id: 'no-neck-movement',
               text: 'questionnaire.upperLimbGeneral.options.yesNo.no',
-              mechanisms: ["nociceptive"],              
+              mechanisms: ["nociceptive"],
+              redirectTo: 'shoulder-nociceptive'
             }
           ]
         }
