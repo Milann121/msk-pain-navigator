@@ -134,9 +134,9 @@
       },
       "notVisited": "Ještě jsem nenavštívil/a lékaře",
       "intensityIncrease": {
-        "significantly": "Výrazně (stane se mnohem horší)",
-        "moderately": "Středně (stane se výrazně horší)",
-        "minimally": "Minimálně (stane se mírně horší)"
+        "significantly": "Výrazně",
+        "moderately": "Středně",
+        "minimally": "Minimálně"
       },
       "onsetTiming": {
         "immediately": "Okamžitě (během pohybu)",
