@@ -134,9 +134,9 @@
       },
       "notVisited": "Ešte som nenavštívil/a lekára",
       "intensityIncrease": {
-        "significantly": "Výrazne (stane sa oveľa horšou)",
-        "moderately": "Stredne (stane sa výrazne horšou)",
-        "minimally": "Minimálne (stane sa mierne horšou)"
+        "significantly": "Výrazne",
+        "moderately": "Stredne",
+        "minimally": "Minimálne"
       },
       "onsetTiming": {
         "immediately": "Okamžite (počas pohybu)",
