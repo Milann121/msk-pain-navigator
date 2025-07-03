@@ -134,9 +134,9 @@
       },
       "notVisited": "Haven't visited a doctor yet",
       "intensityIncrease": {
-        "significantly": "Significantly (becomes much worse)",
-        "moderately": "Moderately (becomes noticeably worse)",
-        "minimally": "Minimally (becomes slightly worse)"
+        "significantly": "Significantly",
+        "moderately": "Moderately",
+        "minimally": "Minimally"
       },
       "onsetTiming": {
         "immediately": "Immediately (during the movement)",
