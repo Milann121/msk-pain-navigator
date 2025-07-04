@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { UserAssessment } from "@/components/follow-up/types";
+import { useMskProfileManager } from "@/hooks/useMskProfileManager";
 
 export function useProgramEndRenew(
   assessment: UserAssessment,
@@ -14,6 +15,7 @@ export function useProgramEndRenew(
   const [loadingEnd, setLoadingEnd] = useState(false);
   const [loadingRenew, setLoadingRenew] = useState(false);
   const [justEnded, setJustEnded] = useState(false);
+  const { syncMskProfile } = useMskProfileManager();
 
   // Listen for prop changes to program_ended_at and reset local justEnded if external state changes
   useEffect(() => {
@@ -40,6 +42,8 @@ export function useProgramEndRenew(
       .update({ program_ended_at: now.toISOString() })
       .eq('id', assessment.id);
     if (!error) {
+      // Sync MSK profile after program end
+      await syncMskProfile();
       if (onEndProgram) onEndProgram();
     }
     setLoadingEnd(false);
@@ -54,6 +58,8 @@ export function useProgramEndRenew(
       .update({ program_ended_at: null })
       .eq('id', assessment.id);
     if (!error) {
+      // Sync MSK profile after program renewal
+      await syncMskProfile();
       if (onRenew) onRenew();
     }
     setLoadingRenew(false);

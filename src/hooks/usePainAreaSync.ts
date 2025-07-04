@@ -72,11 +72,11 @@ export const usePainAreaSync = () => {
           .from('msk_profiles')
           .upsert(
             {
-              b2b_eployee_id:
+              b2b_employee_id:
                 (b2bEmployee as any)?.id || (testEmployee as any)?.id || null,
-              pain_area: painAreas.join(', ') || null,
+              pain_areas: [painAreas.join(', ') || null],
             },
-            { onConflict: 'b2b_eployee_id' }
+            { onConflict: 'b2b_employee_id' }
           );
 
         if (mskError) {

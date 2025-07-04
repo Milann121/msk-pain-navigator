@@ -5,6 +5,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { AssessmentResults } from '@/utils/types';
+import { useMskProfileManager } from '@/hooks/useMskProfileManager';
 
 interface SaveResultsManagerProps {
   results: AssessmentResults;
@@ -24,6 +25,7 @@ const SaveResultsManager = ({
   const { t } = useTranslation();
   const [isSaving, setIsSaving] = useState(false);
   const { userInfo, primaryMechanism, sinGroup, primaryDifferential } = results;
+  const { syncMskProfile } = useMskProfileManager();
 
   const saveResultsToDatabase = async () => {
     // Skip saving if we already have an assessment ID or if it's already saved
@@ -45,6 +47,9 @@ const SaveResultsManager = ({
         ]);
         
       if (error) throw error;
+      
+      // Sync MSK profile after successful assessment save
+      await syncMskProfile();
       
       setAssessmentSaved(true);
       toast({

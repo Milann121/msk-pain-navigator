@@ -71,7 +71,7 @@ export type Database = {
         }
         Insert: {
           created_at?: string
-          id?: number
+          id: number
           name: string
         }
         Update: {
@@ -302,18 +302,21 @@ export type Database = {
         Row: {
           b2b_partner: number | null
           email: string
+          "full name": string | null
           id: string
           password_hash: string | null
         }
         Insert: {
           b2b_partner?: number | null
           email: string
+          "full name"?: string | null
           id?: string
           password_hash?: string | null
         }
         Update: {
           b2b_partner?: number | null
           email?: string
+          "full name"?: string | null
           id?: string
           password_hash?: string | null
         }
@@ -356,33 +359,36 @@ export type Database = {
       }
       msk_profiles: {
         Row: {
-          b2b_eployee_id: string | null
+          b2b_employee_id: string | null
           created_at: string
           id: string
           pain_areas: Json | null
-          pain_level_followup: number | null
+          pain_level_improvement: number | null
           pain_level_initial: number | null
+          resolved_bodyarea: Json | null
         }
         Insert: {
-          b2b_eployee_id?: string | null
+          b2b_employee_id?: string | null
           created_at?: string
           id?: string
           pain_areas?: Json | null
-          pain_level_followup?: number | null
+          pain_level_improvement?: number | null
           pain_level_initial?: number | null
+          resolved_bodyarea?: Json | null
         }
         Update: {
-          b2b_eployee_id?: string | null
+          b2b_employee_id?: string | null
           created_at?: string
           id?: string
           pain_areas?: Json | null
-          pain_level_followup?: number | null
+          pain_level_improvement?: number | null
           pain_level_initial?: number | null
+          resolved_bodyarea?: Json | null
         }
         Relationships: [
           {
-            foreignKeyName: "msk_profiles_b2b_eployee_id_fkey"
-            columns: ["b2b_eployee_id"]
+            foreignKeyName: "msk_profiles_b2b_employee_id_fkey"
+            columns: ["b2b_employee_id"]
             isOneToOne: false
             referencedRelation: "b2b_employees"
             referencedColumns: ["id"]
@@ -598,6 +604,13 @@ export type Database = {
             isOneToOne: false
             referencedRelation: "B2B_partners"
             referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "user_profiles_employee_id_fkey"
+            columns: ["employee_id"]
+            isOneToOne: false
+            referencedRelation: "b2b_employees"
+            referencedColumns: ["employee_id"]
           },
         ]
       }

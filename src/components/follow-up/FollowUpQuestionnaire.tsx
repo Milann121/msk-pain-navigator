@@ -10,6 +10,7 @@ import QuestionRenderer from './QuestionRenderer';
 import { placeholderQuestions } from './PlaceholderQuestions';
 import { UserAssessment } from './types';
 import { safeDatabase, FollowUpResponse } from '@/utils/database-helpers';
+import { useMskProfileManager } from '@/hooks/useMskProfileManager';
 
 // Add import for icon arrows
 import { ArrowUp, ArrowDown } from "lucide-react";
@@ -27,6 +28,7 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, any>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { syncMskProfile } = useMskProfileManager();
 
   // Get questions for the mechanism, default to nociceptive
   const fullQuestions = placeholderQuestions[assessment.primary_mechanism] || placeholderQuestions.nociceptive;
@@ -94,6 +96,9 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
       const { error } = await safeDatabase.followUpResponses.insert(responseData);
 
       if (error) throw error;
+
+      // Sync MSK profile after follow-up response
+      await syncMskProfile();
 
       toast({
         title: t('questionnaire.followUp.progressRecorded'),
