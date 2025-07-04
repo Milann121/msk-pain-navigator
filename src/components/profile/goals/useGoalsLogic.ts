@@ -46,9 +46,9 @@ export const useGoalsLogic = ({
         if (data) {
           data.forEach(goal => {
             if (goal.goal_type === 'weekly_exercise') {
-              setWeeklyExerciseGoal(goal.goal_value);
+              setWeeklyExerciseGoal(goal.weekly_exercises_goal);
             } else if (goal.goal_type === 'weekly_blog') {
-              setWeeklyBlogGoal(goal.goal_value);
+              setWeeklyBlogGoal(goal.weekly_exercises_goal);
             }
           });
         }
@@ -103,7 +103,7 @@ export const useGoalsLogic = ({
         const { error: updateError } = await supabase
           .from('user_goals')
           .update({
-            goal_value: value,
+            weekly_exercises_goal: value,
             updated_at: new Date().toISOString()
           })
           .eq('id', existingGoal.id);
@@ -116,7 +116,7 @@ export const useGoalsLogic = ({
           .insert({
             user_id: user.id,
             goal_type: goalType,
-            goal_value: value
+            weekly_exercises_goal: value
           });
 
         if (insertError) throw insertError;

@@ -212,7 +212,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
           .insert({
             user_id: user.id,
             goal_type: goalType,
-            goal_value: value
+            weekly_exercises_goal: value
           });
 
         if (insertError) {

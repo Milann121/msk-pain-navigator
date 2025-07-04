@@ -73,7 +73,7 @@ export const ExerciseCalendar = ({ assessmentId }: ExerciseCalendarProps) => {
       try {
         const { data, error } = await supabase
           .from('user_goals')
-          .select('goal_value, created_at')
+          .select('weekly_exercises_goal, created_at')
           .eq('user_id', user.id)
           .eq('goal_type', 'weekly_exercise')
           .single();
@@ -83,7 +83,7 @@ export const ExerciseCalendar = ({ assessmentId }: ExerciseCalendarProps) => {
           setWeeklyGoal(0);
           setGoalCreatedAt(undefined);
         } else {
-          setWeeklyGoal(data?.goal_value || 0);
+          setWeeklyGoal(data?.weekly_exercises_goal || 0);
           setGoalCreatedAt(data?.created_at || undefined);
         }
       } catch (error) {

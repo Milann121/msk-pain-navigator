@@ -39,9 +39,9 @@ const Domov = () => {
         if (data) {
           data.forEach(goal => {
             if (goal.goal_type === 'weekly_exercise') {
-              setWeeklyExerciseGoal(goal.goal_value);
+              setWeeklyExerciseGoal(goal.weekly_exercises_goal);
             } else if (goal.goal_type === 'weekly_blog') {
-              setWeeklyBlogGoal(goal.goal_value);
+              setWeeklyBlogGoal(goal.weekly_exercises_goal);
             }
           });
         }
