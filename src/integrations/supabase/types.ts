@@ -625,6 +625,8 @@ export type Database = {
           id: string
           initial_pain_level: number | null
           pain_area: string
+          pain_level_ended: number | null
+          pain_level_followup: number | null
           primary_differential: string
           primary_mechanism: string
           program_deleted_at: string | null
@@ -642,6 +644,8 @@ export type Database = {
           id?: string
           initial_pain_level?: number | null
           pain_area: string
+          pain_level_ended?: number | null
+          pain_level_followup?: number | null
           primary_differential: string
           primary_mechanism: string
           program_deleted_at?: string | null
@@ -659,6 +663,8 @@ export type Database = {
           id?: string
           initial_pain_level?: number | null
           pain_area?: string
+          pain_level_ended?: number | null
+          pain_level_followup?: number | null
           primary_differential?: string
           primary_mechanism?: string
           program_deleted_at?: string | null

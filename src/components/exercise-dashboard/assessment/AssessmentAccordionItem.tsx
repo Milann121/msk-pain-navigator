@@ -13,6 +13,7 @@ import { ArrowUp, ArrowDown } from "lucide-react";
 import { useLatestPainLevel } from "./useLatestPainLevel";
 import { useProgramEndRenew } from "./useProgramEndRenew";
 import { AssessmentProgramControls } from "./AssessmentProgramControls";
+import { ProgramEndingDialog } from "@/components/follow-up/ProgramEndingDialog";
 import { useTranslation } from "react-i18next";
 
 interface AssessmentAccordionItemProps {
@@ -45,8 +46,11 @@ export const AssessmentAccordionItem = ({
     isEnded,
     loadingEnd,
     loadingRenew,
+    showEndingQuestionnaire,
     handleEndProgram,
-    handleRenewProgram
+    handleRenewProgram,
+    handleEndingQuestionnaireComplete,
+    handleCloseEndingQuestionnaire
   } = useProgramEndRenew(assessment, 
       // This handler will run when program is ended; ensure UI moves item immediately
       () => {
@@ -117,6 +121,14 @@ export const AssessmentAccordionItem = ({
           handleViewExercises={handleViewExercises}
         />
       </AccordionContent>
+      
+      {/* Program Ending Questionnaire Dialog */}
+      <ProgramEndingDialog
+        isOpen={showEndingQuestionnaire}
+        onOpenChange={handleCloseEndingQuestionnaire}
+        selectedAssessment={assessment}
+        onComplete={handleEndingQuestionnaireComplete}
+      />
     </AccordionItem>
   );
 };

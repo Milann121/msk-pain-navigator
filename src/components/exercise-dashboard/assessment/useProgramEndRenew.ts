@@ -15,6 +15,7 @@ export function useProgramEndRenew(
   const [loadingEnd, setLoadingEnd] = useState(false);
   const [loadingRenew, setLoadingRenew] = useState(false);
   const [justEnded, setJustEnded] = useState(false);
+  const [showEndingQuestionnaire, setShowEndingQuestionnaire] = useState(false);
   const { syncMskProfile } = useMskProfileManager();
 
   // Listen for prop changes to program_ended_at and reset local justEnded if external state changes
@@ -32,6 +33,11 @@ export function useProgramEndRenew(
   }, [assessment.program_ended_at]);
 
   const handleEndProgram = async () => {
+    // Show the ending questionnaire instead of ending immediately
+    setShowEndingQuestionnaire(true);
+  };
+
+  const handleEndProgramAfterQuestionnaire = async () => {
     setLoadingEnd(true);
     setJustEnded(true); // Provide instant feedback to UI!
     const now = new Date();
@@ -47,6 +53,7 @@ export function useProgramEndRenew(
       if (onEndProgram) onEndProgram();
     }
     setLoadingEnd(false);
+    setShowEndingQuestionnaire(false);
   };
 
   const handleRenewProgram = async () => {
@@ -65,6 +72,14 @@ export function useProgramEndRenew(
     setLoadingRenew(false);
   };
 
+  const handleEndingQuestionnaireComplete = () => {
+    handleEndProgramAfterQuestionnaire();
+  };
+
+  const handleCloseEndingQuestionnaire = () => {
+    setShowEndingQuestionnaire(false);
+  };
+
   // The program should be considered "ended" if either endedAt or justEnded is truthy
   const isEnded = !!programEndedAt || justEnded;
 
@@ -74,7 +89,10 @@ export function useProgramEndRenew(
     justEnded,
     loadingEnd,
     loadingRenew,
+    showEndingQuestionnaire,
     handleEndProgram,
     handleRenewProgram,
+    handleEndingQuestionnaireComplete,
+    handleCloseEndingQuestionnaire,
   };
 }

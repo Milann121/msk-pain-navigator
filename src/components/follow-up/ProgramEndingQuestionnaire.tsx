@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
@@ -11,17 +10,14 @@ import { placeholderQuestions } from './PlaceholderQuestions';
 import { UserAssessment } from './types';
 import { safeDatabase, FollowUpResponse } from '@/utils/database-helpers';
 import { useMskProfileManager } from '@/hooks/useMskProfileManager';
-
-// Add import for icon arrows
-import { ArrowUp, ArrowDown } from "lucide-react";
 import { useTranslation } from 'react-i18next';
 
-interface FollowUpQuestionnaireProps {
+interface ProgramEndingQuestionnaireProps {
   assessment: UserAssessment;
   onComplete: () => void;
 }
 
-const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaireProps) => {
+const ProgramEndingQuestionnaire = ({ assessment, onComplete }: ProgramEndingQuestionnaireProps) => {
   const { toast } = useToast();
   const { user } = useAuth();
   const { t } = useTranslation();
@@ -77,44 +73,45 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
     }
   };
 
-  // Save latest pain-level-change for assessment+user as the most recent
+  // Save program ending questionnaire
   const handleSubmit = async () => {
     if (!user) return;
 
     setIsSubmitting(true);
     try {
-      const painLevel = answers['pain-level-change'] !== undefined ? answers['pain-level-change'] : 0;
+      const painLevelEnded = answers['pain-level-change'] !== undefined ? answers['pain-level-change'] : 0;
 
-      // Prepare data for submission
+      // Save follow-up response with program ending context
       const responseData: FollowUpResponse = {
         user_id: user.id,
         assessment_id: assessment.id,
-        pain_level: painLevel,
-        responses: answers
+        pain_level: painLevelEnded,
+        responses: { ...answers, questionnaire_type: 'program_ending' }
       };
 
-      // Save follow-up response
-      const { error } = await safeDatabase.followUpResponses.insert(responseData);
-      if (error) throw error;
+      const { error: followUpError } = await safeDatabase.followUpResponses.insert(responseData);
+      if (followUpError) throw followUpError;
 
-      // Update user_program_tracking with pain_level_followup
-      await supabase
+      // Update user_program_tracking with pain_level_ended
+      const { error: updateError } = await supabase
         .from('user_program_tracking')
-        .update({ pain_level_followup: painLevel })
+        .update({ pain_level_ended: painLevelEnded })
         .eq('assessment_id', assessment.id)
         .eq('user_id', user.id);
 
-      // Sync MSK profile after follow-up response
+      if (updateError) throw updateError;
+
+      // Sync MSK profile after program ending assessment
       await syncMskProfile();
 
       toast({
-        title: t('questionnaire.followUp.progressRecorded'),
-        description: t('questionnaire.followUp.responsesSaved'),
+        title: t('questionnaire.programEnding.assessmentRecorded'),
+        description: t('questionnaire.programEnding.responsesSaved'),
       });
 
       onComplete();
     } catch (error) {
-      console.error('Error saving follow-up questionnaire:', error);
+      console.error('Error saving program ending questionnaire:', error);
       toast({
         title: t('goals.errorTitle'),
         description: t('goals.error'),
@@ -131,9 +128,15 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
     <Card>
       <CardContent className="pt-6">
         <div className="mb-6">
+          <h2 className="text-xl font-semibold text-blue-700 mb-2">
+            {t('questionnaire.programEnding.title')}
+          </h2>
+          <p className="text-gray-600 mb-4">
+            {t('questionnaire.programEnding.description')}
+          </p>
           <Progress value={progress} className="h-2" />
           <p className="text-sm text-gray-500 mt-1">
-            {t('misc.questionNumber', { current: currentQuestionIndex + 1, total: questions.length })}
+            {t('questionnaire.programEnding.questionNumber', { current: currentQuestionIndex + 1, total: questions.length })}
           </p>
         </div>
         <div className="space-y-6">
@@ -151,7 +154,7 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
           onClick={handleBack}
           disabled={currentQuestionIndex === 0 || isSubmitting}
         >
-          {t('misc.navigation.back')}
+          {t('questionnaire.programEnding.navigation.back')}
         </Button>
         <Button
           onClick={handleNext}
@@ -159,12 +162,12 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
           className="bg-blue-600 hover:bg-blue-700"
         >
           {currentQuestionIndex < questions.length - 1
-            ? t('misc.navigation.next')
-            : t('misc.navigation.finish')}
+            ? t('questionnaire.programEnding.navigation.next')
+            : t('questionnaire.programEnding.navigation.finish')}
         </Button>
       </CardFooter>
     </Card>
   );
 };
 
-export default FollowUpQuestionnaire;
+export default ProgramEndingQuestionnaire;

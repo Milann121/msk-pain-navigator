@@ -98,6 +98,102 @@
       "finish": "Dokončit"
     }
   },
+  "programEnding": {
+    "title": "Hodnocení dokončení programu",
+    "description": "Prosím odpovězte na několik otázek o vašich zkušenostech s programem.",
+    "assessmentRecorded": "Hodnocení programu dokončeno!",
+    "responsesSaved": "Vaše odpovědi na dokončení programu byly úspěšně uloženy.",
+    "questionNumber": "Otázka {{current}} z {{total}}",
+    "back": "Zpět",
+    "next": "Dále",
+    "finish": "Dokončit",
+    "questions": {
+      "painLevelChange": "Jak bys hodnotil/a svou bolesť ve srovnání se začátkem programu?",
+      "painNatureChanged": "Změnila se povaha tvé bolesti od začátku programu?",
+      "painNatureDescription": "Jak se změnila povaha tvé bolesti?",
+      "painSpreading": "Rozšířila se tvá bolesť do nových oblastí během programu?",
+      "newPainArea": "Do kterých nových oblastí se bolesť rozšířila?",
+      "exerciseEffectiveness": "Jak účinná byla cvičení na zmírnění tvé bolesti?",
+      "exerciseCompliance": "Jak často jsi dodržoval/a doporučený plán cvičení?",
+      "painTriggers": "Změnily se faktory, které vyvolávají tvou bolesť během programu?",
+      "painReliefFactors": "Změnily se faktory, které zmírňují tvou bolesť během programu?",
+      "overallImprovement": "Jak hodnotíš celkové zlepšení tvého stavu po programu?",
+      "medicationUse": "Stále používáš léky na bolesť?",
+      "medicationEffectiveness": "Jak účinné jsou nyní tvé léky na bolesť?",
+      "sleepQuality": "Jak nyní bolesť ovlivňuje kvalitu tvého spánku?",
+      "dailyActivities": "Jak nyní bolesť ovlivňuje tvé každodenní aktivity?",
+      "workImpact": "Jak nyní bolesť ovlivňuje tvou práci nebo studium?",
+      "moodImpact": "Jak nyní bolesť ovlivňuje tvou náladu?",
+      "socialImpact": "Jak nyní bolesť ovlivňuje tvé sociální aktivity?",
+      "treatmentSatisfaction": "Jak jsi celkově spokojen/á s programem léčby?",
+      "overallFeel": "Jak se celkově cítíš po dokončení programu?",
+      "nerveSymptoms": "Změnily se příznaky mravenčení nebo necitlivosti během programu?",
+      "sensitivityChange": "Změnila se citlivost na dotyk, světlo nebo zvuky?"
+    },
+    "descriptions": {
+      "painLevelChange": "Ohodnoť aktuální intenzitu bolesti na stupnici 0 (žádná bolesť) až 10 (nejhorší představitelná bolesť) ve srovnání se začátkem."
+    },
+    "options": {
+      "painLevel": {
+        "muchBetter": "Výrazně lepší",
+        "better": "Lepší",
+        "same": "Stejná",
+        "worse": "Horší",
+        "muchWorse": "Výrazně horší"
+      },
+      "yesNo": {
+        "yes": "Ano",
+        "no": "Ne"
+      },
+      "overallFeel": {
+        "better": "Lepší",
+        "same": "Stejná",
+        "worse": "Horší"
+      },
+      "painNatureDescription": {
+        "burning": "Pálení",
+        "shooting": "Vystřelování",
+        "dull": "Tupá",
+        "pins-needles": "Mravenčení",
+        "numbness": "Necitlivost",
+        "toothache-like": "Jako bolesť zubu",
+        "diffuse": "Difuzní",
+        "stiffness": "Ztuhlost",
+        "changes": "Mění se"
+      },
+      "newPainArea": {
+        "upper-limb-elbow-up": "Horní končetina – po loket",
+        "upper-limb-below-elbow": "Horní končetina – pod loket",
+        "upper-limb-hand-fingers": "Horní končetina – až do ruky/prstů",
+        "lower-limb-buttock": "Dolní končetina – v sedací oblasti",
+        "lower-limb-knee-up": "Dolní končetina – po koleno",
+        "lower-limb-below-knee": "Dolní končetina – pod koleno",
+        "lower-limb-feet-fingers": "Dolní končetina – až do chodidla/prstů",
+        "chest": "Hrudník",
+        "head": "Hlava",
+        "face": "Tvář"
+      },
+      "nerveSymptoms": {
+        "improved": "Zlepšily se",
+        "unchanged": "Bez změny",
+        "worse": "Zhoršily se"
+      },
+      "sensitivityChange": {
+        "less-sensitive": "Méně citlivý/á",
+        "same": "Stejně",
+        "more-sensitive": "Více citlivý/á"
+      }
+    },
+    "painScale": {
+      "noPain": "Žádná bolesť",
+      "worstPain": "Nejhorší bolesť"
+    },
+    "navigation": {
+      "back": "Zpět",
+      "next": "Dále",
+      "finish": "Dokončit"
+    }
+  },
   "general": {
     "title": "Základní hodnocení bolesti",
     "description": "Tento dotazník nám pomůže lépe pochopit tvou bolest.",
