@@ -622,6 +622,7 @@ export type Database = {
           assessment_id: string
           b2b_employee_id: string | null
           created_at: string
+          exercise_goal_completion: number[] | null
           id: string
           initial_pain_level: number | null
           pain_area: string
@@ -641,6 +642,7 @@ export type Database = {
           assessment_id: string
           b2b_employee_id?: string | null
           created_at?: string
+          exercise_goal_completion?: number[] | null
           id?: string
           initial_pain_level?: number | null
           pain_area: string
@@ -660,6 +662,7 @@ export type Database = {
           assessment_id?: string
           b2b_employee_id?: string | null
           created_at?: string
+          exercise_goal_completion?: number[] | null
           id?: string
           initial_pain_level?: number | null
           pain_area?: string
@@ -724,6 +727,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      calculate_exercise_goal_completion: {
+        Args: { target_user_id: string; target_month: string }
+        Returns: number[]
+      }
       get_latest_pain_level: {
         Args: { assessment_id_param: string; user_id_param: string }
         Returns: {
@@ -749,6 +756,14 @@ export type Database = {
       is_hr_manager: {
         Args: { user_id: string }
         Returns: boolean
+      }
+      update_all_exercise_goal_completions: {
+        Args: { target_month?: string }
+        Returns: undefined
+      }
+      update_exercise_goal_completion: {
+        Args: { target_user_id: string; target_month?: string }
+        Returns: undefined
       }
     }
     Enums: {
