@@ -58,7 +58,7 @@ export const useProfileData = () => {
           email: data.email || user.email || '',
           gender: data.gender || 'Muž',
           age: data.age || 30,
-          departmentId: data.user_department || data.department_id || '',
+          departmentId: data.department_id || '',
           jobType: data.job_type || '',
           jobProperties: data.job_properties || [],
           painArea: data.pain_area || '',

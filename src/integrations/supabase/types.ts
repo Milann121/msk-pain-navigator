@@ -716,6 +716,13 @@ export type Database = {
             referencedColumns: ["id"]
           },
           {
+            foreignKeyName: "user_profiles_b2b_partner_name_fkey"
+            columns: ["b2b_partner_name"]
+            isOneToOne: false
+            referencedRelation: "B2B_partners"
+            referencedColumns: ["name"]
+          },
+          {
             foreignKeyName: "user_profiles_department_id_fkey"
             columns: ["department_id"]
             isOneToOne: false

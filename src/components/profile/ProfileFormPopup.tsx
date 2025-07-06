@@ -292,10 +292,6 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     // Immediately close the banner so the user returns to the profile page
     onClose();
     try {
-      // Get department name from departments array
-      const selectedDepartment = departments.find(d => d.id === profileData.departmentId);
-      const departmentName = selectedDepartment?.department_name || null;
-      
       // Prepare profile data with B2B information if available AND ensure email is always saved
       const profileUpdateData = {
         user_id: user.id,
@@ -305,7 +301,6 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         gender: profileData.gender, // Ensure gender is saved
         age: profileData.age === '' ? null : Number(profileData.age),
         department_id: profileData.departmentId || null, // Save department ID
-        user_department: departmentName, // Save department name
         job_type: profileData.jobType || null,
         job_properties: profileData.jobProperties.length > 0 ? profileData.jobProperties : null,
         b2b_partner_name: b2bEmployeeData?.employerName || null,
@@ -413,10 +408,6 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     // Close banner immediately when skipping
     onClose();
     try {
-      // Get department name from departments array
-      const selectedDepartment = departments.find(d => d.id === profileData.departmentId);
-      const departmentName = selectedDepartment?.department_name || null;
-      
       // Save only profile data without goals AND ensure email is always saved
       const profileUpdateData = {
         user_id: user.id,
@@ -426,7 +417,6 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         gender: profileData.gender, // Ensure gender is saved
         age: profileData.age === '' ? null : Number(profileData.age),
         department_id: profileData.departmentId || null, // Save department ID
-        user_department: departmentName, // Save department name
         job_type: profileData.jobType || null,
         job_properties: profileData.jobProperties.length > 0 ? profileData.jobProperties : null,
         b2b_partner_name: b2bEmployeeData?.employerName || null,

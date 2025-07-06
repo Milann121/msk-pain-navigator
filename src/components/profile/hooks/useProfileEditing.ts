@@ -94,13 +94,8 @@ export const useProfileEditing = (
       let updateData: any = {};
       
       if (field === 'jobSection') {
-        // Get department name from departments array
-        const selectedDepartment = departments.find(d => d.id === tempDepartmentId);
-        const departmentName = selectedDepartment?.department_name || null;
-        
         updateData = {
           department_id: tempDepartmentId || null, // Save department ID
-          user_department: departmentName, // Save department name
           job_type: tempJobType || null,
           job_properties: tempJobProperties.length > 0 ? tempJobProperties : null
         };
