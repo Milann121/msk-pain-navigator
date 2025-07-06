@@ -149,16 +149,29 @@ export const useProfileEditing = (
       // After any profile update, sync pain areas from active assessments
       await updatePainAreasFromAssessments();
 
-      // Update local state
+      // Store temp values before clearing them
+      const savedDepartmentId = tempDepartmentId;
+      const savedJobType = tempJobType;
+      const savedJobProperties = [...tempJobProperties];
+      const savedTempValue = tempValue;
+
+      // Clear editing state and temp values
+      setEditingField(null);
+      setTempValue('');
+      setTempDepartmentId('');
+      setTempJobType('');
+      setTempJobProperties([]);
+
+      // Update local state with saved values
       if (field === 'jobSection') {
         updateUserData({
-          departmentId: tempDepartmentId,
-          jobType: tempJobType,
-          jobProperties: tempJobProperties
+          departmentId: savedDepartmentId,
+          jobType: savedJobType,
+          jobProperties: savedJobProperties
         });
       } else {
         updateUserData({
-          [field]: field === 'age' ? Number(tempValue) : String(tempValue)
+          [field]: field === 'age' ? Number(savedTempValue) : String(savedTempValue)
         });
       }
 
@@ -177,13 +190,14 @@ export const useProfileEditing = (
           : t('profile.updateError'),
         variant: 'destructive',
       });
+      
+      // Clear editing state on error too
+      setEditingField(null);
+      setTempValue('');
+      setTempDepartmentId('');
+      setTempJobType('');
+      setTempJobProperties([]);
     }
-
-    setEditingField(null);
-    setTempValue('');
-    setTempDepartmentId('');
-    setTempJobType('');
-    setTempJobProperties([]);
   };
 
   const handleCancel = () => {
