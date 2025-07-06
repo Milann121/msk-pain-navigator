@@ -290,6 +290,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         gender: profileData.gender, // Ensure gender is saved
         age: profileData.age === '' ? null : Number(profileData.age),
         department_id: profileData.departmentId || null,
+        user_department: profileData.departmentId || null, // Save to the new user_department column
         job_type: profileData.jobType || null,
         job_properties: profileData.jobProperties.length > 0 ? profileData.jobProperties : null,
         b2b_partner_name: b2bEmployeeData?.employerName || null,
@@ -406,6 +407,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         gender: profileData.gender, // Ensure gender is saved
         age: profileData.age === '' ? null : Number(profileData.age),
         department_id: profileData.departmentId || null,
+        user_department: profileData.departmentId || null, // Save to the new user_department column
         job_type: profileData.jobType || null,
         job_properties: profileData.jobProperties.length > 0 ? profileData.jobProperties : null,
         b2b_partner_name: b2bEmployeeData?.employerName || null,
