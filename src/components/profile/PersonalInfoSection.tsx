@@ -4,31 +4,39 @@ import { useTranslation } from 'react-i18next';
 import { EditableField } from './EditableField';
 import { ReadOnlyField } from './ReadOnlyField';
 import { GenderField } from './GenderField';
-import { JobField } from './JobField';
+import { JobSectionField } from './JobSectionField';
 import { UserProfileData } from './UserProfileData';
 
 interface PersonalInfoSectionProps {
   userData: UserProfileData;
   editingField: string | null;
   tempValue: string | number;
-  tempJobSubtype: string;
+  tempDepartmentId: string;
+  tempJobType: string;
+  tempJobProperties: string[];
   onEdit: (field: string, currentValue: string | number) => void;
   onSave: (field: string) => void;
   onCancel: () => void;
   onTempValueChange: (value: string | number) => void;
-  onTempJobSubtypeChange: (value: string) => void;
+  onTempDepartmentChange: (value: string) => void;
+  onTempJobTypeChange: (value: string) => void;
+  onTempJobPropertiesChange: (value: string[]) => void;
 }
 
 export const PersonalInfoSection: React.FC<PersonalInfoSectionProps> = ({
   userData,
   editingField,
   tempValue,
-  tempJobSubtype,
+  tempDepartmentId,
+  tempJobType,
+  tempJobProperties,
   onEdit,
   onSave,
   onCancel,
   onTempValueChange,
-  onTempJobSubtypeChange
+  onTempDepartmentChange,
+  onTempJobTypeChange,
+  onTempJobPropertiesChange
 }) => {
   const { t } = useTranslation();
 
@@ -98,17 +106,20 @@ export const PersonalInfoSection: React.FC<PersonalInfoSectionProps> = ({
       </div>
       
       <div className="grid grid-cols-2 gap-4">
-        <JobField
-          value={userData.job}
-          jobSubtype={userData.jobSubtype}
+        <JobSectionField
+          departmentId={userData.departmentId}
+          jobType={userData.jobType}
+          jobProperties={userData.jobProperties}
           editingField={editingField}
-          tempValue={tempValue}
-          tempJobSubtype={tempJobSubtype}
-          onEdit={onEdit}
-          onSave={onSave}
+          tempDepartmentId={tempDepartmentId}
+          tempJobType={tempJobType}
+          tempJobProperties={tempJobProperties}
+          onEdit={() => onEdit('jobSection', '')}
+          onSave={() => onSave('jobSection')}
           onCancel={onCancel}
-          onTempValueChange={onTempValueChange}
-          onTempJobSubtypeChange={onTempJobSubtypeChange}
+          onTempDepartmentChange={onTempDepartmentChange}
+          onTempJobTypeChange={onTempJobTypeChange}
+          onTempJobPropertiesChange={onTempJobPropertiesChange}
         />
       </div>
     </>

@@ -5,8 +5,9 @@ export interface UserProfileData {
   email: string;
   gender: string;
   age: number;
-  job: string;
-  jobSubtype: string;
+  departmentId: string;
+  jobType: string;
+  jobProperties: string[];
   painArea: string;
   employerName?: string;
   b2bPartnerId?: number | null;

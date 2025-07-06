@@ -10,14 +10,18 @@ export const useProfileEditing = (
 ) => {
   const [editingField, setEditingField] = useState<string | null>(null);
   const [tempValue, setTempValue] = useState<string | number>('');
-  const [tempJobSubtype, setTempJobSubtype] = useState<string>('');
+  const [tempDepartmentId, setTempDepartmentId] = useState<string>('');
+  const [tempJobType, setTempJobType] = useState<string>('');
+  const [tempJobProperties, setTempJobProperties] = useState<string[]>([]);
 
   const handleEdit = (field: string, currentValue: string | number) => {
     setEditingField(field);
     setTempValue(currentValue);
-    if (field === 'job') {
-      // Get the current job subtype from userData
-      setTempJobSubtype(''); // This will need to be passed from parent component
+    if (field === 'jobSection') {
+      // Job section editing will be handled by parent component
+      setTempDepartmentId('');
+      setTempJobType('');
+      setTempJobProperties([]);
     }
   };
 
@@ -68,10 +72,11 @@ export const useProfileEditing = (
     try {
       let updateData: any = {};
       
-      if (field === 'job') {
+      if (field === 'jobSection') {
         updateData = {
-          job: String(tempValue),
-          job_subtype: tempJobSubtype
+          department_id: tempDepartmentId || null,
+          job_type: tempJobType || null,
+          job_properties: tempJobProperties.length > 0 ? tempJobProperties : null
         };
       } else {
         const dbField = field === 'firstName' ? 'first_name' : 
@@ -94,10 +99,11 @@ export const useProfileEditing = (
       await updatePainAreasFromAssessments();
 
       // Update local state
-      if (field === 'job') {
+      if (field === 'jobSection') {
         updateUserData({
-          job: String(tempValue),
-          jobSubtype: tempJobSubtype
+          departmentId: tempDepartmentId,
+          jobType: tempJobType,
+          jobProperties: tempJobProperties
         });
       } else {
         updateUserData({
@@ -115,27 +121,31 @@ export const useProfileEditing = (
 
     setEditingField(null);
     setTempValue('');
-    setTempJobSubtype('');
+    setTempDepartmentId('');
+    setTempJobType('');
+    setTempJobProperties([]);
   };
 
   const handleCancel = () => {
     setEditingField(null);
     setTempValue('');
-    setTempJobSubtype('');
-  };
-
-  const setTempJobSubtypeFromParent = (jobSubtype: string) => {
-    setTempJobSubtype(jobSubtype);
+    setTempDepartmentId('');
+    setTempJobType('');
+    setTempJobProperties([]);
   };
 
   return {
     editingField,
     tempValue,
-    tempJobSubtype,
+    tempDepartmentId,
+    tempJobType,
+    tempJobProperties,
     handleEdit,
     handleSave,
     handleCancel,
     setTempValue,
-    setTempJobSubtype: setTempJobSubtypeFromParent
+    setTempDepartmentId,
+    setTempJobType,
+    setTempJobProperties
   };
 };

@@ -12,8 +12,9 @@ export const useProfileData = () => {
     email: '',
     gender: 'Muž',
     age: 30,
-    job: '',
-    jobSubtype: '',
+    departmentId: '',
+    jobType: '',
+    jobProperties: [],
     painArea: '',
     employerName: ''
   });
@@ -57,8 +58,9 @@ export const useProfileData = () => {
           email: data.email || user.email || '',
           gender: data.gender || 'Muž',
           age: data.age || 30,
-          job: data.job || '',
-          jobSubtype: data.job_subtype || '',
+          departmentId: data.department_id || '',
+          jobType: data.job_type || '',
+          jobProperties: data.job_properties || [],
           painArea: data.pain_area || '',
           employerName: data.b2b_partner_name || ''
         });

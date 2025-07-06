@@ -14,19 +14,25 @@ export const ProfileInfo = () => {
   const {
     editingField,
     tempValue,
-    tempJobSubtype,
+    tempDepartmentId,
+    tempJobType,
+    tempJobProperties,
     handleEdit,
     handleSave,
     handleCancel,
     setTempValue,
-    setTempJobSubtype
+    setTempDepartmentId,
+    setTempJobType,
+    setTempJobProperties
   } = useProfileEditing(user, updateUserData, refreshUserData);
 
-  // Enhanced handleEdit to set job subtype for job field
+  // Enhanced handleEdit to set job data for job section
   const enhancedHandleEdit = (field: string, currentValue: string | number) => {
     handleEdit(field, currentValue);
-    if (field === 'job') {
-      setTempJobSubtype(userData.jobSubtype);
+    if (field === 'jobSection') {
+      setTempDepartmentId(userData.departmentId);
+      setTempJobType(userData.jobType);
+      setTempJobProperties(userData.jobProperties);
     }
   };
 
@@ -56,12 +62,16 @@ export const ProfileInfo = () => {
             userData={userData}
             editingField={editingField}
             tempValue={tempValue}
-            tempJobSubtype={tempJobSubtype}
+            tempDepartmentId={tempDepartmentId}
+            tempJobType={tempJobType}
+            tempJobProperties={tempJobProperties}
             onEdit={enhancedHandleEdit}
             onSave={handleSave}
             onCancel={handleCancel}
             onTempValueChange={setTempValue}
-            onTempJobSubtypeChange={setTempJobSubtype}
+            onTempDepartmentChange={setTempDepartmentId}
+            onTempJobTypeChange={setTempJobType}
+            onTempJobPropertiesChange={setTempJobProperties}
           />
         </div>
       </CardContent>
