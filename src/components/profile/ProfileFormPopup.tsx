@@ -7,7 +7,7 @@ import { useToast } from '@/hooks/use-toast';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { ProfileFormPersonalInfo } from './ProfileFormPersonalInfo';
-import { ProfileFormJobSelection } from './ProfileFormJobSelection';
+import { ProfileFormJobSection } from './ProfileFormJobSection';
 import { ProfileFormGoals } from './ProfileFormGoals';
 import { ProfileFormButtons } from './ProfileFormButtons';
 
@@ -27,8 +27,9 @@ interface ProfileData {
   lastName: string;
   gender: string;
   age: number | '';
-  job: string;
-  jobSubtype: string;
+  departmentId: string;
+  jobType: string;
+  jobProperties: string[];
 }
 
 interface GoalsData {
@@ -53,8 +54,9 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     lastName: '',
     gender: 'Muž',
     age: '',
-    job: '',
-    jobSubtype: ''
+    departmentId: '',
+    jobType: '',
+    jobProperties: []
   });
   
   const [goalsData, setGoalsData] = useState<GoalsData>({
@@ -132,8 +134,9 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         lastName: '',
         gender: 'Muž',
         age: '',
-        job: '',
-        jobSubtype: ''
+        departmentId: '',
+        jobType: '',
+        jobProperties: []
       });
       setGoalsData({
         weeklyExerciseGoal: initialGoals?.weeklyExerciseGoal || null,
@@ -156,11 +159,10 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     }));
   };
 
-  const handleJobChange = (value: string) => {
+  const handleJobSectionChange = (field: keyof Pick<ProfileData, 'departmentId' | 'jobType' | 'jobProperties'>, value: string | string[]) => {
     setProfileData(prev => ({
       ...prev,
-      job: value,
-      jobSubtype: '' // Reset subtype when job changes
+      [field]: value
     }));
   };
 
@@ -287,8 +289,9 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         email: user.email, // Always ensure email is saved
         gender: profileData.gender, // Ensure gender is saved
         age: profileData.age === '' ? null : Number(profileData.age),
-        job: profileData.job,
-        job_subtype: profileData.jobSubtype,
+        department_id: profileData.departmentId || null,
+        job_type: profileData.jobType || null,
+        job_properties: profileData.jobProperties.length > 0 ? profileData.jobProperties : null,
         b2b_partner_name: b2bEmployeeData?.employerName || null,
         b2b_partner_id: b2bEmployeeData?.b2bPartnerId || null,
         employee_id: b2bEmployeeData?.employeeId || null
@@ -402,8 +405,9 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         email: user.email, // Always ensure email is saved
         gender: profileData.gender, // Ensure gender is saved
         age: profileData.age === '' ? null : Number(profileData.age),
-        job: profileData.job,
-        job_subtype: profileData.jobSubtype,
+        department_id: profileData.departmentId || null,
+        job_type: profileData.jobType || null,
+        job_properties: profileData.jobProperties.length > 0 ? profileData.jobProperties : null,
         b2b_partner_name: b2bEmployeeData?.employerName || null,
         b2b_partner_id: b2bEmployeeData?.b2bPartnerId || null,
         employee_id: b2bEmployeeData?.employeeId || null
@@ -487,13 +491,13 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
                         profileData.lastName.trim() !== '' && 
                         profileData.age !== '' && 
                         Number(profileData.age) > 0 &&
-                        profileData.job.trim() !== '';
+                        profileData.jobType.trim() !== '';
 
   console.log('Profile validation state:', {
     firstName: profileData.firstName.trim() !== '',
     lastName: profileData.lastName.trim() !== '',
     age: profileData.age !== '' && Number(profileData.age) > 0,
-    job: profileData.job.trim() !== '',
+    jobType: profileData.jobType.trim() !== '',
     isValid: isProfileValid
   });
 
@@ -531,14 +535,14 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
             onChange={handleInputChange}
           />
 
-          {/* Job Selection Section */}
-          <ProfileFormJobSelection
+          {/* Job Section */}
+          <ProfileFormJobSection
             data={{
-              job: profileData.job,
-              jobSubtype: profileData.jobSubtype
+              departmentId: profileData.departmentId,
+              jobType: profileData.jobType,
+              jobProperties: profileData.jobProperties
             }}
-            onJobChange={handleJobChange}
-            onSubtypeChange={handleInputChange}
+            onChange={handleJobSectionChange}
           />
 
           {/* Goals Section */}
