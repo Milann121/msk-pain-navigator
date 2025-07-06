@@ -62,18 +62,48 @@ export const JobSectionField: React.FC<JobSectionFieldProps> = ({
       if (!user) return;
 
       try {
-        // Load user's company departments
+        // Load user's company departments - first try user_profiles, then B2B employee tables
+        let b2bPartnerId = null;
+
+        // Check user_profiles first
         const { data: userProfile } = await supabase
           .from('user_profiles')
-          .select('b2b_partner_id')
+          .select('b2b_partner_id, b2b_partner_name')
           .eq('user_id', user.id)
           .single();
 
         if (userProfile?.b2b_partner_id) {
+          b2bPartnerId = userProfile.b2b_partner_id;
+        } else {
+          // Check B2B employee tables if not found in profiles
+          const { data: b2bEmployee } = await supabase
+            .from('b2b_employees')
+            .select('b2b_partner_id')
+            .eq('email', user.email)
+            .single();
+
+          if (b2bEmployee?.b2b_partner_id) {
+            b2bPartnerId = b2bEmployee.b2b_partner_id;
+          } else {
+            // Check test_2_employees table as fallback
+            const { data: testEmployee } = await supabase
+              .from('test_2_employees')
+              .select('b2b_partner_id')
+              .eq('email', user.email)
+              .single();
+
+            if (testEmployee?.b2b_partner_id) {
+              b2bPartnerId = testEmployee.b2b_partner_id;
+            }
+          }
+        }
+
+        // Load departments if we found a b2b_partner_id
+        if (b2bPartnerId) {
           const { data: companyDepartments } = await supabase
             .from('company_departments')
             .select('id, department_name')
-            .eq('b2b_partner_id', userProfile.b2b_partner_id)
+            .eq('b2b_partner_id', b2bPartnerId)
             .order('department_name');
 
           setDepartments(companyDepartments || []);
