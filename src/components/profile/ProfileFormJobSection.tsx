@@ -151,7 +151,7 @@ export const ProfileFormJobSection: React.FC<ProfileFormJobSectionProps> = ({
                   htmlFor={`property-${property.id}`} 
                   className="cursor-pointer text-sm"
                 >
-                  {t(`profile.jobSection.jobPropertyNames.${property.property_name}`) || property.property_name}
+                  {t(`profile.jobSection.jobPropertyNames.${property.property_name}`, property.property_name)}
                 </Label>
               </div>
             ))}

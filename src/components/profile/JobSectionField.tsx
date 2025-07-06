@@ -172,7 +172,7 @@ export const JobSectionField: React.FC<JobSectionFieldProps> = ({
                     htmlFor={`temp-property-${property.id}`} 
                     className="cursor-pointer text-xs"
                   >
-                    {t(`profile.jobSection.jobPropertyNames.${property.property_name}`) || property.property_name}
+                    {t(`profile.jobSection.jobPropertyNames.${property.property_name}`, property.property_name)}
                   </Label>
                 </div>
               ))}
@@ -211,7 +211,7 @@ export const JobSectionField: React.FC<JobSectionFieldProps> = ({
     
     if (jobProperties && jobProperties.length > 0) {
       const translatedProperties = jobProperties.map(prop => 
-        t(`profile.jobSection.jobPropertyNames.${prop}`) || prop
+        t(`profile.jobSection.jobPropertyNames.${prop}`, prop)
       ).join(', ');
       parts.push(`${t('profile.jobSection.jobProperties')}: ${translatedProperties}`);
     }
