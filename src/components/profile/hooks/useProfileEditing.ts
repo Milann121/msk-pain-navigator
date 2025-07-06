@@ -100,6 +100,20 @@ export const useProfileEditing = (
       tempJobProperties,
       tempValue
     });
+    
+    // Add validation for job section
+    if (field === 'jobSection') {
+      console.log('🔄 [useProfileEditing] Validating job section data');
+      if (!tempJobType) {
+        console.error('❌ [useProfileEditing] Missing job type');
+        toast({
+          title: t('profile.error'),
+          description: 'Job type is required',
+          variant: 'destructive',
+        });
+        return;
+      }
+    }
 
     try {
       let updateData: any = {};
@@ -137,6 +151,20 @@ export const useProfileEditing = (
       }
 
       console.log('✅ [useProfileEditing] Successfully saved to database');
+      
+      // Verify the save by querying the database
+      if (field === 'jobSection') {
+        const { data: verifyData, error: verifyError } = await supabase
+          .from('user_profiles')
+          .select('job_type, job_properties, department_id')
+          .eq('user_id', user.id)
+          .single();
+          
+        console.log('🔍 [useProfileEditing] Database verification query:', {
+          verifyData,
+          verifyError
+        });
+      }
 
       // Show success toast
       if (field === 'jobSection') {

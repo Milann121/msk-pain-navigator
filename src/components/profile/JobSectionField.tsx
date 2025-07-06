@@ -109,6 +109,13 @@ export const JobSectionField: React.FC<JobSectionFieldProps> = ({
       ? [...tempJobProperties, propertyName]
       : tempJobProperties.filter(prop => prop !== propertyName);
     
+    console.log('🔄 [JobSectionField] Job property changed:', {
+      propertyName,
+      checked,
+      currentTempProperties: tempJobProperties,
+      updatedProperties
+    });
+    
     onTempJobPropertiesChange(updatedProperties);
   };
 
@@ -118,11 +125,22 @@ export const JobSectionField: React.FC<JobSectionFieldProps> = ({
       jobType,
       jobProperties
     });
+    console.log('🔧 [JobSectionField] Current temp values before initialization:', {
+      tempDepartmentId,
+      tempJobType,
+      tempJobProperties
+    });
     
     // Initialize temp values with current values
     onTempDepartmentChange(departmentId);
     onTempJobTypeChange(jobType);
     onTempJobPropertiesChange(jobProperties);
+    
+    console.log('🔧 [JobSectionField] Temp values after initialization:', {
+      tempDepartmentId: departmentId,
+      tempJobType: jobType,
+      tempJobProperties: jobProperties
+    });
     
     // Then start editing
     onEdit();
