@@ -43,51 +43,69 @@ export const ProfileFormJobSection: React.FC<ProfileFormJobSectionProps> = ({
       if (!user) return;
 
       try {
+        console.log('🔍 Starting department loading for user:', user.id, user.email);
+        
         // Load user's company departments - first try user_profiles, then B2B employee tables
         let b2bPartnerId = null;
 
         // Check user_profiles first
-        const { data: userProfile } = await supabase
+        const { data: userProfile, error: profileError } = await supabase
           .from('user_profiles')
           .select('b2b_partner_id, b2b_partner_name')
           .eq('user_id', user.id)
           .single();
 
+        console.log('👤 User profile data:', userProfile, 'Error:', profileError);
+
         if (userProfile?.b2b_partner_id) {
           b2bPartnerId = userProfile.b2b_partner_id;
+          console.log('✅ Found b2b_partner_id in user_profiles:', b2bPartnerId);
         } else {
           // Check B2B employee tables if not found in profiles
-          const { data: b2bEmployee } = await supabase
+          const { data: b2bEmployee, error: b2bError } = await supabase
             .from('b2b_employees')
             .select('b2b_partner_id')
             .eq('email', user.email)
             .single();
 
+          console.log('🏢 B2B employee data:', b2bEmployee, 'Error:', b2bError);
+
           if (b2bEmployee?.b2b_partner_id) {
             b2bPartnerId = b2bEmployee.b2b_partner_id;
+            console.log('✅ Found b2b_partner_id in b2b_employees:', b2bPartnerId);
           } else {
             // Check test_2_employees table as fallback
-            const { data: testEmployee } = await supabase
+            const { data: testEmployee, error: testError } = await supabase
               .from('test_2_employees')
               .select('b2b_partner_id')
               .eq('email', user.email)
               .single();
 
+            console.log('🧪 Test employee data:', testEmployee, 'Error:', testError);
+
             if (testEmployee?.b2b_partner_id) {
               b2bPartnerId = testEmployee.b2b_partner_id;
+              console.log('✅ Found b2b_partner_id in test_2_employees:', b2bPartnerId);
             }
           }
         }
 
+        console.log('🎯 Final b2bPartnerId:', b2bPartnerId);
+
         // Load departments if we found a b2b_partner_id
         if (b2bPartnerId) {
-          const { data: companyDepartments } = await supabase
+          console.log('🏬 Loading departments for b2b_partner_id:', b2bPartnerId);
+          
+          const { data: companyDepartments, error: deptError } = await supabase
             .from('company_departments')
             .select('id, department_name')
             .eq('b2b_partner_id', b2bPartnerId)
             .order('department_name');
 
+          console.log('🏬 Departments loaded:', companyDepartments, 'Error:', deptError);
           setDepartments(companyDepartments || []);
+        } else {
+          console.log('❌ No b2b_partner_id found, departments will not load');
         }
 
         // Load all job properties
