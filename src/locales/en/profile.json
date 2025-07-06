@@ -43,6 +43,28 @@
     "successTitle": "Success",
     "errorTitle": "Error"
   },
+  "jobSection": {
+    "title": "Job Information",
+    "department": "Department",
+    "departmentPlaceholder": "Select your department",
+    "jobType": "Job Type",
+    "jobProperties": "Job Properties",
+    "jobTypes": {
+      "officeWork": "Office work",
+      "manualWork": "Manual work"
+    },
+    "jobPropertyNames": {
+      "Cold Environment": "Cold Environment",
+      "Hot Environment": "Hot Environment", 
+      "Sitting Positions": "Sitting Positions",
+      "Driving": "Driving",
+      "Prolonged Standing": "Prolonged Standing",
+      "Specific Tools": "Specific Tools",
+      "Heavy Objects Lifting": "Heavy Objects Lifting",
+      "Repetitive Movements": "Repetitive Movements",
+      "Vibrations": "Vibrations"
+    }
+  },
   "profileForm": {
     "title": "Complete Your Profile",
     "personalInfo": "Personal Information",

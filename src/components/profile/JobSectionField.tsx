@@ -111,18 +111,18 @@ export const JobSectionField: React.FC<JobSectionFieldProps> = ({
   if (isEditing) {
     return (
       <div className="col-span-2 space-y-4">
-        <Label className="text-base font-medium">Job Information:</Label>
+        <Label className="text-base font-medium">{t('profile.jobSection.title')}:</Label>
         
         {/* Department Selection */}
         {departments.length > 0 && (
           <div className="space-y-2">
-            <Label className="text-sm font-medium">Department</Label>
+            <Label className="text-sm font-medium">{t('profile.jobSection.department')}</Label>
             <Select
               value={tempDepartmentId}
               onValueChange={onTempDepartmentChange}
             >
               <SelectTrigger>
-                <SelectValue placeholder="Select your department" />
+                <SelectValue placeholder={t('profile.jobSection.departmentPlaceholder')} />
               </SelectTrigger>
               <SelectContent>
                 {departments.map((dept) => (
@@ -137,7 +137,7 @@ export const JobSectionField: React.FC<JobSectionFieldProps> = ({
 
         {/* Job Type Selection */}
         <div className="space-y-2">
-          <Label className="text-sm font-medium">Job Type</Label>
+          <Label className="text-sm font-medium">{t('profile.jobSection.jobType')}</Label>
           <RadioGroup 
             value={tempJobType}
             onValueChange={onTempJobTypeChange}
@@ -145,11 +145,11 @@ export const JobSectionField: React.FC<JobSectionFieldProps> = ({
           >
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="office work" id="office-work-edit" />
-              <Label htmlFor="office-work-edit" className="cursor-pointer text-sm">Office work</Label>
+              <Label htmlFor="office-work-edit" className="cursor-pointer text-sm">{t('profile.jobSection.jobTypes.officeWork')}</Label>
             </div>
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="manual work" id="manual-work-edit" />
-              <Label htmlFor="manual-work-edit" className="cursor-pointer text-sm">Manual work</Label>
+              <Label htmlFor="manual-work-edit" className="cursor-pointer text-sm">{t('profile.jobSection.jobTypes.manualWork')}</Label>
             </div>
           </RadioGroup>
         </div>
@@ -157,7 +157,7 @@ export const JobSectionField: React.FC<JobSectionFieldProps> = ({
         {/* Job Properties Selection */}
         {jobPropertiesList.length > 0 && (
           <div className="space-y-2">
-            <Label className="text-sm font-medium">Job Properties</Label>
+            <Label className="text-sm font-medium">{t('profile.jobSection.jobProperties')}</Label>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2 max-h-40 overflow-y-auto">
               {jobPropertiesList.map((property) => (
                 <div key={property.id} className="flex items-center space-x-2">
@@ -172,7 +172,7 @@ export const JobSectionField: React.FC<JobSectionFieldProps> = ({
                     htmlFor={`temp-property-${property.id}`} 
                     className="cursor-pointer text-xs"
                   >
-                    {property.property_name}
+                    {t(`profile.jobSection.jobPropertyNames.${property.property_name}`) || property.property_name}
                   </Label>
                 </div>
               ))}
@@ -197,15 +197,23 @@ export const JobSectionField: React.FC<JobSectionFieldProps> = ({
     const parts = [];
     
     if (departmentName) {
-      parts.push(`Department: ${departmentName}`);
+      parts.push(`${t('profile.jobSection.department')}: ${departmentName}`);
     }
     
     if (jobType) {
-      parts.push(`Type: ${jobType}`);
+      const translatedJobType = jobType === 'office work' 
+        ? t('profile.jobSection.jobTypes.officeWork')
+        : jobType === 'manual work' 
+        ? t('profile.jobSection.jobTypes.manualWork')
+        : jobType;
+      parts.push(`${t('profile.jobSection.jobType')}: ${translatedJobType}`);
     }
     
     if (jobProperties && jobProperties.length > 0) {
-      parts.push(`Properties: ${jobProperties.join(', ')}`);
+      const translatedProperties = jobProperties.map(prop => 
+        t(`profile.jobSection.jobPropertyNames.${prop}`) || prop
+      ).join(', ');
+      parts.push(`${t('profile.jobSection.jobProperties')}: ${translatedProperties}`);
     }
     
     return parts.length > 0 ? parts.join(' | ') : '-';
@@ -213,7 +221,7 @@ export const JobSectionField: React.FC<JobSectionFieldProps> = ({
   
   return (
     <>
-      <div className="text-sm text-muted-foreground">Job:</div>
+      <div className="text-sm text-muted-foreground">{t('profile.job')}:</div>
       <div className="flex items-center justify-between">
         <span className="font-medium text-sm">{displayValue()}</span>
         <Button

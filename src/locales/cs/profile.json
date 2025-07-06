@@ -41,6 +41,28 @@
     "successTitle": "Úspěch",
     "errorTitle": "Chyba"
   },
+  "jobSection": {
+    "title": "Informace o práci",
+    "department": "Oddělení",
+    "departmentPlaceholder": "Vyberte své oddělení",
+    "jobType": "Typ práce",
+    "jobProperties": "Vlastnosti práce",
+    "jobTypes": {
+      "officeWork": "Kancelářská práce",
+      "manualWork": "Manuální práce"
+    },
+    "jobPropertyNames": {
+      "Cold Environment": "Chladné prostředí",
+      "Hot Environment": "Horké prostředí",
+      "Sitting Positions": "Sezení",
+      "Driving": "Řízení",
+      "Prolonged Standing": "Dlouhodobé stání",
+      "Specific Tools": "Specifické nástroje",
+      "Heavy Objects Lifting": "Zvedání těžkých předmětů",
+      "Repetitive Movements": "Opakující se pohyby",
+      "Vibrations": "Vibrace"
+    }
+  },
   "profileForm": {
     "title": "Dokončit profil",
     "personalInfo": "Osobní informace",
