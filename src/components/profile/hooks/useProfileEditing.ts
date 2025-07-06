@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { UserProfileData } from '../UserProfileData';
 
@@ -13,6 +13,27 @@ export const useProfileEditing = (
   const [tempDepartmentId, setTempDepartmentId] = useState<string>('');
   const [tempJobType, setTempJobType] = useState<string>('');
   const [tempJobProperties, setTempJobProperties] = useState<string[]>([]);
+  const [departments, setDepartments] = useState<Array<{id: string, department_name: string}>>([]);
+
+  // Load departments when hook initializes
+  useEffect(() => {
+    const loadDepartments = async () => {
+      if (!user) return;
+      
+      try {
+        const { data: deptData } = await supabase
+          .from('company_departments')
+          .select('id, department_name')
+          .order('department_name');
+        
+        setDepartments(deptData || []);
+      } catch (error) {
+        console.error('Error loading departments:', error);
+      }
+    };
+
+    loadDepartments();
+  }, [user]);
 
   const handleEdit = (field: string, currentValue: string | number) => {
     setEditingField(field);
@@ -73,9 +94,13 @@ export const useProfileEditing = (
       let updateData: any = {};
       
       if (field === 'jobSection') {
+        // Get department name from departments array
+        const selectedDepartment = departments.find(d => d.id === tempDepartmentId);
+        const departmentName = selectedDepartment?.department_name || null;
+        
         updateData = {
-          department_id: tempDepartmentId || null,
-          user_department: tempDepartmentId || null, // Save to the new user_department column
+          department_id: tempDepartmentId || null, // Save department ID
+          user_department: departmentName, // Save department name
           job_type: tempJobType || null,
           job_properties: tempJobProperties.length > 0 ? tempJobProperties : null
         };

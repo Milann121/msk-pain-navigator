@@ -71,6 +71,8 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     b2bPartnerId: number | null;
     sourceTable: string;
   } | null>(null);
+  
+  const [departments, setDepartments] = useState<Array<{id: string, department_name: string}>>([]);
 
   // Load B2B employee data if user email matches
   useEffect(() => {
@@ -79,6 +81,15 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
 
       try {
         console.log('Loading B2B employee data for email:', user.email);
+        
+        // Load departments first
+        const { data: deptData } = await supabase
+          .from('company_departments')
+          .select('id, department_name')
+          .order('department_name');
+        
+        setDepartments(deptData || []);
+        
         const { data, error } = await supabase
           .from('b2b_employees')
           .select('b2b_partner_name, employee_id, b2b_partner_id')
@@ -281,6 +292,10 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     // Immediately close the banner so the user returns to the profile page
     onClose();
     try {
+      // Get department name from departments array
+      const selectedDepartment = departments.find(d => d.id === profileData.departmentId);
+      const departmentName = selectedDepartment?.department_name || null;
+      
       // Prepare profile data with B2B information if available AND ensure email is always saved
       const profileUpdateData = {
         user_id: user.id,
@@ -289,8 +304,8 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         email: user.email, // Always ensure email is saved
         gender: profileData.gender, // Ensure gender is saved
         age: profileData.age === '' ? null : Number(profileData.age),
-        department_id: profileData.departmentId || null,
-        user_department: profileData.departmentId || null, // Save to the new user_department column
+        department_id: profileData.departmentId || null, // Save department ID
+        user_department: departmentName, // Save department name
         job_type: profileData.jobType || null,
         job_properties: profileData.jobProperties.length > 0 ? profileData.jobProperties : null,
         b2b_partner_name: b2bEmployeeData?.employerName || null,
@@ -398,6 +413,10 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     // Close banner immediately when skipping
     onClose();
     try {
+      // Get department name from departments array
+      const selectedDepartment = departments.find(d => d.id === profileData.departmentId);
+      const departmentName = selectedDepartment?.department_name || null;
+      
       // Save only profile data without goals AND ensure email is always saved
       const profileUpdateData = {
         user_id: user.id,
@@ -406,8 +425,8 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         email: user.email, // Always ensure email is saved
         gender: profileData.gender, // Ensure gender is saved
         age: profileData.age === '' ? null : Number(profileData.age),
-        department_id: profileData.departmentId || null,
-        user_department: profileData.departmentId || null, // Save to the new user_department column
+        department_id: profileData.departmentId || null, // Save department ID
+        user_department: departmentName, // Save department name
         job_type: profileData.jobType || null,
         job_properties: profileData.jobProperties.length > 0 ? profileData.jobProperties : null,
         b2b_partner_name: b2bEmployeeData?.employerName || null,
