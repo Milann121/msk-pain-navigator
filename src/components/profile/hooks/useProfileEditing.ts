@@ -2,12 +2,16 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { UserProfileData } from '../UserProfileData';
+import { useToast } from '@/hooks/use-toast';
+import { useTranslation } from 'react-i18next';
 
 export const useProfileEditing = (
   user: any,
   updateUserData: (updatedData: Partial<UserProfileData>) => void,
   refreshUserData?: () => void
 ) => {
+  const { toast } = useToast();
+  const { t } = useTranslation();
   const [editingField, setEditingField] = useState<string | null>(null);
   const [tempValue, setTempValue] = useState<string | number>('');
   const [tempDepartmentId, setTempDepartmentId] = useState<string>('');
@@ -36,14 +40,13 @@ export const useProfileEditing = (
   }, [user]);
 
   const handleEdit = (field: string, currentValue: string | number) => {
+    console.log('🔧 [useProfileEditing] Starting edit for field:', field, 'with value:', currentValue);
+    
     setEditingField(field);
     setTempValue(currentValue);
-    if (field === 'jobSection') {
-      // Job section editing will be handled by parent component
-      setTempDepartmentId('');
-      setTempJobType('');
-      setTempJobProperties([]);
-    }
+    
+    // Note: Job section temp values should be set by parent component via the setter functions
+    // Don't reset them here as they need to be populated with current values
   };
 
   const updatePainAreasFromAssessments = async () => {
@@ -90,6 +93,14 @@ export const useProfileEditing = (
   const handleSave = async (field: string) => {
     if (!user) return;
 
+    console.log('🔄 [useProfileEditing] Starting save for field:', field);
+    console.log('🔄 [useProfileEditing] Current temp values:', {
+      tempDepartmentId,
+      tempJobType,
+      tempJobProperties,
+      tempValue
+    });
+
     try {
       let updateData: any = {};
       
@@ -99,22 +110,41 @@ export const useProfileEditing = (
           job_type: tempJobType || null,
           job_properties: tempJobProperties.length > 0 ? tempJobProperties : null
         };
+        console.log('💾 [useProfileEditing] Job section update data:', updateData);
       } else {
         const dbField = field === 'firstName' ? 'first_name' : 
                        field === 'lastName' ? 'last_name' : 
                        field === 'painArea' ? 'pain_area' : field;
         updateData[dbField] = field === 'age' ? Number(tempValue) : String(tempValue);
+        console.log('💾 [useProfileEditing] Other field update data:', updateData);
       }
+
+      const finalData = {
+        user_id: user.id,
+        email: user.email, // Ensure email is always included
+        ...updateData
+      };
+      
+      console.log('💾 [useProfileEditing] Final data to save:', finalData);
 
       const { error } = await supabase
         .from('user_profiles')
-        .upsert({
-          user_id: user.id,
-          email: user.email, // Ensure email is always included
-          ...updateData
-        }, { onConflict: 'user_id' });
+        .upsert(finalData, { onConflict: 'user_id' });
 
-      if (error) throw error;
+      if (error) {
+        console.error('❌ [useProfileEditing] Database save error:', error);
+        throw error;
+      }
+
+      console.log('✅ [useProfileEditing] Successfully saved to database');
+
+      // Show success toast
+      if (field === 'jobSection') {
+        toast({
+          title: t('profile.success'),
+          description: t('profile.jobSection.updateSuccess'),
+        });
+      }
 
       // After any profile update, sync pain areas from active assessments
       await updatePainAreasFromAssessments();
@@ -137,7 +167,16 @@ export const useProfileEditing = (
         refreshUserData();
       }
     } catch (error) {
-      console.error('Error saving profile:', error);
+      console.error('❌ [useProfileEditing] Error saving profile:', error);
+      
+      // Show error toast
+      toast({
+        title: t('profile.error'),
+        description: field === 'jobSection' 
+          ? t('profile.jobSection.updateError')
+          : t('profile.updateError'),
+        variant: 'destructive',
+      });
     }
 
     setEditingField(null);

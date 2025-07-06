@@ -220,6 +220,36 @@ export type Database = {
           },
         ]
       }
+      department_pain_trends: {
+        Row: {
+          avg_pain_level: number | null
+          b2b_partner_id: number
+          calculated_date: string
+          created_at: string
+          department_id: string
+          id: string
+          trend_direction: string | null
+        }
+        Insert: {
+          avg_pain_level?: number | null
+          b2b_partner_id: number
+          calculated_date?: string
+          created_at?: string
+          department_id: string
+          id?: string
+          trend_direction?: string | null
+        }
+        Update: {
+          avg_pain_level?: number | null
+          b2b_partner_id?: number
+          calculated_date?: string
+          created_at?: string
+          department_id?: string
+          id?: string
+          trend_direction?: string | null
+        }
+        Relationships: []
+      }
       exercise_completion_clicks: {
         Row: {
           assessment_id: string
@@ -651,14 +681,12 @@ export type Database = {
           id: string
           job: string | null
           job_properties: string[] | null
-          job_subtype: string | null
           job_type: string | null
           last_name: string | null
           pain_area: string | null
           pain_level_followup: number | null
           pain_level_initial: number | null
           updated_at: string | null
-          user_department: string | null
           user_id: string
         }
         Insert: {
@@ -674,14 +702,12 @@ export type Database = {
           id?: string
           job?: string | null
           job_properties?: string[] | null
-          job_subtype?: string | null
           job_type?: string | null
           last_name?: string | null
           pain_area?: string | null
           pain_level_followup?: number | null
           pain_level_initial?: number | null
           updated_at?: string | null
-          user_department?: string | null
           user_id: string
         }
         Update: {
@@ -697,14 +723,12 @@ export type Database = {
           id?: string
           job?: string | null
           job_properties?: string[] | null
-          job_subtype?: string | null
           job_type?: string | null
           last_name?: string | null
           pain_area?: string | null
           pain_level_followup?: number | null
           pain_level_initial?: number | null
           updated_at?: string | null
-          user_department?: string | null
           user_id?: string
         }
         Relationships: [
@@ -735,13 +759,6 @@ export type Database = {
             isOneToOne: false
             referencedRelation: "b2b_employees"
             referencedColumns: ["employee_id"]
-          },
-          {
-            foreignKeyName: "user_profiles_user_department_fkey"
-            columns: ["user_department"]
-            isOneToOne: false
-            referencedRelation: "company_departments"
-            referencedColumns: ["id"]
           },
         ]
       }
@@ -855,6 +872,15 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      calculate_department_avg_pain_level: {
+        Args: { target_b2b_partner_id: number }
+        Returns: {
+          department_id: string
+          department_name: string
+          avg_pain_level: number
+          employee_count: number
+        }[]
+      }
       calculate_exercise_goal_completion: {
         Args: { target_user_id: string; target_month: string }
         Returns: number[]
@@ -887,6 +913,10 @@ export type Database = {
       }
       update_all_exercise_goal_completions: {
         Args: { target_month?: string }
+        Returns: undefined
+      }
+      update_department_pain_trends: {
+        Args: Record<PropertyKey, never>
         Returns: undefined
       }
       update_exercise_goal_completion: {

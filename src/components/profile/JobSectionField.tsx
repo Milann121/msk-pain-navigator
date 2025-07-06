@@ -112,6 +112,22 @@ export const JobSectionField: React.FC<JobSectionFieldProps> = ({
     onTempJobPropertiesChange(updatedProperties);
   };
 
+  const handleEdit = () => {
+    console.log('🔧 [JobSectionField] Starting job section edit with current values:', {
+      departmentId,
+      jobType,
+      jobProperties
+    });
+    
+    // Initialize temp values with current values
+    onTempDepartmentChange(departmentId);
+    onTempJobTypeChange(jobType);
+    onTempJobPropertiesChange(jobProperties);
+    
+    // Then start editing
+    onEdit();
+  };
+
   if (isEditing) {
     return (
       <div className="col-span-2 space-y-4">
@@ -231,7 +247,7 @@ export const JobSectionField: React.FC<JobSectionFieldProps> = ({
         <Button
           size="sm"
           variant="ghost"
-          onClick={onEdit}
+          onClick={handleEdit}
           className="h-8 w-8 p-0"
         >
           <Edit className="h-4 w-4" />
