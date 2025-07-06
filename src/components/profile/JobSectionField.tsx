@@ -62,136 +62,31 @@ export const JobSectionField: React.FC<JobSectionFieldProps> = ({
       if (!user) return;
 
       try {
-        console.log('🔍 [JobSectionField] ENHANCED DEBUG - Starting department loading');
-        console.log('🔍 [JobSectionField] User auth status:', {
-          userId: user.id,
-          userEmail: user.email,
-          isAuthenticated: !!user
-        });
+        console.log('🔍 [JobSectionField] Loading departments and job properties...');
         
-        // Step 1: Test direct department query first to see if RLS is working
-        console.log('🔍 [JobSectionField] Testing direct department query...');
-        const { data: allDepartments, error: allDeptError } = await supabase
+        // Load departments - rely on RLS policy to filter by user's b2b_partner_id
+        const { data: companyDepartments, error: deptError } = await supabase
           .from('company_departments')
-          .select('id, department_name, b2b_partner_id')
-          .limit(10);
-        
-        console.log('🔍 [JobSectionField] Direct department query result:', {
-          departments: allDepartments,
-          error: allDeptError,
-          count: allDepartments?.length || 0
+          .select('id, department_name')
+          .order('department_name');
+
+        console.log('🏬 [JobSectionField] Department query result:', {
+          data: companyDepartments,
+          error: deptError,
+          count: companyDepartments?.length || 0
         });
 
-        // Step 2: Check authentication context
-        const { data: { user: authUser }, error: authError } = await supabase.auth.getUser();
-        console.log('🔍 [JobSectionField] Supabase auth user:', {
-          authUser: authUser?.email,
-          error: authError
-        });
-
-        // Load user's company departments - first try user_profiles, then B2B employee tables
-        let b2bPartnerId = null;
-
-        // Check user_profiles first
-        console.log('🔍 [JobSectionField] Checking user_profiles...');
-        const { data: userProfile, error: profileError } = await supabase
-          .from('user_profiles')
-          .select('b2b_partner_id, b2b_partner_name')
-          .eq('user_id', user.id)
-          .single();
-
-        console.log('👤 [JobSectionField] User profile query result:', {
-          data: userProfile,
-          error: profileError,
-          b2bPartnerId: userProfile?.b2b_partner_id
-        });
-
-        if (userProfile?.b2b_partner_id) {
-          b2bPartnerId = userProfile.b2b_partner_id;
-          console.log('✅ [JobSectionField] Found b2b_partner_id in user_profiles:', b2bPartnerId);
-        } else {
-          // Check B2B employee tables if not found in profiles
-          console.log('🔍 [JobSectionField] Checking b2b_employees table...');
-          const { data: b2bEmployee, error: b2bError } = await supabase
-            .from('b2b_employees')
-            .select('b2b_partner_id, email, id')
-            .eq('email', user.email)
-            .maybeSingle();
-
-          console.log('🏢 [JobSectionField] B2B employee query result:', {
-            data: b2bEmployee,
-            error: b2bError,
-            searchEmail: user.email,
-            found: !!b2bEmployee
-          });
-
-          if (b2bEmployee?.b2b_partner_id) {
-            b2bPartnerId = b2bEmployee.b2b_partner_id;
-            console.log('✅ [JobSectionField] Found b2b_partner_id in b2b_employees:', b2bPartnerId);
-          } else {
-            // Check test_2_employees table as fallback
-            console.log('🔍 [JobSectionField] Checking test_2_employees table...');
-            const { data: testEmployee, error: testError } = await supabase
-              .from('test_2_employees')
-              .select('b2b_partner_id, email, id')
-              .eq('email', user.email)
-              .maybeSingle();
-
-            console.log('🧪 [JobSectionField] Test employee query result:', {
-              data: testEmployee,
-              error: testError,
-              searchEmail: user.email,
-              found: !!testEmployee
-            });
-
-            if (testEmployee?.b2b_partner_id) {
-              b2bPartnerId = testEmployee.b2b_partner_id;
-              console.log('✅ [JobSectionField] Found b2b_partner_id in test_2_employees:', b2bPartnerId);
-            }
-          }
+        if (deptError) {
+          console.error('❌ [JobSectionField] Department query error:', deptError);
         }
 
-        console.log('🎯 [JobSectionField] Final b2bPartnerId determined:', b2bPartnerId);
+        setDepartments(companyDepartments || []);
 
-        // Load departments using the determined b2b_partner_id
-        if (b2bPartnerId) {
-          console.log('🏬 [JobSectionField] Loading departments for b2b_partner_id:', b2bPartnerId);
-          
-          // Try direct query with explicit b2b_partner_id filter
-          const { data: companyDepartments, error: deptError } = await supabase
-            .from('company_departments')
-            .select('id, department_name, b2b_partner_id')
-            .eq('b2b_partner_id', b2bPartnerId)
-            .order('department_name');
-
-          console.log('🏬 [JobSectionField] Department query result:', {
-            data: companyDepartments,
-            error: deptError,
-            count: companyDepartments?.length || 0,
-            queryPartnerId: b2bPartnerId
-          });
-
-          if (deptError) {
-            console.error('❌ [JobSectionField] Department query error details:', deptError);
-          }
-
-          setDepartments(companyDepartments || []);
-
-          // Get current department name
-          if (departmentId && companyDepartments) {
-            const currentDept = companyDepartments.find(d => d.id === departmentId);
-            setDepartmentName(currentDept?.department_name || '');
-            console.log('🏷️ [JobSectionField] Current department:', currentDept);
-          }
-        } else {
-          console.log('❌ [JobSectionField] No b2b_partner_id found, departments will not load');
-          console.log('🔍 [JobSectionField] Debug summary:', {
-            userProfileFound: !!userProfile,
-            b2bEmployeeFound: false, // Will be updated above
-            testEmployeeFound: false, // Will be updated above
-            userEmail: user.email,
-            userId: user.id
-          });
+        // Get current department name
+        if (departmentId && companyDepartments) {
+          const currentDept = companyDepartments.find(d => d.id === departmentId);
+          setDepartmentName(currentDept?.department_name || '');
+          console.log('🏷️ [JobSectionField] Current department:', currentDept);
         }
 
         // Load all job properties
