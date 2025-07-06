@@ -83,3 +83,32 @@ npm run lint:translations
 This script verifies that every language file under `src/locales` contains the
 same keys as the English translation. The CI workflow also runs this command on
 pull requests.
+
+## Supabase migrations and user profile constraint
+
+When setting up the database you must run the Supabase migrations found under
+`supabase/migrations`. One of these migrations adds a unique constraint on the
+`user_id` column of the `user_profiles` table and relies on there being no
+duplicate rows. If duplicates exist the migration will fail, so clean them up
+first:
+
+```sql
+DELETE FROM user_profiles a
+USING user_profiles b
+WHERE a.ctid < b.ctid AND a.user_id = b.user_id;
+```
+
+After removing duplicates, apply the migration using the Supabase CLI:
+
+```sh
+npx supabase db push
+```
+
+You can verify that the constraint is present with:
+
+```sql
+SELECT conname FROM pg_constraint WHERE conname='user_profiles_user_id_unique';
+```
+
+Once the migration is in place, edit a profile and confirm that the
+`job_type`, `job_properties` and `department_id` fields update correctly.
