@@ -75,8 +75,8 @@ export const useProfileEditing = (
       if (field === 'jobSection') {
         updateData = {
           department_id: tempDepartmentId || null,
-          job_type: tempJobType || null,
-          job_properties: tempJobProperties.length > 0 ? tempJobProperties : null
+          job: tempJobType || null,
+          job_subtype: tempJobProperties.length > 0 ? tempJobProperties.join(', ') : null
         };
       } else {
         const dbField = field === 'firstName' ? 'first_name' : 

@@ -290,8 +290,8 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         gender: profileData.gender, // Ensure gender is saved
         age: profileData.age === '' ? null : Number(profileData.age),
         department_id: profileData.departmentId || null,
-        job_type: profileData.jobType || null,
-        job_properties: profileData.jobProperties.length > 0 ? profileData.jobProperties : null,
+        job: profileData.jobType || null,
+        job_subtype: profileData.jobProperties.length > 0 ? profileData.jobProperties.join(', ') : null,
         b2b_partner_name: b2bEmployeeData?.employerName || null,
         b2b_partner_id: b2bEmployeeData?.b2bPartnerId || null,
         employee_id: b2bEmployeeData?.employeeId || null
@@ -406,8 +406,8 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         gender: profileData.gender, // Ensure gender is saved
         age: profileData.age === '' ? null : Number(profileData.age),
         department_id: profileData.departmentId || null,
-        job_type: profileData.jobType || null,
-        job_properties: profileData.jobProperties.length > 0 ? profileData.jobProperties : null,
+        job: profileData.jobType || null,
+        job_subtype: profileData.jobProperties.length > 0 ? profileData.jobProperties.join(', ') : null,
         b2b_partner_name: b2bEmployeeData?.employerName || null,
         b2b_partner_id: b2bEmployeeData?.b2bPartnerId || null,
         employee_id: b2bEmployeeData?.employeeId || null
