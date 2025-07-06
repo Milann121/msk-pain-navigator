@@ -658,6 +658,7 @@ export type Database = {
           pain_level_followup: number | null
           pain_level_initial: number | null
           updated_at: string | null
+          user_department: string | null
           user_id: string
         }
         Insert: {
@@ -680,6 +681,7 @@ export type Database = {
           pain_level_followup?: number | null
           pain_level_initial?: number | null
           updated_at?: string | null
+          user_department?: string | null
           user_id: string
         }
         Update: {
@@ -702,6 +704,7 @@ export type Database = {
           pain_level_followup?: number | null
           pain_level_initial?: number | null
           updated_at?: string | null
+          user_department?: string | null
           user_id?: string
         }
         Relationships: [
@@ -725,6 +728,13 @@ export type Database = {
             isOneToOne: false
             referencedRelation: "b2b_employees"
             referencedColumns: ["employee_id"]
+          },
+          {
+            foreignKeyName: "user_profiles_user_department_fkey"
+            columns: ["user_department"]
+            isOneToOne: false
+            referencedRelation: "company_departments"
+            referencedColumns: ["id"]
           },
         ]
       }

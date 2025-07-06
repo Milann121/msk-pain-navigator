@@ -75,6 +75,7 @@ export const useProfileEditing = (
       if (field === 'jobSection') {
         updateData = {
           department_id: tempDepartmentId || null,
+          user_department: tempDepartmentId || null, // Save to the new user_department column
           job_type: tempJobType || null,
           job_properties: tempJobProperties.length > 0 ? tempJobProperties : null
         };
