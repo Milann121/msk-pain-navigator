@@ -1,4 +1,3 @@
-
 import { Questionnaire } from '@/utils/types';
 import { painIntensityQuestion } from './general/pain-intensity';
 import { painMovementQuestion } from './general/pain-movement';
