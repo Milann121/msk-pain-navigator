@@ -105,16 +105,23 @@ export const JobSectionField: React.FC<JobSectionFieldProps> = ({
   }, [user, departmentId]);
 
   const handleTempJobPropertyChange = (propertyName: string, checked: boolean) => {
+    // Clean the property name to ensure no special characters
+    const cleanPropertyName = propertyName.replace(/['"\\]/g, '').trim();
+    
     let updatedProperties;
     if (checked) {
       // Prevent duplicates by filtering out the property first, then adding it
-      updatedProperties = [...tempJobProperties.filter(prop => prop !== propertyName), propertyName];
+      updatedProperties = [...tempJobProperties.filter(prop => 
+        prop.replace(/['"\\]/g, '').trim() !== cleanPropertyName
+      ), cleanPropertyName];
     } else {
-      updatedProperties = tempJobProperties.filter(prop => prop !== propertyName);
+      updatedProperties = tempJobProperties.filter(prop => 
+        prop.replace(/['"\\]/g, '').trim() !== cleanPropertyName
+      );
     }
     
     console.log('🔄 [JobSectionField] Job property changed:', {
-      propertyName,
+      propertyName: cleanPropertyName,
       checked,
       currentTempProperties: tempJobProperties,
       updatedProperties
@@ -263,8 +270,11 @@ export const JobSectionField: React.FC<JobSectionFieldProps> = ({
     }
     
     if (jobProperties && Array.isArray(jobProperties) && jobProperties.length > 0) {
-      // Clean up job properties - remove duplicates and empty values
-      const cleanedProperties = [...new Set(jobProperties.filter(prop => prop && prop.trim() !== ''))];
+      // Clean up job properties - remove duplicates, empty values, and special characters
+      const cleanedProperties = [...new Set(jobProperties.map(prop => 
+        // Remove quotes, backslashes, and other special characters
+        prop ? prop.replace(/['"\\]/g, '').trim() : ''
+      ).filter(prop => prop && prop !== ''))];
       
       if (cleanedProperties.length > 0) {
         const translatedProperties = cleanedProperties.map(prop => 

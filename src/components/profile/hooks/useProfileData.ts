@@ -61,9 +61,15 @@ export const useProfileData = () => {
           departmentId: data.department_id || '',
           jobType: data.job_type || '',
           jobProperties: Array.isArray(data.job_properties) 
-            ? [...new Set(data.job_properties.filter(prop => prop && prop.trim() !== ''))] 
+            ? [...new Set(data.job_properties.map(prop => 
+                // Clean up escaped quotes and special characters
+                prop ? prop.replace(/['"\\]/g, '').trim() : ''
+              ).filter(prop => prop && prop !== ''))] 
             : (data.job_properties 
-              ? [...new Set(data.job_properties.split(',').map(p => p.trim()).filter(p => p !== ''))] 
+              ? [...new Set(data.job_properties.split(',').map(p => 
+                  // Clean up escaped quotes and special characters
+                  p ? p.replace(/['"\\]/g, '').trim() : ''
+                ).filter(p => p !== ''))] 
               : []),
           painArea: data.pain_area || '',
           employerName: data.b2b_partner_name || ''
