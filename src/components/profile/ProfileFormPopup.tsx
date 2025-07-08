@@ -25,8 +25,8 @@ interface ProfileFormPopupProps {
 interface ProfileData {
   firstName: string;
   lastName: string;
-  gender: string;
-  yearOfBirth: number | '';
+  gender: 'Muž' | 'Žena' | '';
+  yearOfBirth: string | null;
   departmentId: string;
   jobType: string;
   jobProperties: string[];
@@ -52,8 +52,8 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
   const [profileData, setProfileData] = useState<ProfileData>({
     firstName: '',
     lastName: '',
-    gender: 'Muž',
-    yearOfBirth: '',
+    gender: '',
+    yearOfBirth: null,
     departmentId: '',
     jobType: '',
     jobProperties: []
