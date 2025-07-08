@@ -327,19 +327,58 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
       return;
     }
 
-    console.log('Starting profile save process', { profileData, goalsData, b2bEmployeeData });
+    console.log('🚀 [ProfileFormPopup] Starting profile save process');
+    console.log('📊 [ProfileFormPopup] Form data:', { 
+      profileData, 
+      goalsData, 
+      b2bEmployeeData,
+      yearOfBirthValue: profileData.yearOfBirth,
+      yearOfBirthType: typeof profileData.yearOfBirth
+    });
+    
+    // Validate required fields before saving
+    if (!profileData.firstName.trim()) {
+      console.error('❌ [ProfileFormPopup] First name is required');
+      toast({
+        title: t('profile.goals.errorTitle'),
+        description: 'First name is required',
+        variant: 'destructive',
+      });
+      return;
+    }
+    
+    if (!profileData.lastName.trim()) {
+      console.error('❌ [ProfileFormPopup] Last name is required');
+      toast({
+        title: t('profile.goals.errorTitle'),
+        description: 'Last name is required',
+        variant: 'destructive',
+      });
+      return;
+    }
+    
+    if (profileData.yearOfBirth !== '' && (isNaN(Number(profileData.yearOfBirth)) || Number(profileData.yearOfBirth) < 1900 || Number(profileData.yearOfBirth) > new Date().getFullYear())) {
+      console.error('❌ [ProfileFormPopup] Invalid year of birth:', profileData.yearOfBirth);
+      toast({
+        title: t('profile.goals.errorTitle'),
+        description: 'Please enter a valid year of birth',
+        variant: 'destructive',
+      });
+      return;
+    }
+
     setIsLoading(true);
-    // Immediately close the banner so the user returns to the profile page
-    onClose();
+    
     try {
       // Prepare profile data with B2B information if available AND ensure email is always saved
+      const yearBirthValue = profileData.yearOfBirth === '' ? null : Number(profileData.yearOfBirth);
       const profileUpdateData = {
         user_id: user.id,
         first_name: profileData.firstName.trim(),
         last_name: profileData.lastName.trim(),
         email: user.email, // Always ensure email is saved
         gender: profileData.gender, // Ensure gender is saved
-        year_birth: profileData.yearOfBirth === '' ? null : Number(profileData.yearOfBirth),
+        year_birth: yearBirthValue,
         department_id: profileData.departmentId || null, // Save department ID
         job_type: profileData.jobType || null,
         job_properties: profileData.jobProperties.length > 0 ? profileData.jobProperties : null,
@@ -348,18 +387,38 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         employee_id: b2bEmployeeData?.employeeId || null
       };
 
-      console.log('Saving profile data:', profileUpdateData);
+      console.log('💾 [ProfileFormPopup] Prepared profile update data:', profileUpdateData);
+      console.log('🔍 [ProfileFormPopup] Year birth processing:', {
+        original: profileData.yearOfBirth,
+        processed: yearBirthValue,
+        isNull: yearBirthValue === null
+      });
 
-      const { error: profileError } = await supabase
+      const { data: savedData, error: profileError } = await supabase
         .from('user_profiles')
-        .upsert(profileUpdateData, { onConflict: 'user_id' });
+        .upsert(profileUpdateData, { onConflict: 'user_id' })
+        .select();
 
       if (profileError) {
-        console.error('Error saving profile:', profileError);
+        console.error('❌ [ProfileFormPopup] Database error saving profile:', profileError);
         throw profileError;
       }
 
-      console.log('Profile saved successfully');
+      console.log('✅ [ProfileFormPopup] Profile saved successfully, returned data:', savedData);
+      
+      // Verify the save by querying the database
+      const { data: verifyData, error: verifyError } = await supabase
+        .from('user_profiles')
+        .select('year_birth, first_name, last_name, gender')
+        .eq('user_id', user.id)
+        .single();
+        
+      if (verifyError) {
+        console.error('⚠️ [ProfileFormPopup] Error verifying save:', verifyError);
+      } else {
+        console.log('🔍 [ProfileFormPopup] Database verification:', verifyData);
+        console.log('🎯 [ProfileFormPopup] Year birth in database:', verifyData?.year_birth);
+      }
 
       // Update pain areas from current active assessments
       await updatePainAreasFromAssessments();
@@ -424,12 +483,12 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         description: t('profile.profileForm.success'),
       });
 
-      console.log('Profile save process completed successfully');
+      console.log('🎉 [ProfileFormPopup] Profile save process completed successfully');
       onProfileSaved?.();
       onClose();
       navigate('/profile');
     } catch (error) {
-      console.error('Error in profile save process:', error);
+      console.error('❌ [ProfileFormPopup] Error in profile save process:', error);
       toast({
         title: t('profile.goals.errorTitle'),
         description: t('profile.profileForm.error'),
