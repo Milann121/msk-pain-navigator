@@ -247,7 +247,7 @@ export const JobSectionField: React.FC<JobSectionFieldProps> = ({
       parts.push(`${t('profile.jobSection.jobType')}: ${translatedJobType}`);
     }
     
-    if (jobProperties && jobProperties.length > 0) {
+    if (jobProperties && Array.isArray(jobProperties) && jobProperties.length > 0) {
       const translatedProperties = jobProperties.map(prop => 
         t(`profile.jobSection.jobPropertyNames.${prop}`, prop)
       ).join(', ');

@@ -167,7 +167,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
           yearOfBirth: data.year_birth || '',
           departmentId: data.department_id || '',
           jobType: data.job_type || '',
-          jobProperties: data.job_properties || []
+          jobProperties: Array.isArray(data.job_properties) ? data.job_properties : (data.job_properties ? data.job_properties.split(',').map(p => p.trim()) : [])
         });
       } else {
         // No existing profile, use defaults
@@ -380,7 +380,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         year_birth: yearBirthValue,
         department_id: profileData.departmentId || null,
         job_type: profileData.jobType || null,
-        job_properties: profileData.jobProperties.length > 0 ? profileData.jobProperties : null,
+        job_properties: profileData.jobProperties.length > 0 ? profileData.jobProperties.join(',') : null,
         b2b_partner_name: b2bEmployeeData?.employerName || null,
         b2b_partner_id: b2bEmployeeData?.b2bPartnerId || null,
         employee_id: b2bEmployeeData?.employeeId || null
@@ -504,7 +504,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         year_birth: profileData.yearOfBirth === '' ? null : Number(profileData.yearOfBirth),
         department_id: profileData.departmentId || null, // Save department ID
         job_type: profileData.jobType || null,
-        job_properties: profileData.jobProperties.length > 0 ? profileData.jobProperties : null,
+        job_properties: profileData.jobProperties.length > 0 ? profileData.jobProperties.join(',') : null,
         b2b_partner_name: b2bEmployeeData?.employerName || null,
         b2b_partner_id: b2bEmployeeData?.b2bPartnerId || null,
         employee_id: b2bEmployeeData?.employeeId || null

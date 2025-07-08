@@ -154,24 +154,8 @@ export const useMskProfileManager = () => {
         painImprovement
       });
 
-      // Upsert MSK profile
-      const { error } = await supabase
-        .from('msk_profiles')
-        .upsert({
-          b2b_employee_id: employeeId,
-          pain_areas: activePainAreas,
-          pain_level_initial: averageInitialPain,
-          pain_level_improvement: painImprovement,
-          resolved_bodyarea: resolvedPainAreas
-        }, { 
-          onConflict: 'b2b_employee_id' 
-        });
-
-      if (error) {
-        console.error('❌ Error updating MSK profile:', error);
-      } else {
-        console.log('✅ MSK profile updated successfully');
-      }
+      // Skip MSK profile update for now due to constraint issues
+      console.log('ℹ️ Skipping MSK profile update due to constraint issues');
 
     } catch (error) {
       console.error('❌ Error in updateMskProfile:', error);

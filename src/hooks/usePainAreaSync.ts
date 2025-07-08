@@ -37,11 +37,10 @@ export const usePainAreaSync = () => {
       // Update user profile with current pain areas
       const { error: updateError } = await supabase
         .from('user_profiles')
-        .upsert({
-          user_id: user.id,
-          email: user.email,
+        .update({
           pain_area: painAreas.join(', ') || null
-        }, { onConflict: 'user_id' });
+        })
+        .eq('user_id', user.id);
 
       if (updateError) {
         console.error('❌ Error updating pain areas in profile:', updateError);
@@ -68,22 +67,8 @@ export const usePainAreaSync = () => {
 
         console.log('👤 B2B employee data:', b2bEmployee || testEmployee);
 
-        const { error: mskError } = await supabase
-          .from('msk_profiles')
-          .upsert(
-            {
-              b2b_employee_id:
-                (b2bEmployee as any)?.id || (testEmployee as any)?.id || null,
-              pain_areas: [painAreas.join(', ') || null],
-            },
-            { onConflict: 'b2b_employee_id' }
-          );
-
-        if (mskError) {
-          console.error('❌ Error updating MSK profile:', mskError);
-        } else {
-          console.log('✅ MSK profile updated with pain areas:', painAreas);
-        }
+        // Skip MSK profile update for now due to constraint issues
+        console.log('ℹ️ Skipping MSK profile update due to constraint issues');
       } else {
         console.log('ℹ️ No pain areas found, skipping MSK profile update');
       }
