@@ -131,6 +131,16 @@ export const useProfileEditing = (
       }
     }
 
+    // Add validation for required fields
+    if ((field === 'firstName' || field === 'lastName') && (!tempValue || String(tempValue).trim() === '')) {
+      toast({
+        title: t('profile.error'),
+        description: `${field === 'firstName' ? 'First name' : 'Last name'} is required`,
+        variant: 'destructive',
+      });
+      return;
+    }
+
     try {
       let updateData: any = {};
       

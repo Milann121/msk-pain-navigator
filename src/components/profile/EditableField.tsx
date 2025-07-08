@@ -42,7 +42,7 @@ export const EditableField: React.FC<EditableFieldProps> = ({
           <Input
             type={type}
             value={tempValue}
-            onChange={(e) => onTempValueChange(type === 'number' ? Number(e.target.value) : e.target.value)}
+            onChange={(e) => onTempValueChange(type === 'number' ? (e.target.value === '' ? '' : Number(e.target.value)) : e.target.value)}
             className="flex-1 h-11 text-base"
             autoFocus
             placeholder={t('profile.savePlaceholder', { field: label.toLowerCase() })}
