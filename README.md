@@ -112,3 +112,15 @@ SELECT conname FROM pg_constraint WHERE conname='user_profiles_user_id_unique';
 
 Once the migration is in place, edit a profile and confirm that the
 `job_type`, `job_properties` and `department_id` fields update correctly.
+
+## Cleaning up job properties
+
+If older rows contain malformed values in the `job_properties` column you can
+normalize them with:
+
+```sh
+npm run clean-job-properties
+```
+
+The script converts comma-separated strings or stringified arrays into proper
+PostgreSQL arrays and removes duplicates.
