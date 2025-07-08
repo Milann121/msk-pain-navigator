@@ -145,10 +145,13 @@ export const useProfileEditing = (
       let updateData: any = {};
       
       if (field === 'jobSection') {
+        // Clean up job properties to remove duplicates and empty values
+        const cleanedJobProperties = [...new Set(tempJobProperties.filter(prop => prop && prop.trim() !== ''))];
+        
         updateData = {
           department_id: tempDepartmentId || null, // Save department ID
           job_type: tempJobType || null,
-          job_properties: tempJobProperties.length > 0 ? tempJobProperties : null
+          job_properties: cleanedJobProperties.length > 0 ? cleanedJobProperties : null
         };
         console.log('💾 [useProfileEditing] Job section update data:', updateData);
       } else {

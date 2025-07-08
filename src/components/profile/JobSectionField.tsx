@@ -105,9 +105,13 @@ export const JobSectionField: React.FC<JobSectionFieldProps> = ({
   }, [user, departmentId]);
 
   const handleTempJobPropertyChange = (propertyName: string, checked: boolean) => {
-    const updatedProperties = checked
-      ? [...tempJobProperties, propertyName]
-      : tempJobProperties.filter(prop => prop !== propertyName);
+    let updatedProperties;
+    if (checked) {
+      // Prevent duplicates by filtering out the property first, then adding it
+      updatedProperties = [...tempJobProperties.filter(prop => prop !== propertyName), propertyName];
+    } else {
+      updatedProperties = tempJobProperties.filter(prop => prop !== propertyName);
+    }
     
     console.log('🔄 [JobSectionField] Job property changed:', {
       propertyName,
@@ -230,12 +234,17 @@ export const JobSectionField: React.FC<JobSectionFieldProps> = ({
     );
   }
 
-  // Display mode
-  const displayValue = () => {
-    const parts = [];
+  // Display mode - separate rows for each field
+  const renderJobInfo = () => {
+    const infoRows = [];
     
     if (departmentName) {
-      parts.push(`${t('profile.jobSection.department')}: ${departmentName}`);
+      infoRows.push(
+        <div key="department" className="flex flex-col mb-2">
+          <span className="text-xs text-muted-foreground">{t('profile.jobSection.department')}:</span>
+          <span className="font-medium text-sm">{departmentName}</span>
+        </div>
+      );
     }
     
     if (jobType) {
@@ -244,29 +253,48 @@ export const JobSectionField: React.FC<JobSectionFieldProps> = ({
         : jobType === 'manual work' 
         ? t('profile.jobSection.jobTypes.manualWork')
         : jobType;
-      parts.push(`${t('profile.jobSection.jobType')}: ${translatedJobType}`);
+      
+      infoRows.push(
+        <div key="jobType" className="flex flex-col mb-2">
+          <span className="text-xs text-muted-foreground">{t('profile.jobSection.jobType')}:</span>
+          <span className="font-medium text-sm">{translatedJobType}</span>
+        </div>
+      );
     }
     
     if (jobProperties && Array.isArray(jobProperties) && jobProperties.length > 0) {
-      const translatedProperties = jobProperties.map(prop => 
-        t(`profile.jobSection.jobPropertyNames.${prop}`, prop)
-      ).join(', ');
-      parts.push(`${t('profile.jobSection.jobProperties')}: ${translatedProperties}`);
+      // Clean up job properties - remove duplicates and empty values
+      const cleanedProperties = [...new Set(jobProperties.filter(prop => prop && prop.trim() !== ''))];
+      
+      if (cleanedProperties.length > 0) {
+        const translatedProperties = cleanedProperties.map(prop => 
+          t(`profile.jobSection.jobPropertyNames.${prop}`, prop)
+        ).join(', ');
+        
+        infoRows.push(
+          <div key="jobProperties" className="flex flex-col mb-2">
+            <span className="text-xs text-muted-foreground">{t('profile.jobSection.jobProperties')}:</span>
+            <span className="font-medium text-sm">{translatedProperties}</span>
+          </div>
+        );
+      }
     }
     
-    return parts.length > 0 ? parts.join(' | ') : '-';
+    return infoRows.length > 0 ? infoRows : <span className="text-sm text-muted-foreground">-</span>;
   };
   
   return (
     <>
       <div className="text-sm text-muted-foreground">{t('profile.job')}:</div>
-      <div className="flex items-center justify-between">
-        <span className="font-medium text-sm">{displayValue()}</span>
+      <div className="flex items-start justify-between">
+        <div className="flex-1">
+          {renderJobInfo()}
+        </div>
         <Button
           size="sm"
           variant="ghost"
           onClick={handleEdit}
-          className="h-8 w-8 p-0"
+          className="h-8 w-8 p-0 ml-2 flex-shrink-0"
         >
           <Edit className="h-4 w-4" />
         </Button>

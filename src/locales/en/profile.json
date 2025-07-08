@@ -56,15 +56,17 @@
     },
     "jobPropertyNames": {
       "Cold Environment": "Cold Environment",
-      "Hot Environment": "Hot Environment", 
-      "Sitting Positions": "Sitting Positions",
       "Driving": "Driving",
-      "Prolonged Standing": "Prolonged Standing",
-      "Specific Tools": "Specific Tools",
       "Heavy Objects Lifting": "Heavy Objects Lifting",
+      "Hot Environment": "Hot Environment",
+      "Prolonged Standing": "Prolonged Standing",
       "Repetitive Movements": "Repetitive Movements",
+      "Sitting Positions": "Sitting Positions",
+      "Specific Tools": "Specific Tools",
       "Vibrations": "Vibrations"
-    }
+    },
+    "updateSuccess": "Job information updated successfully",
+    "updateError": "Failed to update job information"
   },
   "profileForm": {
     "title": "Complete Your Profile",

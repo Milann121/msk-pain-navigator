@@ -56,15 +56,17 @@
     },
     "jobPropertyNames": {
       "Cold Environment": "Chladné prostredie",
-      "Hot Environment": "Horúce prostredie", 
-      "Sitting Positions": "Sedenie",
-      "Driving": "Riadenie",
-      "Prolonged Standing": "Dlhodobé státie",
-      "Specific Tools": "Špecifické nástroje",
+      "Driving": "Šoférovanie",
       "Heavy Objects Lifting": "Zdvíhanie ťažkých predmetov",
+      "Hot Environment": "Horúce prostredie",
+      "Prolonged Standing": "Dlhodobé státie",
       "Repetitive Movements": "Opakujúce sa pohyby",
+      "Sitting Positions": "Sedavé polohy",
+      "Specific Tools": "Špecifické nástroje",
       "Vibrations": "Vibrácie"
-    }
+    },
+    "updateSuccess": "Informácie o práci boli úspešne aktualizované",
+    "updateError": "Nepodarilo sa aktualizovať informácie o práci"
   },
   "profileForm": {
     "title": "Dokončiť profil",

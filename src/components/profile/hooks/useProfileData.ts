@@ -60,7 +60,11 @@ export const useProfileData = () => {
           yearOfBirth: data.year_birth || null,
           departmentId: data.department_id || '',
           jobType: data.job_type || '',
-          jobProperties: Array.isArray(data.job_properties) ? data.job_properties : (data.job_properties ? data.job_properties.split(',').map(p => p.trim()) : []),
+          jobProperties: Array.isArray(data.job_properties) 
+            ? [...new Set(data.job_properties.filter(prop => prop && prop.trim() !== ''))] 
+            : (data.job_properties 
+              ? [...new Set(data.job_properties.split(',').map(p => p.trim()).filter(p => p !== ''))] 
+              : []),
           painArea: data.pain_area || '',
           employerName: data.b2b_partner_name || ''
         });

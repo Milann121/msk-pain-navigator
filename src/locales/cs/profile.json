@@ -54,15 +54,17 @@
     },
     "jobPropertyNames": {
       "Cold Environment": "Chladné prostředí",
-      "Hot Environment": "Horké prostředí",
-      "Sitting Positions": "Sezení",
       "Driving": "Řízení",
-      "Prolonged Standing": "Dlouhodobé stání",
-      "Specific Tools": "Specifické nástroje",
       "Heavy Objects Lifting": "Zvedání těžkých předmětů",
+      "Hot Environment": "Horké prostředí",
+      "Prolonged Standing": "Dlouhodobé stání",
       "Repetitive Movements": "Opakující se pohyby",
+      "Sitting Positions": "Sedavé polohy",
+      "Specific Tools": "Specifické nástroje",
       "Vibrations": "Vibrace"
-    }
+    },
+    "updateSuccess": "Informace o práci byly úspěšně aktualizovány",
+    "updateError": "Nepodařilo se aktualizovat informace o práci"
   },
   "profileForm": {
     "title": "Dokončit profil",
