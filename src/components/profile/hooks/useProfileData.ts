@@ -11,7 +11,6 @@ export const useProfileData = () => {
     lastName: '',
     email: '',
     gender: 'Muž',
-    age: null,
     yearOfBirth: null,
     departmentId: '',
     jobType: '',
@@ -58,7 +57,6 @@ export const useProfileData = () => {
           lastName: data.last_name || '',
           email: data.email || user.email || '',
           gender: data.gender || 'Muž',
-          age: null, // Legacy field, not used anymore
           yearOfBirth: data.year_birth || null,
           departmentId: data.department_id || '',
           jobType: data.job_type || '',
