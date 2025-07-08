@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "lint:translations": "ts-node scripts/checkTranslations.ts",
-    "delete-user": "ts-node scripts/deleteUser.ts"
+    "delete-user": "ts-node scripts/deleteUser.ts",
+    "clean-job-properties": "ts-node scripts/cleanJobProperties.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
