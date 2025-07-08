@@ -139,9 +139,55 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     }
   }, [isOpen, user]);
 
-  // Reset form when dialog opens
+  // Reset form when dialog opens and load existing profile data
   useEffect(() => {
     if (isOpen && user) {
+      loadExistingProfileData();
+      setGoalsData({
+        weeklyExerciseGoal: initialGoals?.weeklyExerciseGoal || null,
+        weeklyBlogGoal: initialGoals?.weeklyBlogGoal || null
+      });
+    }
+  }, [isOpen, user, initialGoals]);
+
+  const loadExistingProfileData = async () => {
+    if (!user) return;
+
+    try {
+      const { data, error } = await supabase
+        .from('user_profiles')
+        .select('*')
+        .eq('user_id', user.id)
+        .single();
+
+      if (data) {
+        console.log('Loading existing profile data:', data);
+        setProfileData({
+          firstName: data.first_name || user.user_metadata?.first_name || '',
+          lastName: data.last_name || '',
+          gender: data.gender || 'Muž',
+          age: '', // Legacy field, not used anymore
+          yearOfBirth: data.year_birth || '',
+          departmentId: data.department_id || '',
+          jobType: data.job_type || '',
+          jobProperties: data.job_properties || []
+        });
+      } else {
+        // No existing profile, use defaults
+        setProfileData({
+          firstName: user.user_metadata?.first_name || '',
+          lastName: '',
+          gender: 'Muž',
+          age: '',
+          yearOfBirth: '',
+          departmentId: '',
+          jobType: '',
+          jobProperties: []
+        });
+      }
+    } catch (error) {
+      console.error('Error loading existing profile data:', error);
+      // Fallback to defaults
       setProfileData({
         firstName: user.user_metadata?.first_name || '',
         lastName: '',
@@ -152,12 +198,8 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         jobType: '',
         jobProperties: []
       });
-      setGoalsData({
-        weeklyExerciseGoal: initialGoals?.weeklyExerciseGoal || null,
-        weeklyBlogGoal: initialGoals?.weeklyBlogGoal || null
-      });
     }
-  }, [isOpen, user, initialGoals]);
+  };
 
   // Notify parent component when goals change
   useEffect(() => {
