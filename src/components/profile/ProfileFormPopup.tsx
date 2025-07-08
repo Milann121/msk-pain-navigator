@@ -26,7 +26,6 @@ interface ProfileData {
   firstName: string;
   lastName: string;
   gender: string;
-  age: number | '';
   yearOfBirth: number | '';
   departmentId: string;
   jobType: string;
@@ -54,7 +53,6 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     firstName: '',
     lastName: '',
     gender: 'Muž',
-    age: '',
     yearOfBirth: '',
     departmentId: '',
     jobType: '',
@@ -166,7 +164,6 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
           firstName: data.first_name || user.user_metadata?.first_name || '',
           lastName: data.last_name || '',
           gender: data.gender || 'Muž',
-          age: '', // Legacy field, not used anymore
           yearOfBirth: data.year_birth || '',
           departmentId: data.department_id || '',
           jobType: data.job_type || '',
@@ -178,7 +175,6 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
           firstName: user.user_metadata?.first_name || '',
           lastName: '',
           gender: 'Muž',
-          age: '',
           yearOfBirth: '',
           departmentId: '',
           jobType: '',
@@ -192,7 +188,6 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         firstName: user.user_metadata?.first_name || '',
         lastName: '',
         gender: 'Muž',
-        age: '',
         yearOfBirth: '',
         departmentId: '',
         jobType: '',
@@ -344,7 +339,6 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         last_name: profileData.lastName.trim(),
         email: user.email, // Always ensure email is saved
         gender: profileData.gender, // Ensure gender is saved
-        age: profileData.age === '' ? null : Number(profileData.age),
         year_birth: profileData.yearOfBirth === '' ? null : Number(profileData.yearOfBirth),
         department_id: profileData.departmentId || null, // Save department ID
         job_type: profileData.jobType || null,
@@ -461,7 +455,6 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         last_name: profileData.lastName.trim(),
         email: user.email, // Always ensure email is saved
         gender: profileData.gender, // Ensure gender is saved
-        age: profileData.age === '' ? null : Number(profileData.age),
         year_birth: profileData.yearOfBirth === '' ? null : Number(profileData.yearOfBirth),
         department_id: profileData.departmentId || null, // Save department ID
         job_type: profileData.jobType || null,
@@ -588,7 +581,6 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
               firstName: profileData.firstName,
               lastName: profileData.lastName,
               gender: profileData.gender,
-              age: profileData.age,
               yearOfBirth: profileData.yearOfBirth
             }}
             onChange={handleInputChange}
