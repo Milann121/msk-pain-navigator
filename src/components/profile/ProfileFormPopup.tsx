@@ -27,6 +27,7 @@ interface ProfileData {
   lastName: string;
   gender: string;
   age: number | '';
+  yearOfBirth: number | '';
   departmentId: string;
   jobType: string;
   jobProperties: string[];
@@ -54,6 +55,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     lastName: '',
     gender: 'Muž',
     age: '',
+    yearOfBirth: '',
     departmentId: '',
     jobType: '',
     jobProperties: []
@@ -145,6 +147,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         lastName: '',
         gender: 'Muž',
         age: '',
+        yearOfBirth: '',
         departmentId: '',
         jobType: '',
         jobProperties: []
@@ -300,6 +303,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         email: user.email, // Always ensure email is saved
         gender: profileData.gender, // Ensure gender is saved
         age: profileData.age === '' ? null : Number(profileData.age),
+        year_birth: profileData.yearOfBirth === '' ? null : Number(profileData.yearOfBirth),
         department_id: profileData.departmentId || null, // Save department ID
         job_type: profileData.jobType || null,
         job_properties: profileData.jobProperties.length > 0 ? profileData.jobProperties : null,
@@ -416,6 +420,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         email: user.email, // Always ensure email is saved
         gender: profileData.gender, // Ensure gender is saved
         age: profileData.age === '' ? null : Number(profileData.age),
+        year_birth: profileData.yearOfBirth === '' ? null : Number(profileData.yearOfBirth),
         department_id: profileData.departmentId || null, // Save department ID
         job_type: profileData.jobType || null,
         job_properties: profileData.jobProperties.length > 0 ? profileData.jobProperties : null,
@@ -500,14 +505,14 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
   // Check if all required profile fields are filled
   const isProfileValid = profileData.firstName.trim() !== '' && 
                         profileData.lastName.trim() !== '' && 
-                        profileData.age !== '' && 
-                        Number(profileData.age) > 0 &&
+                        profileData.yearOfBirth !== '' && 
+                        Number(profileData.yearOfBirth) > 0 &&
                         profileData.jobType.trim() !== '';
 
   console.log('Profile validation state:', {
     firstName: profileData.firstName.trim() !== '',
     lastName: profileData.lastName.trim() !== '',
-    age: profileData.age !== '' && Number(profileData.age) > 0,
+    yearOfBirth: profileData.yearOfBirth !== '' && Number(profileData.yearOfBirth) > 0,
     jobType: profileData.jobType.trim() !== '',
     isValid: isProfileValid
   });
@@ -541,7 +546,8 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
               firstName: profileData.firstName,
               lastName: profileData.lastName,
               gender: profileData.gender,
-              age: profileData.age
+              age: profileData.age,
+              yearOfBirth: profileData.yearOfBirth
             }}
             onChange={handleInputChange}
           />

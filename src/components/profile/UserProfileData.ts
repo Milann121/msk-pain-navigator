@@ -4,7 +4,8 @@ export interface UserProfileData {
   lastName: string;
   email: string;
   gender: string;
-  age: number;
+  age: number | null;
+  yearOfBirth: number | null;
   departmentId: string;
   jobType: string;
   jobProperties: string[];

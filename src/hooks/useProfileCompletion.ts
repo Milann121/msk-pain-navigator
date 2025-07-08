@@ -28,7 +28,7 @@ export const useProfileCompletion = () => {
     try {
       const { data, error } = await supabase
         .from('user_profiles')
-        .select('first_name, last_name, age, job')
+        .select('first_name, last_name, year_birth, job')
         .eq('user_id', user.id)
         .single();
 
@@ -45,13 +45,13 @@ export const useProfileCompletion = () => {
         // Check if required fields are filled
         const hasRequiredFields = data.first_name && 
                                  data.last_name && 
-                                 data.age && 
+                                 data.year_birth && 
                                  data.job;
         
         console.log('Profile exists, required fields check:', {
           first_name: !!data.first_name,
           last_name: !!data.last_name,
-          age: !!data.age,
+          year_birth: !!data.year_birth,
           job: !!data.job,
           hasRequiredFields
         });

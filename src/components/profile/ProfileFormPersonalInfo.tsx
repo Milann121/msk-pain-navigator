@@ -10,6 +10,7 @@ interface PersonalInfoData {
   lastName: string;
   gender: string;
   age: number | '';
+  yearOfBirth: number | '';
 }
 
 interface ProfileFormPersonalInfoProps {
@@ -70,13 +71,13 @@ export const ProfileFormPersonalInfo: React.FC<ProfileFormPersonalInfoProps> = (
       </div>
 
       <div className="space-y-2 mb-4">
-        <Label htmlFor="age">{t('profile.profileForm.age')}</Label>
+        <Label htmlFor="yearOfBirth">{t('profile.profileForm.yearOfBirth')}</Label>
         <Input
-          id="age"
+          id="yearOfBirth"
           type="number"
-          value={data.age}
-          onChange={(e) => onChange('age', e.target.value === '' ? '' : Number(e.target.value))}
-          placeholder={t('profile.profileForm.agePlaceholder')}
+          value={data.yearOfBirth}
+          onChange={(e) => onChange('yearOfBirth', e.target.value === '' ? '' : Number(e.target.value))}
+          placeholder={t('profile.profileForm.yearOfBirthPlaceholder')}
           required
         />
       </div>

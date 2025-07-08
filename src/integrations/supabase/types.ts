@@ -234,6 +234,7 @@ export type Database = {
           department_id: string
           id: string
           trend_direction: string | null
+          user_id: string
         }
         Insert: {
           avg_pain_level?: number | null
@@ -243,6 +244,7 @@ export type Database = {
           department_id: string
           id?: string
           trend_direction?: string | null
+          user_id: string
         }
         Update: {
           avg_pain_level?: number | null
@@ -252,8 +254,17 @@ export type Database = {
           department_id?: string
           id?: string
           trend_direction?: string | null
+          user_id?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "department_pain_trends_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "user_profiles"
+            referencedColumns: ["user_id"]
+          },
+        ]
       }
       exercise_completion_clicks: {
         Row: {
@@ -382,6 +393,7 @@ export type Database = {
           id: string
           pain_level: number
           responses: Json
+          updated_at: string
           user_id: string
         }
         Insert: {
@@ -390,6 +402,7 @@ export type Database = {
           id?: string
           pain_level: number
           responses?: Json
+          updated_at?: string
           user_id: string
         }
         Update: {
@@ -398,6 +411,7 @@ export type Database = {
           id?: string
           pain_level?: number
           responses?: Json
+          updated_at?: string
           user_id?: string
         }
         Relationships: [
@@ -674,7 +688,6 @@ export type Database = {
       }
       user_profiles: {
         Row: {
-          age: number | null
           b2b_partner_id: number | null
           b2b_partner_name: string | null
           created_at: string | null
@@ -689,13 +702,11 @@ export type Database = {
           job_type: string | null
           last_name: string | null
           pain_area: string | null
-          pain_level_followup: number | null
-          pain_level_initial: number | null
           updated_at: string | null
           user_id: string
+          year_birth: number | null
         }
         Insert: {
-          age?: number | null
           b2b_partner_id?: number | null
           b2b_partner_name?: string | null
           created_at?: string | null
@@ -710,13 +721,11 @@ export type Database = {
           job_type?: string | null
           last_name?: string | null
           pain_area?: string | null
-          pain_level_followup?: number | null
-          pain_level_initial?: number | null
           updated_at?: string | null
           user_id: string
+          year_birth?: number | null
         }
         Update: {
-          age?: number | null
           b2b_partner_id?: number | null
           b2b_partner_name?: string | null
           created_at?: string | null
@@ -731,10 +740,9 @@ export type Database = {
           job_type?: string | null
           last_name?: string | null
           pain_area?: string | null
-          pain_level_followup?: number | null
-          pain_level_initial?: number | null
           updated_at?: string | null
           user_id?: string
+          year_birth?: number | null
         }
         Relationships: [
           {
@@ -914,6 +922,42 @@ export type Database = {
           },
         ]
       }
+      weekly_goal_completions: {
+        Row: {
+          created_at: string
+          exercises_completed: number
+          goal_met: boolean
+          goal_target: number
+          id: string
+          updated_at: string
+          user_id: string
+          week_end_date: string
+          week_start_date: string
+        }
+        Insert: {
+          created_at?: string
+          exercises_completed?: number
+          goal_met?: boolean
+          goal_target: number
+          id?: string
+          updated_at?: string
+          user_id: string
+          week_end_date: string
+          week_start_date: string
+        }
+        Update: {
+          created_at?: string
+          exercises_completed?: number
+          goal_met?: boolean
+          goal_target?: number
+          id?: string
+          updated_at?: string
+          user_id?: string
+          week_end_date?: string
+          week_start_date?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -986,6 +1030,10 @@ export type Database = {
         Args: { target_month?: string }
         Returns: undefined
       }
+      update_all_weekly_goal_completions: {
+        Args: { target_week_start?: string }
+        Returns: undefined
+      }
       update_department_pain_trends: {
         Args: Record<PropertyKey, never>
         Returns: undefined
@@ -996,6 +1044,14 @@ export type Database = {
       }
       update_weekly_exercise_goals_for_month: {
         Args: { target_user_id: string; target_month_year: string }
+        Returns: undefined
+      }
+      update_weekly_goal_completion: {
+        Args: {
+          target_user_id: string
+          target_week_start: string
+          target_week_end: string
+        }
         Returns: undefined
       }
     }

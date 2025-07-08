@@ -80,9 +80,9 @@ export const PersonalInfoSection: React.FC<PersonalInfoSectionProps> = ({
       
       <div className="grid grid-cols-2 gap-4">
         <EditableField
-          label={t('profile.age')}
-          field="age"
-          value={userData.age}
+          label={t('profile.yearOfBirth')}
+          field="yearOfBirth"
+          value={userData.yearOfBirth}
           type="number"
           editingField={editingField}
           tempValue={tempValue}

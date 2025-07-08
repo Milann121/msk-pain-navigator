@@ -128,8 +128,9 @@ export const useProfileEditing = (
       } else {
         const dbField = field === 'firstName' ? 'first_name' : 
                        field === 'lastName' ? 'last_name' : 
-                       field === 'painArea' ? 'pain_area' : field;
-        updateData[dbField] = field === 'age' ? Number(tempValue) : String(tempValue);
+                       field === 'painArea' ? 'pain_area' :
+                       field === 'yearOfBirth' ? 'year_birth' : field;
+        updateData[dbField] = (field === 'age' || field === 'yearOfBirth') ? Number(tempValue) : String(tempValue);
         console.log('💾 [useProfileEditing] Other field update data:', updateData);
       }
 
@@ -199,7 +200,7 @@ export const useProfileEditing = (
         });
       } else {
         updateUserData({
-          [field]: field === 'age' ? Number(savedTempValue) : String(savedTempValue)
+          [field]: (field === 'age' || field === 'yearOfBirth') ? Number(savedTempValue) : String(savedTempValue)
         });
       }
 
