@@ -131,16 +131,6 @@ export const useProfileEditing = (
       }
     }
 
-    // Basic validation for required fields
-    if ((field === 'firstName' || field === 'lastName') && !tempValue.toString().trim()) {
-      toast({
-        title: t('profile.error'),
-        description: `${field === 'firstName' ? 'First name' : 'Last name'} is required`,
-        variant: 'destructive',
-      });
-      return;
-    }
-
     try {
       let updateData: any = {};
       
@@ -213,32 +203,21 @@ export const useProfileEditing = (
         });
       }
 
-      // Show success toast for all fields
-      let successMessage = 'Profile updated successfully';
+      // Show success toast
       if (field === 'jobSection') {
-        successMessage = t('profile.jobSection.updateSuccess', 'Job information updated successfully');
+        toast({
+          title: t('profile.success'),
+          description: t('profile.jobSection.updateSuccess'),
+        });
       } else if (field === 'yearOfBirth') {
-        successMessage = 'Year of birth updated successfully';
-      } else if (field === 'firstName') {
-        successMessage = 'First name updated successfully';
-      } else if (field === 'lastName') {
-        successMessage = 'Last name updated successfully';
-      } else if (field === 'gender') {
-        successMessage = 'Gender updated successfully';
+        toast({
+          title: t('profile.success'),
+          description: 'Year of birth updated successfully',
+        });
       }
-      
-      toast({
-        title: t('profile.success'),
-        description: successMessage,
-      });
 
       // After any profile update, sync pain areas from active assessments
-      try {
-        await updatePainAreasFromAssessments();
-      } catch (error) {
-        console.warn('⚠️ [useProfileEditing] Pain area sync failed (non-critical):', error);
-        // Don't block the save process for pain area sync issues
-      }
+      await updatePainAreasFromAssessments();
 
       // Store temp values before clearing them
       const savedDepartmentId = tempDepartmentId;
@@ -274,16 +253,11 @@ export const useProfileEditing = (
       console.error('❌ [useProfileEditing] Error saving profile:', error);
       
       // Show error toast
-      let errorMessage = 'Failed to update profile';
-      if (field === 'jobSection') {
-        errorMessage = t('profile.jobSection.updateError', 'Failed to update job information');
-      } else {
-        errorMessage = t('profile.updateError', 'Failed to update profile');
-      }
-      
       toast({
         title: t('profile.error'),
-        description: errorMessage,
+        description: field === 'jobSection' 
+          ? t('profile.jobSection.updateError')
+          : t('profile.updateError'),
         variant: 'destructive',
       });
       
