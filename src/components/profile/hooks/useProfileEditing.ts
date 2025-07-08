@@ -118,12 +118,13 @@ export const useProfileEditing = (
     
     // Add validation for year of birth
     if (field === 'yearOfBirth') {
-      console.log('🔄 [useProfileEditing] Validating year of birth:', tempValue);
-      if (tempValue !== '' && (isNaN(Number(tempValue)) || Number(tempValue) < 1900 || Number(tempValue) > new Date().getFullYear())) {
-        console.error('❌ [useProfileEditing] Invalid year of birth:', tempValue);
+      const yearValue = Number(tempValue);
+      const currentYear = new Date().getFullYear();
+      
+      if (tempValue !== '' && (isNaN(yearValue) || yearValue < 1900 || yearValue > currentYear)) {
         toast({
           title: t('profile.error'),
-          description: 'Please enter a valid year of birth',
+          description: `Please enter a valid year between 1900 and ${currentYear}`,
           variant: 'destructive',
         });
         return;
@@ -146,14 +147,9 @@ export const useProfileEditing = (
                        field === 'painArea' ? 'pain_area' :
                        field === 'yearOfBirth' ? 'year_birth' : field;
         
-        // Handle year of birth conversion properly
+        // Handle year of birth conversion
         if (field === 'yearOfBirth') {
           updateData[dbField] = tempValue === '' ? null : Number(tempValue);
-          console.log('💾 [useProfileEditing] Year birth conversion:', {
-            original: tempValue,
-            converted: updateData[dbField],
-            isNull: updateData[dbField] === null
-          });
         } else {
           updateData[dbField] = String(tempValue);
         }
@@ -180,18 +176,16 @@ export const useProfileEditing = (
 
       console.log('✅ [useProfileEditing] Successfully saved to database, returned data:', savedData);
       
-      // Verify the save for critical fields
-      if (field === 'yearOfBirth' || field === 'jobSection') {
-        const { data: verifyData, error: verifyError } = await supabase
+      // Verify critical saves in database
+      if (field === 'yearOfBirth') {
+        const { data: verifyData } = await supabase
           .from('user_profiles')
-          .select('year_birth, job_type, job_properties, department_id')
+          .select('year_birth')
           .eq('user_id', user.id)
           .single();
           
-        if (verifyError) {
-          console.error('⚠️ [useProfileEditing] Error verifying save:', verifyError);
-        } else {
-          console.log('🔍 [useProfileEditing] Database verification for', field + ':', verifyData);
+        if (verifyData?.year_birth !== Number(tempValue)) {
+          throw new Error('Year of birth was not saved correctly');
         }
       }
       
@@ -214,6 +208,11 @@ export const useProfileEditing = (
         toast({
           title: t('profile.success'),
           description: t('profile.jobSection.updateSuccess'),
+        });
+      } else if (field === 'yearOfBirth') {
+        toast({
+          title: t('profile.success'),
+          description: 'Year of birth updated successfully',
         });
       }
 

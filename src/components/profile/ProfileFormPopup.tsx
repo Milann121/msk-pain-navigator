@@ -358,10 +358,9 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     }
     
     if (profileData.yearOfBirth !== '' && (isNaN(Number(profileData.yearOfBirth)) || Number(profileData.yearOfBirth) < 1900 || Number(profileData.yearOfBirth) > new Date().getFullYear())) {
-      console.error('❌ [ProfileFormPopup] Invalid year of birth:', profileData.yearOfBirth);
       toast({
         title: t('profile.goals.errorTitle'),
-        description: 'Please enter a valid year of birth',
+        description: `Please enter a valid year between 1900 and ${new Date().getFullYear()}`,
         variant: 'destructive',
       });
       return;
@@ -370,29 +369,22 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     setIsLoading(true);
     
     try {
-      // Prepare profile data with B2B information if available AND ensure email is always saved
+      // Prepare profile data with proper year_birth conversion
       const yearBirthValue = profileData.yearOfBirth === '' ? null : Number(profileData.yearOfBirth);
       const profileUpdateData = {
         user_id: user.id,
         first_name: profileData.firstName.trim(),
         last_name: profileData.lastName.trim(),
-        email: user.email, // Always ensure email is saved
-        gender: profileData.gender, // Ensure gender is saved
+        email: user.email,
+        gender: profileData.gender,
         year_birth: yearBirthValue,
-        department_id: profileData.departmentId || null, // Save department ID
+        department_id: profileData.departmentId || null,
         job_type: profileData.jobType || null,
         job_properties: profileData.jobProperties.length > 0 ? profileData.jobProperties : null,
         b2b_partner_name: b2bEmployeeData?.employerName || null,
         b2b_partner_id: b2bEmployeeData?.b2bPartnerId || null,
         employee_id: b2bEmployeeData?.employeeId || null
       };
-
-      console.log('💾 [ProfileFormPopup] Prepared profile update data:', profileUpdateData);
-      console.log('🔍 [ProfileFormPopup] Year birth processing:', {
-        original: profileData.yearOfBirth,
-        processed: yearBirthValue,
-        isNull: yearBirthValue === null
-      });
 
       const { data: savedData, error: profileError } = await supabase
         .from('user_profiles')
@@ -404,20 +396,15 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         throw profileError;
       }
 
-      console.log('✅ [ProfileFormPopup] Profile saved successfully, returned data:', savedData);
-      
-      // Verify the save by querying the database
-      const { data: verifyData, error: verifyError } = await supabase
+      // Verify the year_birth was saved correctly
+      const { data: verifyData } = await supabase
         .from('user_profiles')
-        .select('year_birth, first_name, last_name, gender')
+        .select('year_birth')
         .eq('user_id', user.id)
         .single();
         
-      if (verifyError) {
-        console.error('⚠️ [ProfileFormPopup] Error verifying save:', verifyError);
-      } else {
-        console.log('🔍 [ProfileFormPopup] Database verification:', verifyData);
-        console.log('🎯 [ProfileFormPopup] Year birth in database:', verifyData?.year_birth);
+      if (verifyData && yearBirthValue !== null && verifyData.year_birth !== yearBirthValue) {
+        throw new Error('Year of birth was not saved correctly');
       }
 
       // Update pain areas from current active assessments
