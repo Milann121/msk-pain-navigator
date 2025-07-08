@@ -52,7 +52,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
   const [profileData, setProfileData] = useState<ProfileData>({
     firstName: '',
     lastName: '',
-    gender: '',
+    gender: 'Muž',
     yearOfBirth: '',
     departmentId: '',
     jobType: '',
