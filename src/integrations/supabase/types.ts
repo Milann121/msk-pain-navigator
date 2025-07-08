@@ -697,7 +697,7 @@ export type Database = {
           first_name: string | null
           gender: string | null
           id: string
-          job_properties: string[] | null
+          job_properties: string | null
           job_type: string | null
           last_name: string | null
           pain_area: string | null
@@ -715,7 +715,7 @@ export type Database = {
           first_name?: string | null
           gender?: string | null
           id?: string
-          job_properties?: string[] | null
+          job_properties?: string | null
           job_type?: string | null
           last_name?: string | null
           pain_area?: string | null
@@ -733,7 +733,7 @@ export type Database = {
           first_name?: string | null
           gender?: string | null
           id?: string
-          job_properties?: string[] | null
+          job_properties?: string | null
           job_type?: string | null
           last_name?: string | null
           pain_area?: string | null
