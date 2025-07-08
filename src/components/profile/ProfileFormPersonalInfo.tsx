@@ -74,8 +74,8 @@ export const ProfileFormPersonalInfo: React.FC<ProfileFormPersonalInfoProps> = (
         <Input
           id="yearOfBirth"
           type="text"
-          value={data.yearOfBirth}
-          onChange={(e) => onChange('yearOfBirth', e.target.value)
+          value={data.yearOfBirth || ''}
+          onChange={(e) => onChange('yearOfBirth', e.target.value)}
           placeholder={t('profile.profileForm.yearOfBirthPlaceholder')}
           required
         />

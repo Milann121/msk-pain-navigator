@@ -163,8 +163,8 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         setProfileData({
           firstName: data.first_name || user.user_metadata?.first_name || '',
           lastName: data.last_name || '',
-          gender: data.gender || 'Muž',
-          yearOfBirth: data.year_birth || '',
+          gender: (data.gender as 'Muž' | 'Žena') || 'Muž',
+          yearOfBirth: data.year_birth ? String(data.year_birth) : null,
           departmentId: data.department_id || '',
           jobType: data.job_type || '',
           jobProperties: Array.isArray(data.job_properties) ? data.job_properties : (data.job_properties ? data.job_properties.split(',').map(p => p.trim()) : [])
@@ -175,7 +175,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
           firstName: user.user_metadata?.first_name || '',
           lastName: '',
           gender: 'Muž',
-          yearOfBirth: '',
+          yearOfBirth: null,
           departmentId: '',
           jobType: '',
           jobProperties: []
@@ -188,7 +188,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         firstName: user.user_metadata?.first_name || '',
         lastName: '',
         gender: 'Muž',
-        yearOfBirth: '',
+        yearOfBirth: null,
         departmentId: '',
         jobType: '',
         jobProperties: []
@@ -357,7 +357,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
       return;
     }
     
-    if (profileData.yearOfBirth !== '' && (isNaN(Number(profileData.yearOfBirth)) || Number(profileData.yearOfBirth) < 1900 || Number(profileData.yearOfBirth) > new Date().getFullYear())) {
+    if (profileData.yearOfBirth && profileData.yearOfBirth !== '' && (isNaN(Number(profileData.yearOfBirth)) || Number(profileData.yearOfBirth) < 1900 || Number(profileData.yearOfBirth) > new Date().getFullYear())) {
       toast({
         title: t('profile.goals.errorTitle'),
         description: `Please enter a valid year between 1900 and ${new Date().getFullYear()}`,
@@ -370,7 +370,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     
     try {
       // Prepare profile data with proper year_birth conversion
-      const yearBirthValue = profileData.yearOfBirth === '' ? null : Number(profileData.yearOfBirth);
+      const yearBirthValue = !profileData.yearOfBirth || profileData.yearOfBirth === '' ? null : Number(profileData.yearOfBirth);
       const profileUpdateData = {
         user_id: user.id,
         first_name: profileData.firstName.trim(),
@@ -501,7 +501,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         last_name: profileData.lastName.trim(),
         email: user.email, // Always ensure email is saved
         gender: profileData.gender, // Ensure gender is saved
-        year_birth: profileData.yearOfBirth === '' ? null : Number(profileData.yearOfBirth),
+        year_birth: !profileData.yearOfBirth || profileData.yearOfBirth === '' ? null : Number(profileData.yearOfBirth),
         department_id: profileData.departmentId || null, // Save department ID
         job_type: profileData.jobType || null,
         job_properties: profileData.jobProperties.length > 0 ? profileData.jobProperties.join(',') : null,
@@ -586,6 +586,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
   // Check if all required profile fields are filled
   const isProfileValid = profileData.firstName.trim() !== '' && 
                         profileData.lastName.trim() !== '' && 
+                        profileData.yearOfBirth && 
                         profileData.yearOfBirth !== '' && 
                         Number(profileData.yearOfBirth) > 0 &&
                         profileData.jobType.trim() !== '';
@@ -593,7 +594,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
   console.log('Profile validation state:', {
     firstName: profileData.firstName.trim() !== '',
     lastName: profileData.lastName.trim() !== '',
-    yearOfBirth: profileData.yearOfBirth !== '' && Number(profileData.yearOfBirth) > 0,
+    yearOfBirth: profileData.yearOfBirth && profileData.yearOfBirth !== '' && Number(profileData.yearOfBirth) > 0,
     jobType: profileData.jobType.trim() !== '',
     isValid: isProfileValid
   });

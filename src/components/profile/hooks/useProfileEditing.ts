@@ -121,7 +121,7 @@ export const useProfileEditing = (
       const yearValue = Number(tempValue);
       const currentYear = new Date().getFullYear();
       
-      if (tempValue !== '' && (isNaN(yearValue) || yearValue < 1900 || yearValue > currentYear)) {
+      if (tempValue && tempValue !== '' && (isNaN(yearValue) || yearValue < 1900 || yearValue > currentYear)) {
         toast({
           title: t('profile.error'),
           description: `Please enter a valid year between 1900 and ${currentYear}`,
@@ -149,7 +149,7 @@ export const useProfileEditing = (
         
         // Handle year of birth conversion
         if (field === 'yearOfBirth') {
-          updateData[dbField] = tempValue === '' ? null : Number(tempValue);
+          updateData[dbField] = !tempValue || tempValue === '' ? null : Number(tempValue);
         } else {
           updateData[dbField] = String(tempValue);
         }
