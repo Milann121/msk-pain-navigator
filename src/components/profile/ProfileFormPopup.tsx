@@ -167,11 +167,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
           yearOfBirth: data.year_birth ? String(data.year_birth) : null,
           departmentId: data.department_id || '',
           jobType: data.job_type || '',
-          jobProperties: data.job_properties
-            ? data.job_properties.map((p: string) =>
-                p ? p.replace(/['"\\]/g, '').trim() : ''
-              ).filter((p: string) => p && p !== '')
-            : []
+          jobProperties: Array.isArray(data.job_properties) ? data.job_properties : (data.job_properties ? data.job_properties.split(',').map(p => p.trim()) : [])
         });
       } else {
         // No existing profile, use defaults
@@ -375,14 +371,6 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     try {
       // Prepare profile data with proper year_birth conversion
       const yearBirthValue = !profileData.yearOfBirth || profileData.yearOfBirth === '' ? null : Number(profileData.yearOfBirth);
-      const cleanedJobProps = [
-        ...new Set(
-          profileData.jobProperties
-            .map((prop) => (prop ? prop.replace(/['"\\]/g, '').trim() : ''))
-            .filter((prop) => prop && prop !== '')
-        ),
-      ];
-
       const profileUpdateData = {
         user_id: user.id,
         first_name: profileData.firstName.trim(),
@@ -392,10 +380,10 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         year_birth: yearBirthValue,
         department_id: profileData.departmentId || null,
         job_type: profileData.jobType || null,
-        job_properties: cleanedJobProps.length > 0 ? cleanedJobProps : null,
+        job_properties: profileData.jobProperties.length > 0 ? profileData.jobProperties.join(',') : null,
         b2b_partner_name: b2bEmployeeData?.employerName || null,
         b2b_partner_id: b2bEmployeeData?.b2bPartnerId || null,
-        employee_id: b2bEmployeeData?.employeeId || null,
+        employee_id: b2bEmployeeData?.employeeId || null
       };
 
       const { data: savedData, error: profileError } = await supabase
@@ -507,14 +495,6 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     onClose();
     try {
       // Save only profile data without goals AND ensure email is always saved
-      const cleanedJobProps = [
-        ...new Set(
-          profileData.jobProperties
-            .map((prop) => (prop ? prop.replace(/['"\\]/g, '').trim() : ''))
-            .filter((prop) => prop && prop !== '')
-        ),
-      ];
-
       const profileUpdateData = {
         user_id: user.id,
         first_name: profileData.firstName.trim(),
@@ -524,10 +504,10 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         year_birth: !profileData.yearOfBirth || profileData.yearOfBirth === '' ? null : Number(profileData.yearOfBirth),
         department_id: profileData.departmentId || null, // Save department ID
         job_type: profileData.jobType || null,
-        job_properties: cleanedJobProps.length > 0 ? cleanedJobProps : null,
+        job_properties: profileData.jobProperties.length > 0 ? profileData.jobProperties.join(',') : null,
         b2b_partner_name: b2bEmployeeData?.employerName || null,
         b2b_partner_id: b2bEmployeeData?.b2bPartnerId || null,
-        employee_id: b2bEmployeeData?.employeeId || null,
+        employee_id: b2bEmployeeData?.employeeId || null
       };
 
       console.log('Saving profile data (skip goals):', profileUpdateData);
