@@ -15,7 +15,6 @@ import MyExercises from "./pages/MyExercises";
 import Blog from "./pages/Blog";
 import Profile from "./pages/Profile";
 import Domov from "./pages/Domov";
-import Orebro from "./pages/Orebro";
 import CookieConsent from "./components/CookieConsent";
 
 // Create QueryClient instance outside of component to prevent recreation
@@ -43,7 +42,6 @@ const App: React.FC = () => (
           <Route path="/my-exercises" element={<MyExercises />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/orebro" element={<Orebro />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
