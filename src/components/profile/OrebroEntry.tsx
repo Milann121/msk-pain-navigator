@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Brain, CheckCircle, Clock } from 'lucide-react';
@@ -62,9 +63,10 @@ export const OrebroEntry = () => {
     }
   };
 
+  const navigate = useNavigate();
+
   const handleTakeQuestionnaire = () => {
-    // This will navigate to the OREBRO questionnaire page (to be implemented later)
-    console.log('Navigate to OREBRO questionnaire');
+    navigate('/orebro');
   };
 
   if (loading) {
