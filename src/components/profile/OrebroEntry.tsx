@@ -36,7 +36,7 @@ export const OrebroEntry = () => {
         .order('created_at', { ascending: false })
         .limit(1);
 
-      if (error) {
+      if (error && error.code !== 'PGRST116') {
         console.error('Error checking OREBRO completion:', error);
         return;
       }
