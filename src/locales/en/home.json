@@ -55,5 +55,14 @@
   "favoriteExercises": {
     "title": "Favorite Exercises",
     "empty": "No favorite exercises yet"
+  },
+  "orebro": {
+    "title": "Wellness Check-in",
+    "description": "Feeling stressed or in pain often? Take a short anonymous ÖREBRO test to help your employer understand workplace wellness needs.",
+    "takeTest": "Take Test Anonymously",
+    "anonymous": "100% Anonymous",
+    "completedMessage": "You completed the wellness check-in on {{date}}. Thank you for your participation!",
+    "reminderMessage": "It's been a while since your last wellness check-in. Your anonymous feedback helps improve workplace conditions.",
+    "reminderText": "Reminder: 3+ months since last check-in"
   }
 }

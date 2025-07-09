@@ -55,5 +55,14 @@
   "favoriteExercises": {
     "title": "Oblíbená cvičení",
     "empty": "Zatím žádná oblíbená cvičení"
+  },
+  "orebro": {
+    "title": "Kontrola pohody",
+    "description": "Cítíš se často vystresovaný nebo máš bolesti? Vyplň krátký anonymní ÖREBRO test, aby tvůj zaměstnavatel lépe rozuměl potřebám pohody na pracovišti.",
+    "takeTest": "Vyplnit test anonymně",
+    "anonymous": "100% Anonymní",
+    "completedMessage": "Kontrolu pohody jsi dokončil {{date}}. Děkujeme za účast!",
+    "reminderMessage": "Už je to chvíle od tvé poslední kontroly pohody. Tvá anonymní zpětná vazba pomáhá zlepšovat podmínky na pracovišti.",
+    "reminderText": "Připomínka: 3+ měsíců od poslední kontroly"
   }
 }

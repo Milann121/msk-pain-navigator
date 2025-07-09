@@ -4,6 +4,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { Navigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import { MoodCalendar } from '@/components/profile/MoodCalendar';
+import { OrebroEntry } from '@/components/profile/OrebroEntry';
 import { ProgressContainer } from '@/components/profile/ProgressContainer';
 import { FavoriteExercises } from '@/components/profile/FavoriteExercises';
 import { SavedBlogs } from '@/components/profile/SavedBlogs';
@@ -75,6 +76,9 @@ const Domov = () => {
         <div className="container mx-auto w-full max-w-full md:max-w-4xl px-2 md:px-0">
           {/* Mood Calendar */}
           <MoodCalendar />
+          
+          {/* OREBRO Questionnaire Entry */}
+          <OrebroEntry />
           
           {/* Progress Container */}
           <ProgressContainer 
