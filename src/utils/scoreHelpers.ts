@@ -4,8 +4,8 @@ import { Differential, PainMechanism, SINGroup } from './types';
 // Helper function to map pain intensity to SIN group
 export const mapPainIntensityToSIN = (intensity: number): SINGroup => {
   if (intensity >= 0 && intensity <= 4) return 'low SIN';
-  if (intensity >= 5 && intensity <= 7) return 'mid SIN';
-  if (intensity >= 8 && intensity <= 10) return 'high SIN';
+  if (intensity >= 5 && intensity <= 6) return 'mid SIN';
+  if (intensity >= 7 && intensity <= 10) return 'high SIN';
   return 'none';
 };
 
