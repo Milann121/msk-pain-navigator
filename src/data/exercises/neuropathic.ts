@@ -17,7 +17,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ["mobility"],
           bodyPart:["neck"],
-          alternatives: [],
+          alternatives: ['eL5KxSe3c1g'],
         },
         {
           videoId: '7WAoHWIxgEI',
