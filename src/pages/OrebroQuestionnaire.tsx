@@ -11,6 +11,7 @@ import { Slider } from '@/components/ui/slider';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { ArrowLeft } from 'lucide-react';
+import Header from '@/components/Header';
 
 interface OrebroAnswers {
   painLocation: string[];
@@ -180,20 +181,20 @@ const OrebroQuestionnaire = () => {
             <h3 className="text-lg font-medium">{t('orebro.questions.workDaysMissed')}</h3>
             <RadioGroup value={answers.workDaysMissed || ""} onValueChange={(value) => handleRadioChange('workDaysMissed', value)}>
               {[
-                { value: '0days', label: t('orebro.workDays.0days'), score: 1 },
-                { value: '1-2days', label: t('orebro.workDays.1-2days'), score: 2 },
-                { value: '3-7days', label: t('orebro.workDays.3-7days'), score: 3 },
-                { value: '8-14days', label: t('orebro.workDays.8-14days'), score: 4 },
-                { value: '15-30days', label: t('orebro.workDays.15-30days'), score: 5 },
-                { value: '1month', label: t('orebro.workDays.1month'), score: 6 },
-                { value: '2months', label: t('orebro.workDays.2months'), score: 7 },
-                { value: '3-6months', label: t('orebro.workDays.3-6months'), score: 8 },
-                { value: '6-12months', label: t('orebro.workDays.6-12months'), score: 9 },
-                { value: 'over1year', label: t('orebro.workDays.over1year'), score: 10 },
+                { value: '0days', label: t('orebro.workDays.0days') },
+                { value: '1-2days', label: t('orebro.workDays.1-2days') },
+                { value: '3-7days', label: t('orebro.workDays.3-7days') },
+                { value: '8-14days', label: t('orebro.workDays.8-14days') },
+                { value: '15-30days', label: t('orebro.workDays.15-30days') },
+                { value: '1month', label: t('orebro.workDays.1month') },
+                { value: '2months', label: t('orebro.workDays.2months') },
+                { value: '3-6months', label: t('orebro.workDays.3-6months') },
+                { value: '6-12months', label: t('orebro.workDays.6-12months') },
+                { value: 'over1year', label: t('orebro.workDays.over1year') },
               ].map((option) => (
                 <div key={option.value} className="flex items-center space-x-2">
                   <RadioGroupItem value={option.value} id={option.value} />
-                  <Label htmlFor={option.value}>{option.label} ({option.score})</Label>
+                  <Label htmlFor={option.value}>{option.label}</Label>
                 </div>
               ))}
             </RadioGroup>
@@ -206,20 +207,20 @@ const OrebroQuestionnaire = () => {
             <h3 className="text-lg font-medium">{t('orebro.questions.painDuration')}</h3>
             <RadioGroup value={answers.painDuration || ""} onValueChange={(value) => handleRadioChange('painDuration', value)}>
               {[
-                { value: '0-1week', label: t('orebro.duration.0-1week'), score: 1 },
-                { value: '1-2weeks', label: t('orebro.duration.1-2weeks'), score: 2 },
-                { value: '3-4weeks', label: t('orebro.duration.3-4weeks'), score: 3 },
-                { value: '4-5weeks', label: t('orebro.duration.4-5weeks'), score: 4 },
-                { value: '6-8weeks', label: t('orebro.duration.6-8weeks'), score: 5 },
-                { value: '9-11weeks', label: t('orebro.duration.9-11weeks'), score: 6 },
-                { value: '3-6months', label: t('orebro.duration.3-6months'), score: 7 },
-                { value: '6-9months', label: t('orebro.duration.6-9months'), score: 8 },
-                { value: '9-12months', label: t('orebro.duration.9-12months'), score: 9 },
-                { value: 'over1year', label: t('orebro.duration.over1year'), score: 10 },
+                { value: '0-1week', label: t('orebro.duration.0-1week') },
+                { value: '1-2weeks', label: t('orebro.duration.1-2weeks') },
+                { value: '3-4weeks', label: t('orebro.duration.3-4weeks') },
+                { value: '4-5weeks', label: t('orebro.duration.4-5weeks') },
+                { value: '6-8weeks', label: t('orebro.duration.6-8weeks') },
+                { value: '9-11weeks', label: t('orebro.duration.9-11weeks') },
+                { value: '3-6months', label: t('orebro.duration.3-6months') },
+                { value: '6-9months', label: t('orebro.duration.6-9months') },
+                { value: '9-12months', label: t('orebro.duration.9-12months') },
+                { value: 'over1year', label: t('orebro.duration.over1year') },
               ].map((option) => (
                 <div key={option.value} className="flex items-center space-x-2">
                   <RadioGroupItem value={option.value} id={option.value} />
-                  <Label htmlFor={option.value}>{option.label} ({option.score})</Label>
+                  <Label htmlFor={option.value}>{option.label}</Label>
                 </div>
               ))}
             </RadioGroup>
@@ -610,30 +611,26 @@ const OrebroQuestionnaire = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8 px-4">
-      <div className="max-w-2xl mx-auto">
-        <Button
-          variant="ghost"
-          onClick={() => navigate('/domov')}
-          className="mb-6 text-muted-foreground hover:text-primary"
-        >
-          <ArrowLeft className="h-4 w-4 mr-2" />
-          {t('common.backToHome')}
-        </Button>
-
-        <Card>
+    <>
+      <Header />
+      <div className="min-h-screen bg-muted/50 p-4">
+        <Card className="max-w-2xl mx-auto">
           <CardHeader>
-            <CardTitle className="text-2xl font-bold text-primary">
-              {t('orebro.title')}
-            </CardTitle>
-            <CardDescription>
-              {t('orebro.description')}
-            </CardDescription>
-            <div className="mt-4">
-              <Progress value={progress} className="h-2" />
-              <p className="text-sm text-muted-foreground mt-1">
-                {t('orebro.questionProgress', { current: currentQuestion + 1, total: totalQuestions })}
-              </p>
+            <div className="flex items-center gap-3 mb-4">
+              <Button variant="ghost" size="icon" onClick={() => navigate('/domov')}>
+                <ArrowLeft className="h-4 w-4" />
+              </Button>
+              <span className="text-sm text-muted-foreground">{t('common.backToHome')}</span>
+            </div>
+            
+            <CardTitle>{t('orebro.title')}</CardTitle>
+            <CardDescription>{t('orebro.description')}</CardDescription>
+            
+            <div className="space-y-2">
+              <div className="flex justify-between text-sm">
+                <span>{t('orebro.questionProgress', { current: currentQuestion + 1, total: totalQuestions })}</span>
+              </div>
+              <Progress value={progress} className="w-full" />
             </div>
           </CardHeader>
 
@@ -642,26 +639,23 @@ const OrebroQuestionnaire = () => {
           </CardContent>
 
           <CardFooter className="flex justify-between">
-            <Button
-              variant="outline"
-              onClick={handleBack}
+            <Button 
+              variant="outline" 
+              onClick={handleBack} 
               disabled={currentQuestion === 0}
             >
               {t('common.back')}
             </Button>
-            <Button
-              onClick={handleNext}
+            <Button 
+              onClick={handleNext} 
               disabled={!isCurrentQuestionAnswered() || isSubmitting}
             >
-              {currentQuestion === totalQuestions - 1 
-                ? t('orebro.submit') 
-                : t('common.next')
-              }
+              {currentQuestion === totalQuestions - 1 ? t('orebro.submit') : t('common.next')}
             </Button>
           </CardFooter>
         </Card>
       </div>
-    </div>
+    </>
   );
 };
 

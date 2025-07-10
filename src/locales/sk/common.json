@@ -60,5 +60,8 @@
   },
   "slider": {
     "selected": "Vybrané: {{value}}"
-  }
+  },
+  "back": "Späť",
+  "next": "Ďalej",
+  "backToHome": "Späť domov"
 }

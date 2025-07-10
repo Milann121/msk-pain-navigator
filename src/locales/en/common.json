@@ -60,5 +60,8 @@
   },
   "slider": {
     "selected": "Selected: {{value}}"
-  }
+  },
+  "back": "Back",
+  "next": "Next",
+  "backToHome": "Back to Home"
 }
