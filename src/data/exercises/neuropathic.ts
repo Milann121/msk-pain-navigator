@@ -17,7 +17,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ["mobility"],
           bodyPart:["neck"],
-          alternatives: ['eL5KxSe3c1g', 'JJq8u5IGDb8'],
+          alternatives: [],
         },
         {
           videoId: '7WAoHWIxgEI',
@@ -26,7 +26,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["neuro-mobs", "pain-relief"],
           bodyPart:["neck"],
-          alternatives: ['oFQwLC6iea4', '3A27NLPe2bs'],
+          alternatives: [],
         },
         {
           videoId: 'AefUaX7yLGw',
@@ -35,7 +35,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           importance: 3,
           mainGroup: ["mobility"],
           bodyPart:["neck"],
-          alternatives: ['JJq8u5IGDb8', 'oaB4o_qeMdQ'],
+          alternatives: [],
         }
       ]
     },
@@ -78,7 +78,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ["pain-relief","neuro-mobs"],
           bodyPart:["lower-back"],
-          alternatives: ['XP1yzpFR6ho', '7WAoHWIxgEI'],
+          alternatives: [],
         },
         {
           videoId: 'PMJsVceAnnY',
@@ -87,7 +87,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["mobility"],
           bodyPart:["lower-back"],
-          alternatives: ['UaG3eY_wNQg', 'XspRg50nn30'],
+          alternatives: [],
         },
         {
           videoId: 'L1Mf3NxYwgY',
@@ -96,7 +96,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           importance: 3,
           mainGroup: ["mobility"],
           bodyPart:["lower-back"],
-          alternatives: ['Wan8QnjTmiQ', 'XspRg50nn30'],
+          alternatives: [],
         }
       ]
     },

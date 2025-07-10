@@ -17,7 +17,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ["pain-relief"],
           bodyPart:["neck","middle-back"],
-          alternatives: ['dxzegzGNdaU', 'L94T55NiI34'],
+          alternatives: [],
         },
         {
          videoId: 'oVJqu0FEw-Y',
@@ -26,7 +26,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["stability"],
           bodyPart:["neck","middle-back"],
-          alternatives: ['D46W1uyK6Mg', 'whyp41YIN8A'],
+          alternatives: [],
         },
         {
           videoId: '5NPvv40gd3Q',
@@ -35,7 +35,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           importance: 3,
           mainGroup: ["stability"],
           bodyPart:["neck","middle-back"],
-          alternatives: ['whyp41YIN8A', 'ldMl3J7MzXE'],
+          alternatives: [],
         }
       ]
     }
@@ -55,7 +55,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ["mobility"],
           bodyPart:["middle-back"],
-          alternatives: ['oAxVF_ktAi0', 'rhPOJA3S-IQ'],
+          alternatives: [],
         },
         {
           videoId: 'dxzegzGNdaU',
@@ -64,7 +64,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["pain-relief"],
           bodyPart:["neck","middle-back"],
-          alternatives: ['844ILxo5xsA', 'L94T55NiI34'],
+          alternatives: [],
         },
         {
           videoId: 'OKsRn5e2VJY',
@@ -73,7 +73,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           importance: 3,
           mainGroup: ["mobility"],
           bodyPart:["middle-back"],
-          alternatives: ['PK62xMsZfG0', 'oAxVF_ktAi0'],
+          alternatives: [],
         },
         {
           videoId: 'oVJqu0FEw-Y',
@@ -82,7 +82,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["stability"],
           bodyPart:["middle-back"],
-          alternatives: ['D46W1uyK6Mg', 'whyp41YIN8A'],
+          alternatives: [],
         }
       ]
     }
@@ -102,7 +102,7 @@ export const centralExercises: Record<string, Exercise[]> = {
         importance: 1,
         mainGroup: ["mobility","pain-relief"],
         bodyPart:["lower-back"],
-        alternatives: ['L1Mf3NxYwgY', 'XspRg50nn30'],
+        alternatives: [],
         },
         {
           videoId: 'Xp33YgPZgns',
@@ -111,7 +111,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["stability"],
           bodyPart:["lower-back"],
-          alternatives: ['BnWLb1h6kfQ', 'dVjfUlXK93k'],
+          alternatives: [],
         },
         {
           videoId: 'dVjfUlXK93k',
@@ -120,7 +120,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           importance: 3,
           mainGroup: ["stability"],
           bodyPart:["lower-back"],
-          alternatives: ['Xp33YgPZgns', 'BnWLb1h6kfQ'],
+          alternatives: [],
         }
       ]
     },

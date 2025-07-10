@@ -15,7 +15,7 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           importance: 3,
           mainGroup: ['mobility'],
           bodyPart: ['shoulder'],
-          alternatives: ['whyp41YIN8A', 'ldMl3J7MzXE'],
+          alternatives: [],
         },
         {
           videoId: '1uz4DoaSY2M', 
@@ -24,7 +24,7 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ['pain-relief', 'stability'],
           bodyPart: ['shoulder'],
-          alternatives: ['oVJqu0FEw-Y', 'D46W1uyK6Mg'],
+          alternatives: [],
         },
         {
           videoId: 'eV-61JrYLQQ',
@@ -33,7 +33,7 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ['pain-relief'],
           bodyPart: ['shoulder'],
-          alternatives: ['un6jXuY', 'NUhSjqTpw5k'],
+          alternatives: [],
         },
         {
           videoId: 'NUhSjqTpw5k',
@@ -42,7 +42,7 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ['pain-relief'],
           bodyPart: ['shoulder'],
-          alternatives: ['eV-61JrYLQQ', '1uz4DoaSY2M'],
+          alternatives: [],
         }
       ]
     },
