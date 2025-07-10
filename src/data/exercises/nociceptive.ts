@@ -17,6 +17,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 3,
           mainGroup: ["mobility", "pain-relief"],
           bodyPart:["neck"],
+          alternatives: ['tIZppe-RB0g', 'oaB4o_qeMdQ'],
         },
         {
           videoId: '7WAoHWIxgEI',
@@ -24,7 +25,8 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           description: 'exercises.nociceptive.discHerniationNeckWeek03.upperLimbNeurodynamics.description',
           importance: 2,
           mainGroup: ["pain-relief", "neuro-mobs"],
-          bodyPart:["neck"]
+          bodyPart:["neck"],
+          alternatives: ['oFQwLC6iea4', '3A27NLPe2bs'],
         },
         {
           videoId: '844ILxo5xsA',
@@ -33,6 +35,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ["pain-relief"],
           bodyPart:["neck", "middle-back"],
+          alternatives: ['dxzegzGNdaU', 'L94T55NiI34'],
         }
       ]
     },
