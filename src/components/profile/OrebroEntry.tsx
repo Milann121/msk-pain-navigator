@@ -136,8 +136,8 @@ export const OrebroEntry = () => {
   }
 
   return (
-    <Card className="mb-6 border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50">
-      <CardContent className="pt-6">
+    <Card className="mb-6 border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50 h-full">
+      <CardContent className="pt-6 h-full flex flex-col">
         <div className="flex items-start gap-4">
           <div className="flex-shrink-0">
             <Brain className="h-8 w-8 text-blue-600" />
