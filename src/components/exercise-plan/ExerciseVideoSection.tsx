@@ -1,12 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ExerciseCompletionCheckbox } from '@/components/ExerciseCompletionCheckbox';
 import { FavoriteExerciseButton } from '@/components/FavoriteExerciseButton';
-import { ExerciseGoodToggle } from './ExerciseGoodToggle';
-import { ExerciseFeedbackDialog } from './ExerciseFeedbackDialog';
-import { ExerciseReplaceDialog } from './ExerciseReplaceDialog';
-import { findReplacementExercise } from '@/utils/exerciseHelpers';
+import { Star } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/contexts/AuthContext';
 import { useToast } from '@/components/ui/use-toast';
@@ -27,22 +23,14 @@ interface ExerciseVideoSectionProps {
   assessmentId?: string;
 }
 
-type FeedbackMap = Record<string, "good" | "neutral" | "not-good">;
-
 export const ExerciseVideoSection = ({
   video,
   exerciseTitle,
   showGeneral,
   assessmentId
 }: ExerciseVideoSectionProps) => {
-  const [feedbackMap, setFeedbackMap] = useState<FeedbackMap>({});
-  const [feedbackDialogOpen, setFeedbackDialogOpen] = useState(false);
-  const [replaceDialogOpen, setReplaceDialogOpen] = useState(false);
-  const [proposedExercise, setProposedExercise] = useState<{
-    exerciseTitle: string;
-    videoId: string;
-    description?: string;
-  } | null>(null);
+  const [rating, setRating] = useState<number>(0);
+  const [hoveredRating, setHoveredRating] = useState<number>(0);
 
   const { user } = useAuth();
   const { toast } = useToast();
@@ -62,141 +50,98 @@ export const ExerciseVideoSection = ({
     return text;
   };
 
-  // Load existing feedback on component mount
+  // Load existing rating on component mount
   useEffect(() => {
-    const loadExistingFeedback = async () => {
+    const loadExistingRating = async () => {
       if (!user) return;
       
       try {
         const { data: existingFeedback, error } = await supabase
           .from('exercise_feedback')
-          .select('video_id, feedback_value')
+          .select('feedback_value')
           .eq('user_id', user.id)
           .eq('video_id', video.videoId)
           .order('created_at', { ascending: false })
           .limit(1);
 
         if (error) {
-          console.error('Error loading feedback:', error);
+          console.error('Error loading rating:', error);
           return;
         }
 
         if (existingFeedback && existingFeedback.length > 0) {
           const feedback = existingFeedback[0];
-          let feedbackValue: "good" | "neutral" | "not-good" = "neutral";
-          
-          if (feedback.feedback_value === 1) {
-            feedbackValue = "good";
-          } else if (feedback.feedback_value === -1) {
-            feedbackValue = "not-good";
-          }
-          
-          setFeedbackMap(prev => ({
-            ...prev,
-            [video.videoId]: feedbackValue
-          }));
+          setRating(feedback.feedback_value || 0);
         }
       } catch (error) {
-        console.error('Error loading existing feedback:', error);
+        console.error('Error loading existing rating:', error);
       }
     };
 
-    loadExistingFeedback();
+    loadExistingRating();
   }, [user, video.videoId]);
 
-  // Neutral is the default
-  const feedbackValue = feedbackMap[video.videoId] ?? "neutral";
-
-  // Feedback logic (store feedback in supabase)
-  const handleStoreFeedback = async (value: 1 | -1 | 0) => {
+  // Handle star click
+  const handleStarClick = async (starValue: number) => {
     if (!user) return;
-    // Write feedback
-    const { error } = await supabase.from("exercise_feedback").upsert([
-      {
-        user_id: user.id,
-        exercise_title: getTranslatedText(video.title || exerciseTitle),
-        video_id: video.videoId,
-        feedback_value: value,
-      },
-    ]);
-    if (error) {
+    
+    setRating(starValue);
+    
+    try {
+      const { error } = await supabase.from("exercise_feedback").upsert([
+        {
+          user_id: user.id,
+          exercise_title: getTranslatedText(video.title || exerciseTitle),
+          video_id: video.videoId,
+          feedback_value: starValue,
+        },
+      ]);
+      
+      if (error) {
+        toast({
+          title: t('goals.errorTitle'),
+          description: t('exercisePlan.errorSave'),
+          variant: 'destructive',
+        });
+      } else {
+        toast({
+          title: 'Rating saved',
+          description: `You rated this exercise ${starValue} star${starValue !== 1 ? 's' : ''}`,
+        });
+      }
+    } catch (error) {
+      console.error('Error saving rating:', error);
       toast({
         title: t('goals.errorTitle'),
         description: t('exercisePlan.errorSave'),
         variant: 'destructive',
       });
-    } else {
-      const message = value === 1 ? t('exercisePlan.markedGood') : 
-                     value === -1 ? t('exercisePlan.requestedChange') : 
-                     t('exercisePlan.feedbackSaved');
-      toast({
-        title: t('exercisePlan.feedbackSaved'),
-        description: message,
-      });
     }
-  };
-
-  const handleToggleChange = (value: "good" | "neutral" | "not-good") => {
-    setFeedbackMap((prev) => ({ ...prev, [video.videoId]: value }));
-    
-    // Save feedback immediately when user changes toggle
-    if (value === "good") {
-      handleStoreFeedback(1);
-    } else if (value === "not-good") {
-      setFeedbackDialogOpen(true);
-      // Don't write feedback yet, wait for confirm.
-    } else if (value === "neutral") {
-      handleStoreFeedback(0);
-    }
-  };
-
-  const handleDialogOpenChange = (open: boolean) => {
-    setFeedbackDialogOpen(open);
-  };
-
-  // When "Zmeniť cvik" is confirmed in feedback dialog:
-  const handleExerciseChangeRequest = async () => {
-    // Write negative feedback
-    await handleStoreFeedback(-1);
-    // Find a new exercise with same bodyPart/mainGroup
-    if (video.bodyPart && video.mainGroup) {
-      const newExercise = findReplacementExercise(
-        video.videoId,
-        video.bodyPart[0], // Use first body part for replacement
-        video.mainGroup[0] // Use first main group for replacement
-      );
-      if (newExercise) {
-        setProposedExercise(newExercise);
-        setReplaceDialogOpen(true);
-      } else {
-        toast({
-          title: t('exercisePlan.replacementErrorTitle'),
-          description: t('exercisePlan.replacementErrorDescription'),
-          variant: 'destructive',
-        });
-      }
-    } else {
-      toast({
-        title: t('exercisePlan.missingInfoTitle'),
-        description: t('exercisePlan.missingInfoDescription'),
-        variant: 'destructive',
-      });
-    }
-  };
-
-  // Handle user confirming exercise replacement
-  const handleConfirmReplace = (newEx: { exerciseTitle: string; videoId: string }) => {
-    // Here we would update the UI/list with the new exercise in a parent context, but for this demo just close dialog.
-    setReplaceDialogOpen(false);
-    toast({
-      title: t('exercisePlan.exerciseChangedTitle'),
-      description: t('exercisePlan.exerciseChangedDesc'),
-    });
-    // Optionally update local state/UI
   };
 
   const translatedTitle = getTranslatedText(video.title || '');
   const translatedDescription = getTranslatedText(video.description || '');
+
+  const StarRating = () => (
+    <div className="space-y-2">
+      <span className="text-base font-medium text-gray-900 block">Rating:</span>
+      <div className="flex gap-1">
+        {[1, 2, 3, 4, 5].map((starValue) => (
+          <Star
+            key={starValue}
+            className={`w-6 h-6 cursor-pointer transition-colors ${
+              starValue <= (hoveredRating || rating) 
+                ? 'fill-yellow-400 text-yellow-400' 
+                : 'text-gray-300'
+            }`}
+            onClick={() => handleStarClick(starValue)}
+            onMouseEnter={() => setHoveredRating(starValue)}
+            onMouseLeave={() => setHoveredRating(0)}
+          />
+        ))}
+      </div>
+    </div>
+  );
 
   return (
     <div className="space-y-4">
@@ -238,26 +183,7 @@ export const ExerciseVideoSection = ({
                   videoId={video.videoId}
                 />
               )}
-              <div className="space-y-2">
-                <span className="text-base font-medium text-gray-900 block">{t('exercisePlan.suitableQuestion')}</span>
-                <div className="flex justify-start">
-                  <ExerciseGoodToggle
-                    value={feedbackValue}
-                    onChange={handleToggleChange}
-                  />
-                </div>
-              </div>
-              <ExerciseFeedbackDialog
-                open={feedbackDialogOpen}
-                onOpenChange={handleDialogOpenChange}
-                onChangeRequest={handleExerciseChangeRequest}
-              />
-              <ExerciseReplaceDialog
-                open={replaceDialogOpen}
-                onOpenChange={setReplaceDialogOpen}
-                newExercise={proposedExercise}
-                onConfirm={handleConfirmReplace}
-              />
+              <StarRating />
             </div>
           )}
           <FavoriteExerciseButton
@@ -297,26 +223,7 @@ export const ExerciseVideoSection = ({
                 videoId={video.videoId}
               />
             )}
-            <div className="space-y-2">
-              <span className="text-base font-medium text-gray-900 block">{t('exercisePlan.suitableQuestion')}</span>
-              <div className="flex justify-start">
-                <ExerciseGoodToggle
-                  value={feedbackValue}
-                  onChange={handleToggleChange}
-                />
-              </div>
-            </div>
-            <ExerciseFeedbackDialog
-              open={feedbackDialogOpen}
-              onOpenChange={handleDialogOpenChange}
-              onChangeRequest={handleExerciseChangeRequest}
-            />
-            <ExerciseReplaceDialog
-              open={replaceDialogOpen}
-              onOpenChange={setReplaceDialogOpen}
-              newExercise={proposedExercise}
-              onConfirm={handleConfirmReplace}
-            />
+            <StarRating />
           </div>
         )}
         <FavoriteExerciseButton
