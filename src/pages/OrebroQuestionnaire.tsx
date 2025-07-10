@@ -620,7 +620,7 @@ const OrebroQuestionnaire = () => {
               <Button variant="ghost" size="icon" onClick={() => navigate('/domov')}>
                 <ArrowLeft className="h-4 w-4" />
               </Button>
-              <span className="text-sm text-muted-foreground">{t('common.backToHome')}</span>
+              <span className="text-sm text-muted-foreground">{t('backToHome')}</span>
             </div>
             
             <CardTitle>{t('orebro.title')}</CardTitle>
@@ -644,13 +644,13 @@ const OrebroQuestionnaire = () => {
               onClick={handleBack} 
               disabled={currentQuestion === 0}
             >
-              {t('common.back')}
+              {t('back')}
             </Button>
             <Button 
               onClick={handleNext} 
               disabled={!isCurrentQuestionAnswered() || isSubmitting}
             >
-              {currentQuestion === totalQuestions - 1 ? t('orebro.submit') : t('common.next')}
+              {currentQuestion === totalQuestions - 1 ? t('orebro.submit') : t('next')}
             </Button>
           </CardFooter>
         </Card>
