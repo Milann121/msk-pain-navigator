@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/contexts/AuthContext';
 import { Card, CardContent } from '@/components/ui/card';
@@ -10,6 +11,7 @@ import { format, differenceInMonths } from 'date-fns';
 export const OrebroEntry = () => {
   const { t } = useTranslation();
   const { user } = useAuth();
+  const navigate = useNavigate();
   const [hasCompletedRecently, setHasCompletedRecently] = useState(false);
   const [lastCompletionDate, setLastCompletionDate] = useState<Date | null>(null);
   const [showReminder, setShowReminder] = useState(false);
@@ -63,8 +65,7 @@ export const OrebroEntry = () => {
   };
 
   const handleTakeQuestionnaire = () => {
-    // This will navigate to the OREBRO questionnaire page (to be implemented later)
-    console.log('Navigate to OREBRO questionnaire');
+    navigate('/orebro-questionnaire');
   };
 
   if (loading) {
