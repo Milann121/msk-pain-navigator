@@ -26,10 +26,16 @@ export const SliderQuestion = ({ field, questionKey, minLabel, maxLabel, answers
           min={0}
           step={1}
         />
-        <div className="flex justify-between text-sm text-muted-foreground">
-          <span>0 = {t(minLabel)}</span>
-          <span className="text-primary font-medium">{value || 0}</span>
-          <span>10 = {t(maxLabel)}</span>
+        <div className="flex items-center justify-between text-sm text-muted-foreground mt-2">
+          <div className="flex-1 text-left">
+            <span className="font-medium">0</span> = {t(minLabel)}
+          </div>
+          <div className="mx-4 px-3 py-1 bg-primary/10 rounded-md">
+            <span className="text-primary font-bold text-base">{value || 0}</span>
+          </div>
+          <div className="flex-1 text-right">
+            <span className="font-medium">10</span> = {t(maxLabel)}
+          </div>
         </div>
       </div>
     </div>
