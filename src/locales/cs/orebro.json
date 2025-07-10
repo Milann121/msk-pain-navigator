@@ -36,10 +36,10 @@
   "painLocations": {
     "neck": "Krk",
     "shoulder": "Rameno",
-    "arm": "Paže",
-    "upperBack": "Horní část zad",
-    "lowerBack": "Dolní část zad",
-    "leg": "Noha",
+    "arm": "Horní končetina",
+    "upperBack": "Střední záda",
+    "lowerBack": "Spodní záda",
+    "leg": "Dolní končetina",
     "other": "Jiné"
   },
   "workDays": {

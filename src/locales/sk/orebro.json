@@ -36,10 +36,10 @@
   "painLocations": {
     "neck": "Krk",
     "shoulder": "Rameno",
-    "arm": "Rameno",
-    "upperBack": "Horná časť chrbta",
-    "lowerBack": "Dolná časť chrbta",
-    "leg": "Noha",
+    "arm": "Horná končatina",
+    "upperBack": "Stredný chrbát",
+    "lowerBack": "Spodný chrbát",
+    "leg": "Dolná končatina",
     "other": "Iné"
   },
   "workDays": {
