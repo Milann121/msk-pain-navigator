@@ -3,6 +3,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Brain, CheckCircle, Clock, ChevronDown } from 'lucide-react';
 import { format } from 'date-fns';
+import { OrebroReminderBanner } from './OrebroReminderBanner';
 
 interface OrebroExpandedViewProps {
   hasCompletedRecently: boolean;
@@ -26,6 +27,10 @@ export const OrebroExpandedView = ({
   return (
     <Card className="mb-6 border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50 h-full">
       <CardContent className="pt-6 h-full flex flex-col">
+        <OrebroReminderBanner 
+          lastCompletionDate={lastCompletionDate}
+          showReminder={showReminder}
+        />
         <div className="flex items-start gap-4">
           <div className="flex-shrink-0">
             <Brain className="h-8 w-8 text-blue-600" />

@@ -113,5 +113,7 @@
     "error": "Chyba",
     "notAuthenticated": "Musíte byť prihlásení na pridanie programu.",
     "addProgramError": "Nepodarilo sa pridať program. Skúste to znovu."
-  }
+  },
+  "reminderWithDate": "Uplynulo {{months}} mesiacov od vášho posledného OREBRO dotazníka ({{date}}). Je čas na aktualizáciu!",
+  "reminderFirstTime": "Dokončite svoj prvý OREBRO dotazník na sledovanie pokroku v čase."
 }

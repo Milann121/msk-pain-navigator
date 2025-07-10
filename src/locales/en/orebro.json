@@ -113,5 +113,7 @@
     "error": "Error",
     "notAuthenticated": "You must be logged in to add a program.",
     "addProgramError": "Failed to add program. Please try again."
-  }
+  },
+  "reminderWithDate": "It's been {{months}} months since your last OREBRO questionnaire ({{date}}). Time for an update!",
+  "reminderFirstTime": "Complete your first OREBRO questionnaire to track your progress over time."
 }

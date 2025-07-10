@@ -16,7 +16,11 @@ export const OrebroEntry = () => {
   // If completed recently and not expanded, show collapsed view
   if (hasCompletedRecently && !isExpanded) {
     return (
-      <OrebroCollapsedView onExpand={() => setIsExpanded(true)} />
+      <OrebroCollapsedView 
+        onExpand={() => setIsExpanded(true)}
+        lastCompletionDate={lastCompletionDate}
+        showReminder={showReminder}
+      />
     );
   }
 

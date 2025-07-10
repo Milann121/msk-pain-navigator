@@ -1,17 +1,28 @@
 import { useTranslation } from 'react-i18next';
 import { Card, CardContent } from '@/components/ui/card';
 import { Brain, CheckCircle, ChevronRight } from 'lucide-react';
+import { OrebroReminderBanner } from './OrebroReminderBanner';
 
 interface OrebroCollapsedViewProps {
   onExpand: () => void;
+  lastCompletionDate: Date | null;
+  showReminder: boolean;
 }
 
-export const OrebroCollapsedView = ({ onExpand }: OrebroCollapsedViewProps) => {
+export const OrebroCollapsedView = ({ 
+  onExpand, 
+  lastCompletionDate, 
+  showReminder 
+}: OrebroCollapsedViewProps) => {
   const { t } = useTranslation();
 
   return (
     <Card className="mb-6 border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50 h-full">
       <CardContent className="pt-4 pb-4">
+        <OrebroReminderBanner 
+          lastCompletionDate={lastCompletionDate}
+          showReminder={showReminder}
+        />
         <div 
           className="flex items-center gap-4 cursor-pointer"
           onClick={onExpand}
