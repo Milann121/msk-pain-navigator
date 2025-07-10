@@ -86,7 +86,8 @@
   },
   "generalProgram": {
     "title": "Všeobecný program",
-    "description": "Nemáte čas na individuální programy? Zde najdete personalizovaný program s nejdůležitějšími cvičeními z vašich programů. Dodržujte pokyny a přestaňte cvičit, pokud pociťujete bolest."
+    "description": "Nemáte čas na individuální programy? Zde najdete personalizovaný program s nejdůležitějšími cvičeními z vašich programů. Dodržujte pokyny a přestaňte cvičit, pokud pociťujete bolest.",
+    "noDataDescription": "Nejsou k dispozici žádná data"
   },
   "central": {
     "centralSensitisationNeck": {
