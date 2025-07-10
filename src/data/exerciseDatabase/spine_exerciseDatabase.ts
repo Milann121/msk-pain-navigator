@@ -53,9 +53,8 @@ export const spineExercises: ExerciseVideo[] = [
     importance: 2,
     mainGroup: ['mobility'],
     bodyPart: ['middle-back']
-  }
+  },
 
-  
   // LOWER-BACK EXERCISE DATABASE
   {
     videoId: 'tIZppe-RB0g',
