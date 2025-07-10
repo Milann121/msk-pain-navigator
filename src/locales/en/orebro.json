@@ -87,5 +87,31 @@
     "completelyAgree": "Completely agree",
     "cantDoBecauseOfPain": "Can't do it because of pain problem",
     "canDoWithoutPain": "Can do it without pain being a problem"
+  },
+  "result": {
+    "thankYou": "Thank you for completing the anonymous questionnaire",
+    "description": "Your results and those of your colleagues are processed and reported to company management in order to establish adequate conditions for your mental and physical health.",
+    "riskTitle": "Your risk of absenteeism and disability is",
+    "riskLevels": {
+      "low": "Low risk",
+      "medium": "Medium risk",
+      "high": "High risk"
+    },
+    "recommendationTitle": "Recommendation",
+    "recommendations": {
+      "low": "Based on the ÖREBRO questionnaire, you have a low risk of absenteeism and disability. Actively address your pain to limit these risks to the maximum. It's enough to exercise simple exercises for painful areas 2-3 times a week and maintain your physical and mental condition.",
+      "medium": "Based on the ÖREBRO questionnaire, you have a medium risk of absenteeism and disability. We recommend an active approach to pain management and regular exercise.",
+      "high": "Based on the ÖREBRO questionnaire, you have a high risk of absenteeism and disability. We recommend consultation with a specialist and an active approach to treatment."
+    },
+    "tryGeneralProgram": "Try our general program for {{painLocation}}.",
+    "generalProgram": "General program",
+    "recommendedExercises": "Recommended exercises for {{painLocation}}",
+    "addProgram": "Add Program",
+    "programAdded": "Program Added",
+    "programAddedDescription": "The program has been successfully added to your active programs.",
+    "programWarning": "*Warning: if you already have active programs on the 'My Exercises' page, consider those exercises as superior to the recommendations on this page.",
+    "error": "Error",
+    "notAuthenticated": "You must be logged in to add a program.",
+    "addProgramError": "Failed to add program. Please try again."
   }
 }

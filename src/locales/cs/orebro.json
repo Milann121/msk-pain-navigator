@@ -87,5 +87,31 @@
     "completelyAgree": "Úplně souhlasím",
     "cantDoBecauseOfPain": "Nemůžu to dělat kvůli problému s bolestí",
     "canDoWithoutPain": "Můžu to dělat bez toho, aby bolest byla problémem"
+  },
+  "result": {
+    "thankYou": "Děkujeme za vyplnění anonymního dotazníku",
+    "description": "Výsledky vás a vašich kolegů jsou zpracovány a hlášeny vedení společnosti s cílem nastavit vhodné podmínky pro vaše duševní a pohybové zdraví.",
+    "riskTitle": "Vaše riziko absentizmu a postižení je",
+    "riskLevels": {
+      "low": "Nízké riziko",
+      "medium": "Střední riziko",
+      "high": "Vysoké riziko"
+    },
+    "recommendationTitle": "Doporučení",
+    "recommendations": {
+      "low": "Na základě ÖREBRO dotazníku máte nízké riziko absentizmu a postižení. Věnujte se aktivně svým bolestem, abyste limitovali tato rizika na maximum. Stačí 2-3x týdně zacvičit jednoduché cviky na bolestivé oblasti a udržet se ve fyzické a duševní kondici.",
+      "medium": "Na základě ÖREBRO dotazníku máte střední riziko absentizmu a postižení. Doporučujeme aktivní přístup k řešení bolesti a pravidelné cvičení.",
+      "high": "Na základě ÖREBRO dotazníku máte vysoké riziko absentizmu a postižení. Doporučujeme konzultaci s odborníkem a aktivní přístup k léčbě."
+    },
+    "tryGeneralProgram": "Vyzkoušejte náš obecný program na {{painLocation}}.",
+    "generalProgram": "Obecný program",
+    "recommendedExercises": "Doporučená cvičení pro {{painLocation}}",
+    "addProgram": "Přidat program",
+    "programAdded": "Program přidán",
+    "programAddedDescription": "Program byl úspěšně přidán do vašich aktivních programů.",
+    "programWarning": "*Upozornění: pokud již máte aktivní programy na stránce 'Moje cvičení', považujte tyto cviky za nadřazené nad doporučeními na této stránce.",
+    "error": "Chyba",
+    "notAuthenticated": "Musíte být přihlášeni pro přidání programu.",
+    "addProgramError": "Nepodařilo se přidat program. Zkuste to znovu."
   }
 }

@@ -87,5 +87,31 @@
     "completelyAgree": "Úplne súhlasím",
     "cantDoBecauseOfPain": "Nemôžem to robiť kvôli problému s bolesťou",
     "canDoWithoutPain": "Môžem to robiť bez toho, aby bolesť bola problémom"
+  },
+  "result": {
+    "thankYou": "Ďakujeme za vyplnenie anonýmneho dotazníka",
+    "description": "Výsledky vás a vašich kolegov sú spracované a reportované manažmentu spoločnosti s cieľom nastaviť adekvátne podmienky pre vaše psychické a pohybové zdravie.",
+    "riskTitle": "Vaše riziko absentizmu a postihnutia je",
+    "riskLevels": {
+      "low": "Nízke riziko",
+      "medium": "Stredné riziko",
+      "high": "Vysoké riziko"
+    },
+    "recommendationTitle": "Odporučenie",
+    "recommendations": {
+      "low": "Na základe ÖREBRO dotazníka máte nízke riziko absentizmu a postihnutia. Venujte sa aktívne svojim bolestiam aby ste limitovali tieto riziká na maximum. Stačí 2-3x týždenne odcvičiť jednoduché cvičenia na bolestivé oblasti a držať sa vo fyzickej a psychickej kondícii.",
+      "medium": "Na základe ÖREBRO dotazníka máte stredné riziko absentizmu a postihnutia. Odporúčame aktívny prístup k riešeniu bolesti a pravidelné cvičenie.",
+      "high": "Na základe ÖREBRO dotazníka máte vysoké riziko absentizmu a postihnutia. Odporúčame konzultáciu s odborníkom a aktívny prístup k liečbe."
+    },
+    "tryGeneralProgram": "Vyskúšajte náš všeobecný program na {{painLocation}}.",
+    "generalProgram": "Všeobecný program",
+    "recommendedExercises": "Odporúčané cvičenia pre {{painLocation}}",
+    "addProgram": "Pridať program",
+    "programAdded": "Program pridaný",
+    "programAddedDescription": "Program bol úspešne pridaný do vašich aktívnych programov.",
+    "programWarning": "*Upozornenie: ak už máte aktívne programy na stránke 'Moje cvičenia', považujte tie cvičenia za nadradené nad odporučaniami na tejto stránke.",
+    "error": "Chyba",
+    "notAuthenticated": "Musíte byť prihlásení na pridanie programu.",
+    "addProgramError": "Nepodarilo sa pridať program. Skúste to znovu."
   }
 }

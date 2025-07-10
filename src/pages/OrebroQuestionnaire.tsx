@@ -90,7 +90,13 @@ const OrebroQuestionnaire = () => {
         description: t('orebro.submitted.description'),
       });
 
-      navigate('/domov');
+      // Navigate to result page with data
+      navigate('/orebro-result', { 
+        state: { 
+          riskLevel, 
+          painLocations: answers.painLocation || [] 
+        } 
+      });
     } catch (error) {
       console.error('Error submitting OREBRO:', error);
       toast({
