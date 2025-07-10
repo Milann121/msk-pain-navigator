@@ -58,12 +58,7 @@ const enTranslations = {
   assessment: enAssessment,
   home: enHome,
   ...enExercises,
-  exercises: {
-    central: enExercises.central,
-    neuropathic: enExercises.neuropathic,
-    nociceptive: enExercises.nociceptive,
-    shoulderNociceptive: enExercises.shoulderNociceptive
-  },
+  exercises: enExercises,
   misc: enMisc,
   questionnaire: enQuestionnaire,
   results: enResults,
@@ -80,12 +75,7 @@ const skTranslations = {
   assessment: skAssessment,
   home: skHome,
   ...skExercises,
-  exercises: {
-    central: skExercises.central,
-    neuropathic: skExercises.neuropathic,
-    nociceptive: skExercises.nociceptive,
-    shoulderNociceptive: skExercises.shoulderNociceptive
-  },
+  exercises: skExercises,
   misc: skMisc,
   questionnaire: skQuestionnaire,
   results: skResults,
@@ -102,12 +92,7 @@ const csTranslations = {
   assessment: csAssessment,
   home: csHome,
   ...csExercises,
-  exercises: {
-    central: csExercises.central,
-    neuropathic: csExercises.neuropathic,
-    nociceptive: csExercises.nociceptive,
-    shoulderNociceptive: csExercises.shoulderNociceptive
-  },
+  exercises: csExercises,
   misc: csMisc,
   questionnaire: csQuestionnaire,
   results: csResults,
