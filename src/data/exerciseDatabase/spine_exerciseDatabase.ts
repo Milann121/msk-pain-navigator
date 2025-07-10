@@ -8,6 +8,9 @@ interface ExerciseVideo {
 }
 
 export const spineExercises: ExerciseVideo[] = [
+
+  
+  // NECK EXERCISES DATABASE
   {
     videoId: 'eL5KxSe3c1g',
     title: 'McKenzie Neck Extensions',
@@ -24,6 +27,9 @@ export const spineExercises: ExerciseVideo[] = [
     mainGroup: ['pain-relief'],
     bodyPart: ['neck', 'middle-back']
   },
+
+  
+  // MIDDLE-BACK EXERCISE DATABASE
   {
     videoId: 'PK62xMsZfG0',
     title: 'Prayer Stretch',
@@ -32,6 +38,25 @@ export const spineExercises: ExerciseVideo[] = [
     mainGroup: ['mobility'],
     bodyPart: ['middle-back']
   },
+  {
+    videoId: 'dxzegzGNdaU',
+    title: 'Thoracic Spine Massage',
+    description: 'Self-massage techniques for thoracic spine',
+    importance: 2,
+    mainGroup: ['pain-relief'],
+    bodyPart: ['middle-back']
+  },
+  {
+    videoId: 'oAxVF_ktAi0',
+    title: 'Thoracic Rotation with Extension',
+    description: 'Combined rotation and extension for thoracic spine mobility',
+    importance: 2,
+    mainGroup: ['mobility'],
+    bodyPart: ['middle-back']
+  }
+
+  
+  // LOWER-BACK EXERCISE DATABASE
   {
     videoId: 'tIZppe-RB0g',
     title: 'McKenzie Lumbar Extensions',
@@ -55,21 +80,5 @@ export const spineExercises: ExerciseVideo[] = [
     importance: 2,
     mainGroup: ['mobility', 'pain-relief'],
     bodyPart: ['lower-back']
-  },
-  {
-    videoId: 'dxzegzGNdaU',
-    title: 'Thoracic Spine Massage',
-    description: 'Self-massage techniques for thoracic spine',
-    importance: 2,
-    mainGroup: ['pain-relief'],
-    bodyPart: ['middle-back']
-  },
-  {
-    videoId: 'oAxVF_ktAi0',
-    title: 'Thoracic Rotation with Extension',
-    description: 'Combined rotation and extension for thoracic spine mobility',
-    importance: 2,
-    mainGroup: ['mobility'],
-    bodyPart: ['middle-back']
   }
 ];
