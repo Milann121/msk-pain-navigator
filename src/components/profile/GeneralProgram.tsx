@@ -32,12 +32,12 @@ export const GeneralProgram = () => {
       <div className="flex items-center gap-3 mb-3">
         <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
         <h3 className="text-lg font-medium text-gray-900">
-          {t('exercises:generalProgram.title')}
+          {t('generalProgram.title')}
         </h3>
       </div>
       
       <p className="text-sm text-gray-600 mb-4">
-        {hasGeneralProgram ? t('exercises:generalProgram.description') : t('exercises:generalProgram.noDataDescription')}
+        {hasGeneralProgram ? t('generalProgram.description') : t('generalProgram.noDataDescription')}
       </p>
       
       {hasGeneralProgram && (
