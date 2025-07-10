@@ -13,6 +13,7 @@ import { UserAssessment } from "@/components/follow-up/types";
 import { MyExercisesHeader } from "./MyExercisesHeader";
 import { ActiveProgramsSection } from "./ActiveProgramsSection";
 import { EndedProgramsSection } from "./EndedProgramsSection";
+import { OrebroEntry } from "@/components/profile/OrebroEntry";
 
 export const MyExercisesPage = () => {
   const { user, isLoading } = useAuth();
@@ -89,13 +90,20 @@ export const MyExercisesPage = () => {
       <div className="flex-1 bg-gradient-to-b from-blue-50 to-white py-10 px-2 md:px-4">
         <div className="container mx-auto w-full max-w-full md:max-w-4xl px-2 md:px-0">
           <MyExercisesHeader />
-          {/* Calendar & General Program */}
+          {/* Calendar */}
           <ExerciseCalendar />
-          <Card className="mb-6">
-            <div className="pt-6">
-              <GeneralProgram />
+          
+          {/* OREBRO & General Program side by side */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div className="h-full">
+              <OrebroEntry />
             </div>
-          </Card>
+            <Card className="h-full">
+              <div className="pt-6 h-full">
+                <GeneralProgram />
+              </div>
+            </Card>
+          </div>
           {/* Sections */}
           <ActiveProgramsSection
             loading={loading}
