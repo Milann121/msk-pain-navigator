@@ -185,6 +185,13 @@ const OrebroResult = () => {
                     />
                   ))}
                 </div>
+                
+                <Alert className="mt-6">
+                  <Info className="h-4 w-4" />
+                  <AlertDescription>
+                    {t('orebro.result.exerciseWarning')}
+                  </AlertDescription>
+                </Alert>
               </CardContent>
             </Card>
           )}
