@@ -103,7 +103,7 @@ const OrebroResult = () => {
           user_id: user.id,
           pain_area: painArea,
           primary_mechanism: 'nociceptive',
-          primary_differential: 'default',
+          primary_differential: 'orebro-program',
           sin_group: 'low',
           intial_pain_intensity: 0,
           program_start_date: new Date().toISOString().split('T')[0]
@@ -118,8 +118,18 @@ const OrebroResult = () => {
         description: t('orebro.result.programAddedDescription'),
       });
 
-      // Navigate to exercise program page
-      navigate(`/exercise-plan/${assessment.id}`);
+      // Navigate to exercise program page with OREBRO state
+      navigate('/exercise-plan', { 
+        state: { 
+          showGeneral: resultData.painLocations.length > 1,
+          mechanism: 'nociceptive',
+          differential: 'default',
+          painArea: painArea,
+          assessmentId: assessment.id,
+          isOrebroProgram: true,
+          painLocations: resultData.painLocations
+        } 
+      });
     } catch (error) {
       console.error('Error adding program:', error);
       toast({

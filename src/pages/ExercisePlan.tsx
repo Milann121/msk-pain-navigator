@@ -23,12 +23,30 @@ const ExercisePlan = () => {
     mechanism,
     differential,
     painArea,
-    assessmentId
+    assessmentId,
+    isOrebroProgram = false,
+    painLocations = []
   } = location.state || {};
 
   let exercises = [];
   
-  if (showGeneral) {
+  if (isOrebroProgram) {
+    // For OREBRO programs, use the same logic as OrebroResult page
+    if (painLocations.length > 1) {
+      // Multiple pain locations - create mock assessments for general program
+      const mockAssessments = painLocations.map((location, index) => ({
+        id: `mock-${index}`,
+        primary_mechanism: 'nociceptive',
+        primary_differential: 'default',
+        pain_area: mapPainLocationToArea(location)
+      }));
+      exercises = generateGeneralProgram('nociceptive', 'general', mockAssessments);
+    } else {
+      // Single pain location - get specific exercises
+      const programKey = `nociceptive-default-${painArea}`;
+      exercises = exercisesByDifferential[programKey] || [];
+    }
+  } else if (showGeneral) {
     // Generate general program
     exercises = generateGeneralProgram('general', 'general', assessments);
   } else {
@@ -39,6 +57,20 @@ const ExercisePlan = () => {
     exercises = exercisesByDifferential[specificKey] || 
                exercisesByDifferential[defaultKey] || [];
   }
+
+  // Helper function to map pain locations to areas (same as in OrebroResult)
+  const mapPainLocationToArea = (location: string): string => {
+    const locationMap: Record<string, string> = {
+      'neck': 'neck',
+      'shoulder': 'upper limb',
+      'arm': 'upper limb',
+      'upperBack': 'middle-back',
+      'lowerBack': 'lower-back',
+      'leg': 'lower limb',
+      'other': 'general'
+    };
+    return locationMap[location] || 'general';
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">

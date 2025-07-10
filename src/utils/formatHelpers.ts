@@ -45,13 +45,23 @@ export const getUpperLimbSubArea = (differential: string, t: any): string | null
 
 // Helper function to format pain area with sub-area
 export const formatPainAreaWithSubArea = (painArea: string, differential: string, t: any): string => {
+  let formattedArea = '';
+  
   if (painArea === 'upper limb') {
     const subArea = getUpperLimbSubArea(differential, t);
     if (subArea) {
-      return `${t('bodyParts.upper limb')} / ${subArea}`;
+      formattedArea = `${t('bodyParts.upper limb')} / ${subArea}`;
+    } else {
+      formattedArea = t('bodyParts.upper limb');
     }
-    return t('bodyParts.upper limb');
+  } else {
+    formattedArea = formatPainArea(painArea, t);
   }
   
-  return formatPainArea(painArea, t);
+  // Add OREBRO suffix for OREBRO programs
+  if (differential === 'orebro-program') {
+    formattedArea += ' - OREBRO';
+  }
+  
+  return formattedArea;
 };
