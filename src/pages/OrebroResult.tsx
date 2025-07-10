@@ -23,7 +23,7 @@ const OrebroResult = () => {
   const location = useLocation();
   const { t } = useTranslation();
   const { toast } = useToast();
-  const [isAddingProgram, setIsAddingProgram] = useState(false);
+  
   const [programExercises, setProgramExercises] = useState<Exercise[]>([]);
 
   // Get result data from navigation state
@@ -76,71 +76,6 @@ const OrebroResult = () => {
     return locationMap[location] || 'general';
   };
 
-  const handleAddProgram = async () => {
-    if (programExercises.length === 0) return;
-
-    setIsAddingProgram(true);
-    try {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (!user) {
-        toast({
-          title: t('orebro.result.error'),
-          description: t('orebro.result.notAuthenticated'),
-          variant: 'destructive',
-        });
-        return;
-      }
-
-      // Determine pain area for the program
-      const painArea = resultData.painLocations.length > 1 
-        ? 'general' 
-        : mapPainLocationToArea(resultData.painLocations[0]);
-
-      // Create assessment record
-      const { data: assessment, error } = await supabase
-        .from('user_assessments')
-        .insert({
-          user_id: user.id,
-          pain_area: painArea,
-          primary_mechanism: 'nociceptive',
-          primary_differential: 'orebro-program',
-          sin_group: 'low',
-          intial_pain_intensity: 0,
-          program_start_date: new Date().toISOString().split('T')[0]
-        })
-        .select()
-        .single();
-
-      if (error) throw error;
-
-      toast({
-        title: t('orebro.result.programAdded'),
-        description: t('orebro.result.programAddedDescription'),
-      });
-
-      // Navigate to exercise program page with OREBRO state
-      navigate('/exercise-plan', { 
-        state: { 
-          showGeneral: resultData.painLocations.length > 1,
-          mechanism: 'nociceptive',
-          differential: 'default',
-          painArea: painArea,
-          assessmentId: assessment.id,
-          isOrebroProgram: true,
-          painLocations: resultData.painLocations
-        } 
-      });
-    } catch (error) {
-      console.error('Error adding program:', error);
-      toast({
-        title: t('orebro.result.error'),
-        description: t('orebro.result.addProgramError'),
-        variant: 'destructive',
-      });
-    } finally {
-      setIsAddingProgram(false);
-    }
-  };
 
   const getRiskIcon = (riskLevel: string) => {
     switch (riskLevel) {
@@ -254,28 +189,6 @@ const OrebroResult = () => {
             </Card>
           )}
 
-          {/* Add Program Button */}
-          <Card>
-            <CardContent className="pt-6">
-              <div className="flex flex-col items-center space-y-4">
-                <Button 
-                  onClick={handleAddProgram}
-                  disabled={isAddingProgram || programExercises.length === 0}
-                  size="lg"
-                  className="w-full md:w-auto"
-                >
-                  {isAddingProgram ? t('loading') : t('orebro.result.addProgram')}
-                </Button>
-                
-                <Alert>
-                  <Info className="h-4 w-4" />
-                  <AlertDescription>
-                    {t('orebro.result.programWarning')}
-                  </AlertDescription>
-                </Alert>
-              </div>
-            </CardContent>
-          </Card>
         </div>
       </div>
     </>
