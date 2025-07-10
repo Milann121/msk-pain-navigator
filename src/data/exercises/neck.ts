@@ -1,4 +1,4 @@
-import exercisesByDifferential from "../exercisePrograms";
+import exercisesByDifferential from "./index";
 
 /**
  * Collect all exercises (videos) that target the neck.
