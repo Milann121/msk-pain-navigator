@@ -17,7 +17,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 3,
           mainGroup: ["mobility", "pain-relief"],
           bodyPart:["neck"],
-          alternatives: [],
+          alternatives: ['oaB4o_qeMdQ'],
         },
         {
           videoId: '7WAoHWIxgEI',
