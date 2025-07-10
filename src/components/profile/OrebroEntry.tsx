@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/contexts/AuthContext';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Brain, CheckCircle, Clock } from 'lucide-react';
+import { Brain, CheckCircle, Clock, ChevronRight, ChevronDown } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { format, differenceInMonths } from 'date-fns';
 
@@ -16,6 +16,7 @@ export const OrebroEntry = () => {
   const [lastCompletionDate, setLastCompletionDate] = useState<Date | null>(null);
   const [showReminder, setShowReminder] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
     if (user) {
@@ -68,8 +69,39 @@ export const OrebroEntry = () => {
     navigate('/orebro-questionnaire');
   };
 
+  const handleViewResults = () => {
+    navigate('/orebro-result');
+  };
+
   if (loading) {
     return null;
+  }
+
+  // If completed recently and not expanded, show collapsed view
+  if (hasCompletedRecently && !isExpanded) {
+    return (
+      <Card className="mb-6 border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50">
+        <CardContent className="pt-4 pb-4">
+          <div 
+            className="flex items-center gap-4 cursor-pointer"
+            onClick={() => setIsExpanded(true)}
+          >
+            <div className="flex-shrink-0">
+              <Brain className="h-6 w-6 text-blue-600" />
+            </div>
+            
+            <div className="flex-1">
+              <h3 className="font-semibold text-gray-900 flex items-center gap-2">
+                {t('home.orebro.title')}
+                <CheckCircle className="h-4 w-4 text-green-600" />
+              </h3>
+            </div>
+            
+            <ChevronRight className="h-5 w-5 text-gray-500" />
+          </div>
+        </CardContent>
+      </Card>
+    );
   }
 
   return (
@@ -86,7 +118,15 @@ export const OrebroEntry = () => {
                 {t('home.orebro.title')}
               </h3>
               {hasCompletedRecently && (
-                <CheckCircle className="h-5 w-5 text-green-600" />
+                <>
+                  <CheckCircle className="h-5 w-5 text-green-600" />
+                  <button
+                    onClick={() => setIsExpanded(false)}
+                    className="ml-auto text-gray-500 hover:text-gray-700"
+                  >
+                    <ChevronDown className="h-5 w-5" />
+                  </button>
+                </>
               )}
             </div>
             
@@ -101,7 +141,7 @@ export const OrebroEntry = () => {
               }
             </p>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 mb-4">
               {!hasCompletedRecently && (
                 <Button 
                   onClick={handleTakeQuestionnaire}
@@ -110,6 +150,16 @@ export const OrebroEntry = () => {
                 >
                   <Brain className="h-4 w-4 mr-2" />
                   {t('home.orebro.takeTest')}
+                </Button>
+              )}
+              
+              {hasCompletedRecently && (
+                <Button 
+                  onClick={handleViewResults}
+                  className="bg-green-600 hover:bg-green-700 text-white"
+                  size="sm"
+                >
+                  Otvoriť výsledok
                 </Button>
               )}
               
