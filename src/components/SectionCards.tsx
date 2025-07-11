@@ -6,10 +6,10 @@ export const SectionCards = () => {
   const { t } = useTranslation();
 
   const sections = [
-    { title: t('sections.blog'), route: "/blog" },
-    { title: t('sections.stretching'), route: "/stretching" },
-    { title: t('sections.strength'), route: "/strength" },
-    { title: t('sections.yoga'), route: "/yoga" },
+    { title: t('sections.blog'), route: "/blog", imageUrl: "/lovable-uploads/my_exercisePage_containers/1.png" },
+    { title: t('sections.stretching'), route: "/stretching", imageUrl: "/lovable-uploads/my_exercisePage_containers/2.png" },
+    { title: t('sections.strength'), route: "/strength", imageUrl: "/lovable-uploads/my_exercisePage_containers/3.png" },
+    { title: t('sections.yoga'), route: "/yoga", imageUrl: "/lovable-uploads/my_exercisePage_containers/4.png" },
   ];
 
   return (
@@ -21,6 +21,7 @@ export const SectionCards = () => {
             key={section.route}
             title={section.title}
             route={section.route}
+            imageUrl={section.imageUrl}
           />
         ))}
       </div>
@@ -36,6 +37,7 @@ export const SectionCards = () => {
               <SectionCard
                 title={section.title}
                 route={section.route}
+                imageUrl={section.imageUrl}
               />
             </div>
           ))}

@@ -5,9 +5,10 @@ import { Card, CardContent } from "@/components/ui/card";
 interface SectionCardProps {
   title: string;
   route: string;
+  imageUrl?: string;
 }
 
-export const SectionCard = ({ title, route }: SectionCardProps) => {
+export const SectionCard = ({ title, route, imageUrl }: SectionCardProps) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -21,8 +22,12 @@ export const SectionCard = ({ title, route }: SectionCardProps) => {
     >
       <CardContent className="p-4">
         <div className="flex flex-col items-center gap-3">
-          <div className="w-16 h-16 bg-gray-100 border border-gray-200 rounded-lg flex items-center justify-center">
-            {/* Empty square image window */}
+          <div className="w-16 h-16 bg-gray-100 border border-gray-200 rounded-lg flex items-center justify-center overflow-hidden">
+            {imageUrl ? (
+              <img src={imageUrl} alt={title} className="w-full h-full object-cover" />
+            ) : (
+              <div className="w-full h-full bg-gray-100" />
+            )}
           </div>
           <h3 className="text-sm font-medium text-blue-900 text-center">
             {title}
