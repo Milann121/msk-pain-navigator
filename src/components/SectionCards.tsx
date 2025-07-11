@@ -1,14 +1,17 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { SectionCard } from "./SectionCard";
 
-const sections = [
-  { title: "Blog", route: "/blog" },
-  { title: "Stretching", route: "/stretching" },
-  { title: "Strength", route: "/strength" },
-  { title: "Yoga", route: "/yoga" },
-];
-
 export const SectionCards = () => {
+  const { t } = useTranslation();
+
+  const sections = [
+    { title: t('sections.blog'), route: "/blog" },
+    { title: t('sections.stretching'), route: "/stretching" },
+    { title: t('sections.strength'), route: "/strength" },
+    { title: t('sections.yoga'), route: "/yoga" },
+  ];
+
   return (
     <div className="mb-6">
       {/* Desktop view */}

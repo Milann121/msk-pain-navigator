@@ -17,6 +17,10 @@ import enQuestionnaire from './locales/en/questionnaire.json';
 import enResults from './locales/en/results.json';
 import enBlog from './locales/en/blog.json';
 import enOrebro from './locales/en/orebro.json';
+import enStretching from './locales/en/stretching.json';
+import enStrength from './locales/en/strength.json';
+import enYoga from './locales/en/yoga.json';
+import enSections from './locales/en/sections.json';
 
 // Slovak translations
 import skWelcome from './locales/sk/welcome.json';
@@ -32,6 +36,10 @@ import skQuestionnaire from './locales/sk/questionnaire.json';
 import skResults from './locales/sk/results.json';
 import skBlog from './locales/sk/blog.json';
 import skOrebro from './locales/sk/orebro.json';
+import skStretching from './locales/sk/stretching.json';
+import skStrength from './locales/sk/strength.json';
+import skYoga from './locales/sk/yoga.json';
+import skSections from './locales/sk/sections.json';
 
 // Czech translations
 import csWelcome from './locales/cs/welcome.json';
@@ -47,6 +55,10 @@ import csQuestionnaire from './locales/cs/questionnaire.json';
 import csResults from './locales/cs/results.json';
 import csBlog from './locales/cs/blog.json';
 import csOrebro from './locales/cs/orebro.json';
+import csStretching from './locales/cs/stretching.json';
+import csStrength from './locales/cs/strength.json';
+import csYoga from './locales/cs/yoga.json';
+import csSections from './locales/cs/sections.json';
 
 // Combine all translations
 const enTranslations = {
@@ -63,7 +75,11 @@ const enTranslations = {
   questionnaire: enQuestionnaire,
   results: enResults,
   blog: enBlog,
-  orebro: enOrebro
+  orebro: enOrebro,
+  stretching: enStretching,
+  strength: enStrength,
+  yoga: enYoga,
+  sections: enSections
 };
 
 const skTranslations = {
@@ -80,7 +96,11 @@ const skTranslations = {
   questionnaire: skQuestionnaire,
   results: skResults,
   blog: skBlog,
-  orebro: skOrebro
+  orebro: skOrebro,
+  stretching: skStretching,
+  strength: skStrength,
+  yoga: skYoga,
+  sections: skSections
 };
 
 const csTranslations = {
@@ -97,7 +117,11 @@ const csTranslations = {
   questionnaire: csQuestionnaire,
   results: csResults,
   blog: csBlog,
-  orebro: csOrebro
+  orebro: csOrebro,
+  stretching: csStretching,
+  strength: csStrength,
+  yoga: csYoga,
+  sections: csSections
 };
 
 void i18n
