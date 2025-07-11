@@ -5,6 +5,7 @@ interface ExerciseVideo {
   importance: 1 | 2 | 3; // 1 = primary, 2 = secondary, 3 = tertiary
   mainGroup: Array<'mobility' | 'stability' | 'pain-relief' | 'neuro-mobs'>;
   bodyPart: Array<'head' | 'jaw' | 'eyes'>;
+  alternatives?: string[]; // Array of alternative video IDs for exercise swapping
 }
 
 export const headExercises: ExerciseVideo[] = [
