@@ -11,7 +11,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-          videoId: 'oaB4o_qeMdQ',
+          videoId: 'oaB4o_qeMdQ', // Neck retraction
           title: 'exercises.neuropathic.radicularPainNeckWeek03.neckRetraction.title',
           description: 'exercises.neuropathic.radicularPainNeckWeek03.neckRetraction.description',
           importance: 1,
@@ -20,7 +20,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           
         },
         {
-          videoId: '7WAoHWIxgEI',
+          videoId: '7WAoHWIxgEI', // Upper limb neurodynamics
           title: 'exercises.neuropathic.radicularPainNeckWeek03.upperLimbNeurodynamics.title',
           description: 'exercises.neuropathic.radicularPainNeckWeek03.upperLimbNeurodynamics.description',
           importance: 2,
@@ -28,7 +28,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           bodyPart:["neck"],
         },
         {
-          videoId: 'AefUaX7yLGw',
+          videoId: 'AefUaX7yLGw', // Trapezius stretch
           title: 'exercises.neuropathic.radicularPainNeckWeek03.neckSideBending.title',
           description: 'exercises.neuropathic.radicularPainNeckWeek03.neckSideBending.description',
           importance: 3,
@@ -43,7 +43,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-          videoId: 'PK62xMsZfG0',
+          videoId: 'PK62xMsZfG0', // Praying stretch
           title: 'exercises.neuropathic.radicularPainNeckWeek46.prayer.title',
           description: 'exercises.neuropathic.radicularPainNeckWeek46.prayer.description',
           importance: 2,
@@ -51,7 +51,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           bodyPart:["middle-back"],
         },
         {
-          videoId: '844ILxo5xsA',
+          videoId: '844ILxo5xsA', // Neck massage w/ ball
           title: 'exercises.neuropathic.radicularPainNeckWeek46.wallBallMassage.title',
           description: 'exercises.neuropathic.radicularPainNeckWeek46.wallBallMassage.description',
           importance: 1,
@@ -70,7 +70,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-          videoId: '3A27NLPe2bs',
+          videoId: '3A27NLPe2bs', // Lower limb neurodynamics
           title: 'exercises.neuropathic.radicularPainLowerBackWeek03.sciaticNeurodynamics.title',
           description: 'exercises.neuropathic.radicularPainLowerBackWeek03.sciaticNeurodynamics.description',
           importance: 1,
@@ -78,7 +78,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           bodyPart:["lower-back"],
         },
         {
-          videoId: 'PMJsVceAnnY',
+          videoId: 'PMJsVceAnnY', // Glute stretches
           title: 'exercises.neuropathic.radicularPainLowerBackWeek03.glutealStretching.title',
           description: 'exercises.neuropathic.radicularPainLowerBackWeek03.glutealStretching.description',
           importance: 2,
@@ -86,7 +86,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           bodyPart:["lower-back"],
         },
         {
-          videoId: 'L1Mf3NxYwgY',
+          videoId: 'L1Mf3NxYwgY', // Pelvis tilting sitting
           title: 'exercises.neuropathic.radicularPainLowerBackWeek03.pelvicTilting.title',
           description: 'exercises.neuropathic.radicularPainLowerBackWeek03.pelvicTilting.description',
           importance: 3,
@@ -102,7 +102,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-          videoId: 'Xp33YgPZgns',
+          videoId: 'Xp33YgPZgns', // Glute bridges
           title: 'exercises.neuropathic.radicularPainLowerBackWeek46.bridge.title',
           description: 'exercises.neuropathic.radicularPainLowerBackWeek46.bridge.description',
           importance: 1,
@@ -110,7 +110,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           bodyPart:["lower-back"],
         },
         {
-          videoId: 'dVjfUlXK93k',
+          videoId: 'dVjfUlXK93k', // 90 degree squats
           title: 'exercises.neuropathic.radicularPainLowerBackWeek46.squats90.title',
           description: 'exercises.neuropathic.radicularPainLowerBackWeek46.squats90.description',
           importance: 2,
@@ -131,7 +131,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-          videoId: 'oFQwLC6iea4',
+          videoId: 'oFQwLC6iea4', // Upper limb neurodynamics - tensioning
           title: 'exercises.neuropathic.radiculopathyNeckWeek02.tensionNeurodynamics.title',
           description: 'exercises.neuropathic.radiculopathyNeckWeek02.tensionNeurodynamics.description',
           importance: 1,
@@ -139,7 +139,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           bodyPart:["neck"],
         },
         {
-          videoId: 'eL5KxSe3c1g',
+          videoId: 'eL5KxSe3c1g', // Neck retraction w/ extension & rotation
           title: 'exercises.neuropathic.radiculopathyNeckWeek02.mckenzieExtensions.title',
           description: 'exercises.neuropathic.radiculopathyNeckWeek02.mckenzieExtensions.description',
           importance: 2,
@@ -154,7 +154,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-          videoId: 'oVJqu0FEw-Y',
+          videoId: 'oVJqu0FEw-Y', //Middle-back strengthening - 3exc.
           title: 'exercises.neuropathic.radiculopathyNeckWeek35.interscapularStrengthening.title',
           description: 'exercises.neuropathic.radiculopathyNeckWeek35.interscapularStrengthening.description',
           importance: 1,
@@ -162,7 +162,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           bodyPart:["neck","middle-back"],
         },
         {
-          videoId: 'D46W1uyK6Mg',
+          videoId: 'D46W1uyK6Mg', // Neck extension isometrics
           title: 'exercises.neuropathic.radiculopathyNeckWeek35.neckStrengthening.title',
           description: 'exercises.neuropathic.radiculopathyNeckWeek35.neckStrengthening.description',
           importance: 2,
@@ -181,7 +181,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-          videoId: 'XP1yzpFR6ho',
+          videoId: 'XP1yzpFR6ho', // Lower limb neurodynamics - tensioning
           title: 'exercises.neuropathic.radiculopathyLowerBackWeek02.proximalSciaticNeurodynamics.title',
           description: 'exercises.neuropathic.radiculopathyLowerBackWeek02.proximalSciaticNeurodynamics.description',
           importance: 1,
@@ -189,7 +189,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           bodyPart:["lower-back"],
         },
         {
-          videoId: 'tIZppe-RB0g',
+          videoId: 'tIZppe-RB0g', // Mckenzie extension Lx
           title: 'exercises.neuropathic.radiculopathyLowerBackWeek02.mckenzieExtensions.title',
           description: 'exercises.neuropathic.radiculopathyLowerBackWeek02.mckenzieExtensions.description',
           importance: 1,
@@ -204,7 +204,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-          videoId: 'UaG3eY_wNQg',
+          videoId: 'UaG3eY_wNQg', // Glutes ball massage wall
           title: 'exercises.neuropathic.radiculopathyLowerBackWeek35.glutealMassage.title',
           description: 'exercises.neuropathic.radiculopathyLowerBackWeek35.glutealMassage.description',
           importance: 3,
@@ -212,7 +212,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           bodyPart:["lower-back"],
         },
         {
-          videoId: 'Xp33YgPZgns',
+          videoId: 'Xp33YgPZgns', // Glutes bridges
           title: 'exercises.neuropathic.radiculopathyLowerBackWeek35.bridge.title',
           description: 'exercises.neuropathic.radiculopathyLowerBackWeek35.bridge.description',
           importance: 1,
@@ -220,7 +220,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           bodyPart:["lower-back"],
         },
         {
-          videoId: 'dVjfUlXK93k',
+          videoId: 'dVjfUlXK93k', // 90 degree squats
           title: 'exercises.neuropathic.radiculopathyLowerBackWeek35.squats90.title',
           description: 'exercises.neuropathic.radiculopathyLowerBackWeek35.squats90.description',
           importance: 2,
@@ -240,7 +240,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-          videoId: 'oaB4o_qeMdQ',
+          videoId: 'oaB4o_qeMdQ', // Neck retraction
           title: 'exercises.neuropathic.defaultNeck.neckRetraction.title',
           description: 'exercises.neuropathic.defaultNeck.neckRetraction.description',
           importance: 1,
@@ -248,7 +248,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           bodyPart:["neck"],
         },
         {
-          videoId: '7WAoHWIxgEI',
+          videoId: '7WAoHWIxgEI', // Upper limb neurodynamics
           title: 'exercises.neuropathic.defaultNeck.upperLimbNeurodynamics.title',
           description: 'exercises.neuropathic.defaultNeck.upperLimbNeurodynamics.description',
           importance: 2,
@@ -256,7 +256,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           bodyPart:["neck"],
         },
         {
-          videoId: 'PK62xMsZfG0',
+          videoId: 'PK62xMsZfG0', // Praying stretch
           title: 'exercises.neuropathic.defaultNeck.prayer.title',
           description: 'exercises.neuropathic.defaultNeck.prayer.description',
           importance: 3,
@@ -275,7 +275,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-          videoId: 'PK62xMsZfG0',
+          videoId: 'PK62xMsZfG0', // Praying stretch
           title: 'exercises.neuropathic.defaultMiddleBack.prayer.title',
           description: 'exercises.neuropathic.defaultMiddleBack.prayer.description',
           importance: 1,
@@ -283,7 +283,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           bodyPart:["middle-back"],
         },
         {
-          videoId: 'dxzegzGNdaU',
+          videoId: 'dxzegzGNdaU', // Neck ball massage
           title: 'exercises.neuropathic.defaultMiddleBack.thoracicSpineMassage.title',
           description: 'exercises.neuropathic.defaultMiddleBack.thoracicSpineMassage.description',
           importance: 2,
@@ -291,7 +291,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           bodyPart:["middle-back","neck"],
         },
         {
-          videoId: '7WAoHWIxgEI',
+          videoId: '7WAoHWIxgEI', // Upper limb neurodynamics
           title: 'exercises.neuropathic.defaultMiddleBack.upperLimbNeurodynamics.title',
           description: 'exercises.neuropathic.defaultMiddleBack.upperLimbNeurodynamics.description',
           importance: 3,
@@ -310,7 +310,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-          videoId: 'PMJsVceAnnY',
+          videoId: 'PMJsVceAnnY', // Glute stretches
           title: 'exercises.neuropathic.defaultLowerBack.glutealStretching.title',
           description: 'exercises.neuropathic.defaultLowerBack.glutealStretching.description',
           importance: 1,
@@ -318,7 +318,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           bodyPart:["lower-back"],
         },
         {
-          videoId: 'L1Mf3NxYwgY',
+          videoId: 'L1Mf3NxYwgY', // Pelvis tilting sitting
           title: 'exercises.neuropathic.defaultLowerBack.pelvicTilting.title',
           description: 'exercises.neuropathic.defaultLowerBack.pelvicTilting.description',
           importance: 2,
@@ -326,7 +326,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           bodyPart:["lower-back"],
         },
         {
-         videoId: '7WAoHWIxgEI',
+         videoId: '7WAoHWIxgEI', // Upper limb neurodynamics
           title: 'exercises.neuropathic.defaultLowerBack.upperLimbNeurodynamics.title',
           description: 'exercises.neuropathic.defaultLowerBack.upperLimbNeurodynamics.description',
           importance: 3,
