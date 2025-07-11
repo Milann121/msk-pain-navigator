@@ -6,10 +6,10 @@ export const SectionCards = () => {
   const { t } = useTranslation();
 
   const sections = [
-    { title: t('sections.blog'), route: "/blog", imageUrl: "/lovable-uploads/my_exercisePage_containers/1.png" },
-    { title: t('sections.stretching'), route: "/stretching", imageUrl: "/lovable-uploads/my_exercisePage_containers/2.png" },
-    { title: t('sections.strength'), route: "/strength", imageUrl: "/lovable-uploads/my_exercisePage_containers/3.png" },
-    { title: t('sections.yoga'), route: "/yoga", imageUrl: "/lovable-uploads/my_exercisePage_containers/4.png" },
+    { title: t('sections.blog'), route: "/blog", imageUrl: "/lovable-uploads/test/1.png" },
+    { title: t('sections.stretching'), route: "/stretching", imageUrl: "/lovable-uploads/test/2.png" },
+    { title: t('sections.strength'), route: "/strength", imageUrl: "/lovable-uploads/test/3.png" },
+    { title: t('sections.yoga'), route: "/yoga", imageUrl: "/lovable-uploads/test/4.png" },
   ];
 
   return (
