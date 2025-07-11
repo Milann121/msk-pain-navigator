@@ -94,7 +94,7 @@ export const MyExercisesPage = () => {
           <ExerciseCalendar />
           
           {/* OREBRO & General Program side by side */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 items-start">
             <OrebroEntry />
             <GeneralProgram />
           </div>
