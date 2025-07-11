@@ -17,6 +17,9 @@ import Profile from "./pages/Profile";
 import Domov from "./pages/Domov";
 import OrebroQuestionnaire from "./pages/OrebroQuestionnaire";
 import OrebroResult from "./pages/OrebroResult";
+import Stretching from "./pages/Stretching";
+import Strength from "./pages/Strength";
+import Yoga from "./pages/Yoga";
 import CookieConsent from "./components/CookieConsent";
 
 // Create QueryClient instance outside of component to prevent recreation
@@ -44,6 +47,9 @@ const App: React.FC = () => (
           <Route path="/my-exercises" element={<MyExercises />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/stretching" element={<Stretching />} />
+          <Route path="/strength" element={<Strength />} />
+          <Route path="/yoga" element={<Yoga />} />
           <Route path="/orebro-questionnaire" element={<OrebroQuestionnaire />} />
           <Route path="/orebro-result" element={<OrebroResult />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />

@@ -147,7 +147,7 @@ const Blog = () => {
       <Header />
       <div className="flex-1 bg-gradient-to-b from-blue-50 to-white py-10 px-2 md:px-4">
         <div className="container mx-auto w-full max-w-full md:max-w-4xl px-2 md:px-0">
-          <h1 className="text-3xl font-bold text-blue-800 mb-6">{t('blog.title')}</h1>
+          <h1 className="text-3xl font-bold text-blue-800 mb-6">Open section blog →</h1>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {sampleBlogs.map((blog) => (

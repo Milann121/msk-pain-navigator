@@ -14,6 +14,7 @@ import { MyExercisesHeader } from "./MyExercisesHeader";
 import { ActiveProgramsSection } from "./ActiveProgramsSection";
 import { EndedProgramsSection } from "./EndedProgramsSection";
 import { OrebroEntry } from "@/components/profile/OrebroEntry";
+import { SectionCards } from "@/components/SectionCards";
 
 export const MyExercisesPage = () => {
   const { user, isLoading } = useAuth();
@@ -92,6 +93,9 @@ export const MyExercisesPage = () => {
           <MyExercisesHeader />
           {/* Calendar */}
           <ExerciseCalendar />
+          
+          {/* Section Cards */}
+          <SectionCards />
           
           {/* OREBRO & General Program side by side */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 items-start">
