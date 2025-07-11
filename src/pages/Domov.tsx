@@ -58,8 +58,8 @@ const Domov = () => {
     return (
       <div className="min-h-screen flex flex-col">
         <Header />
-        <div className="flex-1 bg-gradient-secondary py-10 px-4 flex items-center justify-center">
-          <div className="text-primary">{t('loading')}</div>
+        <div className="flex-1 bg-gradient-to-b from-blue-50 to-white py-10 px-4 flex items-center justify-center">
+          <div className="text-blue-600">{t('loading')}</div>
         </div>
       </div>
     );
@@ -72,7 +72,7 @@ const Domov = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <div className="flex-1 bg-gradient-secondary py-10 px-2 md:px-4">
+      <div className="flex-1 bg-gradient-to-b from-blue-50 to-white py-10 px-2 md:px-4">
         <div className="container mx-auto w-full max-w-full md:max-w-4xl px-2 md:px-0">
           {/* Mood Calendar */}
           <MoodCalendar />

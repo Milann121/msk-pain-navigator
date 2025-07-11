@@ -43,7 +43,7 @@ const Header = () => {
           <span className="sr-only">{t('header.toggleMenu')}</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" className="w-[300px] bg-card">
+      <SheetContent side="right" className="w-[300px] bg-white">
         <nav className="mt-6">
           <ul className="space-y-4">
             {navigationLinks.map((link) => (
@@ -51,7 +51,7 @@ const Header = () => {
                 <Button
                   onClick={() => navigate(link.href)}
                   variant="ghost"
-                  className="w-full text-left justify-start px-4 py-2 text-lg hover:bg-secondary rounded-md transition-colors"
+                  className="w-full text-left justify-start px-4 py-2 text-lg hover:bg-blue-50 rounded-md transition-colors"
                 >
                   {link.label}
                 </Button>
@@ -78,14 +78,14 @@ const Header = () => {
   );
 
   return (
-    <header className="gradient-primary text-primary-foreground py-4 px-3 md:px-6 shadow-md">
+    <header className="bg-gradient-to-r from-blue-700 to-blue-500 text-white py-4 px-3 md:px-6 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
         <div 
           className="flex items-center space-x-2 md:space-x-4" 
           onClick={() => navigate('/')} 
           style={{ cursor: 'pointer' }}
         >
-          <div className="bg-primary-foreground p-1.5 md:p-2 rounded-full">
+          <div className="bg-white p-1.5 md:p-2 rounded-full">
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
               width="20" 
@@ -96,7 +96,7 @@ const Header = () => {
               strokeWidth="2" 
               strokeLinecap="round" 
               strokeLinejoin="round" 
-              className="text-primary md:w-6 md:h-6"
+              className="text-blue-600 md:w-6 md:h-6"
             >
               <path d="M20 11c0-4.4-3.6-8-8-8s-8 3.6-8 8 3.6 8 8 8" />
               <path d="M2 15h8" />
@@ -119,7 +119,7 @@ const Header = () => {
             <Button 
               key={link.label} 
               variant="ghost" 
-              className="text-primary-foreground hover:bg-primary"
+              className="text-white hover:bg-blue-600"
               onClick={() => navigate(link.href)}
             >
               {link.label}
@@ -129,7 +129,7 @@ const Header = () => {
           <Button
             onClick={handleAuthClick}
             variant="outline"
-            className="bg-primary-foreground text-primary hover:bg-secondary"
+            className="bg-white text-blue-600 hover:bg-blue-50"
           >
             {user ? t('header.signOut') : t('header.signIn')}
           </Button>
