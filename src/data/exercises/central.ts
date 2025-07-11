@@ -11,7 +11,7 @@ export const centralExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-          videoId: '844ILxo5xsA',
+          videoId: '844ILxo5xsA', // Neck ball massage
           title: 'exercises.central.centralSensitisationNeck.wallBallMassage.title',
           description: 'exercises.central.centralSensitisationNeck.wallBallMassage.description',
           importance: 1,
@@ -19,7 +19,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           bodyPart:["neck","middle-back"],
         },
         {
-         videoId: 'oVJqu0FEw-Y',
+         videoId: 'oVJqu0FEw-Y', //Middle-back strenthening - 3exc.
           title: 'exercises.central.centralSensitisationNeck.interscapularStrengthening.title',
           description: 'exercises.central.centralSensitisationNeck.interscapularStrengthening.description',
           importance: 2,
@@ -27,7 +27,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           bodyPart:["neck","middle-back"],
         },
         {
-          videoId: '5NPvv40gd3Q',
+          videoId: '5NPvv40gd3Q', // Wall push-ups
           title: 'exercises.central.centralSensitisationNeck.wallPushUps.title',
           description: 'exercises.central.centralSensitisationNeck.wallPushUps.description',
           importance: 3,
@@ -46,7 +46,7 @@ export const centralExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-          videoId: 'PK62xMsZfG0',
+          videoId: 'PK62xMsZfG0', // Praying stretch
           title: 'exercises.central.centralSensitisationMiddleBack.prayer.title',
           description: 'exercises.central.centralSensitisationMiddleBack.prayer.description',
           importance: 1,
@@ -54,7 +54,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           bodyPart:["middle-back"],
         },
         {
-          videoId: 'dxzegzGNdaU',
+          videoId: 'dxzegzGNdaU', // Neck ball massage
           title: 'exercises.central.centralSensitisationMiddleBack.thoracicSpineMassage.title',
           description: 'exercises.central.centralSensitisationMiddleBack.thoracicSpineMassage.description',
           importance: 2,
@@ -62,7 +62,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           bodyPart:["neck","middle-back"],
         },
         {
-          videoId: 'OKsRn5e2VJY',
+          videoId: 'OKsRn5e2VJY', // Thorax rotation open book lying
           title: 'exercises.central.centralSensitisationMiddleBack.bookOpening.title',
           description: 'exercises.central.centralSensitisationMiddleBack.bookOpening.description',
           importance: 3,
@@ -70,7 +70,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           bodyPart:["middle-back"],
         },
         {
-          videoId: 'oVJqu0FEw-Y',
+          videoId: 'oVJqu0FEw-Y', // Middle-back strenthening - 3exc.
           title: 'exercises.central.centralSensitisationMiddleBack.interscapularStrengthening.title',
           description: 'exercises.central.centralSensitisationMiddleBack.interscapularStrengthening.description',
           importance: 2,
@@ -89,7 +89,7 @@ export const centralExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-        videoId: 'PMJsVceAnnY',
+        videoId: 'PMJsVceAnnY', // Glute stretches
         title: 'exercises.central.centralSensitisationLowerBack.glutealStretching.title',
         description: 'exercises.central.centralSensitisationLowerBack.glutealStretching.description',
         importance: 1,
@@ -97,7 +97,7 @@ export const centralExercises: Record<string, Exercise[]> = {
         bodyPart:["lower-back"],
         },
         {
-          videoId: 'Xp33YgPZgns',
+          videoId: 'Xp33YgPZgns', // Glute bridges
           title: 'exercises.central.centralSensitisationLowerBack.bridge.title',
           description: 'exercises.central.centralSensitisationLowerBack.bridge.description',
           importance: 2,
@@ -105,7 +105,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           bodyPart:["lower-back"],
         },
         {
-          videoId: 'dVjfUlXK93k',
+          videoId: 'dVjfUlXK93k', // 90 degree squats
           title: 'exercises.central.centralSensitisationLowerBack.squats90.title',
           description: 'exercises.central.centralSensitisationLowerBack.squats90.description',
           importance: 3,
@@ -127,7 +127,7 @@ export const centralExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-          videoId: '844ILxo5xsA',
+          videoId: '844ILxo5xsA', // Neck ball massage
           title: 'exercises.central.defaultNeck.wallBallMassage.title',
           description: 'exercises.central.defaultNeck.wallBallMassage.description',
           importance: 1,
@@ -135,7 +135,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           bodyPart:["neck","middle-back"],
         },
         {
-         videoId: 'oVJqu0FEw-Y',
+         videoId: 'oVJqu0FEw-Y', // 90 degree squats
           title: 'exercises.central.defaultNeck.interscapularStrengthening.title',
           description: 'exercises.central.defaultNeck.interscapularStrengthening.description',
           importance: 2,
@@ -143,7 +143,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           bodyPart:["neck","middle-back"],
         },
         {
-          videoId: '5NPvv40gd3Q',
+          videoId: '5NPvv40gd3Q', // Wall push-up
           title: 'exercises.central.defaultNeck.wallPushUps.title',
           description: 'exercises.central.defaultNeck.wallPushUps.description',
           importance: 3,
@@ -162,7 +162,7 @@ export const centralExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-          videoId: 'oAxVF_ktAi0',
+          videoId: 'oAxVF_ktAi0', // Neck extension isometrics
           title: 'exercises.central.defaultMiddleBackWeek02.thoracicRotationWithExtension.title',
           description: 'exercises.central.defaultMiddleBackWeek02.thoracicRotationWithExtension.description',
           importance: 2,
@@ -170,7 +170,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           bodyPart:["middle-back"],
         },
         {
-          videoId: 'dxzegzGNdaU',
+          videoId: 'dxzegzGNdaU', // Neck ball massage
           title: 'exercises.central.defaultMiddleBackWeek02.thoracicSpineMassage.title',
           description: 'exercises.central.defaultMiddleBackWeek02.thoracicSpineMassage.description',
           importance: 1,
@@ -185,7 +185,7 @@ export const centralExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-          videoId: 'oVJqu0FEw-Y',
+          videoId: 'oVJqu0FEw-Y', // Middle-back strenthening - 3exc.
           title: 'exercises.central.defaultMiddleBackWeek35.interscapularStrengthening.title',
           description: 'exercises.central.defaultMiddleBackWeek35.interscapularStrengthening.description',
           importance: 2,
@@ -193,7 +193,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           bodyPart:["middle-back","neck"],
         },
         {
-          videoId: 'rhPOJA3S-IQ',
+          videoId: 'rhPOJA3S-IQ', // Thorax extensions wall
           title: 'exercises.central.defaultMiddleBackWeek35.thoracicExtension.title',
           description: 'exercises.central.defaultMiddleBackWeek35.thoracicExtension.description',
           importance: 3,
@@ -201,7 +201,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           bodyPart:["middle-back"],
         },
         {
-          videoId: 'OKsRn5e2VJY',
+          videoId: 'OKsRn5e2VJY', // Thorax rotation open book lying
           title: 'exercises.central.defaultMiddleBackWeek35.bookOpening.title',
           description: 'exercises.central.defaultMiddleBackWeek35.bookOpening.description',
           importance: 1,
@@ -220,7 +220,7 @@ export const centralExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-        videoId: 'PMJsVceAnnY',
+        videoId: 'PMJsVceAnnY', // Glute stretches
         title: 'exercises.central.defaultLowerBack.glutealStretching.title',
         description: 'exercises.central.defaultLowerBack.glutealStretching.description',
         importance: 1,
@@ -229,7 +229,7 @@ export const centralExercises: Record<string, Exercise[]> = {
         
         },
         {
-          videoId: 'Xp33YgPZgns',
+          videoId: 'Xp33YgPZgns', // Glute bridges
           title: 'exercises.central.defaultLowerBack.bridge.title',
           description: 'exercises.central.defaultLowerBack.bridge.description',
           importance: 2,
@@ -237,7 +237,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           bodyPart:["lower-back"],
         },
         {
-          videoId: 'dVjfUlXK93k',
+          videoId: 'dVjfUlXK93k', // 90 degree squats
           title: 'exercises.central.defaultLowerBack.squats90.title',
           description: 'exercises.central.defaultLowerBack.squats90.description',
           importance: 3,
