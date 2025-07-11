@@ -24,7 +24,7 @@ export const OrebroCollapsedView = ({
           </div>
           
           <div className="flex-1">
-            <h3 className="font-semibold text-gray-900 flex items-center gap-2 text-2xl my-[10px]">
+            <h3 className="font-semibold text-gray-900 flex items-center gap-2 my-[10px] text-xl">
               {t('home.orebro.title')}
               <CheckCircle className="h-4 w-4 text-green-600" />
             </h3>

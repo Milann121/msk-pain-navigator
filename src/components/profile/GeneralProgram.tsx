@@ -29,7 +29,7 @@ export const GeneralProgram = () => {
   return <div className="px-6 pb-6">
       <div className="flex items-center gap-3 mb-3">
         <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
-        <h3 className="text-gray-900 font-medium text-2xl">
+        <h3 className="text-gray-900 font-medium text-xl">
           {t('exercises.generalProgram.title')}
         </h3>
       </div>
