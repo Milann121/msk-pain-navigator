@@ -12,7 +12,7 @@ export const GeneralProgramCollapsedView = ({
   const { t } = useTranslation();
 
   return (
-    <Card className="border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50 h-full">
+    <Card className="border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50">
       <CardContent className="pt-4 pb-4">
         <div className="flex items-center gap-4 cursor-pointer" onClick={onExpand}>
           <div className="flex-shrink-0">
