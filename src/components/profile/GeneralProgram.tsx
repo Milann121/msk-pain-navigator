@@ -34,7 +34,7 @@ export const GeneralProgram = () => {
         </h3>
       </div>
       
-      <p className="text-gray-600 mb-4 text-lg">
+      <p className="text-gray-600 mb-4 text-base">
         {hasGeneralProgram ? t('exercises.generalProgram.description') : t('exercises.generalProgram.noDataDescription')}
       </p>
       
