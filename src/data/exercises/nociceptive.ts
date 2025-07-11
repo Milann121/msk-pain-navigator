@@ -11,7 +11,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-          videoId: 'eL5KxSe3c1g',
+          videoId: 'eL5KxSe3c1g', // Neck retraction w/ extension & rotation
           title: 'exercises.nociceptive.discHerniationNeckWeek03.mckenzieExtensions.title',
           description: 'exercises.nociceptive.discHerniationNeckWeek03.mckenzieExtensions.description',
           importance: 3,
@@ -20,7 +20,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           
         },
         {
-          videoId: '7WAoHWIxgEI',
+          videoId: '7WAoHWIxgEI', // Upper limb neurodynamics
           title: 'exercises.nociceptive.discHerniationNeckWeek03.upperLimbNeurodynamics.title',
           description: 'exercises.nociceptive.discHerniationNeckWeek03.upperLimbNeurodynamics.description',
           importance: 2,
@@ -28,7 +28,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           bodyPart:["neck"],
         },
         {
-          videoId: '844ILxo5xsA',
+          videoId: '844ILxo5xsA', //Neck massage w/ ball
           title: 'exercises.nociceptive.discHerniationNeckWeek03.wallBallMassage.title',
           description: 'exercises.nociceptive.discHerniationNeckWeek03.wallBallMassage.description',
           importance: 1,
@@ -44,7 +44,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-          videoId: 'PK62xMsZfG0',
+          videoId: 'PK62xMsZfG0', //Praying stretch
           title: 'exercises.nociceptive.discHerniationNeckWeek46.prayer.title',
           description: 'exercises.nociceptive.discHerniationNeckWeek46.prayer.description',
           importance: 1,
@@ -52,7 +52,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           bodyPart:["neck","middle-back"],
         },
         {
-          videoId: 'oVJqu0FEw-Y',
+          videoId: 'oVJqu0FEw-Y', //Middle-back strenthening - 3exc.
           title: 'exercises.nociceptive.discHerniationNeckWeek46.interscapularStrengthening.title',
           description: 'exercises.nociceptive.discHerniationNeckWeek46.interscapularStrengthening.description',
           importance: 2,
@@ -72,7 +72,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-          videoId: 'tIZppe-RB0g',
+          videoId: 'tIZppe-RB0g', //Mckenzie extension Lx
           title: 'exercises.nociceptive.discHerniationLowerBackWeek03.mckenzieExtensions.title',
           description: 'exercises.nociceptive.discHerniationLowerBackWeek03.mckenzieExtensions.description',
           importance: 1,
@@ -80,7 +80,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           bodyPart:["lower-back"],
         },
         {
-          videoId: '3A27NLPe2bs',
+          videoId: '3A27NLPe2bs', //Lower limb neurodynamics
           title: 'exercises.nociceptive.discHerniationLowerBackWeek03.sciaticNeurodynamics.title',
           description: 'exercises.nociceptive.discHerniationLowerBackWeek03.sciaticNeurodynamics.description',
           importance: 2,
@@ -88,7 +88,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           bodyPart:["lower-back"],
         },
         {
-          videoId: 'PMJsVceAnnY',
+          videoId: 'PMJsVceAnnY', // Glute stretches
           title: 'exercises.nociceptive.discHerniationLowerBackWeek03.glutealStretching.title',
           description: 'exercises.nociceptive.discHerniationLowerBackWeek03.glutealStretching.description',
           importance: 3,
@@ -103,7 +103,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-          videoId: 'Xp33YgPZgns',
+          videoId: 'Xp33YgPZgns', // Glute bridges
           title: 'exercises.nociceptive.discHerniationLowerBackWeek46.bridge.title',
           description: 'exercises.nociceptive.discHerniationLowerBackWeek46.bridge.description',
           importance: 1,
@@ -111,7 +111,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           bodyPart:["lower-back"],
         },
         {
-          videoId: 'dVjfUlXK93k',
+          videoId: 'dVjfUlXK93k', // 90 degree squats
           title: 'exercises.nociceptive.discHerniationLowerBackWeek46.squats90.title',
           description: 'exercises.nociceptive.discHerniationLowerBackWeek46.squats90.description',
           importance: 2,
@@ -131,7 +131,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-          videoId: 'JJq8u5IGDb8',
+          videoId: 'JJq8u5IGDb8', // Mulligan towel neck rotation
           title: 'exercises.nociceptive.facetJointSyndromeNeckWeek02.cervicalRotationWithTowel.title',
           description: 'exercises.nociceptive.facetJointSyndromeNeckWeek02.cervicalRotationWithTowel.description',
           importance: 3,
@@ -140,7 +140,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
 
         },
         {
-          videoId: '844ILxo5xsA',
+          videoId: '844ILxo5xsA', //Neck massage w/ ball
           title: 'exercises.nociceptive.defaultNeck.wallBallMassage.title',
           description: 'exercises.nociceptive.defaultNeck.wallBallMassage.description',
           importance: 1,
@@ -148,7 +148,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           bodyPart:["neck","middle-back"],
         },
         {
-          videoId: 'L94T55NiI34',
+          videoId: 'L94T55NiI34', // Self massage suboccipitals
           title: 'exercises.nociceptive.facetJointSyndromeNeckWeek02.upperCervicalMassage.title',
           description: 'exercises.nociceptive.facetJointSyndromeNeckWeek02.upperCervicalMassage.description',
           importance: 2,
@@ -163,7 +163,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-          videoId: 'oVJqu0FEw',
+          videoId: 'oVJqu0FEw', //Middle-back strenthening - 3exc.
           title: 'exercises.nociceptive.facetJointSyndromeNeckWeek35.interscapularStrengthening.title',
           description: 'exercises.nociceptive.facetJointSyndromeNeckWeek35.interscapularStrengthening.description',
           importance: 1,
@@ -171,7 +171,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           bodyPart:["neck","middle-back"],
         },
         {
-          videoId: 'D46W1uyK6Mg',
+          videoId: 'D46W1uyK6Mg', // Neck extension isometrics
           title: 'exercises.nociceptive.facetJointSyndromeNeckWeek35.neckStrengthening.title',
           description: 'exercises.nociceptive.facetJointSyndromeNeckWeek35.neckStrengthening.description',
           importance: 2,
@@ -190,7 +190,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-          videoId: 'oAxVF_ktAi0',
+          videoId: 'oAxVF_ktAi0', // Thorax rotation sitting
           title: 'exercises.nociceptive.facetJointSyndromeMiddleBackWeek02.thoracicRotationWithExtension.title',
           description: 'exercises.nociceptive.facetJointSyndromeMiddleBackWeek02.thoracicRotationWithExtension.description',
           importance: 2,
@@ -198,7 +198,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           bodyPart:["middle-back"],
         },
         {
-          videoId: 'dxzegzGNdaU',
+          videoId: 'dxzegzGNdaU', // Middle-back ball massage
           title: 'exercises.nociceptive.facetJointSyndromeMiddleBackWeek02.thoracicSpineMassage.title',
           description: 'exercises.nociceptive.facetJointSyndromeMiddleBackWeek02.thoracicSpineMassage.description',
           importance: 1,
@@ -213,7 +213,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-          videoId: 'oVJqu0FEw-Y',
+          videoId: 'oVJqu0FEw-Y', //Middle-back strenthening - 3exc.
           title: 'exercises.nociceptive.facetJointSyndromeMiddleBackWeek35.interscapularStrengthening.title',
           description: 'exercises.nociceptive.facetJointSyndromeMiddleBackWeek35.interscapularStrengthening.description',
           importance: 2,
@@ -221,7 +221,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           bodyPart:["middle-back","neck"],
         },
         {
-          videoId: 'rhPOJA3S-IQ',
+          videoId: 'rhPOJA3S-IQ', // Thorax extensions wall
           title: 'exercises.nociceptive.facetJointSyndromeMiddleBackWeek35.thoracicExtension.title',
           description: 'exercises.nociceptive.facetJointSyndromeMiddleBackWeek35.thoracicExtension.description',
           importance: 3,
@@ -229,7 +229,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           bodyPart:["middle-back"],
         },
         {
-          videoId: 'OKsRn5e2VJY',
+          videoId: 'OKsRn5e2VJY', // Thorax rotation open book lying
           title: 'exercises.nociceptive.facetJointSyndromeMiddleBackWeek35.bookOpening.title',
           description: 'exercises.nociceptive.facetJointSyndromeMiddleBackWeek35.bookOpening.description',
           importance: 1,
@@ -248,7 +248,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-          videoId: 'L1Mf3NxYwgY',
+          videoId: 'L1Mf3NxYwgY', // Pelvis tilting sitting
           title: 'exercises.nociceptive.facetJointSyndromeLowerBackWeek03.pelvicTilting.title',
           description: 'exercises.nociceptive.facetJointSyndromeLowerBackWeek03.pelvicTilting.description',
           importance: 1,
@@ -256,7 +256,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           bodyPart:["lower-back"],
         },
         {
-          videoId: 'PMJsVceAnnY',
+          videoId: 'PMJsVceAnnY', // Glute stretches
           title: 'exercises.nociceptive.facetJointSyndromeLowerBackWeek03.glutealStretching.title',
           description: 'exercises.nociceptive.facetJointSyndromeLowerBackWeek03.glutealStretching.description',
           importance: 2,
@@ -264,7 +264,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           bodyPart:["lower-back"],
         },
         {
-          videoId: 'XspRg50nn30',
+          videoId: 'XspRg50nn30', // Lx stretch sitting flexion
           title: 'exercises.nociceptive.facetJointSyndromeLowerBackWeek03.spinalStretching.title',
           description: 'exercises.nociceptive.facetJointSyndromeLowerBackWeek03.spinalStretching.description',
           importance: 3,
@@ -279,7 +279,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-          videoId: 'Xp33YgPZgns',
+          videoId: 'Xp33YgPZgns', // Glute bridges
           title: 'exercises.nociceptive.facetJointSyndromeLowerBackWeek46.bridge.title',
           description: 'exercises.nociceptive.facetJointSyndromeLowerBackWeek46.bridge.description',
           importance: 1,
@@ -287,7 +287,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           bodyPart:["lower-back"],
         },
         {
-          videoId: 'dVjfUlXK93k',
+          videoId: 'dVjfUlXK93k', // 90 degree squats
           title: 'exercises.nociceptive.facetJointSyndromeLowerBackWeek46.squats90.title',
           description: 'exercises.nociceptive.facetJointSyndromeLowerBackWeek46.squats90.description',
           importance: 2,
@@ -306,7 +306,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-          videoId: 'Wan8QnjTmiQ',
+          videoId: 'Wan8QnjTmiQ', // Butt to heels flexion
           title: 'exercises.nociceptive.sijSyndromeWeek02.sijMobilization.title',
           description: 'exercises.nociceptive.sijSyndromeWeek02.sijMobilization.description',
           importance: 1,
@@ -314,7 +314,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           bodyPart:["lower-back"],
         },
         {
-          videoId: 'dVjfUlXK93k',
+          videoId: 'dVjfUlXK93k', // 90 degree squats
           title: 'exercises.nociceptive.sijSyndromeWeek02.squats90.title',
           description: 'exercises.nociceptive.sijSyndromeWeek02.squats90.description',
           importance: 2,
@@ -329,7 +329,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-          videoId: 'BnWLb1h6kfQ',
+          videoId: 'BnWLb1h6kfQ', // One-leg squats + bridges
           title: 'exercises.nociceptive.sijSyndromeWeek36.glutealStrengthening.title',
           description: 'exercises.nociceptive.sijSyndromeWeek36.glutealStrengthening.description',
           importance: 1,
@@ -349,7 +349,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-          videoId: '844ILxo5xsA',
+          videoId: '844ILxo5xsA', // Neck ball massage
           title: 'exercises.nociceptive.defaultNeck.wallBallMassage.title',
           description: 'exercises.nociceptive.defaultNeck.wallBallMassage.description',
           importance: 1,
@@ -357,7 +357,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           bodyPart:["middle-back","neck"],
         },
         {
-          videoId: 'PK62xMsZfG0',
+          videoId: 'PK62xMsZfG0', // Praying stretch
           title: 'exercises.nociceptive.defaultNeck.prayer.title',
           description: 'exercises.nociceptive.defaultNeck.prayer.description',
           importance: 2,
@@ -365,7 +365,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           bodyPart:["middle-back"],
         },
         {
-          videoId: 'L94T55NiI34',
+          videoId: 'L94T55NiI34', // Self massage suboccipitals
           title: 'exercises.nociceptive.defaultNeck.upperCervicalMassage.title',
           description: 'exercises.nociceptive.defaultNeck.upperCervicalMassage.description',
           importance: 3,
@@ -384,7 +384,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-          videoId: 'PK62xMsZfG0',
+          videoId: 'PK62xMsZfG0', // Praying stretch
           title: 'exercises.nociceptive.defaultMiddleBack.prayer.title',
           description: 'exercises.nociceptive.defaultMiddleBack.prayer.description',
           importance: 1,
@@ -392,7 +392,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           bodyPart:["middle-back",],
         },
         {
-          videoId: 'dxzegzGNdaU',
+          videoId: 'dxzegzGNdaU', // Neck ball massage
           title: 'exercises.nociceptive.defaultMiddleBack.thoracicSpineMassage.title',
           description: 'exercises.nociceptive.defaultMiddleBack.thoracicSpineMassage.description',
           importance: 2,
@@ -400,7 +400,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           bodyPart:["middle-back","neck"],
         },
         {
-          videoId: 'OKsRn5e2VJY',
+          videoId: 'OKsRn5e2VJY', // Thorax rotation open book lying
           title: 'exercises.nociceptive.defaultMiddleBack.bookOpening.title',
           description: 'exercises.nociceptive.defaultMiddleBack.bookOpening.description',
           importance: 3,
@@ -419,7 +419,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-          videoId: 'PMJsVceAnnY',
+          videoId: 'PMJsVceAnnY', // Glute stretches
           title: 'exercises.nociceptive.defaultLowerBack.glutealStretching.title',
           description: 'exercises.nociceptive.defaultLowerBack.glutealStretching.description',
           importance: 1,
@@ -427,7 +427,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           bodyPart:["lower-back"],
         },
         {
-          videoId: 'L1Mf3NxYwgY',
+          videoId: 'L1Mf3NxYwgY', // Pelvis tilting sitting
           title: 'exercises.nociceptive.defaultLowerBack.pelvicTilting.title',
           description: 'exercises.nociceptive.defaultLowerBack.pelvicTilting.description',
           importance: 2,
