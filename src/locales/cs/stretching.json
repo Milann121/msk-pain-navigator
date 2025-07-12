@@ -1,4 +1,38 @@
 {
   "title": "Protahování",
-  "content": "Obsah pro protahování bude dostupný zde."
+  "content": "Obsah pro protahování bude dostupný zde.",
+  "no_results": "Pro tento filtr nebyly nalezena žádná protahovací cvičení.",
+  "filters": {
+    "all": "Vše",
+    "at_desk": "U stolu",
+    "morning": "Ráno",
+    "warm_up": "Rozcvička",
+    "after_training": "Po tréninku",
+    "better_regeneration": "Lepší zotavení",
+    "mid_day": "V poledne",
+    "before_sleep": "Před spaním",
+    "at_work": "V práci"
+  },
+  "cards": {
+    "neck_stretch": {
+      "title": "Úleva pro krk a ramena",
+      "description": "Jemné protažení na uvolnění napětí v krku a ramenech",
+      "description2": "Úleva v kanceláři"
+    },
+    "morning_flow": {
+      "title": "Ranní energizer",
+      "description": "Začněte den s energizujícím protažením na probuzení těla",
+      "description2": "Zvýšení energie"
+    },
+    "evening_relaxation": {
+      "title": "Večerní uklidnění",
+      "description": "Uklidňující protažení na relaxaci a přípravu na spánek",
+      "description2": "Hluboká relaxace"
+    },
+    "post_workout": {
+      "title": "Regenerace po tréninku",
+      "description": "Základní protažení na pomoc regeneraci svalů po tréninku",
+      "description2": "Zaměření na regeneraci"
+    }
+  }
 }

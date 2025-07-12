@@ -1,4 +1,38 @@
 {
   "title": "Stretching",
-  "content": "Stretching content will be available here."
+  "content": "Stretching content will be available here.",
+  "no_results": "No stretching exercises found for this filter.",
+  "filters": {
+    "all": "All",
+    "at_desk": "At desk",
+    "morning": "Morning",
+    "warm_up": "Warm-up",
+    "after_training": "After training",
+    "better_regeneration": "Better Regeneration",
+    "mid_day": "Mid-day",
+    "before_sleep": "Before Sleep",
+    "at_work": "At work"
+  },
+  "cards": {
+    "neck_stretch": {
+      "title": "Neck & Shoulder Relief",
+      "description": "Gentle stretches to release tension in your neck and shoulders",
+      "description2": "Office relief"
+    },
+    "morning_flow": {
+      "title": "Morning Energizer",
+      "description": "Start your day with energizing stretches to wake up your body",
+      "description2": "Energy boost"
+    },
+    "evening_relaxation": {
+      "title": "Evening Wind Down",
+      "description": "Calming stretches to help you relax and prepare for sleep",
+      "description2": "Deep relaxation"
+    },
+    "post_workout": {
+      "title": "Post-Workout Recovery",
+      "description": "Essential stretches to help your muscles recover after training",
+      "description2": "Recovery focus"
+    }
+  }
 }

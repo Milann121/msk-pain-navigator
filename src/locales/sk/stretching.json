@@ -1,4 +1,38 @@
 {
   "title": "Naťahovanie",
-  "content": "Obsah pre naťahovanie bude dostupný tu."
+  "content": "Obsah pre naťahovanie bude dostupný tu.",
+  "no_results": "Pre tento filter neboli nájdené žiadne naťahovacie cvičenia.",
+  "filters": {
+    "all": "Všetko",
+    "at_desk": "Pri stole",
+    "morning": "Ráno",
+    "warm_up": "Rozcvička",
+    "after_training": "Po tréningu",
+    "better_regeneration": "Lepšia regenerácia",
+    "mid_day": "V poludnie",
+    "before_sleep": "Pred spánkom",
+    "at_work": "V práci"
+  },
+  "cards": {
+    "neck_stretch": {
+      "title": "Uľava pre krk a ramená",
+      "description": "Jemné naťahovania na uvoľnenie napätia v krku a ramenách",
+      "description2": "Úľava v kancelárii"
+    },
+    "morning_flow": {
+      "title": "Ranný energizér",
+      "description": "Začnite deň s energizujúcimi naťahovaním na prebudenie tela",
+      "description2": "Zvýšenie energie"
+    },
+    "evening_relaxation": {
+      "title": "Večerné upokojenie",
+      "description": "Upokojujúce naťahovania na relaxáciu a prípravu na spánok",
+      "description2": "Hlboká relaxácia"
+    },
+    "post_workout": {
+      "title": "Regenerácia po tréningu",
+      "description": "Základné naťahovania na pomoc regenerácii svalov po tréningu",
+      "description2": "Zameranie na regeneráciu"
+    }
+  }
 }
