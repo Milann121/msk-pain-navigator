@@ -149,5 +149,77 @@
         }
       }
     }
+  },
+  "deadlifts": {
+    "title": "Tréning mŕtveho ťahu",
+    "description": "Zvládnite pohybový vzorec mŕtveho ťahu pre celkovú silu a rozvoj výkonu tela.",
+    "listDescription": {
+      "1": "Správna forma a postup mŕtveho ťahu",
+      "2": "Variácie rumunského mŕtveho ťahu",
+      "3": "Rovnováha jednonožného mŕtveho ťahu",
+      "4": "Progresívne techniky zaťažovania"
+    },
+    "exercises": {
+      "conventionalDeadlift": {
+        "title": "Konvenčný mŕtvy ťah",
+        "description": "Zvládnite základný pohyb mŕtveho ťahu so správnou technikou ohybu bokov.",
+        "video": {
+          "title": "Návod na formu mŕtveho ťahu",
+          "description": "Kompletný sprievodca správnou technikou mŕtveho ťahu"
+        }
+      },
+      "romanianDeadlift": {
+        "title": "Rumunský mŕtvy ťah",
+        "description": "Variácia dominantná bokmi zameraná na rozvoj hamstringov a sedacích svalov.",
+        "video": {
+          "title": "Sprievodca rumunským mŕtvym ťahom",
+          "description": "Ako vykonávať RDL s perfektnou formou"
+        }
+      },
+      "singleLegDeadlift": {
+        "title": "Jednonožný mŕtvy ťah",
+        "description": "Jednostranný pohyb, ktorý vyžaduje rovnováhu a stabilitu.",
+        "video": {
+          "title": "Rovnováha jednonožného mŕtveho ťahu",
+          "description": "Zvládnite techniku jednonožného mŕtveho ťahu"
+        }
+      }
+    }
+  },
+  "outdoorCalisthenics": {
+    "title": "Vonkajšia kalistetika",
+    "description": "Preneste tréning s vlastnou váhou von s cvičením na čerstvom vzduchu s minimálnym vybavením.",
+    "listDescription": {
+      "1": "Cvičenia s parkovými lavičkami",
+      "2": "Tréning so stromami a tyčami",
+      "3": "Pohyby na zemi",
+      "4": "Tréning integrovaný s prírodou"
+    },
+    "exercises": {
+      "parkBenchWorkout": {
+        "title": "Tréning s parkovou lavičkou",
+        "description": "Rutina celého tela používajúca iba parkovú lavičku na podporu a eleváciu.",
+        "video": {
+          "title": "Rutina cvičení s parkovou lavičkou",
+          "description": "Kreatívne cvičenia s použitím parkových lavičiek"
+        }
+      },
+      "treeWorkout": {
+        "title": "Tréning s konármi stromov",
+        "description": "Použite pevné konáre stromov na zhyby a visenie.",
+        "video": {
+          "title": "Vonkajší tréning zhybov",
+          "description": "Bezpečné cvičenia a nastavenie s konármi stromov"
+        }
+      },
+      "groundMovements": {
+        "title": "Prúdenie pohybov na zemi",
+        "description": "Pohyby zvierat a vzorce plazenia na prírodných povrchoch.",
+        "video": {
+          "title": "Vonkajšie pohybové vzorce",
+          "description": "Tréning prirodzených pohybov vonku"
+        }
+      }
+    }
   }
 }

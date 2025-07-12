@@ -149,5 +149,77 @@
         }
       }
     }
+  },
+  "deadlifts": {
+    "title": "Deadlift Training",
+    "description": "Master the deadlift movement pattern for total body strength and power development.",
+    "listDescription": {
+      "1": "Proper deadlift form and setup",
+      "2": "Romanian deadlift variations",
+      "3": "Single-leg deadlift balance",
+      "4": "Progressive loading techniques"
+    },
+    "exercises": {
+      "conventionalDeadlift": {
+        "title": "Conventional Deadlift",
+        "description": "Master the fundamental deadlift movement with proper hip hinge technique.",
+        "video": {
+          "title": "Deadlift Form Tutorial",
+          "description": "Complete guide to proper deadlift technique"
+        }
+      },
+      "romanianDeadlift": {
+        "title": "Romanian Deadlift",
+        "description": "Hip-dominant variation focusing on hamstring and glute development.",
+        "video": {
+          "title": "Romanian Deadlift Guide",
+          "description": "How to perform RDLs with perfect form"
+        }
+      },
+      "singleLegDeadlift": {
+        "title": "Single-Leg Deadlift",
+        "description": "Unilateral movement that challenges balance and stability.",
+        "video": {
+          "title": "Single-Leg Deadlift Balance",
+          "description": "Master single-leg deadlift technique"
+        }
+      }
+    }
+  },
+  "outdoorCalisthenics": {
+    "title": "Outdoor Calisthenics",
+    "description": "Take your bodyweight training outside with fresh air workouts using minimal equipment.",
+    "listDescription": {
+      "1": "Park bench exercises",
+      "2": "Tree and bar workouts",
+      "3": "Ground-based movements",
+      "4": "Nature-integrated training"
+    },
+    "exercises": {
+      "parkBenchWorkout": {
+        "title": "Park Bench Workout",
+        "description": "Full-body routine using just a park bench for support and elevation.",
+        "video": {
+          "title": "Park Bench Exercise Routine",
+          "description": "Creative exercises using park benches"
+        }
+      },
+      "treeWorkout": {
+        "title": "Tree Branch Training",
+        "description": "Use sturdy tree branches for pull-ups and hanging exercises.",
+        "video": {
+          "title": "Outdoor Pull-Up Training",
+          "description": "Safe tree branch exercises and setup"
+        }
+      },
+      "groundMovements": {
+        "title": "Ground Movement Flow",
+        "description": "Animal movements and crawling patterns on natural surfaces.",
+        "video": {
+          "title": "Outdoor Movement Patterns",
+          "description": "Natural movement training outdoors"
+        }
+      }
+    }
   }
 }

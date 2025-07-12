@@ -122,6 +122,8 @@ const skTranslations = {
   yoga: skYoga,
   sections: skSections,
   stretchingPrograms: skStretchingPrograms,
+  strengthPrograms: skStrengthPrograms,
+  yogaPrograms: skYogaPrograms,
   bodyParts: skBodyParts,
   differentials: skDifferentials
 };
@@ -146,6 +148,8 @@ const csTranslations = {
   yoga: csYoga,
   sections: csSections,
   stretchingPrograms: csStretchingPrograms,
+  strengthPrograms: csStrengthPrograms,
+  yogaPrograms: csYogaPrograms,
   bodyParts: csBodyParts,
   differentials: csDifferentials
 };
