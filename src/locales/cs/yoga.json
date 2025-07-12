@@ -11,8 +11,8 @@
   "levels": {
     "all": "Všechny úrovně",
     "beginner": "Začátečník",
-    "intermediate": "Pokročilý",
-    "advanced": "Expert",
+    "intermediate": "Mírně pokročilý",
+    "advanced": "Pokročilý",
     "master": "Mistr"
   },
   "recommendations": {
