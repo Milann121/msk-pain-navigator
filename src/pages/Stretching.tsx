@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Clock } from "lucide-react";
+import stretchingRecommendationImage from "@/assets/stretching-recommendation.jpg";
 interface StretchingCard {
   id: string;
   image: string;
@@ -102,7 +103,7 @@ const Stretching = () => {
             <div className="flex flex-col md:flex-row h-auto md:h-32">
               {/* Left side - Image */}
               <div className="w-full md:w-1/2 h-32 md:h-full">
-                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&h=300&fit=crop" alt="Suggested stretching programs" className="w-full h-full object-cover" />
+                <img src={stretchingRecommendationImage} alt="Suggested stretching programs" className="w-full h-full object-cover" />
               </div>
               
               {/* Right side - Content */}
