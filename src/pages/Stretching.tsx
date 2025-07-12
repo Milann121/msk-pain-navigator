@@ -79,7 +79,7 @@ const Stretching = () => {
     <div className="min-h-screen flex flex-col">
       <Header />
       <div className="flex-1 bg-gradient-to-b from-background to-muted/20 py-10 px-4">
-        <div className="container mx-auto max-w-7xl">
+        <div className="container mx-auto w-full max-w-full md:max-w-4xl px-2 md:px-0">
           <h1 className="text-3xl font-bold text-primary mb-8">
             {t('stretching.title')}
           </h1>
