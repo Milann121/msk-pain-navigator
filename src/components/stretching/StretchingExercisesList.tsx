@@ -25,6 +25,9 @@ export const StretchingExercisesList: React.FC<StretchingExercisesListProps> = (
         <div className="container mx-auto max-w-4xl">
           {/* Header */}
           <div className="flex items-center justify-between mb-6">
+            <h1 className="text-xl font-semibold text-primary">
+              {t(program.title)}
+            </h1>
             <Button
               variant="ghost"
               onClick={onBack}
@@ -33,9 +36,6 @@ export const StretchingExercisesList: React.FC<StretchingExercisesListProps> = (
               <ArrowLeft className="w-4 h-4" />
               {t('common.back')}
             </Button>
-            <h1 className="text-xl font-semibold text-primary">
-              {t(program.title)}
-            </h1>
           </div>
 
           {/* Exercises List */}
