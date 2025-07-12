@@ -2,100 +2,17 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Clock, ArrowLeft } from "lucide-react";
-
-interface StrengthCard {
-  id: string;
-  image: string;
-  title: string;
-  description: string;
-  description2: string;
-  time: string;
-  strength_group: string[];
-}
+import { ArrowLeft } from "lucide-react";
+import { StrengthFilters } from "@/components/strength/StrengthFilters";
+import { StrengthRecommendation } from "@/components/strength/StrengthRecommendation";
+import { StrengthCardsList } from "@/components/strength/StrengthCardsList";
+import { getStrengthCards } from "@/data/strengthCards";
 
 const Strength = () => {
   const { t } = useTranslation();
   const [activeFilter, setActiveFilter] = useState<string>("all");
   
-  const filterButtons = [
-    { key: "all", label: t('strength.filters.all') },
-    { key: "home", label: t('strength.filters.home') },
-    { key: "gym", label: t('strength.filters.gym') },
-    { key: "outside", label: t('strength.filters.outside') }
-  ];
-
-  // Sample data - replace with real data from backend
-  const strengthCards: StrengthCard[] = [
-    {
-      id: "push-ups",
-      image: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=500&h=500&fit=crop",
-      title: t('strength.cards.push_ups.title'),
-      description: t('strength.cards.push_ups.description'),
-      description2: t('strength.cards.push_ups.description2'),
-      time: t('strength.cards.push_ups.time'),
-      strength_group: ["home"]
-    },
-    {
-      id: "squats", 
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=500&fit=crop",
-      title: t('strength.cards.squats.title'),
-      description: t('strength.cards.squats.description'),
-      description2: t('strength.cards.squats.description2'),
-      time: t('strength.cards.squats.time'),
-      strength_group: ["home", "gym"]
-    },
-    {
-      id: "deadlifts",
-      image: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=500&h=500&fit=crop",
-      title: t('strength.cards.deadlifts.title'),
-      description: t('strength.cards.deadlifts.description'),
-      description2: t('strength.cards.deadlifts.description2'),
-      time: t('strength.cards.deadlifts.time'),
-      strength_group: ["gym"]
-    },
-    {
-      id: "outdoor-calisthenics",
-      image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=500&h=500&fit=crop",
-      title: t('strength.cards.outdoor_calisthenics.title'),
-      description: t('strength.cards.outdoor_calisthenics.description'),
-      description2: t('strength.cards.outdoor_calisthenics.description2'),
-      time: t('strength.cards.outdoor_calisthenics.time'),
-      strength_group: ["outside"]
-    },
-    {
-      id: "pull-ups",
-      image: "https://images.unsplash.com/photo-1599058918533-8f0bab35cc4a?w=500&h=500&fit=crop",
-      title: t('strength.cards.pull_ups.title'),
-      description: t('strength.cards.pull_ups.description'),
-      description2: t('strength.cards.pull_ups.description2'),
-      time: t('strength.cards.pull_ups.time'),
-      strength_group: ["home", "outside"]
-    },
-    {
-      id: "bodyweight-circuit",
-      image: "https://images.unsplash.com/photo-1591019479261-d17271ad22d8?w=500&h=500&fit=crop",
-      title: t('strength.cards.bodyweight_circuit.title'),
-      description: t('strength.cards.bodyweight_circuit.description'),
-      description2: t('strength.cards.bodyweight_circuit.description2'),
-      time: t('strength.cards.bodyweight_circuit.time'),
-      strength_group: ["home", "outside"]
-    }
-  ];
-
-  const filteredCards = activeFilter === "all" ? strengthCards : strengthCards.filter(card => 
-    card.strength_group.includes(activeFilter)
-  );
-
-  // Helper function to get filter labels for description2
-  const getFilterLabels = (groups: string[]) => {
-    return groups.map(group => {
-      const filter = filterButtons.find(f => f.key === group);
-      return filter ? filter.label : group;
-    }).join(" | ");
-  };
+  const strengthCards = getStrengthCards(t);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -112,138 +29,18 @@ const Strength = () => {
             </Link>
           </div>
           
-          {/* Filter Buttons */}
-          <div className="flex gap-2 mb-8 overflow-x-auto scrollbar-hide pb-2 md:flex-wrap md:overflow-visible">
-            {filterButtons.map((filter) => (
-              <Button
-                key={filter.key}
-                variant={activeFilter === filter.key ? "default" : "outline"}
-                size="sm"
-                onClick={() => setActiveFilter(filter.key)}
-                className="rounded-full flex-shrink-0"
-              >
-                {filter.label}
-              </Button>
-            ))}
-          </div>
+          <StrengthFilters 
+            activeFilter={activeFilter}
+            onFilterChange={setActiveFilter}
+          />
           
-          {/* Mobile/Tablet Recommendation Container */}
-          <div className="mb-8 bg-card rounded-lg overflow-hidden shadow-sm border-none lg:hidden">
-            <div className="flex flex-col md:flex-row h-auto md:h-40">
-              {/* Left side - Image */}
-              <div className="w-full md:w-1/2 h-32 md:h-full">
-                <img 
-                  src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop" 
-                  alt={t('strength.recommendation.image_alt')}
-                  className="w-full h-full object-cover" 
-                />
-              </div>
-              
-              {/* Right side - Content */}
-              <div className="w-full md:w-1/2 p-4 md:p-6 flex flex-col justify-center">
-                <h3 className="text-foreground mb-4 leading-tight text-lg md:text-xl font-semibold">
-                  {t('strength.recommendation.title')}
-                </h3>
-                
-                <div className="flex flex-wrap gap-3">
-                  <Button variant="outline" size="sm" className="text-xs rounded-full">
-                    {t('strength.recommendation.sample_program')}
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
+          <StrengthRecommendation />
 
           <div className="flex gap-6 items-start">
-            {/* Desktop Recommendation Container - Left Side */}
-            <div className="hidden lg:block w-1/3">
-              <div className="bg-card border rounded-lg p-4 h-[768px] flex flex-col">
-                {/* Recommendation Title and Content - Top */}
-                <div className="space-y-3 mb-4">
-                  <h2 className="text-lg font-semibold text-foreground leading-tight">
-                    {t('strength.recommendation.title')}
-                  </h2>
-                  <div className="flex flex-wrap gap-2">
-                    <Button variant="outline" size="sm" className="text-xs rounded-full">
-                      {t('strength.recommendation.sample_program')}
-                    </Button>
-                  </div>
-                </div>
-                
-                {/* Recommendation Image - Bottom */}
-                <div className="flex-1 flex items-end">
-                  <div className="w-full h-2/3 bg-muted rounded-lg overflow-hidden">
-                    <img 
-                      src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=600&fit=crop" 
-                      alt={t('strength.recommendation.image_alt')}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Main Content Area with Scroll Fades */}
-            <div className="flex-1 lg:w-2/3 relative">
-              {/* Top fade overlay - Desktop: aligns with left column, Mobile/Tablet: above 4 cards */}
-              <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-background via-background/80 to-transparent pointer-events-none z-10 hidden lg:block"></div>
-              <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-background via-background/80 to-transparent pointer-events-none z-10 lg:hidden"></div>
-              
-              {/* Bottom fade overlay - Desktop: aligns with left column, Mobile/Tablet: below 4 cards */}
-              <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none z-10 hidden lg:block"></div>
-              <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none z-10 lg:hidden"></div>
-              
-              {/* Scrollable Cards Container */}
-              <div className="max-h-[768px] lg:max-h-[768px] md:max-h-[640px] max-h-[512px] overflow-y-auto scrollbar-hide">
-                <div className="grid grid-cols-1 gap-4 py-4">
-                  {filteredCards.map((card) => (
-                    <Link key={card.id} to={`/strength/${card.id}`}>
-                      <Card className="cursor-pointer hover:shadow-lg transition-shadow overflow-hidden group border-none shadow-sm">
-                        <CardContent className="p-0 relative flex h-32">
-                          {/* Image - Left side, rotated design */}
-                          <div className="w-32 h-32 overflow-hidden rounded-l-lg flex-shrink-0">
-                            <img 
-                              src={card.image} 
-                              alt={card.title} 
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
-                            />
-                          </div>
-                          
-                          {/* Content - Right side */}
-                          <div className="flex-1 p-4 flex flex-col justify-between">
-                            <div>
-                              <h3 className="font-semibold text-base mb-2 line-clamp-1">
-                                {card.title}
-                              </h3>
-                              <p className="text-sm text-muted-foreground mb-2 line-clamp-2">
-                                {card.description}
-                              </p>
-                            </div>
-                            
-                            {/* Bottom section with description2 and time */}
-                            <div className="flex justify-between items-end">
-                              <span className="text-xs text-muted-foreground underline">
-                                {getFilterLabels(card.strength_group)}
-                              </span>
-                              <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                                <Clock className="w-3 h-3" />
-                                {card.time}
-                              </div>
-                            </div>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-
-              {filteredCards.length === 0 && (
-                <div className="text-center py-12">
-                  <p className="text-muted-foreground">{t('strength.no_results')}</p>
-                </div>
-              )}
-            </div>
+            <StrengthCardsList 
+              cards={strengthCards}
+              activeFilter={activeFilter}
+            />
           </div>
         </div>
       </div>
