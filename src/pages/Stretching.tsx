@@ -99,29 +99,29 @@ const Stretching = () => {
 
           {/* Suggested Programs Container */}
           <div className="mb-8 bg-card rounded-lg overflow-hidden shadow-sm border-none">
-            <div className="flex flex-col md:flex-row h-48 md:h-32">
+            <div className="flex flex-col md:flex-row h-auto md:h-32">
               {/* Left side - Image */}
-              <div className="w-full md:w-1/2 h-24 md:h-full">
+              <div className="w-full md:w-1/2 h-32 md:h-full">
                 <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&h=300&fit=crop" alt="Suggested stretching programs" className="w-full h-full object-cover" />
               </div>
               
               {/* Right side - Content */}
-              <div className="w-full md:w-1/2 p-4 flex flex-col justify-center my-[3px]">
-                <h3 className="text-foreground mb-3 leading-tight text-xl font-semibold">
+              <div className="w-full md:w-1/2 p-4 flex flex-col justify-center">
+                <h3 className="text-foreground mb-3 leading-tight text-lg md:text-xl font-semibold">
                   {t('stretching.suggestions.title')}
                 </h3>
                 
                 <div className="flex flex-wrap gap-2">
-                  <Button variant="outline" size="sm" className="rounded-full text-xs h-7">
+                  <Button variant="outline" size="sm" className="rounded-full text-xs h-7 flex-shrink-0">
                     {t('stretching.suggestions.programs.quick_relief')}
                   </Button>
-                  <Button variant="outline" size="sm" className="rounded-full text-xs h-7">
+                  <Button variant="outline" size="sm" className="rounded-full text-xs h-7 flex-shrink-0">
                     {t('stretching.suggestions.programs.morning_boost')}
                   </Button>
-                  <Button variant="outline" size="sm" className="rounded-full text-xs h-7">
+                  <Button variant="outline" size="sm" className="rounded-full text-xs h-7 flex-shrink-0">
                     {t('stretching.suggestions.programs.desk_break')}
                   </Button>
-                  <Button variant="outline" size="sm" className="rounded-full text-xs h-7">
+                  <Button variant="outline" size="sm" className="rounded-full text-xs h-7 flex-shrink-0">
                     {t('stretching.suggestions.programs.evening_unwind')}
                   </Button>
                 </div>
