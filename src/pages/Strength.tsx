@@ -79,23 +79,27 @@ const Strength = () => {
             {t('strength.title')}
           </h1>
           
-          <div className="flex gap-6">
+          {/* Filter Buttons */}
+          <div className="flex gap-2 mb-8 overflow-x-auto scrollbar-hide pb-2 md:flex-wrap md:overflow-visible">
+            {filterButtons.map((filter) => (
+              <Button
+                key={filter.key}
+                variant={activeFilter === filter.key ? "default" : "outline"}
+                size="sm"
+                onClick={() => setActiveFilter(filter.key)}
+                className="rounded-full flex-shrink-0"
+              >
+                {filter.label}
+              </Button>
+            ))}
+          </div>
+          
+          <div className="flex gap-6 items-start">
             {/* Recommendation Container - Left Side (Desktop only) */}
             <div className="hidden lg:block w-1/3">
               <div className="bg-card border rounded-lg p-4 h-[768px] flex flex-col">
-                {/* Recommendation Image - 2/3 from bottom */}
-                <div className="flex-1 flex items-end pb-4">
-                  <div className="w-full h-2/3 bg-muted rounded-lg overflow-hidden">
-                    <img 
-                      src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=600&fit=crop" 
-                      alt={t('strength.recommendation.image_alt')}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-                
-                {/* Recommendation Title and Content */}
-                <div className="space-y-3">
+                {/* Recommendation Title and Content - Top */}
+                <div className="space-y-3 mb-4">
                   <h2 className="text-lg font-semibold text-foreground leading-tight">
                     {t('strength.recommendation.title')}
                   </h2>
@@ -105,26 +109,22 @@ const Strength = () => {
                     </Button>
                   </div>
                 </div>
+                
+                {/* Recommendation Image - Bottom */}
+                <div className="flex-1 flex items-end">
+                  <div className="w-full h-2/3 bg-muted rounded-lg overflow-hidden">
+                    <img 
+                      src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=600&fit=crop" 
+                      alt={t('strength.recommendation.image_alt')}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
 
             {/* Main Content Area */}
             <div className="flex-1 lg:w-2/3">
-              {/* Filter Buttons */}
-              <div className="flex gap-2 mb-8 overflow-x-auto scrollbar-hide pb-2 md:flex-wrap md:overflow-visible">
-                {filterButtons.map((filter) => (
-                  <Button
-                    key={filter.key}
-                    variant={activeFilter === filter.key ? "default" : "outline"}
-                    size="sm"
-                    onClick={() => setActiveFilter(filter.key)}
-                    className="rounded-full flex-shrink-0"
-                  >
-                    {filter.label}
-                  </Button>
-                ))}
-              </div>
-
               {/* Cards Grid - Single Column, Rotated 90 degrees left */}
               <div className="grid grid-cols-1 gap-4 my-[4px] py-[15px]">
             {filteredCards.map((card) => (
