@@ -1,4 +1,50 @@
 {
   "title": "Jóga",
-  "content": "Obsah pre jógu bude dostupný tu."
+  "filter_label": "Filtrovať podľa oblasti tela:",
+  "level_label": "Filtrovať podľa úrovne:",
+  "filters": {
+    "all": "Všetko",
+    "full_body": "Celé telo",
+    "lower_body": "Dolná časť tela",
+    "upper_body": "Horná časť tela"
+  },
+  "levels": {
+    "all": "Všetky úrovne",
+    "beginner": "Začiatočník",
+    "intermediate": "Pokročilý",
+    "advanced": "Expertný",
+    "master": "Majster"
+  },
+  "recommendations": {
+    "title": "Odporúčané jógové programy",
+    "programs": {
+      "sunrise_flow": "Ranná séria",
+      "power_sequence": "Silová sekvencia",
+      "flexibility_focus": "Flexibilita",
+      "evening_calm": "Večerný pokoj"
+    }
+  },
+  "cards": {
+    "morning_flow": {
+      "title": "Ranné prebúdzanie",
+      "description": "Jemná jógová sekvencia na začiatok dňa s energiou a sústredením",
+      "description2": "Energizujúce"
+    },
+    "power_flow": {
+      "title": "Dynamická silová séria",
+      "description": "Silná plynulá sekvencia na budovanie sily a vytrvalosti",
+      "description2": "Sila"
+    },
+    "leg_focus": {
+      "title": "Zameranie na dolnú časť",
+      "description": "Cielené pozície na posilnenie a natiahnutie nôh a bokov",
+      "description2": "Posilňovanie"
+    },
+    "arm_balance": {
+      "title": "Majstrovstvo v rovnováhe",
+      "description": "Pokročilé pozície zamerané na silu hornej časti tela a rovnováhu",
+      "description2": "Výzva"
+    }
+  },
+  "no_results": "Pre vybrané filtre neboli nájdené žiadne jógové programy."
 }

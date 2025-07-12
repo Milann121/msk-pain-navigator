@@ -1,4 +1,50 @@
 {
   "title": "Yoga",
-  "content": "Yoga content will be available here."
+  "filter_label": "Filter by body area:",
+  "level_label": "Filter by level:",
+  "filters": {
+    "all": "All",
+    "full_body": "Full Body",
+    "lower_body": "Lower Body",
+    "upper_body": "Upper Body"
+  },
+  "levels": {
+    "all": "All Levels",
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
+    "master": "Master"
+  },
+  "recommendations": {
+    "title": "Recommended Yoga Programs",
+    "programs": {
+      "sunrise_flow": "Sunrise Flow",
+      "power_sequence": "Power Sequence",
+      "flexibility_focus": "Flexibility Focus",
+      "evening_calm": "Evening Calm"
+    }
+  },
+  "cards": {
+    "morning_flow": {
+      "title": "Morning Awakening Flow",
+      "description": "Gentle yoga sequence to start your day with energy and focus",
+      "description2": "Energizing"
+    },
+    "power_flow": {
+      "title": "Dynamic Power Flow",
+      "description": "Strong flowing sequence to build strength and endurance",
+      "description2": "Strength"
+    },
+    "leg_focus": {
+      "title": "Lower Body Focus",
+      "description": "Targeted poses to strengthen and stretch legs and hips",
+      "description2": "Strengthening"
+    },
+    "arm_balance": {
+      "title": "Arm Balance Mastery",
+      "description": "Advanced poses focusing on upper body strength and balance",
+      "description2": "Challenge"
+    }
+  },
+  "no_results": "No yoga programs found for the selected filters."
 }
