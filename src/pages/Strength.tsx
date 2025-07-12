@@ -34,9 +34,11 @@ const Strength = () => {
             onFilterChange={setActiveFilter}
           />
           
-          <StrengthRecommendation />
+          <StrengthRecommendation isMobile={true} />
 
           <div className="flex gap-6 items-start">
+            <StrengthRecommendation isMobile={false} />
+            
             <StrengthCardsList 
               cards={strengthCards}
               activeFilter={activeFilter}
