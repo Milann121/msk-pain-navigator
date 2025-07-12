@@ -1,11 +1,12 @@
 
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import { Card, CardContent, CardDescription, CardFooter, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, ArrowLeft } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { FavoriteBlogButton } from '@/components/FavoriteBlogButton';
 import { ReadBlogButton } from '@/components/ReadBlogButton';
@@ -147,7 +148,13 @@ const Blog = () => {
       <Header />
       <div className="flex-1 bg-gradient-to-b from-blue-50 to-white py-10 px-2 md:px-4">
         <div className="container mx-auto w-full max-w-full md:max-w-4xl px-2 md:px-0">
-          <h1 className="text-3xl font-bold text-blue-800 mb-6">{t('blog.title')}</h1>
+          <div className="flex items-center justify-between mb-6">
+            <h1 className="text-3xl font-bold text-blue-800">{t('blog.title')}</h1>
+            <Link to="/my-exercises" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+              <ArrowLeft className="w-4 h-4" />
+              {t('common.back')}
+            </Link>
+          </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {sampleBlogs.map((blog) => (
