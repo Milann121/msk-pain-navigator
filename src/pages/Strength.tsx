@@ -63,6 +63,42 @@ const Strength = () => {
       description2: t('strength.cards.outdoor_calisthenics.description2'),
       time: t('strength.cards.outdoor_calisthenics.time'),
       strength_group: ["outside"]
+    },
+    {
+      id: "5",
+      image: "https://images.unsplash.com/photo-1599058918533-8f0bab35cc4a?w=500&h=500&fit=crop",
+      title: t('strength.cards.pull_ups.title'),
+      description: t('strength.cards.pull_ups.description'),
+      description2: t('strength.cards.pull_ups.description2'),
+      time: t('strength.cards.pull_ups.time'),
+      strength_group: ["home", "outside"]
+    },
+    {
+      id: "6",
+      image: "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=500&h=500&fit=crop",
+      title: t('strength.cards.bench_press.title'),
+      description: t('strength.cards.bench_press.description'),
+      description2: t('strength.cards.bench_press.description2'),
+      time: t('strength.cards.bench_press.time'),
+      strength_group: ["gym"]
+    },
+    {
+      id: "7",
+      image: "https://images.unsplash.com/photo-1591019479261-d17271ad22d8?w=500&h=500&fit=crop",
+      title: t('strength.cards.bodyweight_circuit.title'),
+      description: t('strength.cards.bodyweight_circuit.description'),
+      description2: t('strength.cards.bodyweight_circuit.description2'),
+      time: t('strength.cards.bodyweight_circuit.time'),
+      strength_group: ["home", "outside"]
+    },
+    {
+      id: "8",
+      image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=500&h=500&fit=crop",
+      title: t('strength.cards.kettlebell_training.title'),
+      description: t('strength.cards.kettlebell_training.description'),
+      description2: t('strength.cards.kettlebell_training.description2'),
+      time: t('strength.cards.kettlebell_training.time'),
+      strength_group: ["home", "gym"]
     }
   ];
 

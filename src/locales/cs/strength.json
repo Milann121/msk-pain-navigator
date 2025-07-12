@@ -30,6 +30,30 @@
       "description": "Cvičení s vlastní váhou na čerstvém vzduchu",
       "description2": "Všechny úrovně",
       "time": "25 min"
+    },
+    "pull_ups": {
+      "title": "Shyby",
+      "description": "Rozvíjejte sílu horní části těla variacemi shybů",
+      "description2": "Pokročilý",
+      "time": "18 min"
+    },
+    "bench_press": {
+      "title": "Bench press",
+      "description": "Posílejte hrudník, ramena a tricepsy klasickým bench pressem",
+      "description2": "Expert",
+      "time": "35 min"
+    },
+    "bodyweight_circuit": {
+      "title": "Okruhový trénink",
+      "description": "Vysokointenzivní okruhový trénink s vlastní váhou",
+      "description2": "Všechny úrovně",
+      "time": "25 min"
+    },
+    "kettlebell_training": {
+      "title": "Kettlebell trénink",
+      "description": "Posilování a kondice s kettlebell cviky",
+      "description2": "Pokročilý",
+      "time": "40 min"
     }
   },
   "recommendation": {

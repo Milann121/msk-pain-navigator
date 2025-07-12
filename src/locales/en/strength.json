@@ -30,6 +30,30 @@
       "description": "Bodyweight exercises in fresh air",
       "description2": "All levels",
       "time": "25 min"
+    },
+    "pull_ups": {
+      "title": "Pull-ups",
+      "description": "Develop upper body strength and improve grip with pull-up variations",
+      "description2": "Intermediate",
+      "time": "18 min"
+    },
+    "bench_press": {
+      "title": "Bench Press",
+      "description": "Build chest, shoulders, and triceps with the classic bench press",
+      "description2": "Advanced",
+      "time": "35 min"
+    },
+    "bodyweight_circuit": {
+      "title": "Bodyweight Circuit",
+      "description": "High-intensity circuit training using only your body weight",
+      "description2": "All levels",
+      "time": "25 min"
+    },
+    "kettlebell_training": {
+      "title": "Kettlebell Training",
+      "description": "Full-body strength and conditioning with kettlebell movements",
+      "description2": "Intermediate",
+      "time": "40 min"
     }
   },
   "recommendation": {
