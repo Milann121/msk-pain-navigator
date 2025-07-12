@@ -19,12 +19,10 @@ const Header = () => {
         { href: '/domov', label: t('header.home') },
         { href: '/profile', label: t('header.profile') },
         { href: '/my-exercises', label: t('header.myExercises') },
-        { href: '/blog', label: t('header.blog') },
         { href: '/assessment', label: t('header.assessment') }
       ]
     : [
-        { href: '/', label: t('header.home') },
-        { href: '/blog', label: t('header.blog') }
+        { href: '/', label: t('header.home') }
       ];
 
   const handleAuthClick = () => {
