@@ -61,5 +61,224 @@
     "image_alt": "Recommended strength training",
     "sample_program": "Upper Body Strength"
   },
+  "strengthPrograms": {
+    "pushUps": {
+      "title": "Push-ups Program",
+      "description": "Build upper body strength with classic push-ups",
+      "listDescription": {
+        "1": "Perfect your form with proper alignment",
+        "2": "Progressive difficulty levels from beginner to advanced",
+        "3": "Strengthen chest, shoulders, and triceps",
+        "4": "No equipment needed - bodyweight only"
+      },
+      "exercises": {
+        "basicPushUp": {
+          "title": "Basic Push-up",
+          "description": "Master the fundamental push-up movement",
+          "video": {
+            "title": "How to do a Basic Push-up",
+            "description": "Learn proper form and technique"
+          }
+        },
+        "inclinePushUp": {
+          "title": "Incline Push-up",
+          "description": "Easier variation using an elevated surface",
+          "video": {
+            "title": "Incline Push-up Tutorial",
+            "description": "Perfect for beginners"
+          }
+        },
+        "diamondPushUp": {
+          "title": "Diamond Push-up",
+          "description": "Advanced variation targeting triceps",
+          "video": {
+            "title": "Diamond Push-up Guide",
+            "description": "Challenge your triceps"
+          }
+        }
+      }
+    },
+    "squats": {
+      "title": "Squats Program",
+      "description": "Strengthen your legs and glutes",
+      "listDescription": {
+        "1": "Build powerful leg muscles",
+        "2": "Improve functional movement patterns",
+        "3": "Enhance lower body stability",
+        "4": "Boost athletic performance"
+      },
+      "exercises": {
+        "bodyweightSquat": {
+          "title": "Bodyweight Squat",
+          "description": "Master the basic squat movement",
+          "video": {
+            "title": "Perfect Bodyweight Squat",
+            "description": "Learn proper squat form"
+          }
+        },
+        "gobletSquat": {
+          "title": "Goblet Squat",
+          "description": "Add weight for increased challenge",
+          "video": {
+            "title": "Goblet Squat Tutorial",
+            "description": "Weighted squat variation"
+          }
+        },
+        "jumpSquat": {
+          "title": "Jump Squat",
+          "description": "Explosive plyometric movement",
+          "video": {
+            "title": "Jump Squat Guide",
+            "description": "Add power to your squats"
+          }
+        }
+      }
+    },
+    "deadlifts": {
+      "title": "Deadlifts Program",
+      "description": "Full body strength training",
+      "listDescription": {
+        "1": "Master the king of all exercises",
+        "2": "Build total body strength",
+        "3": "Improve posture and stability",
+        "4": "Develop functional movement patterns"
+      },
+      "exercises": {
+        "conventionalDeadlift": {
+          "title": "Conventional Deadlift",
+          "description": "The classic deadlift movement",
+          "video": {
+            "title": "Conventional Deadlift Form",
+            "description": "Perfect your deadlift technique"
+          }
+        },
+        "romanianDeadlift": {
+          "title": "Romanian Deadlift",
+          "description": "Target hamstrings and glutes",
+          "video": {
+            "title": "Romanian Deadlift Guide",
+            "description": "Focus on posterior chain"
+          }
+        },
+        "sumodeadlift": {
+          "title": "Sumo Deadlift",
+          "description": "Wide stance deadlift variation",
+          "video": {
+            "title": "Sumo Deadlift Tutorial",
+            "description": "Alternative deadlift style"
+          }
+        }
+      }
+    },
+    "pullUps": {
+      "title": "Pull-ups Program",
+      "description": "Develop upper body strength and improve grip",
+      "listDescription": {
+        "1": "Build a strong back and biceps",
+        "2": "Improve grip strength",
+        "3": "Progressive training from assisted to advanced",
+        "4": "Enhance functional upper body power"
+      },
+      "exercises": {
+        "assistedPullUp": {
+          "title": "Assisted Pull-up",
+          "description": "Build strength with assistance",
+          "video": {
+            "title": "Assisted Pull-up Tutorial",
+            "description": "Start your pull-up journey"
+          }
+        },
+        "negativesPullUp": {
+          "title": "Negative Pull-ups",
+          "description": "Focus on the lowering phase",
+          "video": {
+            "title": "Negative Pull-ups Guide",
+            "description": "Build strength eccentrically"
+          }
+        },
+        "chinUps": {
+          "title": "Chin-ups",
+          "description": "Underhand grip variation",
+          "video": {
+            "title": "Chin-up Technique",
+            "description": "Target biceps and lats"
+          }
+        }
+      }
+    },
+    "bodyweightCircuit": {
+      "title": "Bodyweight Circuit",
+      "description": "High-intensity circuit training using only your body weight",
+      "listDescription": {
+        "1": "Full-body workout in minimal time",
+        "2": "Improve cardiovascular fitness",
+        "3": "Build functional strength",
+        "4": "Perfect for home workouts",
+        "5": "No equipment required"
+      },
+      "exercises": {
+        "burpees": {
+          "title": "Burpees",
+          "description": "Full-body explosive exercise",
+          "video": {
+            "title": "Perfect Burpee Form",
+            "description": "Master this challenging movement"
+          }
+        },
+        "mountainClimbers": {
+          "title": "Mountain Climbers",
+          "description": "Core and cardio combination",
+          "video": {
+            "title": "Mountain Climbers Tutorial",
+            "description": "Build endurance and core strength"
+          }
+        },
+        "plankJacks": {
+          "title": "Plank Jacks",
+          "description": "Dynamic plank variation",
+          "video": {
+            "title": "Plank Jacks Guide",
+            "description": "Add cardio to your plank"
+          }
+        }
+      }
+    },
+    "outdoorCalisthenics": {
+      "title": "Outdoor Calisthenics",
+      "description": "Bodyweight exercises in fresh air",
+      "listDescription": {
+        "1": "Train outdoors with natural movement",
+        "2": "Use park equipment creatively",
+        "3": "Build functional strength",
+        "4": "Enjoy fresh air while exercising"
+      },
+      "exercises": {
+        "parkBenchWorkout": {
+          "title": "Park Bench Workout",
+          "description": "Full workout using a bench",
+          "video": {
+            "title": "Park Bench Exercise Tutorial",
+            "description": "Make the most of park equipment"
+          }
+        },
+        "playgroundWorkout": {
+          "title": "Playground Workout",
+          "description": "Use playground equipment for fitness",
+          "video": {
+            "title": "Playground Fitness Guide",
+            "description": "Turn play into exercise"
+          }
+        },
+        "hillSprints": {
+          "title": "Hill Sprints",
+          "description": "High-intensity uphill running",
+          "video": {
+            "title": "Hill Sprint Training",
+            "description": "Build power and endurance"
+          }
+        }
+      }
+    }
+  },
   "no_results": "No strength exercises found for the selected filter."
 }

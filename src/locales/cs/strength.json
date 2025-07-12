@@ -61,5 +61,224 @@
     "image_alt": "Doporučené posilovací tréninky", 
     "sample_program": "Posilování horní části těla"
   },
+  "strengthPrograms": {
+    "pushUps": {
+      "title": "Program kliků",
+      "description": "Posílení horní části těla klasickými kliky",
+      "listDescription": {
+        "1": "Zdokonalte techniku se správným postavením",
+        "2": "Postupné úrovně obtížnosti od začátečníka po pokročilého",
+        "3": "Posílení hrudníku, ramen a tricepsů",
+        "4": "Nevyžaduje žádné vybavení - pouze váha těla"
+      },
+      "exercises": {
+        "basicPushUp": {
+          "title": "Základní klik",
+          "description": "Zvládněte základní pohyb kliku",
+          "video": {
+            "title": "Jak dělat základní klik",
+            "description": "Naučte se správnou formu a techniku"
+          }
+        },
+        "inclinePushUp": {
+          "title": "Klik na vyvýšenině",
+          "description": "Lehčí variace používající vyvýšený povrch",
+          "video": {
+            "title": "Návod na klik na vyvýšenině",
+            "description": "Perfektní pro začátečníky"
+          }
+        },
+        "diamondPushUp": {
+          "title": "Diamantový klik",
+          "description": "Pokročilá variace zaměřená na tricepsy",
+          "video": {
+            "title": "Příručka diamantového kliku",
+            "description": "Vyzkoušejte své tricepsy"
+          }
+        }
+      }
+    },
+    "squats": {
+      "title": "Program dřepů",
+      "description": "Posílení nohou a hýžďových svalů",
+      "listDescription": {
+        "1": "Vybudujte silné nohy",
+        "2": "Zlepšete funkční pohybové vzorce",
+        "3": "Zvyšte stabilitu dolní části těla",
+        "4": "Zlepšete atletický výkon"
+      },
+      "exercises": {
+        "bodyweightSquat": {
+          "title": "Dřep s váhou těla",
+          "description": "Zvládněte základní pohyb dřepu",
+          "video": {
+            "title": "Perfektní dřep s váhou těla",
+            "description": "Naučte se správnou formu dřepu"
+          }
+        },
+        "gobletSquat": {
+          "title": "Goblet dřep",
+          "description": "Přidejte váhu pro zvýšenou výzvu",
+          "video": {
+            "title": "Návod na Goblet dřep",
+            "description": "Variace dřepu s váhou"
+          }
+        },
+        "jumpSquat": {
+          "title": "Skok dřep",
+          "description": "Explozivní plyometrický pohyb",
+          "video": {
+            "title": "Příručka skoku dřepu",
+            "description": "Přidejte sílu do vašich dřepů"
+          }
+        }
+      }
+    },
+    "deadlifts": {
+      "title": "Program mrtvých tahů",
+      "description": "Posilování celého těla",
+      "listDescription": {
+        "1": "Zvládněte krále všech cviků",
+        "2": "Vybudujte celkovou sílu těla",
+        "3": "Zlepšete postoj a stabilitu",
+        "4": "Rozvíjejte funkční pohybové vzorce"
+      },
+      "exercises": {
+        "conventionalDeadlift": {
+          "title": "Konvenční mrtvý tah",
+          "description": "Klasický pohyb mrtvého tahu",
+          "video": {
+            "title": "Forma konvenčního mrtvého tahu",
+            "description": "Zdokonalte techniku mrtvého tahu"
+          }
+        },
+        "romanianDeadlift": {
+          "title": "Rumunský mrtvý tah",
+          "description": "Zaměření na hamstringy a hýžďové svaly",
+          "video": {
+            "title": "Příručka rumunského mrtvého tahu",
+            "description": "Zaměřte se na zadní řetězec"
+          }
+        },
+        "sumodeadlift": {
+          "title": "Sumo mrtvý tah",
+          "description": "Variace s širokým postojem",
+          "video": {
+            "title": "Návod na Sumo mrtvý tah",
+            "description": "Alternativní styl mrtvého tahu"
+          }
+        }
+      }
+    },
+    "pullUps": {
+      "title": "Program shybů",
+      "description": "Rozvíjejte sílu horní části těla a zlepšete úchop",
+      "listDescription": {
+        "1": "Vybudujte silná záda a bicepsy",
+        "2": "Zlepšete sílu úchopu",
+        "3": "Postupný trénink od asistovaného po pokročilý",
+        "4": "Zvyšte funkční sílu horní části těla"
+      },
+      "exercises": {
+        "assistedPullUp": {
+          "title": "Asistovaný shyb",
+          "description": "Budujte sílu s pomocí",
+          "video": {
+            "title": "Návod na asistovaný shyb",
+            "description": "Začněte svou cestu shybů"
+          }
+        },
+        "negativesPullUp": {
+          "title": "Negativní shyby",
+          "description": "Zaměřte se na spouštěcí fázi",
+          "video": {
+            "title": "Příručka negativních shybů",
+            "description": "Budujte sílu excentricky"
+          }
+        },
+        "chinUps": {
+          "title": "Brašní shyby",
+          "description": "Variace s úchopem zespodu",
+          "video": {
+            "title": "Technika brašních shybů",
+            "description": "Zaměření na bicepsy a laty"
+          }
+        }
+      }
+    },
+    "bodyweightCircuit": {
+      "title": "Okruhový trénink",
+      "description": "Vysokointenzivní okruhový trénink s vlastní váhou",
+      "listDescription": {
+        "1": "Workout celého těla v minimálním čase",
+        "2": "Zlepšete kardiovaskulární kondici",
+        "3": "Vybudujte funkční sílu",
+        "4": "Perfektní pro domácí tréninky",
+        "5": "Nevyžaduje žádné vybavení"
+      },
+      "exercises": {
+        "burpees": {
+          "title": "Burpees",
+          "description": "Explozivní cvik celého těla",
+          "video": {
+            "title": "Perfektní forma burpees",
+            "description": "Zvládněte tento náročný pohyb"
+          }
+        },
+        "mountainClimbers": {
+          "title": "Horští lezci",
+          "description": "Kombinace core a kardio",
+          "video": {
+            "title": "Návod na horské lezce",
+            "description": "Budujte vytrvalost a sílu core"
+          }
+        },
+        "plankJacks": {
+          "title": "Plank Jacks",
+          "description": "Dynamická variace planku",
+          "video": {
+            "title": "Příručka Plank Jacks",
+            "description": "Přidejte kardio do vašeho planku"
+          }
+        }
+      }
+    },
+    "outdoorCalisthenics": {
+      "title": "Venkovní kalisténika",
+      "description": "Cvičení s vlastní váhou na čerstvém vzduchu",
+      "listDescription": {
+        "1": "Trénujte venku s přirozeným pohybem",
+        "2": "Kreativně využívejte vybavení parku",
+        "3": "Vybudujte funkční sílu",
+        "4": "Užívejte si čerstvý vzduch během cvičení"
+      },
+      "exercises": {
+        "parkBenchWorkout": {
+          "title": "Workout na parkové lavičce",
+          "description": "Celý workout s použitím lavičky",
+          "video": {
+            "title": "Návod na cvičení na parkové lavičce",
+            "description": "Využijte maximálně parkové vybavení"
+          }
+        },
+        "playgroundWorkout": {
+          "title": "Workout na hřišti",
+          "description": "Použijte vybavení hřiště na fitness",
+          "video": {
+            "title": "Příručka fitness na hřišti",
+            "description": "Přeměňte hru na cvičení"
+          }
+        },
+        "hillSprints": {
+          "title": "Sprinty do kopce",
+          "description": "Vysokointenzivní běh do kopce",
+          "video": {
+            "title": "Trénink sprintů do kopce",
+            "description": "Budujte sílu a vytrvalost"
+          }
+        }
+      }
+    }
+  },
   "no_results": "Nebyla nalezena žádná posilovací cvičení pro vybraný filtr."
 }
