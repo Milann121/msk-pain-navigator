@@ -2,6 +2,15 @@
   "title": "Stretching",
   "content": "Stretching content will be available here.",
   "no_results": "No stretching exercises found for this filter.",
+  "suggestions": {
+    "title": "Based on your active programs, we recommend you following programs",
+    "programs": {
+      "quick_relief": "Quick Relief",
+      "morning_boost": "Morning Boost", 
+      "desk_break": "Desk Break",
+      "evening_unwind": "Evening Unwind"
+    }
+  },
   "filters": {
     "all": "All",
     "at_desk": "At desk",

@@ -2,6 +2,15 @@
   "title": "Protahování",
   "content": "Obsah pro protahování bude dostupný zde.",
   "no_results": "Pro tento filtr nebyly nalezena žádná protahovací cvičení.",
+  "suggestions": {
+    "title": "Na základě vašich aktivních programů vám doporučujeme následující programy",
+    "programs": {
+      "quick_relief": "Rychlá úleva",
+      "morning_boost": "Ranní posílení", 
+      "desk_break": "Přestávka u stolu",
+      "evening_unwind": "Večerní uvolnění"
+    }
+  },
   "filters": {
     "all": "Vše",
     "at_desk": "U stolu",

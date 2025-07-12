@@ -2,6 +2,15 @@
   "title": "Naťahovanie",
   "content": "Obsah pre naťahovanie bude dostupný tu.",
   "no_results": "Pre tento filter neboli nájdené žiadne naťahovacie cvičenia.",
+  "suggestions": {
+    "title": "Na základe vašich aktívnych programov vám odporúčame nasledujúce programy",
+    "programs": {
+      "quick_relief": "Rýchla úľava",
+      "morning_boost": "Ranné posilnenie", 
+      "desk_break": "Prestávka pri stole",
+      "evening_unwind": "Večerné uvoľnenie"
+    }
+  },
   "filters": {
     "all": "Všetko",
     "at_desk": "Pri stole",
