@@ -1,0 +1,153 @@
+{
+  "common": {
+    "whatYouWillDo": "Čo budete robiť:",
+    "start": "Začať program",
+    "focusAreas": "Zamerané oblasti:",
+    "avoidIf": "Vyhýbajte sa, ak máte:"
+  },
+  "pushUps": {
+    "title": "Majstrovstvo v klikoch",
+    "description": "Posilnite hornú časť tela s progresívnymi variáciami klikov zameranými na prsia, ramená a tricepsy.",
+    "listDescription": {
+      "1": "Základná technika a forma klikov",
+      "2": "Variácie na naklonenej ploche pre začiatočníkov",
+      "3": "Diamantové kliky pre silu tricepsov",
+      "4": "Progresívne úrovne obtiažnosti"
+    },
+    "exercises": {
+      "basicPushUp": {
+        "title": "Základné kliky",
+        "description": "Zvládnite základný pohyb klikov so správnou formou a technikou.",
+        "video": {
+          "title": "Perfektná forma klikov",
+          "description": "Naučte sa správnu techniku pre štandardné kliky"
+        }
+      },
+      "inclinePushUp": {
+        "title": "Kliky na naklonenej ploche",
+        "description": "Variácia pre začiatočníkov s použitím vyvýšenej plochy na zníženie obtiažnosti.",
+        "video": {
+          "title": "Návod na kliky na naklonenej ploche",
+          "description": "Ako vykonávať kliky na naklonenej ploche pre začiatočníkov"
+        }
+      },
+      "diamondPushUp": {
+        "title": "Diamantové kliky",
+        "description": "Pokročilá variácia zameraná na tricepsy s postavením rúk v tvare diamantu.",
+        "video": {
+          "title": "Technika diamantových klikov",
+          "description": "Pokročilá variácia klikov pre silu tricepsov"
+        }
+      }
+    }
+  },
+  "squats": {
+    "title": "Sila drepov",
+    "description": "Posilnite nohy a sedacie svaly s komplexným tréningom drepov pre silu dolnej časti tela.",
+    "listDescription": {
+      "1": "Základy drepov s vlastnou váhou",
+      "2": "Pohárový drep s váhou",
+      "3": "Skokanské drepy pre explozívnu silu",
+      "4": "Správna hĺbka a technika"
+    },
+    "exercises": {
+      "bodyweightSquat": {
+        "title": "Drep s vlastnou váhou",
+        "description": "Základný pohyb drepu zameraný na správnu formu a hĺbku.",
+        "video": {
+          "title": "Perfektná forma drepu",
+          "description": "Zvládnite základný pohybový vzorec drepu"
+        }
+      },
+      "gobletSquat": {
+        "title": "Pohárový drep",
+        "description": "Pridajte odpor s váhou drženou na úrovni hrude pre zvýšenú obtiažnosť.",
+        "video": {
+          "title": "Návod na pohárový drep",
+          "description": "Ako vykonávať pohárové drepy so správnou formou"
+        }
+      },
+      "jumpSquat": {
+        "title": "Skokanský drep",
+        "description": "Explozívna plyometrická variácia na rozvoj sily a atletiky.",
+        "video": {
+          "title": "Technika skokanského drepu",
+          "description": "Explozívne skoky z drepu pre rozvoj sily"
+        }
+      }
+    }
+  },
+  "bodyweightCircuit": {
+    "title": "Okruh s vlastnou váhou",
+    "description": "Vysoko intenzívny okruhový tréning používajúci iba váhu vášho tela pre kompletné cvičenie.",
+    "listDescription": {
+      "1": "Pohyby burpees pre celé telo",
+      "2": "Kardio s mountain climbermi",
+      "3": "Tréning jadra s plank jackami",
+      "4": "Časovanie okruhu a prestávky",
+      "5": "Progresívne úrovne intenzity"
+    },
+    "exercises": {
+      "burpees": {
+        "title": "Burpees",
+        "description": "Explozívny pohyb celého tela kombinujúci drep, plank a skok.",
+        "video": {
+          "title": "Návod na burpees",
+          "description": "Kompletný rozklad pohybu burpees"
+        }
+      },
+      "mountainClimbers": {
+        "title": "Mountain Climbers",
+        "description": "Vysoko intenzívne kardio cvičenie v polohe planku s striedajúcimi sa pohybmi nôh.",
+        "video": {
+          "title": "Forma Mountain Climbers",
+          "description": "Správna technika pre mountain climbers"
+        }
+      },
+      "plankJacks": {
+        "title": "Plank Jacks",
+        "description": "Cvičenie zamerané na jadro kombinujúce držanie planku s pohybom nôh ako jumping jack.",
+        "video": {
+          "title": "Návod na Plank Jacks",
+          "description": "Ako vykonávať plank jacks s dobrou formou"
+        }
+      }
+    }
+  },
+  "pullUps": {
+    "title": "Progresie zhybov",
+    "description": "Rozvíjajte silu ťahania hornej časti tela s progresívnym tréningom zhybov a variáciami.",
+    "listDescription": {
+      "1": "Progresie asistovaných zhybov",
+      "2": "Negatívny (excentrický) tréning",
+      "3": "Technika variácie chin-up",
+      "4": "Rozvoj sily chvatu"
+    },
+    "exercises": {
+      "assistedPullUp": {
+        "title": "Asistovaný zhyb",
+        "description": "Použite asistenciu na naučenie správnej formy zhybu a progresívne budovanie sily.",
+        "video": {
+          "title": "Metódy asistovaných zhybov",
+          "description": "Rôzne spôsoby asistovania pri tréningu zhybov"
+        }
+      },
+      "negativesPullUp": {
+        "title": "Negatívne zhyby",
+        "description": "Zamerajte sa na fázu spúšťania na budovanie sily pre úplné zhyby.",
+        "video": {
+          "title": "Tréning negatívnych zhybov",
+          "description": "Ako používať negatíva na budovanie sily zhybov"
+        }
+      },
+      "chinUps": {
+        "title": "Chin-upy",
+        "description": "Variácia s podchvátom, ktorá zdôrazňuje zapojenie bicepsov.",
+        "video": {
+          "title": "Chin-up vs zhyb",
+          "description": "Správna technika chin-up a rozdiely od zhybov"
+        }
+      }
+    }
+  }
+}

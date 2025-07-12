@@ -14,7 +14,7 @@ const ExerciseVideo = ({ videoId, title, description, exerciseTitle }: ExerciseV
   
   // Helper function to get translated text
   const getTranslatedText = (text: string) => {
-    if (text.startsWith('exercises.') || text.startsWith('stretchingPrograms.')) {
+    if (text.startsWith('exercises.') || text.startsWith('stretchingPrograms.') || text.startsWith('strengthPrograms.') || text.startsWith('yogaPrograms.')) {
       return t(text);
     }
     return text;

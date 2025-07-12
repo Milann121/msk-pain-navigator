@@ -22,6 +22,8 @@ import enStrength from './locales/en/strength.json';
 import enYoga from './locales/en/yoga.json';
 import enSections from './locales/en/sections.json';
 import enStretchingPrograms from './locales/en/stretchingPrograms.json';
+import enStrengthPrograms from './locales/en/strengthPrograms.json';
+import enYogaPrograms from './locales/en/yogaPrograms.json';
 import enBodyParts from './locales/en/bodyParts.json';
 import enDifferentials from './locales/en/differentials.json';
 
@@ -44,6 +46,8 @@ import skStrength from './locales/sk/strength.json';
 import skYoga from './locales/sk/yoga.json';
 import skSections from './locales/sk/sections.json';
 import skStretchingPrograms from './locales/sk/stretchingPrograms.json';
+import skStrengthPrograms from './locales/sk/strengthPrograms.json';
+import skYogaPrograms from './locales/sk/yogaPrograms.json';
 import skBodyParts from './locales/sk/bodyParts.json';
 import skDifferentials from './locales/sk/differentials.json';
 
@@ -66,6 +70,8 @@ import csStrength from './locales/cs/strength.json';
 import csYoga from './locales/cs/yoga.json';
 import csSections from './locales/cs/sections.json';
 import csStretchingPrograms from './locales/cs/stretchingPrograms.json';
+import csStrengthPrograms from './locales/cs/strengthPrograms.json';
+import csYogaPrograms from './locales/cs/yogaPrograms.json';
 import csBodyParts from './locales/cs/bodyParts.json';
 import csDifferentials from './locales/cs/differentials.json';
 
@@ -90,6 +96,8 @@ const enTranslations = {
   yoga: enYoga,
   sections: enSections,
   stretchingPrograms: enStretchingPrograms,
+  strengthPrograms: enStrengthPrograms,
+  yogaPrograms: enYogaPrograms,
   bodyParts: enBodyParts,
   differentials: enDifferentials
 };

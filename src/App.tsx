@@ -20,7 +20,9 @@ import OrebroResult from "./pages/OrebroResult";
 import Stretching from "./pages/Stretching";
 import StretchingProgram from "./pages/StretchingProgram";
 import Strength from "./pages/Strength";
+import StrengthProgram from "./pages/StrengthProgram";
 import Yoga from "./pages/Yoga";
+import YogaProgram from "./pages/YogaProgram";
 import CookieConsent from "./components/CookieConsent";
 
 // Create QueryClient instance outside of component to prevent recreation
@@ -51,7 +53,9 @@ const App: React.FC = () => (
           <Route path="/stretching" element={<Stretching />} />
           <Route path="/stretching/:programId" element={<StretchingProgram />} />
           <Route path="/strength" element={<Strength />} />
+          <Route path="/strength/:programId" element={<StrengthProgram />} />
           <Route path="/yoga" element={<Yoga />} />
+          <Route path="/yoga/:programId" element={<YogaProgram />} />
           <Route path="/orebro-questionnaire" element={<OrebroQuestionnaire />} />
           <Route path="/orebro-result" element={<OrebroResult />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />

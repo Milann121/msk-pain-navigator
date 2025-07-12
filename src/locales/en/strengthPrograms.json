@@ -1,0 +1,153 @@
+{
+  "common": {
+    "whatYouWillDo": "What you will do:",
+    "start": "Start Program",
+    "focusAreas": "Focus Areas:",
+    "avoidIf": "Avoid if you have:"
+  },
+  "pushUps": {
+    "title": "Push-Up Mastery",
+    "description": "Build upper body strength with progressive push-up variations that target your chest, shoulders, and triceps.",
+    "listDescription": {
+      "1": "Basic push-up technique and form",
+      "2": "Incline variations for beginners",
+      "3": "Diamond push-ups for tricep strength",
+      "4": "Progressive difficulty levels"
+    },
+    "exercises": {
+      "basicPushUp": {
+        "title": "Basic Push-Up",
+        "description": "Master the fundamental push-up movement with proper form and technique.",
+        "video": {
+          "title": "Perfect Push-Up Form",
+          "description": "Learn the correct technique for standard push-ups"
+        }
+      },
+      "inclinePushUp": {
+        "title": "Incline Push-Up",
+        "description": "Beginner-friendly variation using an elevated surface to reduce difficulty.",
+        "video": {
+          "title": "Incline Push-Up Tutorial",
+          "description": "How to perform push-ups on an incline for beginners"
+        }
+      },
+      "diamondPushUp": {
+        "title": "Diamond Push-Up",
+        "description": "Advanced variation targeting triceps with hand placement forming a diamond shape.",
+        "video": {
+          "title": "Diamond Push-Up Technique",
+          "description": "Advanced push-up variation for tricep strength"
+        }
+      }
+    }
+  },
+  "squats": {
+    "title": "Squat Power",
+    "description": "Strengthen your legs and glutes with comprehensive squat training for lower body power.",
+    "listDescription": {
+      "1": "Bodyweight squat fundamentals",
+      "2": "Goblet squat with weight",
+      "3": "Jump squats for explosive power",
+      "4": "Proper depth and form techniques"
+    },
+    "exercises": {
+      "bodyweightSquat": {
+        "title": "Bodyweight Squat",
+        "description": "Foundation squat movement focusing on proper form and depth.",
+        "video": {
+          "title": "Perfect Squat Form",
+          "description": "Master the basic squat movement pattern"
+        }
+      },
+      "gobletSquat": {
+        "title": "Goblet Squat",
+        "description": "Add resistance with a weight held at chest level for increased difficulty.",
+        "video": {
+          "title": "Goblet Squat Tutorial",
+          "description": "How to perform goblet squats with proper form"
+        }
+      },
+      "jumpSquat": {
+        "title": "Jump Squat",
+        "description": "Explosive plyometric variation to develop power and athleticism.",
+        "video": {
+          "title": "Jump Squat Technique",
+          "description": "Explosive squat jumps for power development"
+        }
+      }
+    }
+  },
+  "bodyweightCircuit": {
+    "title": "Bodyweight Circuit",
+    "description": "High-intensity circuit training using only your body weight for a complete workout.",
+    "listDescription": {
+      "1": "Full-body burpee movements",
+      "2": "Mountain climber cardio",
+      "3": "Plank jack core training",
+      "4": "Circuit timing and rest periods",
+      "5": "Progressive intensity levels"
+    },
+    "exercises": {
+      "burpees": {
+        "title": "Burpees",
+        "description": "Full-body explosive movement combining squat, plank, and jump.",
+        "video": {
+          "title": "Burpee Tutorial",
+          "description": "Complete burpee movement breakdown"
+        }
+      },
+      "mountainClimbers": {
+        "title": "Mountain Climbers",
+        "description": "High-intensity cardio exercise in plank position with alternating leg drives.",
+        "video": {
+          "title": "Mountain Climber Form",
+          "description": "Proper technique for mountain climbers"
+        }
+      },
+      "plankJacks": {
+        "title": "Plank Jacks",
+        "description": "Core-focused exercise combining plank hold with jumping jack leg movement.",
+        "video": {
+          "title": "Plank Jack Tutorial",
+          "description": "How to perform plank jacks with good form"
+        }
+      }
+    }
+  },
+  "pullUps": {
+    "title": "Pull-Up Progression",
+    "description": "Develop upper body pulling strength with progressive pull-up training and variations.",
+    "listDescription": {
+      "1": "Assisted pull-up progression",
+      "2": "Negative (eccentric) training",
+      "3": "Chin-up variation technique",
+      "4": "Grip strength development"
+    },
+    "exercises": {
+      "assistedPullUp": {
+        "title": "Assisted Pull-Up",
+        "description": "Use assistance to learn proper pull-up form and build strength progressively.",
+        "video": {
+          "title": "Assisted Pull-Up Methods",
+          "description": "Different ways to assist your pull-up training"
+        }
+      },
+      "negativesPullUp": {
+        "title": "Negative Pull-Ups",
+        "description": "Focus on the lowering phase to build strength for full pull-ups.",
+        "video": {
+          "title": "Negative Pull-Up Training",
+          "description": "How to use negatives to build pull-up strength"
+        }
+      },
+      "chinUps": {
+        "title": "Chin-Ups",
+        "description": "Underhand grip variation that emphasizes bicep involvement.",
+        "video": {
+          "title": "Chin-Up vs Pull-Up",
+          "description": "Proper chin-up technique and differences from pull-ups"
+        }
+      }
+    }
+  }
+}

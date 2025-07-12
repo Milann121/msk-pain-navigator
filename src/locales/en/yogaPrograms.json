@@ -1,0 +1,153 @@
+{
+  "common": {
+    "whatYouWillDo": "What you will do:",
+    "start": "Start Program",
+    "focusAreas": "Focus Areas:",
+    "avoidIf": "Avoid if you have:"
+  },
+  "morningFlow": {
+    "title": "Morning Awakening Flow",
+    "description": "Gentle yoga sequence to start your day with energy and mindful movement.",
+    "listDescription": {
+      "1": "Sun salutation warm-up sequence",
+      "2": "Cat-cow spinal mobility",
+      "3": "Downward dog stretching",
+      "4": "Mindful breathing practice"
+    },
+    "exercises": {
+      "sunSalutation": {
+        "title": "Sun Salutation",
+        "description": "Classic flowing sequence that warms up the entire body and connects breath with movement.",
+        "video": {
+          "title": "Sun Salutation A",
+          "description": "Traditional morning yoga flow sequence"
+        }
+      },
+      "catCow": {
+        "title": "Cat-Cow Pose",
+        "description": "Gentle spinal mobility exercise that awakens the back and improves flexibility.",
+        "video": {
+          "title": "Cat-Cow Spinal Flow",
+          "description": "Spinal mobility and warm-up movement"
+        }
+      },
+      "downwardDog": {
+        "title": "Downward Facing Dog",
+        "description": "Foundation yoga pose that strengthens arms and stretches the posterior chain.",
+        "video": {
+          "title": "Downward Dog Alignment",
+          "description": "Proper form and alignment for downward dog"
+        }
+      }
+    }
+  },
+  "powerFlow": {
+    "title": "Dynamic Power Flow",
+    "description": "Strong flowing sequence to build strength, endurance, and heat in the body.",
+    "listDescription": {
+      "1": "Warrior pose sequences for strength",
+      "2": "Chaturanga push-up flow",
+      "3": "Advanced arm balance poses",
+      "4": "Breath-synchronized movement",
+      "5": "Core strengthening elements"
+    },
+    "exercises": {
+      "warriorSequence": {
+        "title": "Warrior Sequence",
+        "description": "Dynamic standing poses that build leg strength and improve balance.",
+        "video": {
+          "title": "Warrior Pose Flow",
+          "description": "Complete warrior sequence for strength"
+        }
+      },
+      "chatupranga": {
+        "title": "Chaturanga Flow",
+        "description": "Yoga push-up sequence that builds upper body and core strength.",
+        "video": {
+          "title": "Chaturanga Technique",
+          "description": "Proper form for yoga push-up flow"
+        }
+      },
+      "armBalance": {
+        "title": "Arm Balance Introduction",
+        "description": "Beginning arm balance poses to develop strength and coordination.",
+        "video": {
+          "title": "Beginner Arm Balances",
+          "description": "Introduction to yoga arm balances"
+        }
+      }
+    }
+  },
+  "legFocus": {
+    "title": "Lower Body Focus",
+    "description": "Targeted poses to strengthen and stretch legs, hips, and glutes for better mobility.",
+    "listDescription": {
+      "1": "Hip opening pigeon pose",
+      "2": "Deep lizard lunge stretch",
+      "3": "Seated forward fold flexibility",
+      "4": "Targeted leg strengthening"
+    },
+    "exercises": {
+      "pigeonPose": {
+        "title": "Pigeon Pose",
+        "description": "Deep hip opener that releases tension in hips and glutes.",
+        "video": {
+          "title": "Pigeon Pose Tutorial",
+          "description": "How to safely practice pigeon pose"
+        }
+      },
+      "lizardPose": {
+        "title": "Lizard Pose",
+        "description": "Low lunge variation that deeply stretches hip flexors and quadriceps.",
+        "video": {
+          "title": "Lizard Pose Guide",
+          "description": "Deep hip flexor stretch in lizard pose"
+        }
+      },
+      "seatedForwardFold": {
+        "title": "Seated Forward Fold",
+        "description": "Calming pose that stretches hamstrings and promotes introspection.",
+        "video": {
+          "title": "Forward Fold Technique",
+          "description": "Proper alignment for seated forward fold"
+        }
+      }
+    }
+  },
+  "armBalance": {
+    "title": "Arm Balance Mastery",
+    "description": "Advanced poses focusing on upper body strength, balance, and concentration.",
+    "listDescription": {
+      "1": "Crow pose foundation",
+      "2": "Side crow advanced variation",
+      "3": "Firefly pose challenge",
+      "4": "Balance and core integration"
+    },
+    "exercises": {
+      "crowPose": {
+        "title": "Crow Pose",
+        "description": "Classic arm balance that builds wrist, arm, and core strength.",
+        "video": {
+          "title": "Crow Pose Tutorial",
+          "description": "Step-by-step guide to crow pose"
+        }
+      },
+      "sideCrow": {
+        "title": "Side Crow",
+        "description": "Advanced arm balance variation that challenges oblique strength and balance.",
+        "video": {
+          "title": "Side Crow Technique",
+          "description": "Advanced side crow arm balance"
+        }
+      },
+      "firefly": {
+        "title": "Firefly Pose",
+        "description": "Challenging arm balance that requires significant strength and flexibility.",
+        "video": {
+          "title": "Firefly Pose Guide",
+          "description": "Advanced firefly arm balance pose"
+        }
+      }
+    }
+  }
+}
