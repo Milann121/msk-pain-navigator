@@ -40,7 +40,10 @@
     "recordProgress": "Record Progress",
     "viewExercises": "View Exercises",
     "ended": "Ended",
-    "renewProgram": "Renew Program"
+    "renewProgram": "Renew Program",
+    "ending": "Ending...",
+    "renewing": "Renewing...",
+    "deleteAssessment": "Delete Assessment"
   },
   "exerciseDialog": {
     "description": "Description"

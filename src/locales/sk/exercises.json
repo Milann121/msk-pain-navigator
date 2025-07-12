@@ -40,7 +40,10 @@
     "recordProgress": "Zaznamenať pokrok",
     "viewExercises": "Zobraziť cvičenia",
     "ended": "Ukončené",
-    "renewProgram": "Obnoviť program"
+    "renewProgram": "Obnoviť program",
+    "ending": "Ukončuje sa...",
+    "renewing": "Obnovuje sa...",
+    "deleteAssessment": "Vymazať hodnotenie"
   },
   "exerciseDialog": {
     "description": "Popis"
