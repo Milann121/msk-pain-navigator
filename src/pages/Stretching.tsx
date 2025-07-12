@@ -106,7 +106,7 @@ const Stretching = () => {
               </div>
               
               {/* Right side - Content */}
-              <div className="w-full md:w-1/2 p-4 flex flex-col justify-center">
+              <div className="w-full md:w-1/2 p-4 flex flex-col justify-center my-[3px]">
                 <h3 className="text-foreground mb-3 leading-tight text-xl font-semibold">
                   {t('stretching.suggestions.title')}
                 </h3>
