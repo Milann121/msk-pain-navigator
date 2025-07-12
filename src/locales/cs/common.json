@@ -8,6 +8,13 @@
     "upper limb": "Horní končetina",
     "shoulder": "Rameno"
   },
+  "bodyPart": {
+    "neck": "Krční páteř",
+    "middle back": "Hrudní páteř",
+    "lower back": "Bederní páteř",
+    "upper limb": "Horní končetina",
+    "shoulder": "Rameno"
+  },
   "painMechanisms": {
     "nociceptive": "Nociceptivní bolest",
     "neuropathic": "Neuropatická bolest",

@@ -8,6 +8,13 @@
     "upper limb": "Horná končatina",
     "shoulder": "Rameno"
   },
+  "bodyPart": {
+    "neck": "Krčná chrbtica",
+    "middle back": "Stredný chrbát",
+    "lower back": "Spodný chrbát",
+    "upper limb": "Horná končatina",
+    "shoulder": "Rameno"
+  },
   "painMechanisms": {
     "nociceptive": "Nociceptívna bolesť",
     "neuropathic": "Neuropatická bolesť",

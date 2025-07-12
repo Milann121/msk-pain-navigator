@@ -8,6 +8,13 @@
     "upper limb": "Upper Limb",
     "shoulder": "Shoulder"
   },
+  "bodyPart": {
+    "neck": "Neck",
+    "middle back": "Middle Back",
+    "lower back": "Lower Back",
+    "upper limb": "Upper Limb",
+    "shoulder": "Shoulder"
+  },
   "painMechanisms": {
     "nociceptive": "Nociceptive Pain",
     "neuropathic": "Neuropathic Pain",
