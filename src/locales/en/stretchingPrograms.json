@@ -1,0 +1,154 @@
+{
+  "common": {
+    "whatYouWillDo": "What you will do:",
+    "start": "Start Program",
+    "focusAreas": "Focus Areas:",
+    "avoidIf": "Avoid if you have:"
+  },
+  "neckShoulder": {
+    "title": "Neck & Shoulder Relief",
+    "description": "Gentle stretches designed to release tension in your neck and shoulders, perfect for office workers and those who spend long hours at a desk.",
+    "listDescription": {
+      "1": "Gentle neck rotations to improve mobility",
+      "2": "Shoulder releases using self-massage techniques",
+      "3": "Upper cervical relaxation for headache relief",
+      "4": "Posture improvement exercises"
+    },
+    "exercises": {
+      "neckRotation": {
+        "title": "Cervical Rotation with Towel",
+        "description": "Gentle neck rotation exercise using a towel for support and controlled movement.",
+        "video": {
+          "title": "Mulligan Towel Neck Rotation",
+          "description": "Learn proper technique for safe neck rotation with towel assistance"
+        }
+      },
+      "shoulderRelease": {
+        "title": "Wall Ball Massage",
+        "description": "Self-massage technique using a ball against the wall to release neck and shoulder tension.",
+        "video": {
+          "title": "Neck & Shoulder Ball Massage",
+          "description": "Effective self-massage for upper back and neck tension relief"
+        }
+      },
+      "upperCervicalRelease": {
+        "title": "Upper Cervical Massage",
+        "description": "Targeted massage for the suboccipital muscles to relieve tension and headaches.",
+        "video": {
+          "title": "Self-Massage Suboccipitals",
+          "description": "Precise technique for releasing upper neck tension"
+        }
+      }
+    }
+  },
+  "morningFlow": {
+    "title": "Morning Energizer",
+    "description": "Start your day with energizing stretches to wake up your body and prepare for the day ahead.",
+    "listDescription": {
+      "1": "Spinal mobility exercises to wake up your back",
+      "2": "Hip opening stretches for better movement",
+      "3": "Thoracic extension to improve posture",
+      "4": "Gentle activation of core muscles",
+      "5": "Breathing exercises for energy"
+    },
+    "exercises": {
+      "spinalWave": {
+        "title": "Spinal Wave Motion",
+        "description": "Gentle pelvic tilting to mobilize the spine and wake up spinal movement.",
+        "video": {
+          "title": "Pelvic Tilting Exercise",
+          "description": "Learn to create smooth spinal movement through pelvic control"
+        }
+      },
+      "hipOpener": {
+        "title": "Hip Opening Stretch",
+        "description": "Glute and hip flexor stretches to improve hip mobility and reduce stiffness.",
+        "video": {
+          "title": "Comprehensive Glute Stretches",
+          "description": "Multiple hip and glute stretches for morning mobility"
+        }
+      },
+      "thoracicExtension": {
+        "title": "Thoracic Extension",
+        "description": "Wall-based extension exercise to open up the chest and improve upper back mobility.",
+        "video": {
+          "title": "Wall Thoracic Extension",
+          "description": "Safe and effective way to extend the middle back"
+        }
+      }
+    }
+  },
+  "eveningRelaxation": {
+    "title": "Evening Wind Down",
+    "description": "Calming stretches to help you relax and prepare your body and mind for restful sleep.",
+    "listDescription": {
+      "1": "Gentle spinal rotation for relaxation",
+      "2": "Deep breathing exercises for calm",
+      "3": "Tension-releasing massage techniques",
+      "4": "Mindful movement for stress relief"
+    },
+    "exercises": {
+      "gentleRotation": {
+        "title": "Gentle Spinal Rotation",
+        "description": "Book opening exercise for gentle thoracic rotation and relaxation.",
+        "video": {
+          "title": "Thoracic Book Opening",
+          "description": "Relaxing rotation movement for the middle back"
+        }
+      },
+      "deepBreathing": {
+        "title": "Prayer Stretch with Breathing",
+        "description": "Calming stretch combined with deep breathing for relaxation.",
+        "video": {
+          "title": "Prayer Stretch",
+          "description": "Meditative stretch for neck and middle back"
+        }
+      },
+      "gentleMassage": {
+        "title": "Gentle Self-Massage",
+        "description": "Soothing massage techniques for the thoracic spine using a ball.",
+        "video": {
+          "title": "Thoracic Spine Ball Massage",
+          "description": "Gentle massage for evening relaxation"
+        }
+      }
+    }
+  },
+  "postWorkout": {
+    "title": "Post-Workout Recovery",
+    "description": "Essential stretches to help your muscles recover after training and prevent stiffness.",
+    "listDescription": {
+      "1": "Glute and hip stretches for leg recovery",
+      "2": "Spinal mobility for back decompression",
+      "3": "Recovery breathing for nervous system reset",
+      "4": "Tension release for major muscle groups",
+      "5": "Cool-down movements for circulation"
+    },
+    "exercises": {
+      "gluteStretch": {
+        "title": "Comprehensive Glute Stretch",
+        "description": "Multiple glute stretching positions to release tension after leg workouts.",
+        "video": {
+          "title": "Post-Workout Glute Stretches",
+          "description": "Effective stretches for glute recovery and flexibility"
+        }
+      },
+      "spinalMobility": {
+        "title": "Spinal Flexion Stretch",
+        "description": "Gentle spinal flexion to decompress the spine after exercise.",
+        "video": {
+          "title": "Seated Spinal Stretching",
+          "description": "Safe spinal flexion for post-workout recovery"
+        }
+      },
+      "recoveryBreathing": {
+        "title": "Recovery Breathing Exercise",
+        "description": "Deep breathing combined with gentle movement for nervous system recovery.",
+        "video": {
+          "title": "SIJ Mobilization with Breathing",
+          "description": "Gentle movement with breath for recovery"
+        }
+      }
+    }
+  }
+}

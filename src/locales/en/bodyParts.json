@@ -1,0 +1,17 @@
+{
+  "neck": "Neck",
+  "shoulders": "Shoulders", 
+  "upper-back": "Upper Back",
+  "middle-back": "Middle Back",
+  "lower-back": "Lower Back",
+  "spine": "Spine",
+  "hips": "Hips",
+  "glutes": "Glutes",
+  "legs": "Legs",
+  "full-body": "Full Body",
+  "mind": "Mind",
+  "chest": "Chest",
+  "head": "Head",
+  "core": "Core",
+  "recovery": "Recovery"
+}

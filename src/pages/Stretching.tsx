@@ -52,7 +52,7 @@ const Stretching = () => {
 
   // Sample data - replace with real data from backend
   const stretchingCards: StretchingCard[] = [{
-    id: "1",
+    id: "neck-shoulder",
     image: "/lovable-uploads/stretchingCard_images/11.png",
     title: t('stretching.cards.neck_stretch.title'),
     description: t('stretching.cards.neck_stretch.description'),
@@ -60,7 +60,7 @@ const Stretching = () => {
     time: "5 min",
     stretch_group: ["at_desk", "at_work", "mid_day"]
   }, {
-    id: "2",
+    id: "morning-flow",
     image: "/lovable-uploads/stretchingCard_images/1.png",
     title: t('stretching.cards.morning_flow.title'),
     description: t('stretching.cards.morning_flow.description'),
@@ -68,7 +68,7 @@ const Stretching = () => {
     time: "8 min",
     stretch_group: ["morning", "warm_up"]
   }, {
-    id: "3",
+    id: "evening-relaxation",
     image: "/lovable-uploads/stretchingCard_images/7.png",
     title: t('stretching.cards.evening_relaxation.title'),
     description: t('stretching.cards.evening_relaxation.description'),
@@ -76,7 +76,7 @@ const Stretching = () => {
     time: "12 min",
     stretch_group: ["before_sleep", "better_regeneration"]
   }, {
-    id: "4",
+    id: "post-workout",
     image: "/lovable-uploads/stretchingCard_images/8.png",
     title: t('stretching.cards.post_workout.title'),
     description: t('stretching.cards.post_workout.description'),
@@ -148,30 +148,34 @@ const Stretching = () => {
 
           {/* Cards Grid */}
           <div className="grid grid-cols-2 gap-4 my-[4px] py-[15px]">
-            {filteredCards.map(card => <Card key={card.id} className="cursor-pointer hover:shadow-lg transition-shadow overflow-hidden group border-none shadow-sm">
-                <CardContent className="p-0 relative">
-                  <div className="aspect-square overflow-hidden rounded-t-lg">
-                    <img src={card.image} alt={card.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-semibold text-sm mb-2 line-clamp-2">
-                      {card.title}
-                    </h3>
-                    <p className="text-xs text-muted-foreground mb-3 line-clamp-2">
-                      {card.description}
-                    </p>
-                    <div className="flex justify-between items-end">
-                      <span className="text-xs text-muted-foreground underline">
-                        {getFilterLabels(card.stretch_group)}
-                      </span>
-                      <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                        <Clock className="w-3 h-3" />
-                        {card.time}
+            {filteredCards.map(card => (
+              <Link key={card.id} to={`/stretching/${card.id}`}>
+                <Card className="cursor-pointer hover:shadow-lg transition-shadow overflow-hidden group border-none shadow-sm">
+                  <CardContent className="p-0 relative">
+                    <div className="aspect-square overflow-hidden rounded-t-lg">
+                      <img src={card.image} alt={card.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-sm mb-2 line-clamp-2">
+                        {card.title}
+                      </h3>
+                      <p className="text-xs text-muted-foreground mb-3 line-clamp-2">
+                        {card.description}
+                      </p>
+                      <div className="flex justify-between items-end">
+                        <span className="text-xs text-muted-foreground underline">
+                          {getFilterLabels(card.stretch_group)}
+                        </span>
+                        <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                          <Clock className="w-3 h-3" />
+                          {card.time}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>)}
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
           </div>
 
           {filteredCards.length === 0 && <div className="text-center py-12">

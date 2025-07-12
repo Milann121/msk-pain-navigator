@@ -18,6 +18,7 @@ import Domov from "./pages/Domov";
 import OrebroQuestionnaire from "./pages/OrebroQuestionnaire";
 import OrebroResult from "./pages/OrebroResult";
 import Stretching from "./pages/Stretching";
+import StretchingProgram from "./pages/StretchingProgram";
 import Strength from "./pages/Strength";
 import Yoga from "./pages/Yoga";
 import CookieConsent from "./components/CookieConsent";
@@ -48,6 +49,7 @@ const App: React.FC = () => (
           <Route path="/profile" element={<Profile />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/stretching" element={<Stretching />} />
+          <Route path="/stretching/:programId" element={<StretchingProgram />} />
           <Route path="/strength" element={<Strength />} />
           <Route path="/yoga" element={<Yoga />} />
           <Route path="/orebro-questionnaire" element={<OrebroQuestionnaire />} />
