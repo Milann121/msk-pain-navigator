@@ -84,6 +84,14 @@ const Stretching = () => {
     stretch_group: ["after_training", "better_regeneration"]
   }];
   const filteredCards = activeFilter === "all" ? stretchingCards : stretchingCards.filter(card => card.stretch_group.includes(activeFilter));
+  
+  // Helper function to get filter labels for description2
+  const getFilterLabels = (groups: string[]) => {
+    return groups.map(group => {
+      const filter = filterButtons.find(f => f.key === group);
+      return filter ? filter.label : group;
+    }).join(", ");
+  };
   return <div className="min-h-screen flex flex-col">
       <Header />
       <div className="flex-1 bg-gradient-to-b from-background to-muted/20 py-10 px-4">
@@ -146,8 +154,8 @@ const Stretching = () => {
                       {card.description}
                     </p>
                     <div className="flex justify-between items-end">
-                      <span className="text-xs text-muted-foreground">
-                        {card.description2}
+                      <span className="text-xs text-muted-foreground underline">
+                        {getFilterLabels(card.stretch_group)}
                       </span>
                       <div className="flex items-center gap-1 text-xs text-muted-foreground">
                         <Clock className="w-3 h-3" />

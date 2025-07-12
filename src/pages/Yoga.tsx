@@ -89,6 +89,21 @@ const Yoga = () => {
     return matchesFilter && matchesLevel;
   });
 
+  // Helper function to get filter labels for description2
+  const getFilterLabels = (groups: string[], levels: string[]) => {
+    const groupLabels = groups.map(group => {
+      const filter = filterButtons.find(f => f.key === group);
+      return filter ? filter.label : group;
+    }).join(", ");
+    
+    const levelLabels = levels.map(level => {
+      const levelFilter = levelButtons.find(l => l.key === level);
+      return levelFilter ? levelFilter.label : level;
+    }).join(", ");
+    
+    return `${groupLabels} | ${levelLabels}`;
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -193,8 +208,8 @@ const Yoga = () => {
                       {card.description}
                     </p>
                     <div className="flex justify-between items-end">
-                      <span className="text-xs text-muted-foreground">
-                        {card.description2}
+                      <span className="text-xs text-muted-foreground underline">
+                        {getFilterLabels(card.yoga_group, card.yoga_level)}
                       </span>
                       <div className="flex items-center gap-1 text-xs text-muted-foreground">
                         <Clock className="w-3 h-3" />

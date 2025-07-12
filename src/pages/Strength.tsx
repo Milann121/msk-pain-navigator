@@ -106,6 +106,14 @@ const Strength = () => {
     card.strength_group.includes(activeFilter)
   );
 
+  // Helper function to get filter labels for description2
+  const getFilterLabels = (groups: string[]) => {
+    return groups.map(group => {
+      const filter = filterButtons.find(f => f.key === group);
+      return filter ? filter.label : group;
+    }).join(", ");
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -224,8 +232,8 @@ const Strength = () => {
                           
                           {/* Bottom section with description2 and time */}
                           <div className="flex justify-between items-end">
-                            <span className="text-xs text-muted-foreground">
-                              {card.description2}
+                            <span className="text-xs text-muted-foreground underline">
+                              {getFilterLabels(card.strength_group)}
                             </span>
                             <div className="flex items-center gap-1 text-xs text-muted-foreground">
                               <Clock className="w-3 h-3" />
