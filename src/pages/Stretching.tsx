@@ -93,8 +93,8 @@ const Stretching = () => {
           </h1>
           
           {/* Filter Buttons */}
-          <div className="flex flex-wrap gap-2 mb-8">
-            {filterButtons.map(filter => <Button key={filter.key} variant={activeFilter === filter.key ? "default" : "outline"} size="sm" onClick={() => setActiveFilter(filter.key)} className="rounded-full">
+          <div className="flex gap-2 mb-8 overflow-x-auto scrollbar-hide pb-2 md:flex-wrap md:overflow-visible">
+            {filterButtons.map(filter => <Button key={filter.key} variant={activeFilter === filter.key ? "default" : "outline"} size="sm" onClick={() => setActiveFilter(filter.key)} className="rounded-full flex-shrink-0">
                 {filter.label}
               </Button>)}
           </div>
