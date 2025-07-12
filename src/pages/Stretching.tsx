@@ -132,7 +132,7 @@ const Stretching = () => {
           </div>
 
           {/* Cards Grid */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4 my-[4px] py-[15px]">
             {filteredCards.map(card => <Card key={card.id} className="cursor-pointer hover:shadow-lg transition-shadow overflow-hidden group border-none shadow-sm">
                 <CardContent className="p-0 relative">
                   <div className="aspect-square overflow-hidden rounded-t-lg">
