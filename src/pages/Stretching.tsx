@@ -35,7 +35,7 @@ const Stretching = () => {
   const stretchingCards: StretchingCard[] = [
     {
       id: "1",
-      image: "/lovable-uploads/2820c9a9-bfa1-4df7-8916-1bcdc305f35e.png",
+      image: "/lovable-uploads/stretchingCards_images/1.png",
       title: t('stretching.cards.neck_stretch.title'),
       description: t('stretching.cards.neck_stretch.description'),
       description2: t('stretching.cards.neck_stretch.description2'),
@@ -44,7 +44,7 @@ const Stretching = () => {
     },
     {
       id: "2", 
-      image: "/lovable-uploads/2820c9a9-bfa1-4df7-8916-1bcdc305f35e.png",
+      image: "/lovable-uploads/stretchingCards_images/7.png",
       title: t('stretching.cards.morning_flow.title'),
       description: t('stretching.cards.morning_flow.description'),
       description2: t('stretching.cards.morning_flow.description2'),
@@ -53,7 +53,7 @@ const Stretching = () => {
     },
     {
       id: "3",
-      image: "/lovable-uploads/2820c9a9-bfa1-4df7-8916-1bcdc305f35e.png", 
+      image: "/lovable-uploads/stretchingCards_images/8.png", 
       title: t('stretching.cards.evening_relaxation.title'),
       description: t('stretching.cards.evening_relaxation.description'),
       description2: t('stretching.cards.evening_relaxation.description2'),
@@ -62,7 +62,7 @@ const Stretching = () => {
     },
     {
       id: "4",
-      image: "/lovable-uploads/2820c9a9-bfa1-4df7-8916-1bcdc305f35e.png",
+      image: "/lovable-uploads/stretchingCards_images/11.png",
       title: t('stretching.cards.post_workout.title'),
       description: t('stretching.cards.post_workout.description'), 
       description2: t('stretching.cards.post_workout.description2'),
