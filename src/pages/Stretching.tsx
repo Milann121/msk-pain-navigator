@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Clock } from "lucide-react";
 // Using direct path to avoid caching issues
-const stretchingRecommendationImage = "/lovable-uploads/stretchingCard_images/2.png";
+const stretchingRecommendationImage = "/lovable-uploads/stretchingCard_images/3.png";
 interface StretchingCard {
   id: string;
   image: string;
