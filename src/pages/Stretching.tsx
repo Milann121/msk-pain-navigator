@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Clock } from "lucide-react";
-import stretchingRecommendationImage from "@/assets/stretching-recommendation.jpg";
+import stretchingRecommendationImage from "/lovable-uploads/stretchingCard_images/2.png";
 interface StretchingCard {
   id: string;
   image: string;
