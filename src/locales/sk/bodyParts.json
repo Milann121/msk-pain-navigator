@@ -13,5 +13,10 @@
   "chest": "Hrudník",
   "head": "Hlava",
   "core": "Stred tela",
-  "recovery": "Regenerácia"
+  "recovery": "Regenerácia",
+  "arms": "Ruky",
+  "balance": "Rovnováha",
+  "obliques": "Šikmé brušné svaly",
+  "hamstrings": "Hamstringy",
+  "strength": "Sila"
 }

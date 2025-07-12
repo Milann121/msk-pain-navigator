@@ -13,5 +13,10 @@
   "chest": "Chest",
   "head": "Head",
   "core": "Core",
-  "recovery": "Recovery"
+  "recovery": "Recovery",
+  "arms": "Arms",
+  "balance": "Balance",
+  "obliques": "Obliques",
+  "hamstrings": "Hamstrings",
+  "strength": "Strength"
 }
