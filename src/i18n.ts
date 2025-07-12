@@ -21,6 +21,9 @@ import enStretching from './locales/en/stretching.json';
 import enStrength from './locales/en/strength.json';
 import enYoga from './locales/en/yoga.json';
 import enSections from './locales/en/sections.json';
+import enStretchingPrograms from './locales/en/stretchingPrograms.json';
+import enBodyParts from './locales/en/bodyParts.json';
+import enDifferentials from './locales/en/differentials.json';
 
 // Slovak translations
 import skWelcome from './locales/sk/welcome.json';
@@ -40,6 +43,9 @@ import skStretching from './locales/sk/stretching.json';
 import skStrength from './locales/sk/strength.json';
 import skYoga from './locales/sk/yoga.json';
 import skSections from './locales/sk/sections.json';
+import skStretchingPrograms from './locales/sk/stretchingPrograms.json';
+import skBodyParts from './locales/sk/bodyParts.json';
+import skDifferentials from './locales/sk/differentials.json';
 
 // Czech translations
 import csWelcome from './locales/cs/welcome.json';
@@ -59,6 +65,9 @@ import csStretching from './locales/cs/stretching.json';
 import csStrength from './locales/cs/strength.json';
 import csYoga from './locales/cs/yoga.json';
 import csSections from './locales/cs/sections.json';
+import csStretchingPrograms from './locales/cs/stretchingPrograms.json';
+import csBodyParts from './locales/cs/bodyParts.json';
+import csDifferentials from './locales/cs/differentials.json';
 
 // Combine all translations
 const enTranslations = {
@@ -79,7 +88,10 @@ const enTranslations = {
   stretching: enStretching,
   strength: enStrength,
   yoga: enYoga,
-  sections: enSections
+  sections: enSections,
+  stretchingPrograms: enStretchingPrograms,
+  bodyParts: enBodyParts,
+  differentials: enDifferentials
 };
 
 const skTranslations = {
@@ -100,7 +112,10 @@ const skTranslations = {
   stretching: skStretching,
   strength: skStrength,
   yoga: skYoga,
-  sections: skSections
+  sections: skSections,
+  stretchingPrograms: skStretchingPrograms,
+  bodyParts: skBodyParts,
+  differentials: skDifferentials
 };
 
 const csTranslations = {
@@ -121,7 +136,10 @@ const csTranslations = {
   stretching: csStretching,
   strength: csStrength,
   yoga: csYoga,
-  sections: csSections
+  sections: csSections,
+  stretchingPrograms: csStretchingPrograms,
+  bodyParts: csBodyParts,
+  differentials: csDifferentials
 };
 
 void i18n
