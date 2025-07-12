@@ -94,8 +94,35 @@ const Strength = () => {
             ))}
           </div>
           
+          {/* Mobile/Tablet Recommendation Container */}
+          <div className="mb-8 bg-card rounded-lg overflow-hidden shadow-sm border-none lg:hidden">
+            <div className="flex flex-col md:flex-row h-auto md:h-40">
+              {/* Left side - Image */}
+              <div className="w-full md:w-1/2 h-32 md:h-full">
+                <img 
+                  src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop" 
+                  alt={t('strength.recommendation.image_alt')}
+                  className="w-full h-full object-cover" 
+                />
+              </div>
+              
+              {/* Right side - Content */}
+              <div className="w-full md:w-1/2 p-4 md:p-6 flex flex-col justify-center">
+                <h3 className="text-foreground mb-4 leading-tight text-lg md:text-xl font-semibold">
+                  {t('strength.recommendation.title')}
+                </h3>
+                
+                <div className="flex flex-wrap gap-3">
+                  <Button variant="outline" size="sm" className="text-xs rounded-full">
+                    {t('strength.recommendation.sample_program')}
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="flex gap-6 items-start">
-            {/* Recommendation Container - Left Side (Desktop only) */}
+            {/* Desktop Recommendation Container - Left Side */}
             <div className="hidden lg:block w-1/3">
               <div className="bg-card border rounded-lg p-4 h-[768px] flex flex-col">
                 {/* Recommendation Title and Content - Top */}
@@ -123,47 +150,57 @@ const Strength = () => {
               </div>
             </div>
 
-            {/* Main Content Area */}
-            <div className="flex-1 lg:w-2/3">
-              {/* Cards Grid - Single Column, Rotated 90 degrees left */}
-              <div className="grid grid-cols-1 gap-4 my-[4px] py-[15px]">
-            {filteredCards.map((card) => (
-              <Card key={card.id} className="cursor-pointer hover:shadow-lg transition-shadow overflow-hidden group border-none shadow-sm">
-                <CardContent className="p-0 relative flex h-32">
-                  {/* Image - Left side, rotated design */}
-                  <div className="w-32 h-32 overflow-hidden rounded-l-lg flex-shrink-0">
-                    <img 
-                      src={card.image} 
-                      alt={card.title} 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
-                    />
-                  </div>
-                  
-                  {/* Content - Right side */}
-                  <div className="flex-1 p-4 flex flex-col justify-between">
-                    <div>
-                      <h3 className="font-semibold text-base mb-2 line-clamp-1">
-                        {card.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground mb-2 line-clamp-2">
-                        {card.description}
-                      </p>
-                    </div>
-                    
-                    {/* Bottom section with description2 and time */}
-                    <div className="flex justify-between items-end">
-                      <span className="text-xs text-muted-foreground">
-                        {card.description2}
-                      </span>
-                      <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                        <Clock className="w-3 h-3" />
-                        {card.time}
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-              ))}
+            {/* Main Content Area with Scroll Fades */}
+            <div className="flex-1 lg:w-2/3 relative">
+              {/* Top fade overlay - Desktop: aligns with left column, Mobile/Tablet: above 4 cards */}
+              <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-background via-background/80 to-transparent pointer-events-none z-10 hidden lg:block"></div>
+              <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-background via-background/80 to-transparent pointer-events-none z-10 lg:hidden"></div>
+              
+              {/* Bottom fade overlay - Desktop: aligns with left column, Mobile/Tablet: below 4 cards */}
+              <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none z-10 hidden lg:block"></div>
+              <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none z-10 lg:hidden"></div>
+              
+              {/* Scrollable Cards Container */}
+              <div className="max-h-[768px] lg:max-h-[768px] md:max-h-[640px] max-h-[512px] overflow-y-auto scrollbar-hide">
+                <div className="grid grid-cols-1 gap-4 py-4">
+                  {filteredCards.map((card) => (
+                    <Card key={card.id} className="cursor-pointer hover:shadow-lg transition-shadow overflow-hidden group border-none shadow-sm">
+                      <CardContent className="p-0 relative flex h-32">
+                        {/* Image - Left side, rotated design */}
+                        <div className="w-32 h-32 overflow-hidden rounded-l-lg flex-shrink-0">
+                          <img 
+                            src={card.image} 
+                            alt={card.title} 
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
+                          />
+                        </div>
+                        
+                        {/* Content - Right side */}
+                        <div className="flex-1 p-4 flex flex-col justify-between">
+                          <div>
+                            <h3 className="font-semibold text-base mb-2 line-clamp-1">
+                              {card.title}
+                            </h3>
+                            <p className="text-sm text-muted-foreground mb-2 line-clamp-2">
+                              {card.description}
+                            </p>
+                          </div>
+                          
+                          {/* Bottom section with description2 and time */}
+                          <div className="flex justify-between items-end">
+                            <span className="text-xs text-muted-foreground">
+                              {card.description2}
+                            </span>
+                            <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                              <Clock className="w-3 h-3" />
+                              {card.time}
+                            </div>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
               </div>
 
               {filteredCards.length === 0 && (
