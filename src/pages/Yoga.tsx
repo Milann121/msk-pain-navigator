@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Clock } from "lucide-react";
+import { Clock, ArrowLeft } from "lucide-react";
 
 // Using direct path to avoid caching issues
 const yogaRecommendationImage = "/lovable-uploads/stretchingCard_images/2.png";
@@ -109,6 +110,10 @@ const Yoga = () => {
       <Header />
       <div className="flex-1 bg-gradient-to-b from-background to-muted/20 py-10 px-4">
         <div className="container mx-auto w-full max-w-full md:max-w-4xl px-2 md:px-0">
+          <Link to="/my-exercises" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary mb-6 transition-colors">
+            <ArrowLeft className="w-4 h-4" />
+            {t('common.back')}
+          </Link>
           <h1 className="text-3xl font-bold text-primary mb-8">
             {t('yoga.title')}
           </h1>
