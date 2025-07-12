@@ -101,19 +101,19 @@ const Stretching = () => {
 
           {/* Suggested Programs Container */}
           <div className="mb-8 bg-card rounded-lg overflow-hidden shadow-sm border-none">
-            <div className="flex flex-col md:flex-row h-auto md:h-32">
+            <div className="flex flex-col md:flex-row h-auto md:h-40">
               {/* Left side - Image */}
               <div className="w-full md:w-1/2 h-32 md:h-full">
                 <img src={stretchingRecommendationImage} alt="Suggested stretching programs" className="w-full h-full object-cover" />
               </div>
               
               {/* Right side - Content */}
-              <div className="w-full md:w-1/2 p-4 flex flex-col justify-center">
-                <h3 className="text-foreground mb-3 leading-tight text-lg md:text-xl font-semibold">
+              <div className="w-full md:w-1/2 p-4 md:p-6 flex flex-col justify-center">
+                <h3 className="text-foreground mb-4 leading-tight text-lg md:text-xl font-semibold">
                   {t('stretching.suggestions.title')}
                 </h3>
                 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-3">
                   <Button variant="outline" size="sm" className="rounded-full text-xs h-7 flex-shrink-0">
                     {t('stretching.suggestions.programs.quick_relief')}
                   </Button>
