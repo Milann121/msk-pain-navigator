@@ -1,4 +1,36 @@
 {
   "title": "Posilňovanie",
-  "content": "Obsah pre posilňovanie bude dostupný tu."
+  "filters": {
+    "all": "Všetko",
+    "home": "Doma",
+    "gym": "Posilňovňa",
+    "outside": "Vonku"
+  },
+  "cards": {
+    "push_ups": {
+      "title": "Kliky",
+      "description": "Posilnite hornú časť tela klasickými klikmi",
+      "description2": "Začiatočník",
+      "time": "10 min"
+    },
+    "squats": {
+      "title": "Drepy",
+      "description": "Posilnite nohy a sedacie svaly",
+      "description2": "Pokročilý",
+      "time": "15 min"
+    },
+    "deadlifts": {
+      "title": "Mŕtve ťahy",
+      "description": "Posilňovanie celého tela",
+      "description2": "Expert",
+      "time": "20 min"
+    },
+    "outdoor_calisthenics": {
+      "title": "Vonkajšia kalisténika",
+      "description": "Cvičenie s vlastnou váhou na čerstvom vzduchu",
+      "description2": "Všetky úrovne",
+      "time": "25 min"
+    }
+  },
+  "no_results": "Neboli nájdené žiadne posilňovacie cvičenia pre vybraný filter."
 }

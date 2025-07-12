@@ -1,4 +1,36 @@
 {
   "title": "Posilování",
-  "content": "Obsah pro posilování bude dostupný zde."
+  "filters": {
+    "all": "Vše",
+    "home": "Doma",
+    "gym": "Posilovna",
+    "outside": "Venku"
+  },
+  "cards": {
+    "push_ups": {
+      "title": "Kliky",
+      "description": "Posílení horní části těla klasickými kliky",
+      "description2": "Začátečník",
+      "time": "10 min"
+    },
+    "squats": {
+      "title": "Dřepy",
+      "description": "Posílení nohou a hýžďových svalů",
+      "description2": "Pokročilý",
+      "time": "15 min"
+    },
+    "deadlifts": {
+      "title": "Mrtvé tahy",
+      "description": "Posilování celého těla",
+      "description2": "Expert",
+      "time": "20 min"
+    },
+    "outdoor_calisthenics": {
+      "title": "Venkovní kalisténika",
+      "description": "Cvičení s vlastní váhou na čerstvém vzduchu",
+      "description2": "Všechny úrovně",
+      "time": "25 min"
+    }
+  },
+  "no_results": "Nebyla nalezena žádná posilovací cvičení pro vybraný filtr."
 }

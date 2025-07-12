@@ -1,4 +1,36 @@
 {
   "title": "Strength",
-  "content": "Strength content will be available here."
+  "filters": {
+    "all": "All",
+    "home": "Home",
+    "gym": "Gym",
+    "outside": "Outside"
+  },
+  "cards": {
+    "push_ups": {
+      "title": "Push-ups",
+      "description": "Build upper body strength with classic push-ups",
+      "description2": "Beginner",
+      "time": "10 min"
+    },
+    "squats": {
+      "title": "Squats",
+      "description": "Strengthen your legs and glutes",
+      "description2": "Intermediate",
+      "time": "15 min"
+    },
+    "deadlifts": {
+      "title": "Deadlifts", 
+      "description": "Full body strength training",
+      "description2": "Advanced",
+      "time": "20 min"
+    },
+    "outdoor_calisthenics": {
+      "title": "Outdoor Calisthenics",
+      "description": "Bodyweight exercises in fresh air",
+      "description2": "All levels",
+      "time": "25 min"
+    }
+  },
+  "no_results": "No strength exercises found for the selected filter."
 }
