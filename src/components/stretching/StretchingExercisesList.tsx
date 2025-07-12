@@ -22,7 +22,7 @@ export const StretchingExercisesList: React.FC<StretchingExercisesListProps> = (
       className="min-h-screen flex flex-col bg-gradient-to-b from-background to-muted/20 animate-slide-in-right"
     >
       <div className="flex-1 py-6 px-4">
-        <div className="container mx-auto max-w-4xl">
+        <div className="container mx-auto max-w-4xl md:max-w-4xl max-w-none px-2">
           {/* Header */}
           <div className="flex items-center justify-between mb-6">
             <h1 className="text-xl font-semibold text-primary">
