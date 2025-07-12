@@ -104,10 +104,10 @@ const Stretching = () => {
             {filteredCards.map((card) => (
               <Card 
                 key={card.id} 
-                className="cursor-pointer hover:shadow-lg transition-shadow overflow-hidden group"
+                className="cursor-pointer hover:shadow-lg transition-shadow overflow-hidden group border-none shadow-sm"
               >
                 <CardContent className="p-0 relative">
-                  <div className="aspect-square overflow-hidden">
+                  <div className="aspect-square overflow-hidden rounded-t-lg">
                     <img 
                       src={card.image}
                       alt={card.title}
