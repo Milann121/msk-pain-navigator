@@ -94,12 +94,12 @@ const Yoga = () => {
     const groupLabels = groups.map(group => {
       const filter = filterButtons.find(f => f.key === group);
       return filter ? filter.label : group;
-    }).join(", ");
+    }).join(" | ");
     
     const levelLabels = levels.map(level => {
       const levelFilter = levelButtons.find(l => l.key === level);
       return levelFilter ? levelFilter.label : level;
-    }).join(", ");
+    }).join(" | ");
     
     return `${groupLabels} | ${levelLabels}`;
   };

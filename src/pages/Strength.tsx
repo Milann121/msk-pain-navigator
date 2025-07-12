@@ -111,7 +111,7 @@ const Strength = () => {
     return groups.map(group => {
       const filter = filterButtons.find(f => f.key === group);
       return filter ? filter.label : group;
-    }).join(", ");
+    }).join(" | ");
   };
 
   return (

@@ -90,7 +90,7 @@ const Stretching = () => {
     return groups.map(group => {
       const filter = filterButtons.find(f => f.key === group);
       return filter ? filter.label : group;
-    }).join(", ");
+    }).join(" | ");
   };
   return <div className="min-h-screen flex flex-col">
       <Header />
