@@ -215,41 +215,43 @@ const Strength = () => {
               <div className="max-h-[768px] lg:max-h-[768px] md:max-h-[640px] max-h-[512px] overflow-y-auto scrollbar-hide">
                 <div className="grid grid-cols-1 gap-4 py-4">
                   {filteredCards.map((card) => (
-                    <Card key={card.id} className="cursor-pointer hover:shadow-lg transition-shadow overflow-hidden group border-none shadow-sm">
-                      <CardContent className="p-0 relative flex h-32">
-                        {/* Image - Left side, rotated design */}
-                        <div className="w-32 h-32 overflow-hidden rounded-l-lg flex-shrink-0">
-                          <img 
-                            src={card.image} 
-                            alt={card.title} 
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
-                          />
-                        </div>
-                        
-                        {/* Content - Right side */}
-                        <div className="flex-1 p-4 flex flex-col justify-between">
-                          <div>
-                            <h3 className="font-semibold text-base mb-2 line-clamp-1">
-                              {card.title}
-                            </h3>
-                            <p className="text-sm text-muted-foreground mb-2 line-clamp-2">
-                              {card.description}
-                            </p>
+                    <Link key={card.id} to={`/strength/${card.id}`}>
+                      <Card className="cursor-pointer hover:shadow-lg transition-shadow overflow-hidden group border-none shadow-sm">
+                        <CardContent className="p-0 relative flex h-32">
+                          {/* Image - Left side, rotated design */}
+                          <div className="w-32 h-32 overflow-hidden rounded-l-lg flex-shrink-0">
+                            <img 
+                              src={card.image} 
+                              alt={card.title} 
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
+                            />
                           </div>
                           
-                          {/* Bottom section with description2 and time */}
-                          <div className="flex justify-between items-end">
-                            <span className="text-xs text-muted-foreground underline">
-                              {getFilterLabels(card.strength_group)}
-                            </span>
-                            <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                              <Clock className="w-3 h-3" />
-                              {card.time}
+                          {/* Content - Right side */}
+                          <div className="flex-1 p-4 flex flex-col justify-between">
+                            <div>
+                              <h3 className="font-semibold text-base mb-2 line-clamp-1">
+                                {card.title}
+                              </h3>
+                              <p className="text-sm text-muted-foreground mb-2 line-clamp-2">
+                                {card.description}
+                              </p>
+                            </div>
+                            
+                            {/* Bottom section with description2 and time */}
+                            <div className="flex justify-between items-end">
+                              <span className="text-xs text-muted-foreground underline">
+                                {getFilterLabels(card.strength_group)}
+                              </span>
+                              <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                                <Clock className="w-3 h-3" />
+                                {card.time}
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </CardContent>
-                    </Card>
+                        </CardContent>
+                      </Card>
+                    </Link>
                   ))}
                 </div>
               </div>

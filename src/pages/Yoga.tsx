@@ -43,7 +43,7 @@ const Yoga = () => {
   // Sample data - replace with real data from backend
   const yogaCards: YogaCard[] = [
     {
-      id: "1",
+      id: "morning-flow",
       image: "/lovable-uploads/stretchingCard_images/1.png",
       title: t('yoga.cards.morning_flow.title'),
       description: t('yoga.cards.morning_flow.description'),
@@ -53,7 +53,7 @@ const Yoga = () => {
       yoga_level: ["beginner"]
     },
     {
-      id: "2",
+      id: "power-flow",
       image: "/lovable-uploads/stretchingCard_images/5.png",
       title: t('yoga.cards.power_flow.title'),
       description: t('yoga.cards.power_flow.description'),
@@ -63,7 +63,7 @@ const Yoga = () => {
       yoga_level: ["intermediate", "advanced"]
     },
     {
-      id: "3",
+      id: "leg-focus",
       image: "/lovable-uploads/stretchingCard_images/7.png",
       title: t('yoga.cards.leg_focus.title'),
       description: t('yoga.cards.leg_focus.description'),
@@ -73,7 +73,7 @@ const Yoga = () => {
       yoga_level: ["intermediate"]
     },
     {
-      id: "4",
+      id: "arm-balance",
       image: "/lovable-uploads/stretchingCard_images/8.png",
       title: t('yoga.cards.arm_balance.title'),
       description: t('yoga.cards.arm_balance.description'),
@@ -195,37 +195,36 @@ const Yoga = () => {
           {/* Cards Grid */}
           <div className="grid grid-cols-2 gap-4 my-[4px] py-[15px]">
             {filteredCards.map(card => (
-              <Card
-                key={card.id}
-                className="cursor-pointer hover:shadow-lg transition-shadow overflow-hidden group border-none shadow-sm"
-              >
-                <CardContent className="p-0 relative">
-                  <div className="aspect-square overflow-hidden rounded-t-lg">
-                    <img
-                      src={card.image}
-                      alt={card.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-semibold text-sm mb-2 line-clamp-2">
-                      {card.title}
-                    </h3>
-                    <p className="text-xs text-muted-foreground mb-3 line-clamp-2">
-                      {card.description}
-                    </p>
-                    <div className="flex justify-between items-end">
-                      <span className="text-xs text-muted-foreground underline">
-                        {getFilterLabels(card.yoga_group, card.yoga_level)}
-                      </span>
-                      <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                        <Clock className="w-3 h-3" />
-                        {card.time}
+              <Link key={card.id} to={`/yoga/${card.id}`}>
+                <Card className="cursor-pointer hover:shadow-lg transition-shadow overflow-hidden group border-none shadow-sm">
+                  <CardContent className="p-0 relative">
+                    <div className="aspect-square overflow-hidden rounded-t-lg">
+                      <img
+                        src={card.image}
+                        alt={card.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-sm mb-2 line-clamp-2">
+                        {card.title}
+                      </h3>
+                      <p className="text-xs text-muted-foreground mb-3 line-clamp-2">
+                        {card.description}
+                      </p>
+                      <div className="flex justify-between items-end">
+                        <span className="text-xs text-muted-foreground underline">
+                          {getFilterLabels(card.yoga_group, card.yoga_level)}
+                        </span>
+                        <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                          <Clock className="w-3 h-3" />
+                          {card.time}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
 
