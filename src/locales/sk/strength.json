@@ -32,5 +32,10 @@
       "time": "25 min"
     }
   },
+  "recommendation": {
+    "title": "Na základe vašich aktívnych programov vám odporúčame nasledujúce programy",
+    "image_alt": "Odporúčané posilňovacie tréningy",
+    "sample_program": "Posilňovanie hornej časti tela"
+  },
   "no_results": "Neboli nájdené žiadne posilňovacie cvičenia pre vybraný filter."
 }

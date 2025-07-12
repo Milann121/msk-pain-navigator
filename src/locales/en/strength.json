@@ -32,5 +32,10 @@
       "time": "25 min"
     }
   },
+  "recommendation": {
+    "title": "Based on your active programs, we recommend you following programs",
+    "image_alt": "Recommended strength training",
+    "sample_program": "Upper Body Strength"
+  },
   "no_results": "No strength exercises found for the selected filter."
 }
