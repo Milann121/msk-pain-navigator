@@ -24,12 +24,13 @@ export const ProgramProgressBadge: React.FC<ProgramProgressBadgeProps> = ({
         if (!user) return;
 
         // Get exercise count for this program
+        // The secondary_program field contains the program type (stretching/strength/yoga)
+        // The program_type field contains the specific program details
         const { data: exercises, error: exerciseError } = await supabase
           .from('secondary_programs')
           .select('*')
           .eq('user_id', user.id)
-          .eq('secondary_program', programId)
-          .eq('program_type', programType);
+          .eq('secondary_program', programType);
 
         if (exerciseError) {
           console.error('Error fetching exercise data:', exerciseError);
