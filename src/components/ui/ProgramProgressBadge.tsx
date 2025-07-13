@@ -11,6 +11,22 @@ interface ProgressData {
   lastCompletion: number;
 }
 
+// Mapping between card IDs and database program_type values
+const PROGRAM_TYPE_MAPPING = {
+  stretching: {
+    "neck-shoulder": "stretchingPrograms.neckShoulder.title",
+    "morning-flow": "stretchingPrograms.morningFlow.title", 
+    "evening-relaxation": "stretchingPrograms.eveningRelaxation.title",
+    "post-workout": "stretchingPrograms.postWorkout.title"
+  },
+  strength: {
+    // Add strength mappings when data is available
+  },
+  yoga: {
+    // Add yoga mappings when data is available  
+  }
+};
+
 export const ProgramProgressBadge: React.FC<ProgramProgressBadgeProps> = ({
   programId,
   programType,
@@ -23,14 +39,21 @@ export const ProgramProgressBadge: React.FC<ProgramProgressBadgeProps> = ({
         const { data: { user } } = await supabase.auth.getUser();
         if (!user) return;
 
-        // Get exercise count for this program
-        // The secondary_program field contains the program type (stretching/strength/yoga)
-        // The program_type field contains the specific program details
+        // Get the specific program type from mapping
+        const specificProgramType = PROGRAM_TYPE_MAPPING[programType]?.[programId];
+        
+        if (!specificProgramType) {
+          // No mapping found for this program, don't show badge
+          return;
+        }
+
+        // Get exercise count for this specific program
         const { data: exercises, error: exerciseError } = await supabase
           .from('secondary_programs')
           .select('*')
           .eq('user_id', user.id)
-          .eq('secondary_program', programType);
+          .eq('secondary_program', programType)
+          .eq('program_type', specificProgramType);
 
         if (exerciseError) {
           console.error('Error fetching exercise data:', exerciseError);
@@ -38,7 +61,7 @@ export const ProgramProgressBadge: React.FC<ProgramProgressBadgeProps> = ({
         }
 
         if (!exercises || exercises.length === 0) {
-          // No exercises found, don't show the badge
+          // No exercises found for this specific program, don't show the badge
           return;
         }
 
