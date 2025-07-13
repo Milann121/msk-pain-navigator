@@ -296,36 +296,6 @@ export type Database = {
         }
         Relationships: []
       }
-      exercise_completions: {
-        Row: {
-          created_at: string
-          id: string
-          program_type: string
-          secondary_exercise_name: string
-          secondary_program: string
-          updated_at: string
-          user_id: string
-        }
-        Insert: {
-          created_at?: string
-          id?: string
-          program_type: string
-          secondary_exercise_name: string
-          secondary_program: string
-          updated_at?: string
-          user_id: string
-        }
-        Update: {
-          created_at?: string
-          id?: string
-          program_type?: string
-          secondary_exercise_name?: string
-          secondary_program?: string
-          updated_at?: string
-          user_id?: string
-        }
-        Relationships: []
-      }
       exercise_feedback: {
         Row: {
           created_at: string
@@ -626,6 +596,36 @@ export type Database = {
           last_name?: string | null
           profile_picture_url?: string | null
           updated_at?: string | null
+        }
+        Relationships: []
+      }
+      secondary_programs: {
+        Row: {
+          created_at: string
+          id: string
+          program_type: string
+          secondary_exercise_name: string
+          secondary_program: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          program_type: string
+          secondary_exercise_name: string
+          secondary_program: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          program_type?: string
+          secondary_exercise_name?: string
+          secondary_program?: string
+          updated_at?: string
+          user_id?: string
         }
         Relationships: []
       }

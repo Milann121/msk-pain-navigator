@@ -16,25 +16,41 @@ export const ExerciseCompletionButton: React.FC<ExerciseCompletionButtonProps> =
   exerciseName,
 }) => {
   const { t } = useTranslation();
-  const { markAsCompleted, isLoading } = useExerciseCompletion({
+  const { markAsCompleted, isLoading, isCompleted, canRevert } = useExerciseCompletion({
     secondaryProgram,
     programType,
     exerciseName,
   });
 
+  const getButtonVariant = () => {
+    if (isCompleted) {
+      return canRevert ? "default" : "secondary";
+    }
+    return "outline";
+  };
+
+  const getButtonText = () => {
+    if (isCompleted && canRevert) {
+      return t('misc.markAsCompleted'); // Can still revert
+    } else if (isCompleted) {
+      return t('misc.markAsCompleted'); // Completed, no revert
+    }
+    return t('misc.markAsCompleted');
+  };
+
   return (
     <Button
       onClick={markAsCompleted}
-      disabled={isLoading}
-      className="w-full mt-4"
-      variant="outline"
+      disabled={isLoading || (isCompleted && !canRevert)}
+      className={`w-full mt-4 ${isCompleted ? 'bg-green-600 hover:bg-green-700 text-white border-green-600' : ''}`}
+      variant={getButtonVariant()}
     >
       {isLoading ? (
         <Loader2 className="w-4 h-4 mr-2 animate-spin" />
       ) : (
         <Check className="w-4 h-4 mr-2" />
       )}
-      {t('common.markAsCompleted')}
+      {getButtonText()}
     </Button>
   );
 };
