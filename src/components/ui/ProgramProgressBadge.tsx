@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { stretchingPrograms } from "@/data/stretchingPrograms";
+import { strengthPrograms } from "@/data/strengthPrograms";
+import { yogaPrograms } from "@/data/yogaPrograms";
 
 interface ProgramProgressBadgeProps {
   programId: string;
@@ -21,10 +23,18 @@ const PROGRAM_TYPE_MAPPING = {
     "post-workout": "stretchingPrograms.postWorkout.title"
   },
   strength: {
-    // Add strength mappings when data is available
+    "push-ups": "strengthPrograms.pushUps.title",
+    "squats": "strengthPrograms.squats.title",
+    "bodyweight-circuit": "strengthPrograms.bodyweightCircuit.title",
+    "pull-ups": "strengthPrograms.pullUps.title",
+    "deadlifts": "strengthPrograms.deadlifts.title",
+    "outdoor-calisthenics": "strengthPrograms.outdoorCalisthenics.title"
   },
   yoga: {
-    // Add yoga mappings when data is available  
+    "morning-flow": "yogaPrograms.morningFlow.title",
+    "power-flow": "yogaPrograms.powerFlow.title",
+    "leg-focus": "yogaPrograms.legFocus.title",
+    "arm-balance": "yogaPrograms.armBalance.title"
   }
 };
 
@@ -72,8 +82,11 @@ export const ProgramProgressBadge: React.FC<ProgramProgressBadgeProps> = ({
         let totalExercises = 0;
         if (programType === 'stretching' && stretchingPrograms[programId]) {
           totalExercises = stretchingPrograms[programId].exercises.length;
+        } else if (programType === 'strength' && strengthPrograms[programId]) {
+          totalExercises = strengthPrograms[programId].exercises.length;
+        } else if (programType === 'yoga' && yogaPrograms[programId]) {
+          totalExercises = yogaPrograms[programId].exercises.length;
         }
-        // TODO: Add support for strength and yoga programs when data is available
 
         // Count 100% completions: how many times the full program was completed
         const fullCompletions = totalExercises > 0 
