@@ -7,6 +7,9 @@ import { Clock, ArrowLeft, Play, RotateCcw } from "lucide-react";
 import { StretchingProgram } from "@/types/stretchingProgram";
 import { StretchingExercisesList } from "./StretchingExercisesList";
 import { useProgramProgress } from "@/hooks/useProgramProgress";
+import { useAuth } from "@/contexts/AuthContext";
+import { supabase } from "@/integrations/supabase/client";
+import { stretchingPrograms } from "@/data/stretchingPrograms";
 
 interface StretchingProgramIntroProps {
   program: StretchingProgram;
@@ -15,6 +18,7 @@ interface StretchingProgramIntroProps {
 export const StretchingProgramIntro: React.FC<StretchingProgramIntroProps> = ({ program }) => {
   const { t } = useTranslation();
   const { programId } = useParams<{ programId: string }>();
+  const { user } = useAuth();
   const [showExercises, setShowExercises] = useState(false);
   const [isContinuing, setIsContinuing] = useState(false);
   
@@ -23,7 +27,11 @@ export const StretchingProgramIntro: React.FC<StretchingProgramIntroProps> = ({ 
     programType: 'stretching'
   });
 
-  const handleStartProgram = () => {
+  const handleStartProgram = async () => {
+    // If user has completed full cycles, clear the current cycle's progress
+    if (progress.fullCompletions > 0 && progress.completionPercentage === 0) {
+      await clearCurrentCycleProgress();
+    }
     setIsContinuing(false);
     setShowExercises(true);
   };
@@ -31,6 +39,47 @@ export const StretchingProgramIntro: React.FC<StretchingProgramIntroProps> = ({ 
   const handleContinueProgram = () => {
     setIsContinuing(true);
     setShowExercises(true);
+  };
+
+  const clearCurrentCycleProgress = async () => {
+    if (!user || !programId) return;
+    
+    try {
+      const programTitle = progress.totalExercises > 0 ? 
+        (stretchingPrograms[programId]?.title || '') : '';
+      
+      if (!programTitle) return;
+
+      // Get all completions for this program
+      const { data: allCompletions, error } = await supabase
+        .from('secondary_programs')
+        .select('*')
+        .eq('user_id', user.id)
+        .eq('secondary_program', 'stretching')
+        .eq('program_type', programTitle)
+        .order('created_at', { ascending: true });
+
+      if (error) throw error;
+
+      // If we have completions equal to full cycles * total exercises,
+      // we don't need to clear anything (user is starting fresh)
+      const expectedCompletions = progress.fullCompletions * progress.totalExercises;
+      
+      if (allCompletions && allCompletions.length > expectedCompletions) {
+        // Remove excess completions (the partial progress from current incomplete cycle)
+        const excessCompletions = allCompletions.slice(expectedCompletions);
+        const idsToDelete = excessCompletions.map(c => c.id);
+        
+        if (idsToDelete.length > 0) {
+          await supabase
+            .from('secondary_programs')
+            .delete()
+            .in('id', idsToDelete);
+        }
+      }
+    } catch (error) {
+      console.error('Error clearing current cycle progress:', error);
+    }
   };
 
   if (showExercises) {

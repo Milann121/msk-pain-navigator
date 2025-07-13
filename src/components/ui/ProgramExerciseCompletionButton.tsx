@@ -36,9 +36,16 @@ export const ProgramExerciseCompletionButton: React.FC<ProgramExerciseCompletion
 
   // Check if this exercise is completed based on the progress
   useEffect(() => {
-    const isExerciseCompleted = completedExerciseNames.includes(exerciseName);
-    setIsCompleted(isExerciseCompleted);
-  }, [completedExerciseNames, exerciseName]);
+    if (isContinuing) {
+      // In continue mode, use the provided completed exercise names
+      const isExerciseCompleted = completedExerciseNames.includes(exerciseName);
+      setIsCompleted(isExerciseCompleted);
+    } else {
+      // In start/restart mode, reset to uncompleted state
+      setIsCompleted(false);
+      setCanRevert(false);
+    }
+  }, [completedExerciseNames, exerciseName, isContinuing]);
 
   const markAsCompleted = async () => {
     if (!user) {
