@@ -220,7 +220,7 @@ export const ExerciseVideoSection = ({
               videoId={actualVideoId}
               description={translatedDescription}
             />
-            {rating <= 3 && rating > 0 && video.alternatives && video.alternatives.length > 0 && (
+            {rating <= 2 && rating > 0 && video.alternatives && video.alternatives.length > 0 && (
               <SwapExerciseButton 
                 onClick={handleSwapClick}
                 disabled={swapLoading}
@@ -285,7 +285,7 @@ export const ExerciseVideoSection = ({
             videoId={actualVideoId}
             description={translatedDescription}
           />
-          {rating <= 3 && rating > 0 && video.alternatives && video.alternatives.length > 0 && (
+          {rating <= 2 && rating > 0 && video.alternatives && video.alternatives.length > 0 && (
             <SwapExerciseButton 
               onClick={handleSwapClick}
               disabled={swapLoading}
