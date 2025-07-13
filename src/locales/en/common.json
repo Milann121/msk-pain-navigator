@@ -81,5 +81,25 @@
     "swapError": "Failed to swap exercise. Please try again.",
     "noAlternatives": "No alternative exercises available for this exercise."
   },
-  "repetitions": "Repetitions"
+  "repetitions": "Repetitions",
+  "exercises": {
+    "neuropathic": {
+      "cervicalRadiculopathyNeck": {
+        "title": "Cervical Radiculopathy Exercise Program",
+        "description": "Specialized exercises designed to address cervical radiculopathy and reduce neural irritation.",
+        "neckRetraction": {
+          "title": "Neck Retraction (Chin Tucks)",
+          "description": "Gentle neck retraction exercise to improve cervical posture and reduce nerve compression."
+        },
+        "upperLimbNeurodynamics": {
+          "title": "Upper Limb Neurodynamics",
+          "description": "Neural mobilization techniques to improve nerve function and reduce symptoms."
+        },
+        "upperCervicalRelease": {
+          "title": "Upper Cervical Release",
+          "description": "Gentle stretching and mobilization of the upper cervical spine to reduce tension."
+        }
+      }
+    }
+  }
 }
