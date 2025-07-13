@@ -178,7 +178,7 @@ export const StrengthProgramIntro: React.FC<StrengthProgramIntroProps> = ({ prog
               )}
 
               {/* Continue/Start Buttons */}
-              {!isLoading && progress.hasProgress && progress.completionPercentage < 100 ? (
+              {!isLoading && progress.hasProgress && progress.completionPercentage > 0 ? (
                 <div className="space-y-3">
                   <Button 
                     onClick={handleContinueProgram}
