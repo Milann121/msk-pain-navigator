@@ -1,4 +1,3 @@
-
 import { Exercise } from "@/types/exercise";
 
 export const nociceptiveExercises: Record<string, Exercise[]> = {
@@ -17,7 +16,8 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 3,
           mainGroup: ["mobility", "pain-relief"],
           bodyPart:["neck"],
-          alternatives: ['JF_04gMZ8rU', 'Z3tKUfZGqjs'] // Alternative neck mobility exercises
+          alternatives: ['JF_04gMZ8rU', 'Z3tKUfZGqjs'], // Alternative neck mobility exercises
+          repetitions: "10-12x"
         },
         {
           videoId: '7WAoHWIxgEI', // Upper limb neurodynamics
@@ -26,7 +26,8 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["pain-relief", "neuro-mobs"],
           bodyPart:["neck"],
-          alternatives: ['RZ4mP4mOKxg', 'qR6mU0g7c7s'] // Alternative neurodynamic exercises
+          alternatives: ['RZ4mP4mOKxg', 'qR6mU0g7c7s'], // Alternative neurodynamic exercises
+          repetitions: "10-12x"
         },
         {
           videoId: '844ILxo5xsA', //Neck massage w/ ball
@@ -35,7 +36,8 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ["pain-relief"],
           bodyPart:["neck", "middle-back"],
-          alternatives: ['dqnKix4f0dU', 'T4x3EGEAcpU'] // Alternative massage/relaxation exercises
+          alternatives: ['dqnKix4f0dU', 'T4x3EGEAcpU'], // Alternative massage/relaxation exercises
+          repetitions: "10-12x"
         }
       ]
     },
@@ -51,7 +53,8 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ["mobility", "pain-relief"],
           bodyPart:["neck","middle-back"],
-          alternatives: ['dxzegzGNdaU', 'OKsRn5e2VJY', '844ILxo5xsA'] // Alternative stretching and mobility exercises
+          alternatives: ['dxzegzGNdaU', 'OKsRn5e2VJY', '844ILxo5xsA'], // Alternative stretching and mobility exercises
+          repetitions: "10-12x"
         },
         {
           videoId: 'oVJqu0FEw-Y', //Middle-back strenthening - 3exc.
@@ -59,8 +62,8 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           description: 'exercises.nociceptive.discHerniationNeckWeek46.interscapularStrengthening.description',
           importance: 2,
           mainGroup: ["stability"],
-          bodyPart:["neck","middle-back"],  
-          
+          bodyPart:["neck","middle-back"],
+          repetitions: "10-12x"
         }
       ]
     }
@@ -80,6 +83,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ["mobility", "pain-relief"],
           bodyPart:["lower-back"],
+          repetitions: "10-12x"
         },
         {
           videoId: '3A27NLPe2bs', //Lower limb neurodynamics
@@ -88,6 +92,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["pain-relief", "neuro-mobs"],
           bodyPart:["lower-back"],
+          repetitions: "10-12x"
         },
         {
           videoId: 'PMJsVceAnnY', // Glute stretches
@@ -96,6 +101,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 3,
           mainGroup: ["stability"],
           bodyPart:["lower-back"],
+          repetitions: "10-12x"
         }
       ]
     },
@@ -111,6 +117,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ["stability"],
           bodyPart:["lower-back"],
+          repetitions: "10-12x"
         },
         {
           videoId: 'dVjfUlXK93k', // 90 degree squats
@@ -119,6 +126,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["stability"],
           bodyPart:["lower-back"],
+          repetitions: "10-12x"
         }
       ]
     }
@@ -139,7 +147,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 3,
           mainGroup: ["mobility"],
           bodyPart:["neck"],
-
+          repetitions: "10-12x"
         },
         {
           videoId: '844ILxo5xsA', //Neck massage w/ ball
@@ -148,6 +156,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ["pain-relief"],
           bodyPart:["neck","middle-back"],
+          repetitions: "10-12x"
         },
         {
           videoId: 'L94T55NiI34', // Self massage suboccipitals
@@ -156,6 +165,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["pain-relief"],
           bodyPart:["neck"],
+          repetitions: "10-12x"
         },
       ],
     },
@@ -165,12 +175,13 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
       advices: [1], // Reference to advice IDs
       videos: [
         {
-          videoId: 'oVJqu0FEw', //Middle-back strenthening - 3exc.
+          videoId: 'oVJqu0FEw-Y', //Middle-back strenthening - 3exc.
           title: 'exercises.nociceptive.facetJointSyndromeNeckWeek35.interscapularStrengthening.title',
           description: 'exercises.nociceptive.facetJointSyndromeNeckWeek35.interscapularStrengthening.description',
           importance: 1,
           mainGroup: ["stability"],
           bodyPart:["neck","middle-back"],
+          repetitions: "10-12x"
         },
         {
           videoId: 'D46W1uyK6Mg', // Neck extension isometrics
@@ -179,6 +190,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["stability"],
           bodyPart:["neck"],
+          repetitions: "10-12x"
         },
       ]
     }
@@ -198,6 +210,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["mobility"],
           bodyPart:["middle-back"],
+          repetitions: "10-12x"
         },
         {
           videoId: 'dxzegzGNdaU', // Middle-back ball massage
@@ -206,6 +219,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ["pain-relief"],
           bodyPart:["middle-back","neck"],
+          repetitions: "10-12x"
         },
       ],
     },
@@ -221,6 +235,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["stability"],
           bodyPart:["middle-back","neck"],
+          repetitions: "10-12x"
         },
         {
           videoId: 'rhPOJA3S-IQ', // Thorax extensions wall
@@ -229,6 +244,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 3,
           mainGroup: ["mobility"],
           bodyPart:["middle-back"],
+          repetitions: "10-12x"
         },
         {
           videoId: 'OKsRn5e2VJY', // Thorax rotation open book lying
@@ -237,6 +253,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ["mobility"],
           bodyPart:["middle-back"],
+          repetitions: "10-12x"
         }
       ]  
     }
@@ -256,6 +273,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ["mobility", "pain-relief"],
           bodyPart:["lower-back"],
+          repetitions: "10-12x"
         },
         {
           videoId: 'PMJsVceAnnY', // Glute stretches
@@ -264,6 +282,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["mobility", "pain-relief"],
           bodyPart:["lower-back"],
+          repetitions: "10-12x"
         },
         {
           videoId: 'XspRg50nn30', // Lx stretch sitting flexion
@@ -272,6 +291,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 3,
           mainGroup: ["mobility"],
           bodyPart:["lower-back"],
+          repetitions: "10-12x"
         },
       ],
     },
@@ -287,6 +307,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ["stability"],
           bodyPart:["lower-back"],
+          repetitions: "10-12x"
         },
         {
           videoId: 'dVjfUlXK93k', // 90 degree squats
@@ -295,6 +316,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["stability"],
           bodyPart:["lower-back"],
+          repetitions: "10-12x"
         }
       ]
     }
@@ -314,6 +336,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ["mobility","pain-relief"],
           bodyPart:["lower-back"],
+          repetitions: "10-12x"
         },
         {
           videoId: 'dVjfUlXK93k', // 90 degree squats
@@ -322,6 +345,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["stability"],
           bodyPart:["lower-back"],
+          repetitions: "10-12x"
         }
       ],
     },
@@ -337,6 +361,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ["stability"],
           bodyPart:["lower-back"],
+          repetitions: "10-12x"
         },
       ]
     }
@@ -357,6 +382,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ["mobility", "pain-relief"],
           bodyPart:["middle-back","neck"],
+          repetitions: "10-12x"
         },
         {
           videoId: 'PK62xMsZfG0', // Praying stretch
@@ -365,7 +391,8 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["mobility"],
           bodyPart:["middle-back"],
-          alternatives: ['dxzegzGNdaU', 'OKsRn5e2VJY', '844ILxo5xsA'] // Alternative stretching and mobility exercises
+          alternatives: ['dxzegzGNdaU', 'OKsRn5e2VJY', '844ILxo5xsA'], // Alternative stretching and mobility exercises
+          repetitions: "10-12x"
         },
         {
           videoId: 'L94T55NiI34', // Self massage suboccipitals
@@ -374,6 +401,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 3,
           mainGroup: ["pain-relief"],
           bodyPart:["neck"],
+          repetitions: "10-12x"
         }
       ]
     }
@@ -393,7 +421,8 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ["mobility"],
           bodyPart:["middle-back",],
-          alternatives: ['dxzegzGNdaU', 'OKsRn5e2VJY', 'oAxVF_ktAi0'] // Alternative stretching and mobility exercises
+          alternatives: ['dxzegzGNdaU', 'OKsRn5e2VJY', 'oAxVF_ktAi0'], // Alternative stretching and mobility exercises
+          repetitions: "10-12x"
         },
         {
           videoId: 'dxzegzGNdaU', // Neck ball massage
@@ -402,6 +431,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["pain-relief"],
           bodyPart:["middle-back","neck"],
+          repetitions: "10-12x"
         },
         {
           videoId: 'OKsRn5e2VJY', // Thorax rotation open book lying
@@ -410,6 +440,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 3,
           mainGroup: ["mobility"],
           bodyPart:["middle-back"],
+          repetitions: "10-12x"
         }
       ]
     }
@@ -429,6 +460,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ["mobility"],
           bodyPart:["lower-back"],
+          repetitions: "10-12x"
         },
         {
           videoId: 'L1Mf3NxYwgY', // Pelvis tilting sitting
@@ -437,6 +469,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["mobility"],
           bodyPart:["lower-back"],
+          repetitions: "10-12x"
         }
       ]
     }

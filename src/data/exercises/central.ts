@@ -1,4 +1,3 @@
-
 import { Exercise } from "@/types/exercise";
 
 export const centralExercises: Record<string, Exercise[]> = {
@@ -17,6 +16,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ["pain-relief"],
           bodyPart:["neck","middle-back"],
+          repetitions: "10-12x"
         },
         {
          videoId: 'oVJqu0FEw-Y', //Middle-back strenthening - 3exc.
@@ -25,6 +25,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["stability"],
           bodyPart:["neck","middle-back"],
+          repetitions: "10-12x"
         },
         {
           videoId: '5NPvv40gd3Q', // Wall push-ups
@@ -33,6 +34,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           importance: 3,
           mainGroup: ["stability"],
           bodyPart:["neck","middle-back"],
+          repetitions: "10-12x"
         }
       ]
     }
@@ -52,6 +54,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ["mobility"],
           bodyPart:["middle-back"],
+          repetitions: "10-12x"
         },
         {
           videoId: 'dxzegzGNdaU', // Neck ball massage
@@ -60,6 +63,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["pain-relief"],
           bodyPart:["neck","middle-back"],
+          repetitions: "10-12x"
         },
         {
           videoId: 'OKsRn5e2VJY', // Thorax rotation open book lying
@@ -68,6 +72,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           importance: 3,
           mainGroup: ["mobility"],
           bodyPart:["middle-back"],
+          repetitions: "10-12x"
         },
         {
           videoId: 'oVJqu0FEw-Y', // Middle-back strenthening - 3exc.
@@ -76,6 +81,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["stability"],
           bodyPart:["middle-back"],
+          repetitions: "10-12x"
         }
       ]
     }
@@ -95,6 +101,7 @@ export const centralExercises: Record<string, Exercise[]> = {
         importance: 1,
         mainGroup: ["mobility","pain-relief"],
         bodyPart:["lower-back"],
+        repetitions: "10-12x"
         },
         {
           videoId: 'Xp33YgPZgns', // Glute bridges
@@ -103,6 +110,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["stability"],
           bodyPart:["lower-back"],
+          repetitions: "10-12x"
         },
         {
           videoId: 'dVjfUlXK93k', // 90 degree squats
@@ -111,7 +119,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           importance: 3,
           mainGroup: ["stability"],
           bodyPart:["lower-back"],
-          
+          repetitions: "10-12x"
         }
       ]
     },
@@ -133,6 +141,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ["pain-relief"],
           bodyPart:["neck","middle-back"],
+          repetitions: "10-12x"
         },
         {
          videoId: 'oVJqu0FEw-Y', // 90 degree squats
@@ -141,6 +150,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["stability"],
           bodyPart:["neck","middle-back"],
+          repetitions: "10-12x"
         },
         {
           videoId: '5NPvv40gd3Q', // Wall push-up
@@ -149,6 +159,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           importance: 3,
           mainGroup: ["stability"],
           bodyPart:["neck","middle-back"],
+          repetitions: "10-12x"
         }
       ]
     }
@@ -168,6 +179,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["mobility"],
           bodyPart:["middle-back"],
+          repetitions: "10-12x"
         },
         {
           videoId: 'dxzegzGNdaU', // Neck ball massage
@@ -176,6 +188,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ["pain-relief"],
           bodyPart:["middle-back","neck"],
+          repetitions: "10-12x"
         },
       ],
     },
@@ -191,6 +204,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["stability"],
           bodyPart:["middle-back","neck"],
+          repetitions: "10-12x"
         },
         {
           videoId: 'rhPOJA3S-IQ', // Thorax extensions wall
@@ -199,6 +213,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           importance: 3,
           mainGroup: ["mobility"],
           bodyPart:["middle-back"],
+          repetitions: "10-12x"
         },
         {
           videoId: 'OKsRn5e2VJY', // Thorax rotation open book lying
@@ -207,6 +222,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ["mobility"],
           bodyPart:["middle-back"],
+          repetitions: "10-12x"
         }
       ]  
     }
@@ -226,7 +242,7 @@ export const centralExercises: Record<string, Exercise[]> = {
         importance: 1,
         mainGroup: ["mobility","pain-relief"],
         bodyPart:["lower-back"],
-        
+        repetitions: "10-12x"
         },
         {
           videoId: 'Xp33YgPZgns', // Glute bridges
@@ -235,6 +251,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["stability"],
           bodyPart:["lower-back"],
+          repetitions: "10-12x"
         },
         {
           videoId: 'dVjfUlXK93k', // 90 degree squats
@@ -243,6 +260,7 @@ export const centralExercises: Record<string, Exercise[]> = {
           importance: 3,
           mainGroup: ["stability"],
           bodyPart:["lower-back"],
+          repetitions: "10-12x"
         }
       ]
     },

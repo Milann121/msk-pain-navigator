@@ -15,6 +15,7 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           importance: 3,
           mainGroup: ['mobility'],
           bodyPart: ['shoulder'],
+          repetitions: "10-12x"
         },
         {
           videoId: '1uz4DoaSY2M', 
