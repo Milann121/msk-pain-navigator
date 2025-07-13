@@ -323,6 +323,36 @@ export type Database = {
         }
         Relationships: []
       }
+      exercise_swaps: {
+        Row: {
+          assessment_id: string | null
+          created_at: string
+          id: string
+          original_video_id: string
+          replacement_video_id: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          assessment_id?: string | null
+          created_at?: string
+          id?: string
+          original_video_id: string
+          replacement_video_id: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          assessment_id?: string | null
+          created_at?: string
+          id?: string
+          original_video_id?: string
+          replacement_video_id?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       favorite_blogs: {
         Row: {
           blog_description: string | null

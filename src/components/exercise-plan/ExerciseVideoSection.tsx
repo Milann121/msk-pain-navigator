@@ -2,10 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Star } from 'lucide-react';
 import { ExerciseCompletionCheckbox } from '@/components/ExerciseCompletionCheckbox';
 import { FavoriteExerciseButton } from '@/components/FavoriteExerciseButton';
+import SwapExerciseButton from '@/components/exercise-plan/SwapExerciseButton';
+import SwapConfirmationDialog from '@/components/exercise-plan/SwapConfirmationDialog';
 import { useAuth } from '@/contexts/AuthContext';
 import { useToast } from '@/components/ui/use-toast';
 import { useTranslation } from 'react-i18next';
+import { useExerciseSwap } from '@/hooks/useExerciseSwap';
 import { supabase } from '@/integrations/supabase/client';
+import { toast } from 'sonner';
 
 interface Video {
   videoId: string;
@@ -14,6 +18,7 @@ interface Video {
   importance?: 1 | 2 | 3;
   bodyPart?: Array<'neck' | 'middle-back' | 'lower-back' | 'shoulder' | 'elbow' | 'forearm' | 'hand' | 'fingers'>;
   mainGroup?: Array<'mobility' | 'stability' | 'pain-relief'| 'neuro-mobs'>;
+  alternatives?: string[];
 }
 
 interface ExerciseVideoSectionProps {
@@ -31,10 +36,15 @@ export const ExerciseVideoSection = ({
 }: ExerciseVideoSectionProps) => {
   const [rating, setRating] = useState<number>(0);
   const [hoveredRating, setHoveredRating] = useState<number>(0);
+  const [showSwapDialog, setShowSwapDialog] = useState(false);
 
   const { user } = useAuth();
-  const { toast } = useToast();
+  const { toast: toastHook } = useToast();
   const { t } = useTranslation();
+  const { loading: swapLoading, swapExercise, getSwappedVideoId, loadUserSwaps } = useExerciseSwap();
+
+  // Get the actual video to display (swapped or original)
+  const actualVideoId = getSwappedVideoId(video.videoId, assessmentId);
 
   // Helper function to get translated text
   const getTranslatedText = (text: string) => {
@@ -48,7 +58,7 @@ export const ExerciseVideoSection = ({
     return text;
   };
 
-  // Load existing rating on component mount
+  // Load existing rating and user swaps on component mount
   useEffect(() => {
     const loadExistingRating = async () => {
       if (!user) return;
@@ -58,7 +68,7 @@ export const ExerciseVideoSection = ({
           .from('exercise_feedback')
           .select('feedback_value')
           .eq('user_id', user.id)
-          .eq('video_id', video.videoId)
+          .eq('video_id', actualVideoId)
           .order('created_at', { ascending: false })
           .limit(1);
 
@@ -76,8 +86,11 @@ export const ExerciseVideoSection = ({
       }
     };
 
-    loadExistingRating();
-  }, [user, video.videoId]);
+    if (user) {
+      loadExistingRating();
+      loadUserSwaps(assessmentId);
+    }
+  }, [user, actualVideoId, loadUserSwaps, assessmentId]);
 
   // Handle star click
   const handleStarClick = async (starValue: number) => {
@@ -90,31 +103,52 @@ export const ExerciseVideoSection = ({
         {
           user_id: user.id,
           exercise_title: getTranslatedText(video.title || exerciseTitle),
-          video_id: video.videoId,
+          video_id: actualVideoId,
           feedback_value: starValue,
         },
       ]);
       
       if (error) {
-        toast({
+        toastHook({
           title: t('goals.errorTitle'),
           description: t('exercisePlan.errorSave'),
           variant: 'destructive',
         });
       } else {
-        toast({
+        toastHook({
           title: 'Rating saved',
           description: `You rated this exercise ${starValue} star${starValue !== 1 ? 's' : ''}`,
         });
       }
     } catch (error) {
       console.error('Error saving rating:', error);
-      toast({
+      toastHook({
         title: t('goals.errorTitle'),
         description: t('exercisePlan.errorSave'),
         variant: 'destructive',
       });
     }
+  };
+
+  const handleSwapClick = () => {
+    setShowSwapDialog(true);
+  };
+
+  const handleSwapConfirm = async () => {
+    if (!video.alternatives || video.alternatives.length === 0) {
+      toast.error(t('exerciseSwap.noAlternatives'));
+      setShowSwapDialog(false);
+      return;
+    }
+
+    // Select a random alternative
+    const randomAlternative = video.alternatives[Math.floor(Math.random() * video.alternatives.length)];
+    
+    const success = await swapExercise(video.videoId, randomAlternative, assessmentId);
+    if (success) {
+      setRating(0); // Reset rating for the new exercise
+    }
+    setShowSwapDialog(false);
   };
 
   const translatedTitle = getTranslatedText(video.title || '');
@@ -134,7 +168,7 @@ export const ExerciseVideoSection = ({
             <iframe
               width="100%"
               height="100%"
-              src={`https://www.youtube.com/embed/${video.videoId}`}
+              src={`https://www.youtube.com/embed/${actualVideoId}`}
               title={translatedTitle || getTranslatedText(exerciseTitle)}
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -157,7 +191,7 @@ export const ExerciseVideoSection = ({
                 <ExerciseCompletionCheckbox
                   exerciseTitle={translatedTitle || getTranslatedText(exerciseTitle)}
                   assessmentId={assessmentId}
-                  videoId={video.videoId}
+                  videoId={actualVideoId}
                 />
               )}
               <div className="space-y-2">
@@ -180,11 +214,19 @@ export const ExerciseVideoSection = ({
               </div>
             </div>
           )}
-          <FavoriteExerciseButton
-            exerciseTitle={translatedTitle || getTranslatedText(exerciseTitle)}
-            videoId={video.videoId}
-            description={translatedDescription}
-          />
+          <div className="flex gap-2 flex-wrap">
+            <FavoriteExerciseButton
+              exerciseTitle={translatedTitle || getTranslatedText(exerciseTitle)}
+              videoId={actualVideoId}
+              description={translatedDescription}
+            />
+            {rating <= 3 && rating > 0 && video.alternatives && video.alternatives.length > 0 && (
+              <SwapExerciseButton 
+                onClick={handleSwapClick}
+                disabled={swapLoading}
+              />
+            )}
+          </div>
         </div>
       </div>
       {/* Mobile */}
@@ -193,7 +235,7 @@ export const ExerciseVideoSection = ({
           <iframe
             width="100%"
             height="100%"
-            src={`https://www.youtube.com/embed/${video.videoId}`}
+            src={`https://www.youtube.com/embed/${actualVideoId}`}
             title={translatedTitle || getTranslatedText(exerciseTitle)}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -214,7 +256,7 @@ export const ExerciseVideoSection = ({
               <ExerciseCompletionCheckbox
                 exerciseTitle={translatedTitle || getTranslatedText(exerciseTitle)}
                 assessmentId={assessmentId}
-                videoId={video.videoId}
+                videoId={actualVideoId}
               />
             )}
             <div className="space-y-2">
@@ -237,12 +279,27 @@ export const ExerciseVideoSection = ({
             </div>
           </div>
         )}
-        <FavoriteExerciseButton
-          exerciseTitle={translatedTitle || getTranslatedText(exerciseTitle)}
-          videoId={video.videoId}
-          description={translatedDescription}
-        />
+        <div className="flex gap-2 flex-wrap">
+          <FavoriteExerciseButton
+            exerciseTitle={translatedTitle || getTranslatedText(exerciseTitle)}
+            videoId={actualVideoId}
+            description={translatedDescription}
+          />
+          {rating <= 3 && rating > 0 && video.alternatives && video.alternatives.length > 0 && (
+            <SwapExerciseButton 
+              onClick={handleSwapClick}
+              disabled={swapLoading}
+            />
+          )}
+        </div>
       </div>
+
+      <SwapConfirmationDialog
+        open={showSwapDialog}
+        onOpenChange={setShowSwapDialog}
+        onConfirm={handleSwapConfirm}
+        loading={swapLoading}
+      />
     </div>
   );
 };

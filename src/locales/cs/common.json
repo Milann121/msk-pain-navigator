@@ -70,5 +70,15 @@
   },
   "back": "Zpět",
   "next": "Další",
-  "backToHome": "Zpět domů"
+  "backToHome": "Zpět domů",
+  "exerciseSwap": {
+    "swapButton": "Vyměnit cvičení",
+    "confirmTitle": "Vyměnit cvičení",
+    "confirmMessage": "Chcete vyměnit toto cvičení?",
+    "yes": "Ano",
+    "no": "Ne",
+    "swapSuccess": "Cvičení bylo úspěšně vyměněno!",
+    "swapError": "Nepodařilo se vyměnit cvičení. Zkuste to prosím znovu.",
+    "noAlternatives": "Pro toto cvičení nejsou k dispozici žádné alternativy."
+  }
 }

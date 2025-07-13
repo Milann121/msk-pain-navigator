@@ -17,7 +17,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 3,
           mainGroup: ["mobility", "pain-relief"],
           bodyPart:["neck"],
-          
+          alternatives: ['JF_04gMZ8rU', 'Z3tKUfZGqjs'] // Alternative neck mobility exercises
         },
         {
           videoId: '7WAoHWIxgEI', // Upper limb neurodynamics
@@ -26,6 +26,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["pain-relief", "neuro-mobs"],
           bodyPart:["neck"],
+          alternatives: ['RZ4mP4mOKxg', 'qR6mU0g7c7s'] // Alternative neurodynamic exercises
         },
         {
           videoId: '844ILxo5xsA', //Neck massage w/ ball
@@ -34,7 +35,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ["pain-relief"],
           bodyPart:["neck", "middle-back"],
-          
+          alternatives: ['dqnKix4f0dU', 'T4x3EGEAcpU'] // Alternative massage/relaxation exercises
         }
       ]
     },

@@ -70,5 +70,15 @@
   },
   "back": "Back",
   "next": "Next",
-  "backToHome": "Back to Home"
+  "backToHome": "Back to Home",
+  "exerciseSwap": {
+    "swapButton": "Swap Exercise",
+    "confirmTitle": "Swap Exercise",
+    "confirmMessage": "Do you want to swap this exercise?",
+    "yes": "Yes",
+    "no": "No",
+    "swapSuccess": "Exercise swapped successfully!",
+    "swapError": "Failed to swap exercise. Please try again.",
+    "noAlternatives": "No alternative exercises available for this exercise."
+  }
 }
