@@ -74,7 +74,7 @@
   "exerciseSwap": {
     "swapButton": "Swap Exercise",
     "confirmTitle": "Swap Exercise",
-    "confirmMessage": "Do you want to swap this exercise?",
+    "confirmMessage": "Are you sure to swap this exercise?",
     "yes": "Yes",
     "no": "No",
     "swapSuccess": "Exercise swapped successfully!",

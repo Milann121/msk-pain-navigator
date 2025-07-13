@@ -74,7 +74,7 @@
   "exerciseSwap": {
     "swapButton": "Vymeniť cvičenie",
     "confirmTitle": "Vymeniť cvičenie",
-    "confirmMessage": "Chcete vymeniť toto cvičenie?",
+    "confirmMessage": "Ste si istí, že chcete vymeniť toto cvičenie?",
     "yes": "Áno",
     "no": "Nie",
     "swapSuccess": "Cvičenie bolo úspešne vymenené!",
