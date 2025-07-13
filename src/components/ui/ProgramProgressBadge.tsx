@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { stretchingPrograms } from "@/data/stretchingPrograms";
 
 interface ProgramProgressBadgeProps {
   programId: string;
@@ -65,14 +66,22 @@ export const ProgramProgressBadge: React.FC<ProgramProgressBadgeProps> = ({
           return;
         }
 
-        const exerciseCount = exercises.length;
+        const completedExercises = exercises.length;
 
-        // Calculate last completion percentage (simplified - using exercise count as a proxy)
-        // In a real app, you'd calculate this based on actual completion data
-        const lastCompletion = Math.min(Math.round((exerciseCount / 10) * 100), 100);
+        // Get total number of exercises in the program
+        let totalExercises = 0;
+        if (programType === 'stretching' && stretchingPrograms[programId]) {
+          totalExercises = stretchingPrograms[programId].exercises.length;
+        }
+        // TODO: Add support for strength and yoga programs when data is available
+
+        // Calculate completion percentage: completed exercises / total exercises * 100
+        const lastCompletion = totalExercises > 0 
+          ? Math.round((completedExercises / totalExercises) * 100)
+          : 0;
 
         setProgressData({
-          exerciseCount,
+          exerciseCount: completedExercises,
           lastCompletion,
         });
       } catch (error) {
