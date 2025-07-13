@@ -5,5 +5,46 @@
     "continue": "Pokračovat",
     "focusAreas": "Oblasti zaměření:",
     "avoidIf": "Vyhněte se pokud máte:"
+  },
+  "morningFlow": {
+    "title": "Ranní probouzecí flow",
+    "description": "Jemná jógová sekvence pro začátek dne s energií a vědomým pohybem.",
+    "listDescription": {
+      "1": "Sekvence pozdrav slunci na rozehřátí",
+      "2": "Mobilita páteře kočka-kráva",
+      "3": "Protažení v pozici pes hlavou dolů",
+      "4": "Praktikování vědomého dýchání"
+    }
+  },
+  "powerFlow": {
+    "title": "Dynamický silový flow",
+    "description": "Silná plynoucí sekvence pro budování síly, vytrvalosti a tepla v těle.",
+    "listDescription": {
+      "1": "Sekvence válečníka pro sílu",
+      "2": "Chaturanga klik flow",
+      "3": "Pokročilé pozice armbalance",
+      "4": "Pohyb synchronizovaný s dechem",
+      "5": "Prvky posilování jádra"
+    }
+  },
+  "legFocus": {
+    "title": "Zaměření na dolní část těla",
+    "description": "Cílené pozice pro posílení a protažení nohou, kyčlí a hýžďových svalů pro lepší mobilitu.",
+    "listDescription": {
+      "1": "Otevření kyčlí v pozici holub",
+      "2": "Hluboké protažení v pozici ještěrka",
+      "3": "Flexibilita v sedu s předklonem",
+      "4": "Cílené posilování nohou"
+    }
+  },
+  "armBalance": {
+    "title": "Mistrovství v armbalance",
+    "description": "Pokročilé pozice zaměřené na sílu horní části těla, rovnováhu a koncentraci.",
+    "listDescription": {
+      "1": "Základy pozice vrána",
+      "2": "Pokročilá variace boční vrána",
+      "3": "Výzva pozice světluška",
+      "4": "Integrace rovnováhy a jádra"
+    }
   }
 }

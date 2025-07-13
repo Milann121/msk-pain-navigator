@@ -5,5 +5,66 @@
     "continue": "Pokračovať",
     "focusAreas": "Oblasti zamerania:",
     "avoidIf": "Vyhnite sa ak máte:"
+  },
+  "pushUps": {
+    "title": "Majstrovstvo v klikoch",
+    "description": "Vybudujte silu hornej časti tela s progresívnymi variáciami klikov zameranými na hrudník, ramená a triceps.",
+    "listDescription": {
+      "1": "Základná technika a prevedenie klikov",
+      "2": "Šikmé variácie pre začiatočníkov",
+      "3": "Diamantové kliky pre silu tricepsov",
+      "4": "Progresívne úrovne obtiažnosti"
+    }
+  },
+  "squats": {
+    "title": "Sila v drepoch",
+    "description": "Posilnite nohy a sedacie svaly komplexným tréningom drepov pre silu dolnej časti tela.",
+    "listDescription": {
+      "1": "Základy drepu s vlastnou váhou",
+      "2": "Goblet drep s pridaním váhy",
+      "3": "Skokové drepy pre explozívnu silu",
+      "4": "Správna hĺbka a technika prevedenia"
+    }
+  },
+  "bodyweightCircuit": {
+    "title": "Okruh s vlastnou váhou",
+    "description": "Vysokointenzívny okruhový tréning používajúci iba váhu tela pre kompletné cvičenie.",
+    "listDescription": {
+      "1": "Celotělové pohyby burpees",
+      "2": "Kardio horolezci",
+      "3": "Plank jacks pre posilnenie jadra",
+      "4": "Načasovanie okruhu a doby odpočinku",
+      "5": "Progresívne úrovne intenzity"
+    }
+  },
+  "pullUps": {
+    "title": "Progresía v zhyboch",
+    "description": "Rozvíjajte silu hornej časti tela v ťahu s progresívnym tréningom zhybov a variácií.",
+    "listDescription": {
+      "1": "Progresía asistovaných zhybov",
+      "2": "Negatívny (excentrický) tréning",
+      "3": "Technika variácie brad-ups",
+      "4": "Rozvoj sily úchopu"
+    }
+  },
+  "deadlifts": {
+    "title": "Tréning mŕtveho ťahu",
+    "description": "Zvládnite pohybový vzor mŕtveho ťahu pre celkovú silu tela a rozvoj sily.",
+    "listDescription": {
+      "1": "Správne prevedenie a nastavenie mŕtveho ťahu",
+      "2": "Variácie rumunského mŕtveho ťahu",
+      "3": "Jednonohý mŕtvy ťah pre rovnováhu",
+      "4": "Progresívne techniky zaťažovania"
+    }
+  },
+  "outdoorCalisthenics": {
+    "title": "Vonkajšia kalisthenika",
+    "description": "Preneste tréning s vlastnou váhou von a cvičte na čerstvom vzduchu s minimálnym vybavením.",
+    "listDescription": {
+      "1": "Cvičenia na parkovej lavičke",
+      "2": "Cvičenia na stromoch a hrazdách",
+      "3": "Pohyby na zemi",
+      "4": "Tréning integrovaný s prírodou"
+    }
   }
 }

@@ -5,5 +5,47 @@
     "continue": "Pokračovat",
     "focusAreas": "Oblasti zaměření:",
     "avoidIf": "Vyhněte se pokud máte:"
+  },
+  "neckShoulder": {
+    "title": "Úleva pro krk a ramena",
+    "description": "Jemné protažení navržené k uvolnění napětí v krku a ramenou, ideální pro kancelářské pracovníky a ty, kdo tráví dlouhé hodiny u stolu.",
+    "listDescription": {
+      "1": "Jemné rotace krku pro zlepšení mobility",
+      "2": "Uvolnění ramen technikami samomassáže",
+      "3": "Relaxace horní části krční páteře proti bolesti hlavy",
+      "4": "Cvičení pro zlepšení držení těla"
+    }
+  },
+  "morningFlow": {
+    "title": "Ranní energizer",
+    "description": "Začněte den energizujícím protažením, které probudí vaše tělo a připraví vás na nadcházející den.",
+    "listDescription": {
+      "1": "Cvičení mobility páteře pro probuzení zad",
+      "2": "Protažení kyčlí pro lepší pohyb",
+      "3": "Hrudní extenzi pro zlepšení držení těla",
+      "4": "Jemná aktivace svalů jádra",
+      "5": "Dechová cvičení pro energii"
+    }
+  },
+  "eveningRelaxation": {
+    "title": "Večerní uklidnění",
+    "description": "Uklidňující protažení, která vám pomohou relaxovat a připravit tělo a mysl na klidný spánek.",
+    "listDescription": {
+      "1": "Jemná rotace páteře pro relaxaci",
+      "2": "Hluboké dechové cvičení pro klid",
+      "3": "Massážní techniky pro uvolnění napětí",
+      "4": "Uvědomělý pohyb pro snížení stresu"
+    }
+  },
+  "postWorkout": {
+    "title": "Regenerace po tréninku",
+    "description": "Základní protažení, která pomohou vašim svalům se zotavit po tréninku a předejdou ztuhlosti.",
+    "listDescription": {
+      "1": "Protažení hýžďových svalů a kyčlí pro regeneraci nohou",
+      "2": "Mobilita páteře pro dekompresi zad",
+      "3": "Regenerační dýchání pro reset nervového systému",
+      "4": "Uvolnění napětí hlavních svalových skupin",
+      "5": "Uklidňující pohyby pro zlepšení cirkulace"
+    }
   }
 }

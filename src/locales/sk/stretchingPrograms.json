@@ -5,5 +5,47 @@
     "continue": "Pokračovať",
     "focusAreas": "Oblasti zamerania:",
     "avoidIf": "Vyhnite sa ak máte:"
+  },
+  "neckShoulder": {
+    "title": "Úľava pre krk a ramená",
+    "description": "Jemné natiahnutia navrhnuté na uvoľnenie napätia v krku a ramenách, ideálne pre kancelárskych pracovníkov a tých, ktorí trávia dlhé hodiny pri stole.",
+    "listDescription": {
+      "1": "Jemné rotácie krku pre zlepšenie mobility",
+      "2": "Uvoľnenie ramien technikami samomasáže",
+      "3": "Relaxácia hornej časti krčnej chrbtice proti bolesti hlavy",
+      "4": "Cvičenia pre zlepšenie držania tela"
+    }
+  },
+  "morningFlow": {
+    "title": "Ranný energizér",
+    "description": "Začnite deň energizujúcim natiahnutím, ktoré prebudí vaše telo a pripraví vás na nadchádzajúci deň.",
+    "listDescription": {
+      "1": "Cvičenia mobility chrbtice pre prebúdzanie chrbta",
+      "2": "Natiahnutie bokov pre lepší pohyb",
+      "3": "Hrudnú extenziu pre zlepšenie držania tela",
+      "4": "Jemná aktivácia svalov jadra",
+      "5": "Dychové cvičenia pre energiu"
+    }
+  },
+  "eveningRelaxation": {
+    "title": "Večerné upokojenie",
+    "description": "Upokojujúce natiahnutia, ktoré vám pomôžu relaxovať a pripraviť telo a myseľ na pokojný spánok.",
+    "listDescription": {
+      "1": "Jemná rotácia chrbtice pre relaxáciu",
+      "2": "Hlboké dychové cvičenia pre pokoj",
+      "3": "Masážne techniky pre uvoľnenie napätia",
+      "4": "Uvedomelý pohyb pre zníženie stresu"
+    }
+  },
+  "postWorkout": {
+    "title": "Regenerácia po tréningu",
+    "description": "Základné natiahnutia, ktoré pomôžu vašim svalom sa zotaviť po tréningu a predídu stuhnutosti.",
+    "listDescription": {
+      "1": "Natiahnutie sedacích svalov a bokov pre regeneráciu nôh",
+      "2": "Mobilita chrbtice pre dekompresiu chrbta",
+      "3": "Regeneračné dýchanie pre reset nervového systému",
+      "4": "Uvoľnenie napätia hlavných svalových skupín",
+      "5": "Upokojujúce pohyby pre zlepšenie cirkulácie"
+    }
   }
 }
