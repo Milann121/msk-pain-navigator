@@ -53,7 +53,7 @@ export const StretchingExercisesList: React.FC<StretchingExercisesListProps> = (
 
                       {/* Focus Body Parts */}
                       {exercise.focus_bodyPart.length > 0 && <div>
-                          <h4 className="font-medium text-foreground text-sm mb-2">
+                          <h4 className="text-foreground text-sm mb-2 font-bold">
                             {t('stretchingPrograms.common.focusAreas')}
                           </h4>
                           <div className="flex flex-wrap gap-1">
