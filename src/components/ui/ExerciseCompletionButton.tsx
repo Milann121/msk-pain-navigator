@@ -31,11 +31,11 @@ export const ExerciseCompletionButton: React.FC<ExerciseCompletionButtonProps> =
 
   const getButtonText = () => {
     if (isCompleted && canRevert) {
-      return t('common.markAsCompleted'); // Can still revert
+      return t('misc.markAsCompleted'); // Can still revert
     } else if (isCompleted) {
-      return t('common.markAsCompleted'); // Completed, no revert
+      return t('misc.markAsCompleted'); // Completed, no revert
     }
-    return t('common.markAsCompleted');
+    return t('misc.markAsCompleted');
   };
 
   return (
