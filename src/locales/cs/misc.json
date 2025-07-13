@@ -35,6 +35,7 @@
     }
   },
   "misc": {
+    "markAsCompleted": "Označit jako dokončené",
     "questionNumber": "Otázka {{current}} z {{total}}",
     "navigation": {
       "back": "Zpět",

@@ -35,6 +35,7 @@
     }
   },
   "misc": {
+    "markAsCompleted": "Mark as completed",
     "questionNumber": "Question {{current}} of {{total}}",
     "navigation": {
       "back": "Back",
