@@ -14,6 +14,32 @@
       "2": "Mobilita chrbtice mačka-krava",
       "3": "Natiahnutie v pozícii pes hlavou dole",
       "4": "Praktizovanie uvedomelého dýchania"
+    },
+    "exercises": {
+      "sunSalutation": {
+        "title": "Pozdrav slnku",
+        "description": "Klasická plynúca sekvencia, ktorá zohrieva celé telo a spája dych s pohybom.",
+        "video": {
+          "title": "Pozdrav slnku A",
+          "description": "Tradičný ranný jógový flow"
+        }
+      },
+      "catCow": {
+        "title": "Pozícia mačka-krava",
+        "description": "Jemné cvičenie mobility chrbtice, ktoré prebúdza chrbát a zlepšuje flexibilitu.",
+        "video": {
+          "title": "Spinálny flow mačka-krava",
+          "description": "Mobilita chrbtice a rozohriavací pohyb"
+        }
+      },
+      "downwardDog": {
+        "title": "Pes hlavou dole",
+        "description": "Základná jógová pozícia, ktorá posilňuje ruky a natiahuje zadnú stranu tela.",
+        "video": {
+          "title": "Správne postavenie psa hlavou dole",
+          "description": "Správna forma a postavenie v pozícii pes hlavou dole"
+        }
+      }
     }
   },
   "powerFlow": {

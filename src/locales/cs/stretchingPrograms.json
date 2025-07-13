@@ -14,6 +14,32 @@
       "2": "Uvolnění ramen technikami samomassáže",
       "3": "Relaxace horní části krční páteře proti bolesti hlavy",
       "4": "Cvičení pro zlepšení držení těla"
+    },
+    "exercises": {
+      "neckRotation": {
+        "title": "Krční rotace s ručníkem",
+        "description": "Jemné krční rotační cvičení používající ručník pro podporu a kontrolovaný pohyb.",
+        "video": {
+          "title": "Mulligan ručníková krční rotace",
+          "description": "Naučte se správnou techniku pro bezpečnou krční rotaci s asistencí ručníku"
+        }
+      },
+      "shoulderRelease": {
+        "title": "Masáž s míčkem na stěně",
+        "description": "Technika samomassáže používající míček na stěně k uvolnění napětí krku a ramen.",
+        "video": {
+          "title": "Masáž krku a ramen s míčkem",
+          "description": "Účinná samomassáž pro úlevu napětí horních zad a krku"
+        }
+      },
+      "upperCervicalRelease": {
+        "title": "Masáž horní krční páteře",
+        "description": "Cílená masáž suboccipitálních svalů k úlevě napětí a bolestí hlavy.",
+        "video": {
+          "title": "Samomassáž suboccipitálů",
+          "description": "Přesná technika pro uvolnění napětí horního krku"
+        }
+      }
     }
   },
   "morningFlow": {
@@ -25,6 +51,32 @@
       "3": "Hrudní extenzi pro zlepšení držení těla",
       "4": "Jemná aktivace svalů jádra",
       "5": "Dechová cvičení pro energii"
+    },
+    "exercises": {
+      "spinalWave": {
+        "title": "Spinální vlnový pohyb",
+        "description": "Jemné pánevní naklánění k mobilizaci páteře a probuzení spinálního pohybu.",
+        "video": {
+          "title": "Cvičení pánevního naklánění",
+          "description": "Naučte se vytvářet plynulý spinální pohyb kontrolou pánve"
+        }
+      },
+      "hipOpener": {
+        "title": "Protažení kyčlí",
+        "description": "Protažení hýžďových a kyčelních flexorů k zlepšení mobility kyčlí a snížení stuhnutí.",
+        "video": {
+          "title": "Komplexní protažení hýžďových svalů",
+          "description": "Více protažení kyčlí a hýžďových svalů pro ranní mobilitu"
+        }
+      },
+      "thoracicExtension": {
+        "title": "Hrudní extenze",
+        "description": "Cvičení extenze na stěně k otevření hrudi a zlepšení mobility horních zad.",
+        "video": {
+          "title": "Nástěnná hrudní extenze",
+          "description": "Bezpečný a účinný způsob extenze středních zad"
+        }
+      }
     }
   },
   "eveningRelaxation": {
@@ -35,6 +87,32 @@
       "2": "Hluboké dechové cvičení pro klid",
       "3": "Massážní techniky pro uvolnění napětí",
       "4": "Uvědomělý pohyb pro snížení stresu"
+    },
+    "exercises": {
+      "gentleRotation": {
+        "title": "Jemná spinální rotace",
+        "description": "Cvičení otevírání knihy pro jemnou hrudní rotaci a relaxaci.",
+        "video": {
+          "title": "Hrudní otevírání knihy",
+          "description": "Relaxační rotační pohyb pro střední záda"
+        }
+      },
+      "deepBreathing": {
+        "title": "Protažení s dechem v pozici modlitby",
+        "description": "Uklidňující protažení kombinované s hlubokým dýcháním pro relaxaci.",
+        "video": {
+          "title": "Protažení v pozici modlitby",
+          "description": "Meditativní protažení pro krk a střední záda"
+        }
+      },
+      "gentleMassage": {
+        "title": "Jemná samomassáž",
+        "description": "Uklidňující masážní techniky pro hrudní páteř pomocí míčku.",
+        "video": {
+          "title": "Masáž hrudní páteře míčkem",
+          "description": "Jemná masáž pro večerní relaxaci"
+        }
+      }
     }
   },
   "postWorkout": {
@@ -46,6 +124,32 @@
       "3": "Regenerační dýchání pro reset nervového systému",
       "4": "Uvolnění napětí hlavních svalových skupin",
       "5": "Uklidňující pohyby pro zlepšení cirkulace"
+    },
+    "exercises": {
+      "gluteStretch": {
+        "title": "Komplexní protažení hýžďových svalů",
+        "description": "Více pozic protažení hýžďových svalů k uvolnění napětí po tréninku nohou.",
+        "video": {
+          "title": "Protažení hýžďových svalů po tréninku",
+          "description": "Účinná protažení pro regeneraci a flexibilitu hýžďových svalů"
+        }
+      },
+      "spinalMobility": {
+        "title": "Protažení spinální flexe",
+        "description": "Jemná spinální flexe k dekompresi páteře po cvičení.",
+        "video": {
+          "title": "Protažení páteře vsedě",
+          "description": "Bezpečná spinální flexe pro regeneraci po tréninku"
+        }
+      },
+      "recoveryBreathing": {
+        "title": "Regenerační dechové cvičení",
+        "description": "Hluboké dýchání kombinované s jemným pohybem pro regeneraci nervového systému.",
+        "video": {
+          "title": "SIJ mobilizace s dýcháním",
+          "description": "Jemný pohyb s dechem pro regeneraci"
+        }
+      }
     }
   }
 }

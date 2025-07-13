@@ -14,6 +14,32 @@
       "2": "Uvoľnenie ramien technikami samomasáže",
       "3": "Relaxácia hornej časti krčnej chrbtice proti bolesti hlavy",
       "4": "Cvičenia pre zlepšenie držania tela"
+    },
+    "exercises": {
+      "neckRotation": {
+        "title": "Krčná rotácia s uterákom",
+        "description": "Jemné krčné rotačné cvičenie používajúce uterák pre podporu a kontrolovaný pohyb.",
+        "video": {
+          "title": "Mulligan uteráková krčná rotácia",
+          "description": "Naučte sa správnu techniku pre bezpečnú krčnú rotáciu s asistenciou uteráka"
+        }
+      },
+      "shoulderRelease": {
+        "title": "Masáž s loptičkou na stene",
+        "description": "Technika samomasáže používajúca loptičku na stene na uvoľnenie napätia krku a ramien.",
+        "video": {
+          "title": "Masáž krku a ramien s loptičkou",
+          "description": "Účinná samomasáž pre úľavu napätia horných chrbta a krku"
+        }
+      },
+      "upperCervicalRelease": {
+        "title": "Masáž hornej krčnej chrbtice",
+        "description": "Cielená masáž suboccipitálnych svalov na úľavu napätia a bolestí hlavy.",
+        "video": {
+          "title": "Samomasáž suboccipitálov",
+          "description": "Presná technika pre uvoľnenie napätia horného krku"
+        }
+      }
     }
   },
   "morningFlow": {
@@ -25,6 +51,32 @@
       "3": "Hrudnú extenziu pre zlepšenie držania tela",
       "4": "Jemná aktivácia svalov jadra",
       "5": "Dychové cvičenia pre energiu"
+    },
+    "exercises": {
+      "spinalWave": {
+        "title": "Spinálny vlnový pohyb",
+        "description": "Jemné panvové nakláňanie na mobilizáciu chrbtice a prebúdzanie spinálneho pohybu.",
+        "video": {
+          "title": "Cvičenie panvového nakláňania",
+          "description": "Naučte sa vytvárať plynulý spinálny pohyb kontrolou panvy"
+        }
+      },
+      "hipOpener": {
+        "title": "Natiahnutie bokov",
+        "description": "Natiahnutie sedacích a kyčelných flexorov na zlepšenie mobility bokov a zníženie stuhnutia.",
+        "video": {
+          "title": "Komplexné natiahnutie sedacích svalov",
+          "description": "Viac natiahnutí bokov a sedacích svalov pre rannú mobilitu"
+        }
+      },
+      "thoracicExtension": {
+        "title": "Hrudná extenzia",
+        "description": "Cvičenie extenzie na stene na otvorenie hrude a zlepšenie mobility horných chrbta.",
+        "video": {
+          "title": "Nástenná hrudná extenzia",
+          "description": "Bezpečný a účinný způsob extenzie stredných chrbta"
+        }
+      }
     }
   },
   "eveningRelaxation": {
@@ -35,6 +87,32 @@
       "2": "Hlboké dychové cvičenia pre pokoj",
       "3": "Masážne techniky pre uvoľnenie napätia",
       "4": "Uvedomelý pohyb pre zníženie stresu"
+    },
+    "exercises": {
+      "gentleRotation": {
+        "title": "Jemná spinálna rotácia",
+        "description": "Cvičenie otvárania knihy pre jemnú hrudnú rotáciu a relaxáciu.",
+        "video": {
+          "title": "Hrudné otváranie knihy",
+          "description": "Relaxačný rotačný pohyb pre stredné chrbta"
+        }
+      },
+      "deepBreathing": {
+        "title": "Natiahnutie s dychom v pozícii modlitby",
+        "description": "Upokojujúce natiahnutie kombinované s hlbokým dýchaním pre relaxáciu.",
+        "video": {
+          "title": "Natiahnutie v pozícii modlitby",
+          "description": "Meditatívne natiahnutie pre krk a stredné chrbta"
+        }
+      },
+      "gentleMassage": {
+        "title": "Jemná samomasáž",
+        "description": "Upokojujúce masážne techniky pre hrudnú chrbticu pomocou loptičky.",
+        "video": {
+          "title": "Masáž hrudnej chrbtice loptičkou",
+          "description": "Jemná masáž pre večernú relaxáciu"
+        }
+      }
     }
   },
   "postWorkout": {
@@ -46,6 +124,32 @@
       "3": "Regeneračné dýchanie pre reset nervového systému",
       "4": "Uvoľnenie napätia hlavných svalových skupín",
       "5": "Upokojujúce pohyby pre zlepšenie cirkulácie"
+    },
+    "exercises": {
+      "gluteStretch": {
+        "title": "Komplexné natiahnutie sedacích svalov",
+        "description": "Viac pozícií natiahnutia sedacích svalov na uvoľnenie napätia po tréningu nôh.",
+        "video": {
+          "title": "Natiahnutie sedacích svalov po tréningu",
+          "description": "Účinné natiahnutia pre regeneráciu a flexibilitu sedacích svalov"
+        }
+      },
+      "spinalMobility": {
+        "title": "Natiahnutie spinálnej flexie",
+        "description": "Jemná spinálna flexia na dekompresiu chrbtice po cvičení.",
+        "video": {
+          "title": "Natiahnutie chrbtice vsediac",
+          "description": "Bezpečná spinálna flexia pre regeneráciu po tréningu"
+        }
+      },
+      "recoveryBreathing": {
+        "title": "Regeneračné dychové cvičenie",
+        "description": "Hlboké dýchanie kombinované s jemným pohybom pre regeneráciu nervového systému.",
+        "video": {
+          "title": "SIJ mobilizácia s dýchaním",
+          "description": "Jemný pohyb s dychom pre regeneráciu"
+        }
+      }
     }
   }
 }

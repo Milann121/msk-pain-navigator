@@ -14,6 +14,32 @@
       "2": "Mobilita páteře kočka-kráva",
       "3": "Protažení v pozici pes hlavou dolů",
       "4": "Praktikování vědomého dýchání"
+    },
+    "exercises": {
+      "sunSalutation": {
+        "title": "Pozdrav slunci",
+        "description": "Klasická plynoucí sekvence, která zahřívá celé tělo a spojuje dech s pohybem.",
+        "video": {
+          "title": "Pozdrav slunci A",
+          "description": "Tradiční ranní jógový flow"
+        }
+      },
+      "catCow": {
+        "title": "Pozice kočka-kráva",
+        "description": "Jemné cvičení mobility páteře, které probouzí záda a zlepšuje flexibilitu.",
+        "video": {
+          "title": "Spinální flow kočka-kráva",
+          "description": "Mobilita páteře a rozehřívací pohyb"
+        }
+      },
+      "downwardDog": {
+        "title": "Pes hlavou dolů",
+        "description": "Základní jógová pozice, která posiluje paže a protahuje zadní stranu těla.",
+        "video": {
+          "title": "Správné postavení psa hlavou dolů",
+          "description": "Správná forma a postavení v pozici pes hlavou dolů"
+        }
+      }
     }
   },
   "powerFlow": {

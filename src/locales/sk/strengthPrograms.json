@@ -14,6 +14,32 @@
       "2": "Šikmé variácie pre začiatočníkov",
       "3": "Diamantové kliky pre silu tricepsov",
       "4": "Progresívne úrovne obtiažnosti"
+    },
+    "exercises": {
+      "basicPushUp": {
+        "title": "Základný klik",
+        "description": "Zvládnite základný pohyb kliku so správnou formou a technikou.",
+        "video": {
+          "title": "Perfektná forma kliku",
+          "description": "Naučte sa správnu techniku pre štandardné kliky"
+        }
+      },
+      "inclinePushUp": {
+        "title": "Šikmý klik",
+        "description": "Variácia vhodná pre začiatočníkov používajúca vyvýšený povrch na zníženie obtiažnosti.",
+        "video": {
+          "title": "Tutoriál šikmého kliku",
+          "description": "Ako vykonávať kliky na šikmej ploche pre začiatočníkov"
+        }
+      },
+      "diamondPushUp": {
+        "title": "Diamantový klik",
+        "description": "Pokročilá variácia zameraná na triceps s postavením rúk do tvaru diamantu.",
+        "video": {
+          "title": "Technika diamantového kliku",
+          "description": "Pokročilá variácia kliku pre silu tricepsov"
+        }
+      }
     }
   },
   "squats": {
@@ -24,6 +50,32 @@
       "2": "Goblet drep s pridaním váhy",
       "3": "Skokové drepy pre explozívnu silu",
       "4": "Správna hĺbka a technika prevedenia"
+    },
+    "exercises": {
+      "bodyweightSquat": {
+        "title": "Drep s vlastnou váhou",
+        "description": "Základný drepový pohyb zameraný na správnu formu a hĺbku.",
+        "video": {
+          "title": "Perfektná forma drepu",
+          "description": "Zvládnite základný vzorec drepového pohybu"
+        }
+      },
+      "gobletSquat": {
+        "title": "Goblet drep",
+        "description": "Pridajte odpor s váhou drženou na úrovni hrudníka pre zvýšenie obtiažnosti.",
+        "video": {
+          "title": "Tutoriál Goblet drepu",
+          "description": "Ako vykonávať goblet drepy so správnou formou"
+        }
+      },
+      "jumpSquat": {
+        "title": "Skokový drep",
+        "description": "Explozívna plyometrická variácia pre rozvoj sily a atletizmu.",
+        "video": {
+          "title": "Technika skokového drepu",
+          "description": "Explozívne drepové skoky pre rozvoj sily"
+        }
+      }
     }
   },
   "bodyweightCircuit": {
@@ -35,6 +87,32 @@
       "3": "Plank jacks pre posilnenie jadra",
       "4": "Načasovanie okruhu a doby odpočinku",
       "5": "Progresívne úrovne intenzity"
+    },
+    "exercises": {
+      "burpees": {
+        "title": "Burpees",
+        "description": "Celotělový explozívny pohyb kombinujúci drep, plank a skok.",
+        "video": {
+          "title": "Tutoriál Burpees",
+          "description": "Kompletný rozklad pohybu burpees"
+        }
+      },
+      "mountainClimbers": {
+        "title": "Horolezci",
+        "description": "Vysokointenzívne kardio cvičenie v pozícii planku so striedavými nášlapmi nôh.",
+        "video": {
+          "title": "Forma horolezcov",
+          "description": "Správna technika pre horolezcov"
+        }
+      },
+      "plankJacks": {
+        "title": "Plank Jacks",
+        "description": "Cvičenie zamerané na jadro kombinujúce držanie planku s pohybom nôh ako jumping jack.",
+        "video": {
+          "title": "Tutoriál Plank Jacks",
+          "description": "Ako vykonávať plank jacks so správnou formou"
+        }
+      }
     }
   },
   "pullUps": {
@@ -45,6 +123,32 @@
       "2": "Negatívny (excentrický) tréning",
       "3": "Technika variácie brad-ups",
       "4": "Rozvoj sily úchopu"
+    },
+    "exercises": {
+      "assistedPullUp": {
+        "title": "Asistovaný zhyb",
+        "description": "Použite asistenciu na naučenie správnej formy zhybu a postupné budovanie sily.",
+        "video": {
+          "title": "Metódy asistovaných zhybov",
+          "description": "Rôzne spôsoby asistencie pri tréningu zhybov"
+        }
+      },
+      "negativesPullUp": {
+        "title": "Negatívne zhyby",
+        "description": "Zamerajte sa na zostupnú fázu pre budovanie sily pre plné zhyby.",
+        "video": {
+          "title": "Tréning negatívnych zhybov",
+          "description": "Ako používať negatívy pre budovanie sily zhybov"
+        }
+      },
+      "chinUps": {
+        "title": "Shyby",
+        "description": "Variácia s podchvatom, ktorá zdôrazňuje zapojenie bicepsov.",
+        "video": {
+          "title": "Shyby vs Zhyby",
+          "description": "Správna technika shybov a rozdiely od zhybov"
+        }
+      }
     }
   },
   "deadlifts": {
@@ -55,6 +159,32 @@
       "2": "Variácie rumunského mŕtveho ťahu",
       "3": "Jednonohý mŕtvy ťah pre rovnováhu",
       "4": "Progresívne techniky zaťažovania"
+    },
+    "exercises": {
+      "conventionalDeadlift": {
+        "title": "Konvenčný mŕtvy ťah",
+        "description": "Zvládnite základný pohyb mŕtveho ťahu so správnou technikou kyčelného kĺbu.",
+        "video": {
+          "title": "Tutoriál formy mŕtveho ťahu",
+          "description": "Kompletný sprievodca správnou technikou mŕtveho ťahu"
+        }
+      },
+      "romanianDeadlift": {
+        "title": "Rumunský mŕtvy ťah",
+        "description": "Variácia dominantná kyčľami zameraná na rozvoj hamstringov a sedacích svalov.",
+        "video": {
+          "title": "Sprievodca rumunským mŕtvym ťahom",
+          "description": "Ako vykonávať RDL s perfektnou formou"
+        }
+      },
+      "singleLegDeadlift": {
+        "title": "Jednonohý mŕtvy ťah",
+        "description": "Jednostranný pohyb, ktorý spochybňuje rovnováhu a stabilitu.",
+        "video": {
+          "title": "Rovnováha v jednonohom mŕtvom ťahu",
+          "description": "Zvládnite techniku jednonohého mŕtveho ťahu"
+        }
+      }
     }
   },
   "outdoorCalisthenics": {
@@ -65,6 +195,32 @@
       "2": "Cvičenia na stromoch a hrazdách",
       "3": "Pohyby na zemi",
       "4": "Tréning integrovaný s prírodou"
+    },
+    "exercises": {
+      "parkBenchWorkout": {
+        "title": "Cvičenie na parkovej lavičke",
+        "description": "Celotělová rutina používajúca iba parkovú lavičku pre podporu a zvýšenie.",
+        "video": {
+          "title": "Rutina cvičenia na parkovej lavičke",
+          "description": "Kreatívne cvičenia používajúce parkové lavičky"
+        }
+      },
+      "treeWorkout": {
+        "title": "Tréning na konári stromu",
+        "description": "Používajte pevné konáre stromov pre zhyby a visové cvičenie.",
+        "video": {
+          "title": "Vonkajší tréning zhybov",
+          "description": "Bezpečné cvičenia na konároch stromov a nastavenie"
+        }
+      },
+      "groundMovements": {
+        "title": "Pohybové sekvence na zemi",
+        "description": "Zvieracie pohyby a vzorce lezenia na prírodných povrchoch.",
+        "video": {
+          "title": "Vonkajšie pohybové vzorce",
+          "description": "Prirodzený pohybový tréning vonku"
+        }
+      }
     }
   }
 }
