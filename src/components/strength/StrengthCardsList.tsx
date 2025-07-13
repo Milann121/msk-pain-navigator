@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Clock } from "lucide-react";
 import { StrengthCard, FilterButton } from "@/types/strength";
+import { ProgramProgressBadge } from "@/components/ui/ProgramProgressBadge";
 
 interface StrengthCardsListProps {
   cards: StrengthCard[];
@@ -50,16 +51,17 @@ export const StrengthCardsList: React.FC<StrengthCardsListProps> = ({
         <div className="grid grid-cols-1 gap-4 py-4">
           {filteredCards.map((card) => (
             <Link key={card.id} to={`/strength/${card.id}`}>
-              <Card className="cursor-pointer hover:shadow-lg transition-shadow overflow-hidden group border-none shadow-sm">
-                <CardContent className="p-0 relative flex h-32">
-                  {/* Image - Left side, rotated design */}
-                  <div className="w-32 h-32 overflow-hidden rounded-l-lg flex-shrink-0">
-                    <img 
-                      src={card.image} 
-                      alt={card.title} 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
-                    />
-                  </div>
+               <Card className="cursor-pointer hover:shadow-lg transition-shadow overflow-hidden group border-none shadow-sm">
+                 <CardContent className="p-0 relative flex h-32">
+                   {/* Image - Left side, rotated design */}
+                   <div className="w-32 h-32 overflow-hidden rounded-l-lg flex-shrink-0 relative">
+                     <img 
+                       src={card.image} 
+                       alt={card.title} 
+                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
+                     />
+                     <ProgramProgressBadge programId={card.id} programType="strength" />
+                   </div>
                   
                   {/* Content - Right side */}
                   <div className="flex-1 p-4 flex flex-col justify-between">

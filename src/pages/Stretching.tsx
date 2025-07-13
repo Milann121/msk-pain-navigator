@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Clock, ArrowLeft } from "lucide-react";
+import { ProgramProgressBadge } from "@/components/ui/ProgramProgressBadge";
 // Using direct path to avoid caching issues
 const stretchingRecommendationImage = "/lovable-uploads/stretchingCard_images/3.png";
 interface StretchingCard {
@@ -150,11 +151,12 @@ const Stretching = () => {
           <div className="grid grid-cols-2 gap-4 my-[4px] py-[15px]">
             {filteredCards.map(card => (
               <Link key={card.id} to={`/stretching/${card.id}`}>
-                <Card className="cursor-pointer hover:shadow-lg transition-shadow overflow-hidden group border-none shadow-sm">
-                  <CardContent className="p-0 relative">
-                    <div className="aspect-square overflow-hidden rounded-t-lg">
-                      <img src={card.image} alt={card.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                    </div>
+                 <Card className="cursor-pointer hover:shadow-lg transition-shadow overflow-hidden group border-none shadow-sm">
+                   <CardContent className="p-0 relative">
+                     <div className="aspect-square overflow-hidden rounded-t-lg relative">
+                       <img src={card.image} alt={card.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                       <ProgramProgressBadge programId={card.id} programType="stretching" />
+                     </div>
                     <div className="p-4">
                       <h3 className="font-semibold text-sm mb-2 line-clamp-2">
                         {card.title}
