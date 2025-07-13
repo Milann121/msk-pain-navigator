@@ -78,19 +78,23 @@ export const useProgramProgress = ({ programId, programType }: UseProgramProgres
         }
 
         const completedCount = completedExercises?.length || 0;
-        const completedNames = completedExercises?.map(ex => ex.secondary_exercise_name) || [];
         
         // Calculate full completions and current percentage
         const fullCompletions = totalExercises > 0 ? Math.floor(completedCount / totalExercises) : 0;
         const currentCompletion = totalExercises > 0 ? (completedCount % totalExercises) : 0;
         const completionPercentage = totalExercises > 0 ? Math.round((currentCompletion / totalExercises) * 100) : 0;
 
+        // Get only the exercise names for the current incomplete cycle
+        const currentCycleStartIndex = fullCompletions * totalExercises;
+        const currentCycleCompletions = completedExercises?.slice(currentCycleStartIndex) || [];
+        const currentCycleNames = currentCycleCompletions.map(ex => ex.secondary_exercise_name);
+
         setProgress({
           completedExercises: completedCount,
           totalExercises,
           completionPercentage,
           hasProgress: completedCount > 0,
-          completedExerciseNames: completedNames,
+          completedExerciseNames: currentCycleNames,
           fullCompletions,
         });
       } catch (error) {
