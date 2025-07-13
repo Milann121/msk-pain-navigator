@@ -106,22 +106,8 @@ export const StretchingProgramIntro: React.FC<StretchingProgramIntroProps> = ({ 
                   </ul>
                 </div>
 
-                {/* Progress info */}
-                {progress.hasProgress && progress.completionPercentage < 100 && (
-                  <div className="mb-4 p-3 bg-muted/50 rounded-lg">
-                    <p className="text-sm text-muted-foreground">
-                      Progress: {progress.completionPercentage}% complete
-                      {progress.fullCompletions > 0 && (
-                        <span className="ml-2 text-primary font-medium">
-                          ({progress.fullCompletions}x completed)
-                        </span>
-                      )}
-                    </p>
-                  </div>
-                )}
-
                 {/* Buttons */}
-                {progress.hasProgress && progress.completionPercentage < 100 ? (
+                {progress.hasProgress && progress.completionPercentage > 0 ? (
                   <div className="space-y-3">
                     <Button 
                       onClick={handleContinueProgram}
