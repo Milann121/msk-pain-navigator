@@ -75,14 +75,19 @@ export const ProgramProgressBadge: React.FC<ProgramProgressBadgeProps> = ({
         }
         // TODO: Add support for strength and yoga programs when data is available
 
-        // Calculate completion percentage: completed exercises / total exercises * 100
-        const lastCompletion = totalExercises > 0 
-          ? Math.round((completedExercises / totalExercises) * 100)
+        // Count 100% completions: how many times the full program was completed
+        const fullCompletions = totalExercises > 0 
+          ? Math.floor(completedExercises / totalExercises)
+          : 0;
+
+        // Calculate current completion percentage for partial progress
+        const currentCompletion = totalExercises > 0 
+          ? Math.round(((completedExercises % totalExercises) / totalExercises) * 100)
           : 0;
 
         setProgressData({
-          exerciseCount: completedExercises,
-          lastCompletion,
+          exerciseCount: fullCompletions,
+          lastCompletion: currentCompletion,
         });
       } catch (error) {
         console.error('Error fetching progress data:', error);
