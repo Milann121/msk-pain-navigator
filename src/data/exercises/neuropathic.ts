@@ -17,7 +17,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ["mobility"],
           bodyPart:["neck"],
-          
+          alternatives: ['P1cP8CRE5jI', 'eL5KxSe3c1g', 'D46W1uyK6Mg'] // Alternative neck exercises
         },
         {
           videoId: '7WAoHWIxgEI', // Upper limb neurodynamics
@@ -26,6 +26,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["neuro-mobs", "pain-relief"],
           bodyPart:["neck"],
+          alternatives: ['M_Y9nE9rSLg', 'oFQwLC6iea4', 'XP1yzpFR6ho'] // Alternative neurodynamic exercises
         },
         {
           videoId: 'AefUaX7yLGw', // Trapezius stretch
@@ -49,6 +50,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["mobility"],
           bodyPart:["middle-back"],
+          alternatives: ['dxzegzGNdaU', 'OKsRn5e2VJY', '844ILxo5xsA'] // Alternative stretching exercises
         },
         {
           videoId: '844ILxo5xsA', // Neck massage w/ ball
