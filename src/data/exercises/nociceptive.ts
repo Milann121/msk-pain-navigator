@@ -51,6 +51,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ["mobility", "pain-relief"],
           bodyPart:["neck","middle-back"],
+          alternatives: ['dxzegzGNdaU', 'OKsRn5e2VJY', '844ILxo5xsA'] // Alternative stretching and mobility exercises
         },
         {
           videoId: 'oVJqu0FEw-Y', //Middle-back strenthening - 3exc.
@@ -364,6 +365,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["mobility"],
           bodyPart:["middle-back"],
+          alternatives: ['dxzegzGNdaU', 'OKsRn5e2VJY', '844ILxo5xsA'] // Alternative stretching and mobility exercises
         },
         {
           videoId: 'L94T55NiI34', // Self massage suboccipitals
@@ -391,6 +393,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ["mobility"],
           bodyPart:["middle-back",],
+          alternatives: ['dxzegzGNdaU', 'OKsRn5e2VJY', 'oAxVF_ktAi0'] // Alternative stretching and mobility exercises
         },
         {
           videoId: 'dxzegzGNdaU', // Neck ball massage
