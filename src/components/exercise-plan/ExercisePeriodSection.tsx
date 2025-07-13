@@ -20,8 +20,6 @@ export const ExercisePeriodSection = ({ exercise, showGeneral = false, assessmen
     // If it's a translation key, translate it
     if (text.startsWith('exercises.')) {
       const translated = t(text);
-      // Debug logging to see what keys are being looked up
-      console.log(`Translation lookup: "${text}" -> "${translated}" (found: ${translated !== text})`);
       // If translation returns the same key, it means translation wasn't found
       return translated === text ? text : translated;
     }
