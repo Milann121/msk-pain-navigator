@@ -362,6 +362,54 @@
         "title": "Neurodynamika horních končetin",
         "description": "Techniky mobilizace nervů."
       }
+    },
+    "cervicalRadiculopathyNeck": {
+      "title": "Program léčby cervikální radikulopatie",
+      "description": "Cílená cvičení pro cervikální radikulopatii postihující krk.",
+      "neckRetraction": {
+        "title": "Retrakce krku",
+        "description": "Jemně zatáhněte bradu dozadu a vytvořte dvojitou bradu. Vydržte 5 sekund, opakujte 10krát."
+      },
+      "upperLimbNeurodynamics": {
+        "title": "Neurodynamika horních končetin",
+        "description": "Cvičení pro mobilizaci nervů horních končetin ke snížení podráždění nervů."
+      },
+      "upperCervicalRelease": {
+        "title": "Uvolnění horní části krční páteře",
+        "description": "Jemné techniky uvolnění pro napětí horní části krční páteře."
+      }
+    },
+    "radicularPainNeck": {
+      "title": "Léčba radikulární bolesti - krk",
+      "description": "Program cvičení pro radikulární bolest postihující oblast krku.",
+      "neckRetraction": {
+        "title": "Retrakce krku",
+        "description": "Jemně zatáhněte bradu dozadu a vytvořte dvojitou bradu. Vydržte 5 sekund, opakujte 10krát."
+      },
+      "upperLimbNeurodynamics": {
+        "title": "Neurodynamika horních končetin",
+        "description": "Cvičení pro mobilizaci nervů horních končetin ke snížení podráždění nervů."
+      },
+      "upperCervicalRelease": {
+        "title": "Uvolnění horní části krční páteře",
+        "description": "Jemné techniky uvolnění pro napětí horní části krční páteře."
+      }
+    },
+    "radiculopathyNeck": {
+      "title": "Léčba radikulopatie - krk",
+      "description": "Program cvičení pro radikulopatii postihující oblast krku.",
+      "neckRetraction": {
+        "title": "Retrakce krku",
+        "description": "Jemně zatáhněte bradu dozadu a vytvořte dvojitou bradu. Vydržte 5 sekund, opakujte 10krát."
+      },
+      "upperLimbNeurodynamics": {
+        "title": "Neurodynamika horních končetin",
+        "description": "Cvičení pro mobilizaci nervů horních končetin ke snížení podráždění nervů."
+      },
+      "upperCervicalRelease": {
+        "title": "Uvolnění horní části krční páteře",
+        "description": "Jemné techniky uvolnění pro napětí horní části krční páteře."
+      }
     }
   },
   "nociceptive": {

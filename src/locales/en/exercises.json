@@ -362,6 +362,54 @@
         "title": "Upper Limb Neurodynamics",
         "description": "Nerve mobilization techniques."
       }
+    },
+    "cervicalRadiculopathyNeck": {
+      "title": "Cervical Radiculopathy Treatment Program",
+      "description": "Targeted exercises for cervical radiculopathy affecting the neck.",
+      "neckRetraction": {
+        "title": "Neck Retraction",
+        "description": "Gently pull your chin back to create a double chin. Hold for 5 seconds, repeat 10 times."
+      },
+      "upperLimbNeurodynamics": {
+        "title": "Upper Limb Neurodynamics",
+        "description": "Nerve mobilization exercises for the upper limb to reduce nerve irritation."
+      },
+      "upperCervicalRelease": {
+        "title": "Upper Cervical Release",
+        "description": "Gentle release techniques for upper cervical spine tension."
+      }
+    },
+    "radicularPainNeck": {
+      "title": "Radicular Pain Treatment - Neck",
+      "description": "Exercise program for radicular pain affecting the neck area.",
+      "neckRetraction": {
+        "title": "Neck Retraction",
+        "description": "Gently pull your chin back to create a double chin. Hold for 5 seconds, repeat 10 times."
+      },
+      "upperLimbNeurodynamics": {
+        "title": "Upper Limb Neurodynamics",
+        "description": "Nerve mobilization exercises for the upper limb to reduce nerve irritation."
+      },
+      "upperCervicalRelease": {
+        "title": "Upper Cervical Release",
+        "description": "Gentle release techniques for upper cervical spine tension."
+      }
+    },
+    "radiculopathyNeck": {
+      "title": "Radiculopathy Treatment - Neck",
+      "description": "Exercise program for radiculopathy affecting the neck area.",
+      "neckRetraction": {
+        "title": "Neck Retraction",
+        "description": "Gently pull your chin back to create a double chin. Hold for 5 seconds, repeat 10 times."
+      },
+      "upperLimbNeurodynamics": {
+        "title": "Upper Limb Neurodynamics",
+        "description": "Nerve mobilization exercises for the upper limb to reduce nerve irritation."
+      },
+      "upperCervicalRelease": {
+        "title": "Upper Cervical Release",
+        "description": "Gentle release techniques for upper cervical spine tension."
+      }
     }
   },
   "nociceptive": {

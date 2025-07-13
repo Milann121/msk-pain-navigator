@@ -362,6 +362,54 @@
         "title": "Neurodynamika horných končatín",
         "description": "Techniky mobilizácie nervov."
       }
+    },
+    "cervicalRadiculopathyNeck": {
+      "title": "Program liečby cervikálnej radikulopatie",
+      "description": "Cielené cvičenia pre cervikálnu radikulopatiu postihujúcu krk.",
+      "neckRetraction": {
+        "title": "Retrakcia krku",
+        "description": "Jemne zatiahnite bradu dozadu a vytvorte dvojitú bradu. Vydržte 5 sekúnd, opakujte 10-krát."
+      },
+      "upperLimbNeurodynamics": {
+        "title": "Neurodynamika horných končatín",
+        "description": "Cvičenia pre mobilizáciu nervov horných končatín na zníženie podráždenia nervov."
+      },
+      "upperCervicalRelease": {
+        "title": "Uvoľnenie hornej časti krčnej chrbtice",
+        "description": "Jemné techniky uvoľnenia pre napätie hornej časti krčnej chrbtice."
+      }
+    },
+    "radicularPainNeck": {
+      "title": "Liečba radikulárnej bolesti - krk",
+      "description": "Program cvičení pre radikulárnu bolesť postihujúcu oblasť krku.",
+      "neckRetraction": {
+        "title": "Retrakcia krku",
+        "description": "Jemne zatiahnite bradu dozadu a vytvorte dvojitú bradu. Vydržte 5 sekúnd, opakujte 10-krát."
+      },
+      "upperLimbNeurodynamics": {
+        "title": "Neurodynamika horných končatín",
+        "description": "Cvičenia pre mobilizáciu nervov horných končatín na zníženie podráždenia nervov."
+      },
+      "upperCervicalRelease": {
+        "title": "Uvoľnenie hornej časti krčnej chrbtice",
+        "description": "Jemné techniky uvoľnenia pre napätie hornej časti krčnej chrbtice."
+      }
+    },
+    "radiculopathyNeck": {
+      "title": "Liečba radikulopatie - krk",
+      "description": "Program cvičení pre radikulopatiu postihujúcu oblasť krku.",
+      "neckRetraction": {
+        "title": "Retrakcia krku",
+        "description": "Jemne zatiahnite bradu dozadu a vytvorte dvojitú bradu. Vydržte 5 sekúnd, opakujte 10-krát."
+      },
+      "upperLimbNeurodynamics": {
+        "title": "Neurodynamika horných končatín",
+        "description": "Cvičenia pre mobilizáciu nervov horných končatín na zníženie podráždenia nervov."
+      },
+      "upperCervicalRelease": {
+        "title": "Uvoľnenie hornej časti krčnej chrbtice",
+        "description": "Jemné techniky uvoľnenia pre napätie hornej časti krčnej chrbtice."
+      }
     }
   },
   "nociceptive": {
