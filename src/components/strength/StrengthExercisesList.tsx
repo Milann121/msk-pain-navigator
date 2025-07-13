@@ -5,19 +5,33 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft } from "lucide-react";
 import { StrengthProgram } from "@/types/strengthProgram";
 import ExerciseVideo from "@/components/ExerciseVideo";
-import { ExerciseCompletionButton } from "@/components/ui/ExerciseCompletionButton";
+import { ProgramExerciseCompletionButton } from "@/components/ui/ProgramExerciseCompletionButton";
+
+interface ProgramProgress {
+  completedExercises: number;
+  totalExercises: number;
+  completionPercentage: number;
+  hasProgress: boolean;
+  completedExerciseNames: string[];
+  fullCompletions: number;
+}
+
 interface StrengthExercisesListProps {
   program: StrengthProgram;
   onBack: () => void;
+  isContinuing?: boolean;
+  progress?: ProgramProgress;
 }
 export const StrengthExercisesList: React.FC<StrengthExercisesListProps> = ({
   program,
-  onBack
+  onBack,
+  isContinuing = false,
+  progress
 }) => {
-  const {
-    t
-  } = useTranslation();
-  return <div className="min-h-screen flex flex-col bg-gradient-to-b from-background to-muted/20 animate-slide-in-right">
+  const { t } = useTranslation();
+
+  return (
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-background to-muted/20 animate-slide-in-right">
       <div className="flex-1 py-6 px-4">
         <div className="container mx-auto max-w-4xl md:max-w-4xl max-w-none px-2">
           {/* Header */}
@@ -33,12 +47,18 @@ export const StrengthExercisesList: React.FC<StrengthExercisesListProps> = ({
 
           {/* Exercises List */}
           <div className="space-y-6">
-            {program.exercises.map((exercise, index) => <Card key={index} className="overflow-hidden shadow-sm border-0">
+            {program.exercises.map((exercise, index) => (
+              <Card key={index} className="overflow-hidden shadow-sm border-0">
                 <CardContent className="p-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     {/* Video Section */}
                     <div className="space-y-4">
-                      <ExerciseVideo videoId={exercise.video.videoId} title={exercise.video.title} description={exercise.video.description} exerciseTitle={exercise.title} />
+                      <ExerciseVideo 
+                        videoId={exercise.video.videoId} 
+                        title={exercise.video.title} 
+                        description={exercise.video.description} 
+                        exerciseTitle={exercise.title} 
+                      />
                     </div>
 
                     {/* Exercise Details */}
@@ -53,41 +73,60 @@ export const StrengthExercisesList: React.FC<StrengthExercisesListProps> = ({
                       </div>
 
                       {/* Focus Body Parts */}
-                      {exercise.focus_bodyPart.length > 0 && <div>
+                      {exercise.focus_bodyPart.length > 0 && (
+                        <div>
                           <h4 className="text-foreground text-sm mb-2 font-bold">
                             {t('strengthPrograms.common.focusAreas')}
                           </h4>
                           <div className="flex flex-wrap gap-1">
-                            {exercise.focus_bodyPart.map((part, partIndex) => <span key={partIndex} className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">
+                            {exercise.focus_bodyPart.map((part, partIndex) => (
+                              <span
+                                key={partIndex}
+                                className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full"
+                              >
                                 {t(`bodyParts.${part}`)}
-                              </span>)}
+                              </span>
+                            ))}
                           </div>
-                        </div>}
+                        </div>
+                      )}
 
                       {/* Avoid Differentials */}
-                      {exercise.avoid_differentials.length > 0 && <div>
+                      {exercise.avoid_differentials.length > 0 && (
+                        <div>
                           <h4 className="text-destructive text-sm mb-2 font-bold">
                             {t('strengthPrograms.common.avoidIf')}
                           </h4>
                           <div className="flex flex-wrap gap-1">
-                            {exercise.avoid_differentials.map((differential, diffIndex) => <span key={diffIndex} className="px-2 py-1 bg-destructive/10 text-destructive text-xs rounded-full">
+                            {exercise.avoid_differentials.map((differential, diffIndex) => (
+                              <span
+                                key={diffIndex}
+                                className="px-2 py-1 bg-destructive/10 text-destructive text-xs rounded-full"
+                              >
                                 {t(`differentials.${differential}`)}
-                              </span>)}
+                              </span>
+                            ))}
                           </div>
-                        </div>}
+                        </div>
+                      )}
 
                       {/* Mark as Completed Button */}
-                      <ExerciseCompletionButton 
+                      <ProgramExerciseCompletionButton 
                         secondaryProgram="strength"
                         programType={program.title}
                         exerciseName={exercise.title}
+                        isContinuing={isContinuing}
+                        completedExerciseNames={progress?.completedExerciseNames || []}
+                        totalExercises={progress?.totalExercises || 0}
                       />
                     </div>
                   </div>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
