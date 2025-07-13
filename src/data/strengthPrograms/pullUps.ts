@@ -24,7 +24,8 @@ export const pullUpsProgram: StrengthProgram = {
         description: "strengthPrograms.pullUps.exercises.assistedPullUp.video.description"
       },
       focus_bodyPart: ["lats", "biceps"],
-      avoid_differentials: ["shoulder impingement"]
+      avoid_differentials: ["shoulder impingement"],
+      repetitions: "10-12x"
     },
     {
       title: "strengthPrograms.pullUps.exercises.negativesPullUp.title",
@@ -35,7 +36,8 @@ export const pullUpsProgram: StrengthProgram = {
         description: "strengthPrograms.pullUps.exercises.negativesPullUp.video.description"
       },
       focus_bodyPart: ["lats", "rhomboids"],
-      avoid_differentials: ["elbow pain"]
+      avoid_differentials: ["elbow pain"],
+      repetitions: "10-12x"
     },
     {
       title: "strengthPrograms.pullUps.exercises.chinUps.title",
@@ -46,7 +48,8 @@ export const pullUpsProgram: StrengthProgram = {
         description: "strengthPrograms.pullUps.exercises.chinUps.video.description"
       },
       focus_bodyPart: ["biceps", "lats"],
-      avoid_differentials: ["elbow pain", "wrist pain"]
+      avoid_differentials: ["elbow pain", "wrist pain"],
+      repetitions: "10-12x"
     }
   ]
 };

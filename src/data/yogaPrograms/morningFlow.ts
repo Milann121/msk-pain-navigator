@@ -24,7 +24,8 @@ export const morningFlowProgram: YogaProgram = {
         description: "yogaPrograms.morningFlow.exercises.sunSalutation.video.description"
       },
       focus_bodyPart: ["full-body", "spine"],
-      avoid_differentials: ["wrist pain", "lower back pain"]
+      avoid_differentials: ["wrist pain", "lower back pain"],
+      repetitions: "10-12x"
     },
     {
       title: "yogaPrograms.morningFlow.exercises.catCow.title",
@@ -35,7 +36,8 @@ export const morningFlowProgram: YogaProgram = {
         description: "yogaPrograms.morningFlow.exercises.catCow.video.description"
       },
       focus_bodyPart: ["spine", "core"],
-      avoid_differentials: ["wrist pain"]
+      avoid_differentials: ["wrist pain"],
+      repetitions: "10-12x"
     },
     {
       title: "yogaPrograms.morningFlow.exercises.downwardDog.title",
@@ -46,7 +48,8 @@ export const morningFlowProgram: YogaProgram = {
         description: "yogaPrograms.morningFlow.exercises.downwardDog.video.description"
       },
       focus_bodyPart: ["shoulders", "hamstrings", "calves"],
-      avoid_differentials: ["wrist pain", "shoulder impingement"]
+      avoid_differentials: ["wrist pain", "shoulder impingement"],
+      repetitions: "10-12x"
     }
   ]
 };

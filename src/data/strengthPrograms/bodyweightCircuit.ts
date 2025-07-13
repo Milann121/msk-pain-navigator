@@ -25,7 +25,8 @@ export const bodyweightCircuitProgram: StrengthProgram = {
         description: "strengthPrograms.bodyweightCircuit.exercises.burpees.video.description"
       },
       focus_bodyPart: ["full-body", "cardiovascular"],
-      avoid_differentials: ["knee pain", "shoulder impingement"]
+      avoid_differentials: ["knee pain", "shoulder impingement"],
+      repetitions: "10-12x"
     },
     {
       title: "strengthPrograms.bodyweightCircuit.exercises.mountainClimbers.title",
@@ -36,7 +37,8 @@ export const bodyweightCircuitProgram: StrengthProgram = {
         description: "strengthPrograms.bodyweightCircuit.exercises.mountainClimbers.video.description"
       },
       focus_bodyPart: ["core", "shoulders", "cardiovascular"],
-      avoid_differentials: ["wrist pain", "lower back pain"]
+      avoid_differentials: ["wrist pain", "lower back pain"],
+      repetitions: "10-12x"
     },
     {
       title: "strengthPrograms.bodyweightCircuit.exercises.plankJacks.title",
@@ -47,7 +49,8 @@ export const bodyweightCircuitProgram: StrengthProgram = {
         description: "strengthPrograms.bodyweightCircuit.exercises.plankJacks.video.description"
       },
       focus_bodyPart: ["core", "shoulders"],
-      avoid_differentials: ["wrist pain", "shoulder impingement"]
+      avoid_differentials: ["wrist pain", "shoulder impingement"],
+      repetitions: "10-12x"
     }
   ]
 };

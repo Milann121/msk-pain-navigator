@@ -24,6 +24,7 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ['pain-relief', 'stability'],
           bodyPart: ['shoulder'],
+          repetitions: "10-12x"
         },
         {
           videoId: 'eV-61JrYLQQ',
@@ -32,6 +33,7 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ['pain-relief'],
           bodyPart: ['shoulder'],
+          repetitions: "10-12x"
         },
         {
           videoId: 'NUhSjqTpw5k',
@@ -40,7 +42,7 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ['pain-relief'],
           bodyPart: ['shoulder'],
-          
+          repetitions: "10-12x"
         }
       ]
     },
@@ -55,7 +57,8 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           description: 'exercises.shoulderNociceptive.frozenShoulderPhase2.isometricShoulderPresses.description',
           importance: 2,
           mainGroup: ['stability'],
-          bodyPart: ['shoulder']
+          bodyPart: ['shoulder'],
+          repetitions: "10-12x"
         },
         {
           videoId: 'whyp41YIN8A',
@@ -63,7 +66,8 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           description: 'exercises.shoulderNociceptive.frozenShoulderPhase2.wallPushUps.description',
           importance: 3,
           mainGroup: ['stability'],
-          bodyPart: ['shoulder']
+          bodyPart: ['shoulder'],
+          repetitions: "10-12x"
         },
         {
           videoId: 'oVJqu0FEw-Y',
@@ -71,7 +75,8 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           description: 'exercises.shoulderNociceptive.frozenShoulderPhase2.interscapularStrengthening.description',
           importance: 2,
           mainGroup: ['stability'],
-          bodyPart: ['shoulder']
+          bodyPart: ['shoulder'],
+          repetitions: "10-12x"
         }
       ]
     }
@@ -90,7 +95,8 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           description: 'exercises.shoulderNociceptive.subacromialImpingement.interscapularStrengthening.description',
           importance: 1,
           mainGroup: ['stability'],
-          bodyPart: ['shoulder']
+          bodyPart: ['shoulder'],
+          repetitions: "10-12x"
         },
         {
           videoId: 'Ak0QVHhwkQg',
@@ -98,7 +104,8 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           description: 'exercises.shoulderNociceptive.subacromialImpingement.gentlePendulum.description',
           importance: 2,
           mainGroup: ['mobility'],
-          bodyPart: ['shoulder']
+          bodyPart: ['shoulder'],
+          repetitions: "10-12x"
         },
         {
           videoId: 'NUhSjqTpw5k',
@@ -106,7 +113,8 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           description: 'exercises.shoulderNociceptive.subacromialImpingement.preExerciseHeating.description',
           importance: 3,
           mainGroup: ['pain-relief'],
-          bodyPart: ['shoulder']
+          bodyPart: ['shoulder'],
+          repetitions: "10-12x"
         }
       ]
     }
@@ -125,7 +133,8 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           description: 'exercises.shoulderNociceptive.rotatorCuffTear.isometricStrengthening.description',
           importance: 1,
           mainGroup: ['stability'],
-          bodyPart: ['shoulder']
+          bodyPart: ['shoulder'],
+          repetitions: "10-12x"
         },
         {
           videoId: 'un6jXuY',
@@ -133,7 +142,8 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           description: 'exercises.shoulderNociceptive.rotatorCuffTear.rotatorCuffMassage.description',
           importance: 2,
           mainGroup: ['pain-relief'],
-          bodyPart: ['shoulder']
+          bodyPart: ['shoulder'],
+          repetitions: "10-12x"
         }
       ]
     }
@@ -152,7 +162,8 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           description: 'exercises.shoulderNociceptive.defaultNociceptive.basicMobility.description',
           importance: 1,
           mainGroup: ['mobility'],
-          bodyPart: ['shoulder']
+          bodyPart: ['shoulder'],
+          repetitions: "10-12x"
         },
         {
           videoId: 'ldMl3J7MzXE',
@@ -160,7 +171,8 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           description: 'exercises.shoulderNociceptive.defaultNociceptive.basicStrengthening.description',
           importance: 2,
           mainGroup: ['stability'],
-          bodyPart: ['shoulder']
+          bodyPart: ['shoulder'],
+          repetitions: "10-12x"
         }
       ]
     }

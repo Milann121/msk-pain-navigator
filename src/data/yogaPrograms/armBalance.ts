@@ -24,7 +24,8 @@ export const armBalanceProgram: YogaProgram = {
         description: "yogaPrograms.armBalance.exercises.crowPose.video.description"
       },
       focus_bodyPart: ["arms", "core", "balance"],
-      avoid_differentials: ["wrist pain", "neck injury"]
+      avoid_differentials: ["wrist pain", "neck injury"],
+      repetitions: "10-12x"
     },
     {
       title: "yogaPrograms.armBalance.exercises.sideCrow.title",
@@ -35,7 +36,8 @@ export const armBalanceProgram: YogaProgram = {
         description: "yogaPrograms.armBalance.exercises.sideCrow.video.description"
       },
       focus_bodyPart: ["obliques", "arms", "balance"],
-      avoid_differentials: ["wrist pain", "shoulder injury"]
+      avoid_differentials: ["wrist pain", "shoulder injury"],
+      repetitions: "10-12x"
     },
     {
       title: "yogaPrograms.armBalance.exercises.firefly.title",
@@ -46,7 +48,8 @@ export const armBalanceProgram: YogaProgram = {
         description: "yogaPrograms.armBalance.exercises.firefly.video.description"
       },
       focus_bodyPart: ["arms", "core", "hamstrings"],
-      avoid_differentials: ["wrist injury", "hamstring strain"]
+      avoid_differentials: ["wrist injury", "hamstring strain"],
+      repetitions: "10-12x"
     }
   ]
 };

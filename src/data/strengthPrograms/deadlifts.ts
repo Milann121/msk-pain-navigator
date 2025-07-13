@@ -24,7 +24,8 @@ export const deadliftsProgram: StrengthProgram = {
         description: "strengthPrograms.deadlifts.exercises.conventionalDeadlift.video.description"
       },
       focus_bodyPart: ["hamstrings", "glutes", "lower-back"],
-      avoid_differentials: ["lower back injury"]
+      avoid_differentials: ["lower back injury"],
+      repetitions: "10-12x"
     },
     {
       title: "strengthPrograms.deadlifts.exercises.romanianDeadlift.title",
@@ -35,7 +36,8 @@ export const deadliftsProgram: StrengthProgram = {
         description: "strengthPrograms.deadlifts.exercises.romanianDeadlift.video.description"
       },
       focus_bodyPart: ["hamstrings", "glutes"],
-      avoid_differentials: ["hamstring strain"]
+      avoid_differentials: ["hamstring strain"],
+      repetitions: "10-12x"
     },
     {
       title: "strengthPrograms.deadlifts.exercises.sumodeadlift.title",
@@ -46,7 +48,8 @@ export const deadliftsProgram: StrengthProgram = {
         description: "strengthPrograms.deadlifts.exercises.sumodeadlift.video.description"
       },
       focus_bodyPart: ["glutes", "quadriceps", "adductors"],
-      avoid_differentials: ["knee pain", "hip injury"]
+      avoid_differentials: ["knee pain", "hip injury"],
+      repetitions: "10-12x"
     }
   ]
 };

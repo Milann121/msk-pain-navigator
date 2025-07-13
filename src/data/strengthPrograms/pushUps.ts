@@ -24,7 +24,8 @@ export const pushUpsProgram: StrengthProgram = {
         description: "strengthPrograms.pushUps.exercises.basicPushUp.video.description"
       },
       focus_bodyPart: ["chest", "shoulders", "triceps"],
-      avoid_differentials: ["shoulder impingement", "wrist pain"]
+      avoid_differentials: ["shoulder impingement", "wrist pain"],
+      repetitions: "10-12x"
     },
     {
       title: "strengthPrograms.pushUps.exercises.inclinePushUp.title",
@@ -35,7 +36,8 @@ export const pushUpsProgram: StrengthProgram = {
         description: "strengthPrograms.pushUps.exercises.inclinePushUp.video.description"
       },
       focus_bodyPart: ["chest", "shoulders"],
-      avoid_differentials: []
+      avoid_differentials: [],
+      repetitions: "10-12x"
     },
     {
       title: "strengthPrograms.pushUps.exercises.diamondPushUp.title",
@@ -46,7 +48,8 @@ export const pushUpsProgram: StrengthProgram = {
         description: "strengthPrograms.pushUps.exercises.diamondPushUp.video.description"
       },
       focus_bodyPart: ["triceps", "chest"],
-      avoid_differentials: ["wrist pain", "elbow pain"]
+      avoid_differentials: ["wrist pain", "elbow pain"],
+      repetitions: "10-12x"
     }
   ]
 };

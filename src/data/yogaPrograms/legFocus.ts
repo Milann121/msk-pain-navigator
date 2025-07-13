@@ -24,7 +24,8 @@ export const legFocusProgram: YogaProgram = {
         description: "yogaPrograms.legFocus.exercises.pigeonPose.video.description"
       },
       focus_bodyPart: ["hips", "glutes"],
-      avoid_differentials: ["knee injury", "hip injury"]
+      avoid_differentials: ["knee injury", "hip injury"],
+      repetitions: "10-12x"
     },
     {
       title: "yogaPrograms.legFocus.exercises.lizardPose.title",
@@ -35,7 +36,8 @@ export const legFocusProgram: YogaProgram = {
         description: "yogaPrograms.legFocus.exercises.lizardPose.video.description"
       },
       focus_bodyPart: ["hip-flexors", "quadriceps"],
-      avoid_differentials: ["groin strain"]
+      avoid_differentials: ["groin strain"],
+      repetitions: "10-12x"
     },
     {
       title: "yogaPrograms.legFocus.exercises.seatedForwardFold.title",
@@ -46,7 +48,8 @@ export const legFocusProgram: YogaProgram = {
         description: "yogaPrograms.legFocus.exercises.seatedForwardFold.video.description"
       },
       focus_bodyPart: ["hamstrings", "calves"],
-      avoid_differentials: ["lower back injury"]
+      avoid_differentials: ["lower back injury"],
+      repetitions: "10-12x"
     }
   ]
 };

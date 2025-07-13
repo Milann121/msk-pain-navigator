@@ -25,7 +25,8 @@ export const powerFlowProgram: YogaProgram = {
         description: "yogaPrograms.powerFlow.exercises.warriorSequence.video.description"
       },
       focus_bodyPart: ["legs", "core", "balance"],
-      avoid_differentials: ["knee pain", "ankle instability"]
+      avoid_differentials: ["knee pain", "ankle instability"],
+      repetitions: "10-12x"
     },
     {
       title: "yogaPrograms.powerFlow.exercises.chatupranga.title",
@@ -36,7 +37,8 @@ export const powerFlowProgram: YogaProgram = {
         description: "yogaPrograms.powerFlow.exercises.chatupranga.video.description"
       },
       focus_bodyPart: ["arms", "core", "chest"],
-      avoid_differentials: ["wrist pain", "shoulder impingement"]
+      avoid_differentials: ["wrist pain", "shoulder impingement"],
+      repetitions: "10-12x"
     },
     {
       title: "yogaPrograms.powerFlow.exercises.armBalance.title",
@@ -47,7 +49,8 @@ export const powerFlowProgram: YogaProgram = {
         description: "yogaPrograms.powerFlow.exercises.armBalance.video.description"
       },
       focus_bodyPart: ["arms", "core", "balance"],
-      avoid_differentials: ["wrist pain", "shoulder injury"]
+      avoid_differentials: ["wrist pain", "shoulder injury"],
+      repetitions: "10-12x"
     }
   ]
 };

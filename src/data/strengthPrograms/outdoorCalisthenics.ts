@@ -24,7 +24,8 @@ export const outdoorCalisthenicsProgram: StrengthProgram = {
         description: "strengthPrograms.outdoorCalisthenics.exercises.parkBenchWorkout.video.description"
       },
       focus_bodyPart: ["legs", "chest", "core"],
-      avoid_differentials: ["knee pain"]
+      avoid_differentials: ["knee pain"],
+      repetitions: "10-12x"
     },
     {
       title: "strengthPrograms.outdoorCalisthenics.exercises.playgroundWorkout.title",
@@ -35,7 +36,8 @@ export const outdoorCalisthenicsProgram: StrengthProgram = {
         description: "strengthPrograms.outdoorCalisthenics.exercises.playgroundWorkout.video.description"
       },
       focus_bodyPart: ["full-body", "functional-movement"],
-      avoid_differentials: ["wrist pain"]
+      avoid_differentials: ["wrist pain"],
+      repetitions: "10-12x"
     },
     {
       title: "strengthPrograms.outdoorCalisthenics.exercises.hillSprints.title",
@@ -46,7 +48,8 @@ export const outdoorCalisthenicsProgram: StrengthProgram = {
         description: "strengthPrograms.outdoorCalisthenics.exercises.hillSprints.video.description"
       },
       focus_bodyPart: ["legs", "cardiovascular"],
-      avoid_differentials: ["ankle injury", "knee pain"]
+      avoid_differentials: ["ankle injury", "knee pain"],
+      repetitions: "10-12x"
     }
   ]
 };

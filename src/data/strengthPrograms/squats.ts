@@ -24,7 +24,8 @@ export const squatsProgram: StrengthProgram = {
         description: "strengthPrograms.squats.exercises.bodyweightSquat.video.description"
       },
       focus_bodyPart: ["quadriceps", "glutes"],
-      avoid_differentials: ["knee pain", "ankle stiffness"]
+      avoid_differentials: ["knee pain", "ankle stiffness"],
+      repetitions: "10-12x"
     },
     {
       title: "strengthPrograms.squats.exercises.gobletSquat.title",
@@ -35,7 +36,8 @@ export const squatsProgram: StrengthProgram = {
         description: "strengthPrograms.squats.exercises.gobletSquat.video.description"
       },
       focus_bodyPart: ["quadriceps", "glutes", "core"],
-      avoid_differentials: ["knee pain"]
+      avoid_differentials: ["knee pain"],
+      repetitions: "10-12x"
     },
     {
       title: "strengthPrograms.squats.exercises.jumpSquat.title",
@@ -46,7 +48,8 @@ export const squatsProgram: StrengthProgram = {
         description: "strengthPrograms.squats.exercises.jumpSquat.video.description"
       },
       focus_bodyPart: ["quadriceps", "glutes", "calves"],
-      avoid_differentials: ["knee pain", "ankle injury"]
+      avoid_differentials: ["knee pain", "ankle injury"],
+      repetitions: "10-12x"
     }
   ]
 };
