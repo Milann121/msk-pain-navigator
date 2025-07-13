@@ -5,14 +5,29 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft, Check } from "lucide-react";
 import { StretchingProgram } from "@/types/stretchingProgram";
 import ExerciseVideo from "@/components/ExerciseVideo";
-import { ExerciseCompletionButton } from "@/components/ui/ExerciseCompletionButton";
+import { ProgramExerciseCompletionButton } from "@/components/ui/ProgramExerciseCompletionButton";
+
+interface ProgramProgress {
+  completedExercises: number;
+  totalExercises: number;
+  completionPercentage: number;
+  hasProgress: boolean;
+  completedExerciseNames: string[];
+  fullCompletions: number;
+}
+
 interface StretchingExercisesListProps {
   program: StretchingProgram;
   onBack: () => void;
+  isContinuing?: boolean;
+  progress?: ProgramProgress;
 }
+
 export const StretchingExercisesList: React.FC<StretchingExercisesListProps> = ({
   program,
-  onBack
+  onBack,
+  isContinuing = false,
+  progress
 }) => {
   const {
     t
@@ -77,10 +92,17 @@ export const StretchingExercisesList: React.FC<StretchingExercisesListProps> = (
                         </div>}
 
                       {/* Mark as Completed Button */}
-                      <ExerciseCompletionButton 
+                      <ProgramExerciseCompletionButton 
                         secondaryProgram="stretching"
                         programType={program.title}
                         exerciseName={exercise.title}
+                        isContinuing={isContinuing}
+                        completedExerciseNames={progress?.completedExerciseNames || []}
+                        totalExercises={progress?.totalExercises || 0}
+                        onCompletion={() => {
+                          // Refresh progress when an exercise is completed
+                          // This will be handled by the parent component re-rendering
+                        }}
                       />
                     </div>
                   </div>

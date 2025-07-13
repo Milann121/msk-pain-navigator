@@ -1,6 +1,9 @@
 {
   "title": "Protahování",
   "content": "Obsah pro protahování bude dostupný zde.",
+  "common": {
+    "continue": "Pokračovat"
+  },
   "no_results": "Pro tento filtr nebyly nalezena žádná protahovací cvičení.",
   "suggestions": {
     "title": "Na základě vašich aktivních programů vám doporučujeme následující programy",

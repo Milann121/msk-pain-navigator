@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Clock, ArrowLeft, Play } from "lucide-react";
+import { Clock, ArrowLeft, Play, RotateCcw } from "lucide-react";
 import { StretchingProgram } from "@/types/stretchingProgram";
 import { StretchingExercisesList } from "./StretchingExercisesList";
+import { useProgramProgress } from "@/hooks/useProgramProgress";
 
 interface StretchingProgramIntroProps {
   program: StretchingProgram;
@@ -13,9 +14,22 @@ interface StretchingProgramIntroProps {
 
 export const StretchingProgramIntro: React.FC<StretchingProgramIntroProps> = ({ program }) => {
   const { t } = useTranslation();
+  const { programId } = useParams<{ programId: string }>();
   const [showExercises, setShowExercises] = useState(false);
+  const [isContinuing, setIsContinuing] = useState(false);
+  
+  const { progress, isLoading } = useProgramProgress({
+    programId: programId || '',
+    programType: 'stretching'
+  });
 
   const handleStartProgram = () => {
+    setIsContinuing(false);
+    setShowExercises(true);
+  };
+
+  const handleContinueProgram = () => {
+    setIsContinuing(true);
     setShowExercises(true);
   };
 
@@ -23,7 +37,9 @@ export const StretchingProgramIntro: React.FC<StretchingProgramIntroProps> = ({ 
     return (
       <StretchingExercisesList 
         program={program} 
-        onBack={() => setShowExercises(false)} 
+        onBack={() => setShowExercises(false)}
+        isContinuing={isContinuing}
+        progress={progress}
       />
     );
   }
@@ -90,15 +106,51 @@ export const StretchingProgramIntro: React.FC<StretchingProgramIntroProps> = ({ 
                   </ul>
                 </div>
 
-                {/* Start Button */}
-                <Button 
-                  onClick={handleStartProgram}
-                  className="w-full h-12 text-base font-semibold"
-                  size="lg"
-                >
-                  <Play className="w-5 h-5 mr-2" />
-                  {t('stretchingPrograms.common.start')}
-                </Button>
+                {/* Progress info */}
+                {progress.hasProgress && progress.completionPercentage < 100 && (
+                  <div className="mb-4 p-3 bg-muted/50 rounded-lg">
+                    <p className="text-sm text-muted-foreground">
+                      Progress: {progress.completionPercentage}% complete
+                      {progress.fullCompletions > 0 && (
+                        <span className="ml-2 text-primary font-medium">
+                          ({progress.fullCompletions}x completed)
+                        </span>
+                      )}
+                    </p>
+                  </div>
+                )}
+
+                {/* Buttons */}
+                {progress.hasProgress && progress.completionPercentage < 100 ? (
+                  <div className="space-y-3">
+                    <Button 
+                      onClick={handleContinueProgram}
+                      className="w-full h-12 text-base font-semibold"
+                      size="lg"
+                    >
+                      <Play className="w-5 h-5 mr-2" />
+                      {t('stretchingPrograms.common.continue')}
+                    </Button>
+                    <Button 
+                      onClick={handleStartProgram}
+                      className="w-full h-12 text-base font-semibold"
+                      size="lg"
+                      variant="outline"
+                    >
+                      <RotateCcw className="w-5 h-5 mr-2" />
+                      {t('stretchingPrograms.common.start')}
+                    </Button>
+                  </div>
+                ) : (
+                  <Button 
+                    onClick={handleStartProgram}
+                    className="w-full h-12 text-base font-semibold"
+                    size="lg"
+                  >
+                    <Play className="w-5 h-5 mr-2" />
+                    {t('stretchingPrograms.common.start')}
+                  </Button>
+                )}
               </div>
             </CardContent>
           </Card>

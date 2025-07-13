@@ -81,8 +81,9 @@ export const ProgramProgressBadge: React.FC<ProgramProgressBadgeProps> = ({
           : 0;
 
         // Calculate current completion percentage for partial progress
+        const remainingExercises = totalExercises > 0 ? (completedExercises % totalExercises) : 0;
         const currentCompletion = totalExercises > 0 
-          ? Math.round(((completedExercises % totalExercises) / totalExercises) * 100)
+          ? Math.round((remainingExercises / totalExercises) * 100)
           : 0;
 
         setProgressData({

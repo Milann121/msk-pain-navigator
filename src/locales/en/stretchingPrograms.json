@@ -2,6 +2,7 @@
   "common": {
     "whatYouWillDo": "What you will do:",
     "start": "Start Program",
+    "continue": "Continue",
     "focusAreas": "Focus Areas:",
     "avoidIf": "Avoid if you have:"
   },
