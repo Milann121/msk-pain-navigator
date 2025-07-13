@@ -24,7 +24,8 @@ export const neckShoulderProgram: StretchingProgram = {
         description: "stretchingPrograms.neckShoulder.exercises.neckRotation.video.description"
       },
       focus_bodyPart: ["neck"],
-      avoid_differentials: ["disc herniation", "vertebral artery insufficiency"]
+      avoid_differentials: ["disc herniation", "vertebral artery insufficiency"],
+      repetitions: "10-12x"
     },
     {
       title: "stretchingPrograms.neckShoulder.exercises.shoulderRelease.title",
@@ -35,7 +36,8 @@ export const neckShoulderProgram: StretchingProgram = {
         description: "stretchingPrograms.neckShoulder.exercises.shoulderRelease.video.description"
       },
       focus_bodyPart: ["neck", "shoulders", "upper-back"],
-      avoid_differentials: []
+      avoid_differentials: [],
+      repetitions: "10-12x"
     },
     {
       title: "stretchingPrograms.neckShoulder.exercises.upperCervicalRelease.title",
@@ -46,7 +48,8 @@ export const neckShoulderProgram: StretchingProgram = {
         description: "stretchingPrograms.neckShoulder.exercises.upperCervicalRelease.video.description"
       },
       focus_bodyPart: ["neck", "head"],
-      avoid_differentials: ["vertebral artery insufficiency"]
+      avoid_differentials: ["vertebral artery insufficiency"],
+      repetitions: "10-12x"
     }
   ]
 };

@@ -10,6 +10,7 @@ export interface StrengthExercise {
   video: StrengthVideo;
   focus_bodyPart: string[];
   avoid_differentials: string[];
+  repetitions?: string;
 }
 
 export interface StrengthProgram {

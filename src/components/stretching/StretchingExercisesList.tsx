@@ -6,6 +6,7 @@ import { ArrowLeft, Check } from "lucide-react";
 import { StretchingProgram } from "@/types/stretchingProgram";
 import ExerciseVideo from "@/components/ExerciseVideo";
 import { ProgramExerciseCompletionButton } from "@/components/ui/ProgramExerciseCompletionButton";
+import { RepetitionsDisplay } from "@/components/exercise-plan/RepetitionsDisplay";
 
 interface ProgramProgress {
   completedExercises: number;
@@ -66,6 +67,9 @@ export const StretchingExercisesList: React.FC<StretchingExercisesListProps> = (
                           {t(exercise.description)}
                         </p>
                       </div>
+
+                      {/* Repetitions */}
+                      {exercise.repetitions && <RepetitionsDisplay repetitions={exercise.repetitions} />}
 
                       {/* Focus Body Parts */}
                       {exercise.focus_bodyPart.length > 0 && <div>

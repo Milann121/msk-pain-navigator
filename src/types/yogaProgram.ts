@@ -10,6 +10,7 @@ export interface YogaExercise {
   video: YogaVideo;
   focus_bodyPart: string[];
   avoid_differentials: string[];
+  repetitions?: string;
 }
 
 export interface YogaProgram {

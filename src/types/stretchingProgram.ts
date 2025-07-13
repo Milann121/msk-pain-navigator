@@ -10,6 +10,7 @@ export interface StretchingExercise {
   video: StretchingVideo;
   focus_bodyPart: string[];
   avoid_differentials: string[];
+  repetitions?: string;
 }
 
 export interface StretchingProgram {

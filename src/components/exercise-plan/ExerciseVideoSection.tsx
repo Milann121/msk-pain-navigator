@@ -4,6 +4,7 @@ import { ExerciseCompletionCheckbox } from '@/components/ExerciseCompletionCheck
 import { FavoriteExerciseButton } from '@/components/FavoriteExerciseButton';
 import SwapExerciseButton from '@/components/exercise-plan/SwapExerciseButton';
 import SwapConfirmationDialog from '@/components/exercise-plan/SwapConfirmationDialog';
+import { RepetitionsDisplay } from '@/components/exercise-plan/RepetitionsDisplay';
 import { useAuth } from '@/contexts/AuthContext';
 import { useToast } from '@/components/ui/use-toast';
 import { useTranslation } from 'react-i18next';
@@ -19,6 +20,7 @@ interface Video {
   bodyPart?: Array<'neck' | 'middle-back' | 'lower-back' | 'shoulder' | 'elbow' | 'forearm' | 'hand' | 'fingers'>;
   mainGroup?: Array<'mobility' | 'stability' | 'pain-relief'| 'neuro-mobs'>;
   alternatives?: string[];
+  repetitions?: string;
 }
 
 interface ExerciseVideoSectionProps {
@@ -187,6 +189,9 @@ export const ExerciseVideoSection = ({
                   </span>
                 ))}
               </p>
+              {video.repetitions && (
+                <RepetitionsDisplay repetitions={video.repetitions} />
+              )}
               {assessmentId && (
                 <ExerciseCompletionCheckbox
                   exerciseTitle={translatedTitle || getTranslatedText(exerciseTitle)}
@@ -252,6 +257,9 @@ export const ExerciseVideoSection = ({
                 </span>
               ))}
             </p>
+            {video.repetitions && (
+              <RepetitionsDisplay repetitions={video.repetitions} />
+            )}
             {assessmentId && (
               <ExerciseCompletionCheckbox
                 exerciseTitle={translatedTitle || getTranslatedText(exerciseTitle)}
