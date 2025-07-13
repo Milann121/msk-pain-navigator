@@ -1,7 +1,8 @@
 
 {
   "common": {
-    "back": "Zpět"
+    "back": "Zpět",
+    "markAsCompleted": "Označit jako dokončené"
   },
   "profileForm": {
     "manual": "Manuální práce",

@@ -1,7 +1,8 @@
 
 {
   "common": {
-    "back": "Back"
+    "back": "Back",
+    "markAsCompleted": "Mark as completed"
   },
   "profileForm": {
     "manual": "Manual Work",

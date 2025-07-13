@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft } from "lucide-react";
 import { YogaProgram } from "@/types/yogaProgram";
 import ExerciseVideo from "@/components/ExerciseVideo";
+import { ExerciseCompletionButton } from "@/components/ui/ExerciseCompletionButton";
 interface YogaExercisesListProps {
   program: YogaProgram;
   onBack: () => void;
@@ -74,6 +75,13 @@ export const YogaExercisesList: React.FC<YogaExercisesListProps> = ({
                               </span>)}
                           </div>
                         </div>}
+
+                      {/* Mark as Completed Button */}
+                      <ExerciseCompletionButton 
+                        secondaryProgram="yoga"
+                        programType={program.title}
+                        exerciseName={exercise.title}
+                      />
                     </div>
                   </div>
                 </CardContent>

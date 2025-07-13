@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft } from "lucide-react";
 import { StrengthProgram } from "@/types/strengthProgram";
 import ExerciseVideo from "@/components/ExerciseVideo";
+import { ExerciseCompletionButton } from "@/components/ui/ExerciseCompletionButton";
 interface StrengthExercisesListProps {
   program: StrengthProgram;
   onBack: () => void;
@@ -74,6 +75,13 @@ export const StrengthExercisesList: React.FC<StrengthExercisesListProps> = ({
                               </span>)}
                           </div>
                         </div>}
+
+                      {/* Mark as Completed Button */}
+                      <ExerciseCompletionButton 
+                        secondaryProgram="strength"
+                        programType={program.title}
+                        exerciseName={exercise.title}
+                      />
                     </div>
                   </div>
                 </CardContent>

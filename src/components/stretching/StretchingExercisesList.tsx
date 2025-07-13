@@ -2,9 +2,10 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Check } from "lucide-react";
 import { StretchingProgram } from "@/types/stretchingProgram";
 import ExerciseVideo from "@/components/ExerciseVideo";
+import { ExerciseCompletionButton } from "@/components/ui/ExerciseCompletionButton";
 interface StretchingExercisesListProps {
   program: StretchingProgram;
   onBack: () => void;
@@ -74,6 +75,13 @@ export const StretchingExercisesList: React.FC<StretchingExercisesListProps> = (
                               </span>)}
                           </div>
                         </div>}
+
+                      {/* Mark as Completed Button */}
+                      <ExerciseCompletionButton 
+                        secondaryProgram="stretching"
+                        programType={program.title}
+                        exerciseName={exercise.title}
+                      />
                     </div>
                   </div>
                 </CardContent>
