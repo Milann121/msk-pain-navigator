@@ -1,5 +1,8 @@
 
 {
+  "common": {
+    "back": "Späť"
+  },
   "profileForm": {
     "manual": "Manuálna práca",
     "desk": "Sedavá práca",

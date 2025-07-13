@@ -1,5 +1,8 @@
 
 {
+  "common": {
+    "back": "Back"
+  },
   "profileForm": {
     "manual": "Manual Work",
     "desk": "Desk Work",
