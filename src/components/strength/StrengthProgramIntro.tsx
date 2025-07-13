@@ -177,25 +177,6 @@ export const StrengthProgramIntro: React.FC<StrengthProgramIntroProps> = ({ prog
                 </div>
               )}
 
-              {/* Progress Display */}
-              {!isLoading && progress.hasProgress && (
-                <div className="mb-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm text-muted-foreground">Progress</span>
-                    <span className="text-sm font-medium">
-                      {progress.fullCompletions > 0 && `${progress.fullCompletions}x `}
-                      {progress.completionPercentage}%
-                    </span>
-                  </div>
-                  <div className="w-full bg-muted rounded-full h-2">
-                    <div 
-                      className="bg-primary h-2 rounded-full transition-all duration-300" 
-                      style={{ width: `${progress.completionPercentage}%` }}
-                    />
-                  </div>
-                </div>
-              )}
-
               {/* Continue/Start Buttons */}
               {!isLoading && progress.hasProgress && progress.completionPercentage < 100 ? (
                 <div className="space-y-3">
@@ -204,7 +185,7 @@ export const StrengthProgramIntro: React.FC<StrengthProgramIntroProps> = ({ prog
                     className="w-full"
                     size="lg"
                   >
-                    {t('common.continue')}
+                    {t('strengthPrograms.common.continue')}
                   </Button>
                   <Button 
                     onClick={handleStartProgram}
