@@ -85,10 +85,7 @@ const enTranslations = {
   assessment: enAssessment,
   home: enHome,
   ...enExercises,
-  exercises: {
-    ...enCommon.exercises,
-    ...enExercises
-  },
+  exercises: enExercises,
   misc: enMisc,
   questionnaire: enQuestionnaire,
   results: enResults,
@@ -114,10 +111,7 @@ const skTranslations = {
   assessment: skAssessment,
   home: skHome,
   ...skExercises,
-  exercises: {
-    ...skCommon.exercises,
-    ...skExercises
-  },
+  exercises: skExercises,
   misc: skMisc,
   questionnaire: skQuestionnaire,
   results: skResults,
@@ -143,10 +137,7 @@ const csTranslations = {
   assessment: csAssessment,
   home: csHome,
   ...csExercises,
-  exercises: {
-    ...csCommon.exercises,
-    ...csExercises
-  },
+  exercises: csExercises,
   misc: csMisc,
   questionnaire: csQuestionnaire,
   results: csResults,
