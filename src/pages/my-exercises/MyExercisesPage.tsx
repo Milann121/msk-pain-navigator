@@ -73,7 +73,7 @@ export const MyExercisesPage = () => {
 
   if (isLoading) {
     return (
-      <div className="h-[600px] flex flex-col">
+      <div className="h-[400px] flex flex-col">
         <Header />
         <div className="flex-1 bg-gradient-to-b from-blue-50 to-white py-10 px-4 flex items-center justify-center">
           <div className="text-blue-600">{t('loading')}</div>
@@ -86,7 +86,7 @@ export const MyExercisesPage = () => {
   }
 
   return (
-    <div className="h-[600px] flex flex-col">
+    <div className="h-[400px] flex flex-col">
       <Header />
       <div className="flex-1 bg-gradient-to-b from-blue-50 to-white py-10 px-2 md:px-4">
         <div className="container mx-auto w-full max-w-full md:max-w-4xl px-2 md:px-0">
