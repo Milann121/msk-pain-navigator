@@ -97,8 +97,8 @@ export const MyExercisesPage = () => {
           {/* Section Cards */}
           <SectionCards />
           
-          {/* OREBRO & General Program side by side */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 items-start">
+          {/* OREBRO & General Program side by side with matching heights */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 md:items-stretch">
             <OrebroEntry />
             <GeneralProgram />
           </div>
