@@ -13,7 +13,7 @@ export const GeneralProgramCollapsedView = ({
 
   return (
     <Card className="border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50">
-      <CardContent className="pt-4 pb-4">
+      <CardContent className="pt-4 pb-4 h-16 flex flex-col justify-center">
         <div className="flex items-center gap-4 cursor-pointer" onClick={onExpand}>
           <div className="flex-shrink-0">
             <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
