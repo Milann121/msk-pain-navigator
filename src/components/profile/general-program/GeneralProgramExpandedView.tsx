@@ -30,8 +30,8 @@ export const GeneralProgramExpandedView = ({
   };
 
   return (
-    <Card className="border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50">
-      <CardContent className="pt-6 flex flex-col">
+    <Card className="border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50 h-full min-h-[240px]">
+      <CardContent className="pt-6 flex flex-col h-full">
         <div className="flex items-start gap-4">
           <div className="flex-shrink-0">
             <div className="w-3 h-3 bg-blue-600 rounded-full mt-2"></div>
@@ -65,6 +65,7 @@ export const GeneralProgramExpandedView = ({
             )}
           </div>
         </div>
+        <div className="flex-grow"></div>
       </CardContent>
     </Card>
   );
