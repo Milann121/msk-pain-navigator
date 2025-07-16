@@ -43,12 +43,12 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId, videoI
     return <div className="h-10 w-48 animate-pulse bg-gray-200 rounded" />;
   }
 
-  // Determine button styling based on state
+  // Determine button styling based on state - ensure consistency across languages
   const getButtonStyle = () => {
     if (completionCount > 0) {
-      return 'bg-green-600 hover:bg-green-700 text-white';
+      return 'bg-green-600 hover:bg-green-700 text-white border-green-600';
     } else {
-      return 'bg-blue-600 hover:bg-blue-700 text-white';
+      return 'bg-blue-600 hover:bg-blue-700 text-white border-blue-600';
     }
   };
 
