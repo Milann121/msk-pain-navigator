@@ -23,8 +23,8 @@ export const OrebroExpandedView = ({
   const {
     t
   } = useTranslation();
-  return <Card className="mb-6 border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50">
-      <CardContent className="pt-6 flex flex-col">
+  return <Card className="mb-6 border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50 h-full min-h-[280px]">
+      <CardContent className="pt-6 flex flex-col h-full">
         <OrebroReminderBanner lastCompletionDate={lastCompletionDate} showReminder={showReminder} />
         <div className="flex items-start gap-4">
           <div className="flex-shrink-0">
@@ -66,7 +66,7 @@ export const OrebroExpandedView = ({
                 </div>}
             </div>
 
-            <div className="mt-3 text-xs text-gray-500 flex items-center gap-1">
+            <div className="mt-auto pt-3 text-xs text-gray-500 flex items-center gap-1">
               <span className="inline-block w-2 h-2 bg-green-500 rounded-full"></span>
               <span>{t('home.orebro.anonymous')}</span>
             </div>
