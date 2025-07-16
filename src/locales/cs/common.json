@@ -81,5 +81,10 @@
     "swapError": "Nepodařilo se vyměnit cvičení. Zkuste to prosím znovu.",
     "noAlternatives": "Pro toto cvičení nejsou k dispozici žádné alternativy."
   },
+  "favorite": {
+    "addToFavorites": "Přidat do oblíbených",
+    "favorited": "Oblíbené",
+    "processing": "Zpracovává se..."
+  },
   "repetitions": "Opakování"
 }

@@ -81,5 +81,10 @@
     "swapError": "Failed to swap exercise. Please try again.",
     "noAlternatives": "No alternative exercises available for this exercise."
   },
+  "favorite": {
+    "addToFavorites": "Add to Favorites",
+    "favorited": "Favorited",
+    "processing": "Processing..."
+  },
   "repetitions": "Repetitions"
 }

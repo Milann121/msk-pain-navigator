@@ -5,6 +5,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { Button } from '@/components/ui/button';
 import { Star } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface FavoriteExerciseButtonProps {
   exerciseTitle: string;
@@ -18,6 +19,7 @@ export const FavoriteExerciseButton = ({ exerciseTitle, videoId, description }: 
   const [isProcessing, setIsProcessing] = useState(false);
   const { user } = useAuth();
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const checkFavoriteStatus = async () => {
@@ -151,8 +153,8 @@ export const FavoriteExerciseButton = ({ exerciseTitle, videoId, description }: 
         }`}
       />
       {isProcessing 
-        ? 'Spracováva sa...' 
-        : (isFavorite ? 'Obľúbené' : 'Pridať ako obľúbené')
+        ? t('favorite.processing') 
+        : (isFavorite ? t('favorite.favorited') : t('favorite.addToFavorites'))
       }
     </Button>
   );

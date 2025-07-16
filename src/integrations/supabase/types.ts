@@ -460,6 +460,7 @@ export type Database = {
           email: string
           "full name": string | null
           id: string
+          manager_id: string
           password_hash: string | null
         }
         Insert: {
@@ -467,6 +468,7 @@ export type Database = {
           email: string
           "full name"?: string | null
           id?: string
+          manager_id: string
           password_hash?: string | null
         }
         Update: {
@@ -474,6 +476,7 @@ export type Database = {
           email?: string
           "full name"?: string | null
           id?: string
+          manager_id?: string
           password_hash?: string | null
         }
         Relationships: [
@@ -572,6 +575,7 @@ export type Database = {
       orebro_responses: {
         Row: {
           anonymous_id: string | null
+          b2b_partner_id: number | null
           created_at: string
           id: string
           responses: Json
@@ -582,6 +586,7 @@ export type Database = {
         }
         Insert: {
           anonymous_id?: string | null
+          b2b_partner_id?: number | null
           created_at?: string
           id?: string
           responses: Json
@@ -592,6 +597,7 @@ export type Database = {
         }
         Update: {
           anonymous_id?: string | null
+          b2b_partner_id?: number | null
           created_at?: string
           id?: string
           responses?: Json
@@ -600,7 +606,15 @@ export type Database = {
           updated_at?: string
           user_id?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "orebro_responses_b2b_partner_id_fkey"
+            columns: ["b2b_partner_id"]
+            isOneToOne: false
+            referencedRelation: "B2B_partners"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       profiles: {
         Row: {
@@ -628,6 +642,38 @@ export type Database = {
           updated_at?: string | null
         }
         Relationships: []
+      }
+      rotation_reminder: {
+        Row: {
+          created_at: string
+          id: string
+          manager_id: string
+          reminder_at: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          manager_id: string
+          reminder_at: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          manager_id?: string
+          reminder_at?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "fk_rotation_reminder_manager"
+            columns: ["manager_id"]
+            isOneToOne: false
+            referencedRelation: "hr_managers"
+            referencedColumns: ["manager_id"]
+          },
+        ]
       }
       secondary_programs: {
         Row: {
