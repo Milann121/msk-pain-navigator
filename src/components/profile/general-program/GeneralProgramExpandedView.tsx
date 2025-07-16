@@ -30,14 +30,14 @@ export const GeneralProgramExpandedView = ({
   };
 
   return (
-    <Card className="border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50 h-full">
-      <CardContent className="pt-6 flex flex-col h-full min-h-[240px]">
-        <div className="flex items-start gap-4 flex-1">
+    <Card className="border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50">
+      <CardContent className="pt-6 flex flex-col">
+        <div className="flex items-start gap-4">
           <div className="flex-shrink-0">
             <div className="w-3 h-3 bg-blue-600 rounded-full mt-2"></div>
           </div>
           
-          <div className="flex-1 flex flex-col">
+          <div className="flex-1">
             <div className="flex items-center gap-2 mb-2">
               <h3 className="font-semibold text-gray-900 text-2xl">
                 {t('exercises.generalProgram.title')}
@@ -63,9 +63,6 @@ export const GeneralProgramExpandedView = ({
                 </Button>
               </>
             )}
-            
-            {/* Spacer to push content to match OREBRO height */}
-            <div className="flex-grow"></div>
           </div>
         </div>
       </CardContent>
