@@ -32,15 +32,15 @@ export const Advice: React.FC<AdviceProps> = ({ adviceId }) => {
     switch (priority.toLowerCase()) {
       case 'vysoká':
       case 'high':
-        return 'bg-red-100 text-red-800 border-red-200';
+        return 'bg-red-50 text-red-700 border-red-200 hover:bg-red-100';
       case 'stredná':
       case 'medium':
-        return 'bg-yellow-100 text-yellow-800 border-yellow-200';
+        return 'bg-yellow-50 text-yellow-700 border-yellow-200 hover:bg-yellow-100';
       case 'nízka':
       case 'low':
-        return 'bg-green-100 text-green-800 border-green-200';
+        return 'bg-green-50 text-green-700 border-green-200 hover:bg-green-100';
       default:
-        return 'bg-gray-100 text-gray-800 border-gray-200';
+        return 'bg-gray-50 text-gray-700 border-gray-200 hover:bg-gray-100';
     }
   };
 
@@ -72,15 +72,21 @@ export const Advice: React.FC<AdviceProps> = ({ adviceId }) => {
       <CardContent className="space-y-4">
         {/* Mobile: Stack image and description vertically, Desktop: Keep horizontal layout */}
         <div className="flex flex-col md:flex-row gap-4">
-          {advice.adviceImageUrl && (
-            <div className="flex-shrink-0 flex justify-center md:justify-start">
-              <img
-                src={advice.adviceImageUrl}
-                alt={t(`advice.${advice.adviceTitle}`)}
-                className="w-16 h-16 object-cover rounded-full border border-gray-200"
-              />
+          <div className="flex-shrink-0 flex justify-center md:justify-start">
+            <div className="w-16 h-16 rounded-lg border border-gray-200 bg-gray-50 overflow-hidden shadow-sm flex items-center justify-center">
+              {advice.adviceImageUrl ? (
+                <img
+                  src={advice.adviceImageUrl}
+                  alt={t(`advice.${advice.adviceTitle}`)}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <div className="w-full h-full bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
+                  <span className="text-blue-600 text-xs font-medium">📋</span>
+                </div>
+              )}
             </div>
-          )}
+          </div>
           
           <div className="flex-1">
             <p className="text-gray-700 text-sm leading-relaxed">
