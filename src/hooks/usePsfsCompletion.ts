@@ -42,15 +42,19 @@ export const usePsfsCompletion = () => {
         // Set completion date
         setLastCompletionDate(completionDate);
         
+        // Calculate reminder date (2 months after last completion)
+        const reminderDate = addMonths(completionDate, 2);
+        
         // Check if completed recently (within 2 months)
         const monthsSinceCompletion = differenceInMonths(now, completionDate);
         setHasCompletedRecently(monthsSinceCompletion < 2);
         
-        // Calculate reminder date (2 months after last completion)
-        const reminderDate = addMonths(completionDate, 2);
-        
-        // Show reminder only if we're past the reminder date and haven't completed recently
-        setShowReminder(now >= reminderDate && monthsSinceCompletion >= 2);
+        // Show reminder ONLY if:
+        // 1. We're past the reminder date (2 months after last completion)
+        // 2. AND we haven't completed recently (it's been 2+ months)
+        // This ensures the banner shows from reminder date until next submission
+        const shouldShowReminder = now >= reminderDate && monthsSinceCompletion >= 2;
+        setShowReminder(shouldShowReminder);
       } else {
         // No PSFS assessment found - show reminder for first-time completion
         setHasCompletedRecently(false);
