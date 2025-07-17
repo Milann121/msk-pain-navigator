@@ -43,7 +43,6 @@ export const PsfsEntry = ({
     return (
       <PsfsCollapsedView 
         onExpand={onExpand}
-        onCollapse={onCollapse}
         lastCompletionDate={lastCompletionDate}
         showReminder={showReminder}
       />
