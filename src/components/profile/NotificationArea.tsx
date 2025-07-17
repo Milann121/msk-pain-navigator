@@ -81,7 +81,7 @@ export const NotificationArea = () => {
             <Activity 
               className={`w-5 h-5 ${
                 isPsfsReminderDue 
-                  ? 'text-red-500' 
+                  ? 'text-green-600' 
                   : 'text-gray-400'
               }`} 
             />
