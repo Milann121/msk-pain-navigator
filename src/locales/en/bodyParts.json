@@ -3,7 +3,9 @@
   "shoulders": "Shoulders", 
   "upper-back": "Upper Back",
   "middle-back": "Middle Back",
+  "middle back": "Middle Back",
   "lower-back": "Lower Back",
+  "lower back": "Lower Back",
   "spine": "Spine",
   "hips": "Hips",
   "glutes": "Glutes",
@@ -22,5 +24,7 @@
   "calves": "Calves",
   "hip-flexors": "Hip Flexors",
   "quadriceps": "Quadriceps",
-  "wrists": "Wrists"
+  "wrists": "Wrists",
+  "upper limb": "Upper Limb",
+  "shoulder": "Shoulder"
 }

@@ -3,7 +3,9 @@
   "shoulders": "Ramená", 
   "upper-back": "Horná časť chrbta",
   "middle-back": "Stredná časť chrbta",
+  "middle back": "Stredná časť chrbta",
   "lower-back": "Dolná časť chrbta",
+  "lower back": "Dolná časť chrbta",
   "spine": "Chrbtica",
   "hips": "Kyčle",
   "glutes": "Gluteálne svaly",
@@ -22,5 +24,7 @@
   "calves": "Lýtka",
   "hip-flexors": "Flexory bokov",
   "quadriceps": "Štvorhlavé svaly",
-  "wrists": "Zápästia"
+  "wrists": "Zápästia",
+  "upper limb": "Horná končatina",
+  "shoulder": "Rameno"
 }

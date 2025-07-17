@@ -3,7 +3,9 @@
   "shoulders": "Ramena", 
   "upper-back": "Horní část zad",
   "middle-back": "Střední část zad",
+  "middle back": "Střední část zad",
   "lower-back": "Dolní část zad",
+  "lower back": "Dolní část zad",
   "spine": "Páteř",
   "hips": "Kyčle",
   "glutes": "Gluteální svaly",
@@ -22,5 +24,7 @@
   "calves": "Lýtka",
   "hip-flexors": "Flexory kyčlí",
   "quadriceps": "Čtyřhlavé svaly",
-  "wrists": "Zápěstí"
+  "wrists": "Zápěstí",
+  "upper limb": "Horní končetina",
+  "shoulder": "Rameno"
 }
