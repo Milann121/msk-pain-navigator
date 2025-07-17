@@ -33,5 +33,9 @@
 
   "objectLifting": "Be careful of your center of gravity when lifting objects",
   "objectLiftingRule": "Avoid lifting objects that are further away from you (or in front of you).",
-  "objectLiftingDescription": "When lifting objects (no matter how light or heavy) make sure that your center of gravity is as close to your body as possible, i.e. try to keep the objects you are lifting under you when you lift them. Avoid lifting, pulling or pushing objects that are significantly in front of you (or away from you)."
+  "objectLiftingDescription": "When lifting objects (no matter how light or heavy) make sure that your center of gravity is as close to your body as possible, i.e. try to keep the objects you are lifting under you when you lift them. Avoid lifting, pulling or pushing objects that are significantly in front of you (or away from you).",
+
+  "supermanSleep": "Don't sleep with your arm stretched out under your head",
+"supermanSleepRule": "Avoid sleeping with your arm stretched out above your head (in the 'superman' position), or with your arm placed behind your head.",
+"supermanSleepDescription": "When sleeping on your side with your arm placed under the pillow, make sure that your elbow is at the level of your chin at most. In this position, I also recommend that you bend your arm at the elbow joint. If you sleep on your back and your arm is placed behind your head, try to fall asleep in the side position to eliminate this bad habit.",
 }
