@@ -52,8 +52,9 @@ export const Advice: React.FC<AdviceProps> = ({ adviceId }) => {
   return (
     <Card className="border-gray-200 hover:shadow-md transition-shadow">
       <CardHeader className="pb-3">
-        <div className="flex items-start gap-3">
-          <div className="flex-shrink-0">
+        {/* Mobile: Stack image on top, Desktop: Image on left with content */}
+        <div className="flex flex-col md:flex-row md:items-start gap-3">
+          <div className="flex-shrink-0 flex justify-center md:justify-start">
             <div className="w-16 h-16 rounded-lg border border-gray-200 bg-gray-50 overflow-hidden shadow-sm flex items-center justify-center">
               {advice.adviceImageUrl ? (
                 <img
