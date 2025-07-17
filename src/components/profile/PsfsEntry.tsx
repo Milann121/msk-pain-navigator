@@ -55,7 +55,6 @@ export const PsfsEntry = ({
       lastCompletionDate={lastCompletionDate}
       showReminder={showReminder}
       onCollapse={onCollapse}
-      onWrap={onWrap}
       onTakeQuestionnaire={handleTakeQuestionnaire}
       onViewResults={handleViewResults}
     />
