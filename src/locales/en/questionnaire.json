@@ -204,6 +204,14 @@
       "painOnsetTiming": "How quickly does the pain start after those movements/activities?",
       "painSubsiding": "How long does it take for the pain to subside afterwards?",
       "painDescription": "How would you describe your pain?",
+      "psfs": {
+        "title": "Patient Specific Functional Scale (PSFS)",
+        "household": "Are you able to take care of your household? (e.g. cleaning, cooking)",
+        "sport": "Are you able to do sport activities? (e.g. cycling, walking, running, weightlifting)",
+        "heavyLoads": "Are you able to carry heavy loads? (e.g. bags after grocery shopping)",
+        "stairs": "Are you able to climb stairs?",
+        "caregiving": "Are you able to take care of your loved ones?"
+      },
       "injuryStart": "Did your pain start after an injury?",
       "activityStart": "Did your pain start after a specific activity/movement?",
       "reflexes": "Have you been told that you have markedly reduced or absent reflexes?",
@@ -217,6 +225,7 @@
       "painOnsetTiming": "Consider whether the pain starts immediately during the movement or appears later.",
       "painSubsiding": "Think about how long it takes for your pain to return to its baseline level after the triggering activity.",
       "painDescription": "Select all descriptions that match your pain experience. You can choose multiple options.",
+      "psfs": "Please rate your ability to perform these activities on a scale from 0 to 10, where 0 means unable to perform the activity and 10 means able to perform at the same level as before your injury or problem.",
       "injuryStart": "We want to know if your pain began directly after a trauma such as a fall or impact.",
       "activityStart": "Consider if your pain started after a specific physical activity, movement, or posture.",
       "reflexes": "This refers to medical testing where a doctor checks your reflexes with a small hammer. Loss of reflexes can reveal important information about your condition.",
@@ -258,6 +267,10 @@
     "painScale": {
       "noPain": "No pain",
       "worstPain": "Worst imaginable pain"
+    },
+    "psfsScale": {
+      "unable": "Unable to perform activity",
+      "able": "Able to perform activity at the same level as before injury or problem"
     }
   },
   "nociceptive": {

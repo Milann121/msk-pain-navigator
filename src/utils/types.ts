@@ -74,13 +74,25 @@ export interface Question {
   id: string;
   text: string;
   description?: string;
-  type: 'radio' | 'multiple' | 'scale';
+  type: 'radio' | 'multiple' | 'scale' | 'psfs';
   options?: QuestionOption[];
   scale?: {
     min: number;
     max: number;
     minLabel: string;
     maxLabel: string;
+  };
+  psfs?: {
+    questions: Array<{
+      id: string;
+      text: string;
+      scale: {
+        min: number;
+        max: number;
+        minLabel: string;
+        maxLabel: string;
+      };
+    }>;
   };
   showIf?: {
     painArea?: string;

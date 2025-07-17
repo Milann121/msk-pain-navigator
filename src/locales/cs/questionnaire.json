@@ -204,6 +204,14 @@
       "painOnsetTiming": "Jak rychle se bolest objeví po těchto pohybech?",
       "painSubsiding": "Jak dlouho trvá, než bolest odezní?",
       "painDescription": "Jak bys popsal/a svou bolest?",
+      "psfs": {
+        "title": "Škála specifických funkčních aktivit pacienta (PSFS)",
+        "household": "Dokážeš se starat o svou domácnost? (např. úklid, vaření)",
+        "sport": "Dokážeš vykonávat sportovní aktivity? (např. cyklistika, chůze, běh, posilování)",
+        "heavyLoads": "Dokážeš nosit těžká břemena? (např. tašky po nákupu)",
+        "stairs": "Dokážeš vystupovat po schodech?",
+        "caregiving": "Dokážeš se starat o své blízké?"
+      },
       "injuryStart": "Začala tvá bolest po zranění?",
       "activityStart": "Začala tvá bolest po konkrétní aktivitě/pohybu?",
       "reflexes": "Byl/a jsi informován/a o výrazně snížených či chybějících reflexech?",
@@ -217,6 +225,7 @@
       "painOnsetTiming": "Zvaž, zda se bolest začíná okamžitě během pohybu nebo se objeví později.",
       "painSubsiding": "Přemýšlej o tom, jak dlouho trvá, než se tvá bolest vrátí na svou základní úroveň po spouštějící aktivitě.",
       "painDescription": "Vyber všechny popisy, které odpovídají tvé bolesti. Můžeš vybrat více možností.",
+      "psfs": "Prosím, ohodnoť svou schopnost vykonávat tyto aktivity na stupnici od 0 do 10, kde 0 znamená neschopnost vykonat aktivitu a 10 znamená schopnost vykonat na stejné úrovni jako před zraněním nebo problémem.",
       "injuryStart": "Chceme vědět, zda bolest vznikla přímo po úrazu jako je pád nebo náraz.",
       "activityStart": "Zvaž, zda se tvá bolest začala po konkrétní fyzické aktivitě, pohybu nebo držení těla.",
       "reflexes": "Týká se to lékařského vyšetření, kde lékař kontroluje tvé reflexy malým kladívkem. Ztráta reflexů může odhalit důležité informace o tvém stavu.",
@@ -258,6 +267,10 @@
     "painScale": {
       "noPain": "Žádná bolest",
       "worstPain": "Nejhorší představitelná bolest"
+    },
+    "psfsScale": {
+      "unable": "Neschopnost vykonat aktivitu",
+      "able": "Schopnost vykonat aktivitu na stejné úrovni jako před zraněním nebo problémem"
     }
   },
   "nociceptive": {

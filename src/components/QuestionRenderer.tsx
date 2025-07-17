@@ -11,6 +11,7 @@ import { cn } from '@/lib/utils';
 import { Info } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { useTranslation } from 'react-i18next';
+import PSFSQuestion from '@/components/questionnaire/PSFSQuestion';
 
 interface QuestionRendererProps {
   question: Question;
@@ -20,6 +21,7 @@ interface QuestionRendererProps {
 const QuestionRenderer = ({ question, onAnswer }: QuestionRendererProps) => {
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
   const [sliderValue, setSliderValue] = useState<number[]>([0]);
+  const [psfsValues, setPsfsValues] = useState<Record<string, number>>({});
   const isMobile = useIsMobile();
   const { t } = useTranslation();
 
@@ -40,6 +42,12 @@ const QuestionRenderer = ({ question, onAnswer }: QuestionRendererProps) => {
   const handleSliderChange = (value: number[]) => {
     setSliderValue(value);
     onAnswer(question.id, value[0]);
+  };
+
+  const handlePSFSChange = (questionId: string, value: number) => {
+    const newValues = { ...psfsValues, [questionId]: value };
+    setPsfsValues(newValues);
+    onAnswer(question.id, newValues);
   };
 
   return (
@@ -182,6 +190,14 @@ const QuestionRenderer = ({ question, onAnswer }: QuestionRendererProps) => {
             </div>
           </div>
         </div>
+      )}
+
+      {question.type === 'psfs' && question.psfs && (
+        <PSFSQuestion
+          question={question}
+          values={psfsValues}
+          onChange={handlePSFSChange}
+        />
       )}
     </div>
   );

@@ -204,6 +204,14 @@
       "painOnsetTiming": "Ako rýchlo sa bolesť objaví po týchto pohyboch?",
       "painSubsiding": "Ako dlho trvá, kým bolesť ustúpi?",
       "painDescription": "Ako by ste opísali vašu bolesť?",
+      "psfs": {
+        "title": "Škála špecifických funkčných aktivít pacienta (PSFS)",
+        "household": "Dokážete sa starať o svoju domácnosť? (napr. upratovanie, varenie)",
+        "sport": "Dokážete vykonávať športové aktivity? (napr. bicyklovanie, chôdza, beh, posilňovanie)",
+        "heavyLoads": "Dokážete nosiť ťažké bremená? (napr. tašky po nákupe)",
+        "stairs": "Dokážete vystupovať po schodoch?",
+        "caregiving": "Dokážete sa starať o svojich blízkych?"
+      },
       "injuryStart": "Začala sa vaša bolesť po zranení?",
       "activityStart": "Začala sa vaša bolesť po konkrétnej aktivite/pohybe?",
       "reflexes": "Boli ste informovaný/á, že máte výrazne znížené alebo chýbajúce reflexy?",
@@ -217,6 +225,7 @@
       "painOnsetTiming": "Zvážte, či sa bolesť začína okamžite počas pohybu alebo sa objaví neskôr.",
       "painSubsiding": "Premyslite si, ako dlho trvá, kým sa vaša bolesť vráti na svoju základnú úroveň po spúšťajúcej aktivite.",
       "painDescription": "Vyberte všetky opisy, ktoré zodpovedajú vašej bolesti. Môžete vybrať viacero možností.",
+      "psfs": "Prosím, ohodnoťte svoju schopnosť vykonávať tieto aktivity na stupnici od 0 do 10, kde 0 znamená neschopnosť vykonať aktivitu a 10 znamená schopnosť vykonať na rovnakej úrovni ako pred zranením alebo problémom.",
       "injuryStart": "Chceme zistiť, či bolesť vznikla priamo po úraze ako je pád alebo náraz.",
       "activityStart": "Zvážte, či sa vaša bolesť začala po konkrétnej fyzickej aktivite, pohybe alebo držaní tela.",
       "reflexes": "Týka sa to lekárskeho vyšetrenia, kde lekár kontroluje vaše reflexy malým kladivkom. Strata reflexov vie odhaliť dôležité informácie o vašom stave.",
@@ -258,6 +267,10 @@
     "painScale": {
       "noPain": "Žiadna bolesť",
       "worstPain": "Najhoršia predstaviteľná bolesť"
+    },
+    "psfsScale": {
+      "unable": "Neschopnosť vykonať aktivitu",
+      "able": "Schopnosť vykonať aktivitu na rovnakej úrovni ako pred zranením alebo problémom"
     }
   },
   "nociceptive": {

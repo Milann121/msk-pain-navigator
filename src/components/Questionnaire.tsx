@@ -84,7 +84,9 @@ const Questionnaire = ({ questionnaire, onComplete, onBack, onRedirect }: Questi
     }
   };
 
-  const canProceed = !!answers[currentQuestion?.id];
+  const canProceed = currentQuestion?.type === 'psfs' 
+    ? Object.keys(answers[currentQuestion?.id] || {}).length === currentQuestion?.psfs?.questions?.length
+    : !!answers[currentQuestion?.id];
 
   return (
     <Card className="w-full max-w-2xl mx-auto">
