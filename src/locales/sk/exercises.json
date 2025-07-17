@@ -114,7 +114,7 @@
       "description": "Cielené cvičenia pre centrálnu senzitizáciu ovplyvňujúcu oblasť stredného chrbta.",
       "prayer": {
         "title": "Modlenie",
-        "description": "Kľaknite si a sadnite späť na päty, natiahnite ruky dopredu a natiahните stredný chrbát. Držte 30 sekúnd, opakujte 3-krát."
+        "description": "Kľaknite si a sadnite späť na päty, natiahnite ruky dopredu a natiahnite stredný chrbát. Držte 30 sekúnd, opakujte 3-krát."
       },
       "thoracicSpineMassage": {
         "title": "Masáž hrudnej chrbtice",
@@ -134,7 +134,7 @@
       "description": "Cvičebný program pre centrálnu senzitizáciu ovplyvňujúcu oblasť spodného chrbta.",
       "glutealStretching": {
         "title": "Natiahnutie sedacích svalov",
-        "description": "Natiahните sedacie svaly na úľavu od napätia v spodnom chrbte. Držte každé natiahnutie 30 sekúnd, opakujte 3-krát na stranu."
+        "description": "Natiahnite sedacie svaly na úľavu od napätia v spodnom chrbte. Držte každé natiahnutie 30 sekúnd, opakujte 3-krát na stranu."
       },
       "bridge": {
         "title": "Mostík",
@@ -194,7 +194,7 @@
       "description": "Všeobecný cvičebný program pre bolesť spodného chrbta.",
       "glutealStretching": {
         "title": "Natiahnutie sedacích svalov",
-        "description": "Natiahните sedacie svaly na úľavu napätia v spodnom chrbte."
+        "description": "Natiahnite sedacie svaly na úľavu napätia v spodnom chrbte."
       },
       "bridge": {
         "title": "Mostík",
@@ -534,7 +534,7 @@
       },
       "glutealStretching": {
         "title": "Natiahnutie sedacích svalov",
-        "description": "Natiahните sedacie svaly na zníženie kompresie lumbálnej chrbtice."
+        "description": "Natiahnite sedacie svaly na zníženie kompresie lumbálnej chrbtice."
       },
       "spinalStretching": {
         "title": "Natiahnutie chrbtice",
@@ -610,7 +610,7 @@
       "description": "Všeobecné cvičenia na úľavu od bolesti spodného chrbta.",
       "glutealStretching": {
         "title": "Natiahnutie sedacích svalov",
-        "description": "Natiahните sedacie svaly na úľavu napätia spodného chrbta."
+        "description": "Natiahnite sedacie svaly na úľavu napätia spodného chrbta."
       },
       "pelvicTilting": {
         "title": "Nakláňanie panvy",
