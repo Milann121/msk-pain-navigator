@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
-import { differenceInMonths } from 'date-fns';
+import { differenceInMonths, addMonths } from 'date-fns';
 
 export const usePsfsCompletion = () => {
   const { user } = useAuth();
@@ -20,10 +20,43 @@ export const usePsfsCompletion = () => {
     if (!user) return;
 
     try {
-      // For now, we'll simulate PSFS completion check
-      // This would typically check a psfs_responses table
-      // Since we don't have this table yet, we'll always show the expanded view
-      setShowReminder(true);
+      // Get the most recent PSFS assessment
+      const { data: psfsData, error } = await supabase
+        .from('psfs_assessment')
+        .select('*')
+        .eq('user_id', user.id)
+        .order('created_at', { ascending: false })
+        .limit(1);
+
+      if (error) {
+        console.error('Error fetching PSFS data:', error);
+        setLoading(false);
+        return;
+      }
+
+      if (psfsData && psfsData.length > 0) {
+        const mostRecent = psfsData[0];
+        const completionDate = new Date(mostRecent.updated_at);
+        const now = new Date();
+        
+        // Set completion date
+        setLastCompletionDate(completionDate);
+        
+        // Check if completed recently (within 2 months)
+        const monthsSinceCompletion = differenceInMonths(now, completionDate);
+        setHasCompletedRecently(monthsSinceCompletion < 2);
+        
+        // Calculate reminder date (2 months after last completion)
+        const reminderDate = addMonths(completionDate, 2);
+        
+        // Show reminder only if we're past the reminder date and haven't completed recently
+        setShowReminder(now >= reminderDate && monthsSinceCompletion >= 2);
+      } else {
+        // No PSFS assessment found - show reminder for first-time completion
+        setHasCompletedRecently(false);
+        setLastCompletionDate(null);
+        setShowReminder(true);
+      }
     } catch (error) {
       console.error('Error checking PSFS completion:', error);
     } finally {
