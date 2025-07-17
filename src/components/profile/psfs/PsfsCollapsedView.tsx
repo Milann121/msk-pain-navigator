@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Card, CardContent } from '@/components/ui/card';
 import { Activity, CheckCircle, ChevronRight } from 'lucide-react';
+import { PsfsReminderBanner } from './PsfsReminderBanner';
 
 interface PsfsCollapsedViewProps {
   onExpand: () => void;
@@ -18,6 +19,7 @@ export const PsfsCollapsedView = ({
   return (
     <Card className="mb-6 border-green-200 bg-gradient-to-r from-green-50 to-emerald-50">
       <CardContent className="pt-4 pb-4">
+        <PsfsReminderBanner lastCompletionDate={lastCompletionDate} showReminder={showReminder} />
         <div className="flex items-center gap-4 cursor-pointer" onClick={onExpand}>
           <div className="flex-shrink-0">
             <Activity className="h-6 w-6 text-green-600" />
