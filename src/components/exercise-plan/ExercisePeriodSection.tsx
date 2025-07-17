@@ -48,21 +48,9 @@ export const ExercisePeriodSection = ({ exercise, showGeneral = false, assessmen
         </p>
       </div>
       
-      <div className="space-y-6">
-        {exercise.videos.map((video, index) => (
-          <ExerciseVideoSection
-            key={video.videoId}
-            video={video}
-            exerciseTitle={displayTitle}
-            showGeneral={showGeneral}
-            assessmentId={assessmentId}
-          />
-        ))}
-      </div>
-
-      {/* Advice Section */}
+      {/* Advice Section - Moved above exercises */}
       {exercise.advices && exercise.advices.length > 0 && (
-        <div className="mt-8 border-t pt-6">
+        <div className="mb-6 border-b pb-6">
           <div className="mb-4">
             <h3 className="text-lg font-semibold text-gray-900 mb-1">
               {t('advice:exerciseAdviceTitle')}
@@ -74,6 +62,18 @@ export const ExercisePeriodSection = ({ exercise, showGeneral = false, assessmen
           <AdviceList adviceIds={exercise.advices} />
         </div>
       )}
+      
+      <div className="space-y-6">
+        {exercise.videos.map((video, index) => (
+          <ExerciseVideoSection
+            key={video.videoId}
+            video={video}
+            exerciseTitle={displayTitle}
+            showGeneral={showGeneral}
+            assessmentId={assessmentId}
+          />
+        ))}
+      </div>
     </div>
   );
 };
