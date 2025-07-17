@@ -21,6 +21,8 @@ interface AssessmentContextType {
   setStage: (stage: AssessmentStage) => void;
   userInfo: UserInfo | null;
   setUserInfo: (info: UserInfo | null) => void;
+  selectedBodyArea: string | null;
+  setSelectedBodyArea: (area: string | null) => void;
   generalAnswers: Record<string, any>;
   setGeneralAnswers: (answers: Record<string, any>) => void;
   followUpAnswers: Record<string, any>;
@@ -57,6 +59,7 @@ export const useAssessment = () => {
 export const AssessmentProvider = ({ children }: { children: ReactNode }) => {
   const [stage, setStage] = useState<AssessmentStage>(AssessmentStage.UserInfo);
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
+  const [selectedBodyArea, setSelectedBodyArea] = useState<string | null>(null);
   const [generalAnswers, setGeneralAnswers] = useState<Record<string, any>>({});
   const [followUpAnswers, setFollowUpAnswers] = useState<Record<string, any>>({});
   const [primaryMechanism, setPrimaryMechanism] = useState<PainMechanism>('none');
@@ -71,6 +74,7 @@ export const AssessmentProvider = ({ children }: { children: ReactNode }) => {
   const handleRestart = () => {
     setStage(AssessmentStage.UserInfo);
     setUserInfo(null);
+    setSelectedBodyArea(null);
     setGeneralAnswers({});
     setFollowUpAnswers({});
     setPrimaryMechanism('none');
@@ -89,6 +93,8 @@ export const AssessmentProvider = ({ children }: { children: ReactNode }) => {
         setStage,
         userInfo,
         setUserInfo,
+        selectedBodyArea,
+        setSelectedBodyArea,
         generalAnswers,
         setGeneralAnswers,
         followUpAnswers,
