@@ -25,7 +25,7 @@ export const formatDifferential = (differential: string, t: any): string => {
 
 // Format pain area for display
 export const formatPainArea = (area: string, t: any): string => {
-  return t(`bodyPart.${area}`) || area;
+  return t(`bodyParts.${area}`) || area;
 };
 
 // Helper function to get sub-area for upper limb assessments
@@ -46,7 +46,7 @@ export const getUpperLimbSubArea = (differential: string, t: any): string | null
   ];
   
   if (shoulderDifferentials.includes(differential)) {
-    return t('bodyPart.shoulder');
+    return t('bodyParts.shoulder');
   }
   
   return null;
@@ -59,9 +59,9 @@ export const formatPainAreaWithSubArea = (painArea: string, differential: string
   if (painArea === 'upper limb') {
     const subArea = getUpperLimbSubArea(differential, t);
     if (subArea) {
-      formattedArea = `${t('bodyPart.upper limb')} / ${subArea}`;
+      formattedArea = `${t('bodyParts.upper limb')} / ${subArea}`;
     } else {
-      formattedArea = t('bodyPart.upper limb');
+      formattedArea = t('bodyParts.upper limb');
     }
   } else {
     formattedArea = formatPainArea(painArea, t);
