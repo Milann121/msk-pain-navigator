@@ -22,7 +22,7 @@ export const generalQuestionnaire: Questionnaire = {
     injuryStartQuestion,
     activityStartQuestion,
     reflexesQuestion,
-    sensitivityQuestion,
-    variableImpactQuestion
+    //sensitivityQuestion,
+    //variableImpactQuestion
   ]
 };
