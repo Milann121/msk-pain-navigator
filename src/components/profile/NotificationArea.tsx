@@ -58,11 +58,7 @@ export const NotificationArea = () => {
             aria-label="OREBRO Questionnaire"
           >
             <Brain 
-              className={`w-5 h-5 ${
-                isOrebroReminderDue 
-                  ? 'text-blue-600' 
-                  : 'text-gray-400'
-              }`} 
+              className="w-5 h-5 text-blue-600" 
             />
           </button>
 
@@ -75,11 +71,7 @@ export const NotificationArea = () => {
             aria-label="PSFS Assessment"
           >
             <Activity 
-              className={`w-5 h-5 ${
-                isPsfsReminderDue 
-                  ? 'text-green-600' 
-                  : 'text-gray-400'
-              }`} 
+              className="w-5 h-5 text-green-600" 
             />
           </button>
         </div>
