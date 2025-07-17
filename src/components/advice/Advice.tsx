@@ -29,19 +29,24 @@ export const Advice: React.FC<AdviceProps> = ({ adviceId }) => {
   }
 
   const getPriorityColor = (priority: string) => {
-    switch (priority.toLowerCase()) {
-      case 'vysoká':
-      case 'high':
-        return 'bg-red-50 text-red-700 border-red-200 hover:bg-red-100';
-      case 'stredná':
-      case 'medium':
-        return 'bg-yellow-50 text-yellow-700 border-yellow-200 hover:bg-yellow-100';
-      case 'nízka':
-      case 'low':
-        return 'bg-green-50 text-green-700 border-green-200 hover:bg-green-100';
-      default:
-        return 'bg-gray-50 text-gray-700 border-gray-200 hover:bg-gray-100';
+    const normalizedPriority = priority.toLowerCase();
+    
+    // High priority variants
+    if (normalizedPriority.includes('vysoká') || normalizedPriority === 'high') {
+      return 'bg-red-50 text-red-700 border-red-200 hover:bg-red-100';
     }
+    
+    // Medium priority variants  
+    if (normalizedPriority.includes('stredná') || normalizedPriority.includes('střední') || normalizedPriority === 'medium') {
+      return 'bg-yellow-50 text-yellow-700 border-yellow-200 hover:bg-yellow-100';
+    }
+    
+    // Low priority variants
+    if (normalizedPriority.includes('nízka') || normalizedPriority.includes('nízká') || normalizedPriority === 'low') {
+      return 'bg-green-50 text-green-700 border-green-200 hover:bg-green-100';
+    }
+    
+    return 'bg-gray-50 text-gray-700 border-gray-200 hover:bg-gray-100';
   };
 
   return (
