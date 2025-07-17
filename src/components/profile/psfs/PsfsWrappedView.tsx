@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Card, CardContent } from '@/components/ui/card';
-import { Activity, ChevronRight } from 'lucide-react';
+import { Activity } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 
 interface PsfsWrappedViewProps {
   onUnwrap: () => void;
