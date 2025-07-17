@@ -1,6 +1,6 @@
 
 import { useAuth } from '@/contexts/AuthContext';
-import UserForm from '@/components/UserForm';
+import { InteractiveAssessmentForm } from '@/components/questionnaire/InteractiveAssessmentForm';
 import { UserInfo } from '@/utils/types';
 import { useAssessment, AssessmentStage } from '@/contexts/AssessmentContext';
 import { useLocation } from 'react-router-dom';
@@ -23,7 +23,7 @@ const UserInfoHandler = () => {
     setStage(AssessmentStage.GeneralQuestionnaire);
   };
 
-  return <UserForm onSubmit={handleUserInfoSubmit} />;
+  return <InteractiveAssessmentForm onSubmit={handleUserInfoSubmit} />;
 };
 
 export default UserInfoHandler;

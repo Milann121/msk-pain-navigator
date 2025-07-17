@@ -11,7 +11,6 @@ import { FavoriteExercises } from '@/components/profile/FavoriteExercises';
 import { SavedBlogs } from '@/components/profile/SavedBlogs';
 import { ProfileFormPopup } from '@/components/profile/ProfileFormPopup';
 import { NotificationArea } from '@/components/profile/NotificationArea';
-import { BodyAreaSelector } from '@/components/questionnaire/BodyAreaSelector';
 import { useProfileCompletion } from '@/hooks/useProfileCompletion';
 import { supabase } from '@/integrations/supabase/client';
 
@@ -136,9 +135,6 @@ const Domov = () => {
               />
             </div>
           </div>
-          
-          {/* Body Area Selector */}
-          <BodyAreaSelector />
           
           {/* Progress Container */}
           <ProgressContainer 

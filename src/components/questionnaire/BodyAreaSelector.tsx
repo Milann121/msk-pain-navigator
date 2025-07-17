@@ -7,50 +7,44 @@ const BODY_AREAS = [
   {
     id: 'neck',
     name: 'Neck',
-    coordinates: { x: 50, y: 15, width: 20, height: 15 }, // Approximate percentages
-    route: '/assessment?area=neck'
+    coordinates: { x: 40, y: 10, width: 20, height: 15 },
+    painArea: 'neck'
+  },
+  {
+    id: 'middle-back',
+    name: 'Middle Back', 
+    coordinates: { x: 40, y: 30, width: 20, height: 20 },
+    painArea: 'middle back'
+  },
+  {
+    id: 'lower-back',
+    name: 'Lower Back',
+    coordinates: { x: 40, y: 50, width: 20, height: 15 },
+    painArea: 'lower back'
   },
   {
     id: 'shoulder',
-    name: 'Shoulder',
-    coordinates: { x: 25, y: 25, width: 25, height: 20 },
-    route: '/assessment?area=shoulder'
+    name: 'Shoulder/Upper Limb',
+    coordinates: { x: 20, y: 20, width: 15, height: 20 },
+    painArea: 'upper limb'
   },
   {
-    id: 'back',
-    name: 'Back',
-    coordinates: { x: 40, y: 30, width: 20, height: 30 },
-    route: '/assessment?area=back'
+    id: 'shoulder-right',
+    name: 'Shoulder/Upper Limb',
+    coordinates: { x: 65, y: 20, width: 15, height: 20 },
+    painArea: 'upper limb'
   },
   {
-    id: 'arm',
-    name: 'Arm',
-    coordinates: { x: 15, y: 25, width: 15, height: 35 },
-    route: '/assessment?area=arm'
+    id: 'arm-left',
+    name: 'Upper Limb',
+    coordinates: { x: 10, y: 30, width: 10, height: 25 },
+    painArea: 'upper limb'
   },
   {
-    id: 'hand',
-    name: 'Hand',
-    coordinates: { x: 10, y: 60, width: 15, height: 15 },
-    route: '/assessment?area=hand'
-  },
-  {
-    id: 'hip',
-    name: 'Hip',
-    coordinates: { x: 35, y: 60, width: 30, height: 15 },
-    route: '/assessment?area=hip'
-  },
-  {
-    id: 'knee',
-    name: 'Knee',
-    coordinates: { x: 40, y: 75, width: 20, height: 10 },
-    route: '/assessment?area=knee'
-  },
-  {
-    id: 'ankle',
-    name: 'Ankle',
-    coordinates: { x: 42, y: 90, width: 16, height: 8 },
-    route: '/assessment?area=ankle'
+    id: 'arm-right',
+    name: 'Upper Limb', 
+    coordinates: { x: 80, y: 30, width: 10, height: 25 },
+    painArea: 'upper limb'
   }
 ];
 
@@ -60,7 +54,7 @@ export const BodyAreaSelector = () => {
   const [hoveredArea, setHoveredArea] = useState<string | null>(null);
 
   const handleAreaClick = (area: typeof BODY_AREAS[0]) => {
-    navigate(area.route);
+    navigate(`/assessment?area=${area.painArea.replace(' ', '-')}`);
   };
 
   return (
