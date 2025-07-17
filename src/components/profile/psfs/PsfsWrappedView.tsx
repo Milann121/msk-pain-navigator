@@ -11,8 +11,8 @@ export const PsfsWrappedView = ({ onUnwrap }: PsfsWrappedViewProps) => {
   const { t } = useTranslation();
   
   return (
-    <Card className="mb-6 border-green-200 bg-gradient-to-r from-green-50 to-emerald-50 h-full min-h-[80px]">
-      <CardContent className="pt-4 pb-4 h-full flex items-center">
+    <Card className="mb-6 border-green-200 bg-gradient-to-r from-green-50 to-emerald-50">
+      <CardContent className="pt-4 pb-4">
         <div className="flex items-center gap-4 cursor-pointer" onClick={onUnwrap}>
           <div className="flex-shrink-0">
             <Activity className="h-6 w-6 text-green-600" />

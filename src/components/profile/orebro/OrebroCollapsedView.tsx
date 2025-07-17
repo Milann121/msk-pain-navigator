@@ -6,19 +6,17 @@ interface OrebroCollapsedViewProps {
   onExpand: () => void;
   lastCompletionDate: Date | null;
   showReminder: boolean;
-  otherExpanded: boolean;
 }
 export const OrebroCollapsedView = ({
   onExpand,
   lastCompletionDate,
-  showReminder,
-  otherExpanded
+  showReminder
 }: OrebroCollapsedViewProps) => {
   const {
     t
   } = useTranslation();
-  return <Card className="mb-6 border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50 min-h-[60px]">
-      <CardContent className="pt-4 pb-4 h-full flex items-center">
+  return <Card className="mb-6 border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50">
+      <CardContent className="pt-4 pb-4">
         <OrebroReminderBanner lastCompletionDate={lastCompletionDate} showReminder={showReminder} />
         <div className="flex items-center gap-4 cursor-pointer" onClick={onExpand}>
           <div className="flex-shrink-0">
