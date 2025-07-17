@@ -44,11 +44,7 @@ export const NotificationArea = () => {
               aria-label="Weekly Progress"
             >
               <TrendingUp 
-                className={`w-5 h-5 ${
-                  !isGoalMet 
-                    ? 'text-orange-500' 
-                    : 'text-green-500'
-                }`} 
+                className="w-5 h-5 text-black" 
               />
             </button>
           )}
