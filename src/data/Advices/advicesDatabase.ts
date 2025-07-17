@@ -89,12 +89,12 @@ export const advices: Advice[] = [
   },
   // Advice 6 - Superman sleep position
   {
-    adviceTitle: "",
+    adviceTitle: "supermanSleep",
     adviceId: 6,
     adviceSubtitle:"",
     advicePriority: "high",
-    adviceRule: "",
-    adviceDescription: "",
+    adviceRule: "supermanSleepRule",
+    adviceDescription: "supermanSleepDescription",
     adviceImageUrl: "",
     adviceLink:"",
     bodyParts: ['shoulder'],
