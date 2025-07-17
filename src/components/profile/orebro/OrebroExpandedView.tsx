@@ -33,7 +33,7 @@ export const OrebroExpandedView = ({
           
           <div className="flex-1">
             <div className="flex items-center gap-2 mb-2">
-              <h3 className="font-semibold text-gray-900 text-2xl">
+              <h3 className="font-semibold text-gray-900 text-xl">
                 {t('home.orebro.title')}
               </h3>
               {hasCompletedRecently && <>
