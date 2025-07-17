@@ -26,6 +26,7 @@ import enStrengthPrograms from './locales/en/strengthPrograms.json';
 import enYogaPrograms from './locales/en/yogaPrograms.json';
 import enBodyParts from './locales/en/bodyParts.json';
 import enDifferentials from './locales/en/differentials.json';
+import enPainMechanisms from './locales/en/painMechanisms.json';
 
 // Slovak translations
 import skWelcome from './locales/sk/welcome.json';
@@ -50,6 +51,7 @@ import skStrengthPrograms from './locales/sk/strengthPrograms.json';
 import skYogaPrograms from './locales/sk/yogaPrograms.json';
 import skBodyParts from './locales/sk/bodyParts.json';
 import skDifferentials from './locales/sk/differentials.json';
+import skPainMechanisms from './locales/sk/painMechanisms.json';
 
 // Czech translations
 import csWelcome from './locales/cs/welcome.json';
@@ -74,6 +76,7 @@ import csStrengthPrograms from './locales/cs/strengthPrograms.json';
 import csYogaPrograms from './locales/cs/yogaPrograms.json';
 import csBodyParts from './locales/cs/bodyParts.json';
 import csDifferentials from './locales/cs/differentials.json';
+import csPainMechanisms from './locales/cs/painMechanisms.json';
 
 // Combine all translations
 const enTranslations = {
@@ -99,7 +102,8 @@ const enTranslations = {
   strengthPrograms: enStrengthPrograms,
   yogaPrograms: enYogaPrograms,
   bodyParts: enBodyParts,
-  differentials: enDifferentials
+  differentials: enDifferentials,
+  painMechanisms: enPainMechanisms
 };
 
 const skTranslations = {
@@ -125,7 +129,8 @@ const skTranslations = {
   strengthPrograms: skStrengthPrograms,
   yogaPrograms: skYogaPrograms,
   bodyParts: skBodyParts,
-  differentials: skDifferentials
+  differentials: skDifferentials,
+  painMechanisms: skPainMechanisms
 };
 
 const csTranslations = {
@@ -151,7 +156,8 @@ const csTranslations = {
   strengthPrograms: csStrengthPrograms,
   yogaPrograms: csYogaPrograms,
   bodyParts: csBodyParts,
-  differentials: csDifferentials
+  differentials: csDifferentials,
+  painMechanisms: csPainMechanisms
 };
 
 void i18n

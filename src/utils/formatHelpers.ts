@@ -4,14 +4,23 @@ import { useTranslation } from 'react-i18next';
 
 // Helper function to format mechanism for display
 export const getMechanismLabel = (mechanism: PainMechanism, t: any): string => {
-  return t(`painMechanisms.${mechanism}`) || t('painMechanisms.none');
+  // Map pain mechanisms to readable labels
+  const mechanismLabels: Record<PainMechanism, string> = {
+    'nociceptive': t('painMechanisms.nociceptive') || 'Nociceptive',
+    'neuropathic': t('painMechanisms.neuropathic') || 'Neuropathic', 
+    'central': t('painMechanisms.central') || 'Central',
+    'red-flag': t('painMechanisms.red-flag') || 'Red Flag',
+    'none': t('painMechanisms.none') || 'None'
+  };
+  
+  return mechanismLabels[mechanism] || mechanism;
 };
 
 // Helper function to format differential for display
 export const formatDifferential = (differential: string, t: any): string => {
-  if (differential === 'none') return t('diagnoses.none');
+  if (differential === 'none') return t('differentials.none') || 'None';
   
-  return t(`diagnoses.${differential}`) || differential;
+  return t(`differentials.${differential}`) || differential;
 };
 
 // Format pain area for display
