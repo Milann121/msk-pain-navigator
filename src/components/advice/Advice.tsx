@@ -52,32 +52,8 @@ export const Advice: React.FC<AdviceProps> = ({ adviceId }) => {
   return (
     <Card className="border-gray-200 hover:shadow-md transition-shadow">
       <CardHeader className="pb-3">
-        <div className="flex items-start justify-between gap-3">
-          <div className="flex-1">
-            <CardTitle className="text-lg font-semibold text-gray-900">
-              {t(`advice.${advice.adviceTitle}`)}
-            </CardTitle>
-            {advice.adviceSubtitle && advice.adviceSubtitle.trim() && (
-              <p className="text-sm text-gray-600 mt-1">{t(`advice.${advice.adviceSubtitle}`)}</p>
-            )}
-            {/* Rule inline on desktop */}
-            {advice.adviceRule && (
-              <div className="mt-2">
-                <span className="text-sm font-medium text-blue-900">{t('advice.rule')}: </span>
-                <span className="text-sm text-blue-800">{t(`advice.${advice.adviceRule}`)}</span>
-              </div>
-            )}
-          </div>
-          <Badge className={`${getPriorityColor(t(`advice.${advice.advicePriority}`))} font-medium`}>
-            {t(`advice.${advice.advicePriority}`)}
-          </Badge>
-        </div>
-      </CardHeader>
-      
-      <CardContent className="space-y-4">
-        {/* Mobile: Stack image and description vertically, Desktop: Keep horizontal layout */}
-        <div className="flex flex-col md:flex-row gap-4">
-          <div className="flex-shrink-0 flex justify-center md:justify-start">
+        <div className="flex items-start gap-3">
+          <div className="flex-shrink-0">
             <div className="w-16 h-16 rounded-lg border border-gray-200 bg-gray-50 overflow-hidden shadow-sm flex items-center justify-center">
               {advice.adviceImageUrl ? (
                 <img
@@ -92,12 +68,36 @@ export const Advice: React.FC<AdviceProps> = ({ adviceId }) => {
               )}
             </div>
           </div>
-          
           <div className="flex-1">
-            <p className="text-gray-700 text-sm leading-relaxed">
-              {t(`advice.${advice.adviceDescription}`)}
-            </p>
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <CardTitle className="text-lg font-semibold text-gray-900">
+                  {t(`advice.${advice.adviceTitle}`)}
+                </CardTitle>
+                {advice.adviceSubtitle && advice.adviceSubtitle.trim() && (
+                  <p className="text-sm text-gray-600 mt-1">{t(`advice.${advice.adviceSubtitle}`)}</p>
+                )}
+                {/* Rule inline on desktop */}
+                {advice.adviceRule && (
+                  <div className="mt-2">
+                    <span className="text-sm font-medium text-blue-900">{t('advice.rule')}: </span>
+                    <span className="text-sm text-blue-800">{t(`advice.${advice.adviceRule}`)}</span>
+                  </div>
+                )}
+              </div>
+              <Badge className={`${getPriorityColor(t(`advice.${advice.advicePriority}`))} font-medium`}>
+                {t(`advice.${advice.advicePriority}`)}
+              </Badge>
+            </div>
           </div>
+        </div>
+      </CardHeader>
+      
+      <CardContent className="space-y-4">
+        <div className="flex-1">
+          <p className="text-gray-700 text-sm leading-relaxed">
+            {t(`advice.${advice.adviceDescription}`)}
+          </p>
         </div>
         
         {advice.adviceLink && advice.adviceLink.trim() && (
