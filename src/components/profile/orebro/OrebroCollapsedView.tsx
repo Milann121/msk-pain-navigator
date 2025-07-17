@@ -15,7 +15,7 @@ export const OrebroCollapsedView = ({
     t
   } = useTranslation();
   return <Card className="mb-6 border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50">
-      <CardContent className="pt-4 pb-4">
+      <CardContent className="pt-4 pb-4 min-h-[72px]">
         <div className="flex items-center gap-4 cursor-pointer" onClick={onExpand}>
           <div className="flex-shrink-0">
             <Brain className="h-6 w-6 text-blue-600" />
