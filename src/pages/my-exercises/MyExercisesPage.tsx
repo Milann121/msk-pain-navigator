@@ -22,6 +22,7 @@ export const MyExercisesPage = () => {
   const { t } = useTranslation();
   const { assessments, loading, handleDeleteAssessment, refreshAssessments } = useAssessments();
   const [selectedAssessment, setSelectedAssessment] = React.useState<UserAssessment | null>(null);
+  const [isOrebroExpanded, setIsOrebroExpanded] = React.useState(false);
 
   // State for which active assessment accordion item is open
   const [openedActiveAccordionId, setOpenedActiveAccordionId] = React.useState<string | undefined>(undefined);
@@ -99,7 +100,11 @@ export const MyExercisesPage = () => {
           
           {/* OREBRO & General Program side by side */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 items-start">
-            <OrebroEntry />
+            <OrebroEntry 
+              isExpanded={isOrebroExpanded}
+              onExpandChange={setIsOrebroExpanded}
+              otherExpanded={false}
+            />
             <GeneralProgram />
           </div>
           {/* Sections */}

@@ -12,6 +12,7 @@ interface PsfsExpandedViewProps {
   onWrap: () => void;
   onTakeQuestionnaire: () => void;
   onViewResults: () => void;
+  otherExpanded: boolean;
 }
 export const PsfsExpandedView = ({
   hasCompletedRecently,
@@ -20,7 +21,8 @@ export const PsfsExpandedView = ({
   onCollapse,
   onWrap,
   onTakeQuestionnaire,
-  onViewResults
+  onViewResults,
+  otherExpanded
 }: PsfsExpandedViewProps) => {
   const {
     t

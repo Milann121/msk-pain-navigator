@@ -24,6 +24,8 @@ const Domov = () => {
 
   const [weeklyExerciseGoal, setWeeklyExerciseGoal] = useState<number | null>(null);
   const [weeklyBlogGoal, setWeeklyBlogGoal] = useState<number | null>(null);
+  const [isOrebroExpanded, setIsOrebroExpanded] = useState(false);
+  const [isPsfsExpanded, setIsPsfsExpanded] = useState(false);
 
   // Load goals from database
   useEffect(() => {
@@ -80,8 +82,16 @@ const Domov = () => {
           
           {/* OREBRO and PSFS Questionnaire Entries - Side by Side */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-            <OrebroEntry />
-            <PsfsEntry />
+            <OrebroEntry 
+              isExpanded={isOrebroExpanded}
+              onExpandChange={setIsOrebroExpanded}
+              otherExpanded={isPsfsExpanded}
+            />
+            <PsfsEntry 
+              isExpanded={isPsfsExpanded}
+              onExpandChange={setIsPsfsExpanded}
+              otherExpanded={isOrebroExpanded}
+            />
           </div>
           
           {/* Progress Container */}

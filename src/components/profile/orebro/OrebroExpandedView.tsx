@@ -11,6 +11,7 @@ interface OrebroExpandedViewProps {
   onCollapse?: () => void;
   onTakeQuestionnaire: () => void;
   onViewResults: () => void;
+  otherExpanded: boolean;
 }
 export const OrebroExpandedView = ({
   hasCompletedRecently,
@@ -18,7 +19,8 @@ export const OrebroExpandedView = ({
   showReminder,
   onCollapse,
   onTakeQuestionnaire,
-  onViewResults
+  onViewResults,
+  otherExpanded
 }: OrebroExpandedViewProps) => {
   const {
     t

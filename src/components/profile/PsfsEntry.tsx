@@ -5,8 +5,13 @@ import { PsfsCollapsedView } from './psfs/PsfsCollapsedView';
 import { PsfsExpandedView } from './psfs/PsfsExpandedView';
 import { PsfsWrappedView } from './psfs/PsfsWrappedView';
 
-export const PsfsEntry = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
+interface PsfsEntryProps {
+  isExpanded: boolean;
+  onExpandChange: (expanded: boolean) => void;
+  otherExpanded: boolean;
+}
+
+export const PsfsEntry = ({ isExpanded, onExpandChange, otherExpanded }: PsfsEntryProps) => {
   const [isWrapped, setIsWrapped] = useState(false);
   const { hasCompletedRecently, lastCompletionDate, showReminder, loading } = usePsfsCompletion();
   const { handleTakeQuestionnaire, handleViewResults } = usePsfsNavigation();
@@ -28,10 +33,11 @@ export const PsfsEntry = () => {
   if (hasCompletedRecently && !isExpanded) {
     return (
       <PsfsCollapsedView 
-        onExpand={() => setIsExpanded(true)}
+        onExpand={() => onExpandChange(true)}
         onWrap={() => setIsWrapped(true)}
         lastCompletionDate={lastCompletionDate}
         showReminder={showReminder}
+        otherExpanded={otherExpanded}
       />
     );
   }
@@ -41,10 +47,11 @@ export const PsfsEntry = () => {
       hasCompletedRecently={hasCompletedRecently}
       lastCompletionDate={lastCompletionDate}
       showReminder={showReminder}
-      onCollapse={hasCompletedRecently ? () => setIsExpanded(false) : undefined}
+      onCollapse={hasCompletedRecently ? () => onExpandChange(false) : undefined}
       onWrap={() => setIsWrapped(true)}
       onTakeQuestionnaire={handleTakeQuestionnaire}
       onViewResults={handleViewResults}
+      otherExpanded={otherExpanded}
     />
   );
 };
