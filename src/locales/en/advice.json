@@ -11,9 +11,9 @@
   "adviceCount_one": "{{count}} tip",
   "adviceCount_few": "{{count}} tips",
   "adviceCount_other": "{{count}} tips",
-  "high": "High",
-  "medium": "Medium",
-  "low": "Low",
+  "high": "High priority",
+  "medium": "Medium priority",
+  "low": "Low priority",
   
   "regularPositionChange": "Regular Position Change",
   "every45to60min": "Every 45-60 minutes",
