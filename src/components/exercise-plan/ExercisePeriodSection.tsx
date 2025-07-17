@@ -12,7 +12,7 @@ interface ExercisePeriodSectionProps {
 }
 
 export const ExercisePeriodSection = ({ exercise, showGeneral = false, assessmentId }: ExercisePeriodSectionProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['advice']);
   
   // Helper function to get translated text
   const getTranslatedText = (text: string) => {
