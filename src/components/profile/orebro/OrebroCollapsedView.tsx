@@ -17,7 +17,7 @@ export const OrebroCollapsedView = ({
   const {
     t
   } = useTranslation();
-  return <Card className={`mb-6 border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50 ${otherExpanded ? 'min-h-[60px]' : 'h-full min-h-[60px]'}`}>
+  return <Card className="mb-6 border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50 min-h-[60px]">
       <CardContent className="pt-4 pb-4 h-full flex items-center">
         <OrebroReminderBanner lastCompletionDate={lastCompletionDate} showReminder={showReminder} />
         <div className="flex items-center gap-4 cursor-pointer" onClick={onExpand}>
