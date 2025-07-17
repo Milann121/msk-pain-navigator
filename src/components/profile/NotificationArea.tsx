@@ -20,11 +20,11 @@ export const NotificationArea = () => {
   };
 
   const handleOrebroClick = () => {
-    navigate('/orebro');
+    navigate('/orebro-questionnaire');
   };
 
   const handlePsfsClick = () => {
-    navigate('/psfs');
+    navigate('/psfs-questionnaire');
   };
 
   // Don't show progress icon if no active programs
@@ -64,7 +64,7 @@ export const NotificationArea = () => {
             <Brain 
               className={`w-5 h-5 ${
                 isOrebroReminderDue 
-                  ? 'text-blue-500' 
+                  ? 'text-blue-600' 
                   : 'text-gray-400'
               }`} 
             />
