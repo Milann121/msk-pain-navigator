@@ -7,6 +7,8 @@ import Header from '@/components/Header';
 import PSFSQuestion from '@/components/questionnaire/PSFSQuestion';
 import { psfsQuestion } from '@/data/questionnaires/general/psfs';
 import { ArrowLeft, Send } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
+import { toast } from 'sonner';
 
 const PsfsQuestionnaire = () => {
   const { t } = useTranslation();
@@ -20,12 +22,35 @@ const PsfsQuestionnaire = () => {
     }));
   };
 
-  const handleSubmit = () => {
-    // Here you would typically save the PSFS responses to the database
-    console.log('PSFS responses:', values);
-    
-    // For now, just navigate back to home
-    navigate('/domov');
+  const handleSubmit = async () => {
+    try {
+      const { data: { user } } = await supabase.auth.getUser();
+      
+      if (!user) {
+        toast.error(t('common.error'));
+        return;
+      }
+
+      // Save PSFS responses to database
+      const { error } = await supabase
+        .from('psfs_assessment')
+        .insert({
+          user_id: user.id,
+          responses: values
+        });
+
+      if (error) {
+        console.error('Error saving PSFS responses:', error);
+        toast.error(t('common.error'));
+        return;
+      }
+
+      toast.success(t('common.success'));
+      navigate('/domov');
+    } catch (error) {
+      console.error('Error submitting PSFS:', error);
+      toast.error(t('common.error'));
+    }
   };
 
   const isComplete = psfsQuestion.psfs?.questions.every(q => values[q.id] !== undefined) || false;

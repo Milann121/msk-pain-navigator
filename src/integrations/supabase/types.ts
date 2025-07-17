@@ -643,6 +643,33 @@ export type Database = {
         }
         Relationships: []
       }
+      psfs_assessment: {
+        Row: {
+          created_at: string
+          id: string
+          reminder_at: string | null
+          responses: Json
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          reminder_at?: string | null
+          responses?: Json
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          reminder_at?: string | null
+          responses?: Json
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       rotation_reminder: {
         Row: {
           created_at: string
