@@ -27,8 +27,8 @@ export const PsfsExpandedView = ({
   const { t } = useTranslation();
   
   return (
-    <Card className="mb-6 border-green-200 bg-gradient-to-r from-green-50 to-emerald-50">
-      <CardContent className="pt-6 flex flex-col">
+    <Card className="mb-6 border-green-200 bg-gradient-to-r from-green-50 to-emerald-50 h-full">
+      <CardContent className="pt-6 flex flex-col h-full">
         <div className="flex items-start gap-4">
           <div className="flex-shrink-0">
             <Activity className="h-8 w-8 text-green-600" />

@@ -78,9 +78,11 @@ const Domov = () => {
           {/* Mood Calendar */}
           <MoodCalendar />
           
-          {/* OREBRO Questionnaire Entry */}
-        <OrebroEntry />
-        <PsfsEntry />
+          {/* OREBRO and PSFS Questionnaire Entries - Side by Side */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <OrebroEntry />
+            <PsfsEntry />
+          </div>
           
           {/* Progress Container */}
           <ProgressContainer 
