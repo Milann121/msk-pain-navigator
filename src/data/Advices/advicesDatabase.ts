@@ -87,4 +87,18 @@ export const advices: Advice[] = [
     mechanisms: ['nociceptive', 'neuropathic'],
     differentials: ['disc-herniation', 'facet-joint-syndrome', 'SIJ-syndrome', 'sciatica']
   },
+  // Advice 6 - Superman sleep position
+  {
+    adviceTitle: "",
+    adviceId: 6,
+    adviceSubtitle:"",
+    advicePriority: "high",
+    adviceRule: "",
+    adviceDescription: "",
+    adviceImageUrl: "",
+    adviceLink:"",
+    bodyParts: ['shoulder'],
+    mechanisms: ['nociceptive', 'neuropathic'],
+    differentials: ['frozen-shoulder', 'subacromional-impingement-syndrome', 'slap-tear', 'stiff-shoulder', 'labral-leason','biceps-tear-long-head','unstable-shoulder', 'shoulder-dislocation']
+  },
 ];
