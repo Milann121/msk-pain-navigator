@@ -20,10 +20,6 @@ export const useOrebroCompletion = () => {
     if (!user) return;
 
     try {
-      // Check for OREBRO completion in the last 3 months
-      const threeMonthsAgo = new Date();
-      threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() - 3);
-
       const { data, error } = await supabase
         .from('orebro_responses')
         .select('created_at')
@@ -43,11 +39,17 @@ export const useOrebroCompletion = () => {
         const monthsSinceCompletion = differenceInMonths(new Date(), lastCompletion);
         
         if (monthsSinceCompletion < 3) {
+          // Completed recently - don't show reminder
           setHasCompletedRecently(true);
+          setShowReminder(false);
         } else {
+          // More than 3 months - show reminder banner
+          setHasCompletedRecently(false);
           setShowReminder(true);
         }
       } else {
+        // No completion found - show reminder for first time
+        setHasCompletedRecently(false);
         setShowReminder(true);
       }
     } catch (error) {
