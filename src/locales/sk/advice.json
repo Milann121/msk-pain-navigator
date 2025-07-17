@@ -6,6 +6,8 @@
   "moreInfo": "Viac informácií",
   "programAdviceTitle": "Dôležité rady pre váš program",
   "programAdviceSubtitle": "Odporúčania špecifické pre váš typ bolesti a oblasť",
+  "exerciseAdviceTitle": "Dôležité rady",
+  "exerciseAdviceSubtitle": "Odporúčania pre toto cvičenie",
   "adviceCount_one": "{{count}} rada",
   "adviceCount_few": "{{count}} rady",
   "adviceCount_other": "{{count}} rád",

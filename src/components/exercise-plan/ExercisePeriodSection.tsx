@@ -3,6 +3,7 @@ import React from 'react';
 import { Exercise } from '@/types/exercise';
 import { ExerciseVideoSection } from './ExerciseVideoSection';
 import { useTranslation } from 'react-i18next';
+import { AdviceList } from '@/components/advice';
 
 interface ExercisePeriodSectionProps {
   exercise: Exercise;
@@ -58,6 +59,21 @@ export const ExercisePeriodSection = ({ exercise, showGeneral = false, assessmen
           />
         ))}
       </div>
+
+      {/* Advice Section */}
+      {exercise.advices && exercise.advices.length > 0 && (
+        <div className="mt-8 border-t pt-6">
+          <div className="mb-4">
+            <h3 className="text-lg font-semibold text-gray-900 mb-1">
+              {t('advice:exerciseAdviceTitle')}
+            </h3>
+            <p className="text-gray-600 text-sm">
+              {t('advice:exerciseAdviceSubtitle')}
+            </p>
+          </div>
+          <AdviceList adviceIds={exercise.advices} />
+        </div>
+      )}
     </div>
   );
 };
