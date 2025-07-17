@@ -26,8 +26,8 @@ export const getAdvicesForExerciseProgram = (
     return bodyPartMatch && mechanismMatch && differentialMatch;
   });
   
-  // Sort by priority (Vysoká > Stredná > Nízka) and return IDs
-  const priorityOrder = { 'Vysoká': 3, 'Stredná': 2, 'Nízka': 1 };
+  // Sort by priority (high > medium > low) and return IDs
+  const priorityOrder = { 'high': 3, 'medium': 2, 'low': 1 };
   
   return matchingAdvices
     .sort((a, b) => {

@@ -10,7 +10,7 @@ export interface Advice {
   adviceImageUrl: string;
   adviceLink: string;
   // Matching criteria
-  bodyParts: Array<'neck' | 'middle-back' | 'lower-back' | 'upper limb'>;
+  bodyParts: Array<'neck' | 'middle-back' | 'lower-back' | 'upper limb' | 'shoulder'>;
   mechanisms: Array<'nociceptive' | 'neuropathic' | 'central'>;
   differentials?: Array<string>; // Optional for more specific targeting
 }
