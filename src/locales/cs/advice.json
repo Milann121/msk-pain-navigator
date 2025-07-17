@@ -11,9 +11,9 @@
   "adviceCount_one": "{{count}} rada",
   "adviceCount_few": "{{count}} rady",
   "adviceCount_other": "{{count}} rad",
-  "high": "Vysoká",
-  "medium": "Střední",
-  "low": "Nízká",
+  "high": "Vysoká priorita",
+  "medium": "Střední priorita",
+  "low": "Nízká priorita",
   
   "regularPositionChange": "Pravidelná změna polohy",
   "every45to60min": "Každých 45-60 minut",
