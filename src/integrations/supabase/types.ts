@@ -578,6 +578,7 @@ export type Database = {
           b2b_partner_id: number | null
           created_at: string
           id: string
+          reminder_at: string | null
           responses: Json
           risk_level: string | null
           total_score: number | null
@@ -589,6 +590,7 @@ export type Database = {
           b2b_partner_id?: number | null
           created_at?: string
           id?: string
+          reminder_at?: string | null
           responses: Json
           risk_level?: string | null
           total_score?: number | null
@@ -600,6 +602,7 @@ export type Database = {
           b2b_partner_id?: number | null
           created_at?: string
           id?: string
+          reminder_at?: string | null
           responses?: Json
           risk_level?: string | null
           total_score?: number | null
@@ -1175,6 +1178,14 @@ export type Database = {
       }
       is_hr_manager: {
         Args: { user_id: string }
+        Returns: boolean
+      }
+      is_orebro_reminder_due: {
+        Args: { user_id_param: string }
+        Returns: boolean
+      }
+      is_psfs_reminder_due: {
+        Args: { user_id_param: string }
         Returns: boolean
       }
       populate_all_weekly_exercise_goals: {
