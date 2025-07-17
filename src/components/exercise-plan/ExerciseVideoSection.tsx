@@ -216,6 +216,10 @@ export const ExerciseVideoSection = ({
                     />
                   ))}
                 </div>
+                <SwapExerciseButton 
+                  onClick={() => {}} 
+                  disabled={false}
+                />
               </div>
             </div>
           )}
@@ -225,12 +229,6 @@ export const ExerciseVideoSection = ({
               videoId={actualVideoId}
               description={translatedDescription}
             />
-            {video.alternatives && video.alternatives.length > 0 && (
-              <SwapExerciseButton 
-                onClick={handleSwapClick}
-                disabled={swapLoading}
-              />
-            )}
           </div>
         </div>
       </div>
@@ -284,6 +282,10 @@ export const ExerciseVideoSection = ({
                   />
                 ))}
               </div>
+              <SwapExerciseButton 
+                onClick={() => {}} 
+                disabled={false}
+              />
             </div>
           </div>
         )}
@@ -293,12 +295,6 @@ export const ExerciseVideoSection = ({
             videoId={actualVideoId}
             description={translatedDescription}
           />
-          {video.alternatives && video.alternatives.length > 0 && (
-            <SwapExerciseButton 
-              onClick={handleSwapClick}
-              disabled={swapLoading}
-            />
-          )}
         </div>
       </div>
 
