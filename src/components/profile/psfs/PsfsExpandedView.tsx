@@ -39,14 +39,14 @@ export const PsfsExpandedView = ({
               </h3>
               {hasCompletedRecently && <>
                   <CheckCircle className="h-5 w-5 text-green-600" />
+                  {onCollapse && <button onClick={onCollapse} className="ml-auto text-gray-500 hover:text-gray-700">
+                      <ChevronDown className="h-5 w-5" />
+                    </button>}
                 </>}
-              <div className="ml-auto flex items-center gap-2">
+              <div className="ml-auto">
                 <button onClick={onWrap} className="text-gray-500 hover:text-gray-700">
                   <ChevronRight className="h-5 w-5" />
                 </button>
-                {hasCompletedRecently && onCollapse && <button onClick={onCollapse} className="text-gray-500 hover:text-gray-700">
-                    <ChevronDown className="h-5 w-5" />
-                  </button>}
               </div>
             </div>
             
