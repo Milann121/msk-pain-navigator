@@ -1,11 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useOrebroCompletion } from '@/hooks/useOrebroCompletion';
 import { useOrebroNavigation } from '@/hooks/useOrebroNavigation';
 import { OrebroCollapsedView } from './orebro/OrebroCollapsedView';
 import { OrebroExpandedView } from './orebro/OrebroExpandedView';
+import { OrebroWrappedView } from './orebro/OrebroWrappedView';
 
-export const OrebroEntry = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
+interface OrebroEntryProps {
+  isExpanded: boolean;
+  isWrapped: boolean;
+  onExpand: () => void;
+  onCollapse: () => void;
+  onWrap: () => void;
+  onUnwrap: () => void;
+}
+
+export const OrebroEntry = ({
+  isExpanded,
+  isWrapped,
+  onExpand,
+  onCollapse,
+  onWrap,
+  onUnwrap
+}: OrebroEntryProps) => {
   const { hasCompletedRecently, lastCompletionDate, showReminder, loading } = useOrebroCompletion();
   const { handleTakeQuestionnaire, handleViewResults } = useOrebroNavigation();
 
@@ -13,11 +29,20 @@ export const OrebroEntry = () => {
     return null;
   }
 
+  // If wrapped, show only icon and title
+  if (isWrapped) {
+    return (
+      <OrebroWrappedView 
+        onUnwrap={onUnwrap}
+      />
+    );
+  }
+
   // If completed recently and not expanded, show collapsed view
   if (hasCompletedRecently && !isExpanded) {
     return (
       <OrebroCollapsedView 
-        onExpand={() => setIsExpanded(true)}
+        onExpand={onExpand}
         lastCompletionDate={lastCompletionDate}
         showReminder={showReminder}
       />
@@ -29,7 +54,7 @@ export const OrebroEntry = () => {
       hasCompletedRecently={hasCompletedRecently}
       lastCompletionDate={lastCompletionDate}
       showReminder={showReminder}
-      onCollapse={hasCompletedRecently ? () => setIsExpanded(false) : undefined}
+      onCollapse={hasCompletedRecently ? onCollapse : undefined}
       onTakeQuestionnaire={handleTakeQuestionnaire}
       onViewResults={handleViewResults}
     />

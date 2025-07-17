@@ -25,6 +25,11 @@ const Domov = () => {
   const [weeklyExerciseGoal, setWeeklyExerciseGoal] = useState<number | null>(null);
   const [weeklyBlogGoal, setWeeklyBlogGoal] = useState<number | null>(null);
 
+  // OREBRO and PSFS state management
+  const [orebroExpanded, setOrebroExpanded] = useState(false);
+  const [orebroWrapped, setOrebroWrapped] = useState(false);
+  const [psfsExpanded, setPsfsExpanded] = useState(false);
+
   // Load goals from database
   useEffect(() => {
     const loadGoals = async () => {
@@ -78,9 +83,41 @@ const Domov = () => {
           {/* Mood Calendar */}
           <MoodCalendar />
           
-          {/* OREBRO Questionnaire Entry */}
-        <OrebroEntry />
-        <PsfsEntry />
+          {/* OREBRO and PSFS Questionnaires */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <div className={`${
+              (orebroExpanded && psfsExpanded) || 
+              (orebroWrapped && !psfsExpanded) || 
+              (!orebroExpanded && !orebroWrapped && !psfsExpanded)
+                ? 'min-h-fit' 
+                : orebroWrapped || (!orebroExpanded && !orebroWrapped) 
+                  ? 'min-h-[80px]' 
+                  : 'min-h-fit'
+            }`}>
+              <OrebroEntry 
+                isExpanded={orebroExpanded}
+                isWrapped={orebroWrapped}
+                onExpand={() => setOrebroExpanded(true)}
+                onCollapse={() => setOrebroExpanded(false)}
+                onWrap={() => setOrebroWrapped(true)}
+                onUnwrap={() => setOrebroWrapped(false)}
+              />
+            </div>
+            <div className={`${
+              (orebroExpanded && psfsExpanded) || 
+              (!orebroExpanded && !orebroWrapped && !psfsExpanded)
+                ? 'min-h-fit' 
+                : !psfsExpanded 
+                  ? 'min-h-[80px]' 
+                  : 'min-h-fit'
+            }`}>
+              <PsfsEntry 
+                isExpanded={psfsExpanded}
+                onExpand={() => setPsfsExpanded(true)}
+                onCollapse={() => setPsfsExpanded(false)}
+              />
+            </div>
+          </div>
           
           {/* Progress Container */}
           <ProgressContainer 

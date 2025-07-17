@@ -99,7 +99,14 @@ export const MyExercisesPage = () => {
           
           {/* OREBRO & General Program side by side */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 items-start">
-            <OrebroEntry />
+            <OrebroEntry 
+              isExpanded={false}
+              isWrapped={false}
+              onExpand={() => {}}
+              onCollapse={() => {}}
+              onWrap={() => {}}
+              onUnwrap={() => {}}
+            />
             <GeneralProgram />
           </div>
           {/* Sections */}

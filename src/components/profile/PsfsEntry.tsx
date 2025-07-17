@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { usePsfsCompletion } from '@/hooks/usePsfsCompletion';
 import { usePsfsNavigation } from '@/hooks/usePsfsNavigation';
 import { PsfsCollapsedView } from './psfs/PsfsCollapsedView';
 import { PsfsExpandedView } from './psfs/PsfsExpandedView';
-import { PsfsWrappedView } from './psfs/PsfsWrappedView';
 
-export const PsfsEntry = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [isWrapped, setIsWrapped] = useState(false);
+interface PsfsEntryProps {
+  isExpanded: boolean;
+  onExpand: () => void;
+  onCollapse: () => void;
+}
+
+export const PsfsEntry = ({
+  isExpanded,
+  onExpand,
+  onCollapse
+}: PsfsEntryProps) => {
   const { hasCompletedRecently, lastCompletionDate, showReminder, loading } = usePsfsCompletion();
   const { handleTakeQuestionnaire, handleViewResults } = usePsfsNavigation();
 
@@ -15,21 +22,11 @@ export const PsfsEntry = () => {
     return null;
   }
 
-  // If wrapped, show only icon and title
-  if (isWrapped) {
-    return (
-      <PsfsWrappedView 
-        onUnwrap={() => setIsWrapped(false)}
-      />
-    );
-  }
-
   // If completed recently and not expanded, show collapsed view
   if (hasCompletedRecently && !isExpanded) {
     return (
       <PsfsCollapsedView 
-        onExpand={() => setIsExpanded(true)}
-        onWrap={() => setIsWrapped(true)}
+        onExpand={onExpand}
         lastCompletionDate={lastCompletionDate}
         showReminder={showReminder}
       />
@@ -41,8 +38,7 @@ export const PsfsEntry = () => {
       hasCompletedRecently={hasCompletedRecently}
       lastCompletionDate={lastCompletionDate}
       showReminder={showReminder}
-      onCollapse={hasCompletedRecently ? () => setIsExpanded(false) : undefined}
-      onWrap={() => setIsWrapped(true)}
+      onCollapse={hasCompletedRecently ? onCollapse : undefined}
       onTakeQuestionnaire={handleTakeQuestionnaire}
       onViewResults={handleViewResults}
     />
