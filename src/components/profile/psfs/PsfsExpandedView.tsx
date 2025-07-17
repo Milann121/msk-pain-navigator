@@ -3,7 +3,6 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Activity, CheckCircle, Clock, ChevronDown } from 'lucide-react';
 import { format } from 'date-fns';
-import { PsfsReminderBanner } from './PsfsReminderBanner';
 
 interface PsfsExpandedViewProps {
   hasCompletedRecently: boolean;
@@ -27,7 +26,6 @@ export const PsfsExpandedView = ({
   return (
     <Card className="mb-6 border-green-200 bg-gradient-to-r from-green-50 to-emerald-50">
       <CardContent className="pt-6 flex flex-col">
-        <PsfsReminderBanner lastCompletionDate={lastCompletionDate} showReminder={showReminder} />
         <div className="flex items-start gap-4">
           <div className="flex-shrink-0">
             <Activity className="h-8 w-8 text-green-600" />
