@@ -1,8 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Activity, CheckCircle, Clock, ChevronDown } from 'lucide-react';
-import { ChevronRight } from 'lucide-react';
+import { Activity, CheckCircle, Clock, ChevronDown, ChevronRight } from 'lucide-react';
 import { format } from 'date-fns';
 interface PsfsExpandedViewProps {
   hasCompletedRecently: boolean;
