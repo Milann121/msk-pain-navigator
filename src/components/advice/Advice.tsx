@@ -52,9 +52,47 @@ export const Advice: React.FC<AdviceProps> = ({ adviceId }) => {
   return (
     <Card className="border-gray-200 hover:shadow-md transition-shadow">
       <CardHeader className="pb-3">
-        {/* Mobile: Stack image on top, Desktop: Image on left with content */}
-        <div className="flex flex-col md:flex-row md:items-start gap-3">
-          <div className="flex-shrink-0 flex justify-center md:justify-start">
+        {/* Mobile/Tablet: Image left, Priority right, Content below */}
+        <div className="block md:hidden">
+          <div className="flex items-start justify-between mb-3">
+            <div className="flex-shrink-0">
+              <div className="w-16 h-16 rounded-lg border border-gray-200 bg-gray-50 overflow-hidden shadow-sm flex items-center justify-center">
+                {advice.adviceImageUrl ? (
+                  <img
+                    src={advice.adviceImageUrl}
+                    alt={t(`advice.${advice.adviceTitle}`)}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
+                    <span className="text-blue-600 text-xs font-medium">📋</span>
+                  </div>
+                )}
+              </div>
+            </div>
+            <Badge className={`${getPriorityColor(t(`advice.${advice.advicePriority}`))} font-medium`}>
+              {t(`advice.${advice.advicePriority}`)}
+            </Badge>
+          </div>
+          <div>
+            <CardTitle className="text-lg font-semibold text-gray-900">
+              {t(`advice.${advice.adviceTitle}`)}
+            </CardTitle>
+            {advice.adviceSubtitle && advice.adviceSubtitle.trim() && (
+              <p className="text-sm text-gray-600 mt-1">{t(`advice.${advice.adviceSubtitle}`)}</p>
+            )}
+            {advice.adviceRule && (
+              <div className="mt-2">
+                <span className="text-sm font-medium text-blue-900">{t('advice.rule')}: </span>
+                <span className="text-sm text-blue-800">{t(`advice.${advice.adviceRule}`)}</span>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Desktop: Image left with content inline */}
+        <div className="hidden md:flex items-start gap-3">
+          <div className="flex-shrink-0">
             <div className="w-16 h-16 rounded-lg border border-gray-200 bg-gray-50 overflow-hidden shadow-sm flex items-center justify-center">
               {advice.adviceImageUrl ? (
                 <img
@@ -78,7 +116,6 @@ export const Advice: React.FC<AdviceProps> = ({ adviceId }) => {
                 {advice.adviceSubtitle && advice.adviceSubtitle.trim() && (
                   <p className="text-sm text-gray-600 mt-1">{t(`advice.${advice.adviceSubtitle}`)}</p>
                 )}
-                {/* Rule inline on desktop */}
                 {advice.adviceRule && (
                   <div className="mt-2">
                     <span className="text-sm font-medium text-blue-900">{t('advice.rule')}: </span>
