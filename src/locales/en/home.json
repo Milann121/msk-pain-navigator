@@ -64,5 +64,13 @@
     "completedMessage": "You completed the wellness check-in on {{date}}. Thank you for your participation!",
     "reminderMessage": "It's been a while since your last wellness check-in. Your anonymous feedback helps improve workplace conditions.",
     "reminderText": "Reminder: 3+ months since last check-in"
+  },
+  "psfs": {
+    "title": "Functional Assessment (PSFS)",
+    "description": "Evaluate how your current condition affects your daily activities and functional tasks.",
+    "takeTest": "Start Assessment",
+    "viewResults": "View Results",
+    "completedMessage": "You completed the functional assessment on {{date}}.",
+    "functionalAssessment": "Functional Assessment"
   }
 }

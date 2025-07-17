@@ -1,90 +1,10 @@
-
 {
-  "loading": "Načítavam...",
-  "bodyParts": {
-    "neck": "Krčná chrbtica",
-    "middle back": "Stredný chrbát",
-    "lower back": "Spodný chrbát",
-    "upper limb": "Horná končatina",
-    "shoulder": "Rameno"
-  },
-  "bodyPart": {
-    "neck": "Krčná chrbtica",
-    "middle back": "Stredný chrbát",
-    "lower back": "Spodný chrbát",
-    "upper limb": "Horná končatina",
-    "shoulder": "Rameno"
-  },
-  "painMechanisms": {
-    "nociceptive": "Nociceptívna bolesť",
-    "neuropathic": "Neuropatická bolesť",
-    "central": "Centrálna senzitizácia",
-    "none": "Nedefinovaný mechanizmus bolesti",
-    "red-flag": "Symptómy vyžadujúce lekársku starostlivosť"
-  },
-  "diagnoses": {
-    "none": "Nebola identifikovaná žiadna špecifická diagnóza",
-    "disc herniation": "Hernia disku",
-    "facet joint syndrome": "Syndróm fazetových kĺbov",
-    "SIJ syndrome": "SIJ syndróm",
-    "muscle pain": "Svalová bolesť",
-    "red-flag": "Symptómy vyžadujúce lekársku starostlivosť",
-    "ventral spondylolisthesis": "Ventrálna spondylolistéza",
-    "dorsal spondylolisthesis": "Dorzálna spondylolistéza",
-    "costovertebral joint syndrome": "Syndróm kostovertebrálneho kĺbu",
-    "Radicular Pain": "Radikulárna bolesť",
-    "Radiculopathy": "Radikulopatia",
-    "Central Sensitisation": "Centrálna senzitizácia",
-    "Central Sensitisation - Allodynia": "Centrálna senzitizácia - Alodýnia",
-    "Central Sensitisation - Sensory Hypersensitivity": "Centrálna senzitizácia - Zmyslová hypersenzitivita",
-    "Central Sensitisation - Cognitive Symptoms": "Centrálna senzitizácia - Kognitívne symptómy",
-    "cervical-radiculopathy": "Cervikálna radikulopatia",
-    "frozen-shoulder": "Zmrznuté rameno",
-    "slap-tear": "SLAP lézie",
-    "subacromial-impingement-syndrome": "Subakromiálny impingement syndróm",
-    "stiff-shoulder": "Syndróm stuhnutého ramena",
-    "shoulder-bursa": "Bursitída ramena",
-    "rotator-cuff-tear": "Trhnutie rotátorovej manžety",
-    "rotator-cuff-tendinopathy": "Tendinopatia rotátorovej manžety",
-    "biceps-tendinopathy": "Tendinopatia bicepsu",
-    "biceps-tear-long-head": "Trhnutie dlhej hlavy bicepsu",
-    "shoulder-dislocation": "Vykĺbenie ramena",
-    "unstable-shoulder": "Nestabilné rameno",
-    "labral-leason": "Lézia labra"
-  },
-  "results": {
-    "savedTitle": "Výsledky uložené",
-    "savedDescription": "Vaše hodnotenie bolo úspešne uložené a môžete ho nájsť v sekcii Moje cvičenia.",
-    "saveErrorTitle": "Chyba pri ukladaní",
-    "saveErrorDescription": "Nepodarilo sa uložiť výsledky hodnotenia.",
-    "autoSaved": "✓ Výsledky boli automaticky uložené. Môžete ich nájsť v sekcii Moje cvičenia.",
-    "saving": "Ukladám výsledky...",
-    "autoSaveFailed": "Automatické ukladanie výsledkov zlyhalo."
-  },
-  "emptyState": {
-    "noAssessments": "Zatiaľ nemáte žiadne uložené hodnotenia.",
-    "createNew": "Vytvoriť nové hodnotenie"
-  },
-  "slider": {
-    "selected": "Vybrané: {{value}}"
-  },
   "back": "Späť",
   "next": "Ďalej",
-  "backToHome": "Späť domov",
-  "exerciseSwap": {
-    "swapButton": "Vymeniť cvičenie",
-    "confirmTitle": "Vymeniť cvičenie",
-    "confirmMessage": "Ste si istí, že chcete vymeniť toto cvičenie?",
-    "yes": "Áno",
-    "no": "Nie",
-    "swapSuccess": "Cvičenie bolo úspešne vymenené!",
-    "swapError": "Nepodarilo sa vymeniť cvičenie. Skúste to prosím znovu.",
-    "noAlternatives": "Pre toto cvičenie nie sú k dispozícii žiadne alternatívy."
-  },
-  "favorite": {
-    "addToFavorites": "Pridať ako obľúbené",
-    "favorited": "Obľúbené",
-    "processing": "Spracováva sa..."
-  },
-  "repetitions": "Opakovania"
+  "submit": "Odoslať",
+  "cancel": "Zrušiť",
+  "save": "Uložiť",
+  "loading": "Načítava...",
+  "error": "Chyba",
+  "success": "Úspech"
 }

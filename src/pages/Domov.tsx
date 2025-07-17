@@ -5,6 +5,7 @@ import { Navigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import { MoodCalendar } from '@/components/profile/MoodCalendar';
 import { OrebroEntry } from '@/components/profile/OrebroEntry';
+import { PsfsEntry } from '@/components/profile/PsfsEntry';
 import { ProgressContainer } from '@/components/profile/ProgressContainer';
 import { FavoriteExercises } from '@/components/profile/FavoriteExercises';
 import { SavedBlogs } from '@/components/profile/SavedBlogs';
@@ -78,7 +79,8 @@ const Domov = () => {
           <MoodCalendar />
           
           {/* OREBRO Questionnaire Entry */}
-          <OrebroEntry />
+        <OrebroEntry />
+        <PsfsEntry />
           
           {/* Progress Container */}
           <ProgressContainer 

@@ -3,7 +3,7 @@ import { Questionnaire } from '@/utils/types';
 import { painIntensityQuestion } from './general/pain-intensity';
 import { painMovementQuestion } from './general/pain-movement';
 import { painDescriptionQuestion } from './general/pain-description';
-import { psfsQuestion } from './general/psfs';
+
 import { 
   injuryStartQuestion, 
   activityStartQuestion, 
@@ -19,7 +19,7 @@ export const generalQuestionnaire: Questionnaire = {
     painIntensityQuestion,
     painMovementQuestion,
     painDescriptionQuestion,
-    psfsQuestion,
+    
     injuryStartQuestion,
     activityStartQuestion,
     reflexesQuestion,

@@ -5,7 +5,7 @@ import { neckPainConnectionQuestion } from './general/neck-pain-connection';
 import { painIntensityQuestion } from './general/pain-intensity';
 import { painMovementQuestion } from './general/pain-movement';
 import { painDescriptionQuestion } from './general/pain-description';
-import { psfsQuestion } from '../../questionnaires/general/psfs';
+
 import { 
   nightPainQuestion,
   injuryStartQuestion,
@@ -25,7 +25,7 @@ export const upperLimbGeneralQuestionnaire: Questionnaire = {
     painIntensityQuestion,
     painMovementQuestion,
     painDescriptionQuestion,
-    psfsQuestion,
+    
     nightPainQuestion,
     injuryStartQuestion,
     activityStartQuestion,

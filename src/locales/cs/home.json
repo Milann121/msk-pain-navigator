@@ -64,5 +64,13 @@
     "completedMessage": "Kontrolu pohody jsi dokončil {{date}}. Děkujeme za účast!",
     "reminderMessage": "Už je to chvíle od tvé poslední kontroly pohody. Tvá anonymní zpětná vazba pomáhá zlepšovat podmínky na pracovišti.",
     "reminderText": "Připomínka: 3+ měsíců od poslední kontroly"
+  },
+  "psfs": {
+    "title": "Funkční Hodnocení (PSFS)",
+    "description": "Zhodnoť, jak tvůj současný stav ovlivňuje tvé denní aktivity a funkční úkoly.",
+    "takeTest": "Začít hodnocení",
+    "viewResults": "Zobrazit výsledky",
+    "completedMessage": "Funkční hodnocení jsi dokončil {{date}}.",
+    "functionalAssessment": "Funkční hodnocení"
   }
 }

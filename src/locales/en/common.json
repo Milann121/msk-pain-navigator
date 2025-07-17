@@ -1,90 +1,10 @@
-
 {
-  "loading": "Loading...",
-  "bodyParts": {
-    "neck": "Neck",
-    "middle back": "Middle Back",
-    "lower back": "Lower Back",
-    "upper limb": "Upper Limb",
-    "shoulder": "Shoulder"
-  },
-  "bodyPart": {
-    "neck": "Neck",
-    "middle back": "Middle Back",
-    "lower back": "Lower Back",
-    "upper limb": "Upper Limb",
-    "shoulder": "Shoulder"
-  },
-  "painMechanisms": {
-    "nociceptive": "Nociceptive Pain",
-    "neuropathic": "Neuropathic Pain",
-    "central": "Central Sensitization",
-    "none": "Undefined Pain Mechanism",
-    "red-flag": "Symptoms Requiring Medical Attention"
-  },
-  "diagnoses": {
-    "none": "No specific diagnosis identified",
-    "disc herniation": "Disc Herniation",
-    "facet joint syndrome": "Facet Joint Syndrome",
-    "SIJ syndrome": "SI Joint Syndrome",
-    "muscle pain": "Muscle Pain",
-    "red-flag": "Symptoms Requiring Medical Attention",
-    "ventral spondylolisthesis": "Ventral Spondylolisthesis",
-    "dorsal spondylolisthesis": "Dorsal Spondylolisthesis",
-    "costovertebral joint syndrome": "Costovertebral Joint Syndrome",
-    "Radicular Pain": "Radicular Pain",
-    "Radiculopathy": "Radiculopathy",
-    "Central Sensitisation": "Central Sensitisation",
-    "Central Sensitisation - Allodynia": "Central Sensitisation - Allodynia",
-    "Central Sensitisation - Sensory Hypersensitivity": "Central Sensitisation - Sensory Hypersensitivity",
-    "Central Sensitisation - Cognitive Symptoms": "Central Sensitisation - Cognitive Symptoms",
-    "cervical-radiculopathy": "Cervical Radiculopathy",
-    "frozen-shoulder": "Frozen Shoulder",
-    "slap-tear": "SLAP Tear",
-    "subacromial-impingement-syndrome": "Subacromial Impingement Syndrome",
-    "stiff-shoulder": "Stiff Shoulder Syndrome",
-    "shoulder-bursa": "Shoulder Bursitis",
-    "rotator-cuff-tear": "Rotator Cuff Tear",
-    "rotator-cuff-tendinopathy": "Rotator Cuff Tendinopathy",
-    "biceps-tendinopathy": "Biceps Tendinopathy",
-    "biceps-tear-long-head": "Biceps Tendon Tear",
-    "shoulder-dislocation": "Shoulder Dislocation",
-    "unstable-shoulder": "Unstable Shoulder",
-    "labral-leason": "Labral Lesion"
-  },
-  "results": {
-    "savedTitle": "Results Saved",
-    "savedDescription": "Your assessment has been successfully saved and can be found in the My Exercises section.",
-    "saveErrorTitle": "Save Error",
-    "saveErrorDescription": "Failed to save assessment results.",
-    "autoSaved": "✓ Results have been automatically saved. You can find them in the My Exercises section.",
-    "saving": "Saving results...",
-    "autoSaveFailed": "Automatic saving of results failed."
-  },
-  "emptyState": {
-    "noAssessments": "You don't have any saved assessments yet.",
-    "createNew": "Create New Assessment"
-  },
-  "slider": {
-    "selected": "Selected: {{value}}"
-  },
   "back": "Back",
   "next": "Next",
-  "backToHome": "Back to Home",
-  "exerciseSwap": {
-    "swapButton": "Swap Exercise",
-    "confirmTitle": "Swap Exercise",
-    "confirmMessage": "Are you sure to swap this exercise?",
-    "yes": "Yes",
-    "no": "No",
-    "swapSuccess": "Exercise swapped successfully!",
-    "swapError": "Failed to swap exercise. Please try again.",
-    "noAlternatives": "No alternative exercises available for this exercise."
-  },
-  "favorite": {
-    "addToFavorites": "Add to Favorites",
-    "favorited": "Favorited",
-    "processing": "Processing..."
-  },
-  "repetitions": "Repetitions"
+  "submit": "Submit",
+  "cancel": "Cancel",
+  "save": "Save",
+  "loading": "Loading...",
+  "error": "Error",
+  "success": "Success"
 }

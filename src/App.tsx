@@ -17,6 +17,7 @@ import Profile from "./pages/Profile";
 import Domov from "./pages/Domov";
 import OrebroQuestionnaire from "./pages/OrebroQuestionnaire";
 import OrebroResult from "./pages/OrebroResult";
+import PsfsQuestionnaire from "./pages/PsfsQuestionnaire";
 import Stretching from "./pages/Stretching";
 import StretchingProgram from "./pages/StretchingProgram";
 import Strength from "./pages/Strength";
@@ -58,6 +59,7 @@ const App: React.FC = () => (
           <Route path="/yoga/:programId" element={<YogaProgram />} />
           <Route path="/orebro-questionnaire" element={<OrebroQuestionnaire />} />
           <Route path="/orebro-result" element={<OrebroResult />} />
+          <Route path="/psfs-questionnaire" element={<PsfsQuestionnaire />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
