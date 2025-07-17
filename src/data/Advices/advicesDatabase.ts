@@ -97,7 +97,7 @@ export const advices: Advice[] = [
     adviceDescription: "supermanSleepDescription",
     adviceImageUrl: "",
     adviceLink:"",
-    bodyParts: ['upper-limb','shoulder'],
+    bodyParts: ['upper limb','shoulder'],
     mechanisms: ['nociceptive', 'neuropathic'],
     differentials: ['frozen-shoulder', 'subacromional-impingement-syndrome', 'slap-tear', 'stiff-shoulder', 'labral-leason','biceps-tear-long-head','unstable-shoulder', 'shoulder-dislocation']
   },
