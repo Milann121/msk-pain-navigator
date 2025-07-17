@@ -11,9 +11,9 @@
   "adviceCount_one": "{{count}} rada",
   "adviceCount_few": "{{count}} rady",
   "adviceCount_other": "{{count}} rád",
-  "high": "Vysoká",
-  "medium": "Stredná",
-  "low": "Nízka",
+  "high": "Vysoká priorita",
+  "medium": "Stredná priorita",
+  "low": "Nízka priorita",
   
   "regularPositionChange": "Pravidelná zmena polohy",
   "every45to60min": "Každých 45-60min.",
@@ -32,5 +32,9 @@
 
   "objectLifting": "Pozor na ťažisko pri zdvíhaní predmetov",
   "objectLiftigRule": "Vyhýbajte sa zdvíhaniu predmetov, ktoré sa nachádzajú ďalej od vás (alebo pred vami).",
-  "objectLiftingDescription": "Pri zdvíhaní predmetov (akokoľvek ľahkých alebo ťažkých) dbajte na to, aby ste mali ťažisko vášho tela čo najbližšie k stredu tela, tzn. predmety na zdvíhanie sa snažte mať pod sebou keď ich idete zdvíhať. Vyhýbajte sa zdvíhaniu, ťahaniu alebo tlačeniu predmetov, ktoré sa nachádzajú výraznejšie pred vami (alebo od vás)."
+  "objectLiftingDescription": "Pri zdvíhaní predmetov (akokoľvek ľahkých alebo ťažkých) dbaj na to, aby si mal/a ťažisko vášho tela čo najbližšie k stredu tela, tzn. predmety na zdvíhanie sa snaž mať pod sebou keď ich ideš zdvíhať. Vyhýbaj sa zdvíhaniu, ťahaniu alebo tlačeniu predmetov, ktoré sa nachádzajú výraznejšie pred tebou (alebo od teba)."
+
+  "supermanSleep": "Nespávaj s vystretou rukou pod hlavou",
+  "supermanSleepRule": "Vyhýbaj sa spánku v polohe s vystretou rukou nad hlavou (na 'supermana'), prípadne s rukou uloženou za hlavou.",
+  "supermanSleepDescription": "Pri spánku na boku a s rukou uloženou pod poduškou dbaj na to, aby si mal/a lakeť maximálne v úrovni brady. V tejto polohe ti taktiež odporúčam zohnúť ruku v lakťovom kĺbe. V prípade, že spíš na chrbte a ruku máš uloženú za hlavou, snaž sa zaspávať v polohe na boku aby si eliminoval/a tento zlozvyk."
 }
