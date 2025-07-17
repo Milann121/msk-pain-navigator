@@ -33,5 +33,9 @@
 
   "objectLifting": "Pozor na těžiště při zvedání předmětů",
   "objectLiftingRule": "Vyhýbejte se zvedání předmětů, které se nacházejí dále od vás (nebo před vámi).",
-  "objectLiftingDescription": "Při zvedání předmětů (jakkoli lehkých nebo těžkých) dbejte na to, abyste měli těžiště vašeho těla co nejblíže středu těla, tj. předměty na zvedání se snažte mít pod sebou když je jdete zvedat. Vyhýbejte se zvedání, tahání nebo tlačení předmětů, které se nacházejí výrazněji před vámi (nebo od vás)."
+  "objectLiftingDescription": "Při zvedání předmětů (jakkoli lehkých nebo těžkých) dbejte na to, abyste měli těžiště vašeho těla co nejblíže středu těla, tj. předměty na zvedání se snažte mít pod sebou když je jdete zvedat. Vyhýbejte se zvedání, tahání nebo tlačení předmětů, které se nacházejí výrazněji před vámi (nebo od vás).",
+
+  "supermanSleep": "Nespi s nataženou rukou pod hlavou",
+  "supermanSleepRule": "Vyhýbej se spánku v poloze s nataženou rukou nad hlavou (na 'supermana'), případně s rukou uloženou za hlavou.",
+  "supermanSleepDescription": "Při spánku na boku s rukou uloženou pod poduškou dbej na to, abys měl/a lakť maximálně v úrovni brady. V této poloze ti také doporučuji sehnout ruku v lakťovém kloubu. V případě, že spíš na zádech a ruku máš uloženou za hlavou, snaž se zlobit.",
 }
