@@ -63,24 +63,24 @@ export const reflexesQuestion: Question = {
   ]
 };
 
-export const sensitivityQuestion: Question = {
-  id: 'sensitivity',
-  text: 'questionnaire.general.questions.sensitivity',
-  description: 'questionnaire.general.descriptions.sensitivity',
-  type: 'radio',
-  options: [
-    {
-      id: 'yes-sensitivity',
-      text: 'questionnaire.general.options.yesNo.yes',
-      mechanisms: ['central']
-    },
-    {
-      id: 'no-sensitivity',
-      text: 'questionnaire.general.options.yesNo.no',
-      mechanisms: ['none']
-    }
-  ]
-};
+//export const sensitivityQuestion: Question = {
+  //id: 'sensitivity',
+  //text: 'questionnaire.general.questions.sensitivity',
+  //description: 'questionnaire.general.descriptions.sensitivity',
+  //type: 'radio',
+  //options: [
+    //{
+      //id: 'yes-sensitivity',
+      //text: 'questionnaire.general.options.yesNo.yes',
+      //mechanisms: ['central']
+    //},
+    //{
+      //id: 'no-sensitivity',
+      //text: 'questionnaire.general.options.yesNo.no',
+      //mechanisms: ['none']
+    //}
+  //]
+//};
 
 export const variableImpactQuestion: Question = {
   id: 'variable-impact',
