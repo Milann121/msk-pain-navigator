@@ -10,7 +10,7 @@ interface PsfsExpandedViewProps {
   lastCompletionDate: Date | null;
   showReminder: boolean;
   onCollapse?: () => void;
-  
+  onWrap: () => void;
   onTakeQuestionnaire: () => void;
   onViewResults: () => void;
 }
@@ -20,7 +20,7 @@ export const PsfsExpandedView = ({
   lastCompletionDate,
   showReminder,
   onCollapse,
-  
+  onWrap,
   onTakeQuestionnaire,
   onViewResults
 }: PsfsExpandedViewProps) => {
@@ -44,11 +44,16 @@ export const PsfsExpandedView = ({
                   <CheckCircle className="h-5 w-5 text-green-600" />
                 </>
               )}
-              {hasCompletedRecently && onCollapse && (
-                <button onClick={onCollapse} className="ml-auto text-gray-500 hover:text-gray-700">
-                  <ChevronDown className="h-5 w-5" />
+              <div className="ml-auto flex items-center gap-2">
+                <button onClick={onWrap} className="text-gray-500 hover:text-gray-700">
+                  <ChevronRight className="h-5 w-5" />
                 </button>
-              )}
+                {hasCompletedRecently && onCollapse && (
+                  <button onClick={onCollapse} className="text-gray-500 hover:text-gray-700">
+                    <ChevronDown className="h-5 w-5" />
+                  </button>
+                )}
+              </div>
             </div>
             
             <p className="text-sm text-gray-600 mb-4">

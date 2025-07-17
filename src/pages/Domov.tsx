@@ -29,6 +29,7 @@ const Domov = () => {
   const [orebroExpanded, setOrebroExpanded] = useState(false);
   const [orebroWrapped, setOrebroWrapped] = useState(false);
   const [psfsExpanded, setPsfsExpanded] = useState(false);
+  const [psfsWrapped, setPsfsWrapped] = useState(false);
 
   // Load goals from database
   useEffect(() => {
@@ -105,16 +106,19 @@ const Domov = () => {
             </div>
             <div className={`${
               (orebroExpanded && psfsExpanded) || 
-              (!orebroExpanded && !orebroWrapped && !psfsExpanded)
+              (!orebroExpanded && !orebroWrapped && !psfsExpanded && !psfsWrapped)
                 ? 'min-h-fit' 
-                : !psfsExpanded 
+                : !psfsExpanded && !psfsWrapped
                   ? 'min-h-[80px]' 
                   : 'min-h-fit'
             }`}>
               <PsfsEntry 
                 isExpanded={psfsExpanded}
+                isWrapped={psfsWrapped}
                 onExpand={() => setPsfsExpanded(true)}
-                onCollapse={() => setPsfsExpanded(false)}
+                onCollapse={() => setPsfsWrapped(true)}
+                onWrap={() => setPsfsWrapped(true)}
+                onUnwrap={() => setPsfsWrapped(false)}
               />
             </div>
           </div>

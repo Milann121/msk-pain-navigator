@@ -5,12 +5,14 @@ import { ChevronRight } from 'lucide-react';
 
 interface PsfsCollapsedViewProps {
   onExpand: () => void;
+  onCollapse: () => void;
   lastCompletionDate: Date | null;
   showReminder: boolean;
 }
 
 export const PsfsCollapsedView = ({
   onExpand,
+  onCollapse,
   lastCompletionDate,
   showReminder
 }: PsfsCollapsedViewProps) => {
@@ -30,6 +32,10 @@ export const PsfsCollapsedView = ({
               <CheckCircle className="h-4 w-4 text-green-600" />
             </h3>
           </div>
+          
+          <button onClick={(e) => { e.stopPropagation(); onCollapse(); }} className="text-gray-500 hover:text-gray-700 mr-2">
+            <ChevronRight className="h-5 w-5" />
+          </button>
           
           <ChevronRight className="h-5 w-5 text-gray-500 my-[10px]" />
         </div>
