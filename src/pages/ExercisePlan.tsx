@@ -11,8 +11,6 @@ import { ImportantNotice } from '@/components/exercise-plan/ImportantNotice';
 import { generateGeneralProgram } from '@/utils/generalProgramGenerator';
 import exercisesByDifferential from '@/data/exercises';
 import Header from '@/components/Header';
-import { AdviceList } from '@/components/advice';
-import { getAdvicesForExerciseProgram } from '@/utils/adviceMatching';
 
 const ExercisePlan = () => {
   const location = useLocation();
@@ -31,7 +29,6 @@ const ExercisePlan = () => {
   } = location.state || {};
 
   let exercises = [];
-  let programAdviceIds: number[] = [];
   
   if (isOrebroProgram) {
     // For OREBRO programs, use the same logic as OrebroResult page
@@ -59,11 +56,6 @@ const ExercisePlan = () => {
     
     exercises = exercisesByDifferential[specificKey] || 
                 exercisesByDifferential[defaultKey] || [];
-    
-    // Get program-level advice for specific programs
-    if (mechanism && differential && painArea) {
-      programAdviceIds = getAdvicesForExerciseProgram(mechanism, differential, painArea);
-    }
   }
 
   // Helper function to map pain locations to areas (same as in OrebroResult)
@@ -106,20 +98,6 @@ const ExercisePlan = () => {
 
         <ImportantNotice />
 
-        {/* Program-level Advice Section */}
-        {programAdviceIds.length > 0 && (
-          <Card className="p-6 mb-6">
-            <div className="mb-4">
-              <h2 className="text-xl font-semibold text-gray-900 mb-1">
-                {t('advice:programAdviceTitle')}
-              </h2>
-              <p className="text-gray-600 text-sm">
-                {t('advice:programAdviceSubtitle')}
-              </p>
-            </div>
-            <AdviceList adviceIds={programAdviceIds} />
-          </Card>
-        )}
 
         <div className="space-y-8">
           {exercises.map((exercise, index) => (
