@@ -32,19 +32,21 @@ const PainAreaSection = ({
   return (
     <div className="space-y-3">
       <Label>{t('assessment.painArea.specify')}</Label>
-      <RadioGroup 
-        defaultValue="neck" 
-        value={painArea}
-        onValueChange={(value) => handlePainAreaChange(value as 'neck' | 'middle back' | 'lower back' | 'upper limb')}
-        className="flex flex-col space-y-3"
-      >
+      <div className="flex flex-col space-y-3">
         <div 
           className={`relative overflow-hidden rounded-lg border-2 cursor-pointer transition-all duration-200 hover:shadow-md ${
             painArea === 'neck' ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:border-gray-300'
           }`}
           onClick={() => handlePainAreaChange('neck')}
         >
-          <RadioGroupItem value="neck" id="neck" className="sr-only" />
+          <input 
+            type="radio" 
+            value="neck" 
+            checked={painArea === 'neck'}
+            onChange={() => handlePainAreaChange('neck')}
+            className="sr-only" 
+            {...register('painArea')}
+          />
           <div className="flex items-center h-16">
             <div className="w-1/2 h-full overflow-hidden rounded-l-lg">
               <img 
@@ -54,7 +56,7 @@ const PainAreaSection = ({
               />
             </div>
             <div className="w-1/2 flex items-center justify-center px-4">
-              <Label htmlFor="neck" className="cursor-pointer text-center font-medium">
+              <Label className="cursor-pointer text-center font-medium">
                 {t('assessment.painArea.neck')}
               </Label>
             </div>
@@ -67,7 +69,14 @@ const PainAreaSection = ({
           }`}
           onClick={() => handlePainAreaChange('middle back')}
         >
-          <RadioGroupItem value="middle back" id="middle-back" className="sr-only" />
+          <input 
+            type="radio" 
+            value="middle back" 
+            checked={painArea === 'middle back'}
+            onChange={() => handlePainAreaChange('middle back')}
+            className="sr-only" 
+            {...register('painArea')}
+          />
           <div className="flex items-center h-16">
             <div className="w-1/2 h-full overflow-hidden rounded-l-lg">
               <img 
@@ -77,7 +86,7 @@ const PainAreaSection = ({
               />
             </div>
             <div className="w-1/2 flex items-center justify-center px-4">
-              <Label htmlFor="middle-back" className="cursor-pointer text-center font-medium">
+              <Label className="cursor-pointer text-center font-medium">
                 {t('assessment.painArea.middleBack')}
               </Label>
             </div>
@@ -90,7 +99,14 @@ const PainAreaSection = ({
           }`}
           onClick={() => handlePainAreaChange('lower back')}
         >
-          <RadioGroupItem value="lower back" id="lower-back" className="sr-only" />
+          <input 
+            type="radio" 
+            value="lower back" 
+            checked={painArea === 'lower back'}
+            onChange={() => handlePainAreaChange('lower back')}
+            className="sr-only" 
+            {...register('painArea')}
+          />
           <div className="flex items-center h-16">
             <div className="w-1/2 h-full overflow-hidden rounded-l-lg">
               <img 
@@ -100,7 +116,7 @@ const PainAreaSection = ({
               />
             </div>
             <div className="w-1/2 flex items-center justify-center px-4">
-              <Label htmlFor="lower-back" className="cursor-pointer text-center font-medium">
+              <Label className="cursor-pointer text-center font-medium">
                 {t('assessment.painArea.lowerBack')}
               </Label>
             </div>
@@ -113,7 +129,14 @@ const PainAreaSection = ({
           }`}
           onClick={() => handlePainAreaChange('upper limb')}
         >
-          <RadioGroupItem value="upper limb" id="upper-limb" className="sr-only" />
+          <input 
+            type="radio" 
+            value="upper limb" 
+            checked={painArea === 'upper limb'}
+            onChange={() => handlePainAreaChange('upper limb')}
+            className="sr-only" 
+            {...register('painArea')}
+          />
           <div className="flex items-center h-16">
             <div className="w-1/2 h-full overflow-hidden rounded-l-lg">
               <img 
@@ -123,13 +146,13 @@ const PainAreaSection = ({
               />
             </div>
             <div className="w-1/2 flex items-center justify-center px-4">
-              <Label htmlFor="upper-limb" className="cursor-pointer text-center font-medium">
+              <Label className="cursor-pointer text-center font-medium">
                 {t('assessment.painArea.upperLimb')}
               </Label>
             </div>
           </div>
         </div>
-      </RadioGroup>
+      </div>
 
       {painArea === 'upper limb' && (
         <div className="ml-6 space-y-3">
