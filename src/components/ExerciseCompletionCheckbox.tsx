@@ -48,7 +48,7 @@ export const ExerciseCompletionCheckbox = ({ exerciseTitle, assessmentId, videoI
     if (completionCount > 0) {
       return 'bg-green-600 hover:bg-green-700 text-white border-green-600';
     } else {
-      return 'bg-accent hover:bg-accent/90 text-accent-foreground border-accent';
+      return 'bg-blue-600 hover:bg-blue-700 text-white border-blue-600';
     }
   };
 
