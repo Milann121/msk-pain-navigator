@@ -49,7 +49,7 @@ const Header = () => {
                 <Button
                   onClick={() => navigate(link.href)}
                   variant="ghost"
-                  className="w-full text-left justify-start px-4 py-2 text-lg hover:bg-blue-50 rounded-md transition-colors"
+                  className="w-full text-left justify-start px-4 py-2 text-lg hover:bg-muted rounded-md transition-colors"
                 >
                   {link.label}
                 </Button>
@@ -76,7 +76,7 @@ const Header = () => {
   );
 
   return (
-    <header className="bg-gradient-to-r from-blue-700 to-blue-500 text-white py-4 px-3 md:px-6 shadow-md">
+    <header className="bg-primary text-primary-foreground py-4 px-3 md:px-6 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
         <div 
           className="flex items-center space-x-2 md:space-x-4" 
@@ -94,7 +94,7 @@ const Header = () => {
               strokeWidth="2" 
               strokeLinecap="round" 
               strokeLinejoin="round" 
-              className="text-blue-600 md:w-6 md:h-6"
+              className="text-primary md:w-6 md:h-6"
             >
               <path d="M20 11c0-4.4-3.6-8-8-8s-8 3.6-8 8 3.6 8 8 8" />
               <path d="M2 15h8" />
@@ -117,7 +117,7 @@ const Header = () => {
             <Button 
               key={link.label} 
               variant="ghost" 
-              className="text-white hover:bg-blue-600"
+              className="text-primary-foreground hover:bg-primary/80"
               onClick={() => navigate(link.href)}
             >
               {link.label}
@@ -127,7 +127,7 @@ const Header = () => {
           <Button
             onClick={handleAuthClick}
             variant="outline"
-            className="bg-white text-blue-600 hover:bg-blue-50"
+            className="bg-accent text-accent-foreground hover:bg-accent/90"
           >
             {user ? t('header.signOut') : t('header.signIn')}
           </Button>

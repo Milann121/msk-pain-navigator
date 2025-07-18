@@ -39,7 +39,7 @@ const UserForm = ({ onSubmit }: UserFormProps) => {
   return (
     <Card className="w-full max-w-md mx-auto">
       <CardHeader>
-        <CardTitle className="text-center text-2xl font-bold text-blue-700">
+        <CardTitle className="text-center text-2xl font-bold text-primary">
           {t('assessment.painQuestionnaireTitle')}
         </CardTitle>
         <CardDescription className="text-center">
@@ -63,7 +63,7 @@ const UserForm = ({ onSubmit }: UserFormProps) => {
           
           <Button 
             type="submit" 
-            className="w-full bg-blue-600 hover:bg-blue-700"
+            className="w-full bg-accent hover:bg-accent/90"
             disabled={!disclaimerConsent || !privacyConsent}
           >
             {t('assessment.startAssessment')}

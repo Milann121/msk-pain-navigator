@@ -40,10 +40,10 @@ const LanguageDropdown = () => {
   };
 
   const buttonClasses = isAuthPage 
-    ? "border border-blue-500 text-blue-600 hover:bg-blue-50 flex items-center gap-2" 
-    : "text-white hover:bg-blue-600 flex items-center gap-2";
+    ? "border border-accent text-accent hover:bg-accent/10 flex items-center gap-2" 
+    : "text-primary-foreground hover:bg-primary/80 flex items-center gap-2";
 
-  const iconColor = isAuthPage ? "text-blue-600" : "";
+  const iconColor = isAuthPage ? "text-accent" : "";
 
   return (
     <DropdownMenu>

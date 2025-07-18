@@ -27,22 +27,22 @@ export const NotificationArea = () => {
 
   // Don't show progress icon if no active programs
   const showProgressIcon = hasActivePrograms;
-  return <div className="mb-6 py-px px-px rounded-none bg-slate-50">
-      <div className="rounded-lg border border-gray-200 p-3 shadow-sm bg-blue-100 py-0 px-[12px] my-px">
+   return <div className="mb-6 py-px px-px rounded-none bg-muted">
+      <div className="rounded-lg border border-border p-3 shadow-sm bg-card py-0 px-[12px] my-px">
         <div className="flex items-center justify-center gap-6">
           {/* Weekly Progress Icon */}
-          {showProgressIcon && <button onClick={handleProgressClick} className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100 ${!isGoalMet ? 'breathing-icon' : ''}`} aria-label="Weekly Progress">
-              <TrendingUp className="w-5 h-5 text-black" />
+          {showProgressIcon && <button onClick={handleProgressClick} className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-muted ${!isGoalMet ? 'breathing-icon' : ''}`} aria-label="Weekly Progress">
+              <TrendingUp className="w-5 h-5 text-foreground" />
             </button>}
 
           {/* OREBRO Brain Icon */}
-          <button onClick={handleOrebroClick} className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100 ${isOrebroReminderDue ? 'breathing-icon' : ''}`} aria-label="OREBRO Questionnaire">
-            <Brain className="w-5 h-5 text-blue-600" />
+          <button onClick={handleOrebroClick} className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-muted ${isOrebroReminderDue ? 'breathing-icon' : ''}`} aria-label="OREBRO Questionnaire">
+            <Brain className="w-5 h-5 text-primary" />
           </button>
 
           {/* PSFS Heartbeat Icon */}
-          <button onClick={handlePsfsClick} className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100 ${isPsfsReminderDue ? 'breathing-icon' : ''}`} aria-label="PSFS Assessment">
-            <Activity className="w-5 h-5 text-green-600" />
+          <button onClick={handlePsfsClick} className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-muted ${isPsfsReminderDue ? 'breathing-icon' : ''}`} aria-label="PSFS Assessment">
+            <Activity className="w-5 h-5 text-secondary" />
           </button>
         </div>
       </div>
