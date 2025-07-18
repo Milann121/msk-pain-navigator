@@ -90,29 +90,6 @@ export const MoodCalendar = () => {
   const emptyStateText = timePeriod === 'week' ? t('home.mood.emptyWeek') : t('home.mood.emptyMonth');
 
   return (
-    <div className="mb-6">
-      {/* Header above containers */}
-      <div className="mb-4">
-        {/* Mobile layout - notification banner above greeting */}
-        <div className="block md:hidden mb-4">
-          <WeeklyNotificationBanner />
-        </div>
-        
-        <div className="flex gap-4 items-start">
-          <div className="flex-1">
-            <UserGreeting firstName={firstName} />
-            <h3 className="text-lg font-medium">
-              {currentDayAndDate}
-            </h3>
-          </div>
-          
-          {/* Desktop notification banner - expanded width */}
-          <div className="hidden md:block flex-[2]">
-            <WeeklyNotificationBanner />
-          </div>
-        </div>
-      </div>
-
       {/* Two containers side by side */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Left Container - Mood Calendar */}
@@ -189,6 +166,27 @@ export const MoodCalendar = () => {
         
         {/* Right Column - Two stacked containers */}
         <div className="flex flex-col gap-6 h-full">
+          {/* Desktop‐only notification banner */}
+          <div className="hidden md:block mb-4">
+            <WeeklyNotificationBanner />
+          </div>
+        
+        <div className="flex gap-4 items-start">
+          <div className="flex-1">
+            <UserGreeting firstName={firstName} />
+            <h3 className="text-lg font-medium">
+              {currentDayAndDate}
+            </h3>
+          </div>
+          
+          {/* Desktop notification banner - expanded width */}
+          <div className="hidden md:block flex-[2]">
+            <WeeklyNotificationBanner />
+          </div>
+        </div>
+      </div>
+
+          
           {/* Top Container - General Program (1/3 height) */}
           <Card className="flex-[1]">
             <CardContent className="pt-6 h-full">
