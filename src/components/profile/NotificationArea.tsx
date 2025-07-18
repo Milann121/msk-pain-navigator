@@ -31,17 +31,17 @@ export const NotificationArea = () => {
       <div className="rounded-lg border border-gray-200 p-3 shadow-sm bg-blue-100 py-0 px-[12px] my-px">
         <div className="flex items-center justify-center gap-6">
           {/* Weekly Progress Icon */}
-          {showProgressIcon && <button onClick={handleProgressClick} className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100 ${!isGoalMet ? 'animate-pulse' : ''}`} aria-label="Weekly Progress">
+          {showProgressIcon && <button onClick={handleProgressClick} className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100 ${!isGoalMet ? 'breathing-icon' : ''}`} aria-label="Weekly Progress">
               <TrendingUp className="w-5 h-5 text-black" />
             </button>}
 
           {/* OREBRO Brain Icon */}
-          <button onClick={handleOrebroClick} className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100 ${isOrebroReminderDue ? 'animate-pulse' : ''}`} aria-label="OREBRO Questionnaire">
+          <button onClick={handleOrebroClick} className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100 ${isOrebroReminderDue ? 'breathing-icon' : ''}`} aria-label="OREBRO Questionnaire">
             <Brain className="w-5 h-5 text-blue-600" />
           </button>
 
           {/* PSFS Heartbeat Icon */}
-          <button onClick={handlePsfsClick} className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100 ${isPsfsReminderDue ? 'animate-pulse' : ''}`} aria-label="PSFS Assessment">
+          <button onClick={handlePsfsClick} className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100 ${isPsfsReminderDue ? 'breathing-icon' : ''}`} aria-label="PSFS Assessment">
             <Activity className="w-5 h-5 text-green-600" />
           </button>
         </div>
