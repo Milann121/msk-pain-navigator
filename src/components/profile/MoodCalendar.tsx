@@ -116,7 +116,7 @@ export const MoodCalendar = () => {
       {/* Two containers side by side */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Left Container - Mood Calendar */}
-        <>
+        <div className="pt-6">    {/* ← your wrapper: now one grid cell again */}
             <MoodSelector
               selectedDateMood={selectedDateMood}
               onMoodSelection={(mood) => handleMoodSelection(mood, date)}
@@ -185,7 +185,7 @@ export const MoodCalendar = () => {
                 <span className="text-xs text-gray-400">{t('home.mood.noRecords', { period: emptyStateText })}</span>
               )}
             </div>
-        </>
+        </div>
         
         {/* Right Column - Two stacked containers */}
         <div className="flex flex-col gap-6 h-full">
