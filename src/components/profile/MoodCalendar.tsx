@@ -117,7 +117,6 @@ export const MoodCalendar = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Left Container - Mood Calendar */}
         <>
-          <CardContent className="pt-6">
             <MoodSelector
               selectedDateMood={selectedDateMood}
               onMoodSelection={(mood) => handleMoodSelection(mood, date)}
@@ -185,7 +184,8 @@ export const MoodCalendar = () => {
               {moodScore === null && (
                 <span className="text-xs text-gray-400">{t('home.mood.noRecords', { period: emptyStateText })}</span>
               )}
-            </>
+            </div>
+        </>
         
         {/* Right Column - Two stacked containers */}
         <div className="flex flex-col gap-6 h-full">
