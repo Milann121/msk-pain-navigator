@@ -36,23 +36,43 @@ const PainAreaSection = ({
         defaultValue="neck" 
         value={painArea}
         onValueChange={(value) => handlePainAreaChange(value as 'neck' | 'middle back' | 'lower back' | 'upper limb')}
-        className="flex flex-col space-y-2"
+        className="flex flex-col space-y-3"
       >
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-3 p-2 rounded-lg border hover:bg-muted/50 transition-colors">
           <RadioGroupItem value="neck" id="neck" />
-          <Label htmlFor="neck" className="cursor-pointer">{t('assessment.painArea.neck')}</Label>
+          <img 
+            src="/lovable-uploads/imageAssessment/neckAssessment.png" 
+            alt="Neck assessment area"
+            className="w-12 h-12 object-contain"
+          />
+          <Label htmlFor="neck" className="cursor-pointer flex-1">{t('assessment.painArea.neck')}</Label>
         </div>
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-3 p-2 rounded-lg border hover:bg-muted/50 transition-colors">
           <RadioGroupItem value="middle back" id="middle-back" />
-          <Label htmlFor="middle-back" className="cursor-pointer">{t('assessment.painArea.middleBack')}</Label>
+          <img 
+            src="/lovable-uploads/imageAssessment/middleBackAssessment.png" 
+            alt="Middle back assessment area"
+            className="w-12 h-12 object-contain"
+          />
+          <Label htmlFor="middle-back" className="cursor-pointer flex-1">{t('assessment.painArea.middleBack')}</Label>
         </div>
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-3 p-2 rounded-lg border hover:bg-muted/50 transition-colors">
           <RadioGroupItem value="lower back" id="lower-back" />
-          <Label htmlFor="lower-back" className="cursor-pointer">{t('assessment.painArea.lowerBack')}</Label>
+          <img 
+            src="/lovable-uploads/imageAssessment/lowerBackAssessment.png" 
+            alt="Lower back assessment area"
+            className="w-12 h-12 object-contain"
+          />
+          <Label htmlFor="lower-back" className="cursor-pointer flex-1">{t('assessment.painArea.lowerBack')}</Label>
         </div>
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-3 p-2 rounded-lg border hover:bg-muted/50 transition-colors">
           <RadioGroupItem value="upper limb" id="upper-limb" />
-          <Label htmlFor="upper-limb" className="cursor-pointer">{t('assessment.painArea.upperLimb')}</Label>
+          <img 
+            src="/lovable-uploads/imageAssessment/shoulderAssessment.png" 
+            alt="Upper limb assessment area"
+            className="w-12 h-12 object-contain"
+          />
+          <Label htmlFor="upper-limb" className="cursor-pointer flex-1">{t('assessment.painArea.upperLimb')}</Label>
         </div>
       </RadioGroup>
 
