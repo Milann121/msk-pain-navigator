@@ -66,7 +66,14 @@ export default {
           'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
           border: 'hsl(var(--sidebar-border))',
           ring: 'hsl(var(--sidebar-ring))'
-        }
+        },
+        // Custom palette colors from the image
+        'venetian-lace': '#F7EDDA',
+        'macadamia-beige': '#F7DFBA', 
+        'pumpkin-vapor': '#FFA74F',
+        'fiery-glow': '#F0531C',
+        'norfolk-green': '#2E4B3C',
+        'fence-green': '#09332C'
       },
       borderRadius: {
         lg: 'var(--radius)',
