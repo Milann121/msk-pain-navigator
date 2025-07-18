@@ -89,7 +89,7 @@ const Domov = () => {
           
           {/* Notification Area - Above General Program on desktop */}
           <div className="hidden md:block">
-            <div className="w-full max-w-4xl mx-auto">
+            <div className="w-full max-w-2xl ml-auto mr-0">
               <NotificationArea />
             </div>
           </div>
