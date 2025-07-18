@@ -10,7 +10,7 @@ interface ScaleQuestionProps {
 }
 
 const ScaleQuestion = ({ question, value = 5, onChange }: ScaleQuestionProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('misc');
   
   if (!question.scale) return null;
   
