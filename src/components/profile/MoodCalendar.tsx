@@ -190,9 +190,9 @@ export const MoodCalendar = () => {
         {/* Right Column - Two stacked containers */}
         <div className="flex flex-col gap-6 h-full">
            {/* Notification: only on mobile (hide on md+) */}
-  +     <div className="mb-6 md:hidden">
-  +       <NotificationArea />
-  +     </div>
+    +     <div className="mb-6 md:hidden">
+    +       <Notification />
+    +     </div>
           
           {/* Top Container - General Program (1/3 height) */}
           <Card className="flex-[1]">
