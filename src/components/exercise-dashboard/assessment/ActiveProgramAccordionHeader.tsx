@@ -1,6 +1,7 @@
 import { UserAssessment } from '@/components/follow-up/types';
 import { formatPainAreaWithSubArea } from '@/utils/formatHelpers';
 import { useTranslation } from 'react-i18next';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface ActiveProgramAccordionHeaderProps {
   assessment: UserAssessment & { pain_area_display?: string };
@@ -33,6 +34,7 @@ const getBodyAreaImage = (painArea: string): string => {
 
 export const ActiveProgramAccordionHeader = ({ assessment }: ActiveProgramAccordionHeaderProps) => {
   const { t } = useTranslation();
+  const isMobile = useIsMobile();
   
   const painAreaText = assessment.pain_area_display || formatPainAreaWithSubArea(
     assessment.pain_area, 
@@ -43,9 +45,9 @@ export const ActiveProgramAccordionHeader = ({ assessment }: ActiveProgramAccord
   const bodyImage = getBodyAreaImage(assessment.pain_area);
   
   return (
-    <div className="w-1/2">
+    <div className={isMobile ? "w-full" : "w-1/2"}>
       <div className="relative overflow-hidden rounded-lg border-2 border-gray-200 bg-white transition-all duration-200 hover:shadow-md">
-        <div className="flex items-center h-16">
+        <div className={`flex items-center ${isMobile ? "h-12" : "h-16"}`}>
           <div className="w-1/2 h-full overflow-hidden rounded-l-lg">
             <img 
               src={bodyImage} 
@@ -53,8 +55,8 @@ export const ActiveProgramAccordionHeader = ({ assessment }: ActiveProgramAccord
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="w-1/2 flex items-center justify-center px-4">
-            <div className="font-medium text-gray-900 text-center">
+          <div className="w-1/2 flex items-center justify-center px-2">
+            <div className={`text-gray-900 text-center ${isMobile ? "font-normal text-xs" : "font-medium text-sm"}`}>
               {painAreaText}
             </div>
           </div>
