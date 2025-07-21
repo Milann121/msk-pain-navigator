@@ -71,7 +71,7 @@ export const AssessmentAccordionItem = ({
   };
   return <AccordionItem key={assessment.id} value={assessment.id}>
       <AccordionTrigger className="py-4 hover:bg-gray-50 rounded-lg px-0">
-        {isActiveProgram ? <ActiveProgramAccordionHeader assessment={assessment} /> : <AssessmentAccordionHeader assessment={assessment} />}
+        {isActiveProgram ? <ActiveProgramAccordionHeader assessment={assessment} /> : <AssessmentAccordionHeader assessment={assessment} showEndDate={true} />}
       </AccordionTrigger>
       <AccordionContent className="px-4 pb-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
