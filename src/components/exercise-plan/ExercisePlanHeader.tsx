@@ -29,7 +29,7 @@ export const ExercisePlanHeader = ({
         {showGeneral 
           ? t('generalProgram.description')
           : t('exercisePlanPage.specificDescription', { 
-              diagnosis: formatDifferential(differential, t), 
+              suspicion: formatDifferential(differential, t), 
               painArea: formatPainArea(painArea, t) 
             })
         }

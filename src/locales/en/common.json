@@ -1,10 +1,29 @@
+
 {
-  "back": "Back",
-  "next": "Next",
-  "submit": "Submit",
-  "cancel": "Cancel",
-  "save": "Save",
-  "loading": "Loading...",
-  "error": "Error",
-  "success": "Success"
+  "assessmentAccordion": {
+    "painMechanismLabel": "Pain Mechanism:",
+    "suspicionLabel": "Suspicion:",
+    "yourPainInitial": "Your Pain (Initial):",
+    "yourPainLatest": "Your Pain (Latest):",
+    "programStart": "Program Start:",
+    "programEnd": "Program End:",
+    "exerciseCompletion": "Exercise Completion:",
+    "followUpEntries": "Follow-up Entries:",
+    "viewExercises": "View Exercises",
+    "addFollowUp": "Add Follow-up",
+    "deleteAssessment": "Delete Assessment",
+    "endProgram": "End Program",
+    "renewProgram": "Renew Program",
+    "ending": "Ending...",
+    "renewing": "Renewing..."
+  },
+  "exercisePlanPage": {
+    "title": "Exercise Plan",
+    "specificDescription": "Personalized exercise program for {{suspicion}} in {{painArea}}",
+    "backToExercises": "Back to My Exercises"
+  },
+  "generalProgram": {
+    "title": "General Exercise Program",
+    "description": "A comprehensive exercise program combining multiple assessments when specific suspicion is unclear"
+  }
 }

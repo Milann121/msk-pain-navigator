@@ -1,10 +1,29 @@
+
 {
-  "back": "Zpět",
-  "next": "Dalej",
-  "submit": "Odeslat",
-  "cancel": "Zrušit",
-  "save": "Uložit",
-  "loading": "Načítá...",
-  "error": "Chyba",
-  "success": "Úspěch"
+  "assessmentAccordion": {
+    "painMechanismLabel": "Mechanismus bolesti:",
+    "suspicionLabel": "Podezření:",
+    "yourPainInitial": "Vaše bolest (počáteční):",
+    "yourPainLatest": "Vaše bolest (nejnovější):",
+    "programStart": "Začátek programu:",
+    "programEnd": "Konec programu:",
+    "exerciseCompletion": "Dokončení cvičení:",
+    "followUpEntries": "Follow-up záznamy:",
+    "viewExercises": "Zobrazit cvičení",
+    "addFollowUp": "Přidat follow-up",
+    "deleteAssessment": "Smazat hodnocení",
+    "endProgram": "Ukončit program",
+    "renewProgram": "Obnovit program",
+    "ending": "Ukončuji...",
+    "renewing": "Obnovuji..."
+  },
+  "exercisePlanPage": {
+    "title": "Cvičební plán",
+    "specificDescription": "Personalizovaný cvičební program pro {{suspicion}} v {{painArea}}",
+    "backToExercises": "Zpět na Moje cvičení"
+  },
+  "generalProgram": {
+    "title": "Obecný cvičební program",
+    "description": "Komplexní cvičební program kombinující více hodnocení, když není jasné specifické podezření"
+  }
 }

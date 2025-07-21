@@ -32,7 +32,7 @@ export const AssessmentDetails = ({
         </div>
       </div>
       <div>
-        <span className="font-medium text-gray-500">{t('assessmentAccordion.diagnosisLabel')}</span>
+        <span className="font-medium text-gray-500">{t('assessmentAccordion.suspicionLabel')}</span>
         <div className="mt-1">
           <Badge className={BadgeStyles.getDifferentialBadgeStyle(assessment.primary_differential)}>
             {formatDifferential(assessment.primary_differential, t)}

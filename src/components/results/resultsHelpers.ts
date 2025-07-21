@@ -23,7 +23,7 @@ export const getSINLabel = (sin: SINGroup): string => {
 };
 
 export const formatDifferential = (differential: Differential): string => {
-  if (differential === 'none') return 'Nebola identifikovaná žiadna špecifická diagnóza';
+  if (differential === 'none') return 'Nebolo identifikované žiadne špecifické podozrenie';
   
   const translations: Record<string, string> = {
     'disc herniation': 'Hernia medzistavcovej platničky',
@@ -42,7 +42,7 @@ export const formatDifferential = (differential: Differential): string => {
     'Central Sensitisation - Cognitive Symptoms': 'Centrálna senzitizácia - Kognitívne symptómy',
     'cervical-radiculopathy': 'Cervikalna radikulopatia',
     
-    // Upper limb diagnoses - Slovak translations
+    // Upper limb suspicions - Slovak translations
     'frozen-shoulder': 'Zmrznuté rameno',
     'slap-tear': 'Lézia labra',
     'subacromional-impingement-syndrome': 'Impingement syndróm ramena',
