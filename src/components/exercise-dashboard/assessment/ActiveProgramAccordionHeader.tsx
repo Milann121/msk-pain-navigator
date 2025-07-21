@@ -2,12 +2,6 @@ import { UserAssessment } from '@/components/follow-up/types';
 import { formatPainAreaWithSubArea } from '@/utils/formatHelpers';
 import { useTranslation } from 'react-i18next';
 
-// Import body area images
-import neckImage from '@/assets/body-areas/neck.png';
-import lowerBackImage from '@/assets/body-areas/lower-back.png';
-import middleBackImage from '@/assets/body-areas/middle-back.png';
-import upperLimbImage from '@/assets/body-areas/upper-limb.png';
-
 interface ActiveProgramAccordionHeaderProps {
   assessment: UserAssessment & { pain_area_display?: string };
 }
@@ -19,21 +13,21 @@ const getBodyAreaImage = (painArea: string): string => {
     case 'neck':
     case 'krčnachrbtica':
     case 'krcnichrbtica':
-      return neckImage;
+      return '/lovable-uploads/imageAssessment/neckAssessment.png';
     case 'lowerback':
     case 'dolnáčasťchrbta':
     case 'dolníčasťzad':
-      return lowerBackImage;
+      return '/lovable-uploads/imageAssessment/lowerBackAssessment.png';
     case 'middleback':
     case 'strednáčasťchrbta':
     case 'středníčasťzad':
-      return middleBackImage;
+      return '/lovable-uploads/imageAssessment/middleBackAssessment.png';
     case 'upperlimb':
     case 'hornákončatina':
     case 'horníkončetina':
-      return upperLimbImage;
+      return '/lovable-uploads/imageAssessment/shoulderAssessment.png';
     default:
-      return neckImage; // fallback
+      return '/lovable-uploads/imageAssessment/neckAssessment.png'; // fallback
   }
 };
 
@@ -49,17 +43,19 @@ export const ActiveProgramAccordionHeader = ({ assessment }: ActiveProgramAccord
   const bodyImage = getBodyAreaImage(assessment.pain_area);
   
   return (
-    <div className="flex items-center gap-4 w-full text-left">
-      <div className="flex-shrink-0">
-        <img 
-          src={bodyImage} 
-          alt={painAreaText}
-          className="w-12 h-12 object-cover rounded-lg border border-gray-200"
-        />
-      </div>
-      <div className="flex-1">
-        <div className="font-medium text-gray-900">
-          {painAreaText}
+    <div className="relative overflow-hidden rounded-lg border-2 border-gray-200 bg-white transition-all duration-200 hover:shadow-md">
+      <div className="flex items-center h-16">
+        <div className="w-1/2 h-full overflow-hidden rounded-l-lg">
+          <img 
+            src={bodyImage} 
+            alt={painAreaText}
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="w-1/2 flex items-center justify-center px-4">
+          <div className="font-medium text-gray-900 text-center">
+            {painAreaText}
+          </div>
         </div>
       </div>
     </div>
