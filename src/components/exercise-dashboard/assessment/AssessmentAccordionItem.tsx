@@ -5,6 +5,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { UserAssessment } from '@/components/follow-up/types';
 import { AssessmentAccordionHeader } from './AssessmentAccordionHeader';
+import { ActiveProgramAccordionHeader } from './ActiveProgramAccordionHeader';
 import { AssessmentAccordionActions } from './AssessmentAccordionActions';
 import { AssessmentDetails } from "./AssessmentDetails";
 import { ExerciseCompletionInfo } from "./ExerciseCompletionInfo";
@@ -22,14 +23,16 @@ interface AssessmentAccordionItemProps {
   onDeleteAssessment: (id: string) => void;
   onRenew?: () => void; 
   onEndProgram?: () => void;
+  isActiveProgram?: boolean; // Add flag to distinguish between active and ended programs
 }
 
-export const AssessmentAccordionItem = ({
-  assessment,
-  onOpenFollowUp,
-  onDeleteAssessment,
-  onRenew,
-  onEndProgram
+export const AssessmentAccordionItem = ({ 
+  assessment, 
+  onOpenFollowUp, 
+  onDeleteAssessment, 
+  onRenew, 
+  onEndProgram,
+  isActiveProgram = false 
 }: AssessmentAccordionItemProps) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
@@ -78,7 +81,11 @@ export const AssessmentAccordionItem = ({
   return (
     <AccordionItem key={assessment.id} value={assessment.id}>
       <AccordionTrigger className="px-4 py-4 hover:bg-gray-50 rounded-lg">
-        <AssessmentAccordionHeader assessment={assessment} />
+        {isActiveProgram ? (
+          <ActiveProgramAccordionHeader assessment={assessment} />
+        ) : (
+          <AssessmentAccordionHeader assessment={assessment} />
+        )}
       </AccordionTrigger>
       <AccordionContent className="px-4 pb-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">

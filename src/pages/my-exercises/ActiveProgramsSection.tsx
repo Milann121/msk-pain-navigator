@@ -73,6 +73,7 @@ export const ActiveProgramsSection: React.FC<ActiveProgramsSectionProps> = ({
               onOpenFollowUp={handleOpenFollowUp}
               onDeleteAssessment={handleDeleteAssessment}
               onEndProgram={() => handleEndAssessmentUI(assessment.id)}
+              isActiveProgram={true}
             />
           ))}
         </Accordion>
