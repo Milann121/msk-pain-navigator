@@ -82,14 +82,14 @@ const AssessmentContent = () => {
           <div className="mt-12 space-y-6">
             <div className="text-center mb-8">
               <h2 className="text-2xl font-bold text-blue-800 mb-2">
-                Pýtajte sa Pebee
+                {t('assessment.askPebee.title')}
               </h2>
               <p className="text-blue-600">
-                Nahrajte dokumenty a chatujte s vaším osobným terapeutickým asistentom
+                {t('assessment.askPebee.subtitle')}
               </p>
             </div>
             
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="space-y-6">
               <FileUploadSection />
               <AskPebeeChat />
             </div>

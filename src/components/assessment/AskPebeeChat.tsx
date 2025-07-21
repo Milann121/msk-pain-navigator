@@ -21,7 +21,7 @@ export const AskPebeeChat: React.FC = () => {
     {
       id: '1',
       role: 'assistant',
-      content: 'Ahoj! Som Pebee, váš osobný terapeutický asistent. Môžem vám pomôcť s otázkami o vašom zdraví, cvičeniach a bolesti. Ako vám môžem pomôcť?',
+      content: t('assessment.askPebee.chat.welcomeMessage'),
       timestamp: new Date()
     }
   ]);
@@ -64,7 +64,7 @@ export const AskPebeeChat: React.FC = () => {
       const assistantMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
         role: 'assistant',
-        content: `Ďakujem za vašu otázku: "${userMessage.content}". Toto je simulovaná odpoveď. V skutočnej implementácii by tu bola integrácia s ChatGPT alebo iným LLM modelom na poskytnutie personalizovaných zdravotných rád.`,
+        content: t('assessment.askPebee.chat.simulatedResponse', { question: userMessage.content }),
         timestamp: new Date()
       };
 
@@ -74,7 +74,7 @@ export const AskPebeeChat: React.FC = () => {
       const errorMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
         role: 'assistant',
-        content: 'Prepáčte, vyskytla sa chyba. Skúste to prosím znovu.',
+        content: t('assessment.askPebee.chat.errorMessage'),
         timestamp: new Date()
       };
       setMessages(prev => [...prev, errorMessage]);
@@ -95,7 +95,7 @@ export const AskPebeeChat: React.FC = () => {
       <CardHeader className="flex-shrink-0">
         <CardTitle className="flex items-center gap-2">
           <MessageCircle className="h-5 w-5" />
-          Pýtajte sa Pebee
+          {t('assessment.askPebee.title')}
         </CardTitle>
       </CardHeader>
       <CardContent className="flex-1 flex flex-col p-0">
@@ -161,7 +161,7 @@ export const AskPebeeChat: React.FC = () => {
               value={inputMessage}
               onChange={(e) => setInputMessage(e.target.value)}
               onKeyPress={handleKeyPress}
-              placeholder="Napíšte svoju otázku..."
+              placeholder={t('assessment.askPebee.chat.placeholder')}
               disabled={isLoading}
               className="flex-1"
             />
@@ -174,7 +174,7 @@ export const AskPebeeChat: React.FC = () => {
             </Button>
           </div>
           <p className="text-xs text-gray-500 mt-2">
-            Toto je experimentálna funkcia. Vždy sa poraďte s kvalifikovaným zdravotníckym pracovníkom.
+            {t('assessment.askPebee.chat.disclaimer')}
           </p>
         </div>
       </CardContent>

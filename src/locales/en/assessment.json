@@ -35,5 +35,40 @@
     "selectedAreas": "Selected areas:",
     "noAreasSelected": "No areas selected",
     "selectAtLeastOne": "Select at least one pain area"
+  },
+  "askPebee": {
+    "title": "Ask Pebee",
+    "subtitle": "Upload documents and chat with your personal therapeutic assistant",
+    "chat": {
+      "welcomeMessage": "Hello! I'm Pebee, your personal therapeutic assistant. I can help you with questions about your health, exercises and pain. How can I help you?",
+      "placeholder": "Type your question...",
+      "simulatedResponse": "Thank you for your question: \"{{question}}\". This is a simulated response. In a real implementation, there would be integration with ChatGPT or another LLM model to provide personalized health advice.",
+      "errorMessage": "Sorry, an error occurred. Please try again.",
+      "disclaimer": "This is an experimental feature. Always consult with a qualified healthcare professional."
+    }
+  },
+  "fileUpload": {
+    "title": "Upload Documents",
+    "dropzone": {
+      "instruction": "Click to upload or drag files here",
+      "supportedFormats": "Supported formats: PDF, JPG, PNG (max. 10MB)"
+    },
+    "selectFiles": "Select Files",
+    "uploading": "Uploading...",
+    "uploadedFiles": "Uploaded Files",
+    "errors": {
+      "invalidFormat": "Supported formats: PDF, JPG, PNG",
+      "fileTooLarge": "File is too large. Maximum size is 10MB.",
+      "uploadFailed": "Error uploading file",
+      "removeFailed": "Error removing file"
+    },
+    "success": {
+      "uploaded": "File uploaded successfully",
+      "removed": "File removed successfully"
+    },
+    "privacy": {
+      "title": "Data Protection Information",
+      "description": "Your documents are securely stored and used only for analyzing your health needs."
+    }
   }
 }

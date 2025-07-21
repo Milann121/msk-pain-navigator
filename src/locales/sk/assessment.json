@@ -35,5 +35,40 @@
     "selectedAreas": "Vybrané oblasti:",
     "noAreasSelected": "Žiadne oblasti nie sú vybraté",
     "selectAtLeastOne": "Vyber aspoň jednu oblasť bolesti"
+  },
+  "askPebee": {
+    "title": "Pýtajte sa Pebee",
+    "subtitle": "Nahrajte dokumenty a chatujte s vaším osobným terapeutickým asistentom",
+    "chat": {
+      "welcomeMessage": "Ahoj! Som Pebee, váš osobný terapeutický asistent. Môžem vám pomôcť s otázkami o vašom zdraví, cvičeniach a bolesti. Ako vám môžem pomôcť?",
+      "placeholder": "Napíšte svoju otázku...",
+      "simulatedResponse": "Ďakujem za vašu otázku: \"{{question}}\". Toto je simulovaná odpoveď. V skutočnej implementácii by tu bola integrácia s ChatGPT alebo iným LLM modelom na poskytnutie personalizovaných zdravotných rád.",
+      "errorMessage": "Prepáčte, vyskytla sa chyba. Skúste to prosím znovu.",
+      "disclaimer": "Toto je experimentálna funkcia. Vždy sa poraďte s kvalifikovaným zdravotníckym pracovníkom."
+    }
+  },
+  "fileUpload": {
+    "title": "Nahrať dokumenty",
+    "dropzone": {
+      "instruction": "Kliknite pre nahranie alebo pretiahnite súbory sem",
+      "supportedFormats": "Podporované formáty: PDF, JPG, PNG (max. 10MB)"
+    },
+    "selectFiles": "Vybrať súbory",
+    "uploading": "Nahrávam...",
+    "uploadedFiles": "Nahrané súbory",
+    "errors": {
+      "invalidFormat": "Podporované formáty: PDF, JPG, PNG",
+      "fileTooLarge": "Súbor je príliš veľký. Maximálna veľkosť je 10MB.",
+      "uploadFailed": "Chyba pri nahrávaní súboru",
+      "removeFailed": "Chyba pri odstraňovaní súboru"
+    },
+    "success": {
+      "uploaded": "Súbor bol úspešne nahraný",
+      "removed": "Súbor bol odstránený"
+    },
+    "privacy": {
+      "title": "Informácie o ochrane údajov",
+      "description": "Vaše dokumenty sú bezpečne uložené a používané len na analýzu vašich zdravotných potrieb."
+    }
   }
 }

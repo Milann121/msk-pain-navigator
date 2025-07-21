@@ -34,12 +34,12 @@ export const FileUploadSection: React.FC = () => {
     const allowedTypes = ['application/pdf', 'image/jpeg', 'image/png', 'image/jpg'];
     
     if (!allowedTypes.includes(file.type)) {
-      toast.error('Podporované formáty: PDF, JPG, PNG');
+      toast.error(t('assessment.fileUpload.errors.invalidFormat'));
       return;
     }
 
     if (file.size > 10 * 1024 * 1024) { // 10MB limit
-      toast.error('Súbor je príliš veľký. Maximálna veľkosť je 10MB.');
+      toast.error(t('assessment.fileUpload.errors.fileTooLarge'));
       return;
     }
 
@@ -86,10 +86,10 @@ export const FileUploadSection: React.FC = () => {
         uploadedAt: dbData.uploaded_at
       }]);
 
-      toast.success('Súbor bol úspešne nahraný');
+      toast.success(t('assessment.fileUpload.success.uploaded'));
     } catch (error) {
       console.error('Error uploading file:', error);
-      toast.error('Chyba pri nahrávaní súboru');
+      toast.error(t('assessment.fileUpload.errors.uploadFailed'));
     } finally {
       setUploading(false);
       if (fileInputRef.current) {
@@ -108,10 +108,10 @@ export const FileUploadSection: React.FC = () => {
       if (error) throw error;
 
       setUploadedFiles(prev => prev.filter(f => f.id !== fileId));
-      toast.success('Súbor bol odstránený');
+      toast.success(t('assessment.fileUpload.success.removed'));
     } catch (error) {
       console.error('Error removing file:', error);
-      toast.error('Chyba pri odstraňovaní súboru');
+      toast.error(t('assessment.fileUpload.errors.removeFailed'));
     }
   };
 
@@ -128,7 +128,7 @@ export const FileUploadSection: React.FC = () => {
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <Upload className="h-5 w-5" />
-          Nahrať dokumenty
+          {t('assessment.fileUpload.title')}
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
@@ -136,10 +136,10 @@ export const FileUploadSection: React.FC = () => {
           <Upload className="mx-auto h-12 w-12 text-gray-400 mb-4" />
           <div className="space-y-2">
             <p className="text-sm text-gray-600">
-              Kliknite pre nahranie alebo pretiahnite súbory sem
+              {t('assessment.fileUpload.dropzone.instruction')}
             </p>
             <p className="text-xs text-gray-500">
-              Podporované formáty: PDF, JPG, PNG (max. 10MB)
+              {t('assessment.fileUpload.dropzone.supportedFormats')}
             </p>
           </div>
           <Button 
@@ -147,7 +147,7 @@ export const FileUploadSection: React.FC = () => {
             disabled={uploading}
             className="mt-4"
           >
-            {uploading ? 'Nahrávam...' : 'Vybrať súbory'}
+            {uploading ? t('assessment.fileUpload.uploading') : t('assessment.fileUpload.selectFiles')}
           </Button>
           <input
             ref={fileInputRef}
@@ -160,7 +160,7 @@ export const FileUploadSection: React.FC = () => {
 
         {uploadedFiles.length > 0 && (
           <div className="space-y-2">
-            <h4 className="text-sm font-medium">Nahrané súbory:</h4>
+            <h4 className="text-sm font-medium">{t('assessment.fileUpload.uploadedFiles')}:</h4>
             {uploadedFiles.map((file) => (
               <div
                 key={file.id}
@@ -191,8 +191,8 @@ export const FileUploadSection: React.FC = () => {
         <div className="flex items-start gap-2 p-3 bg-blue-50 rounded-lg">
           <AlertCircle className="h-4 w-4 text-blue-500 mt-0.5 flex-shrink-0" />
           <div className="text-sm text-blue-700">
-            <p className="font-medium">Informácie o ochrane údajov</p>
-            <p>Vaše dokumenty sú bezpečne uložené a používané len na analýzu vašich zdravotných potrieb.</p>
+            <p className="font-medium">{t('assessment.fileUpload.privacy.title')}</p>
+            <p>{t('assessment.fileUpload.privacy.description')}</p>
           </div>
         </div>
       </CardContent>
