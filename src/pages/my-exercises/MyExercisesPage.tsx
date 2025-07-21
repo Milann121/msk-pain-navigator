@@ -26,6 +26,10 @@ export const MyExercisesPage = () => {
   // State for which active assessment accordion item is open
   const [openedActiveAccordionId, setOpenedActiveAccordionId] = React.useState<string | undefined>(undefined);
 
+  // State for OREBRO questionnaire expand/collapse
+  const [isOrebroExpanded, setIsOrebroExpanded] = React.useState(false);
+  const [isOrebroWrapped, setIsOrebroWrapped] = React.useState(false);
+
   // Split assessments into active and ended programs
   const [activeAssessments, setActiveAssessments] = React.useState<UserAssessment[]>([]);
   const [endedAssessments, setEndedAssessments] = React.useState<UserAssessment[]>([]);
@@ -100,12 +104,12 @@ export const MyExercisesPage = () => {
           {/* OREBRO & General Program side by side */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 items-start">
             <OrebroEntry 
-              isExpanded={false}
-              isWrapped={false}
-              onExpand={() => {}}
-              onCollapse={() => {}}
-              onWrap={() => {}}
-              onUnwrap={() => {}}
+              isExpanded={isOrebroExpanded}
+              isWrapped={isOrebroWrapped}
+              onExpand={() => setIsOrebroExpanded(true)}
+              onCollapse={() => setIsOrebroExpanded(false)}
+              onWrap={() => setIsOrebroWrapped(true)}
+              onUnwrap={() => setIsOrebroWrapped(false)}
             />
             <GeneralProgram />
           </div>
