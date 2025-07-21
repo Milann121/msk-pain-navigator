@@ -25,5 +25,21 @@
   "generalProgram": {
     "title": "Obecný cvičební program",
     "description": "Komplexní cvičební program kombinující více hodnocení, když není jasné specifické podezření"
-  }
+  },
+  "exerciseSwap": {
+    "swapButton": "Změnit cvičení",
+    "confirmTitle": "Změnit cvičení",
+    "confirmMessage": "Jste si jisti, že chcete změnit toto cvičení?",
+    "yes": "Ano, změnit",
+    "no": "Ne, ponechat současné",
+    "noAlternatives": "Nejsou dostupná alternativní cvičení",
+    "swapSuccess": "Cvičení bylo úspěšně změněno",
+    "swapError": "Nepodařilo se změnit cvičení"
+  },
+  "favorite": {
+    "addToFavorites": "Přidat do oblíbených",
+    "removeFromFavorites": "Odebrat z oblíbených"
+  },
+  "exerciseAdviceTitle": "Důležité rady",
+  "exerciseAdviceSubtitle": "Před začátkem cvičení si prosím přečtěte tato doporučení"
 }
