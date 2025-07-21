@@ -39,7 +39,5 @@
   "favorite": {
     "addToFavorites": "Add to Favorites",
     "removeFromFavorites": "Remove from Favorites"
-  },
-  "exerciseAdviceTitle": "Important Advice",
-  "exerciseAdviceSubtitle": "Please read these recommendations before starting your exercises"
+  }
 }
