@@ -10,6 +10,8 @@ import GeneralQuestionnaireHandler from '@/components/assessment/GeneralQuestion
 import FollowUpQuestionnaireHandler from '@/components/assessment/FollowUpQuestionnaireHandler';
 import ResultsHandler from '@/components/assessment/ResultsHandler';
 import SubmittingOverlay from '@/components/assessment/SubmittingOverlay';
+import { FileUploadSection } from '@/components/assessment/FileUploadSection';
+import { AskPebeeChat } from '@/components/assessment/AskPebeeChat';
 // import { BodyModelSection } from '@/components/assessment/BodyModelSection';
 
 const AssessmentContent = () => {
@@ -75,6 +77,23 @@ const AssessmentContent = () => {
               <ResultsHandler />
             </>
           )}
+          
+          {/* Ask Pebee Section - Available for all stages */}
+          <div className="mt-12 space-y-6">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl font-bold text-blue-800 mb-2">
+                Pýtajte sa Pebee
+              </h2>
+              <p className="text-blue-600">
+                Nahrajte dokumenty a chatujte s vaším osobným terapeutickým asistentom
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <FileUploadSection />
+              <AskPebeeChat />
+            </div>
+          </div>
           
           {isSubmitting && (
             <>
