@@ -53,7 +53,7 @@
     "generalDescription": "Nemáte čas na individuální programy? Zde najdete personalizovaný program s nejdůležitějšími cvičeními z vašich programů. Dodržujte pokyny a přestaňte cvičit, pokud pociťujete bolest.",
     "backToExercises": "Zpět na Moje cvičení",
     "title": "Plán cvičení",
-    "specificDescription": "Personalizovaný cvičební program pro {{diagnosis}} ovlivňující {{painArea}}"
+    "specificDescription": "Personalizovaný cvičební program pro {{suspicion}} ovlivňující {{painArea}}"
   },
   "exercisePlan": {
     "sectionSummary": "{{count}} {{label}}",
