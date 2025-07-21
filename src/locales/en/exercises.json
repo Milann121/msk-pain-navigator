@@ -53,7 +53,7 @@
     "generalDescription": "Don't have time for individual programs? Here you'll find a personalized program with the most important exercises from your programs. Follow the instructions and stop exercising if you feel pain.",
     "backToExercises": "Back to My Exercises",
     "title": "Exercise Plan",
-    "specificDescription": "Personalized exercise program for {{diagnosis}} affecting {{painArea}}"
+    "specificDescription": "Personalized exercise program for {{suspicion}} affecting {{painArea}}"
   },
   "exercisePlan": {
     "sectionSummary": "{{count}} {{label}}",
