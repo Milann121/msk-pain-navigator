@@ -221,7 +221,14 @@ export const JobSectionField: React.FC<JobSectionFieldProps> = ({
                     htmlFor={`temp-property-${property.id}`} 
                     className="cursor-pointer text-xs"
                   >
-                    {t(`profile.jobSection.jobPropertyNames.${property.property_name}`, property.property_name)}
+                    {(() => {
+                      const translation = t(`profile.jobSection.jobPropertyNames.${property.property_name}`);
+                      // If translation equals the key (meaning no translation found), clean up the original property
+                      if (translation === `profile.jobSection.jobPropertyNames.${property.property_name}`) {
+                        return property.property_name.replace(/[\[\]]/g, '').trim();
+                      }
+                      return translation;
+                    })()}
                   </Label>
                 </div>
               ))}
@@ -277,9 +284,15 @@ export const JobSectionField: React.FC<JobSectionFieldProps> = ({
       ).filter(prop => prop && prop !== ''))];
       
       if (cleanedProperties.length > 0) {
-        const translatedProperties = cleanedProperties.map(prop => 
-          t(`profile.jobSection.jobPropertyNames.${prop}`, prop)
-        ).join(', ');
+        const translatedProperties = cleanedProperties.map(prop => {
+          // First try to get translation, if not found, clean up the property name by removing brackets
+          const translation = t(`profile.jobSection.jobPropertyNames.${prop}`);
+          // If translation equals the key (meaning no translation found), clean up the original property
+          if (translation === `profile.jobSection.jobPropertyNames.${prop}`) {
+            return prop.replace(/[\[\]]/g, '').trim();
+          }
+          return translation;
+        }).join(', ');
         
         infoRows.push(
           <div key="jobProperties" className="flex flex-col mb-2">
