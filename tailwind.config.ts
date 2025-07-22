@@ -13,7 +13,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'spartan-league': ['"Spartan League"', 'sans-serif'],
+        'league-spartan': ['"League Spartan"', 'sans-serif'],
         'code-pro': ['"Code Pro Sans"', 'sans-serif'],
       },
       container: {
