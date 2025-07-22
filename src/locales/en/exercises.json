@@ -30,6 +30,7 @@
   },
   "assessmentAccordion": {
     "painMechanismLabel": "Pain Mechanism",
+    "suspicionLabel": "Suspicion:",
     "diagnosisLabel": "Diagnosis",
     "yourPainInitial": "Your Pain (Initial)",
     "yourPainLatest": "Your Pain (Latest)",

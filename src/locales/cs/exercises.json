@@ -30,6 +30,7 @@
   },
   "assessmentAccordion": {
     "painMechanismLabel": "Mechanismus bolesti",
+    "suspicionLabel": "Podezření:",
     "diagnosisLabel": "Diagnóza",
     "yourPainInitial": "Vaše bolest (počáteční)",
     "yourPainLatest": "Vaše bolest (nejnovější)",
