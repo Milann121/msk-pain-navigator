@@ -50,7 +50,7 @@ export const Advice: React.FC<AdviceProps> = ({ adviceId }) => {
   };
 
   return (
-    <Card className="h-full border-gray-200 hover:shadow-md transition-shadow flex flex-col">
+    <Card data-advice-card className="h-full border-gray-200 hover:shadow-md transition-shadow flex flex-col">
       <CardHeader className="pb-3">
         <div className="flex items-start justify-between mb-3">
           <div className="flex-shrink-0">

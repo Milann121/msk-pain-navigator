@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Advice } from './Advice';
 
 interface AdviceListProps {
@@ -11,6 +11,36 @@ export const AdviceList: React.FC<AdviceListProps> = ({
   adviceIds, 
   className = '' 
 }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!containerRef.current || adviceIds.length === 0) return;
+
+    const adjustHeights = () => {
+      const cards = containerRef.current?.querySelectorAll('[data-advice-card]');
+      if (!cards || cards.length === 0) return;
+
+      // Reset heights first
+      cards.forEach(card => {
+        (card as HTMLElement).style.height = 'auto';
+      });
+
+      // Get all heights after reset
+      const heights = Array.from(cards).map(card => card.scrollHeight);
+      const maxHeight = Math.max(...heights);
+
+      // Set all cards to the maximum height
+      cards.forEach(card => {
+        (card as HTMLElement).style.height = `${maxHeight}px`;
+      });
+    };
+
+    // Adjust heights after a short delay to ensure all content is rendered
+    const timeoutId = setTimeout(adjustHeights, 100);
+
+    return () => clearTimeout(timeoutId);
+  }, [adviceIds]);
+
   if (!adviceIds || adviceIds.length === 0) {
     return (
       <div className={`text-center py-8 ${className}`}>
@@ -20,9 +50,9 @@ export const AdviceList: React.FC<AdviceListProps> = ({
   }
 
   return (
-    <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 ${className}`}>
+    <div ref={containerRef} className={`grid grid-cols-1 md:grid-cols-2 gap-4 ${className}`}>
       {adviceIds.map((adviceId) => (
-        <div key={adviceId} className="aspect-square">
+        <div key={adviceId} className="w-full">
           <Advice adviceId={adviceId} />
         </div>
       ))}
