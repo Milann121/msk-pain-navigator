@@ -20,9 +20,11 @@ export const AdviceList: React.FC<AdviceListProps> = ({
   }
 
   return (
-    <div className={`space-y-4 ${className}`}>
+    <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 ${className}`}>
       {adviceIds.map((adviceId) => (
-        <Advice key={adviceId} adviceId={adviceId} />
+        <div key={adviceId} className="aspect-square">
+          <Advice adviceId={adviceId} />
+        </div>
       ))}
     </div>
   );

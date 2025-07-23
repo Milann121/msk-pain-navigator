@@ -31,69 +31,30 @@ export const Advice: React.FC<AdviceProps> = ({ adviceId }) => {
   const getPriorityColor = (priority: string) => {
     const normalizedPriority = priority.toLowerCase();
     
-    // High priority variants
-    if (normalizedPriority.includes('vysoká') || normalizedPriority === 'high') {
+    // High priority variants - RED
+    if (normalizedPriority.includes('vysoká') || normalizedPriority.includes('vysoká') || normalizedPriority === 'high') {
       return 'bg-red-50 text-red-700 border-red-200 hover:bg-red-100';
     }
     
-    // Medium priority variants  
+    // Medium priority variants - BLUE  
     if (normalizedPriority.includes('stredná') || normalizedPriority.includes('střední') || normalizedPriority === 'medium') {
-      return 'bg-yellow-50 text-yellow-700 border-yellow-200 hover:bg-yellow-100';
+      return 'bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100';
     }
     
-    // Low priority variants
+    // Low priority variants - YELLOW
     if (normalizedPriority.includes('nízka') || normalizedPriority.includes('nízká') || normalizedPriority === 'low') {
-      return 'bg-green-50 text-green-700 border-green-200 hover:bg-green-100';
+      return 'bg-yellow-50 text-yellow-700 border-yellow-200 hover:bg-yellow-100';
     }
     
     return 'bg-gray-50 text-gray-700 border-gray-200 hover:bg-gray-100';
   };
 
   return (
-    <Card className="border-gray-200 hover:shadow-md transition-shadow">
+    <Card className="h-full border-gray-200 hover:shadow-md transition-shadow flex flex-col">
       <CardHeader className="pb-3">
-        {/* Mobile/Tablet: Image left, Priority right, Content below */}
-        <div className="block md:hidden">
-          <div className="flex items-start justify-between mb-3">
-            <div className="flex-shrink-0">
-              <div className="w-16 h-16 rounded-lg border border-gray-200 bg-gray-50 overflow-hidden shadow-sm flex items-center justify-center">
-                {advice.adviceImageUrl ? (
-                  <img
-                    src={advice.adviceImageUrl}
-                    alt={t(`advice.${advice.adviceTitle}`)}
-                    className="w-full h-full object-cover"
-                  />
-                ) : (
-                  <div className="w-full h-full bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
-                    <span className="text-blue-600 text-xs font-medium">📋</span>
-                  </div>
-                )}
-              </div>
-            </div>
-            <Badge className={`${getPriorityColor(t(`advice.${advice.advicePriority}`))} font-medium`}>
-              {t(`advice.${advice.advicePriority}`)}
-            </Badge>
-          </div>
-          <div>
-            <CardTitle className="text-lg font-semibold text-gray-900">
-              {t(`advice.${advice.adviceTitle}`)}
-            </CardTitle>
-            {advice.adviceSubtitle && advice.adviceSubtitle.trim() && (
-              <p className="text-sm text-gray-600 mt-1">{t(`advice.${advice.adviceSubtitle}`)}</p>
-            )}
-            {advice.adviceRule && (
-              <div className="mt-2">
-                <span className="text-sm font-medium text-blue-900">{t('advice.rule')}: </span>
-                <span className="text-sm text-blue-800">{t(`advice.${advice.adviceRule}`)}</span>
-              </div>
-            )}
-          </div>
-        </div>
-
-        {/* Desktop: Image left with content inline */}
-        <div className="hidden md:flex items-start gap-3">
+        <div className="flex items-start justify-between mb-3">
           <div className="flex-shrink-0">
-            <div className="w-16 h-16 rounded-lg border border-gray-200 bg-gray-50 overflow-hidden shadow-sm flex items-center justify-center">
+            <div className="w-12 h-12 rounded-lg border border-gray-200 bg-gray-50 overflow-hidden shadow-sm flex items-center justify-center">
               {advice.adviceImageUrl ? (
                 <img
                   src={advice.adviceImageUrl}
@@ -107,43 +68,40 @@ export const Advice: React.FC<AdviceProps> = ({ adviceId }) => {
               )}
             </div>
           </div>
-          <div className="flex-1">
-            <div className="flex items-start justify-between gap-3">
-              <div>
-                <CardTitle className="text-lg font-semibold text-gray-900">
-                  {t(`advice.${advice.adviceTitle}`)}
-                </CardTitle>
-                {advice.adviceSubtitle && advice.adviceSubtitle.trim() && (
-                  <p className="text-sm text-gray-600 mt-1">{t(`advice.${advice.adviceSubtitle}`)}</p>
-                )}
-                {advice.adviceRule && (
-                  <div className="mt-2">
-                    <span className="text-sm font-medium text-blue-900">{t('advice.rule')}: </span>
-                    <span className="text-sm text-blue-800">{t(`advice.${advice.adviceRule}`)}</span>
-                  </div>
-                )}
-              </div>
-              <Badge className={`${getPriorityColor(t(`advice.${advice.advicePriority}`))} font-medium`}>
-                {t(`advice.${advice.advicePriority}`)}
-              </Badge>
+          <Badge className={`${getPriorityColor(t(`advice.${advice.advicePriority}`))} font-medium text-xs`}>
+            {t(`advice.${advice.advicePriority}`)}
+          </Badge>
+        </div>
+        
+        <div>
+          <CardTitle className="text-base font-semibold text-gray-900 leading-tight">
+            {t(`advice.${advice.adviceTitle}`)}
+          </CardTitle>
+          {advice.adviceSubtitle && advice.adviceSubtitle.trim() && (
+            <p className="text-xs text-gray-600 mt-1">{t(`advice.${advice.adviceSubtitle}`)}</p>
+          )}
+          {advice.adviceRule && (
+            <div className="mt-2">
+              <span className="text-xs font-medium text-blue-900">{t('advice.rule')}: </span>
+              <span className="text-xs text-blue-800">{t(`advice.${advice.adviceRule}`)}</span>
             </div>
-          </div>
+          )}
         </div>
       </CardHeader>
       
-      <CardContent className="space-y-4">
+      <CardContent className="space-y-3 flex-1 flex flex-col">
         <div className="flex-1">
-          <p className="text-gray-700 text-sm leading-relaxed">
+          <p className="text-gray-700 text-xs leading-relaxed">
             {t(`advice.${advice.adviceDescription}`)}
           </p>
         </div>
         
         {advice.adviceLink && advice.adviceLink.trim() && (
-          <div className="pt-2 border-t border-gray-100">
+          <div className="pt-2 border-t border-gray-100 mt-auto">
             <Button
               variant="outline"
               size="sm"
-              className="h-8 text-xs"
+              className="h-7 text-xs w-full"
               onClick={() => window.open(advice.adviceLink, '_blank')}
             >
               <ExternalLink className="h-3 w-3 mr-1" />
