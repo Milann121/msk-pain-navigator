@@ -145,11 +145,20 @@ export const useProfileEditing = (
       let updateData: any = {};
       
       if (field === 'jobSection') {
-        // Clean up job properties to remove duplicates, empty values, and special characters
-        const cleanedJobProperties = [...new Set(tempJobProperties.map(prop => 
-          // Remove quotes, backslashes, and other special characters
-          prop ? prop.replace(/['"\\]/g, '').trim() : ''
-        ).filter(prop => prop && prop !== ''))];
+        // More aggressive cleanup to prevent duplicates and normalize property names
+        const cleanedJobProperties = tempJobProperties
+          .filter(prop => prop && typeof prop === 'string') // Only keep non-empty strings
+          .map(prop => prop.replace(/['"\\[\]]/g, '').trim()) // Remove quotes, brackets, backslashes
+          .filter(prop => prop !== '') // Remove empty strings after cleanup
+          .map(prop => prop.toLowerCase()) // Normalize case for comparison
+          .filter((prop, index, array) => array.indexOf(prop) === index) // Remove duplicates by lowercased comparison
+          .map(prop => {
+            // Restore original casing - this is important for translations
+            const originalCase = tempJobProperties.find(original => 
+              original.replace(/['"\\[\]]/g, '').trim().toLowerCase() === prop
+            );
+            return originalCase ? originalCase.replace(/['"\\[\]]/g, '').trim() : prop;
+          });
         
         updateData = {
           department_id: tempDepartmentId || null, // Save department ID

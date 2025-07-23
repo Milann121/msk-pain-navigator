@@ -106,17 +106,24 @@ export const JobSectionField: React.FC<JobSectionFieldProps> = ({
 
   const handleTempJobPropertyChange = (propertyName: string, checked: boolean) => {
     // Clean the property name to ensure no special characters
-    const cleanPropertyName = propertyName.replace(/['"\\]/g, '').trim();
+    const cleanPropertyName = propertyName.replace(/['"\\[\]]/g, '').trim();
     
     let updatedProperties;
     if (checked) {
-      // Prevent duplicates by filtering out the property first, then adding it
-      updatedProperties = [...tempJobProperties.filter(prop => 
-        prop.replace(/['"\\]/g, '').trim() !== cleanPropertyName
-      ), cleanPropertyName];
+      // Prevent duplicates by using case-insensitive comparison
+      const isDuplicate = tempJobProperties.some(prop => 
+        prop.replace(/['"\\[\]]/g, '').trim().toLowerCase() === cleanPropertyName.toLowerCase()
+      );
+      
+      if (!isDuplicate) {
+        updatedProperties = [...tempJobProperties, cleanPropertyName];
+      } else {
+        updatedProperties = [...tempJobProperties]; // No change if duplicate
+      }
     } else {
+      // Remove the property using case-insensitive comparison
       updatedProperties = tempJobProperties.filter(prop => 
-        prop.replace(/['"\\]/g, '').trim() !== cleanPropertyName
+        prop.replace(/['"\\[\]]/g, '').trim().toLowerCase() !== cleanPropertyName.toLowerCase()
       );
     }
     
@@ -277,19 +284,28 @@ export const JobSectionField: React.FC<JobSectionFieldProps> = ({
     }
     
     if (jobProperties && Array.isArray(jobProperties) && jobProperties.length > 0) {
-      // Clean up job properties - remove duplicates, empty values, and special characters
-      const cleanedProperties = [...new Set(jobProperties.map(prop => 
-        // Remove quotes, backslashes, and other special characters
-        prop ? prop.replace(/['"\\]/g, '').trim() : ''
-      ).filter(prop => prop && prop !== ''))];
+      // More aggressive cleanup to prevent duplicates and normalize property names
+      const normalizedProperties = jobProperties
+        .filter(prop => prop && typeof prop === 'string') // Only keep non-empty strings
+        .map(prop => prop.replace(/['"\\[\]]/g, '').trim()) // Remove quotes, brackets, backslashes
+        .filter(prop => prop !== '') // Remove empty strings after cleanup
+        .map(prop => prop.toLowerCase()) // Normalize case for comparison
+        .filter((prop, index, array) => array.indexOf(prop) === index) // Remove duplicates by lowercased comparison
+        .map(prop => {
+          // Find the original property in the jobPropertiesList to get the correct casing
+          const originalProperty = jobPropertiesList.find(jp => 
+            jp.property_name.toLowerCase() === prop.toLowerCase()
+          );
+          return originalProperty ? originalProperty.property_name : prop;
+        });
       
-      if (cleanedProperties.length > 0) {
-        const translatedProperties = cleanedProperties.map(prop => {
-          // First try to get translation, if not found, clean up the property name by removing brackets
+      if (normalizedProperties.length > 0) {
+        const translatedProperties = normalizedProperties.map(prop => {
+          // Try to get translation
           const translation = t(`profile.jobSection.jobPropertyNames.${prop}`);
-          // If translation equals the key (meaning no translation found), clean up the original property
+          // If translation equals the key (meaning no translation found), return the cleaned property name
           if (translation === `profile.jobSection.jobPropertyNames.${prop}`) {
-            return prop.replace(/[\[\]]/g, '').trim();
+            return prop;
           }
           return translation;
         }).join(', ');
