@@ -247,9 +247,9 @@
         "title": "Gluteal Stretching",
         "description": "Stretch gluteal muscles to relieve nerve compression."
       },
-      "mckenzieExtensions": {
-        "title": "McKenzie Extensions",
-        "description": "Extension exercises for lower back pain relief."
+      "pelvicTilting": {
+        "title": "Pelvic Tilting",
+        "description": "Gentle pelvic movements to improve lower back mobility."
       }
     },
     "radicularPainLowerBackWeek46": {
@@ -264,6 +264,58 @@
         "description": "Progressive strengthening for lower back support."
       }
     },
+    "radiculopathyNeckWeek02": {
+      "title": "Radiculopathy - Neck Week 0-2",
+      "description": "Initial treatment for neck radiculopathy.",
+      "tensionNeurodynamics": {
+        "title": "Tension Neurodynamics",
+        "description": "Nerve mobilization exercises to reduce neural tension."
+      },
+      "mckenzieExtensions": {
+        "title": "McKenzie Extensions",
+        "description": "Extension-based exercises for neck pain relief."
+      }
+    },
+    "radiculopathyNeckWeek35": {
+      "title": "Radiculopathy - Neck Week 3-5",
+      "description": "Progressive treatment for neck radiculopathy.",
+      "interscapularStrengthening": {
+        "title": "Interscapular Strengthening",
+        "description": "Strengthen muscles between shoulder blades."
+      },
+      "neckStrengthening": {
+        "title": "Neck Strengthening",
+        "description": "Progressive strengthening exercises for neck muscles."
+      }
+    },
+    "radiculopathyLowerBackWeek02": {
+      "title": "Radiculopathy - Lower Back Week 0-2",
+      "description": "Initial treatment for lower back radiculopathy.",
+      "proximalSciaticNeurodynamics": {
+        "title": "Proximal Sciatic Neurodynamics",
+        "description": "Nerve mobilization for proximal sciatic nerve irritation."
+      },
+      "mckenzieExtensions": {
+        "title": "McKenzie Extensions",
+        "description": "Extension exercises for lower back pain relief."
+      }
+    },
+    "radiculopathyLowerBackWeek35": {
+      "title": "Radiculopathy - Lower Back Week 3-5",
+      "description": "Progressive treatment for lower back radiculopathy.",
+      "glutealMassage": {
+        "title": "Gluteal Massage",
+        "description": "Self-massage techniques for gluteal muscle tension."
+      },
+      "bridge": {
+        "title": "Bridge Exercise",
+        "description": "Strengthen glutes and support spinal stability."
+      },
+      "squats90": {
+        "title": "90-Degree Squats",
+        "description": "Progressive strengthening for spinal support."
+      }
+    },
     "defaultNeck": {
       "title": "General Neuropathic Neck Pain",
       "description": "General exercises for neuropathic neck pain.",
@@ -275,25 +327,41 @@
         "title": "Upper Limb Neurodynamics",
         "description": "Nerve mobilization for upper limb symptoms."
       },
-      "upperCervicalRelease": {
-        "title": "Upper Cervical Release",
-        "description": "Gentle release techniques for upper cervical spine tension."
+      "prayer": {
+        "title": "Prayer Stretch",
+        "description": "Gentle stretch for neck and shoulder region."
+      }
+    },
+    "defaultMiddleBack": {
+      "title": "General Neuropathic Middle Back Pain",
+      "description": "General exercises for neuropathic middle back pain.",
+      "prayer": {
+        "title": "Prayer Stretch",
+        "description": "Stretch for middle back and shoulders."
+      },
+      "thoracicSpineMassage": {
+        "title": "Thoracic Spine Massage",
+        "description": "Self-massage for thoracic spine region."
+      },
+      "upperLimbNeurodynamics": {
+        "title": "Upper Limb Neurodynamics",
+        "description": "Nerve mobilization exercises."
       }
     },
     "defaultLowerBack": {
       "title": "General Neuropathic Lower Back Pain",
       "description": "General exercises for neuropathic lower back pain.",
-      "sciaticNeurodynamics": {
-        "title": "Sciatic Neurodynamics",
-        "description": "Nerve mobilization exercises for sciatic nerve irritation."
-      },
       "glutealStretching": {
         "title": "Gluteal Stretching",
         "description": "Stretch gluteal muscles for nerve decompression."
       },
-      "bridge": {
-        "title": "Bridge Exercise",
-        "description": "Strengthen glutes and support spinal stability."
+      "pelvicTilting": {
+        "title": "Pelvic Tilting",
+        "description": "Gentle pelvic mobility exercises."
+      },
+      "upperLimbNeurodynamics": {
+        "title": "Upper Limb Neurodynamics",
+        "description": "Nerve mobilization techniques."
       }
     },
     "cervicalRadiculopathyNeck": {
