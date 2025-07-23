@@ -247,9 +247,9 @@
         "title": "Natiahnutie sedacích svalov",
         "description": "Natiahние sedacie svaly na úľavu kompresie nervov."
       },
-      "pelvicTilting": {
-        "title": "Nakláňanie panvy",
-        "description": "Jemné pohyby panvy na zlepšenie pohyblivosti spodného chrbta."
+      "mckenzieExtensions": {
+        "title": "McKenzie extenzia",
+        "description": "Extenzné cvičenia na úľavu od bolesti spodného chrbta."
       }
     },
     "radicularPainLowerBackWeek46": {
@@ -264,58 +264,6 @@
         "description": "Progresívne posilňovanie na podporu spodného chrbta."
       }
     },
-    "radiculopathyNeckWeek02": {
-      "title": "Radikulopatia - Krk týždeň 0-2",
-      "description": "Počiatočná liečba radikulopatie krku.",
-      "tensionNeurodynamics": {
-        "title": "Neurodynamika napätia",
-        "description": "Cvičenia na mobilizáciu nervov na zníženie neurálneho napätia."
-      },
-      "mckenzieExtensions": {
-        "title": "McKenzie extenzia",
-        "description": "Extenzné cvičenia na úľavu od bolesti krku."
-      }
-    },
-    "radiculopathyNeckWeek35": {
-      "title": "Radikulopatia - Krk týždeň 3-5",
-      "description": "Progresívna liečba radikulopatie krku.",
-      "interscapularStrengthening": {
-        "title": "Posilňovanie medzilopatkovej oblasti",
-        "description": "Posilnite svaly medzi lopatkami."
-      },
-      "neckStrengthening": {
-        "title": "Posilňovanie krku",
-        "description": "Progresívne posilňovacie cvičenia pre svaly krku."
-      }
-    },
-    "radiculopathyLowerBackWeek02": {
-      "title": "Radikulopatia - Spodný chrbát týždeň 0-2",
-      "description": "Počiatočná liečba radikulopatie spodného chrbta.",
-      "proximalSciaticNeurodynamics": {
-        "title": "Proximálna neurodynamika sedacieho nervu",
-        "description": "Mobilizácia nervov pre proximálne podráždenie sedacieho nervu."
-      },
-      "mckenzieExtensions": {
-        "title": "McKenzie extenzia",
-        "description": "Extenzné cvičenia na úľavu od bolesti spodného chrbta."
-      }
-    },
-    "radiculopathyLowerBackWeek35": {
-      "title": "Radikulopatia - Spodný chrbát týždeň 3-5",
-      "description": "Progresívna liečba radikulopatie spodného chrbta.",
-      "glutealMassage": {
-        "title": "Masáž sedacích svalov",
-        "description": "Techniky samomasáže pre napätie sedacích svalov."
-      },
-      "bridge": {
-        "title": "Mostík",
-        "description": "Posilnite sedacie svaly a podporte stabilitu chrbtice."
-      },
-      "squats90": {
-        "title": "90-stupňové drepy",
-        "description": "Progresívne posilňovanie na podporu chrbtice."
-      }
-    },
     "defaultNeck": {
       "title": "Všeobecná neuropatická bolesť krku",
       "description": "Všeobecné cvičenia pre neuropatickú bolesť krku.",
@@ -327,41 +275,25 @@
         "title": "Neurodynamika horných končatín",
         "description": "Mobilizácia nervov pre príznaky horných končatín."
       },
-      "prayer": {
-        "title": "Modlenie",
-        "description": "Jemné natiahnutie pre oblasť krku a ramien."
-      }
-    },
-    "defaultMiddleBack": {
-      "title": "Všeobecná neuropatická bolesť stredného chrbta",
-      "description": "Všeobecné cvičenia pre neuropatickú bolesť stredného chrbta.",
-      "prayer": {
-        "title": "Modlenie",
-        "description": "Natiahnutie pre stredný chrbát a ramená."
-      },
-      "thoracicSpineMassage": {
-        "title": "Masáž hrudnej chrbtice",
-        "description": "Samomasáž pre oblasť hrudnej chrbtice."
-      },
-      "upperLimbNeurodynamics": {
-        "title": "Neurodynamika horných končatín",
-        "description": "Cvičenia na mobilizáciu nervov."
+      "upperCervicalRelease": {
+        "title": "Uvoľnenie hornej časti krčnej chrbtice",
+        "description": "Jemné techniky uvoľnenia pre napätie hornej časti krčnej chrbtice."
       }
     },
     "defaultLowerBack": {
       "title": "Všeobecná neuropatická bolesť spodného chrbta",
       "description": "Všeobecné cvičenia pre neuropatickú bolesť spodného chrbta.",
+      "sciaticNeurodynamics": {
+        "title": "Neurodynamika sedacieho nervu",
+        "description": "Cvičenia na mobilizáciu nervov pri podráždení sedacieho nervu."
+      },
       "glutealStretching": {
         "title": "Natiahnutie sedacích svalov",
         "description": "Natiahnite sedacie svaly na dekompresiu nervov."
       },
-      "pelvicTilting": {
-        "title": "Nakláňanie panvy",
-        "description": "Jemné cvičenia pohyblivosti panvy."
-      },
-      "upperLimbNeurodynamics": {
-        "title": "Neurodynamika horných končatín",
-        "description": "Techniky mobilizácie nervov."
+      "bridge": {
+        "title": "Mostík",
+        "description": "Posilnite sedacie svaly a podporte stabilitu chrbtice."
       }
     },
     "cervicalRadiculopathyNeck": {
