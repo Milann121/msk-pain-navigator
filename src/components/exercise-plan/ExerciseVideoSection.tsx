@@ -192,7 +192,7 @@ export const ExerciseVideoSection = ({
                 ))}
               </p>
               {video.repetitions && (
-                <RepetitionsDisplay repetitions={video.repetitions} />
+                <RepetitionsDisplay Repetitions={video.repetitions} />
               )}
               {assessmentId && (
                 <ExerciseCompletionCheckbox
