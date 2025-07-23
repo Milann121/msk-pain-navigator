@@ -149,6 +149,8 @@ export const ExerciseVideoSection = ({
     const success = await swapExercise(video.videoId, randomAlternative, assessmentId);
     if (success) {
       setRating(0); // Reset rating for the new exercise
+      // Reload the page to show the updated program with swapped exercise
+      window.location.reload();
     }
     setShowSwapDialog(false);
   };
@@ -216,10 +218,10 @@ export const ExerciseVideoSection = ({
                     />
                   ))}
                 </div>
-                <SwapExerciseButton 
-                  onClick={() => {}} 
-                  disabled={false}
-                />
+               <SwapExerciseButton 
+                 onClick={handleSwapClick} 
+                 disabled={!video.alternatives || video.alternatives.length === 0 || swapLoading}
+               />
               </div>
             </div>
           )}
@@ -282,10 +284,10 @@ export const ExerciseVideoSection = ({
                   />
                 ))}
               </div>
-              <SwapExerciseButton 
-                onClick={() => {}} 
-                disabled={false}
-              />
+               <SwapExerciseButton 
+                 onClick={handleSwapClick} 
+                 disabled={!video.alternatives || video.alternatives.length === 0 || swapLoading}
+               />
             </div>
           </div>
         )}
