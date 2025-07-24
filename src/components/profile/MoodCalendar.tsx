@@ -94,11 +94,6 @@ export const MoodCalendar = () => {
     <div className="mb-6">
       {/* Header above containers */}
       <div className="mb-4">
-        {/* Mobile layout - notification banner above greeting */}
-        <div className="block md:hidden mb-4">
-          <WeeklyNotificationBanner />
-        </div>
-        
         <div className="flex gap-4 items-start justify-between">
           <div className="flex-1">
             <UserGreeting firstName={firstName} />
@@ -106,7 +101,7 @@ export const MoodCalendar = () => {
               {currentDayAndDate}
             </h3>
           </div>
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 hidden md:block">
             <NotificationArea />
           </div>
         </div>

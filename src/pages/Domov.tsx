@@ -80,6 +80,10 @@ const Domov = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
+      {/* Mobile notification banner - below header, above content */}
+      <div className="block md:hidden">
+        <NotificationArea />
+      </div>
       <div className="flex-1 bg-gradient-to-b from-blue-50 to-white py-10 px-2 md:px-4">
         <div className="container mx-auto w-full max-w-full md:max-w-3xl px-2 md:px-0">
           {/* Mood Calendar with inline NotificationArea */}
