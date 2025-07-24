@@ -2,6 +2,7 @@
 {
   "exerciseDisclaimer": "This exercise plan does not replace professional medical care. This version is only a prototype and for a complete assessment and treatment plan, please consult with a healthcare professional.",
   "back": "Back",
+  "repetitions": "repetitions",
   "assessmentAccordion": {
     "painMechanismLabel": "Pain Mechanism:",
     "suspicionLabel": "Suspicion:",
