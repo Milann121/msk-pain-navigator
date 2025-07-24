@@ -101,8 +101,14 @@ export const MoodCalendar = () => {
               {currentDayAndDate}
             </h3>
           </div>
-          <div className="flex-shrink-0 hidden md:block">
-            <NotificationArea />
+        </div>
+        {/* Desktop notification banner - inline with day and date, matching General Program width */}
+        <div className="hidden md:block mt-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div></div>
+            <div>
+              <NotificationArea />
+            </div>
           </div>
         </div>
       </div>
