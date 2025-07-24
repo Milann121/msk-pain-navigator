@@ -12,7 +12,6 @@ import { FavoriteExercises } from '@/components/profile/FavoriteExercises';
 import { SavedBlogs } from '@/components/profile/SavedBlogs';
 import { ProfileFormPopup } from '@/components/profile/ProfileFormPopup';
 import { NotificationArea } from '@/components/profile/NotificationArea';
-import { UserGreeting } from '@/components/profile/mood/UserGreeting';
 import { useProfileCompletion } from '@/hooks/useProfileCompletion';
 import { supabase } from '@/integrations/supabase/client';
 
@@ -88,9 +87,9 @@ const Domov = () => {
       </div>
       <div className="flex-1 bg-gradient-to-b from-blue-50 to-white py-4 md:py-10 px-2 md:px-4">
         <div className="container mx-auto w-full max-w-full md:max-w-3xl px-2 md:px-0">
-          {/* User Greeting */}
+          {/* Speech Recorder - moved above MoodCalendar */}
           <div className="mb-6">
-            <UserGreeting firstName={user?.user_metadata?.firstName || ''} />
+            <SpeechRecorder />
           </div>
           
           {/* Mood Calendar with inline NotificationArea */}
