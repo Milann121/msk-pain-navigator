@@ -94,7 +94,6 @@ export const MoodCalendar = () => {
     <div className="mb-6">
       {/* Header above containers */}
       <div className="mb-4">
-        <UserGreeting firstName={firstName} />
         <div className="flex gap-4 items-center justify-between">
           <h3 className="text-lg font-medium">
             {currentDayAndDate}
