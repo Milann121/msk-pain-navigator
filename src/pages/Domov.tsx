@@ -87,13 +87,13 @@ const Domov = () => {
       </div>
       <div className="flex-1 bg-gradient-to-b from-blue-50 to-white py-4 md:py-10 px-2 md:px-4">
         <div className="container mx-auto w-full max-w-full md:max-w-3xl px-2 md:px-0">
-          {/* Mood Calendar with inline NotificationArea */}
-          <MoodCalendar />
-          
-          {/* Speech Recorder - moved between MoodCalendar and greeting */}
+          {/* Speech Recorder - moved above MoodCalendar */}
           <div className="mb-6">
             <SpeechRecorder />
           </div>
+          
+          {/* Mood Calendar with inline NotificationArea */}
+          <MoodCalendar />
           
           {/* OREBRO and PSFS Questionnaires */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
