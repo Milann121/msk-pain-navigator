@@ -7,6 +7,7 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import { useToast } from '@/hooks/use-toast';
 import { uploadRecording } from '@/services/speechService';
+import { SiriRecordingAnimation } from '@/components/speech/SiriRecordingAnimation';
 export const NotificationArea = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -235,13 +236,22 @@ export const NotificationArea = () => {
       </button>
 
       {/* Speech Recording Icon */}
-      <button 
-        onClick={handleSpeechRecordingClick} 
-        className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100 ${isRecording ? 'bg-red-100 breathing-icon' : ''}`} 
-        aria-label="Voice Recording"
-      >
-        <Mic className={`w-5 h-5 ${isRecording ? 'text-red-500' : 'text-blue-500'}`} />
-      </button>
+      <div className="relative">
+        <button 
+          onClick={handleSpeechRecordingClick} 
+          className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100 ${isRecording ? 'bg-red-100 breathing-icon' : ''}`} 
+          aria-label="Voice Recording"
+        >
+          <Mic className={`w-5 h-5 ${isRecording ? 'text-red-500' : 'text-blue-500'}`} />
+        </button>
+        
+        {/* Siri-like animation overlay */}
+        {isRecording && (
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <SiriRecordingAnimation isRecording={isRecording} size="small" />
+          </div>
+        )}
+      </div>
 
       {/* WhatsApp Contact Icon */}
       <div className="relative flex items-center" ref={whatsAppButtonRef}>

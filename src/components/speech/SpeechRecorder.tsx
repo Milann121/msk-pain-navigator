@@ -8,6 +8,7 @@ import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/contexts/AuthContext';
 import { SpeechReview } from './SpeechReview';
 import { uploadRecording } from '@/services/speechService';
+import { SiriRecordingAnimation } from './SiriRecordingAnimation';
 
 const MAX_SECONDS = 30;
 
@@ -169,25 +170,34 @@ export const SpeechRecorder = () => {
         {!blob ? (
           <div className="space-y-4">
             <div className="flex flex-col items-center gap-4">
-              <Button
-                onClick={recording ? stopRecording : startRecording}
-                variant={recording ? "destructive" : "default"}
-                size="lg"
-                className="flex items-center gap-2"
-                disabled={uploading}
-              >
-                {recording ? (
-                  <>
-                    <MicOff className="w-4 h-4" />
-                    {t('speech.stopRecording', 'Stop Recording')}
-                  </>
-                ) : (
-                  <>
-                    <Mic className="w-4 h-4" />
-                    {t('speech.startRecording', 'Start Recording')}
-                  </>
+              <div className="relative">
+                <Button
+                  onClick={recording ? stopRecording : startRecording}
+                  variant={recording ? "destructive" : "default"}
+                  size="lg"
+                  className="flex items-center gap-2"
+                  disabled={uploading}
+                >
+                  {recording ? (
+                    <>
+                      <MicOff className="w-4 h-4" />
+                      {t('speech.stopRecording', 'Stop Recording')}
+                    </>
+                  ) : (
+                    <>
+                      <Mic className="w-4 h-4" />
+                      {t('speech.startRecording', 'Start Recording')}
+                    </>
+                  )}
+                </Button>
+                
+                {/* Siri-like animation overlay */}
+                {recording && (
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <SiriRecordingAnimation isRecording={recording} size="medium" />
+                  </div>
                 )}
-              </Button>
+              </div>
               
               <button
                 onClick={() => navigate('/speech-history')}
