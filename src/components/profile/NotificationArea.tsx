@@ -136,7 +136,7 @@ export const NotificationArea = () => {
 
   return (
     <div className="py-px px-px rounded-none bg-slate-50">
-      <div className="rounded-lg border border-gray-200 p-2 shadow-sm bg-blue-100 py-0 px-[8px] my-px w-full sm:w-[300px] md:w-[500px]">
+      <div className="rounded-lg border border-gray-200 p-2 shadow-sm bg-blue-100 py-0 px-[8px] my-px w-full sm:w-[300px] md:w-[480px]">
         {isMobile ? (
           <div 
             className="overflow-x-auto overflow-y-hidden scrollbar-hide"
