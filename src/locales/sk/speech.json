@@ -1,0 +1,38 @@
+{
+  "speech": {
+    "title": "Nahrávanie príznakov",
+    "description": "Nahrajte hlasovú poznámku popisujúcu, ako sa dnes cítite (max 30 sekúnd).",
+    "startRecording": "Spustiť nahrávanie",
+    "stopRecording": "Zastaviť nahrávanie",
+    "uploadSuccess": "Nahrávka úspešne uložená",
+    "uploadSuccessDesc": "Vaša nahrávka bola uložená do histórie.",
+    "uploadError": "Nahrávanie zlyhalo",
+    "uploadErrorDesc": "Nepodarilo sa uložiť nahrávku. Skúste to znovu.",
+    "review": {
+      "title": "Skontrolujte svoju nahrávku",
+      "play": "Prehrať",
+      "pause": "Pozastaviť",
+      "save": "Uložiť nahrávku",
+      "saving": "Ukladanie...",
+      "discard": "Zahodiť"
+    },
+    "history": {
+      "button": "História",
+      "title": "História nahrávok",
+      "loading": "Načítavanie nahrávok...",
+      "empty": "Zatiaľ žiadne nahrávky. Začnite vytvorením prvej nahrávky!",
+      "refresh": "Obnoviť",
+      "play": "Prehrať",
+      "pause": "Pozastaviť",
+      "loadError": "Nepodarilo sa načítať nahrávky",
+      "loadErrorDesc": "Nepodarilo sa získať históriu nahrávok.",
+      "playError": "Chyba prehrávania",
+      "playErrorDesc": "Nepodarilo sa prehrať túto nahrávku.",
+      "deleteConfirm": "Naozaj chcete vymazať túto nahrávku?",
+      "deleteSuccess": "Nahrávka vymazaná",
+      "deleteSuccessDesc": "Nahrávka bola odstránená.",
+      "deleteError": "Mazanie zlyhalo",
+      "deleteErrorDesc": "Nepodarilo sa vymazať nahrávku."
+    }
+  }
+}

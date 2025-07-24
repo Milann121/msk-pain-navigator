@@ -53,6 +53,7 @@ import skYogaPrograms from './locales/sk/yogaPrograms.json';
 import skBodyParts from './locales/sk/bodyParts.json';
 import skDifferentials from './locales/sk/differentials.json';
 import skPainMechanisms from './locales/sk/painMechanisms.json';
+import skSpeech from './locales/sk/speech.json';
 
 // Czech translations
 import csWelcome from './locales/cs/welcome.json';
@@ -133,7 +134,8 @@ const skTranslations = {
   yogaPrograms: skYogaPrograms,
   bodyParts: skBodyParts,
   differentials: skDifferentials,
-  painMechanisms: skPainMechanisms
+  painMechanisms: skPainMechanisms,
+  ...skSpeech
 };
 
 const csTranslations = {
