@@ -81,20 +81,8 @@ const Domov = () => {
     <div className="min-h-screen flex flex-col">
       <Header />
       <div className="flex-1 bg-gradient-to-b from-blue-50 to-white py-10 px-2 md:px-4">
-        <div className="container mx-auto w-full max-w-full md:max-w-4xl px-2 md:px-0">
-          {/* Notification Area - Above Mood Calendar on mobile/tablet */}
-          <div className="block md:hidden">
-            <NotificationArea />
-          </div>
-          
-          {/* Notification Area - Above General Program on desktop */}
-          <div className="hidden md:block">
-            <div className="w-full max-w-4xl mx-auto">
-              <NotificationArea />
-            </div>
-          </div>
-          
-          {/* Mood Calendar */}
+        <div className="container mx-auto w-full max-w-full md:max-w-3xl px-2 md:px-0">
+          {/* Mood Calendar with inline NotificationArea */}
           <MoodCalendar />
           
           {/* OREBRO and PSFS Questionnaires */}
