@@ -25,13 +25,19 @@ export const NotificationArea = () => {
   // Auto-scroll to center expanded icon on mobile
   useEffect(() => {
     if (isMobile && isWhatsAppExpanded && whatsAppButtonRef.current && scrollAreaRef.current) {
-      const scrollContainer = scrollAreaRef.current.querySelector('[data-radix-scroll-area-viewport]');
-      if (scrollContainer) {
-        const buttonRect = whatsAppButtonRef.current.getBoundingClientRect();
-        const containerRect = scrollContainer.getBoundingClientRect();
-        const scrollLeft = buttonRect.left - containerRect.left - (containerRect.width / 2) + (buttonRect.width / 2);
-        scrollContainer.scrollTo({ left: scrollLeft, behavior: 'smooth' });
-      }
+      const scrollContainer = scrollAreaRef.current;
+      const buttonRect = whatsAppButtonRef.current.getBoundingClientRect();
+      const containerRect = scrollContainer.getBoundingClientRect();
+      
+      // Calculate the position to center the expanded icon with its children
+      const buttonCenter = buttonRect.left - containerRect.left + (buttonRect.width / 2);
+      const containerCenter = containerRect.width / 2;
+      const scrollLeft = scrollContainer.scrollLeft + buttonCenter - containerCenter;
+      
+      scrollContainer.scrollTo({ 
+        left: Math.max(0, scrollLeft), 
+        behavior: 'smooth' 
+      });
     }
   }, [isWhatsAppExpanded, isMobile]);
 
@@ -133,13 +139,16 @@ export const NotificationArea = () => {
       <div className="rounded-lg border border-gray-200 p-3 shadow-sm bg-blue-100 py-0 px-[12px] my-px">
         {isMobile ? (
           <div 
-            className="overflow-x-auto overflow-y-hidden scrollbar-none touch-pan-x"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            className="overflow-x-auto overflow-y-hidden scrollbar-hide"
+            style={{ 
+              scrollbarWidth: 'none', 
+              msOverflowStyle: 'none',
+              WebkitOverflowScrolling: 'touch',
+              touchAction: 'pan-x'
+            }}
             ref={scrollAreaRef}
           >
-            <div className="flex" style={{ WebkitOverflowScrolling: 'touch' }}>
-              {iconContainer}
-            </div>
+            {iconContainer}
           </div>
         ) : (
           iconContainer
