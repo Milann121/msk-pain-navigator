@@ -99,18 +99,16 @@ export const MoodCalendar = () => {
           <WeeklyNotificationBanner />
         </div>
         
-        <div className="flex gap-4 items-start">
+        <div className="flex gap-4 items-start justify-between">
           <div className="flex-1">
             <UserGreeting firstName={firstName} />
             <h3 className="text-lg font-medium">
               {currentDayAndDate}
             </h3>
           </div>
-        </div>
-        
-        {/* Notification Area at bottom of header */}
-        <div className="mt-4">
-          <NotificationArea />
+          <div className="flex-shrink-0">
+            <NotificationArea />
+          </div>
         </div>
       </div>
 
