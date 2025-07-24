@@ -3,6 +3,7 @@ import { format, isAfter, isBefore, subDays, isSameDay } from 'date-fns';
 import { useTranslation } from 'react-i18next';
 import { Card, CardContent } from '@/components/ui/card';
 import { UserGreeting } from './mood/UserGreeting';
+import { SpeechRecorder } from '../speech/SpeechRecorder';
 import { MoodSelector } from './mood/MoodSelector';
 import { MoodCalendarView } from './mood/MoodCalendarView';
 import { MoneySavings } from './MoneySavings';
@@ -108,6 +109,11 @@ export const MoodCalendar = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Left Container - Mood Calendar */}
         <div className="pt-6">    {/* ← your wrapper: now one grid cell again */}
+            {/* Speech Recorder - between mood calendar and date */}
+            <div className="mb-6">
+              <SpeechRecorder />
+            </div>
+            
             <MoodSelector
               selectedDateMood={selectedDateMood}
               onMoodSelection={(mood) => handleMoodSelection(mood, date)}

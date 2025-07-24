@@ -93,11 +93,6 @@ const Domov = () => {
             <UserGreeting firstName={user?.user_metadata?.firstName || ''} />
           </div>
           
-          {/* Speech Recorder - between greeting and mood calendar */}
-          <div className="mb-6">
-            <SpeechRecorder />
-          </div>
-          
           {/* Mood Calendar with inline NotificationArea */}
           <MoodCalendar />
           
