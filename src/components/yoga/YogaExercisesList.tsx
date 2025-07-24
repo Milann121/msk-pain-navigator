@@ -41,7 +41,7 @@ export const YogaExercisesList: React.FC<YogaExercisesListProps> = ({
             </h1>
             <Button variant="ghost" onClick={onBack} className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors p-0">
               <ArrowLeft className="w-4 h-4" />
-              {t('common.back')}
+              {t('back')}
             </Button>
           </div>
 

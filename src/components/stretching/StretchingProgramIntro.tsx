@@ -104,7 +104,7 @@ export const StretchingProgramIntro: React.FC<StretchingProgramIntroProps> = ({ 
               className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
-              {t('common.back')}
+              {t('back')}
             </Link>
           </div>
 

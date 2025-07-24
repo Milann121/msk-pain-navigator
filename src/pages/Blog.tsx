@@ -152,7 +152,7 @@ const Blog = () => {
             <h1 className="text-3xl font-bold text-blue-800">{t('blog.title')}</h1>
             <Link to="/my-exercises" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
               <ArrowLeft className="w-4 h-4" />
-              {t('common.back')}
+              {t('back')}
             </Link>
           </div>
           
