@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Upload, File, X, AlertCircle } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
@@ -131,68 +132,104 @@ export const FileUploadSection: React.FC = () => {
           {t('assessment.fileUpload.title')}
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4">
-        <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-gray-400 transition-colors">
-          <Upload className="mx-auto h-12 w-12 text-gray-400 mb-4" />
-          <div className="space-y-2">
-            <p className="text-sm text-gray-600">
-              {t('assessment.fileUpload.dropzone.instruction')}
-            </p>
-            <p className="text-xs text-gray-500">
-              {t('assessment.fileUpload.dropzone.supportedFormats')}
-            </p>
+      <CardContent className="grid grid-cols-2 gap-6">
+        {/* Upload Documents Section - Left Half */}
+        <div className="space-y-4">
+          <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-gray-400 transition-colors">
+            <Upload className="mx-auto h-12 w-12 text-gray-400 mb-4" />
+            <div className="space-y-2">
+              <p className="text-sm text-gray-600">
+                {t('assessment.fileUpload.dropzone.instruction')}
+              </p>
+              <p className="text-xs text-gray-500">
+                {t('assessment.fileUpload.dropzone.supportedFormats')}
+              </p>
+            </div>
+            <Button 
+              onClick={handleFileSelect}
+              disabled={uploading}
+              className="mt-4"
+            >
+              {uploading ? t('assessment.fileUpload.uploading') : t('assessment.fileUpload.selectFiles')}
+            </Button>
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept=".pdf,.jpg,.jpeg,.png"
+              onChange={handleFileUpload}
+              className="hidden"
+            />
           </div>
-          <Button 
-            onClick={handleFileSelect}
-            disabled={uploading}
-            className="mt-4"
-          >
-            {uploading ? t('assessment.fileUpload.uploading') : t('assessment.fileUpload.selectFiles')}
-          </Button>
-          <input
-            ref={fileInputRef}
-            type="file"
-            accept=".pdf,.jpg,.jpeg,.png"
-            onChange={handleFileUpload}
-            className="hidden"
-          />
+
+          {uploadedFiles.length > 0 && (
+            <div className="space-y-2">
+              <h4 className="text-sm font-medium">{t('assessment.fileUpload.uploadedFiles')}:</h4>
+              {uploadedFiles.map((file) => (
+                <div
+                  key={file.id}
+                  className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+                >
+                  <div className="flex items-center gap-3">
+                    <File className="h-4 w-4 text-gray-500" />
+                    <div>
+                      <p className="text-sm font-medium">{file.fileName}</p>
+                      <p className="text-xs text-gray-500">
+                        {formatFileSize(file.fileSize)} • {new Date(file.uploadedAt).toLocaleDateString()}
+                      </p>
+                    </div>
+                  </div>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => handleFileRemove(file.id)}
+                    className="text-red-500 hover:text-red-700"
+                  >
+                    <X className="h-4 w-4" />
+                  </Button>
+                </div>
+              ))}
+            </div>
+          )}
+
+          <div className="flex items-start gap-2 p-3 bg-blue-50 rounded-lg">
+            <AlertCircle className="h-4 w-4 text-blue-500 mt-0.5 flex-shrink-0" />
+            <div className="text-sm text-blue-700">
+              <p className="font-medium">{t('assessment.fileUpload.privacy.title')}</p>
+              <p>{t('assessment.fileUpload.privacy.description')}</p>
+            </div>
+          </div>
         </div>
 
-        {uploadedFiles.length > 0 && (
-          <div className="space-y-2">
-            <h4 className="text-sm font-medium">{t('assessment.fileUpload.uploadedFiles')}:</h4>
-            {uploadedFiles.map((file) => (
-              <div
-                key={file.id}
-                className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
-              >
-                <div className="flex items-center gap-3">
-                  <File className="h-4 w-4 text-gray-500" />
-                  <div>
-                    <p className="text-sm font-medium">{file.fileName}</p>
-                    <p className="text-xs text-gray-500">
-                      {formatFileSize(file.fileSize)} • {new Date(file.uploadedAt).toLocaleDateString()}
-                    </p>
-                  </div>
-                </div>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => handleFileRemove(file.id)}
-                  className="text-red-500 hover:text-red-700"
-                >
-                  <X className="h-4 w-4" />
-                </Button>
+        {/* History Section - Right Half */}
+        <div className="space-y-4">
+          <h3 className="text-lg font-semibold">History</h3>
+          <div className="border rounded-lg overflow-hidden">
+            <div className="bg-gray-50 p-3 border-b">
+              <div className="grid grid-cols-3 gap-4 text-sm font-medium text-gray-600">
+                <span>Upload Date</span>
+                <span>File Name</span>
+                <span>Password</span>
               </div>
-            ))}
-          </div>
-        )}
-
-        <div className="flex items-start gap-2 p-3 bg-blue-50 rounded-lg">
-          <AlertCircle className="h-4 w-4 text-blue-500 mt-0.5 flex-shrink-0" />
-          <div className="text-sm text-blue-700">
-            <p className="font-medium">{t('assessment.fileUpload.privacy.title')}</p>
-            <p>{t('assessment.fileUpload.privacy.description')}</p>
+            </div>
+            <div className="divide-y">
+              {/* Example row - will be replaced with actual data */}
+              <div className="grid grid-cols-3 gap-4 p-3 text-sm">
+                <span className="text-gray-500">2024-01-15</span>
+                <span className="text-gray-700">medical_report.pdf</span>
+                <Input type="password" placeholder="Enter password" className="h-8" />
+              </div>
+              <div className="grid grid-cols-3 gap-4 p-3 text-sm">
+                <span className="text-gray-500">2024-01-10</span>
+                <span className="text-gray-700">xray_image.jpg</span>
+                <Input type="password" placeholder="Enter password" className="h-8" />
+              </div>
+              {/* Empty state when no history */}
+              {uploadedFiles.length === 0 && (
+                <div className="p-6 text-center text-gray-500">
+                  <p className="text-sm">No upload history available</p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </CardContent>
