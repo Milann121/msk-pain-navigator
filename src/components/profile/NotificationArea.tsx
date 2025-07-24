@@ -11,6 +11,9 @@ export const NotificationArea = () => {
   const isMobile = useIsMobile();
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const whatsAppButtonRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const iconsContainerRef = useRef<HTMLDivElement>(null);
+  const [iconShift, setIconShift] = useState(0);
   
   const {
     isGoalMet,
@@ -22,7 +25,7 @@ export const NotificationArea = () => {
     loading
   } = useNotificationReminders();
 
-  // Auto-scroll to center expanded icon on mobile
+  // Auto-scroll to center expanded icon on mobile and calculate icon shift for desktop/tablet
   useEffect(() => {
     if (isMobile && isWhatsAppExpanded && whatsAppButtonRef.current && scrollAreaRef.current) {
       const scrollContainer = scrollAreaRef.current;
@@ -38,6 +41,29 @@ export const NotificationArea = () => {
         left: Math.max(0, scrollLeft), 
         behavior: 'smooth' 
       });
+    }
+    
+    // Calculate icon shift for desktop/tablet to keep expanded content within banner
+    if (!isMobile && isWhatsAppExpanded && containerRef.current && iconsContainerRef.current) {
+      const container = containerRef.current;
+      const iconsContainer = iconsContainerRef.current;
+      const containerWidth = container.offsetWidth;
+      const expandedWidth = 120; // Approximate width of expanded WhatsApp buttons (2 * 32px + gaps + margins)
+      
+      // Get the right edge of the icons container when expanded
+      const iconsRect = iconsContainer.getBoundingClientRect();
+      const containerRect = container.getBoundingClientRect();
+      const rightEdge = iconsRect.right + expandedWidth;
+      const containerRightEdge = containerRect.right;
+      
+      if (rightEdge > containerRightEdge) {
+        const overflow = rightEdge - containerRightEdge;
+        setIconShift(-overflow - 16); // Add some padding
+      } else {
+        setIconShift(0);
+      }
+    } else if (!isWhatsAppExpanded) {
+      setIconShift(0);
     }
   }, [isWhatsAppExpanded, isMobile]);
 
@@ -69,7 +95,11 @@ export const NotificationArea = () => {
   // Don't show progress icon if no active programs
   const showProgressIcon = hasActivePrograms;
   const iconContainer = (
-    <div className="flex items-center justify-center gap-6 min-w-max px-2 touch-pan-x">
+    <div 
+      className="flex items-center justify-center gap-6 min-w-max px-2 touch-pan-x transition-transform duration-300 ease-out"
+      ref={iconsContainerRef}
+      style={{ transform: `translateX(${iconShift}px)` }}
+    >
       {/* Weekly Progress Icon */}
       {showProgressIcon && (
         <button 
@@ -136,7 +166,7 @@ export const NotificationArea = () => {
 
   return (
     <div className="py-px px-px rounded-none bg-slate-50">
-      <div className="rounded-lg border border-gray-200 p-2 shadow-sm bg-blue-100 py-0 px-[8px] my-px w-full md:w-[370px]">
+      <div className="rounded-lg border border-gray-200 p-2 shadow-sm bg-blue-100 py-0 px-[8px] my-px w-full md:w-[370px]" ref={containerRef}>
         {isMobile ? (
           <div 
             className="overflow-x-auto overflow-y-hidden scrollbar-hide"
