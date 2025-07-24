@@ -27,6 +27,7 @@ import enYogaPrograms from './locales/en/yogaPrograms.json';
 import enBodyParts from './locales/en/bodyParts.json';
 import enDifferentials from './locales/en/differentials.json';
 import enPainMechanisms from './locales/en/painMechanisms.json';
+import enSpeech from './locales/en/speech.json';
 
 // Slovak translations
 import skWelcome from './locales/sk/welcome.json';
@@ -77,6 +78,7 @@ import csYogaPrograms from './locales/cs/yogaPrograms.json';
 import csBodyParts from './locales/cs/bodyParts.json';
 import csDifferentials from './locales/cs/differentials.json';
 import csPainMechanisms from './locales/cs/painMechanisms.json';
+import csSpeech from './locales/cs/speech.json';
 
 // Combine all translations
 const enTranslations = {
@@ -103,7 +105,8 @@ const enTranslations = {
   yogaPrograms: enYogaPrograms,
   bodyParts: enBodyParts,
   differentials: enDifferentials,
-  painMechanisms: enPainMechanisms
+  painMechanisms: enPainMechanisms,
+  ...enSpeech
 };
 
 const skTranslations = {
@@ -157,7 +160,8 @@ const csTranslations = {
   yogaPrograms: csYogaPrograms,
   bodyParts: csBodyParts,
   differentials: csDifferentials,
-  painMechanisms: csPainMechanisms
+  painMechanisms: csPainMechanisms,
+  ...csSpeech
 };
 
 void i18n

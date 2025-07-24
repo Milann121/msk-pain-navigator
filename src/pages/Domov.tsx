@@ -4,6 +4,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { Navigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import { MoodCalendar } from '@/components/profile/MoodCalendar';
+import { SpeechRecorder } from '@/components/speech/SpeechRecorder';
 import { OrebroEntry } from '@/components/profile/OrebroEntry';
 import { PsfsEntry } from '@/components/profile/PsfsEntry';
 import { ProgressContainer } from '@/components/profile/ProgressContainer';
@@ -88,6 +89,11 @@ const Domov = () => {
         <div className="container mx-auto w-full max-w-full md:max-w-3xl px-2 md:px-0">
           {/* Mood Calendar with inline NotificationArea */}
           <MoodCalendar />
+          
+          {/* Speech Recorder */}
+          <div className="mb-6">
+            <SpeechRecorder />
+          </div>
           
           {/* OREBRO and PSFS Questionnaires */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">

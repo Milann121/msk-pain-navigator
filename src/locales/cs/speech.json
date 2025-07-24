@@ -1,0 +1,38 @@
+{
+  "speech": {
+    "title": "Nahrajte své příznaky",
+    "description": "Nahrajte hlasovou poznámku popisující, jak se dnes cítíte (max 30 sekund).",
+    "startRecording": "Spustit nahrávání",
+    "stopRecording": "Zastavit nahrávání",
+    "uploadSuccess": "Nahrávka úspěšně uložena",
+    "uploadSuccessDesc": "Vaše nahrávka byla uložena do historie.",
+    "uploadError": "Nahrávání selhalo",
+    "uploadErrorDesc": "Nepodařilo se uložit nahrávku. Zkuste to znovu.",
+    "review": {
+      "title": "Zkontrolujte svou nahrávku",
+      "play": "Přehrát",
+      "pause": "Pozastavit",
+      "save": "Uložit nahrávku",
+      "saving": "Ukládání...",
+      "discard": "Zahodit"
+    },
+    "history": {
+      "button": "Historie",
+      "title": "Historie nahrávek",
+      "loading": "Načítání nahrávek...",
+      "empty": "Zatím žádné nahrávky. Začněte vytvořením první nahrávky!",
+      "refresh": "Obnovit",
+      "play": "Přehrát",
+      "pause": "Pozastavit",
+      "loadError": "Nepodařilo se načíst nahrávky",
+      "loadErrorDesc": "Nepodařilo se získat historii nahrávek.",
+      "playError": "Chyba přehrávání",
+      "playErrorDesc": "Nepodařilo se přehrát tuto nahrávku.",
+      "deleteConfirm": "Opravdu chcete smazat tuto nahrávku?",
+      "deleteSuccess": "Nahrávka smazána",
+      "deleteSuccessDesc": "Nahrávka byla odstraněna.",
+      "deleteError": "Mazání selhalo",
+      "deleteErrorDesc": "Nepodařilo se smazat nahrávku."
+    }
+  }
+}

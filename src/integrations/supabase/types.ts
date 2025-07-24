@@ -735,6 +735,36 @@ export type Database = {
         }
         Relationships: []
       }
+      speech_recordings: {
+        Row: {
+          audio_url: string
+          created_at: string
+          duration_seconds: number | null
+          file_size_bytes: number | null
+          id: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          audio_url: string
+          created_at?: string
+          duration_seconds?: number | null
+          file_size_bytes?: number | null
+          id?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          audio_url?: string
+          created_at?: string
+          duration_seconds?: number | null
+          file_size_bytes?: number | null
+          id?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       test_2_employees: {
         Row: {
           b2b_partner_id: number

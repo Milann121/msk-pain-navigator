@@ -15,6 +15,7 @@ import MyExercises from "./pages/MyExercises";
 import Blog from "./pages/Blog";
 import Profile from "./pages/Profile";
 import Domov from "./pages/Domov";
+import SpeechHistoryPage from "./pages/SpeechHistoryPage";
 import OrebroQuestionnaire from "./pages/OrebroQuestionnaire";
 import OrebroResult from "./pages/OrebroResult";
 import PsfsQuestionnaire from "./pages/PsfsQuestionnaire";
@@ -46,6 +47,7 @@ const App: React.FC = () => (
           <Route path="/" element={<Index />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/domov" element={<Domov />} />
+          <Route path="/speech-history" element={<SpeechHistoryPage />} />
           <Route path="/assessment" element={<Assessment />} />
           <Route path="/exercise-plan" element={<ExercisePlan />} />
           <Route path="/my-exercises" element={<MyExercises />} />
