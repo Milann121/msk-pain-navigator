@@ -106,10 +106,7 @@ export const MoodCalendar = () => {
             </h3>
           </div>
           
-          {/* Desktop notification banner - expanded width */}
-          <div className="hidden md:block flex-[2]">
-            <WeeklyNotificationBanner />
-          </div>
+          {/* Desktop notification banner moved below - above General Program */}
         </div>
       </div>
 
@@ -189,6 +186,11 @@ export const MoodCalendar = () => {
         
         {/* Right Column - Two stacked containers */}
         <div className="flex flex-col gap-6 h-full">
+          {/* Desktop notification banner - above General Program with same width */}
+          <div className="hidden md:block">
+            <WeeklyNotificationBanner />
+          </div>
+          
           {/* Top Container - General Program (1/3 height) */}
           <Card className="flex-[1]">
             <CardContent className="pt-6 h-full">
