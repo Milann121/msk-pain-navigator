@@ -94,21 +94,13 @@ export const MoodCalendar = () => {
     <div className="mb-6">
       {/* Header above containers */}
       <div className="mb-4">
-        <div className="flex gap-4 items-start justify-between">
-          <div className="flex-1">
-            <UserGreeting firstName={firstName} />
-            <h3 className="text-lg font-medium">
-              {currentDayAndDate}
-            </h3>
-          </div>
-        </div>
-        {/* Desktop notification banner - inline with day and date, matching General Program width */}
-        <div className="hidden md:block mt-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div></div>
-            <div>
-              <NotificationArea />
-            </div>
+        <UserGreeting firstName={firstName} />
+        <div className="flex gap-4 items-center justify-between">
+          <h3 className="text-lg font-medium">
+            {currentDayAndDate}
+          </h3>
+          <div className="flex-shrink-0 hidden md:block">
+            <NotificationArea />
           </div>
         </div>
       </div>
