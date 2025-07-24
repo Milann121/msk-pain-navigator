@@ -52,11 +52,8 @@ export const ExercisePeriodSection = ({ exercise, showGeneral = false, assessmen
       {exercise.advices && exercise.advices.length > 0 && (
         <div className="mb-6 border-b pb-6">
           <div className="mb-4">
-            <h3 className="text-lg font-semibold text-gray-900 mb-1">
-              {t('advice:exerciseAdviceTitle')}
-            </h3>
             <p className="text-gray-600 text-sm">
-              {t('advice:exerciseAdviceSubtitle')}
+              {t('exerciseDisclaimer')}
             </p>
           </div>
           <AdviceList adviceIds={exercise.advices} />
