@@ -154,7 +154,7 @@ export const FavoriteExerciseButton = ({ exerciseTitle, videoId, description }: 
       />
       {isProcessing 
         ? t('favorite.processing') 
-        : (isFavorite ? t('favorite.favorited') : t('favorite.addToFavorites'))
+        : (isFavorite ? t('favorite.removeFromFavorites') : t('favorite.addToFavorites'))
       }
     </Button>
   );
