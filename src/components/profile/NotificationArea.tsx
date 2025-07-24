@@ -25,7 +25,7 @@ export const NotificationArea = () => {
     loading
   } = useNotificationReminders();
 
-  // Auto-scroll to center expanded icon on mobile and calculate icon shift for desktop/tablet
+  // Auto-scroll to center expanded icon on mobile and handle overflow for desktop/tablet
   useEffect(() => {
     if (isMobile && isWhatsAppExpanded && whatsAppButtonRef.current && scrollAreaRef.current) {
       const scrollContainer = scrollAreaRef.current;
@@ -43,22 +43,22 @@ export const NotificationArea = () => {
       });
     }
     
-    // Calculate icon shift for desktop/tablet to keep expanded content within banner
+    // For desktop/tablet, calculate safe shift or use scroll when content would overflow
     if (!isMobile && isWhatsAppExpanded && containerRef.current && iconsContainerRef.current) {
       const container = containerRef.current;
       const iconsContainer = iconsContainerRef.current;
-      const containerWidth = container.offsetWidth;
-      const expandedWidth = 120; // Approximate width of expanded WhatsApp buttons (2 * 32px + gaps + margins)
+      const containerWidth = container.offsetWidth - 16; // Account for padding
+      const expandedWidth = 120; // Approximate width of expanded WhatsApp buttons
       
-      // Get the right edge of the icons container when expanded
-      const iconsRect = iconsContainer.getBoundingClientRect();
-      const containerRect = container.getBoundingClientRect();
-      const rightEdge = iconsRect.right + expandedWidth;
-      const containerRightEdge = containerRect.right;
+      // Calculate total content width when expanded
+      const iconsWidth = iconsContainer.scrollWidth;
+      const totalExpandedWidth = iconsWidth + expandedWidth;
       
-      if (rightEdge > containerRightEdge) {
-        const overflow = rightEdge - containerRightEdge;
-        setIconShift(-overflow - 16); // Add some padding
+      if (totalExpandedWidth > containerWidth) {
+        // Content would overflow, so we limit shift to prevent icons going outside banner
+        const maxShift = Math.min(0, containerWidth - totalExpandedWidth);
+        const safeShift = Math.max(maxShift, -50); // Limit maximum shift to prevent icons disappearing completely
+        setIconShift(safeShift);
       } else {
         setIconShift(0);
       }
@@ -166,7 +166,7 @@ export const NotificationArea = () => {
 
   return (
     <div className="py-px px-px rounded-none bg-slate-50">
-      <div className="rounded-lg border border-gray-200 p-2 shadow-sm bg-blue-100 py-0 px-[8px] my-px w-full md:w-[370px]" ref={containerRef}>
+      <div className="rounded-lg border border-gray-200 p-2 shadow-sm bg-blue-100 py-0 px-[8px] my-px w-full md:w-[370px] overflow-hidden" ref={containerRef}>
         {isMobile ? (
           <div 
             className="overflow-x-auto overflow-y-hidden scrollbar-hide"
@@ -181,7 +181,9 @@ export const NotificationArea = () => {
             {iconContainer}
           </div>
         ) : (
-          iconContainer
+          <div className="overflow-hidden">
+            {iconContainer}
+          </div>
         )}
       </div>
     </div>
