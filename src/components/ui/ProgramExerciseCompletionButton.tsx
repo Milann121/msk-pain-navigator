@@ -167,7 +167,7 @@ export const ProgramExerciseCompletionButton: React.FC<ProgramExerciseCompletion
   };
 
   const getButtonText = () => {
-    return t('misc.markAsCompleted');
+    return t('misc.misc.markAsCompleted');
   };
 
   return (
