@@ -4,12 +4,12 @@ import { TrendingUp, Brain, Activity, MessageSquare, MessageCircle, Video } from
 import { useWeeklyGoalStatus } from '@/hooks/useWeeklyGoalStatus';
 import { useNotificationReminders } from '@/hooks/useNotificationReminders';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
+import { ScrollArea } from '@/components/ui/scroll-area';
 export const NotificationArea = () => {
   const navigate = useNavigate();
   const [isWhatsAppExpanded, setIsWhatsAppExpanded] = useState(false);
   const isMobile = useIsMobile();
-  const scrollAreaRef = useRef<HTMLDivElement>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
   const whatsAppButtonRef = useRef<HTMLDivElement>(null);
   
   const {
@@ -22,16 +22,39 @@ export const NotificationArea = () => {
     loading
   } = useNotificationReminders();
 
+  // Infinite scroll handler for mobile
+  useEffect(() => {
+    if (!isMobile || !scrollContainerRef.current) return;
+
+    const container = scrollContainerRef.current;
+    
+    const handleScroll = () => {
+      const { scrollLeft, scrollWidth, clientWidth } = container;
+      const itemWidth = scrollWidth / 3; // We have 3 sets of icons
+      
+      if (scrollLeft <= 0) {
+        container.scrollLeft = itemWidth;
+      } else if (scrollLeft >= scrollWidth - clientWidth) {
+        container.scrollLeft = itemWidth;
+      }
+    };
+
+    container.addEventListener('scroll', handleScroll);
+    
+    // Initialize scroll position to middle set
+    container.scrollLeft = container.scrollWidth / 3;
+    
+    return () => container.removeEventListener('scroll', handleScroll);
+  }, [isMobile]);
+
   // Auto-scroll to center expanded icon on mobile
   useEffect(() => {
-    if (isMobile && isWhatsAppExpanded && whatsAppButtonRef.current && scrollAreaRef.current) {
-      const scrollContainer = scrollAreaRef.current.querySelector('[data-radix-scroll-area-viewport]');
-      if (scrollContainer) {
-        const buttonRect = whatsAppButtonRef.current.getBoundingClientRect();
-        const containerRect = scrollContainer.getBoundingClientRect();
-        const scrollLeft = buttonRect.left - containerRect.left - (containerRect.width / 2) + (buttonRect.width / 2);
-        scrollContainer.scrollTo({ left: scrollLeft, behavior: 'smooth' });
-      }
+    if (isMobile && isWhatsAppExpanded && whatsAppButtonRef.current && scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      const buttonRect = whatsAppButtonRef.current.getBoundingClientRect();
+      const containerRect = container.getBoundingClientRect();
+      const scrollLeft = buttonRect.left - containerRect.left - (containerRect.width / 2) + (buttonRect.width / 2);
+      container.scrollTo({ left: container.scrollLeft + scrollLeft, behavior: 'smooth' });
     }
   }, [isWhatsAppExpanded, isMobile]);
 
@@ -62,8 +85,8 @@ export const NotificationArea = () => {
 
   // Don't show progress icon if no active programs
   const showProgressIcon = hasActivePrograms;
-  const iconContainer = (
-    <div className="flex items-center justify-center gap-6 min-w-max px-2">
+  const createIconSet = () => (
+    <>
       {/* Weekly Progress Icon */}
       {showProgressIcon && (
         <button 
@@ -125,6 +148,20 @@ export const NotificationArea = () => {
           </button>
         </div>
       </div>
+    </>
+  );
+
+  const iconContainer = (
+    <div className="flex items-center justify-center gap-6 min-w-max px-2">
+      {createIconSet()}
+    </div>
+  );
+
+  const infiniteIconContainer = (
+    <div className="flex items-center gap-6 min-w-max px-2">
+      {createIconSet()}
+      {createIconSet()}
+      {createIconSet()}
     </div>
   );
 
@@ -132,10 +169,24 @@ export const NotificationArea = () => {
     <div className="mb-6 py-px px-px rounded-none bg-slate-50">
       <div className="rounded-lg border border-gray-200 p-3 shadow-sm bg-blue-100 py-0 px-[12px] my-px">
         {isMobile ? (
-          <ScrollArea className="w-full" ref={scrollAreaRef}>
-            {iconContainer}
-            <ScrollBar orientation="horizontal" />
-          </ScrollArea>
+          <div 
+            className="w-full overflow-x-auto"
+            style={{ 
+              scrollbarWidth: 'none', 
+              msOverflowStyle: 'none',
+              WebkitOverflowScrolling: 'touch'
+            }}
+            ref={scrollContainerRef}
+          >
+            <style dangerouslySetInnerHTML={{
+              __html: `
+                .w-full.overflow-x-auto::-webkit-scrollbar {
+                  display: none;
+                }
+              `
+            }} />
+            {infiniteIconContainer}
+          </div>
         ) : (
           iconContainer
         )}
