@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Card, CardContent } from '@/components/ui/card';
 import { UserGreeting } from './mood/UserGreeting';
 import { MoodSelector } from './mood/MoodSelector';
+import { SpeechRecorder } from '@/components/speech/SpeechRecorder';
 import { MoodCalendarView } from './mood/MoodCalendarView';
 import { MoneySavings } from './MoneySavings';
 import { GeneralProgram } from './GeneralProgram';
@@ -103,6 +104,11 @@ export const MoodCalendar = () => {
             <NotificationArea />
           </div>
         </div>
+      </div>
+
+      {/* Speech Recorder */}
+      <div className="mb-6">
+        <SpeechRecorder />
       </div>
 
       {/* Two containers side by side */}
