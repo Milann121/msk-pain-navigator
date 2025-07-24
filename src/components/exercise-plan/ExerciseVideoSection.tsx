@@ -133,6 +133,11 @@ export const ExerciseVideoSection = ({
   };
 
   const handleSwapClick = () => {
+    console.log('Swap button clicked, video data:', video);
+    console.log('Video alternatives:', video.alternatives);
+    console.log('Alternatives length:', video.alternatives?.length);
+    console.log('User:', user);
+    console.log('Assessment ID:', assessmentId);
     setShowSwapDialog(true);
   };
 
@@ -222,6 +227,10 @@ export const ExerciseVideoSection = ({
                  onClick={handleSwapClick} 
                  disabled={!video.alternatives || video.alternatives.length === 0 || swapLoading}
                />
+               {/* Debug info - remove in production */}
+               <div className="text-xs text-gray-500 mt-1">
+                 Debug: Alternatives: {video.alternatives?.length || 0}, User: {user ? 'Yes' : 'No'}, Loading: {swapLoading ? 'Yes' : 'No'}
+               </div>
               </div>
             </div>
           )}
@@ -288,6 +297,10 @@ export const ExerciseVideoSection = ({
                  onClick={handleSwapClick} 
                  disabled={!video.alternatives || video.alternatives.length === 0 || swapLoading}
                />
+               {/* Debug info - remove in production */}
+               <div className="text-xs text-gray-500 mt-1">
+                 Debug: Alternatives: {video.alternatives?.length || 0}, User: {user ? 'Yes' : 'No'}, Loading: {swapLoading ? 'Yes' : 'No'}
+               </div>
             </div>
           </div>
         )}
