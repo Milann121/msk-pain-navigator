@@ -1,7 +1,7 @@
 {
   "speech": {
     "title": "Record your symptoms",
-    "description": "{first_name}, let's improve how do you feel. Describe me your symptoms today.",
+    "description": "{first name}, let's improve how do you feel. Describe me your symptoms today.",
     "startRecording": "Start Recording",
     "stopRecording": "Stop Recording",
     "uploadSuccess": "Recording saved successfully",
