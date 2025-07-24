@@ -1,7 +1,7 @@
 {
   "speech": {
     "title": "Record your symptoms",
-    "description": "{first name}, let's improve how do you feel. Describe me your symptoms today.",
+    "description": "Record a voice note describing how you're feeling today (max 30 seconds).",
     "startRecording": "Start Recording",
     "stopRecording": "Stop Recording",
     "uploadSuccess": "Recording saved successfully",
