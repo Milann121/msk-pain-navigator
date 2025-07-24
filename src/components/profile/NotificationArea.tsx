@@ -134,7 +134,6 @@ export const NotificationArea = () => {
         {isMobile ? (
           <ScrollArea className="w-full" ref={scrollAreaRef}>
             {iconContainer}
-            <ScrollBar orientation="horizontal" />
           </ScrollArea>
         ) : (
           iconContainer
