@@ -90,7 +90,7 @@ const Domov = () => {
           {/* Mood Calendar with inline NotificationArea */}
           <MoodCalendar />
           
-          {/* Speech Recorder */}
+          {/* Speech Recorder - moved between MoodCalendar and greeting */}
           <div className="mb-6">
             <SpeechRecorder />
           </div>

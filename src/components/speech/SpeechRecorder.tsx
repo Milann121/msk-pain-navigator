@@ -5,6 +5,7 @@ import { Mic, MicOff, Clock, History } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
+import { useAuth } from '@/contexts/AuthContext';
 import { SpeechReview } from './SpeechReview';
 import { uploadRecording } from '@/services/speechService';
 
@@ -13,6 +14,7 @@ const MAX_SECONDS = 30;
 export const SpeechRecorder = () => {
   const { t } = useTranslation();
   const { toast } = useToast();
+  const { user } = useAuth();
   const navigate = useNavigate();
   const [recording, setRecording] = useState(false);
   const [timeLeft, setTimeLeft] = useState(MAX_SECONDS);
@@ -143,31 +145,20 @@ export const SpeechRecorder = () => {
     return `00:${seconds.toString().padStart(2, '0')}`;
   };
 
+  // Get user's first name
+  const firstName = user?.user_metadata?.first_name || user?.user_metadata?.full_name?.split(' ')[0] || 'there';
+
   return (
     <Card className="p-6">
       <div className="space-y-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
+        <div className="text-center">
+          <div className="flex items-center justify-center gap-2 mb-2">
             <Mic className="w-5 h-5 text-primary" />
-            <h3 className="text-lg font-semibold">
-              {t('speech.title', 'Record your symptoms')}
-            </h3>
           </div>
-          
-          <Button
-            onClick={() => navigate('/speech-history')}
-            variant="outline"
-            size="sm"
-            className="flex items-center gap-2"
-          >
-            <History className="w-4 h-4" />
-            {t('speech.history.button', 'History')}
-          </Button>
+          <h3 className="text-lg font-semibold">
+            {firstName}, {t('speech.personalizedTitle', 'tell me how you feel today')}
+          </h3>
         </div>
-        
-        <p className="text-muted-foreground">
-          {t('speech.description', 'Record a voice note describing how you\'re feeling today (max 30 seconds).')}
-        </p>
 
         {error && (
           <div className="p-3 bg-destructive/10 border border-destructive/20 rounded-md">
@@ -177,7 +168,7 @@ export const SpeechRecorder = () => {
 
         {!blob ? (
           <div className="space-y-4">
-            <div className="flex items-center justify-center gap-4">
+            <div className="flex flex-col items-center gap-4">
               <Button
                 onClick={recording ? stopRecording : startRecording}
                 variant={recording ? "destructive" : "default"}
@@ -197,6 +188,14 @@ export const SpeechRecorder = () => {
                   </>
                 )}
               </Button>
+              
+              <button
+                onClick={() => navigate('/speech-history')}
+                className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors text-xs"
+              >
+                <History className="w-3 h-3" />
+                {t('speech.history.button', 'History')}
+              </button>
               
               {recording && (
                 <div className="flex items-center gap-2 text-lg font-mono">

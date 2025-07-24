@@ -1,6 +1,7 @@
 {
   "speech": {
     "title": "Nahrajte své příznaky",
+    "personalizedTitle": "řekni mi, jak se dnes cítíš",
     "description": "Nahrajte hlasovou poznámku popisující, jak se dnes cítíte (max 30 sekund).",
     "startRecording": "Spustit nahrávání",
     "stopRecording": "Zastavit nahrávání",

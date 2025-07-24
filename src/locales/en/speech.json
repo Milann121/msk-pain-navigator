@@ -1,6 +1,7 @@
 {
   "speech": {
     "title": "Record your symptoms",
+    "personalizedTitle": "tell me how you feel today",
     "description": "Record a voice note describing how you're feeling today (max 30 seconds).",
     "startRecording": "Start Recording",
     "stopRecording": "Stop Recording",
