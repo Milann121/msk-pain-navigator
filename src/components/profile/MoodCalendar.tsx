@@ -101,12 +101,16 @@ export const MoodCalendar = () => {
         <div className="flex gap-4 items-start">
           <div className="flex-1">
             <UserGreeting firstName={firstName} />
-            <h3 className="text-lg font-medium">
-              {currentDayAndDate}
-            </h3>
+            <div className="flex flex-col md:flex-row md:items-start md:gap-6">
+              <h3 className="text-lg font-medium">
+                {currentDayAndDate}
+              </h3>
+              {/* Desktop notification banner next to date */}
+              <div className="hidden md:block flex-1 max-w-[400px]">
+                <WeeklyNotificationBanner />
+              </div>
+            </div>
           </div>
-          
-          {/* Desktop notification banner moved below - above General Program */}
         </div>
       </div>
 
@@ -186,11 +190,6 @@ export const MoodCalendar = () => {
         
         {/* Right Column - Two stacked containers */}
         <div className="flex flex-col gap-6 h-full">
-          {/* Desktop notification banner - above General Program with same width */}
-          <div className="hidden md:block">
-            <WeeklyNotificationBanner />
-          </div>
-          
           {/* Top Container - General Program (1/3 height) */}
           <Card className="flex-[1]">
             <CardContent className="pt-6 h-full">
