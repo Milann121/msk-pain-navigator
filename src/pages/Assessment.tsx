@@ -90,8 +90,8 @@ const AssessmentContent = () => {
             </div>
             
             <div className="space-y-6">
-              <FileUploadSection />
               <AskPebeeChat />
+              <FileUploadSection />
             </div>
           </div>
           
