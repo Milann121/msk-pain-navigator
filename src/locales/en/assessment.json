@@ -69,6 +69,14 @@
     "privacy": {
       "title": "Data Protection Information",
       "description": "Your documents are securely stored and used only for analyzing your health needs."
+    },
+    "history": {
+      "title": "History",
+      "uploadDate": "Upload Date",
+      "fileName": "File Name",
+      "password": "Password",
+      "passwordPlaceholder": "Enter password",
+      "noHistory": "No upload history available"
     }
   }
 }

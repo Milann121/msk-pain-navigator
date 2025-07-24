@@ -202,13 +202,13 @@ export const FileUploadSection: React.FC = () => {
 
         {/* History Section - Right Half */}
         <div className="space-y-4">
-          <h3 className="text-lg font-semibold">History</h3>
+          <h3 className="text-lg font-semibold">{t('assessment.fileUpload.history.title')}</h3>
           <div className="border rounded-lg overflow-hidden">
             <div className="bg-gray-50 p-3 border-b">
               <div className="grid grid-cols-3 gap-4 text-sm font-medium text-gray-600">
-                <span>Upload Date</span>
-                <span>File Name</span>
-                <span>Password</span>
+                <span>{t('assessment.fileUpload.history.uploadDate')}</span>
+                <span>{t('assessment.fileUpload.history.fileName')}</span>
+                <span>{t('assessment.fileUpload.history.password')}</span>
               </div>
             </div>
             <div className="divide-y">
@@ -216,17 +216,17 @@ export const FileUploadSection: React.FC = () => {
               <div className="grid grid-cols-3 gap-4 p-3 text-sm">
                 <span className="text-gray-500">2024-01-15</span>
                 <span className="text-gray-700">medical_report.pdf</span>
-                <Input type="password" placeholder="Enter password" className="h-8" />
+                <Input type="password" placeholder={t('assessment.fileUpload.history.passwordPlaceholder')} className="h-8" />
               </div>
               <div className="grid grid-cols-3 gap-4 p-3 text-sm">
                 <span className="text-gray-500">2024-01-10</span>
                 <span className="text-gray-700">xray_image.jpg</span>
-                <Input type="password" placeholder="Enter password" className="h-8" />
+                <Input type="password" placeholder={t('assessment.fileUpload.history.passwordPlaceholder')} className="h-8" />
               </div>
               {/* Empty state when no history */}
               {uploadedFiles.length === 0 && (
                 <div className="p-6 text-center text-gray-500">
-                  <p className="text-sm">No upload history available</p>
+                  <p className="text-sm">{t('assessment.fileUpload.history.noHistory')}</p>
                 </div>
               )}
             </div>

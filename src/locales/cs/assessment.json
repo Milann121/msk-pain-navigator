@@ -69,6 +69,14 @@
     "privacy": {
       "title": "Informace o ochraně údajů",
       "description": "Vaše dokumenty jsou bezpečně uloženy a používány pouze pro analýzu vašich zdravotních potřeb."
+    },
+    "history": {
+      "title": "Historie",
+      "uploadDate": "Datum nahrání",
+      "fileName": "Název souboru",
+      "password": "Heslo",
+      "passwordPlaceholder": "Zadejte heslo",
+      "noHistory": "Žádná historie nahrávání není k dispozici"
     }
   }
 }
