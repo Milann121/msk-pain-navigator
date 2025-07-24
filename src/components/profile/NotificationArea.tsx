@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { TrendingUp, Brain, Activity, MessageSquare, MessageCircle, Video, Mic } from 'lucide-react';
+import { TrendingUp, Brain, Activity, MessageSquare, MessageCircle, Video, Mic, X, Check } from 'lucide-react';
 import { useWeeklyGoalStatus } from '@/hooks/useWeeklyGoalStatus';
 import { useNotificationReminders } from '@/hooks/useNotificationReminders';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -13,6 +13,7 @@ export const NotificationArea = () => {
   const { toast } = useToast();
   const [isWhatsAppExpanded, setIsWhatsAppExpanded] = useState(false);
   const [isRecording, setIsRecording] = useState(false);
+  const [showRecordingActions, setShowRecordingActions] = useState(false);
   const isMobile = useIsMobile();
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const whatsAppButtonRef = useRef<HTMLDivElement>(null);
@@ -142,21 +143,11 @@ export const NotificationArea = () => {
           type: 'audio/webm;codecs=opus' 
         });
         
-        // Auto-save the recording
-        try {
-          await uploadRecording(recordingBlob, 30); // Assuming 30 seconds max
-          toast({
-            title: 'Recording saved successfully',
-            description: 'Your recording has been saved to your history.',
-          });
-        } catch (err) {
-          console.error('Upload error:', err);
-          toast({
-            title: 'Upload failed',
-            description: 'Could not save your recording. Please try again.',
-            variant: 'destructive',
-          });
-        }
+        // Show action buttons instead of auto-saving
+        setShowRecordingActions(true);
+        
+        // Store the blob for later use
+        chunksRef.current = [recordingBlob];
         
         stream.getTracks().forEach(track => track.stop());
       };
@@ -190,7 +181,37 @@ export const NotificationArea = () => {
     }
   };
 
+  const handleSaveRecording = async () => {
+    if (chunksRef.current.length === 0) return;
+    
+    try {
+      const recordingBlob = chunksRef.current[0] as Blob;
+      await uploadRecording(recordingBlob, 30);
+      toast({
+        title: 'Recording saved successfully',
+        description: 'Your recording has been saved to your history.',
+      });
+    } catch (err) {
+      console.error('Upload error:', err);
+      toast({
+        title: 'Upload failed',
+        description: 'Could not save your recording. Please try again.',
+        variant: 'destructive',
+      });
+    }
+    
+    setShowRecordingActions(false);
+    chunksRef.current = [];
+  };
+
+  const handleDiscardRecording = () => {
+    setShowRecordingActions(false);
+    chunksRef.current = [];
+  };
+
   const handleSpeechRecordingClick = () => {
+    if (showRecordingActions) return; // Disable button when actions are shown
+    
     if (isRecording) {
       stopRecording();
     } else {
@@ -236,11 +257,12 @@ export const NotificationArea = () => {
       </button>
 
       {/* Speech Recording Icon */}
-      <div className="relative">
+      <div className="relative flex flex-col items-center">
         <button 
           onClick={handleSpeechRecordingClick} 
-          className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100 ${isRecording ? 'bg-red-100 breathing-icon' : ''}`} 
+          className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100 ${isRecording ? 'bg-red-100 breathing-icon' : ''} ${showRecordingActions ? 'opacity-50 cursor-not-allowed' : ''}`} 
           aria-label="Voice Recording"
+          disabled={showRecordingActions}
         >
           <Mic className={`w-5 h-5 ${isRecording ? 'text-red-500' : 'text-blue-500'}`} />
         </button>
@@ -249,6 +271,26 @@ export const NotificationArea = () => {
         {isRecording && (
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <SiriRecordingAnimation isRecording={isRecording} size="small" />
+          </div>
+        )}
+        
+        {/* Recording action buttons */}
+        {showRecordingActions && (
+          <div className="flex items-center gap-2 mt-1">
+            <button
+              onClick={handleDiscardRecording}
+              className="flex items-center justify-center w-6 h-6 rounded-full bg-red-500 hover:bg-red-600 transition-colors duration-200"
+              aria-label="Cancel Recording"
+            >
+              <X className="w-3 h-3 text-white" />
+            </button>
+            <button
+              onClick={handleSaveRecording}
+              className="flex items-center justify-center w-6 h-6 rounded-full bg-green-500 hover:bg-green-600 transition-colors duration-200"
+              aria-label="Save Recording"
+            >
+              <Check className="w-3 h-3 text-white" />
+            </button>
           </div>
         )}
       </div>
