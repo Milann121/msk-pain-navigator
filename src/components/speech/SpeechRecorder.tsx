@@ -150,7 +150,7 @@ export const SpeechRecorder = () => {
   const firstName = user?.user_metadata?.first_name || user?.user_metadata?.full_name?.split(' ')[0] || 'there';
 
   return (
-    <Card className="p-6 bg-white/10 backdrop-blur-lg border-white/20 shadow-xl">
+    <Card className="p-6 bg-black/20 backdrop-blur-md border-white/10 shadow-2xl">
       <div className="space-y-4">
         <div className="text-center">
           <div className="flex items-center justify-center gap-2 mb-2">
