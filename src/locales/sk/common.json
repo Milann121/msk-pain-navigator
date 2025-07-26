@@ -42,5 +42,9 @@
   "favorite": {
     "addToFavorites": "Pridať do obľúbených",
     "removeFromFavorites": "Odstrániť z obľúbených"
+  },
+  "emptyState": {
+    "noAssessments": "Žiadne aktívne hodnotenia",
+    "createNew": "Nové hodnotenie"
   }
 }

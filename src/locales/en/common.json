@@ -42,5 +42,9 @@
   "favorite": {
     "addToFavorites": "Add to Favorites",
     "removeFromFavorites": "Remove from Favorites"
+  },
+  "emptyState": {
+    "noAssessments": "No active assessments",
+    "createNew": "New Assessment"
   }
 }
