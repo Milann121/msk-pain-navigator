@@ -99,7 +99,7 @@ const Domov = () => {
                 isExpanded={orebroExpanded}
                 isWrapped={orebroWrapped}
                 onExpand={() => setOrebroExpanded(true)}
-                onCollapse={() => setOrebroWrapped(true)}
+                onCollapse={() => setOrebroExpanded(false)}
                 onWrap={() => setOrebroWrapped(true)}
                 onUnwrap={() => setOrebroWrapped(false)}
               />
@@ -111,7 +111,7 @@ const Domov = () => {
                 isExpanded={psfsExpanded}
                 isWrapped={psfsWrapped}
                 onExpand={() => setPsfsExpanded(true)}
-                onCollapse={() => setPsfsWrapped(true)}
+                onCollapse={() => setPsfsExpanded(false)}
                 onWrap={() => setPsfsWrapped(true)}
                 onUnwrap={() => setPsfsWrapped(false)}
               />
