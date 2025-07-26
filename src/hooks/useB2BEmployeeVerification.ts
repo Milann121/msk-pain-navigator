@@ -170,28 +170,36 @@ export const useB2BEmployeeVerification = () => {
     }
   };
 
-  const updateEmployeeEmail = async (userEmail: string) => {
+  const updateEmployeeEmail = async (userEmail: string, userId?: string) => {
     if (!verifiedEmployeeRecord) {
       console.log('No verified employee record found for email update');
       return;
     }
 
     console.log('=== UPDATING EMPLOYEE STATUS ===');
-    console.log('Updating employee email and status:', { 
+    console.log('Updating employee email, status, and user_id:', { 
       userEmail, 
+      userId,
       recordId: verifiedEmployeeRecord.id,
       currentState: verifiedEmployeeRecord.state 
     });
     
     try {
       const table = (verifiedEmployeeRecord as any).sourceTable || 'b2b_employees';
+      const updateData: any = {
+        email: userEmail,
+        state: 'active'
+      };
+      
+      // Add user_id if provided
+      if (userId) {
+        updateData.user_id = userId;
+      }
+      
       if (table === 'test_2_employees') {
         const { error } = await supabase
           .from('test_2_employees')
-          .update({
-            email: userEmail,
-            state: 'active'
-          })
+          .update(updateData)
           .eq('id', verifiedEmployeeRecord.id);
         if (error) {
           console.error('Error updating employee email and status:', error);
@@ -199,19 +207,21 @@ export const useB2BEmployeeVerification = () => {
       } else {
         const { error } = await supabase
           .from('b2b_employees')
-          .update({
-            email: userEmail,
-            state: 'active'
-          })
+          .update(updateData)
           .eq('id', verifiedEmployeeRecord.id);
         if (error) {
           console.error('Error updating employee email and status:', error);
         }
       }
 
-      console.log('Employee email and status updated successfully to active');
+      console.log('Employee email, status, and user_id updated successfully');
       // Update the local state to reflect the change
-      setVerifiedEmployeeRecord(prev => prev ? { ...prev, email: userEmail, state: 'active' } : null);
+      setVerifiedEmployeeRecord(prev => prev ? { 
+        ...prev, 
+        email: userEmail, 
+        state: 'active',
+        ...(userId && { user_id: userId })
+      } : null);
     } catch (error) {
       console.error('Error updating employee record:', error);
     }

@@ -146,7 +146,15 @@ const Auth = () => {
       if (isSignUp) {
         console.log('Starting user registration...');
         await signUp(email, password, firstName);
-        await updateEmployeeEmail(email);
+        
+        // Get the current user after signup to get the user ID
+        const { data: { user: currentUser } } = await supabase.auth.getUser();
+        if (currentUser) {
+          await updateEmployeeEmail(email, currentUser.id);
+        } else {
+          // Fallback without user_id if we can't get the user
+          await updateEmployeeEmail(email);
+        }
         
         toast({
           title: "Registrácia úspešná",
