@@ -107,7 +107,7 @@ export const MyExercisesPage = () => {
               isExpanded={isOrebroExpanded}
               isWrapped={isOrebroWrapped}
               onExpand={() => setIsOrebroExpanded(true)}
-              onCollapse={() => setIsOrebroExpanded(false)}
+              onCollapse={() => setIsOrebroWrapped(true)}
               onWrap={() => setIsOrebroWrapped(true)}
               onUnwrap={() => setIsOrebroWrapped(false)}
             />
