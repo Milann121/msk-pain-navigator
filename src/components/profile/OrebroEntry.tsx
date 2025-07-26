@@ -54,7 +54,7 @@ export const OrebroEntry = ({
       hasCompletedRecently={hasCompletedRecently}
       lastCompletionDate={lastCompletionDate}
       showReminder={showReminder}
-      onCollapse={hasCompletedRecently ? onCollapse : undefined}
+      onCollapse={onCollapse}
       onTakeQuestionnaire={handleTakeQuestionnaire}
       onViewResults={handleViewResults}
     />
