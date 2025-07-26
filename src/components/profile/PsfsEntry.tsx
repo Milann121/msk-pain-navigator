@@ -38,8 +38,8 @@ export const PsfsEntry = ({
     );
   }
 
-  // If completed recently and not expanded, show collapsed view
-  if (hasCompletedRecently && !isExpanded) {
+  // Show collapsed view by default when not expanded
+  if (!isExpanded) {
     return (
       <PsfsCollapsedView 
         onExpand={onExpand}
