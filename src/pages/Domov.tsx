@@ -98,7 +98,7 @@ const Domov = () => {
               (!orebroExpanded && !orebroWrapped && !psfsExpanded)
                 ? 'min-h-fit' 
                 : orebroWrapped || (!orebroExpanded && !orebroWrapped) 
-                  ? 'min-h-[96px]' 
+                  ? 'min-h-[80px]' 
                   : 'min-h-fit'
             }`}>
               <OrebroEntry 
@@ -115,7 +115,7 @@ const Domov = () => {
               (!orebroExpanded && !orebroWrapped && !psfsExpanded && !psfsWrapped)
                 ? 'min-h-fit' 
                 : !psfsExpanded && !psfsWrapped
-                  ? 'min-h-[96px]' 
+                  ? 'min-h-[80px]' 
                   : 'min-h-fit'
             }`}>
               <PsfsEntry 
