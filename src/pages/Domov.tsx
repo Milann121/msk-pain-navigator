@@ -93,13 +93,7 @@ const Domov = () => {
           {/* OREBRO and PSFS Questionnaires */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
             <div className={`${
-              (orebroExpanded && psfsExpanded) || 
-              (orebroWrapped && !psfsExpanded) || 
-              (!orebroExpanded && !orebroWrapped && !psfsExpanded)
-                ? 'min-h-fit' 
-                : orebroWrapped || (!orebroExpanded && !orebroWrapped) 
-                  ? 'min-h-[80px]' 
-                  : 'min-h-fit'
+              orebroWrapped ? 'min-h-[80px]' : 'min-h-fit'
             }`}>
               <OrebroEntry 
                 isExpanded={orebroExpanded}
@@ -111,12 +105,7 @@ const Domov = () => {
               />
             </div>
             <div className={`${
-              (orebroExpanded && psfsExpanded) || 
-              (!orebroExpanded && !orebroWrapped && !psfsExpanded && !psfsWrapped)
-                ? 'min-h-fit' 
-                : !psfsExpanded && !psfsWrapped
-                  ? 'min-h-[80px]' 
-                  : 'min-h-fit'
+              psfsWrapped ? 'min-h-[80px]' : 'min-h-fit'
             }`}>
               <PsfsEntry 
                 isExpanded={psfsExpanded}
