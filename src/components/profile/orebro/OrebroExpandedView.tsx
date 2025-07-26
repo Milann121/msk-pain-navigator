@@ -36,7 +36,11 @@ export const OrebroExpandedView = ({
               </h3>
               {hasCompletedRecently && <CheckCircle className="h-5 w-5 text-green-600" />}
               {onCollapse && (
-                <button onClick={onCollapse} className="ml-auto text-gray-500 hover:text-gray-700">
+                <button 
+                  onClick={onCollapse} 
+                  className="ml-auto p-1 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-md transition-colors"
+                  aria-label="Collapse"
+                >
                   <ChevronDown className="h-5 w-5" />
                 </button>
               )}
