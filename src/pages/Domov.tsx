@@ -105,7 +105,7 @@ const Domov = () => {
                 isExpanded={orebroExpanded}
                 isWrapped={orebroWrapped}
                 onExpand={() => setOrebroExpanded(true)}
-                onCollapse={() => setOrebroExpanded(false)}
+                onCollapse={() => setOrebroWrapped(true)}
                 onWrap={() => setOrebroWrapped(true)}
                 onUnwrap={() => setOrebroWrapped(false)}
               />
