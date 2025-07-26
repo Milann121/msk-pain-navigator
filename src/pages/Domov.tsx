@@ -93,25 +93,36 @@ const Domov = () => {
           {/* OREBRO and PSFS Questionnaires */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
             <div className={`${
-              orebroWrapped ? 'min-h-[80px]' : 'min-h-fit'
+              (orebroExpanded && psfsExpanded) || 
+              (orebroWrapped && !psfsExpanded) || 
+              (!orebroExpanded && !orebroWrapped && !psfsExpanded)
+                ? 'min-h-fit' 
+                : orebroWrapped || (!orebroExpanded && !orebroWrapped) 
+                  ? 'min-h-[80px]' 
+                  : 'min-h-fit'
             }`}>
               <OrebroEntry 
                 isExpanded={orebroExpanded}
                 isWrapped={orebroWrapped}
                 onExpand={() => setOrebroExpanded(true)}
-                onCollapse={() => setOrebroExpanded(false)}
+                onCollapse={() => setOrebroWrapped(true)}
                 onWrap={() => setOrebroWrapped(true)}
                 onUnwrap={() => setOrebroWrapped(false)}
               />
             </div>
             <div className={`${
-              psfsWrapped ? 'min-h-[80px]' : 'min-h-fit'
+              (orebroExpanded && psfsExpanded) || 
+              (!orebroExpanded && !orebroWrapped && !psfsExpanded && !psfsWrapped)
+                ? 'min-h-fit' 
+                : !psfsExpanded && !psfsWrapped
+                  ? 'min-h-[80px]' 
+                  : 'min-h-fit'
             }`}>
               <PsfsEntry 
                 isExpanded={psfsExpanded}
                 isWrapped={psfsWrapped}
                 onExpand={() => setPsfsExpanded(true)}
-                onCollapse={() => setPsfsExpanded(false)}
+                onCollapse={() => setPsfsWrapped(true)}
                 onWrap={() => setPsfsWrapped(true)}
                 onUnwrap={() => setPsfsWrapped(false)}
               />
