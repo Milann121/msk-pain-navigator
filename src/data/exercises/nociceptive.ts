@@ -464,6 +464,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ["mobility"],
           bodyPart:["lower-back"],
+          alternatives: ['zhzW4-tq9HM'],
           repetitions: "10-12x"
         },
         {
@@ -473,6 +474,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["mobility"],
           bodyPart:["lower-back"],
+          alternatives: ['2of247Kt0tU'],
           repetitions: "10-12x"
         }
       ]
