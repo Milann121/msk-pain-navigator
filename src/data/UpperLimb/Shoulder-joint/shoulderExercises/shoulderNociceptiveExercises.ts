@@ -15,6 +15,7 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           importance: 3,
           mainGroup: ['mobility'],
           bodyPart: ['shoulder'],
+          alternatives: ['TTgEz3NLljs'],
           repetitions: "10-12x"
         },
         {
@@ -33,6 +34,7 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ['pain-relief'],
           bodyPart: ['shoulder'],
+          alternatives: ['dS9ORQCnWsE'],
           repetitions: "10-12x"
         },
         {
@@ -58,6 +60,7 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ['stability'],
           bodyPart: ['shoulder'],
+          alternatives: ['dS9ORQCnWsE'],
           repetitions: "10-12x"
         },
         {
@@ -96,6 +99,7 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ['stability'],
           bodyPart: ['shoulder'],
+          alternatives: ['5-9_zrKwxTU', '0GjGtt1DvoQ'],
           repetitions: "10-12x"
         },
         {
@@ -143,6 +147,7 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ['pain-relief'],
           bodyPart: ['shoulder'],
+          alternatives: ['5-9_zrKwxTU'],
           repetitions: "10-12x"
         }
       ]
@@ -172,6 +177,7 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ['stability'],
           bodyPart: ['shoulder'],
+          alternatives: ['5-9_zrKwxTU'],
           repetitions: "10-12x"
         }
       ]

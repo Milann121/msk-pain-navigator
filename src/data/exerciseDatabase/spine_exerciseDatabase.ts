@@ -28,8 +28,34 @@ export const spineExercises: ExerciseVideo[] = [
     mainGroup: ['pain-relief'],
     bodyPart: ['neck', 'middle-back']
   },
+  {
+    videoId: 'dHk-RqehNc8',
+    title: 'Trapezius Stretch',
+    description: '',
+    importance: 2,
+    mainGroup: ["mobility"],
+    bodyPart: ['neck']
+  },
+  {
+    videoId: 'kvxXicryMHA',
+    title: 'Neck Rotation with Side Flextion',
+    description: '',
+    importance: 3,
+    mainGroup: ['mobility'],
+    bodyPart: ['neck']
+  },
+  {
+    videoId: 'yzCxAbfKImQ',
+    title: 'Rowing with Resistance Band (ground sitting position)',
+    description: '',
+    importance: 1,
+    mainGroup: ['stability'],
+    bodyPart: ['neck', 'middle-back']
+  },
 
   
+
+
   // MIDDLE-BACK EXERCISE DATABASE
   {
     videoId: 'PK62xMsZfG0',
@@ -55,6 +81,17 @@ export const spineExercises: ExerciseVideo[] = [
     mainGroup: ['mobility'],
     bodyPart: ['middle-back']
   },
+  {
+    videoId: 'gyew25Vaqj8',
+    title: 'Kneeling Middle-Back Rotation',
+    description: '',
+    importance: 1,
+    mainGroup: ['mobility'],
+    bodyPart: ['middle-back']
+  },
+
+
+  
 
   // LOWER-BACK EXERCISE DATABASE
   {
@@ -80,5 +117,46 @@ export const spineExercises: ExerciseVideo[] = [
     importance: 2,
     mainGroup: ['mobility', 'pain-relief'],
     bodyPart: ['lower-back']
+  },
+  {
+    videoId: '2of247Kt0tU',
+    title: 'Cat Back Mobilisations',
+    description: '',
+    importance: 2,
+    mainGroup: ["mobility", 'pain-relief'],
+    bodyPart: ['lower-back']
+  },
+  {
+    videoId: 'XP1yzpFR6ho',
+    title: 'Proximal Lower-Limb Neuromobilisations',
+    description: '',
+    importance: 1,
+    mainGroup: ['neuro-mobs', 'pain-relief'],
+    bodyPart: ['lower-back']
+  },
+  {
+    videoId: 'zhzW4-tq9HM',
+    title: 'Piriformis Stretch (on back postion)',
+    description: '',
+    importance: 1,
+    mainGroup: ['mobility', 'pain-relief'],
+    bodyPart: ['lower-back']
+  },
+  {
+    videoId: 'HtMI17DGuTk',
+    title: 'Bird Dog',
+    description: '',
+    importance: 3,
+    mainGroup: ['stability'],
+    bodyPart: ['lower-back']
+  },
+  {
+    videoId: 'ESbiu4FdbPs',
+    title: 'Side-Glides',
+    description: '',
+    importance: 1,
+    mainGroup: ['mobility', 'pain-relief'],
+    bodyPart: ['lower-back']
   }
+
 ];

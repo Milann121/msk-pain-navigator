@@ -9,6 +9,8 @@ interface ExerciseVideo {
 }
 
 export const upperLimbExercises: ExerciseVideo[] = [
+
+  //SHOULDER JOINT EXERCISES DATABASE
   {
     videoId: 'Ak0QVHhwkQg',
     title: 'Pendulum Exercises',
@@ -18,9 +20,25 @@ export const upperLimbExercises: ExerciseVideo[] = [
     bodyPart: ['shoulder']
   },
   {
+    videoId: 'TTgEz3NLljs',
+    title: 'Flexion Rotations of the Shoulder Joint',
+    description: '',
+    importance: 3,
+    mainGroup: ['mobility'],
+    bodyPart: ['shoulder']
+  },
+  {
     videoId: '1uz4DoaSY2M',
     title: 'Isometric External Rotation',
     description: 'Strengthening exercise for rotator cuff muscles',
+    importance: 1,
+    mainGroup: ['pain-relief', 'stability'],
+    bodyPart: ['shoulder']
+  },
+  {
+    videoId: 'dS9ORQCnWsE',
+    title: 'Rotator-Cuff External Rotation with Resistance Band',
+    description: '',
     importance: 1,
     mainGroup: ['pain-relief', 'stability'],
     bodyPart: ['shoulder']
@@ -64,5 +82,37 @@ export const upperLimbExercises: ExerciseVideo[] = [
     importance: 2,
     mainGroup: ['pain-relief', 'neuro-mobs'],
     bodyPart: ['shoulder', 'elbow', 'forearm']
-  }
+  },
+  {
+    videoId: '5-9_zrKwxTU',
+    title: 'Forward Shoulder Flexion Strengthening,',
+    description: '',
+    importance: 1,
+    mainGroup: ['stability'],
+    bodyPart: ['shoulder']
+  },
+  {
+    videoId: 'WDIpL0pjun0',
+    title: 'Pull-Ups',
+    description: '',
+    importance: 3,
+    mainGroup: ['stability'],
+    bodyPart: ['shoulder']
+  },
+  {
+    videoId: 'J9QSqLq4L6U',
+    title: 'Shoulder Taps',
+    description: '',
+    importance: 3,
+    mainGroup: ['stability'],
+    bodyPart: ['shoulder']
+  },
+  {
+    videoId: '0GjGtt1DvoQ',
+    title: 'Shoulder Movement Drill (lying on belly position)',
+    description: '',
+    importance: 2,
+    mainGroup: ['stability'],
+    bodyPart: ['shoulder'],
+  },
 ];

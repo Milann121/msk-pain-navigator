@@ -36,7 +36,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ["pain-relief"],
           bodyPart:["neck", "middle-back"],
-          alternatives: ['dqnKix4f0dU', 'T4x3EGEAcpU'], // Alternative massage/relaxation exercises
+          alternatives: ['dqnKix4f0dU', 'T4x3EGEAcpU', 'dHk-RqehNc8'], // Alternative massage/relaxation exercises
           repetitions: "10-12x"
         }
       ]
@@ -53,7 +53,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ["mobility", "pain-relief"],
           bodyPart:["neck","middle-back"],
-          alternatives: ['dxzegzGNdaU', 'OKsRn5e2VJY', '844ILxo5xsA'], // Alternative stretching and mobility exercises
+          alternatives: ['dxzegzGNdaU', 'OKsRn5e2VJY', '844ILxo5xsA', 'gyew25Vaqj8'], // Alternative stretching and mobility exercises
           repetitions: "10-12x"
         },
         {
@@ -63,8 +63,9 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["stability"],
           bodyPart:["neck","middle-back"],
+          alternatives: ['wHPFZctnIjg', 'yzCxAbfKImQ'],
           repetitions: "10-12x"
-        }
+        },
       ]
     }
   ],
@@ -83,6 +84,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 1,
           mainGroup: ["mobility", "pain-relief"],
           bodyPart:["lower-back"],
+          alternatives: ['2of247Kt0tU', 'ESbiu4FdbPs'],
           repetitions: "10-12x"
         },
         {
@@ -92,6 +94,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 2,
           mainGroup: ["pain-relief", "neuro-mobs"],
           bodyPart:["lower-back"],
+          alternatives: ['XP1yzpFR6ho'],
           repetitions: "10-12x"
         },
         {
@@ -101,6 +104,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           importance: 3,
           mainGroup: ["stability"],
           bodyPart:["lower-back"],
+          alternatives: ['zhzW4-tq9HM'],
           repetitions: "10-12x"
         }
       ]
