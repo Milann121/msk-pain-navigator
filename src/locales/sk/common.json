@@ -46,5 +46,9 @@
   "emptyState": {
     "noAssessments": "Žiadne aktívne hodnotenia",
     "createNew": "Nové hodnotenie"
+  },
+  "cookie": {
+    "message": "Používame súbory cookie na zlepšenie vašej skúsenosti a poskytovanie personalizovaného obsahu. Pokračovaním v používaní našej stránky súhlasíte s používaním súborov cookie.",
+    "accept": "Prijať cookies"
   }
 }
