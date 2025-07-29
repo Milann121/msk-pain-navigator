@@ -66,6 +66,14 @@ export const ExerciseVideoSection = ({
     const loadExistingRating = async () => {
       if (!user || hasBeenSwapped) return; // Don't load rating if exercise was just swapped
       
+      // Check if this exercise has been swapped before loading rating
+      const isCurrentlySwapped = getSwappedVideoId(video.videoId, assessmentId) !== video.videoId;
+      if (isCurrentlySwapped) {
+        // This is a swapped exercise, don't load any existing rating
+        setRating(0);
+        return;
+      }
+      
       try {
         const { data: existingFeedback, error } = await supabase
           .from('exercise_feedback')
@@ -93,7 +101,7 @@ export const ExerciseVideoSection = ({
       loadExistingRating();
       loadUserSwaps(assessmentId);
     }
-  }, [user, actualVideoId, loadUserSwaps, assessmentId, hasBeenSwapped]);
+  }, [user, actualVideoId, loadUserSwaps, assessmentId, hasBeenSwapped, getSwappedVideoId, video.videoId]);
 
   // Handle star click
   const handleStarClick = async (starValue: number) => {
