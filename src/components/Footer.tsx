@@ -10,12 +10,7 @@ const Footer = () => {
       <div className="container mx-auto">
         {/* Desktop layout */}
         <div className="hidden md:flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-              <span className="text-blue-600 font-bold text-sm">P</span>
-            </div>
-            <span className="font-semibold">Pebee terapeut</span>
-          </div>
+          <span className="font-semibold">Pebee terapeut</span>
           
           <div className="flex items-center gap-6">
             <Link 
@@ -31,12 +26,7 @@ const Footer = () => {
         {/* Mobile layout */}
         <div className="md:hidden space-y-3">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                <span className="text-blue-600 font-bold text-sm">P</span>
-              </div>
-              <span className="font-semibold">Pebee terapeut</span>
-            </div>
+            <span className="font-semibold">Pebee terapeut</span>
             <span className="text-sm">© 2024 {t('footer.copyright')}</span>
           </div>
           
