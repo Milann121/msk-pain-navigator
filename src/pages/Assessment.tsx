@@ -104,6 +104,7 @@ const AssessmentContent = () => {
           )}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
