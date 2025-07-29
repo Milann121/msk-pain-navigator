@@ -3,7 +3,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Edit } from 'lucide-react';
+import { Edit, Trash2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 interface EditableFieldProps {
@@ -17,6 +17,7 @@ interface EditableFieldProps {
   onSave: (field: string) => void;
   onCancel: () => void;
   onTempValueChange: (value: string | number) => void;
+  onDelete?: (field: string) => void;
 }
 
 export const EditableField: React.FC<EditableFieldProps> = ({
@@ -29,7 +30,8 @@ export const EditableField: React.FC<EditableFieldProps> = ({
   onEdit,
   onSave,
   onCancel,
-  onTempValueChange
+  onTempValueChange,
+  onDelete
 }) => {
   const isEditing = editingField === field;
   const { t } = useTranslation();
@@ -53,6 +55,16 @@ export const EditableField: React.FC<EditableFieldProps> = ({
           <Button size="sm" variant="outline" onClick={onCancel} className="px-6 h-11">
             {t('profile.cancel')}
           </Button>
+          {onDelete && (
+            <Button 
+              size="sm" 
+              variant="destructive" 
+              onClick={() => onDelete(field)} 
+              className="px-3 h-11"
+            >
+              <Trash2 className="h-4 w-4" />
+            </Button>
+          )}
         </div>
       </div>
     );

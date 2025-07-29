@@ -3,7 +3,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Edit } from 'lucide-react';
+import { Edit, Trash2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 interface GenderFieldProps {
@@ -14,6 +14,7 @@ interface GenderFieldProps {
   onSave: (field: string) => void;
   onCancel: () => void;
   onTempValueChange: (value: string | number) => void;
+  onDelete?: (field: string) => void;
 }
 
 export const GenderField: React.FC<GenderFieldProps> = ({
@@ -23,7 +24,8 @@ export const GenderField: React.FC<GenderFieldProps> = ({
   onEdit,
   onSave,
   onCancel,
-  onTempValueChange
+  onTempValueChange,
+  onDelete
 }) => {
   const isEditing = editingField === 'gender';
   const { t } = useTranslation();
@@ -65,6 +67,16 @@ export const GenderField: React.FC<GenderFieldProps> = ({
           <Button size="sm" variant="outline" onClick={onCancel} className="px-6">
             {t('profile.cancel')}
           </Button>
+          {onDelete && (
+            <Button 
+              size="sm" 
+              variant="destructive" 
+              onClick={() => onDelete('gender')} 
+              className="px-3"
+            >
+              <Trash2 className="h-4 w-4" />
+            </Button>
+          )}
         </div>
       </div>
     );

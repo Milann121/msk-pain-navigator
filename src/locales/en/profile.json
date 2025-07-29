@@ -101,5 +101,10 @@
     "saving": "Saving...",
     "success": "Profile saved successfully!",
     "error": "Failed to save profile. Please try again."
-  }
+  },
+  "deleteConfirmation": "Are you sure you want to delete your {{field}}?",
+  "deleteSuccess": "Data Deleted",
+  "deleteSuccessMessage": "{{field}} has been successfully deleted",
+  "deleteError": "Delete Failed",
+  "deleteErrorMessage": "Failed to delete data. Please try again."
 }

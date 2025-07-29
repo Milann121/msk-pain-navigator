@@ -4,7 +4,7 @@ import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Edit } from 'lucide-react';
+import { Edit, Trash2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/contexts/AuthContext';
@@ -23,6 +23,7 @@ interface JobSectionFieldProps {
   onTempDepartmentChange: (value: string) => void;
   onTempJobTypeChange: (value: string) => void;
   onTempJobPropertiesChange: (value: string[]) => void;
+  onDelete?: (field: string) => void;
 }
 
 interface Department {
@@ -48,7 +49,8 @@ export const JobSectionField: React.FC<JobSectionFieldProps> = ({
   onCancel,
   onTempDepartmentChange,
   onTempJobTypeChange,
-  onTempJobPropertiesChange
+  onTempJobPropertiesChange,
+  onDelete
 }) => {
   const isEditing = editingField === 'jobSection';
   const { t } = useTranslation();
@@ -250,6 +252,16 @@ export const JobSectionField: React.FC<JobSectionFieldProps> = ({
           <Button size="sm" variant="outline" onClick={onCancel} className="px-6">
             {t('profile.cancel')}
           </Button>
+          {onDelete && (
+            <Button 
+              size="sm" 
+              variant="destructive" 
+              onClick={() => onDelete('jobSection')} 
+              className="px-3"
+            >
+              <Trash2 className="h-4 w-4" />
+            </Button>
+          )}
         </div>
       </div>
     );

@@ -101,5 +101,10 @@
     "saving": "Ukladám...",
     "success": "Profil bol úspešne uložený!",
     "error": "Nepodarilo sa uložiť profil. Skúste to prosím znovu."
-  }
+  },
+  "deleteConfirmation": "Ste si istí, že chcete vymazať {{field}}?",
+  "deleteSuccess": "Údaje vymazané",
+  "deleteSuccessMessage": "{{field}} bolo úspešne vymazané",
+  "deleteError": "Vymazanie zlyhalo",
+  "deleteErrorMessage": "Nepodarilo sa vymazať údaje. Skúste to prosím znovu."
 }
