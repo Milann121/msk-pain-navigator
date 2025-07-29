@@ -107,6 +107,7 @@ export const ExerciseVideoSection = ({
   const handleStarClick = async (starValue: number) => {
     if (!user) return;
     
+    console.log('Rating clicked:', starValue, 'for video:', actualVideoId); // Debug log
     setRating(starValue);
     
     try {
@@ -114,18 +115,20 @@ export const ExerciseVideoSection = ({
         {
           user_id: user.id,
           exercise_title: getTranslatedText(video.title || exerciseTitle),
-          video_id: actualVideoId,
+          video_id: actualVideoId, // This should be the swapped video ID
           feedback_value: starValue,
         },
       ]);
       
       if (error) {
+        console.error('Error saving rating:', error); // Debug log
         toastHook({
           title: t('goals.errorTitle'),
           description: t('exercisePlan.errorSave'),
           variant: 'destructive',
         });
       } else {
+        console.log('Rating saved successfully'); // Debug log
         toastHook({
           title: 'Rating saved',
           description: `You rated this exercise ${starValue} star${starValue !== 1 ? 's' : ''}`,
