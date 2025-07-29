@@ -37,7 +37,7 @@ const UserForm = ({ onSubmit }: UserFormProps) => {
   };
 
   return (
-    <Card className="w-full max-w-md mx-auto">
+    <Card className="w-full mx-auto">
       <CardHeader>
         <CardTitle className="text-center text-2xl font-bold text-blue-700">
           {t('assessment.painQuestionnaireTitle')}
