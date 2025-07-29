@@ -4,10 +4,10 @@
   "lastUpdated": "Posledná aktualizácia: [Vložte dátum]",
   "dataController": {
     "title": "1. Identifikácia správcu údajov",
-    "companyName": "Názov spoločnosti: [Vložte názov spoločnosti]",
-    "businessAddress": "Obchodná adresa: [Vložte obchodnú adresu]",
-    "emailContact": "Kontaktný email: [Vložte kontaktný email]",
-    "companyId": "IČO spoločnosti: [Vložte IČO ak sa uplatňuje]",
+    "companyName": "Názov spoločnosti: Alpha Fyzio NDCA s.r.o.",
+    "businessAddress": "Obchodná adresa: Pribinove sady 29/17, Nová Dubnica 018 51",
+    "emailContact": "Kontaktný email: pebeetherapist@gmail.com",
+    "companyId": "IČO spoločnosti: 52563481",
     "supervisoryAuthority": "Dozorný orgán: Úrad na ochranu osobných údajov SR"
   },
   "dataCategories": {
