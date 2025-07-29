@@ -13,6 +13,7 @@ import {
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { supabase } from '@/integrations/supabase/client';
+import Footer from '@/components/Footer';
 import AuthHeader from '@/components/auth/AuthHeader';
 import EmailVerificationAlert from '@/components/auth/EmailVerificationAlert';
 import B2BDataDisplay from '@/components/auth/B2BDataDisplay';
@@ -369,6 +370,7 @@ const Auth = () => {
           </CardContent>
         </Card>
       </div>
+      <Footer />
     </div>
   );
 };

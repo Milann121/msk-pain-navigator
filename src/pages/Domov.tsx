@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/contexts/AuthContext';
 import { Navigate } from 'react-router-dom';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import { MoodCalendar } from '@/components/profile/MoodCalendar';
 import { SpeechRecorder } from '@/components/speech/SpeechRecorder';
 import { OrebroEntry } from '@/components/profile/OrebroEntry';
@@ -149,6 +150,7 @@ const Domov = () => {
         onClose={handleProfileCompleted}
         onProfileSaved={handleProfileCompleted}
       />
+      <Footer />
     </div>
   );
 };

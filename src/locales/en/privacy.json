@@ -1,0 +1,116 @@
+{
+  "title": "GDPR PRIVACY POLICY & DATA PROCESSING AGREEMENT",
+  "subtitle": "For MSK Digital Health App Prototype",
+  "lastUpdated": "Last updated: [Insert Date]",
+  "dataController": {
+    "title": "1. Data Controller Identification",
+    "companyName": "Company Name: [Insert Company Name]",
+    "businessAddress": "Business Address: [Insert Business Address]",
+    "emailContact": "Email Contact: [Insert Contact Email]",
+    "companyId": "Company ID: [Insert ICO if applicable]",
+    "supervisoryAuthority": "Supervisory Authority: Urad na ochranu osobnych udajov SR"
+  },
+  "dataCategories": {
+    "title": "2. Categories of Personal Data Processed",
+    "basicIdentifiers": {
+      "title": "Basic Identifiers:",
+      "items": [
+        "First name and last name",
+        "Email address",
+        "Gender",
+        "Year of birth",
+        "Employer name",
+        "Employee ID",
+        "Job position"
+      ]
+    },
+    "healthData": {
+      "title": "Health and Psychosocial Data:",
+      "items": [
+        "Pain assessment responses",
+        "OREBRO questionnaire responses",
+        "PFSF questionnaire responses",
+        "Mood calendar activity"
+      ]
+    }
+  },
+  "purposeAndBasis": {
+    "title": "3. Purpose and Legal Basis for Processing",
+    "purposes": {
+      "title": "Purposes:",
+      "items": [
+        "Service functionality",
+        "Functionality improvement and analysis",
+        "Explicit consent for health data",
+        "Anonymous statistical sharing with employer"
+      ]
+    },
+    "legalBases": {
+      "title": "Legal Bases:",
+      "items": [
+        "Art. 6(1)(b) GDPR contract performance",
+        "Art. 6(1)(f) GDPR legitimate interest",
+        "Art. 9(2)(a) GDPR explicit consent"
+      ]
+    }
+  },
+  "dataStorage": {
+    "title": "4. Data Storage and Security",
+    "items": [
+      "Hosting Provider: Supabase (GDPR-compliant)",
+      "Data encryption and restricted access",
+      "Backup and incident management"
+    ]
+  },
+  "dataRetention": {
+    "title": "5. Data Retention",
+    "items": [
+      "Active User Data: 3 years from last usage",
+      "Anonymous Analytical Data: Indefinitely",
+      "Employer Reports: Fully anonymized"
+    ]
+  },
+  "userRights": {
+    "title": "6. Your Rights under GDPR",
+    "items": [
+      "Access, Rectification, Erasure",
+      "Restriction, Portability, Objection",
+      "Withdraw Consent",
+      "Lodge Complaint (https://dataprotection.gov.sk)"
+    ]
+  },
+  "consent": {
+    "title": "7. Consent for Special Categories of Data",
+    "text": "Explicit consent for processing health-related data. Withdrawal of consent at any time via email."
+  },
+  "dataSharing": {
+    "title": "8. Data Sharing and Third Parties",
+    "items": [
+      "No third-party sharing except Supabase",
+      "Supabase under GDPR SCCs",
+      "Only anonymous statistics shared with employer"
+    ]
+  },
+  "protectionMeasures": {
+    "title": "9. Data Protection Measures",
+    "items": [
+      "Data Minimization and Pseudonymization",
+      "Encryption and Role-based Access",
+      "Security testing and incident plans"
+    ]
+  },
+  "contact": {
+    "title": "10. Contact for Privacy Inquiries",
+    "dpo": "Data Protection Officer: [Insert DPO or Not appointed]",
+    "email": "Email: [Insert email]",
+    "address": "Postal Address: [Insert if applicable]"
+  },
+  "updates": {
+    "title": "11. Updates to This Policy",
+    "text": "Updated periodically with notice to users."
+  },
+  "acknowledgement": {
+    "title": "Consent Acknowledgement",
+    "text": "By using the app, you consent to these terms in compliance with EU GDPR (Regulation 2016/679)."
+  }
+}

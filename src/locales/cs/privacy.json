@@ -1,0 +1,116 @@
+{
+  "title": "GDPR ZÁSADY OCHRANY OSOBNÍCH ÚDAJŮ A DOHODA O ZPRACOVÁNÍ ÚDAJŮ",
+  "subtitle": "Pro MSK Digital Health App Prototyp",
+  "lastUpdated": "Poslední aktualizace: [Vložte datum]",
+  "dataController": {
+    "title": "1. Identifikace správce údajů",
+    "companyName": "Název společnosti: [Vložte název společnosti]",
+    "businessAddress": "Obchodní adresa: [Vložte obchodní adresu]",
+    "emailContact": "Kontaktní email: [Vložte kontaktní email]",
+    "companyId": "IČO společnosti: [Vložte IČO pokud se vztahuje]",
+    "supervisoryAuthority": "Dozorový orgán: Úřad na ochranu osobních údajů SR"
+  },
+  "dataCategories": {
+    "title": "2. Kategorie zpracovávaných osobních údajů",
+    "basicIdentifiers": {
+      "title": "Základní identifikátory:",
+      "items": [
+        "Jméno a příjmení",
+        "Emailová adresa",
+        "Pohlaví",
+        "Rok narození",
+        "Název zaměstnavatele",
+        "ID zaměstnance",
+        "Pracovní pozice"
+      ]
+    },
+    "healthData": {
+      "title": "Zdravotní a psychosociální údaje:",
+      "items": [
+        "Odpovědi na hodnocení bolesti",
+        "Odpovědi na OREBRO dotazník",
+        "Odpovědi na PFSF dotazník",
+        "Aktivita kalendáře nálad"
+      ]
+    }
+  },
+  "purposeAndBasis": {
+    "title": "3. Účel a právní základ zpracování",
+    "purposes": {
+      "title": "Účely:",
+      "items": [
+        "Funkcionalita služby",
+        "Zlepšování a analýza funkcionality",
+        "Výslovný souhlas pro zdravotní údaje",
+        "Anonymní statistické sdílení se zaměstnavatelem"
+      ]
+    },
+    "legalBases": {
+      "title": "Právní základy:",
+      "items": [
+        "Čl. 6(1)(b) GDPR plnění smlouvy",
+        "Čl. 6(1)(f) GDPR oprávněný zájem",
+        "Čl. 9(2)(a) GDPR výslovný souhlas"
+      ]
+    }
+  },
+  "dataStorage": {
+    "title": "4. Úložiště údajů a bezpečnost",
+    "items": [
+      "Poskytovatel hostingu: Supabase (GDPR-kompatibilní)",
+      "Šifrování údajů a omezený přístup",
+      "Zálohování a management incidentů"
+    ]
+  },
+  "dataRetention": {
+    "title": "5. Uchovávání údajů",
+    "items": [
+      "Aktivní uživatelská data: 3 roky od posledního použití",
+      "Anonymní analytická data: Neomezeně",
+      "Zprávy pro zaměstnavatele: Úplně anonymizované"
+    ]
+  },
+  "userRights": {
+    "title": "6. Vaše práva podle GDPR",
+    "items": [
+      "Přístup, Oprava, Vymazání",
+      "Omezení, Přenositelnost, Námitka",
+      "Odvolání souhlasu",
+      "Podání stížnosti (https://dataprotection.gov.sk)"
+    ]
+  },
+  "consent": {
+    "title": "7. Souhlas pro speciální kategorie údajů",
+    "text": "Výslovný souhlas ke zpracování zdravotních údajů. Odvolání souhlasu kdykoli prostřednictvím emailu."
+  },
+  "dataSharing": {
+    "title": "8. Sdílení údajů a třetí strany",
+    "items": [
+      "Žádné sdílení s třetími stranami kromě Supabase",
+      "Supabase pod GDPR SCC",
+      "Pouze anonymní statistiky sdílené se zaměstnavatelem"
+    ]
+  },
+  "protectionMeasures": {
+    "title": "9. Opatření na ochranu údajů",
+    "items": [
+      "Minimalizace údajů a pseudonymizace",
+      "Šifrování a přístup na základě rolí",
+      "Bezpečnostní testování a plány incidentů"
+    ]
+  },
+  "contact": {
+    "title": "10. Kontakt pro otázky ochrany osobních údajů",
+    "dpo": "Pověřenec pro ochranu údajů: [Vložte DPO nebo Není jmenován]",
+    "email": "Email: [Vložte email]",
+    "address": "Poštovní adresa: [Vložte pokud se vztahuje]"
+  },
+  "updates": {
+    "title": "11. Aktualizace těchto zásad",
+    "text": "Pravidelně aktualizováno s upozorněním uživatelů."
+  },
+  "acknowledgement": {
+    "title": "Potvrzení souhlasu",
+    "text": "Používáním aplikace souhlasíte s těmito podmínkami v souladu s EU GDPR (Nařízení 2016/679)."
+  }
+}

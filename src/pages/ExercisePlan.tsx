@@ -11,6 +11,7 @@ import { ImportantNotice } from '@/components/exercise-plan/ImportantNotice';
 import { generateGeneralProgram } from '@/utils/generalProgramGenerator';
 import exercisesByDifferential from '@/data/exercises';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 const ExercisePlan = () => {
   const location = useLocation();
@@ -122,6 +123,7 @@ const ExercisePlan = () => {
           </Card>
         )}
       </div>
+      <Footer />
     </div>
   );
 };

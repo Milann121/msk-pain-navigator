@@ -28,6 +28,8 @@ import enBodyParts from './locales/en/bodyParts.json';
 import enDifferentials from './locales/en/differentials.json';
 import enPainMechanisms from './locales/en/painMechanisms.json';
 import enSpeech from './locales/en/speech.json';
+import enFooter from './locales/en/footer.json';
+import enPrivacy from './locales/en/privacy.json';
 
 // Slovak translations
 import skWelcome from './locales/sk/welcome.json';
@@ -54,6 +56,8 @@ import skBodyParts from './locales/sk/bodyParts.json';
 import skDifferentials from './locales/sk/differentials.json';
 import skPainMechanisms from './locales/sk/painMechanisms.json';
 import skSpeech from './locales/sk/speech.json';
+import skFooter from './locales/sk/footer.json';
+import skPrivacy from './locales/sk/privacy.json';
 
 // Czech translations
 import csWelcome from './locales/cs/welcome.json';
@@ -80,6 +84,8 @@ import csBodyParts from './locales/cs/bodyParts.json';
 import csDifferentials from './locales/cs/differentials.json';
 import csPainMechanisms from './locales/cs/painMechanisms.json';
 import csSpeech from './locales/cs/speech.json';
+import csFooter from './locales/cs/footer.json';
+import csPrivacy from './locales/cs/privacy.json';
 
 // Combine all translations
 const enTranslations = {
@@ -107,7 +113,9 @@ const enTranslations = {
   bodyParts: enBodyParts,
   differentials: enDifferentials,
   painMechanisms: enPainMechanisms,
-  ...enSpeech
+  ...enSpeech,
+  footer: enFooter,
+  privacy: enPrivacy
 };
 
 const skTranslations = {
@@ -135,7 +143,9 @@ const skTranslations = {
   bodyParts: skBodyParts,
   differentials: skDifferentials,
   painMechanisms: skPainMechanisms,
-  ...skSpeech
+  ...skSpeech,
+  footer: skFooter,
+  privacy: skPrivacy
 };
 
 const csTranslations = {
@@ -163,7 +173,9 @@ const csTranslations = {
   bodyParts: csBodyParts,
   differentials: csDifferentials,
   painMechanisms: csPainMechanisms,
-  ...csSpeech
+  ...csSpeech,
+  footer: csFooter,
+  privacy: csPrivacy
 };
 
 void i18n

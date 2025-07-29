@@ -3,6 +3,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { useTranslation } from 'react-i18next';
 import { Navigate } from 'react-router-dom';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import WelcomeOverlay from '@/components/WelcomeOverlay';
 
 const Index = () => {
@@ -28,6 +29,7 @@ const Index = () => {
     <div className="min-h-screen flex flex-col">
       <Header />
       <WelcomeOverlay />
+      <Footer />
     </div>
   );
 };
