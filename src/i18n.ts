@@ -23,6 +23,8 @@ import enYoga from './locales/en/yoga.json';
 import enSections from './locales/en/sections.json';
 import enStretchingPrograms from './locales/en/stretchingPrograms.json';
 import enStrengthPrograms from './locales/en/strengthPrograms.json';
+import enPrivacy from './locales/en/privacy.json';
+import enFooter from './locales/en/footer.json';
 import enYogaPrograms from './locales/en/yogaPrograms.json';
 import enBodyParts from './locales/en/bodyParts.json';
 import enDifferentials from './locales/en/differentials.json';
@@ -54,6 +56,8 @@ import skBodyParts from './locales/sk/bodyParts.json';
 import skDifferentials from './locales/sk/differentials.json';
 import skPainMechanisms from './locales/sk/painMechanisms.json';
 import skSpeech from './locales/sk/speech.json';
+import skPrivacy from './locales/sk/privacy.json';
+import skFooter from './locales/sk/footer.json';
 
 // Czech translations
 import csWelcome from './locales/cs/welcome.json';
@@ -80,6 +84,8 @@ import csBodyParts from './locales/cs/bodyParts.json';
 import csDifferentials from './locales/cs/differentials.json';
 import csPainMechanisms from './locales/cs/painMechanisms.json';
 import csSpeech from './locales/cs/speech.json';
+import csPrivacy from './locales/cs/privacy.json';
+import csFooter from './locales/cs/footer.json';
 
 // Combine all translations
 const enTranslations = {
@@ -107,6 +113,8 @@ const enTranslations = {
   bodyParts: enBodyParts,
   differentials: enDifferentials,
   painMechanisms: enPainMechanisms,
+  privacy: enPrivacy,
+  footer: enFooter,
   ...enSpeech
 };
 
@@ -135,6 +143,8 @@ const skTranslations = {
   bodyParts: skBodyParts,
   differentials: skDifferentials,
   painMechanisms: skPainMechanisms,
+  privacy: skPrivacy,
+  footer: skFooter,
   ...skSpeech
 };
 
@@ -163,6 +173,8 @@ const csTranslations = {
   bodyParts: csBodyParts,
   differentials: csDifferentials,
   painMechanisms: csPainMechanisms,
+  privacy: csPrivacy,
+  footer: csFooter,
   ...csSpeech
 };
 

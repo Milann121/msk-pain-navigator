@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { ArrowLeft } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import Footer from '@/components/Footer';
 import { ExercisePlanHeader } from '@/components/exercise-plan/ExercisePlanHeader';
 import { ExercisePeriodSection } from '@/components/exercise-plan/ExercisePeriodSection';
 import { ImportantNotice } from '@/components/exercise-plan/ImportantNotice';
@@ -122,6 +123,7 @@ const ExercisePlan = () => {
           </Card>
         )}
       </div>
+      <Footer />
     </div>
   );
 };

@@ -1,0 +1,113 @@
+{
+  "title": "GDPR ZÁSADY OCHRANY OSOBNÍCH ÚDAJŮ A SMLOUVA O ZPRACOVÁNÍ DAT",
+  "subtitle": "Pro MSK Digital Health App Prototyp",
+  "lastUpdated": "Poslední aktualizace: [Vložit datum]",
+  "section1": {
+    "title": "1. Identifikace správce údajů",
+    "companyName": "Název společnosti: [Vložit název společnosti]",
+    "businessAddress": "Obchodní adresa: [Vložit obchodní adresu]",
+    "emailContact": "E-mailový kontakt: [Vložit kontaktní e-mail]",
+    "companyId": "IČO společnosti: [Vložit IČO pokud je k dispozici]",
+    "supervisoryAuthority": "Dozorový úřad: Úřad pro ochranu osobních údajů ČR"
+  },
+  "section2": {
+    "title": "2. Kategorie zpracovávaných osobních údajů",
+    "basicIdentifiers": "Základní identifikátory:",
+    "basicList": [
+      "Jméno a příjmení",
+      "E-mailová adresa",
+      "Pohlaví",
+      "Rok narození",
+      "Název zaměstnavatele",
+      "ID zaměstnance",
+      "Pracovní pozice"
+    ],
+    "healthData": "Zdravotní a psychosociální údaje:",
+    "healthList": [
+      "Odpovědi z hodnocení bolesti",
+      "Odpovědi z dotazníku OREBRO",
+      "Odpovědi z dotazníku PFSF",
+      "Aktivita kalendáře nálad"
+    ]
+  },
+  "section3": {
+    "title": "3. Účel a právní základ zpracování",
+    "purposes": "Účely:",
+    "purposesList": [
+      "Funkcionalita služby",
+      "Zlepšování funkcí a analýza",
+      "Výslovný souhlas pro zdravotní údaje",
+      "Anonymní statistické sdílení se zaměstnavatelem"
+    ],
+    "legalBases": "Právní základy:",
+    "legalList": [
+      "Čl. 6(1)(b) GDPR plnění smlouvy",
+      "Čl. 6(1)(f) GDPR oprávněný zájem",
+      "Čl. 9(2)(a) GDPR výslovný souhlas"
+    ]
+  },
+  "section4": {
+    "title": "4. Ukládání a zabezpečení údajů",
+    "items": [
+      "Poskytovatel hostingu: Supabase (v souladu s GDPR)",
+      "Šifrování údajů a omezený přístup",
+      "Zálohování a řízení incidentů"
+    ]
+  },
+  "section5": {
+    "title": "5. Uchovávání údajů",
+    "items": [
+      "Údaje aktivních uživatelů: 3 roky od posledního použití",
+      "Anonymní analytické údaje: Na neurčito",
+      "Zprávy zaměstnavateli: Plně anonymizované"
+    ]
+  },
+  "section6": {
+    "title": "6. Vaše práva podle GDPR",
+    "items": [
+      "Přístup, oprava, výmaz",
+      "Omezení, přenositelnost, námitka",
+      "Odvolání souhlasu",
+      "Podání stížnosti (https://uoou.cz)"
+    ]
+  },
+  "section7": {
+    "title": "7. Souhlas se zvláštními kategoriemi údajů",
+    "items": [
+      "Výslovný souhlas se zpracováním zdravotních údajů.",
+      "Odvolání souhlasu kdykoli prostřednictvím e-mailu."
+    ]
+  },
+  "section8": {
+    "title": "8. Sdílení údajů a třetí strany",
+    "items": [
+      "Žádné sdílení s třetími stranami kromě Supabase",
+      "Supabase pod GDPR SCC",
+      "Se zaměstnavatelem sdíleny pouze anonymní statistiky"
+    ]
+  },
+  "section9": {
+    "title": "9. Opatření na ochranu údajů",
+    "items": [
+      "Minimalizace údajů a pseudonymizace",
+      "Šifrování a přístup na základě rolí",
+      "Testování zabezpečení a plány incidentů"
+    ]
+  },
+  "section10": {
+    "title": "10. Kontakt pro dotazy ohledně ochrany osobních údajů",
+    "items": [
+      "Pověřenec pro ochranu osobních údajů: [Vložit DPO nebo Není jmenován]",
+      "E-mail: [Vložit e-mail]",
+      "Poštovní adresa: [Vložit pokud je k dispozici]"
+    ]
+  },
+  "section11": {
+    "title": "11. Aktualizace těchto zásad",
+    "text": "Pravidelně aktualizováno s upozorněním uživatelů."
+  },
+  "consent": {
+    "title": "Potvrzení souhlasu",
+    "text": "Používáním aplikace souhlasíte s těmito podmínkami v souladu s EU GDPR (Nařízení 2016/679)."
+  }
+}

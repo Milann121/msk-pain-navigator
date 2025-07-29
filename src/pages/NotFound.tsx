@@ -2,6 +2,7 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import Footer from '@/components/Footer';
 
 const NotFound = () => {
   const location = useLocation();
@@ -23,6 +24,7 @@ const NotFound = () => {
           {t('notFound.returnHome')}
         </a>
       </div>
+      <Footer />
     </div>
   );
 };
