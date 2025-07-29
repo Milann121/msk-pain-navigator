@@ -7,22 +7,47 @@ const Footer = () => {
 
   return (
     <footer className="bg-blue-600 text-white py-4 px-6">
-      <div className="container mx-auto flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-            <span className="text-blue-600 font-bold text-sm">P</span>
+      <div className="container mx-auto">
+        {/* Desktop layout */}
+        <div className="hidden md:flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+              <span className="text-blue-600 font-bold text-sm">P</span>
+            </div>
+            <span className="font-semibold">Pebee terapeut</span>
           </div>
-          <span className="font-semibold">Pebee terapeut</span>
+          
+          <div className="flex items-center gap-6">
+            <Link 
+              to="/privacy-policy" 
+              className="text-white hover:text-blue-200 transition-colors text-sm"
+            >
+              {t('footer.gdprLink')}
+            </Link>
+            <span className="text-sm">© 2024 {t('footer.copyright')}</span>
+          </div>
         </div>
-        
-        <div className="flex items-center gap-6">
-          <Link 
-            to="/privacy-policy" 
-            className="text-white hover:text-blue-200 transition-colors text-sm"
-          >
-            {t('footer.gdprLink')}
-          </Link>
-          <span className="text-sm">© 2024 {t('footer.copyright')}</span>
+
+        {/* Mobile layout */}
+        <div className="md:hidden space-y-3">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+                <span className="text-blue-600 font-bold text-sm">P</span>
+              </div>
+              <span className="font-semibold">Pebee terapeut</span>
+            </div>
+            <span className="text-sm">© 2024 {t('footer.copyright')}</span>
+          </div>
+          
+          <div>
+            <Link 
+              to="/privacy-policy" 
+              className="text-white hover:text-blue-200 transition-colors text-sm"
+            >
+              {t('footer.gdprLink')}
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
