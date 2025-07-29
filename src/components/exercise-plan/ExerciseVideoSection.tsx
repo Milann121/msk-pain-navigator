@@ -64,12 +64,10 @@ export const ExerciseVideoSection = ({
   // Load existing rating and user swaps on component mount
   useEffect(() => {
     const loadExistingRating = async () => {
-      if (!user || hasBeenSwapped) return; // Don't load rating if exercise was just swapped
+      if (!user) return;
       
-      // Check if this exercise has been swapped before loading rating
-      const isCurrentlySwapped = getSwappedVideoId(video.videoId, assessmentId) !== video.videoId;
-      if (isCurrentlySwapped) {
-        // This is a swapped exercise, don't load any existing rating
+      // Only skip loading rating if this exercise was just swapped in this session
+      if (hasBeenSwapped) {
         setRating(0);
         return;
       }
@@ -79,7 +77,7 @@ export const ExerciseVideoSection = ({
           .from('exercise_feedback')
           .select('feedback_value')
           .eq('user_id', user.id)
-          .eq('video_id', actualVideoId)
+          .eq('video_id', actualVideoId) // Use actualVideoId (which could be swapped)
           .order('created_at', { ascending: false })
           .limit(1);
 
@@ -91,6 +89,8 @@ export const ExerciseVideoSection = ({
         if (existingFeedback && existingFeedback.length > 0) {
           const feedback = existingFeedback[0];
           setRating(feedback.feedback_value || 0);
+        } else {
+          setRating(0); // No existing rating found
         }
       } catch (error) {
         console.error('Error loading existing rating:', error);
@@ -101,7 +101,7 @@ export const ExerciseVideoSection = ({
       loadExistingRating();
       loadUserSwaps(assessmentId);
     }
-  }, [user, actualVideoId, loadUserSwaps, assessmentId, hasBeenSwapped, getSwappedVideoId, video.videoId]);
+  }, [user, actualVideoId, loadUserSwaps, assessmentId, hasBeenSwapped]);
 
   // Handle star click
   const handleStarClick = async (starValue: number) => {
