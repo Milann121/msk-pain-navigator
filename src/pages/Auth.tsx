@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { Navigate } from 'react-router-dom';
 import { useToast } from '@/components/ui/use-toast';
 import { useAuth } from '@/contexts/AuthContext';
-import Footer from '@/components/Footer';
 import {
   Card,
   CardContent,
@@ -370,7 +369,6 @@ const Auth = () => {
           </CardContent>
         </Card>
       </div>
-      <Footer />
     </div>
   );
 };

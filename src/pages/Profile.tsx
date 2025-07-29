@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/contexts/AuthContext';
 import { Navigate } from 'react-router-dom';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import { ProfileInfo } from '@/components/profile/ProfileInfo';
 import { ProfileFormPopup } from '@/components/profile/ProfileFormPopup';
 import { GoalsContainer } from '@/components/profile/GoalsContainer';
@@ -99,7 +98,6 @@ const Profile = () => {
         onProfileSaved={handleProfileSaved}
         onGoalsChange={handleGoalsChangeFromPopup}
       />
-      <Footer />
     </div>
   );
 };

@@ -2,7 +2,6 @@
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import { useTranslation } from 'react-i18next';
 import { AssessmentProvider, useAssessment, AssessmentStage } from '@/contexts/AssessmentContext';
 import LoadingView from '@/components/assessment/LoadingView';
@@ -104,7 +103,6 @@ const AssessmentContent = () => {
           )}
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
