@@ -295,6 +295,84 @@ export const useProfileEditing = (
     }
   };
 
+  const handleDelete = async (field: string) => {
+    if (!confirm(t('profile.confirmDelete', { field }))) {
+      return;
+    }
+
+    try {
+      let updateData: any = {};
+      
+      if (field === 'jobSection') {
+        // Clear all job-related fields
+        updateData = {
+          department_id: null,
+          job_type: null,
+          job_properties: null
+        };
+      } else {
+        // Map field names to database column names
+        const fieldMapping: { [key: string]: string } = {
+          firstName: 'first_name',
+          lastName: 'last_name',
+          gender: 'gender',
+          yearOfBirth: 'year_birth'
+        };
+        
+        const dbField = fieldMapping[field] || field;
+        updateData[dbField] = null;
+      }
+
+      const { error } = await supabase
+        .from('user_profiles')
+        .upsert(
+          { user_id: user.id, ...updateData },
+          { onConflict: 'user_id' }
+        );
+
+      if (error) {
+        console.error('Error deleting field:', error);
+        toast({
+          title: t('profile.error'),
+          description: t('profile.deleteError'),
+          variant: 'destructive',
+        });
+        return;
+      }
+
+      // Update local data
+      const updatedData: any = {};
+      if (field === 'jobSection') {
+        updatedData.departmentId = '';
+        updatedData.jobType = '';
+        updatedData.jobProperties = [];
+      } else {
+        updatedData[field] = '';
+      }
+      
+      updateUserData(updatedData);
+      
+      toast({
+        title: t('profile.success'),
+        description: t('profile.deleteSuccess'),
+      });
+
+      // Reset editing state
+      setEditingField(null);
+      setTempValue('');
+      setTempDepartmentId('');
+      setTempJobType('');
+      setTempJobProperties([]);
+    } catch (error) {
+      console.error('Error deleting field:', error);
+      toast({
+        title: t('profile.error'),
+        description: t('profile.deleteError'),
+        variant: 'destructive',
+      });
+    }
+  };
+
   const handleCancel = () => {
     setEditingField(null);
     setTempValue('');
@@ -312,6 +390,7 @@ export const useProfileEditing = (
     handleEdit,
     handleSave,
     handleCancel,
+    handleDelete,
     setTempValue,
     setTempDepartmentId,
     setTempJobType,

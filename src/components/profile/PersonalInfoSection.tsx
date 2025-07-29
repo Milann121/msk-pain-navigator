@@ -21,6 +21,7 @@ interface PersonalInfoSectionProps {
   onTempDepartmentChange: (value: string) => void;
   onTempJobTypeChange: (value: string) => void;
   onTempJobPropertiesChange: (value: string[]) => void;
+  onDelete: (field: string) => void;
 }
 
 export const PersonalInfoSection: React.FC<PersonalInfoSectionProps> = ({
@@ -36,7 +37,8 @@ export const PersonalInfoSection: React.FC<PersonalInfoSectionProps> = ({
   onTempValueChange,
   onTempDepartmentChange,
   onTempJobTypeChange,
-  onTempJobPropertiesChange
+  onTempJobPropertiesChange,
+  onDelete
 }) => {
   const { t } = useTranslation();
 
@@ -54,6 +56,7 @@ export const PersonalInfoSection: React.FC<PersonalInfoSectionProps> = ({
           onSave={onSave}
           onCancel={onCancel}
           onTempValueChange={onTempValueChange}
+          onDelete={onDelete}
         />
       </div>
       
@@ -68,6 +71,7 @@ export const PersonalInfoSection: React.FC<PersonalInfoSectionProps> = ({
           onSave={onSave}
           onCancel={onCancel}
           onTempValueChange={onTempValueChange}
+          onDelete={onDelete}
         />
       </div>
 
@@ -90,6 +94,7 @@ export const PersonalInfoSection: React.FC<PersonalInfoSectionProps> = ({
           onSave={onSave}
           onCancel={onCancel}
           onTempValueChange={onTempValueChange}
+          onDelete={onDelete}
         />
       </div>
       
@@ -102,6 +107,7 @@ export const PersonalInfoSection: React.FC<PersonalInfoSectionProps> = ({
           onSave={onSave}
           onCancel={onCancel}
           onTempValueChange={onTempValueChange}
+          onDelete={onDelete}
         />
       </div>
       
@@ -120,6 +126,7 @@ export const PersonalInfoSection: React.FC<PersonalInfoSectionProps> = ({
           onTempDepartmentChange={onTempDepartmentChange}
           onTempJobTypeChange={onTempJobTypeChange}
           onTempJobPropertiesChange={onTempJobPropertiesChange}
+          onDelete={onDelete}
         />
       </div>
     </>

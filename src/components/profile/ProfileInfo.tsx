@@ -20,6 +20,7 @@ export const ProfileInfo = () => {
     handleEdit,
     handleSave,
     handleCancel,
+    handleDelete,
     setTempValue,
     setTempDepartmentId,
     setTempJobType,
@@ -72,6 +73,7 @@ export const ProfileInfo = () => {
             onTempDepartmentChange={setTempDepartmentId}
             onTempJobTypeChange={setTempJobType}
             onTempJobPropertiesChange={setTempJobProperties}
+            onDelete={handleDelete}
           />
         </div>
       </CardContent>
