@@ -26,6 +26,7 @@ import StrengthProgram from "./pages/StrengthProgram";
 import Yoga from "./pages/Yoga";
 import YogaProgram from "./pages/YogaProgram";
 import CookieConsent from "./components/CookieConsent";
+import PrototypeNotification from "./components/PrototypeNotification";
 
 // Create QueryClient instance outside of component to prevent recreation
 const queryClient = new QueryClient({
@@ -41,6 +42,7 @@ const App: React.FC = () => (
   <QueryClientProvider client={queryClient}>
     <BrowserRouter>
       <AuthProvider>
+        <PrototypeNotification />
         <Toaster />
         <Sonner />
         <Routes>

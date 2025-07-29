@@ -50,5 +50,8 @@
   "cookie": {
     "message": "Používáme cookies ke zlepšení vaší zkušenosti a poskytování personalizovaného obsahu. Pokračováním v používání našich stránek souhlasíte s používáním cookies.",
     "accept": "Přijmout cookies"
+  },
+  "prototype": {
+    "message": "Toto je prototyp"
   }
 }
