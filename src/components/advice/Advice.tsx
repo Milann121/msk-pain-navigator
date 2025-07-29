@@ -59,53 +59,49 @@ export const Advice: React.FC<AdviceProps> = ({ adviceId }) => {
 
   return (
     <Card data-advice-card className="h-full border-gray-200 hover:shadow-md transition-shadow flex flex-col">
-      <CardHeader className="pb-3">
-        <div className="flex items-start justify-between mb-3">
-          <div className="flex-shrink-0">
-            <div className="w-12 h-12 rounded-lg border border-gray-200 bg-gray-50 overflow-hidden shadow-sm flex items-center justify-center">
-              {advice.adviceImageUrl ? (
-                <img
-                  src={advice.adviceImageUrl}
-                  alt={t(`advice.${advice.adviceTitle}`)}
-                  className="w-full h-full object-cover"
-                />
-              ) : (
-                <div className="w-full h-full bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
-                  <span className="text-blue-600 text-xs font-medium">📋</span>
-                </div>
-              )}
-            </div>
+      {/* Upper half - Image with priority badge */}
+      <div className="relative h-1/2 rounded-t-lg overflow-hidden">
+        {advice.adviceImageUrl ? (
+          <img
+            src={advice.adviceImageUrl}
+            alt={t(`advice.${advice.adviceTitle}`)}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <div className="w-full h-full bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
+            <span className="text-blue-600 text-2xl font-medium">📋</span>
           </div>
-          <Badge className={`${getPriorityColor(t(`advice.${advice.advicePriority}`))} font-medium text-xs`}>
-            {t(`advice.${advice.advicePriority}`)}
-          </Badge>
-        </div>
-        
-        <div>
+        )}
+        <Badge className={`absolute top-3 right-3 ${getPriorityColor(t(`advice.${advice.advicePriority}`))} font-medium text-xs`}>
+          {t(`advice.${advice.advicePriority}`)}
+        </Badge>
+      </div>
+
+      {/* Lower half - Text content */}
+      <div className="h-1/2 p-4 flex flex-col space-y-2">
+        <div className="flex-1 space-y-2">
           <CardTitle className="text-base font-semibold text-gray-900 leading-tight">
             {t(`advice.${advice.adviceTitle}`)}
           </CardTitle>
+          
           {advice.adviceSubtitle && advice.adviceSubtitle.trim() && (
-            <p className="text-xs text-gray-600 mt-1">{t(`advice.${advice.adviceSubtitle}`)}</p>
+            <p className="text-xs text-gray-600">{t(`advice.${advice.adviceSubtitle}`)}</p>
           )}
+          
           {advice.adviceRule && (
-            <div className="mt-2">
+            <div>
               <span className="text-xs font-medium text-blue-900">{t('advice.rule')}: </span>
               <span className="text-xs text-blue-800">{t(`advice.${advice.adviceRule}`)}</span>
             </div>
           )}
-        </div>
-      </CardHeader>
-      
-      <CardContent className="space-y-3 flex-1 flex flex-col">
-        <div className="flex-1">
+          
           <p className="text-gray-700 text-xs leading-relaxed">
             {t(`advice.${advice.adviceDescription}`)}
           </p>
         </div>
         
         {advice.adviceLink && advice.adviceLink.trim() && (
-          <div className="pt-2 border-t border-gray-100 mt-auto">
+          <div className="pt-2 border-t border-gray-100">
             <Button
               variant="outline"
               size="sm"
@@ -117,7 +113,7 @@ export const Advice: React.FC<AdviceProps> = ({ adviceId }) => {
             </Button>
           </div>
         )}
-      </CardContent>
+      </div>
     </Card>
   );
 };
