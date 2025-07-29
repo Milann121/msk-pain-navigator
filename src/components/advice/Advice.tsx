@@ -32,17 +32,25 @@ export const Advice: React.FC<AdviceProps> = ({ adviceId }) => {
     const normalizedPriority = priority.toLowerCase();
     
     // High priority variants - RED
-    if (normalizedPriority.includes('vysoká') || normalizedPriority.includes('vysoká') || normalizedPriority === 'high') {
+    if (normalizedPriority.includes('vysoká') || 
+        normalizedPriority.includes('high') || 
+        normalizedPriority === 'high') {
       return 'bg-red-50 text-red-700 border-red-200 hover:bg-red-100';
     }
     
     // Medium priority variants - BLUE  
-    if (normalizedPriority.includes('stredná') || normalizedPriority.includes('střední') || normalizedPriority === 'medium') {
+    if (normalizedPriority.includes('stredná') || 
+        normalizedPriority.includes('střední') || 
+        normalizedPriority.includes('medium') || 
+        normalizedPriority === 'medium') {
       return 'bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100';
     }
     
     // Low priority variants - YELLOW
-    if (normalizedPriority.includes('nízka') || normalizedPriority.includes('nízká') || normalizedPriority === 'low') {
+    if (normalizedPriority.includes('nízka') || 
+        normalizedPriority.includes('nízká') || 
+        normalizedPriority.includes('low') || 
+        normalizedPriority === 'low') {
       return 'bg-yellow-50 text-yellow-700 border-yellow-200 hover:bg-yellow-100';
     }
     
