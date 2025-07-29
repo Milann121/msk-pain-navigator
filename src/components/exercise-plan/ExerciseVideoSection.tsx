@@ -39,6 +39,7 @@ export const ExerciseVideoSection = ({
   const [rating, setRating] = useState<number>(0);
   const [hoveredRating, setHoveredRating] = useState<number>(0);
   const [showSwapDialog, setShowSwapDialog] = useState(false);
+  const [hasBeenSwapped, setHasBeenSwapped] = useState(false);
 
   const { user } = useAuth();
   const { toast: toastHook } = useToast();
@@ -63,7 +64,7 @@ export const ExerciseVideoSection = ({
   // Load existing rating and user swaps on component mount
   useEffect(() => {
     const loadExistingRating = async () => {
-      if (!user) return;
+      if (!user || hasBeenSwapped) return; // Don't load rating if exercise was just swapped
       
       try {
         const { data: existingFeedback, error } = await supabase
@@ -92,7 +93,7 @@ export const ExerciseVideoSection = ({
       loadExistingRating();
       loadUserSwaps(assessmentId);
     }
-  }, [user, actualVideoId, loadUserSwaps, assessmentId]);
+  }, [user, actualVideoId, loadUserSwaps, assessmentId, hasBeenSwapped]);
 
   // Handle star click
   const handleStarClick = async (starValue: number) => {
@@ -149,6 +150,8 @@ export const ExerciseVideoSection = ({
     const success = await swapExercise(video.videoId, randomAlternative, assessmentId);
     if (success) {
       setRating(0); // Reset rating for the new exercise
+      setHoveredRating(0); // Reset hovered rating
+      setHasBeenSwapped(true); // Mark as swapped to prevent loading existing rating
       // Reload the page to show the updated program with swapped exercise
       window.location.reload();
     }
