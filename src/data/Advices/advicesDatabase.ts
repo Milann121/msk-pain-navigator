@@ -67,7 +67,7 @@ export const advices: Advice[] = [
     advicePriority: "low",
     adviceRule: "lumbarPadBreaks",
     adviceDescription: "lumbarPadDescription",
-    adviceImageUrl: "",
+    adviceImageUrl: "public/lovable-uploads/adviceImages/advice4.png",
     adviceLink:"",
     bodyParts: ['lower-back','middle-back'],
     mechanisms: ['nociceptive', 'neuropathic'],
