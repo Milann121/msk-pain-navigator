@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/contexts/AuthContext';
 import { Navigate } from 'react-router-dom';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import { SpeechHistory } from '@/components/speech/SpeechHistory';
 
 const SpeechHistoryPage = () => {
@@ -32,6 +33,7 @@ const SpeechHistoryPage = () => {
           <SpeechHistory />
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

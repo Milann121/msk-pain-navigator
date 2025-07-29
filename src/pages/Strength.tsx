@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { ArrowLeft } from "lucide-react";
 import { StrengthFilters } from "@/components/strength/StrengthFilters";
 import { StrengthRecommendation } from "@/components/strength/StrengthRecommendation";
@@ -46,6 +47,7 @@ const Strength = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

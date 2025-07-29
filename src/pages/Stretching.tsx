@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Clock, ArrowLeft } from "lucide-react";
@@ -185,6 +186,7 @@ const Stretching = () => {
             </div>}
         </div>
       </div>
+      <Footer />
     </div>;
 };
 export default Stretching;

@@ -8,6 +8,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { ArrowLeft } from 'lucide-react';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import { OrebroAnswers } from '@/types/orebro';
 import { calculateOrebroScore } from '@/utils/orebro-scoring';
 import { isCurrentQuestionAnswered } from '@/utils/orebro-validation';
@@ -162,6 +163,7 @@ const OrebroQuestionnaire = () => {
           </CardFooter>
         </Card>
       </div>
+      <Footer />
     </>
   );
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams, Navigate } from "react-router-dom";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { YogaProgramIntro } from "@/components/yoga/YogaProgramIntro";
 import { yogaPrograms } from "@/data/yogaPrograms";
 
@@ -17,6 +18,7 @@ const YogaProgram: React.FC = () => {
     <div className="min-h-screen flex flex-col">
       <Header />
       <YogaProgramIntro program={program} />
+      <Footer />
     </div>
   );
 };

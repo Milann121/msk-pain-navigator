@@ -286,10 +286,11 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-50 to-white py-12 px-4 sm:px-6 lg:px-8">
-      <div className="w-full max-w-md">
-        <AuthHeader />
-        
+    <div className="min-h-screen flex flex-col">
+      <div className="flex-1 flex items-center justify-center bg-gradient-to-b from-blue-50 to-white py-12 px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-md">
+          <AuthHeader />
+          
         <Card>
           <CardHeader>
             <CardTitle>{isSignUp ? t('auth.signUp') : t('auth.signIn')}</CardTitle>
@@ -369,6 +370,7 @@ const Auth = () => {
             </div>
           </CardContent>
         </Card>
+      </div>
       </div>
       <Footer />
     </div>

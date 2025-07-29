@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import PSFSQuestion from '@/components/questionnaire/PSFSQuestion';
 import { psfsQuestion } from '@/data/questionnaires/general/psfs';
 import { ArrowLeft, Send } from 'lucide-react';
@@ -101,6 +102,7 @@ const PsfsQuestionnaire = () => {
           </CardContent>
         </Card>
       </div>
+      <Footer />
     </div>
   );
 };

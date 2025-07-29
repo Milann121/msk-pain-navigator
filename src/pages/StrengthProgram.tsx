@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams, Navigate } from "react-router-dom";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { StrengthProgramIntro } from "@/components/strength/StrengthProgramIntro";
 import { strengthPrograms } from "@/data/strengthPrograms";
 
@@ -17,6 +18,7 @@ const StrengthProgram: React.FC = () => {
     <div className="min-h-screen flex flex-col">
       <Header />
       <StrengthProgramIntro program={program} />
+      <Footer />
     </div>
   );
 };
