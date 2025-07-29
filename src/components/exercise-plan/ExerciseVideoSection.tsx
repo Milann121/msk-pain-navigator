@@ -163,8 +163,7 @@ export const ExerciseVideoSection = ({
       setRating(0); // Reset rating for the new exercise
       setHoveredRating(0); // Reset hovered rating
       setHasBeenSwapped(true); // Mark as swapped to prevent loading existing rating
-      // Reload the page to show the updated program with swapped exercise
-      window.location.reload();
+      // No page reload needed - the component will update automatically via state changes
     }
     setShowSwapDialog(false);
   };
