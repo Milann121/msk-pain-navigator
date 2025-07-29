@@ -9,6 +9,7 @@ import { ProfileFormPopup } from '@/components/profile/ProfileFormPopup';
 import { GoalsContainer } from '@/components/profile/GoalsContainer';
 import { useProfileCompletion } from '@/hooks/useProfileCompletion';
 import { usePainAreaSync } from '@/hooks/usePainAreaSync';
+import { useDownloadPersonalData } from '@/hooks/useDownloadPersonalData';
 
 const Profile = () => {
   const { t } = useTranslation();
@@ -21,6 +22,8 @@ const Profile = () => {
   
   // Sync pain areas with database
   usePainAreaSync();
+  
+  const { downloadPersonalData, isDownloading } = useDownloadPersonalData();
 
   const [popupGoals, setPopupGoals] = useState<{
     weeklyExerciseGoal: number | null;
@@ -68,6 +71,17 @@ const Profile = () => {
           <div className="grid grid-cols-1 gap-6 mb-6">
             {/* User Profile Info */}
             <ProfileInfo />
+            
+            {/* Download Personal Data Link */}
+            <div className="flex justify-end">
+              <button
+                onClick={downloadPersonalData}
+                disabled={isDownloading}
+                className="text-sm text-primary hover:text-primary/80 underline disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isDownloading ? t('profile.downloading') : t('profile.downloadPersonalData')}
+              </button>
+            </div>
             
             {/* Goals Container */}
             <GoalsContainer 

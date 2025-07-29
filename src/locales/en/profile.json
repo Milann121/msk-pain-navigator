@@ -106,5 +106,12 @@
   "deleteSuccess": "Data Deleted",
   "deleteSuccessMessage": "{{field}} has been successfully deleted",
   "deleteError": "Delete Failed",
-  "deleteErrorMessage": "Failed to delete data. Please try again."
+  "deleteErrorMessage": "Failed to delete data. Please try again.",
+  "downloadPersonalData": "Download Personal Data",
+  "downloading": "Downloading...",
+  "downloadSuccess": "Personal data downloaded successfully",
+  "downloadError": "Failed to download personal data",
+  "exportedAt": "Exported at",
+  "jobInfo": "Job Information",
+  "emailAddress": "Email Address"
 }

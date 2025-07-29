@@ -106,5 +106,12 @@
   "deleteSuccess": "Údaje vymazané",
   "deleteSuccessMessage": "{{field}} bolo úspešne vymazané",
   "deleteError": "Vymazanie zlyhalo",
-  "deleteErrorMessage": "Nepodarilo sa vymazať údaje. Skúste to prosím znovu."
+  "deleteErrorMessage": "Nepodarilo sa vymazať údaje. Skúste to prosím znovu.",
+  "downloadPersonalData": "Stiahnuť osobné údaje",
+  "downloading": "Sťahujem...",
+  "downloadSuccess": "Osobné údaje boli úspešne stiahnuté",
+  "downloadError": "Nepodarilo sa stiahnuť osobné údaje",
+  "exportedAt": "Exportované",
+  "jobInfo": "Informácie o práci",
+  "emailAddress": "Emailová adresa"
 }
