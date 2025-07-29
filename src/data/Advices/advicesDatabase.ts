@@ -53,7 +53,7 @@ export const advices: Advice[] = [
     advicePriority: "medium",
     adviceRule:"",
     adviceDescription: "sleepPositionNeckDescription",
-    adviceImageUrl: "",
+    adviceImageUrl: "public/lovable-uploads/adviceImages/advice3.png",
     adviceLink:"",
     bodyParts: ['neck', "middle-back"],
     mechanisms: ['nociceptive', 'neuropathic'],
