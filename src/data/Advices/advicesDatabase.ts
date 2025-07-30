@@ -95,7 +95,7 @@ export const advices: Advice[] = [
     advicePriority: "high",
     adviceRule: "supermanSleepRule",
     adviceDescription: "supermanSleepDescription",
-    adviceImageUrl: "",
+    adviceImageUrl: "public/lovable-uploads/adviceImages/advice6.png",
     adviceLink:"",
     bodyParts: ['upper limb','shoulder'],
     mechanisms: ['nociceptive', 'neuropathic'],
