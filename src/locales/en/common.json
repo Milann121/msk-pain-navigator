@@ -53,5 +53,8 @@
   },
   "prototype": {
     "message": "This is a prototype"
-  }
+  },
+  "submit": "Submit",
+  "success": "Success",
+  "error": "Error"
 }

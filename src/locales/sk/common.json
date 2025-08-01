@@ -53,5 +53,8 @@
   },
   "prototype": {
     "message": "Toto je prototyp"
-  }
+  },
+  "submit": "Odoslať",
+  "success": "Úspech",
+  "error": "Chyba"
 }
