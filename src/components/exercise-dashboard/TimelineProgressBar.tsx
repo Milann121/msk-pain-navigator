@@ -17,33 +17,24 @@ export const TimelineProgressBar: React.FC<TimelineProgressBarProps> = ({ assess
   // Calculate ball position along the curved path
   const ballPosition = Math.min(progressPercentage, 100);
   
-  // Create SVG path for S-shaped curved journey
+  // Create SVG path for simple left-to-right curved journey
   const svgWidth = isMobile ? 200 : 160;
   const svgHeight = isMobile ? 40 : 48;
   const pathStartX = 10;
   const pathEndX = svgWidth - 10;
-  const pathMidX = svgWidth / 2;
-  const pathStartY = svgHeight * 0.3;
-  const pathEndY = svgHeight * 0.7;
+  const pathY = svgHeight / 2;
+  const controlY = pathY - 12; // Control point for gentle curve
   
-  // Create S-shaped path
-  const curvePath = `M ${pathStartX} ${pathStartY} Q ${pathMidX} ${pathStartY - 8} ${pathMidX} ${svgHeight / 2} Q ${pathMidX} ${pathEndY + 8} ${pathEndX} ${pathEndY}`;
+  // Create simple curved path from left to right
+  const curvePath = `M ${pathStartX} ${pathY} Q ${svgWidth / 2} ${controlY} ${pathEndX} ${pathY}`;
   
-  // Calculate ball position along the S-shaped path
+  // Calculate ball position along the curved path
   const progress = ballPosition / 100;
-  let ballX, ballY;
-  
-  if (progress <= 0.5) {
-    // First half of the S curve
-    const t = progress * 2;
-    ballX = pathStartX + (pathMidX - pathStartX) * t;
-    ballY = pathStartY + (svgHeight / 2 - pathStartY) * (2 * t - t * t);
-  } else {
-    // Second half of the S curve
-    const t = (progress - 0.5) * 2;
-    ballX = pathMidX + (pathEndX - pathMidX) * t;
-    ballY = svgHeight / 2 + (pathEndY - svgHeight / 2) * (t * t);
-  }
+  // Simple linear interpolation for X position
+  const ballX = pathStartX + (pathEndX - pathStartX) * progress;
+  // Quadratic curve calculation for Y position
+  const t = progress;
+  const ballY = pathY + (controlY - pathY) * 4 * t * (1 - t);
 
   return (
     <div className={`flex flex-col items-center ${isMobile ? 'w-full mt-3' : 'flex-1 mx-4'}`}>
@@ -73,17 +64,10 @@ export const TimelineProgressBar: React.FC<TimelineProgressBarProps> = ({ assess
           {/* Phase markers */}
           {phases.map((phase, index) => {
             const phaseProgress = phase.weeksEnd / totalWeeks;
-            let markerX, markerY;
-            
-            if (phaseProgress <= 0.5) {
-              const t = phaseProgress * 2;
-              markerX = pathStartX + (pathMidX - pathStartX) * t;
-              markerY = pathStartY + (svgHeight / 2 - pathStartY) * (2 * t - t * t);
-            } else {
-              const t = (phaseProgress - 0.5) * 2;
-              markerX = pathMidX + (pathEndX - pathMidX) * t;
-              markerY = svgHeight / 2 + (pathEndY - svgHeight / 2) * (t * t);
-            }
+            // Calculate marker position along the simple curved path
+            const markerX = pathStartX + (pathEndX - pathStartX) * phaseProgress;
+            const t = phaseProgress;
+            const markerY = pathY + (controlY - pathY) * 4 * t * (1 - t);
             
             return (
               <circle
