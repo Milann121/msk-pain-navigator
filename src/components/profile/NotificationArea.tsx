@@ -17,11 +17,9 @@ export const NotificationArea = () => {
   const [isRecording, setIsRecording] = useState(false);
   const [showRecordingActions, setShowRecordingActions] = useState(false);
   const isMobile = useIsMobile();
-  const scrollAreaRef = useRef<HTMLDivElement>(null);
+  const scrollAreaRef = useRef<React.ElementRef<typeof ScrollArea>>(null);
   const whatsAppButtonRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const iconsContainerRef = useRef<HTMLDivElement>(null);
-  const [iconShift, setIconShift] = useState(0);
   const recorderRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<Blob[]>([]);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
@@ -35,45 +33,26 @@ export const NotificationArea = () => {
     loading
   } = useNotificationReminders();
 
-  // Auto-scroll to center expanded icon on mobile and handle overflow for desktop/tablet
+  // Auto-scroll to center expanded icon
   useEffect(() => {
-    if (isMobile && isWhatsAppExpanded && whatsAppButtonRef.current && scrollAreaRef.current) {
-      const scrollContainer = scrollAreaRef.current;
-      const buttonRect = whatsAppButtonRef.current.getBoundingClientRect();
-      const containerRect = scrollContainer.getBoundingClientRect();
+    if (isWhatsAppExpanded && whatsAppButtonRef.current && scrollAreaRef.current) {
+      const viewport = scrollAreaRef.current.querySelector('[data-radix-scroll-area-viewport]') as HTMLElement;
+      if (viewport) {
+        const buttonRect = whatsAppButtonRef.current.getBoundingClientRect();
+        const viewportRect = viewport.getBoundingClientRect();
 
-      // Calculate the position to center the expanded icon with its children
-      const buttonCenter = buttonRect.left - containerRect.left + buttonRect.width / 2;
-      const containerCenter = containerRect.width / 2;
-      const scrollLeft = scrollContainer.scrollLeft + buttonCenter - containerCenter;
-      scrollContainer.scrollTo({
-        left: Math.max(0, scrollLeft),
-        behavior: 'smooth'
-      });
-    }
-
-    // For desktop/tablet, calculate safe shift or use scroll when content would overflow
-    if (!isMobile && isWhatsAppExpanded && containerRef.current && iconsContainerRef.current) {
-      const container = containerRef.current;
-      const iconsContainer = iconsContainerRef.current;
-      const containerWidth = container.offsetWidth - 16; // Account for padding
-      const expandedWidth = 120; // Approximate width of expanded WhatsApp buttons
-
-      // Calculate total content width when expanded
-      const iconsWidth = iconsContainer.scrollWidth;
-      const totalExpandedWidth = iconsWidth + expandedWidth;
-      if (totalExpandedWidth > containerWidth) {
-        // Content would overflow, so we limit shift to prevent icons going outside banner
-        const maxShift = Math.min(0, containerWidth - totalExpandedWidth);
-        const safeShift = Math.max(maxShift, -50); // Limit maximum shift to prevent icons disappearing completely
-        setIconShift(safeShift);
-      } else {
-        setIconShift(0);
+        // Calculate the position to center the expanded icon with its children
+        const buttonCenter = buttonRect.left - viewportRect.left + buttonRect.width / 2;
+        const viewportCenter = viewportRect.width / 2;
+        const scrollLeft = viewport.scrollLeft + buttonCenter - viewportCenter;
+        
+        viewport.scrollTo({
+          left: Math.max(0, scrollLeft),
+          behavior: 'smooth'
+        });
       }
-    } else if (!isWhatsAppExpanded) {
-      setIconShift(0);
     }
-  }, [isWhatsAppExpanded, isMobile]);
+  }, [isWhatsAppExpanded]);
 
   // Cleanup on unmount
   useEffect(() => {
@@ -200,9 +179,7 @@ export const NotificationArea = () => {
 
   // Don't show progress icon if no active programs
   const showProgressIcon = hasActivePrograms;
-  const iconContainer = <div className="flex items-center justify-center gap-6 min-w-max px-2 touch-pan-x transition-transform duration-300 ease-out" ref={iconsContainerRef} style={{
-    transform: `translateX(${iconShift}px)`
-  }}>
+  const iconContainer = <div className="flex items-center justify-center gap-6 min-w-max px-2 touch-pan-x">
       {/* Weekly Progress Icon */}
       {showProgressIcon && <button onClick={handleProgressClick} className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100 ${!isGoalMet ? 'breathing-icon' : ''}`} aria-label="Weekly Progress">
           <TrendingUp className="w-5 h-5 text-black" />
@@ -261,17 +238,13 @@ export const NotificationArea = () => {
       </div>
     </div>;
   return <div className="py-px px-px rounded-none bg-slate-50">
-      <div className="rounded-lg border border-gray-200 p-2 shadow-sm bg-blue-100 py-0 px-[8px] my-px w-full md:w-[370px] overflow-hidden" ref={containerRef}>
-        {isMobile ? <div className="overflow-x-auto overflow-y-hidden scrollbar-hide" style={{
-        scrollbarWidth: 'none',
-        msOverflowStyle: 'none',
-        WebkitOverflowScrolling: 'touch',
-        touchAction: 'pan-x'
-      }} ref={scrollAreaRef}>
+      <div className="rounded-lg border border-gray-200 p-2 shadow-sm bg-blue-100 py-0 px-[8px] my-px w-full md:w-[370px]" ref={containerRef}>
+        <ScrollArea className="w-full" ref={scrollAreaRef}>
+          <div className="flex">
             {iconContainer}
-          </div> : <div className="overflow-hidden">
-            {iconContainer}
-          </div>}
+          </div>
+          <ScrollBar orientation="horizontal" />
+        </ScrollArea>
       </div>
     </div>;
 };
