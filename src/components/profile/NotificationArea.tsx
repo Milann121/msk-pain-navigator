@@ -256,6 +256,9 @@ export const NotificationArea = () => {
         <Activity className="w-5 h-5 text-green-600" />
       </button>
 
+      {/* Light vertical divider */}
+      <div className="w-px h-6 bg-border/50" />
+
       {/* Speech Recording Icon */}
       <div className="relative flex flex-col items-center">
         <button 
