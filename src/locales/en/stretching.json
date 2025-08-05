@@ -33,6 +33,11 @@
       "description": "Start your day with energizing stretches to wake up your body",
       "description2": "Energy boost"
     },
+    "morning_routine": {
+      "title": "Morning Routine",
+      "description": "Evidence-based morning stretching with pain-pattern analysis",
+      "description2": "Complete awakening"
+    },
     "evening_relaxation": {
       "title": "Evening Wind Down",
       "description": "Calming stretches to help you relax and prepare for sleep",

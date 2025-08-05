@@ -151,5 +151,67 @@
         }
       }
     }
+  },
+  "morningRoutine": {
+    "title": "Ranná rutina",
+    "description": "Vedecky podložená ranná rutina natiahnutí s analýzou bolestivých vzorov, navrhnutá na prebúdzanie tela a riešenie bežných pohybových obmedzení.",
+    "listDescription": {
+      "1": "Natiahnutie mačka-krava pre mobilitu chrbtice a aktiváciu jadra",
+      "2": "Stojace bočné úklony na posúdenie laterálnych obmedzení trupu",
+      "3": "Predklon pre flexibilitu hamstringov a zadného reťazca",
+      "4": "Natiahnutie flexorov bokov proti dlhodobému sedeniu",
+      "5": "Natiahnutie lýtok pre mobilitu dolných končatín a úľavu plantárnej fascie",
+      "6": "Pozícia psieho dolů pre celotělové natiahnutie zadného reťazca"
+    },
+    "exercises": {
+      "catCow": {
+        "title": "Natiahnutie mačka-krava",
+        "description": "Na rukách a kolenách striedavo zaoblujte chrbát nahor (mačka) a spustite brucho k prohnutiu chrbta (krava). Tento pohyb pohybuje chrbticu cez flexiu a extenziu, natiahuje brušné, ramenné, krčné, gluteálne a kyčelné flexorové svaly.",
+        "video": {
+          "title": "Mobilita chrbtice mačka-krava",
+          "description": "Pohyb flexie a extenzie chrbtice pre rannú mobilitu"
+        }
+      },
+      "sideBend": {
+        "title": "Stojaci bočný úklon",
+        "description": "Stojte s nohami spolu, zdvihnite obe ruky, potom spustite jednu ruku a naklonite telo k tejto strane. Natiahuje šikmé svaly a latissimus, pomáha detekovať jednostranné obmedzenia.",
+        "video": {
+          "title": "Stojaca laterálna flexia",
+          "description": "Laterálne natiahnutie trupu pre šikmé svaly a mobilitu chrbtice"
+        }
+      },
+      "forwardBend": {
+        "title": "Stojaci predklon",
+        "description": "Stojte vzpriamene, kĺbte sa v bokoch a skláňajte sa dopredu k prstom na nohách s mierne pokrčenými kolenami. Toto natiahnutie cieli na hamstringy, lýtka a dolnú časť chrbta, pomáha posúdiť neurálne napätie.",
+        "video": {
+          "title": "Stojaci predklon",
+          "description": "Natiahnutie hamstringov a zadného reťazca s neurálnym posúdením"
+        }
+      },
+      "hipFlexor": {
+        "title": "Natiahnutie flexorov bokov v kľaku",
+        "description": "Z pozície polkľaku posuňte zadné koleno mierne dozadu, stlačte gluteálny sval kľačiacej nohy a naklonite panvu dopredu. Natiahuje iliopsoas a rieši predné nakloenie panvy.",
+        "video": {
+          "title": "Natiahnutie flexorov bokov v kľaku",
+          "description": "Cielené natiahnutie iliopsoas pre mobilitu bokov a postúru"
+        }
+      },
+      "calfStretch": {
+        "title": "Natiahnutie lýtok",
+        "description": "Držte sa opory, postavte jednu nohu dozadu s pätou na zemi a naklonite sa dopredu, kým necítite natiahnutie v lýtku. Cieli na gastrocnemius a soleus svaly pre mobilitu členka.",
+        "video": {
+          "title": "Stojace natiahnutie lýtok",
+          "description": "Natiahnutie gastrocnemius a soleus pre mobilitu dolných končatín"
+        }
+      },
+      "downwardDog": {
+        "title": "Pozícia psieho dolů",
+        "description": "Z pozície kliku zdvihnite boky na vytvorenie obráteného V, tlačte päty k zemi a držte ruky rovné. Globálne natiahnutie zadného reťazca pre ramená, hamstringy, lýtka a gluteálne svaly.",
+        "video": {
+          "title": "Pozícia psieho dolů",
+          "description": "Celotělové natiahnutie zadného reťazca a mobilita ramien"
+        }
+      }
+    }
   }
 }

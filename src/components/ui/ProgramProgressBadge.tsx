@@ -19,6 +19,7 @@ const PROGRAM_TYPE_MAPPING = {
   stretching: {
     "neck-shoulder": "stretchingPrograms.neckShoulder.title",
     "morning-flow": "stretchingPrograms.morningFlow.title", 
+    "morning-routine": "stretchingPrograms.morningRoutine.title",
     "evening-relaxation": "stretchingPrograms.eveningRelaxation.title",
     "post-workout": "stretchingPrograms.postWorkout.title"
   },

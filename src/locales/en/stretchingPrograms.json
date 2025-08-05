@@ -151,5 +151,67 @@
         }
       }
     }
+  },
+  "morningRoutine": {
+    "title": "Morning Routine",
+    "description": "Evidence-based morning stretching routine with pain-pattern analysis, designed to wake up your body and address common movement restrictions.",
+    "listDescription": {
+      "1": "Cat-Cow stretch for spinal mobility and core activation",
+      "2": "Standing side bends to assess lateral trunk restrictions",
+      "3": "Forward bend for hamstring and posterior chain flexibility",
+      "4": "Hip flexor stretch to counteract prolonged sitting",
+      "5": "Calf stretch for lower leg mobility and plantar fascia relief",
+      "6": "Downward-facing dog for full-body posterior chain stretch"
+    },
+    "exercises": {
+      "catCow": {
+        "title": "Cat-Cow Stretch",
+        "description": "On hands and knees, alternately round your back up (cat) and drop the belly to arch the back (cow). This moves the spine through flexion and extension, stretching abdominal, shoulder, neck, gluteal and hip-flexor muscles.",
+        "video": {
+          "title": "Cat-Cow Spinal Mobility",
+          "description": "Spinal flexion and extension movement for morning mobility"
+        }
+      },
+      "sideBend": {
+        "title": "Standing Side Bend",
+        "description": "Stand with feet together, raise both arms, then lower one arm and bend the body toward that side. Stretches the oblique muscles and latissimus, helping detect side-specific restrictions.",
+        "video": {
+          "title": "Standing Lateral Flexion",
+          "description": "Lateral trunk stretching for oblique muscles and spinal mobility"
+        }
+      },
+      "forwardBend": {
+        "title": "Standing Forward Bend",
+        "description": "Stand tall, hinge at the hips to fold forward toward the toes, keeping a soft knee bend. This stretch targets hamstrings, calves and the lower back, helping assess neural tension.",
+        "video": {
+          "title": "Standing Forward Fold",
+          "description": "Hamstring and posterior chain stretch with neural assessment"
+        }
+      },
+      "hipFlexor": {
+        "title": "Half-Kneeling Hip Flexor Stretch",
+        "description": "From a half-kneeling lunge, slide the back knee slightly backward, squeeze the glute on the kneeling leg and tilt the pelvis forward. Stretches the iliopsoas and addresses anterior pelvic tilt.",
+        "video": {
+          "title": "Kneeling Hip Flexor Stretch",
+          "description": "Targeted iliopsoas stretch for hip mobility and posture"
+        }
+      },
+      "calfStretch": {
+        "title": "Calf Stretch",
+        "description": "Hold onto a support, place one leg back with heel on the floor and lean forward until a stretch is felt in the calf. Targets gastrocnemius and soleus muscles for ankle mobility.",
+        "video": {
+          "title": "Standing Calf Stretch",
+          "description": "Gastrocnemius and soleus stretch for lower leg mobility"
+        }
+      },
+      "downwardDog": {
+        "title": "Downward-Facing Dog",
+        "description": "From a push-up position, lift hips to create an inverted V, press heels toward the floor and keep arms straight. Global posterior chain stretch for shoulders, hamstrings, calves and glutes.",
+        "video": {
+          "title": "Downward-Facing Dog Pose",
+          "description": "Full-body posterior chain stretch and shoulder mobility"
+        }
+      }
+    }
   }
 }

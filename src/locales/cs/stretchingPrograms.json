@@ -151,5 +151,67 @@
         }
       }
     }
+  },
+  "morningRoutine": {
+    "title": "Ranní rutina",
+    "description": "Vědecky podložená ranní rutina protahování s analýzou bolestivých vzorců, navržená k probuzení těla a řešení běžných pohybových omezení.",
+    "listDescription": {
+      "1": "Protažení kočka-kráva pro mobilitu páteře a aktivaci jádra",
+      "2": "Stojící postranní úklony k posouzení laterálních omezení trupu",
+      "3": "Předklon pro flexibilitu hamstringů a zadního řetězce",
+      "4": "Protažení flexorů kyčle proti dlouhodobému sezení",
+      "5": "Protažení lýtek pro mobilitu dolních končetin a úlevu plantární fascie",
+      "6": "Psí pozice dolů pro celotělové protažení zadního řetězce"
+    },
+    "exercises": {
+      "catCow": {
+        "title": "Protažení kočka-kráva",
+        "description": "Na rukou a kolenou střídavě zakulacujte záda nahoru (kočka) a spusťte břicho k prohnutí zad (kráva). Tento pohyb pohybuje páteří skrze flexi a extenzi, protahuje břišní, ramenní, krční, gluteální a kyčelní flexorové svaly.",
+        "video": {
+          "title": "Mobilita páteře kočka-kráva",
+          "description": "Pohyb flexe a extenze páteře pro ranní mobilitu"
+        }
+      },
+      "sideBend": {
+        "title": "Stojící postranní úklon",
+        "description": "Stůjte s nohama pohromadě, zvedněte obě paže, pak spusťte jednu paži a nakloňte tělo k této straně. Protahuje šikmé svaly a latissimus, pomáhá detekovat jednostranná omezení.",
+        "video": {
+          "title": "Stojící laterální flexe",
+          "description": "Laterální protažení trupu pro šikmé svaly a mobilitu páteře"
+        }
+      },
+      "forwardBend": {
+        "title": "Stojící předklon",
+        "description": "Stůjte vzpřímeně, kloubte se v kyčlích a sklánějte se dopředu k prstům u nohou s mírně pokrčenými koleny. Toto protažení cílí na hamstringy, lýtka a dolní část zad, pomáhá posoudit neurální napětí.",
+        "video": {
+          "title": "Stojící předklon",
+          "description": "Protažení hamstringů a zadního řetězce s neurálním posouzením"
+        }
+      },
+      "hipFlexor": {
+        "title": "Protažení flexorů kyčle v kleku",
+        "description": "Z polohy půlkleku posuňte zadní koleno mírně dozadu, stiskněte gluteální sval klečící nohy a nakloňte pánev dopředu. Protahuje iliopsoas a řeší přední naklonění pánve.",
+        "video": {
+          "title": "Protažení flexorů kyčle v kleku",
+          "description": "Cílené protažení iliopsoas pro mobilitu kyčle a posturu"
+        }
+      },
+      "calfStretch": {
+        "title": "Protažení lýtek",
+        "description": "Držte se opory, postavte jednu nohu dozadu s patou na zemi a nakloňte se dopředu, dokud necítíte protažení v lýtku. Cílí na gastrocnemius a soleus svaly pro mobilitu kotníku.",
+        "video": {
+          "title": "Stojící protažení lýtek",
+          "description": "Protažení gastrocnemius a soleus pro mobilitu dolních končetin"
+        }
+      },
+      "downwardDog": {
+        "title": "Psí pozice dolů",
+        "description": "Z pozice kliku zvedněte kyčle k vytvoření obráceného V, tlačte paty k zemi a držte paže rovné. Globální protažení zadního řetězce pro ramena, hamstringy, lýtka a gluteální svaly.",
+        "video": {
+          "title": "Pozice psího dolů",
+          "description": "Celotělové protažení zadního řetězce a mobilita ramen"
+        }
+      }
+    }
   }
 }
