@@ -17,19 +17,33 @@ export const TimelineProgressBar: React.FC<TimelineProgressBarProps> = ({ assess
   // Calculate ball position along the curved path
   const ballPosition = Math.min(progressPercentage, 100);
   
-  // Create SVG path for curved journey
-  const svgWidth = isMobile ? 200 : 180;
-  const svgHeight = isMobile ? 40 : 32;
+  // Create SVG path for S-shaped curved journey
+  const svgWidth = isMobile ? 200 : 160;
+  const svgHeight = isMobile ? 40 : 48;
   const pathStartX = 10;
   const pathEndX = svgWidth - 10;
-  const pathY = svgHeight / 2;
+  const pathMidX = svgWidth / 2;
+  const pathStartY = svgHeight * 0.3;
+  const pathEndY = svgHeight * 0.7;
   
-  // Create a slightly curved path
-  const curvePath = `M ${pathStartX} ${pathY} Q ${svgWidth / 2} ${pathY - 8} ${pathEndX} ${pathY}`;
+  // Create S-shaped path
+  const curvePath = `M ${pathStartX} ${pathStartY} Q ${pathMidX} ${pathStartY - 8} ${pathMidX} ${svgHeight / 2} Q ${pathMidX} ${pathEndY + 8} ${pathEndX} ${pathEndY}`;
   
-  // Calculate ball position along the path
-  const ballX = pathStartX + (pathEndX - pathStartX) * (ballPosition / 100);
-  const ballY = pathY - 4 * Math.sin((ballPosition / 100) * Math.PI); // Slight curve effect
+  // Calculate ball position along the S-shaped path
+  const progress = ballPosition / 100;
+  let ballX, ballY;
+  
+  if (progress <= 0.5) {
+    // First half of the S curve
+    const t = progress * 2;
+    ballX = pathStartX + (pathMidX - pathStartX) * t;
+    ballY = pathStartY + (svgHeight / 2 - pathStartY) * (2 * t - t * t);
+  } else {
+    // Second half of the S curve
+    const t = (progress - 0.5) * 2;
+    ballX = pathMidX + (pathEndX - pathMidX) * t;
+    ballY = svgHeight / 2 + (pathEndY - svgHeight / 2) * (t * t);
+  }
 
   return (
     <div className={`flex flex-col items-center ${isMobile ? 'w-full mt-3' : 'flex-1 mx-4'}`}>
@@ -58,8 +72,18 @@ export const TimelineProgressBar: React.FC<TimelineProgressBarProps> = ({ assess
           
           {/* Phase markers */}
           {phases.map((phase, index) => {
-            const markerX = pathStartX + (pathEndX - pathStartX) * (phase.weeksEnd / totalWeeks);
-            const markerY = pathY - 4 * Math.sin((phase.weeksEnd / totalWeeks) * Math.PI);
+            const phaseProgress = phase.weeksEnd / totalWeeks;
+            let markerX, markerY;
+            
+            if (phaseProgress <= 0.5) {
+              const t = phaseProgress * 2;
+              markerX = pathStartX + (pathMidX - pathStartX) * t;
+              markerY = pathStartY + (svgHeight / 2 - pathStartY) * (2 * t - t * t);
+            } else {
+              const t = (phaseProgress - 0.5) * 2;
+              markerX = pathMidX + (pathEndX - pathMidX) * t;
+              markerY = svgHeight / 2 + (pathEndY - svgHeight / 2) * (t * t);
+            }
             
             return (
               <circle

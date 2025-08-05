@@ -46,7 +46,7 @@ export const ActiveProgramAccordionHeader = ({ assessment }: ActiveProgramAccord
   const bodyImage = getBodyAreaImage(assessment.pain_area);
   
   return (
-    <div className={`flex ${isMobile ? "flex-col w-full" : "items-center w-1/2"}`}>
+    <div className={`flex ${isMobile ? "flex-col w-full" : "items-center justify-between w-full"}`}>
       <div className="relative overflow-hidden rounded-lg border-2 border-gray-200 bg-white transition-all duration-200 hover:shadow-md">
         <div className={`flex items-center ${isMobile ? "h-12" : "h-16"}`}>
           <div className="w-1/2 h-full overflow-hidden rounded-l-lg">
@@ -64,8 +64,14 @@ export const ActiveProgramAccordionHeader = ({ assessment }: ActiveProgramAccord
         </div>
       </div>
       
-      {/* Timeline Progress Bar */}
-      <TimelineProgressBar assessment={assessment} />
+      {/* Timeline Progress Bar - positioned in right area on desktop, below on mobile */}
+      {isMobile ? (
+        <TimelineProgressBar assessment={assessment} />
+      ) : (
+        <div className="flex-1 px-4">
+          <TimelineProgressBar assessment={assessment} />
+        </div>
+      )}
     </div>
   );
 };
