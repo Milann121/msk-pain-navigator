@@ -79,38 +79,64 @@
       }
     }
   },
-  "eveningRelaxation": {
-    "title": "Večerní uklidnění",
-    "description": "Uklidňující protažení, která vám pomohou relaxovat a připravit tělo a mysl na klidný spánek.",
+  "tightMuscles": {
+    "title": "Protažení ztuhnutých svalů",
+    "description": "Komplexní program protažení zaměřený na ztuhnuté svaly po celém těle s analýzou bolestivých vzorců.",
     "listDescription": {
-      "1": "Jemná rotace páteře pro relaxaci",
-      "2": "Hluboké dechové cvičení pro klid",
-      "3": "Massážní techniky pro uvolnění napětí",
-      "4": "Uvědomělý pohyb pro snížení stresu"
+      "1": "Protažení hruškového svalu pro uvolnění hlubokých gluteálních svalů",
+      "2": "Protažení flexorů kyčle proti sedavé pozici",
+      "3": "Protažení hamstringů pro flexibilitu zadní strany nohou",
+      "4": "Dětská pozice pro jemnou dekompresii páteře",
+      "5": "Pozice psího dolů pro protažení celého zadního řetězce",
+      "6": "Spinální twist pro rotační mobilitu"
     },
     "exercises": {
-      "gentleRotation": {
-        "title": "Jemná spinální rotace",
-        "description": "Cvičení otevírání knihy pro jemnou hrudní rotaci a relaxaci.",
+      "piriformisStretch": {
+        "title": "Protažení hruškového/čtyřka",
+        "description": "Seďte nebo ležte na zádech, překřižte kotník přes opačné stehno a přitáhněte podpůrnou nohu k hrudi. Užitečné pro posouzení syndromu hruškového svalu nebo bolesti hýždí.",
         "video": {
-          "title": "Hrudní otevírání knihy",
-          "description": "Relaxační rotační pohyb pro střední záda"
+          "title": "Technika protažení hruškového svalu",
+          "description": "Účinné protažení hruškového svalu pro uvolnění hlubokých gluteálních svalů"
         }
       },
-      "deepBreathing": {
-        "title": "Protažení s dechem v pozici modlitby",
-        "description": "Uklidňující protažení kombinované s hlubokým dýcháním pro relaxaci.",
+      "hipFlexorStretch": {
+        "title": "Protažení flexorů kyčle v půlkleku",
+        "description": "Klekněte s jednou nohou vpředu, aktivujte jádro a protáhněte flexor kyčle. Pomáhá řešit přední stažení kyčle, které může napodobovat impingement kyčle.",
         "video": {
-          "title": "Protažení v pozici modlitby",
-          "description": "Meditativní protažení pro krk a střední záda"
+          "title": "Protažení flexorů kyčle",
+          "description": "Komplexní protažení flexorů kyčle pro zlepšenou mobilitu kyčle"
         }
       },
-      "gentleMassage": {
-        "title": "Jemná samomassáž",
-        "description": "Uklidňující masážní techniky pro hrudní páteř pomocí míčku.",
+      "hamstringStretch": {
+        "title": "Protažení hamstringů ve stoje",
+        "description": "Stůjte s jednou nohou vpředu, patu na zemi, kloubte se v kyčlích směrem k prstům. Protahuje hamstringy a snižuje bederní napětí.",
         "video": {
-          "title": "Masáž hrudní páteře míčkem",
-          "description": "Jemná masáž pro večerní relaxaci"
+          "title": "Protažení hamstringů ve stoje",
+          "description": "Účinné protažení hamstringů s posouzením neurálního napětí"
+        }
+      },
+      "childsPose": {
+        "title": "Dětská pozice",
+        "description": "Z pozice na rukou a kolenou se posadíte zpět k patám s nataženýma rukama. Poskytuje jemnou bederní flexi užitečnou při bolesti zad.",
+        "video": {
+          "title": "Technika dětské pozice",
+          "description": "Rekonvalescenční jógová pozice pro dekompresii páteře a relaxaci"
+        }
+      },
+      "downwardDog": {
+        "title": "Pozice psího dolů",
+        "description": "Obrácená V pozice protahující celý zadní řetězec. Globální protažení zvýrazňující napjaté hamstringy nebo lýtka přispívající k bolesti zad.",
+        "video": {
+          "title": "Pozice psího dolů",
+          "description": "Celotělové protažení zadního řetězce a mobilita ramen"
+        }
+      },
+      "spinalTwist": {
+        "title": "Spinální twist vsedě",
+        "description": "Seďte s nataženýma nohama, pokrčte jedno koleno přes opačnou stranu a otáčejte páteř. Protahuje gluteální svaly, hrudník, šikmé svaly a zlepšuje mobilitu páteře.",
+        "video": {
+          "title": "Spinální twist vsedě",
+          "description": "Protažení spinální rotace pro zlepšenou thorakolumbální mobilitu"
         }
       }
     }

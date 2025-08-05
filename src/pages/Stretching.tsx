@@ -70,13 +70,13 @@ const Stretching = () => {
     time: "12 min",
     stretch_group: ["morning", "warm_up"]
   }, {
-    id: "evening-relaxation",
+    id: "tight-muscles",
     image: "/lovable-uploads/stretchingCard_images/7.png",
-    title: t('stretching.cards.evening_relaxation.title'),
-    description: t('stretching.cards.evening_relaxation.description'),
-    description2: t('stretching.cards.evening_relaxation.description2'),
+    title: t('stretching.cards.tight_muscles.title'),
+    description: t('stretching.cards.tight_muscles.description'),
+    description2: t('stretching.cards.tight_muscles.description2'),
     time: "12 min",
-    stretch_group: ["before_sleep", "better_regeneration"]
+    stretch_group: ["better_regeneration", "mid_day"]
   }, {
     id: "post-workout",
     image: "/lovable-uploads/stretchingCard_images/8.png",

@@ -38,10 +38,10 @@
       "description": "Evidence-based morning stretching with pain-pattern analysis",
       "description2": "Complete awakening"
     },
-    "evening_relaxation": {
-      "title": "Evening Wind Down",
-      "description": "Calming stretches to help you relax and prepare for sleep",
-      "description2": "Deep relaxation"
+    "tight_muscles": {
+      "title": "Tight Muscles Stretching",
+      "description": "Comprehensive stretching for tight muscles with pain-pattern analysis",
+      "description2": "Muscle relief"
     },
     "post_workout": {
       "title": "Post-Workout Recovery",

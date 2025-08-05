@@ -41,10 +41,10 @@
       "description": "Vědecky podložená ranní rutina s analýzou bolestivých vzorců",
       "description2": "Kompletní probuzení"
     },
-    "evening_relaxation": {
-      "title": "Večerní uklidnění",
-      "description": "Uklidňující protažení na relaxaci a přípravu na spánek",
-      "description2": "Hluboká relaxace"
+    "tight_muscles": {
+      "title": "Protažení ztuhnutých svalů",
+      "description": "Komplexní protažení pro ztuhnuté svaly s analýzou bolestivých vzorců",
+      "description2": "Úleva svalů"
     },
     "post_workout": {
       "title": "Regenerace po tréninku",

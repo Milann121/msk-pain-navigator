@@ -33,10 +33,10 @@
       "description": "Vedecky podložená ranná rutina s analýzou bolestivých vzorov",
       "description2": "Kompletné prebúdzanie"
     },
-    "evening_relaxation": {
-      "title": "Večerné upokojenie",
-      "description": "Upokojujúce naťahovania na relaxáciu a prípravu na spánok",
-      "description2": "Hlboká relaxácia"
+    "tight_muscles": {
+      "title": "Natiahnutie stuhnutých svalov",
+      "description": "Komplexné natiahnutia pre stuhnuté svaly s analýzou bolestivých vzorov",
+      "description2": "Úľava svalov"
     },
     "post_workout": {
       "title": "Regenerácia po tréningu",

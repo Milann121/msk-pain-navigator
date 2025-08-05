@@ -79,38 +79,64 @@
       }
     }
   },
-  "eveningRelaxation": {
-    "title": "Evening Wind Down",
-    "description": "Calming stretches to help you relax and prepare your body and mind for restful sleep.",
+  "tightMuscles": {
+    "title": "Tight Muscles Stretching",
+    "description": "Comprehensive stretching program targeting tight muscles throughout the body with pain-pattern analysis.",
     "listDescription": {
-      "1": "Gentle spinal rotation for relaxation",
-      "2": "Deep breathing exercises for calm",
-      "3": "Tension-releasing massage techniques",
-      "4": "Mindful movement for stress relief"
+      "1": "Piriformis stretch for deep gluteal muscle release",
+      "2": "Hip flexor stretch to counteract sitting posture",
+      "3": "Hamstring stretch for posterior leg flexibility",
+      "4": "Child's pose for gentle spinal decompression",
+      "5": "Downward dog for full posterior chain stretch",
+      "6": "Spinal twist for rotational mobility"
     },
     "exercises": {
-      "gentleRotation": {
-        "title": "Gentle Spinal Rotation",
-        "description": "Book opening exercise for gentle thoracic rotation and relaxation.",
+      "piriformisStretch": {
+        "title": "Piriformis/Figure-Four Stretch",
+        "description": "Sit or lie on your back, cross ankle over opposite thigh and pull supporting leg toward chest. Useful for piriformis syndrome or buttock pain assessment.",
         "video": {
-          "title": "Thoracic Book Opening",
-          "description": "Relaxing rotation movement for the middle back"
+          "title": "Piriformis Stretch Technique",
+          "description": "Effective piriformis stretch for deep gluteal muscle release"
         }
       },
-      "deepBreathing": {
-        "title": "Prayer Stretch with Breathing",
-        "description": "Calming stretch combined with deep breathing for relaxation.",
+      "hipFlexorStretch": {
+        "title": "Half-Kneeling Hip Flexor Stretch",
+        "description": "Kneel with one leg forward, engage core and stretch the hip flexor. Helps address anterior hip tightness that can mimic hip impingement.",
         "video": {
-          "title": "Prayer Stretch",
-          "description": "Meditative stretch for neck and middle back"
+          "title": "Hip Flexor Stretching",
+          "description": "Comprehensive hip flexor stretch for improved hip mobility"
         }
       },
-      "gentleMassage": {
-        "title": "Gentle Self-Massage",
-        "description": "Soothing massage techniques for the thoracic spine using a ball.",
+      "hamstringStretch": {
+        "title": "Standing Hamstring Stretch",
+        "description": "Stand with one foot forward, heel on ground, hinge at hips toward toes. Stretches hamstrings and reduces lumbar tension.",
         "video": {
-          "title": "Thoracic Spine Ball Massage",
-          "description": "Gentle massage for evening relaxation"
+          "title": "Standing Hamstring Stretch",
+          "description": "Effective hamstring stretch with neural tension assessment"
+        }
+      },
+      "childsPose": {
+        "title": "Child's Pose",
+        "description": "From hands and knees, sit back toward heels with arms extended. Provides gentle lumbar flexion useful for back strain.",
+        "video": {
+          "title": "Child's Pose Technique",
+          "description": "Restorative yoga pose for spinal decompression and relaxation"
+        }
+      },
+      "downwardDog": {
+        "title": "Downward-Facing Dog",
+        "description": "Inverted V position stretching the entire posterior chain. Global stretch highlighting tight hamstrings or calves contributing to back pain.",
+        "video": {
+          "title": "Downward Dog Pose",
+          "description": "Full-body posterior chain stretch and shoulder mobility"
+        }
+      },
+      "spinalTwist": {
+        "title": "Seated Spinal Twist",
+        "description": "Sit with legs extended, bend one knee across opposite side and twist spine. Stretches glutes, chest, obliques and improves spinal mobility.",
+        "video": {
+          "title": "Seated Spinal Twist",
+          "description": "Spinal rotation stretch for improved thoracolumbar mobility"
         }
       }
     }

@@ -79,38 +79,64 @@
       }
     }
   },
-  "eveningRelaxation": {
-    "title": "Večerné upokojenie",
-    "description": "Upokojujúce natiahnutia, ktoré vám pomôžu relaxovať a pripraviť telo a myseľ na pokojný spánok.",
+  "tightMuscles": {
+    "title": "Natiahnutie stuhnutých svalov",
+    "description": "Komplexný program natiahnutí zameraný na stuhnuté svaly po celom tele s analýzou bolestivých vzorov.",
     "listDescription": {
-      "1": "Jemná rotácia chrbtice pre relaxáciu",
-      "2": "Hlboké dychové cvičenia pre pokoj",
-      "3": "Masážne techniky pre uvoľnenie napätia",
-      "4": "Uvedomelý pohyb pre zníženie stresu"
+      "1": "Natiahnutie hruškového svalu pre uvoľnenie hlbokých gluteálnych svalov",
+      "2": "Natiahnutie flexorov bokov proti sedavej pozícii",
+      "3": "Natiahnutie hamstringov pre flexibilitu zadnej strany nôh",
+      "4": "Detská pozícia pre jemnú dekompresiu chrbtice",
+      "5": "Pozícia psieho dolů pre natiahnutie celého zadného reťazca",
+      "6": "Spinálny twist pre rotačnú mobilitu"
     },
     "exercises": {
-      "gentleRotation": {
-        "title": "Jemná spinálna rotácia",
-        "description": "Cvičenie otvárania knihy pre jemnú hrudnú rotáciu a relaxáciu.",
+      "piriformisStretch": {
+        "title": "Natiahnutie hruškového/štvorka",
+        "description": "Sadnite si alebo ležte na chrbte, prekrížte členok cez opačné stehno a pritiahnite podpornú nohu k hrudi. Užitočné pre posúdenie syndrómu hruškového svalu alebo bolesti sedacích svalov.",
         "video": {
-          "title": "Hrudné otváranie knihy",
-          "description": "Relaxačný rotačný pohyb pre stredné chrbta"
+          "title": "Technika natiahnutia hruškového svalu",
+          "description": "Účinné natiahnutie hruškového svalu pre uvoľnenie hlbokých gluteálnych svalov"
         }
       },
-      "deepBreathing": {
-        "title": "Natiahnutie s dychom v pozícii modlitby",
-        "description": "Upokojujúce natiahnutie kombinované s hlbokým dýchaním pre relaxáciu.",
+      "hipFlexorStretch": {
+        "title": "Natiahnutie flexorov bokov v polkľaku",
+        "description": "Kľaknite si s jednou nohou vpredu, aktivujte jadro a naťahujte flexor bokov. Pomáha riešiť predné stiahnutie bokov, ktoré môže napodobňovať impingement bokov.",
         "video": {
-          "title": "Natiahnutie v pozícii modlitby",
-          "description": "Meditatívne natiahnutie pre krk a stredné chrbta"
+          "title": "Natiahnutie flexorov bokov",
+          "description": "Komplexné natiahnutie flexorov bokov pre zlepšenú mobilitu bokov"
         }
       },
-      "gentleMassage": {
-        "title": "Jemná samomasáž",
-        "description": "Upokojujúce masážne techniky pre hrudnú chrbticu pomocou loptičky.",
+      "hamstringStretch": {
+        "title": "Natiahnutie hamstringov v stoji",
+        "description": "Stojte s jednou nohou vpredu, päta na zemi, kĺbte sa v bokoch smerom k prstom. Natiahuje hamstringy a znižuje bedrové napätie.",
         "video": {
-          "title": "Masáž hrudnej chrbtice loptičkou",
-          "description": "Jemná masáž pre večernú relaxáciu"
+          "title": "Natiahnutie hamstringov v stoji",
+          "description": "Účinné natiahnutie hamstringov s posúdením neurálneho napätia"
+        }
+      },
+      "childsPose": {
+        "title": "Detská pozícia",
+        "description": "Z pozície na rukách a kolenách sa posadíte späť k pätám s natiahnutými rukami. Poskytuje jemnú bedrovú flexiu užitočnú pri bolesti chrbta.",
+        "video": {
+          "title": "Technika detskej pozície",
+          "description": "Rekonvalescenčná jógová pozícia pre dekompresiu chrbtice a relaxáciu"
+        }
+      },
+      "downwardDog": {
+        "title": "Pozícia psieho dolů",
+        "description": "Obrátená V pozícia naťahujúca celý zadný reťazec. Globálne natiahnutie zvýrazňujúce napäté hamstringy alebo lýtka prispievajúce k bolesti chrbta.",
+        "video": {
+          "title": "Pozícia psieho dolů",
+          "description": "Celotělové natiahnutie zadného reťazca a mobilita ramien"
+        }
+      },
+      "spinalTwist": {
+        "title": "Spinálny twist vsediac",
+        "description": "Sadnite si s natiahnutými nohami, pokrčte jedno koleno cez opačnú stranu a otáčajte chrbticu. Natiahuje gluteálne svaly, hrudník, šikmé svaly a zlepšuje mobilitu chrbtice.",
+        "video": {
+          "title": "Spinálny twist vsediac",
+          "description": "Natiahnutie spinálnej rotácie pre zlepšenú thorakolumbálnu mobilitu"
         }
       }
     }
