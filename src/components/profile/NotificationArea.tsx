@@ -79,12 +79,10 @@ export const NotificationArea = () => {
     setIsWhatsAppExpanded(!isWhatsAppExpanded);
   };
   const handleWhatsAppChat = () => {
-    // Add WhatsApp chat logic here
-    window.open('https://wa.me/your-number', '_blank');
+    window.open('https://wa.me/421949606562', '_blank');
   };
   const handleWhatsAppVideo = () => {
-    // Add WhatsApp video call logic here
-    window.open('https://wa.me/your-number?text=Video%20call%20request', '_blank');
+    window.open('https://wa.me/421949606562?text=Video%20call%20request', '_blank');
   };
   const startRecording = async () => {
     chunksRef.current = [];
