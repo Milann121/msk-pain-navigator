@@ -39,6 +39,8 @@ export const useProfileData = () => {
   const loadUserProfile = async () => {
     if (!user) return;
 
+    console.log('🔄 [useProfileData] Loading user profile for user:', user.id);
+
     try {
       const { data, error } = await supabase
         .from('user_profiles')
@@ -47,11 +49,12 @@ export const useProfileData = () => {
         .single();
 
       if (error && error.code !== 'PGRST116') {
-        console.error('Error loading profile:', error);
+        console.error('❌ [useProfileData] Error loading profile:', error);
         return;
       }
 
       if (data) {
+        console.log('✅ [useProfileData] Found existing profile data:', data);
         setUserData({
           firstName: data.first_name || '',
           lastName: data.last_name || '',
@@ -77,22 +80,30 @@ export const useProfileData = () => {
 
         // If profile exists but email is missing, update it
         if (!data.email && user.email) {
+          console.log('🔄 [useProfileData] Updating missing email in profile');
           await supabase
             .from('user_profiles')
             .update({ email: user.email })
             .eq('user_id', user.id);
         }
       } else {
+        console.log('⚠️ [useProfileData] No profile found, populating from B2B data');
         // No profile found, try to populate from B2B employee data
         await populateFromB2BData();
       }
     } catch (error) {
-      console.error('Error loading profile:', error);
+      console.error('❌ [useProfileData] Error loading profile:', error);
+      // Force create profile from B2B data if loading fails
+      await populateFromB2BData();
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const populateFromB2BData = async () => {
     if (!user?.email) return;
+
+    console.log('🔄 [useProfileData] Populating from B2B data for email:', user.email);
 
     try {
       // Check b2b_employees table first
@@ -114,6 +125,8 @@ export const useProfileData = () => {
       }
 
       if (b2bEmployee) {
+        console.log('✅ [useProfileData] Found B2B data:', b2bEmployee);
+        
         const profileData = {
           firstName: b2bEmployee.first_name || user.user_metadata?.first_name || 'Používateľ',
           lastName: b2bEmployee.last_name || '',
@@ -121,33 +134,54 @@ export const useProfileData = () => {
           employerName: b2bEmployee.b2b_partner_name || ''
         };
 
-        // Update local state
+        // Update local state first
         setUserData(prev => ({
           ...prev,
           ...profileData
         }));
 
-        // Save B2B data to user_profiles table for consistency
+        // Save B2B data to user_profiles table for consistency - CRITICAL for persistence
         try {
-          const { error: saveError } = await supabase
+          console.log('💾 [useProfileData] Saving B2B data to user_profiles table');
+          
+          const { data: savedData, error: saveError } = await supabase
             .from('user_profiles')
             .upsert({
               user_id: user.id,
               first_name: profileData.firstName,
               last_name: profileData.lastName,
               email: profileData.email,
-              b2b_partner_name: profileData.employerName
-            }, { onConflict: 'user_id' });
+              b2b_partner_name: profileData.employerName,
+              updated_at: new Date().toISOString()
+            }, { onConflict: 'user_id' })
+            .select();
 
           if (saveError) {
-            console.error('Error saving B2B data to user_profiles:', saveError);
+            console.error('❌ [useProfileData] Error saving B2B data to user_profiles:', saveError);
+            throw saveError;
           } else {
-            console.log('Successfully saved B2B data to user_profiles');
+            console.log('✅ [useProfileData] Successfully saved B2B data to user_profiles:', savedData);
+            
+            // Verify the save worked
+            const { data: verifyData } = await supabase
+              .from('user_profiles')
+              .select('first_name, last_name, email')
+              .eq('user_id', user.id)
+              .single();
+              
+            if (verifyData) {
+              console.log('✅ [useProfileData] Data verified in database:', verifyData);
+            } else {
+              console.error('❌ [useProfileData] Data verification failed');
+            }
           }
         } catch (saveError) {
-          console.error('Error during B2B data save:', saveError);
+          console.error('❌ [useProfileData] Critical error during B2B data save:', saveError);
+          throw saveError;
         }
       } else {
+        console.log('⚠️ [useProfileData] No B2B data found, using defaults');
+        
         // No B2B data found, use defaults
         const defaultData = {
           firstName: user.user_metadata?.first_name || 'Používateľ',
@@ -159,26 +193,33 @@ export const useProfileData = () => {
           ...defaultData
         }));
 
-        // Save default data to user_profiles
+        // Save default data to user_profiles - ESSENTIAL for profile functionality
         try {
-          const { error: saveError } = await supabase
+          console.log('💾 [useProfileData] Creating default profile');
+          
+          const { data: savedData, error: saveError } = await supabase
             .from('user_profiles')
             .upsert({
               user_id: user.id,
               first_name: defaultData.firstName,
-              email: defaultData.email
-            }, { onConflict: 'user_id' });
+              email: defaultData.email,
+              updated_at: new Date().toISOString()
+            }, { onConflict: 'user_id' })
+            .select();
 
           if (saveError) {
-            console.error('Error saving default data to user_profiles:', saveError);
+            console.error('❌ [useProfileData] Error saving default data to user_profiles:', saveError);
+          } else {
+            console.log('✅ [useProfileData] Successfully created default profile:', savedData);
           }
         } catch (saveError) {
-          console.error('Error during default data save:', saveError);
+          console.error('❌ [useProfileData] Error during default data save:', saveError);
         }
       }
     } catch (error) {
-      console.error('Error populating from B2B data:', error);
-      // Fallback to defaults
+      console.error('❌ [useProfileData] Error populating from B2B data:', error);
+      
+      // Fallback to defaults and try to create basic profile
       const fallbackData = {
         firstName: user.user_metadata?.first_name || 'Používateľ',
         email: user.email || ''
@@ -188,6 +229,20 @@ export const useProfileData = () => {
         ...prev,
         ...fallbackData
       }));
+
+      // Try to create basic profile even in error case
+      try {
+        await supabase
+          .from('user_profiles')
+          .upsert({
+            user_id: user.id,
+            first_name: fallbackData.firstName,
+            email: fallbackData.email,
+            updated_at: new Date().toISOString()
+          }, { onConflict: 'user_id' });
+      } catch (fallbackError) {
+        console.error('❌ [useProfileData] Even fallback profile creation failed:', fallbackError);
+      }
     }
   };
 
