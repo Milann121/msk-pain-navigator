@@ -11,7 +11,7 @@ export const fullBodyStrengthProgram: StrengthProgram = {
     "strengthPrograms.fullBodyStrength.listDescription.3"
   ],
   time: "25 min",
-  image: "/lovable-uploads/38240b28-cfec-4471-866b-e9508ac0e092.png",
+  image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=500&fit=crop",
   focus_bodyPart: ["full-body", "strength", "muscle-building"],
   avoid_differentials: ["acute-injury", "post-surgery", "severe-pain"],
   exercises: [
