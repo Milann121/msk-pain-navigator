@@ -54,12 +54,12 @@ const Stretching = () => {
 
   // Sample data - replace with real data from backend
   const stretchingCards: StretchingCard[] = [{
-    id: "neck-shoulder",
+    id: "at-office",
     image: "/lovable-uploads/stretchingCard_images/11.png",
-    title: t('stretching.cards.neck_stretch.title'),
-    description: t('stretching.cards.neck_stretch.description'),
-    description2: t('stretching.cards.neck_stretch.description2'),
-    time: "5 min",
+    title: t('stretching.cards.at_office.title'),
+    description: t('stretching.cards.at_office.description'),
+    description2: t('stretching.cards.at_office.description2'),
+    time: "8 min",
     stretch_group: ["at_desk", "at_work", "mid_day"]
   }, {
     id: "morning-routine",

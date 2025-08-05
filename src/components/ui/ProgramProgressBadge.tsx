@@ -17,7 +17,7 @@ interface ProgressData {
 // Mapping between card IDs and database program_type values
 const PROGRAM_TYPE_MAPPING = {
   stretching: {
-    "neck-shoulder": "stretchingPrograms.neckShoulder.title",
+    "at-office": "stretchingPrograms.atOffice.title",
     "morning-routine": "stretchingPrograms.morningRoutine.title",
     "evening-relaxation": "stretchingPrograms.eveningRelaxation.title",
     "post-workout": "stretchingPrograms.postWorkout.title"

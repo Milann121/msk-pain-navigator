@@ -152,6 +152,59 @@
       }
     }
   },
+  "atOffice": {
+    "title": "Protahování v kanceláři",
+    "description": "Perfektní protažení vhodné pro kancelář k boji proti napětí a ztuhlosti způsobené sedavým zaměstnáním",
+    "listDescription": {
+      "1": "Uvolní napětí z dlouhodobého sezení",
+      "2": "Zlepší držení těla a sníží napětí krku",
+      "3": "Dodá energii během pracovních přestávek",
+      "4": "Předchází běžným bolestem z kancelářské práce",
+      "5": "Jednoduchá cvičení, která lze dělat u stolu"
+    },
+    "exercises": {
+      "seatedSideBend": {
+        "title": "Úklon vstran vsedě",
+        "description": "Sedněte si vzpřímeně, zvedněte jednu paži a nakloňte se na opačnou stranu. Protahuje mezižeberní svaly a kvadrátový sval bederní.",
+        "video": {
+          "title": "Úklon vstran vsedě",
+          "description": "Správná technika úklonu vstran vsedě pro uvolnění napětí v boku"
+        }
+      },
+      "crossBodyShoulder": {
+        "title": "Protažení ramene přes tělo",
+        "description": "Přitáhněte jednu paži přes hrudník a jemně ji tlačte k tělu. Cílí na zadní ramenní svaly ovlivněné dlouhodobým psaním.",
+        "video": {
+          "title": "Protažení ramene přes tělo",
+          "description": "Účinné protažení ramene pro kancelářské pracovníky"
+        }
+      },
+      "earToShoulder": {
+        "title": "Ucho k rameni",
+        "description": "Jemně nakloňte ucho k rameni. Protahuje horní část trapézu - častý zdroj napěťových bolestí hlavy.",
+        "video": {
+          "title": "Protažení krku a trapézu",
+          "description": "Jemné protažení krku pro uvolnění napětí horního trapézu"
+        }
+      },
+      "figureFourGlute": {
+        "title": "Protažení hýžďových svalů vsedě",
+        "description": "Překřižte kotník přes opačné koleno a nakloňte se dopředu. Protahuje hruškový sval a hýžďové svaly.",
+        "video": {
+          "title": "Protažení hýždí vsedě",
+          "description": "Protažení kyčlí a hýždí ideální pro kompenzaci dlouhodobého sezení"
+        }
+      },
+      "calfStretchChair": {
+        "title": "Protažení lýtek s oporou o židli",
+        "description": "Použijte stůl nebo zeď jako oporu při protahování lýtek. Řeší ztuhlost z dlouhodobého sezení.",
+        "video": {
+          "title": "Protažení lýtek ve stoje",
+          "description": "Protažení lýtek vhodné pro kancelář s oporou o stůl"
+        }
+      }
+    }
+  },
   "morningRoutine": {
     "title": "Ranní rutina",
     "description": "Vědecky podložená ranní rutina protahování s analýzou bolestivých vzorců, navržená k probuzení těla a řešení běžných pohybových omezení.",

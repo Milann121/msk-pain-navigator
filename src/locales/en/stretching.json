@@ -23,9 +23,9 @@
     "at_work": "At work"
   },
   "cards": {
-    "neck_stretch": {
-      "title": "Neck & Shoulder Relief",
-      "description": "Gentle stretches to release tension in your neck and shoulders",
+    "at_office": {
+      "title": "At Office Stretching",
+      "description": "Desk-friendly stretches to combat office tension and stiffness",
       "description2": "Office relief"
     },
     "morning_flow": {

@@ -152,6 +152,59 @@
       }
     }
   },
+  "atOffice": {
+    "title": "At Office Stretching",
+    "description": "Perfect desk-friendly stretches to combat office-related tension and stiffness",
+    "listDescription": {
+      "1": "Release tension from prolonged sitting",
+      "2": "Improve posture and reduce neck strain",
+      "3": "Energize your body during work breaks",
+      "4": "Prevent common office-related pain patterns",
+      "5": "Simple exercises you can do at your desk"
+    },
+    "exercises": {
+      "seatedSideBend": {
+        "title": "Seated Side Bend",
+        "description": "Sit tall, raise one arm and lean to the opposite side. Stretches intercostals and quadratus lumborum, helping differentiate muscular tightness from joint issues.",
+        "video": {
+          "title": "Seated Side Bend Stretch",
+          "description": "Proper technique for seated side bending to release lateral trunk tension"
+        }
+      },
+      "crossBodyShoulder": {
+        "title": "Cross-Body Shoulder Stretch",
+        "description": "Bring one arm across the chest and gently press toward the body. Targets posterior shoulder muscles affected by prolonged typing and forward head posture.",
+        "video": {
+          "title": "Cross-Body Shoulder Stretch",
+          "description": "Effective shoulder stretch for office workers to relieve typing tension"
+        }
+      },
+      "earToShoulder": {
+        "title": "Ear-to-Shoulder Stretch",
+        "description": "Gently drop one ear toward the shoulder. Stretches upper trapezius and levator scapulae - common sources of tension headaches from desk work.",
+        "video": {
+          "title": "Neck and Trapezius Stretch",
+          "description": "Gentle neck stretch to relieve upper trapezius tension and prevent headaches"
+        }
+      },
+      "figureFourGlute": {
+        "title": "Seated Figure-Four Glute Stretch",
+        "description": "Cross ankle over opposite knee and lean forward. Stretches piriformis and gluteal muscles that tighten from prolonged sitting.",
+        "video": {
+          "title": "Seated Glute Stretch",
+          "description": "Hip and glute stretch perfect for counteracting prolonged sitting"
+        }
+      },
+      "calfStretchChair": {
+        "title": "Calf Stretch with Chair Support",
+        "description": "Use desk or wall for support while stretching calves. Addresses tightness from prolonged sitting and helps prevent foot and Achilles strain.",
+        "video": {
+          "title": "Standing Calf Stretch",
+          "description": "Office-friendly calf stretch using desk or wall support"
+        }
+      }
+    }
+  },
   "morningRoutine": {
     "title": "Morning Routine",
     "description": "Evidence-based morning stretching routine with pain-pattern analysis, designed to wake up your body and address common movement restrictions.",

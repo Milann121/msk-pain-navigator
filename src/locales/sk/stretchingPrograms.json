@@ -152,6 +152,59 @@
       }
     }
   },
+  "atOffice": {
+    "title": "Strečing v kancelárii",
+    "description": "Perfektné stretching cviky vhodné pre kanceláriu na boj proti napätiu a stuhnutiu zo sedavého zamestnania",
+    "listDescription": {
+      "1": "Uvoľní napätie z dlhodobého sedenia",
+      "2": "Zlepší držanie tela a zníži napätie krku",
+      "3": "Dodá energiu počas pracovných prestávok",
+      "4": "Predchádza bežným bolestiam z kancelárskej práce",
+      "5": "Jednoduché cvičenia, ktoré môžete robiť pri stole"
+    },
+    "exercises": {
+      "seatedSideBend": {
+        "title": "Úklon do strany vsediac",
+        "description": "Sadnite si vzpriamene, zdvihnite jednu ruku a nakloňte sa na opačnú stranu. Naťahuje medzirebrové svaly a štvorhranný sval bedrový.",
+        "video": {
+          "title": "Úklon do strany vsediac",
+          "description": "Správna technika úklonu do strany vsediac pre uvoľnenie napätia v boku"
+        }
+      },
+      "crossBodyShoulder": {
+        "title": "Naťahovanie ramena cez telo",
+        "description": "Pritiahnite jednu ruku cez hrudník a jemne ju tlačte k telu. Zameriava sa na zadné ramenné svaly ovplyvnené dlhodobým písaním.",
+        "video": {
+          "title": "Naťahovanie ramena cez telo",
+          "description": "Účinné naťahovanie ramena pre kancelárskych pracovníkov"
+        }
+      },
+      "earToShoulder": {
+        "title": "Ucho k ramenu",
+        "description": "Jemne nakloňte ucho k ramenu. Naťahuje hornú časť trapézu - častý zdroj napäťových bolestí hlavy.",
+        "video": {
+          "title": "Naťahovanie krku a trapézu",
+          "description": "Jemné naťahovanie krku pre uvoľnenie napätia horného trapézu"
+        }
+      },
+      "figureFourGlute": {
+        "title": "Naťahovanie sedacích svalov vsediac",
+        "description": "Prekrížte členok cez opačné koleno a nakloňte sa dopredu. Naťahuje hruškový sval a sedacie svaly.",
+        "video": {
+          "title": "Naťahovanie sedacích svalov vsediac",
+          "description": "Naťahovanie kyčlí a sedacích svalov ideálne na kompenzáciu dlhodobého sedenia"
+        }
+      },
+      "calfStretchChair": {
+        "title": "Naťahovanie lýtok s oporou o stoličku",
+        "description": "Použite stôl alebo stenu ako oporu pri naťahovaní lýtok. Rieši stuhnutosť z dlhodobého sedenia.",
+        "video": {
+          "title": "Naťahovanie lýtok v stoji",
+          "description": "Naťahovanie lýtok vhodné pre kanceláriu s oporou o stôl"
+        }
+      }
+    }
+  },
   "morningRoutine": {
     "title": "Ranná rutina",
     "description": "Vedecky podložená ranná rutina natiahnutí s analýzou bolestivých vzorov, navrhnutá na prebúdzanie tela a riešenie bežných pohybových obmedzení.",
