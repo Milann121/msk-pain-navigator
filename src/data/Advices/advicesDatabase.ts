@@ -81,7 +81,7 @@ export const advices: Advice[] = [
     advicePriority: "medium",
     adviceRule: "objectLiftingRule",
     adviceDescription: "objectLiftingDescription",
-    adviceImageUrl: "",
+    adviceImageUrl: "public/lovable-uploads/adviceImages/advice5.png",
     adviceLink:"",
     bodyParts: ['lower-back'],
     mechanisms: ['nociceptive', 'neuropathic'],
