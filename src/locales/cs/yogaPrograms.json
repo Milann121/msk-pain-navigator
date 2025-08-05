@@ -78,14 +78,65 @@
       "5": "Cílí na hluboké hýžďové svaly"
     }
   },
-  "legFocus": {
-    "title": "Zaměření na dolní část těla",
-    "description": "Cílené pozice pro posílení a protažení nohou, kyčlí a hýžďových svalů pro lepší mobilitu.",
+  "upperBody": {
+    "title": "Jógový program pro horní část těla",
+    "description": "Cílená jógová sekvence pro posílení a protažení horní části těla, hrudníku a ramen.",
     "listDescription": {
-      "1": "Otevření kyčlí v pozici holub",
-      "2": "Hluboké protažení v pozici ještěrka",
-      "3": "Flexibilita v sedu s předklonem",
-      "4": "Cílené posilování nohou"
+      "1": "Otevírá hrudník a posiluje paraspinální svaly",
+      "2": "Uvolňuje napětí ramen a trapézu",
+      "3": "Protahuje krk a horní trapéz",
+      "4": "Posiluje stabilizátory ramen",
+      "5": "Mobilizuje hrudní páteř"
+    },
+    "exercises": {
+      "cobraPose": {
+        "title": "Pozice kobry",
+        "description": "Zatlačte hrudník nahoru při sevření loktů. Otevírá hrudník a posiluje paraspinální svaly. Pomáhá při protažení při předsunuté hlavě.",
+        "video": {
+          "title": "Pozice kobry - návod",
+          "description": "Otevření hrudníku a extenze zad"
+        }
+      },
+      "crossBodyStretch": {
+        "title": "Protažení ramene přes tělo",
+        "description": "Přiveďte jednu paži přes hrudník a jemně tlačte druhou rukou. Cílí na zadní svaly ramene a trapéz.",
+        "video": {
+          "title": "Protažení ramene přes tělo",
+          "description": "Protažení ramene a trapézu"
+        }
+      },
+      "earToShoulder": {
+        "title": "Protažení ucho k rameni",
+        "description": "Skloňte jedno ucho k stejnému rameni a jemně držte. Protahuje horní trapéz a levator scapulae—časté zdroje tenzních bolestí hlavy.",
+        "video": {
+          "title": "Protažení krku do strany",
+          "description": "Protažení horního trapézu a krku"
+        }
+      },
+      "downwardDog": {
+        "title": "Pes hlavou dolů",
+        "description": "Posiluje stabilizátory ramen a protahuje laty a hrudník. Komplexní protažení zadní strany těla.",
+        "video": {
+          "title": "Pes hlavou dolů",
+          "description": "Stabilizace a protažení ramen"
+        }
+      },
+      "catCow": {
+        "title": "Kočka-kráva",
+        "description": "Flexe/extenze páteře mobilizuje hrudní páteř a ramenní kloub. Rozpoznává, zda se bolest horní části zad zlepšuje s pohybem.",
+        "video": {
+          "title": "Pozice kočka-kráva",
+          "description": "Mobilita hrudní páteře"
+        }
+      },
+      "happyBaby": {
+        "title": "Pozice šťastného dítěte",
+        "description": "Lehněte si na záda, pokrčte kolena k hrudníku, chyťte se za vnitřní nebo vnější stranu chodidel a jemně se pohupujte. Otevírá kyčle a poskytuje trakci hrudní páteře.",
+        "video": {
+          "title": "Pozice šťastného dítěte",
+          "description": "Otevření kyčlí a trakce páteře"
+        }
+      }
     }
   },
   "armBalance": {

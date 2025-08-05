@@ -35,10 +35,10 @@
       "description": "Cílená jógová sekvence pro posílení a protažení dolní části těla, kyčlí a nohou",
       "description2": "Dolní část těla"
     },
-    "leg_focus": {
-      "title": "Zaměření na dolní část",
-      "description": "Cílené pozice na posílení a protažení nohou a boků",
-      "description2": "Posilování"
+    "upper_body": {
+      "title": "Jógový program pro horní část těla",
+      "description": "Cílená jógová sekvence pro posílení a protažení horní části těla, hrudníku a ramen",
+      "description2": "Horní část těla"
     },
     "arm_balance": {
       "title": "Mistrovství v rovnováze",

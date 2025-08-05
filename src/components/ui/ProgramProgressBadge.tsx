@@ -30,9 +30,9 @@ const PROGRAM_TYPE_MAPPING = {
     "outdoor-calisthenics": "strengthPrograms.outdoorCalisthenics.title"
   },
   yoga: {
-    "morning-flow": "yogaPrograms.morningFlow.title",
-    "power-flow": "yogaPrograms.powerFlow.title",
-    "leg-focus": "yogaPrograms.legFocus.title",
+    "morning-energizer": "yogaPrograms.morningEnergizer.title",
+    "lower-body": "yogaPrograms.lowerBody.title",
+    "upper-body": "yogaPrograms.upperBody.title",
     "arm-balance": "yogaPrograms.armBalance.title"
   }
 };

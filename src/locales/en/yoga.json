@@ -35,10 +35,10 @@
       "description": "Targeted yoga sequence to strengthen and stretch the lower body, hips, and legs",
       "description2": "Lower Body"
     },
-    "leg_focus": {
-      "title": "Lower Body Focus",
-      "description": "Targeted poses to strengthen and stretch legs and hips",
-      "description2": "Strengthening"
+    "upper_body": {
+      "title": "Upper-body Yoga Program",
+      "description": "Targeted yoga sequence to strengthen and stretch the upper body, chest, and shoulders",
+      "description2": "Upper Body"
     },
     "arm_balance": {
       "title": "Arm Balance Mastery",

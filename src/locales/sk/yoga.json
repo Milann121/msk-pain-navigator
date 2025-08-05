@@ -35,10 +35,10 @@
       "description": "Cielená jógová sekvencia na posilnenie a natiahnutie dolnej časti tela, bokov a nôh",
       "description2": "Dolná časť tela"
     },
-    "leg_focus": {
-      "title": "Zameranie na dolnú časť",
-      "description": "Cielené pozície na posilnenie a natiahnutie nôh a bokov",
-      "description2": "Posilňovanie"
+    "upper_body": {
+      "title": "Jógový program pre hornú časť tela",
+      "description": "Cielená jógová sekvencia na posilnenie a natiahnutie hornej časti tela, hrudníka a ramien",
+      "description2": "Horná časť tela"
     },
     "arm_balance": {
       "title": "Majstrovstvo v rovnováhe",

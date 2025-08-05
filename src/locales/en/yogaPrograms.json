@@ -128,38 +128,63 @@
       }
     }
   },
-  "legFocus": {
-    "title": "Lower Body Focus",
-    "description": "Targeted poses to strengthen and stretch legs, hips, and glutes for better mobility.",
+  "upperBody": {
+    "title": "Upper-body Yoga Program",
+    "description": "Targeted yoga sequence to strengthen and stretch the upper body, chest, and shoulders.",
     "listDescription": {
-      "1": "Hip opening pigeon pose",
-      "2": "Deep lizard lunge stretch",
-      "3": "Seated forward fold flexibility",
-      "4": "Targeted leg strengthening"
+      "1": "Opens chest and strengthens paraspinals",
+      "2": "Releases shoulder and trapezius tension",
+      "3": "Stretches neck and upper trapezius",
+      "4": "Strengthens shoulder stabilizers",
+      "5": "Mobilizes thoracic spine"
     },
     "exercises": {
-      "pigeonPose": {
-        "title": "Pigeon Pose",
-        "description": "Deep hip opener that releases tension in hips and glutes.",
+      "cobraPose": {
+        "title": "Cobra Pose",
+        "description": "Press the chest up while keeping elbows in. Opens the chest and strengthens paraspinals. Helps counteract forward-head posture.",
         "video": {
-          "title": "Pigeon Pose Tutorial",
-          "description": "How to safely practice pigeon pose"
+          "title": "Cobra Pose Tutorial",
+          "description": "Chest opening and back extension"
         }
       },
-      "lizardPose": {
-        "title": "Lizard Pose",
-        "description": "Low lunge variation that deeply stretches hip flexors and quadriceps.",
+      "crossBodyStretch": {
+        "title": "Cross-body Shoulder Stretch",
+        "description": "Bring one arm across the chest and gently press with the opposite hand. Targets posterior shoulder muscles and trapezius.",
         "video": {
-          "title": "Lizard Pose Guide",
-          "description": "Deep hip flexor stretch in lizard pose"
+          "title": "Cross-body Shoulder Stretch",
+          "description": "Shoulder and trapezius stretch"
         }
       },
-      "seatedForwardFold": {
-        "title": "Seated Forward Fold",
-        "description": "Calming pose that stretches hamstrings and promotes introspection.",
+      "earToShoulder": {
+        "title": "Ear-to-shoulder Stretch",
+        "description": "Drop one ear toward the same shoulder and gently hold. Stretches upper trapezius and levator scapulae—common sources of tension headaches.",
         "video": {
-          "title": "Forward Fold Technique",
-          "description": "Proper alignment for seated forward fold"
+          "title": "Neck Side Stretch",
+          "description": "Upper trapezius and neck stretch"
+        }
+      },
+      "downwardDog": {
+        "title": "Downward-facing Dog",
+        "description": "Strengthens shoulder stabilizers and stretches lats and chest. Comprehensive posterior-chain stretch.",
+        "video": {
+          "title": "Downward-facing Dog",
+          "description": "Shoulder stabilization and stretch"
+        }
+      },
+      "catCow": {
+        "title": "Cat-Cow",
+        "description": "Spinal flexion/extension mobilizes the thoracic spine and shoulder girdle. Recognizes whether upper-back pain improves with movement.",
+        "video": {
+          "title": "Cat-Cow Pose",
+          "description": "Thoracic spine mobility"
+        }
+      },
+      "happyBaby": {
+        "title": "Happy Baby Pose",
+        "description": "Lie on back, bend knees toward chest, grab the inside or outside of the feet and gently rock. Opens hips and provides traction for the thoracic spine.",
+        "video": {
+          "title": "Happy Baby Pose",
+          "description": "Hip opening and spinal traction"
         }
       }
     }

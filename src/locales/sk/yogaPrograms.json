@@ -78,14 +78,65 @@
       "5": "Cieli na hlboké sedacie svaly"
     }
   },
-  "legFocus": {
-    "title": "Zameranie na dolnú časť tela",
-    "description": "Cielené pozície pre posilnenie a natiahnutie nôh, bokov a sedacích svalov pre lepšiu mobilitu.",
+  "upperBody": {
+    "title": "Jógový program pre hornú časť tela",
+    "description": "Cielená jógová sekvencia na posilnenie a natiahnutie hornej časti tela, hrudníka a ramien.",
     "listDescription": {
-      "1": "Otvorenie bokov v pozícii holub",
-      "2": "Hlboké natiahnutie v pozícii jašterička",
-      "3": "Flexibilita v sede s predklonom",
-      "4": "Cielené posiľovanie nôh"
+      "1": "Otvára hrudník a posilňuje paraspinálne svaly",
+      "2": "Uvoľňuje napätie ramien a trapézu",
+      "3": "Natiahuje krk a horný trapéz",
+      "4": "Posilňuje stabilizátory ramien",
+      "5": "Mobilizuje hrudnú chrbticu"
+    },
+    "exercises": {
+      "cobraPose": {
+        "title": "Pozícia kobry",
+        "description": "Zatlačte hrudník nahor pri sevretí lakťov. Otvára hrudník a posilňuje paraspinálne svaly. Pomáha pri protažení pri predsunutej hlave.",
+        "video": {
+          "title": "Pozícia kobry - návod",
+          "description": "Otvorenie hrudníka a extenzia chrbta"
+        }
+      },
+      "crossBodyStretch": {
+        "title": "Natiahnutie ramena cez telo",
+        "description": "Priveďte jednu ruku cez hrudník a jemne tlačte druhou rukou. Cieli na zadné svaly ramena a trapéz.",
+        "video": {
+          "title": "Natiahnutie ramena cez telo",
+          "description": "Natiahnutie ramena a trapézu"
+        }
+      },
+      "earToShoulder": {
+        "title": "Natiahnutie ucho k ramenu",
+        "description": "Skloňte jedno ucho k rovnakému ramenu a jemne držte. Natiahuje horný trapéz a levator scapulae—časté zdroje tenzných bolestí hlavy.",
+        "video": {
+          "title": "Natiahnutie krku do strany",
+          "description": "Natiahnutie horného trapézu a krku"
+        }
+      },
+      "downwardDog": {
+        "title": "Pes hlavou dole",
+        "description": "Posilňuje stabilizátory ramien a natiahuje laty a hrudník. Komplexné natiahnutie zadnej strany tela.",
+        "video": {
+          "title": "Pes hlavou dole",
+          "description": "Stabilizácia a natiahnutie ramien"
+        }
+      },
+      "catCow": {
+        "title": "Mačka-krava",
+        "description": "Flexia/extenzia chrbtice mobilizuje hrudnú chrbticu a ramenný kĺb. Rozpoznáva, či sa bolesť hornej časti chrbta zlepšuje s pohybom.",
+        "video": {
+          "title": "Pozícia mačka-krava",
+          "description": "Mobilita hrudnej chrbtice"
+        }
+      },
+      "happyBaby": {
+        "title": "Pozícia šťastného dieťaťa",
+        "description": "Ľahnite si na chrbát, pokrčte kolená k hrudníku, chyťte sa za vnútornú alebo vonkajšiu stranu chodidiel a jemne sa pohojdajte. Otvára boky a poskytuje trakciu hrudnej chrbtice.",
+        "video": {
+          "title": "Pozícia šťastného dieťaťa",
+          "description": "Otvorenie bokov a trakcia chrbtice"
+        }
+      }
     }
   },
   "armBalance": {
