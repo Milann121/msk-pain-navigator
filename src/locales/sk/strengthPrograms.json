@@ -290,5 +290,57 @@
         }
       }
     }
+  },
+  "upperBodyStrength": {
+    "title": "Sila hornej časti tela",
+    "description": "Cielené posilňovanie hornej časti tela zamerané na hrudník, ramená, triceps a stabilitu jadra.",
+    "listDescription": {
+      "0": "Kliky pre silu hrudníka a ramien",
+      "1": "Tricepové kliky pre rozvoj paží",
+      "2": "Variácie planku pre stabilitu jadra",
+      "3": "Posilnenie zadného reťazca"
+    },
+    "exercises": {
+      "pushUps": {
+        "title": "Kliky",
+        "description": "Vynikajúci zložený pohyb zameraný na hrudník, ramená a triceps. Udržiavajte lakte v uhle ~45° k trupu, aby ste predišli bolesti ramien.",
+        "video": {
+          "title": "Perfektná forma kliku",
+          "description": "Zvládnite správnu techniku kliku so správnym postavením laktov"
+        }
+      },
+      "tricepDips": {
+        "title": "Tricepové kliky",
+        "description": "Sadnite si na stabilnú stoličku alebo lavičku s rukami po stranách kyčlí. Znížte telo ohnutím laktov na asi 90°, udržiavajte ramená stiahnuté nadol.",
+        "video": {
+          "title": "Tutoriál tricepových klikov na lavičke",
+          "description": "Naučte sa správnu techniku klikov, aby ste sa vyhli nepohodliu v ramenách"
+        }
+      },
+      "plankShoulderTaps": {
+        "title": "Plank s poklepávaním ramien",
+        "description": "Začnite vo vysokom planku, poklepajte protilehľou rukou na rameno bez hojdania kyčlí. Udržuje stabilné jadro a buduje silu proti rotácii.",
+        "video": {
+          "title": "Sprievodca plankom s poklepávaním ramien",
+          "description": "Cvičenie stability jadra so zapojením ramien"
+        }
+      },
+      "plank": {
+        "title": "Plank",
+        "description": "Držte plank na predlaktiach s laktami pod ramenami, zapojte jadro a udržiavajte priamu líniu od hlavy k pätám.",
+        "video": {
+          "title": "Perfektná forma planku",
+          "description": "Budujte izometrickú silu jadra a ramien"
+        }
+      },
+      "superman": {
+        "title": "Superman",
+        "description": "Posilňuje svaly zadného reťazca často zanedbávané pri tréningu hornej časti tela. Nevyhnutné pre vyvážený rozvoj svalov.",
+        "video": {
+          "title": "Cvičenie Superman",
+          "description": "Posilňovanie zadného reťazca pre rovnováhu hornej časti tela"
+        }
+      }
+    }
   }
 }

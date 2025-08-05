@@ -60,6 +60,12 @@
       "description": "Kompletní posilovací trénink zaměřený na všechny hlavní svalové skupiny",
       "description2": "Všechny úrovně",
       "time": "25 min"
+    },
+    "upper_body_strength": {
+      "title": "Síla horní části těla",
+      "description": "Cílené posilování horní části těla pro hrudník, ramena a paže",
+      "description2": "Pokročilý",
+      "time": "20 min"
     }
   },
   "recommendation": {
