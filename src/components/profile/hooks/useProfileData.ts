@@ -83,7 +83,46 @@ export const useProfileData = () => {
             .eq('user_id', user.id);
         }
       } else {
-        // No profile found, use defaults with user metadata and ensure email is set
+        // No profile found, try to populate from B2B employee data
+        await populateFromB2BData();
+      }
+    } catch (error) {
+      console.error('Error loading profile:', error);
+    }
+  };
+
+  const populateFromB2BData = async () => {
+    if (!user?.email) return;
+
+    try {
+      // Check b2b_employees table first
+      let { data: b2bEmployee } = await supabase
+        .from('b2b_employees')
+        .select('first_name, last_name, b2b_partner_name')
+        .eq('email', user.email)
+        .single();
+
+      // If not found in b2b_employees, check test_2_employees
+      if (!b2bEmployee) {
+        const { data: testEmployee } = await supabase
+          .from('test_2_employees')
+          .select('first_name, last_name, b2b_partner_name')
+          .eq('email', user.email)
+          .single();
+        
+        b2bEmployee = testEmployee;
+      }
+
+      if (b2bEmployee) {
+        setUserData(prev => ({
+          ...prev,
+          firstName: b2bEmployee.first_name || user.user_metadata?.first_name || 'Používateľ',
+          lastName: b2bEmployee.last_name || '',
+          email: user.email || '',
+          employerName: b2bEmployee.b2b_partner_name || ''
+        }));
+      } else {
+        // No B2B data found, use defaults
         setUserData(prev => ({
           ...prev,
           firstName: user.user_metadata?.first_name || 'Používateľ',
@@ -91,7 +130,13 @@ export const useProfileData = () => {
         }));
       }
     } catch (error) {
-      console.error('Error loading profile:', error);
+      console.error('Error populating from B2B data:', error);
+      // Fallback to defaults
+      setUserData(prev => ({
+        ...prev,
+        firstName: user.user_metadata?.first_name || 'Používateľ',
+        email: user.email || ''
+      }));
     }
   };
 
