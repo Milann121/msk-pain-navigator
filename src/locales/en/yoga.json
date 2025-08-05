@@ -44,6 +44,11 @@
       "title": "Evening Calming Yoga",
       "description": "Gentle evening yoga sequence to relax body and mind before sleep",
       "description2": "Calming"
+    },
+    "dynamic_full_body": {
+      "title": "Dynamic Full-body Yoga Program",
+      "description": "Dynamic yoga sequence that mobilizes the entire body through flowing movements",
+      "description2": "Dynamic"
     }
   },
   "no_results": "No yoga programs found for the selected filters."

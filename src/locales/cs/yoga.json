@@ -44,6 +44,11 @@
       "title": "Večerní uklidňující jóga",
       "description": "Jemná večerní jógová sekvence pro relaxaci těla a mysli před spánkem",
       "description2": "Uklidňující"
+    },
+    "dynamic_full_body": {
+      "title": "Dynamický celotělový jógový program",
+      "description": "Dynamická jógová sekvence, která mobilizuje celé tělo prostřednictvím plynulých pohybů",
+      "description2": "Dynamický"
     }
   },
   "no_results": "Pro vybrané filtry nebyly nalezeny žádné jógové programy."

@@ -199,5 +199,75 @@
         }
       }
     }
+  },
+  "dynamicFullBody": {
+    "title": "Dynamický celotelový jógový program",
+    "description": "Dynamická jógová sekvencia, ktorá mobilizuje celé telo prostredníctvom plynulých pohybov.",
+    "listDescription": {
+      "1": "Mobilizuje chrbticu a identifikuje vzorce stuhnutosti",
+      "2": "Natiahuje hamstringy a zadnú stranu tela",
+      "3": "Zapája ramená a stabilitu stredu tela",
+      "4": "Posilňuje nohy a zlepšuje mobilitu bokov",
+      "5": "Otvára boky a bočné časti tela",
+      "6": "Vyzýva rovnováhu a koordináciu"
+    },
+    "exercises": {
+      "catCow": {
+        "title": "Mačka-krava",
+        "description": "Zo vzporu kľačmo striedajte zakulenie a prehnutie chrbtice. Rozcvičenie na mobilizáciu chrbtice; identifikuje segmentálnu stuhnutosť vs. zápalovú bolesť.",
+        "video": {
+          "title": "Sekvencia mačka-krava",
+          "description": "Dynamické rozcvičenie mobility chrbtice"
+        }
+      },
+      "forwardFold": {
+        "title": "Stojaci predklon",
+        "description": "Naklonite sa v bokoch dopredu, nechajte hlavu klesať a kolená mierne pokrčte. Naklonite sa v bokoch na natiahnutie hamstringov a dolného chrbta.",
+        "video": {
+          "title": "Stojaci predklon",
+          "description": "Dynamické natiahnutie hamstringov a chrbta"
+        }
+      },
+      "downwardDog": {
+        "title": "Pes hlavou dole",
+        "description": "Z kliku zdvihnite boky do tvaru obráteného 'V', tlačte päty k podlahe. Prechodová pozícia spájajúca pohyby; zapája ramená a zadnú stranu tela.",
+        "video": {
+          "title": "Pes hlavou dole",
+          "description": "Dynamické zapojenie zadnej strany tela"
+        }
+      },
+      "cobra": {
+        "title": "Pozícia kobry",
+        "description": "Ľahnite si na brucho, položte ruky pod ramená a so zovretými lakťami zdvihnite hrudník. Dynamické prehnutie v rámci série pozdrav slnku.",
+        "video": {
+          "title": "Pozícia kobry",
+          "description": "Dynamické otvorenie hrudníka a extenzia chrbta"
+        }
+      },
+      "warrior2": {
+        "title": "Válečník II",
+        "description": "Začnite s nohami široko, otočte pravé prsty dopredu, pokrčte pravé koleno a natiahnite ruky do strán. Posilňuje nohy a zlepšuje mobilitu bokov.",
+        "video": {
+          "title": "Pozícia válečník II",
+          "description": "Dynamické posilňovanie nôh a otvorenie bokov"
+        }
+      },
+      "triangle": {
+        "title": "Pozícia trojuholník",
+        "description": "Z pozície válečník II narovnajte prednú nohu; naklonite sa v boku, spustite prednú ruku k holeni alebo kotníku a natiahnite druhú ruku nahor. Otvára boky a bočné časti tela.",
+        "video": {
+          "title": "Pozícia trojuholník",
+          "description": "Dynamické natiahnutie boku a otvorenie bokov"
+        }
+      },
+      "hipFlexorLunge": {
+        "title": "Výpad s natiahnutím flexorov bokov",
+        "description": "Vo výpade posuňte zadné koleno ďalej dozadu, zovrite sedací sval a naklonite panvu dopredu. Prehlbuje extenziu predného boku; dynamické prechody vyzývajú rovnováhu a identifikujú stuhnutosť flexorov bokov.",
+        "video": {
+          "title": "Výpad s natiahnutím flexorov bokov",
+          "description": "Dynamické natiahnutie flexorov bokov a rovnováha"
+        }
+      }
+    }
   }
 }

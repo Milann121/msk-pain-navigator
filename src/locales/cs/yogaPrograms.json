@@ -199,5 +199,75 @@
         }
       }
     }
+  },
+  "dynamicFullBody": {
+    "title": "Dynamický celotělový jógový program",
+    "description": "Dynamická jógová sekvence, která mobilizuje celé tělo prostřednictvím plynulých pohybů.",
+    "listDescription": {
+      "1": "Mobilizuje páteř a identifikuje vzorce ztuhlosti",
+      "2": "Protahuje hamstringy a zadní stranu těla",
+      "3": "Zapojuje ramena a stabilitu středu těla",
+      "4": "Posiluje nohy a zlepšuje mobilitu kyčlí",
+      "5": "Otevírá kyčle a boky",
+      "6": "Vyzývá rovnováhu a koordinaci"
+    },
+    "exercises": {
+      "catCow": {
+        "title": "Kočka-kráva",
+        "description": "Ze vzporu klečmo střídejte zakulacení a prohnutí páteře. Rozcvičení pro mobilizaci páteře; identifikuje segmentální ztuhlost vs. zánětlivou bolest.",
+        "video": {
+          "title": "Sekvence kočka-kráva",
+          "description": "Dynamické rozcvičení mobility páteře"
+        }
+      },
+      "forwardFold": {
+        "title": "Stojící předklon",
+        "description": "Nakloňte se v kyčlích dopředu, nechte hlavu klesat a kolena mírně pokrčte. Nakloňte se v kyčlích pro protažení hamstringů a dolních zad.",
+        "video": {
+          "title": "Stojící předklon",
+          "description": "Dynamické protažení hamstringů a zad"
+        }
+      },
+      "downwardDog": {
+        "title": "Pes hlavou dolů",
+        "description": "Z kliku zvedněte kyčle do tvaru obráceného 'V', tlačte paty k podlaze. Přechodová pozice spojující pohyby; zapojuje ramena a zadní stranu těla.",
+        "video": {
+          "title": "Pes hlavou dolů",
+          "description": "Dynamické zapojení zadní strany těla"
+        }
+      },
+      "cobra": {
+        "title": "Pozice kobry",
+        "description": "Lehněte si na břicho, položte ruce pod ramena a se sevřenými lokty zvedněte hrudník. Dynamické prohnutí v rámci série pozdrav slunci.",
+        "video": {
+          "title": "Pozice kobry",
+          "description": "Dynamické otevření hrudníku a extenze zad"
+        }
+      },
+      "warrior2": {
+        "title": "Válečník II",
+        "description": "Začněte s nohama široce, otočte pravé prsty dopředu, pokrčte pravé koleno a natáhněte paže do stran. Posiluje nohy a zlepšuje mobilitu kyčlí.",
+        "video": {
+          "title": "Pozice válečník II",
+          "description": "Dynamické posilování nohou a otevření kyčlí"
+        }
+      },
+      "triangle": {
+        "title": "Pozice trojúhelník",
+        "description": "Z pozice válečník II natáhněte přední nohu; nakloňte se v kyčli, spusťte přední ruku k holeninli nebo kotníku a natáhněte druhou paži nahoru. Otevírá kyčle a boky.",
+        "video": {
+          "title": "Pozice trojúhelník",
+          "description": "Dynamické protažení boku a otevření kyčlí"
+        }
+      },
+      "hipFlexorLunge": {
+        "title": "Výpad s protažením flexorů kyčlí",
+        "description": "Ve výpadu posuňte zadní koleno dále dozadu, sevřete hýžďový sval a nakloňte pánev dopředu. Prohlubuje extenzi přední kyčle; dynamické přechody vyzývají rovnováhu a identifikují ztuhlost flexorů kyčlí.",
+        "video": {
+          "title": "Výpad s protažením flexorů kyčlí",
+          "description": "Dynamické protažení flexorů kyčlí a rovnováha"
+        }
+      }
+    }
   }
 }

@@ -83,6 +83,16 @@ const Yoga = () => {
       time: "20 min",
       yoga_group: ["full_body"],
       yoga_level: ["beginner", "intermediate"]
+    },
+    {
+      id: "dynamic-full-body",
+      image: "/lovable-uploads/stretchingCard_images/2.png",
+      title: t('yoga.cards.dynamic_full_body.title'),
+      description: t('yoga.cards.dynamic_full_body.description'),
+      description2: t('yoga.cards.dynamic_full_body.description2'),
+      time: "25 min",
+      yoga_group: ["full_body"],
+      yoga_level: ["intermediate", "advanced"]
     }
   ];
 
