@@ -46,8 +46,8 @@ export const ActiveProgramAccordionHeader = ({ assessment }: ActiveProgramAccord
   const bodyImage = getBodyAreaImage(assessment.pain_area);
   
   return (
-    <div className={`flex ${isMobile ? "flex-col w-full" : "items-center justify-between w-full"}`}>
-      <div className="relative overflow-hidden rounded-lg border-2 border-gray-200 bg-white transition-all duration-200 hover:shadow-md">
+    <div className={`flex ${isMobile ? "flex-col w-full" : "items-center w-full"}`}>
+      <div className={`relative overflow-hidden rounded-lg border-2 border-gray-200 bg-white transition-all duration-200 hover:shadow-md ${isMobile ? "w-full" : "w-1/3"}`}>
         <div className={`flex items-center ${isMobile ? "h-12" : "h-16"}`}>
           <div className="w-1/2 h-full overflow-hidden rounded-l-lg">
             <img 
