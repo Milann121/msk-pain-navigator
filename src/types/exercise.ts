@@ -2,6 +2,7 @@
 export interface Exercise {
   title: string;
   description: string;
+  timeline?: number; // Duration in weeks for the program
   videos: Array<{
     videoId: string;
     title?: string;

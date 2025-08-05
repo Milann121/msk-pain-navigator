@@ -8,6 +8,7 @@ export const centralExercises: Record<string, Exercise[]> = {
       title: 'exercises.central.centralSensitisationNeck.title',
       description: 'exercises.central.centralSensitisationNeck.description',
       advices: [1], // Reference to advice IDs
+      timeline: undefined,
       videos: [
         {
           videoId: '844ILxo5xsA', // Neck ball massage
@@ -46,6 +47,7 @@ export const centralExercises: Record<string, Exercise[]> = {
       title: 'exercises.central.centralSensitisationMiddleBack.title',
       description: 'exercises.central.centralSensitisationMiddleBack.description',
       advices: [1], // Reference to advice IDs
+      timeline: undefined,
       videos: [
         {
           videoId: 'PK62xMsZfG0', // Praying stretch
@@ -93,6 +95,7 @@ export const centralExercises: Record<string, Exercise[]> = {
       title: 'exercises.central.centralSensitisationLowerBack.title',
       description: 'exercises.central.centralSensitisationLowerBack.description',
       advices: [1], // Reference to advice IDs
+      timeline: undefined,
       videos: [
         {
         videoId: 'PMJsVceAnnY', // Glute stretches
@@ -133,6 +136,7 @@ export const centralExercises: Record<string, Exercise[]> = {
       title: 'exercises.central.defaultNeck.title',
       description: 'exercises.central.defaultNeck.description',
       advices: [1], // Reference to advice IDs
+      timeline: undefined,
       videos: [
         {
           videoId: '844ILxo5xsA', // Neck ball massage
@@ -171,6 +175,7 @@ export const centralExercises: Record<string, Exercise[]> = {
       title: 'exercises.central.defaultMiddleBackWeek02.title',
       description: 'exercises.central.defaultMiddleBackWeek02.description',
       advices: [1], // Reference to advice IDs
+      timeline: undefined,
       videos: [
         {
           videoId: 'oAxVF_ktAi0', // Neck extension isometrics
@@ -196,6 +201,7 @@ export const centralExercises: Record<string, Exercise[]> = {
       title: 'exercises.central.defaultMiddleBackWeek35.title',
       description: 'exercises.central.defaultMiddleBackWeek35.description',
       advices: [1], // Reference to advice IDs
+      timeline: undefined,
       videos: [
         {
           videoId: 'oVJqu0FEw-Y', // Middle-back strenthening - 3exc.
@@ -234,6 +240,7 @@ export const centralExercises: Record<string, Exercise[]> = {
       title: 'exercises.central.defaultLowerBack.title',
       description: 'exercises.central.defaultLowerBack.description',
       advices: [1], // Reference to advice IDs
+      timeline: undefined,
       videos: [
         {
         videoId: 'PMJsVceAnnY', // Glute stretches
