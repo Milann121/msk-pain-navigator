@@ -28,10 +28,10 @@
       "description": "Jemné naťahovania na uvoľnenie napätia v krku a ramenách",
       "description2": "Úľava v kancelárii"
     },
-    "morning_flow": {
-      "title": "Ranný energizér",
-      "description": "Začnite deň s energizujúcimi naťahovaním na prebudenie tela",
-      "description2": "Zvýšenie energie"
+    "morning_routine": {
+      "title": "Ranná rutina",
+      "description": "Vedecky podložená ranná rutina s analýzou bolestivých vzorov",
+      "description2": "Kompletné prebúdzanie"
     },
     "evening_relaxation": {
       "title": "Večerné upokojenie",
