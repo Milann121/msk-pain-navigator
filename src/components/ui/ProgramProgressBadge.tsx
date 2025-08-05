@@ -19,8 +19,7 @@ const PROGRAM_TYPE_MAPPING = {
   stretching: {
     "at-office": "stretchingPrograms.atOffice.title",
     "morning-routine": "stretchingPrograms.morningRoutine.title",
-    "tight-muscles": "stretchingPrograms.tightMuscles.title",
-    "post-workout": "stretchingPrograms.postWorkout.title"
+    "tight-muscles": "stretchingPrograms.tightMuscles.title"
   },
   strength: {
     "push-ups": "strengthPrograms.pushUps.title",

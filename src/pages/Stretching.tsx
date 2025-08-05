@@ -77,14 +77,6 @@ const Stretching = () => {
     description2: t('stretching.cards.tight_muscles.description2'),
     time: "12 min",
     stretch_group: ["better_regeneration", "mid_day"]
-  }, {
-    id: "post-workout",
-    image: "/lovable-uploads/stretchingCard_images/8.png",
-    title: t('stretching.cards.post_workout.title'),
-    description: t('stretching.cards.post_workout.description'),
-    description2: t('stretching.cards.post_workout.description2'),
-    time: "15 min",
-    stretch_group: ["after_training", "better_regeneration"]
   }];
   const filteredCards = activeFilter === "all" ? stretchingCards : stretchingCards.filter(card => card.stretch_group.includes(activeFilter));
   
