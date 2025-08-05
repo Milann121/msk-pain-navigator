@@ -250,6 +250,76 @@
       }
     }
   },
+  "powerYoga": {
+    "title": "Power Yoga Program",
+    "description": "Challenging power yoga sequence to build strength, endurance, and flexibility.",
+    "listDescription": {
+      "1": "Builds shoulder endurance and posterior chain strength",
+      "2": "Strengthens back extensors and core muscles",
+      "3": "Develops lower-body strength through sustained holds",
+      "4": "Enhances hip flexibility and glute activation",
+      "5": "Balances muscle groups for optimal performance",
+      "6": "Prevents common injury patterns in active individuals"
+    },
+    "exercises": {
+      "downwardDog": {
+        "title": "Downward-Facing Dog",
+        "description": "From plank, lift hips to form an inverted 'V,' pressing heels toward the floor. Builds shoulder endurance and lengthens posterior chain. Hold for sustained strength building.",
+        "video": {
+          "title": "Downward-Facing Dog Power Hold",
+          "description": "Shoulder endurance and posterior chain strength"
+        }
+      },
+      "cobra": {
+        "title": "Cobra Pose",
+        "description": "Lie prone, place hands under shoulders and, keeping elbows hugged in, lift your chest. Strengthens back extensors and prepares for deeper backbends. Focus on active lifting.",
+        "video": {
+          "title": "Power Cobra Pose",
+          "description": "Back extensor strength and chest opening"
+        }
+      },
+      "warrior2": {
+        "title": "Warrior II",
+        "description": "Start with feet wide; turn the right toes forward, bend the right knee and extend arms to sides. Sustained isometric hold develops lower-body strength. Keep strong engagement throughout.",
+        "video": {
+          "title": "Warrior II Power Hold",
+          "description": "Lower-body strength and endurance"
+        }
+      },
+      "triangle": {
+        "title": "Triangle Pose",
+        "description": "From Warrior II, straighten the front leg; hinge at the hip to lower the front hand to shin/ankle and reach the other arm upward. Maintains engagement through legs and core while stretching side body.",
+        "video": {
+          "title": "Power Triangle Pose",
+          "description": "Active side body stretch with core engagement"
+        }
+      },
+      "hipFlexorLunge": {
+        "title": "Hip-Flexor Lunge",
+        "description": "In a lunge, slide the back knee further back, squeeze the glute and tilt pelvis forward. Enhances hip-flexor flexibility and glute activation; useful for runners and those with anterior hip pain.",
+        "video": {
+          "title": "Power Hip-Flexor Lunge",
+          "description": "Dynamic hip flexor stretch and glute activation"
+        }
+      },
+      "hamstringStretch": {
+        "title": "Standing Hamstring Stretch",
+        "description": "Step one foot forward, hinge at hips and reach toward the toes. Engages hamstrings and calves; important for balancing quadriceps-dominant routines. Keep active engagement.",
+        "video": {
+          "title": "Active Standing Hamstring Stretch",
+          "description": "Hamstring engagement and calf activation"
+        }
+      },
+      "figureFour": {
+        "title": "Figure-Four Glute Stretch",
+        "description": "Cross ankle over opposite knee and sit back into a chair position or lie on back. Provides deep external-rotation stretch to prevent piriformis and SI-joint issues.",
+        "video": {
+          "title": "Power Figure-Four Stretch",
+          "description": "Deep glute and piriformis stretch"
+        }
+      }
+    }
+  },
   "dynamicFullBody": {
     "title": "Dynamic Full-body Yoga Program",
     "description": "Dynamic yoga sequence that mobilizes the entire body through flowing movements.",

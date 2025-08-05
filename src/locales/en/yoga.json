@@ -49,6 +49,11 @@
       "title": "Dynamic Full-body Yoga Program",
       "description": "Dynamic yoga sequence that mobilizes the entire body through flowing movements",
       "description2": "Dynamic"
+    },
+    "power_yoga": {
+      "title": "Power Yoga Program",
+      "description": "Challenging power yoga sequence to build strength, endurance, and flexibility",
+      "description2": "Power"
     }
   },
   "no_results": "No yoga programs found for the selected filters."
