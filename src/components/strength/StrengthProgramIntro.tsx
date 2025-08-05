@@ -158,24 +158,6 @@ export const StrengthProgramIntro: React.FC<StrengthProgramIntroProps> = ({ prog
                 </div>
               )}
 
-              {/* Avoid If */}
-              {program.avoid_differentials.length > 0 && (
-                <div>
-                  <h3 className="font-medium text-destructive mb-3">
-                    {t('strengthPrograms.common.avoidIf')}
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {program.avoid_differentials.map((differential, index) => (
-                      <span
-                        key={index}
-                        className="px-3 py-1 bg-destructive/10 text-destructive text-sm rounded-full"
-                      >
-                        {t(`differentials.${differential}`)}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
 
               {/* Continue/Start Buttons */}
               {!isLoading && progress.hasProgress && progress.completionPercentage > 0 ? (

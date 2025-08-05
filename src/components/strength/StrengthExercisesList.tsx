@@ -91,24 +91,6 @@ export const StrengthExercisesList: React.FC<StrengthExercisesListProps> = ({
                         </div>
                       )}
 
-                      {/* Avoid Differentials */}
-                      {exercise.avoid_differentials.length > 0 && (
-                        <div>
-                          <h4 className="text-destructive text-sm mb-2 font-bold">
-                            {t('strengthPrograms.common.avoidIf')}
-                          </h4>
-                          <div className="flex flex-wrap gap-1">
-                            {exercise.avoid_differentials.map((differential, diffIndex) => (
-                              <span
-                                key={diffIndex}
-                                className="px-2 py-1 bg-destructive/10 text-destructive text-xs rounded-full"
-                              >
-                                {t(`differentials.${differential}`)}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      )}
 
                       {/* Mark as Completed Button */}
                       <ProgramExerciseCompletionButton 
