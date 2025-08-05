@@ -5,11 +5,11 @@ export const morningEnergizerProgram: YogaProgram = {
   title: "Morning Yoga Energizer",
   description: "Energizing yoga sequence to awaken your body and mind for the day ahead",
   listDescription: [
-    "Mobilizes the entire spine",
-    "Stretches posterior chain muscles", 
-    "Strengthens core and legs",
-    "Opens chest and hips",
-    "Improves morning stiffness"
+    "yogaPrograms.morningEnergizer.listDescription.1",
+    "yogaPrograms.morningEnergizer.listDescription.2", 
+    "yogaPrograms.morningEnergizer.listDescription.3",
+    "yogaPrograms.morningEnergizer.listDescription.4",
+    "yogaPrograms.morningEnergizer.listDescription.5"
   ],
   time: "18 min",
   image: "/lovable-uploads/yogaCard_images/1.png",
