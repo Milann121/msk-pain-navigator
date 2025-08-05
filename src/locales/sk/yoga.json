@@ -30,10 +30,10 @@
       "description": "Energizujúca jógová sekvencia na prebúdzanie tela a mysle do nového dňa",
       "description2": "Energizujúce"
     },
-    "power_flow": {
-      "title": "Dynamická silová séria",
-      "description": "Silná plynulá sekvencia na budovanie sily a vytrvalosti",
-      "description2": "Sila"
+    "lower_body": {
+      "title": "Jógový program pre dolnú časť tela",
+      "description": "Cielená jógová sekvencia na posilnenie a natiahnutie dolnej časti tela, bokov a nôh",
+      "description2": "Dolná časť tela"
     },
     "leg_focus": {
       "title": "Zameranie na dolnú časť",

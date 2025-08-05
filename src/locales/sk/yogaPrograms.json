@@ -67,15 +67,15 @@
       }
     }
   },
-  "powerFlow": {
-    "title": "Dynamický silový flow",
-    "description": "Silná plynúca sekvencia pre budovanie sily, vytrvalosti a tepla v tele.",
+  "lowerBody": {
+    "title": "Jógový program pre dolnú časť tela",
+    "description": "Cielená jógová sekvencia na posilnenie a natiahnutie dolnej časti tela, bokov a nôh.",
     "listDescription": {
-      "1": "Sekvencie válečníka pre silu",
-      "2": "Chaturanga klik flow",
-      "3": "Pokročilé pozície armbalance",
-      "4": "Pohyb synchronizovaný s dýchaním",
-      "5": "Prvky posiľovania jadra"
+      "1": "Uvoľňuje stuhnutosť flexorov bokov",
+      "2": "Posilňuje nohy a zlepšuje stabilitu", 
+      "3": "Natiahuje hamstringy a slabiny",
+      "4": "Zlepšuje flexibilitu dolnej časti tela",
+      "5": "Cieli na hlboké sedacie svaly"
     }
   },
   "legFocus": {

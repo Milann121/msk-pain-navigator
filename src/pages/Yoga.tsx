@@ -55,14 +55,14 @@ const Yoga = () => {
       yoga_level: ["beginner"]
     },
     {
-      id: "power-flow",
+      id: "lower-body",
       image: "/lovable-uploads/stretchingCard_images/5.png",
-      title: t('yoga.cards.power_flow.title'),
-      description: t('yoga.cards.power_flow.description'),
-      description2: t('yoga.cards.power_flow.description2'),
-      time: "45 min",
-      yoga_group: ["full_body"],
-      yoga_level: ["intermediate", "advanced"]
+      title: t('yoga.cards.lower_body.title'),
+      description: t('yoga.cards.lower_body.description'),
+      description2: t('yoga.cards.lower_body.description2'),
+      time: "25 min",
+      yoga_group: ["lower_body"],
+      yoga_level: ["beginner", "intermediate"]
     },
     {
       id: "leg-focus",

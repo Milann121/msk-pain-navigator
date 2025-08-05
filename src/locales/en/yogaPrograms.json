@@ -67,39 +67,63 @@
       }
     }
   },
-  "powerFlow": {
-    "title": "Dynamic Power Flow",
-    "description": "Strong flowing sequence to build strength, endurance, and heat in the body.",
+  "lowerBody": {
+    "title": "Lower-body Yoga Program",
+    "description": "Targeted yoga sequence to strengthen and stretch the lower body, hips, and legs.",
     "listDescription": {
-      "1": "Warrior pose sequences for strength",
-      "2": "Chaturanga push-up flow",
-      "3": "Advanced arm balance poses",
-      "4": "Breath-synchronized movement",
-      "5": "Core strengthening elements"
+      "1": "Releases hip flexor tightness",
+      "2": "Strengthens legs and improves stability",
+      "3": "Stretches hamstrings and groin",
+      "4": "Improves lower body flexibility",
+      "5": "Targets deep gluteal muscles"
     },
     "exercises": {
-      "warriorSequence": {
-        "title": "Warrior Sequence",
-        "description": "Dynamic standing poses that build leg strength and improve balance.",
+      "hipFlexorStretch": {
+        "title": "Half-Kneeling Hip-Flexor Stretch",
+        "description": "In a lunge, slide the back knee further back, squeeze the glute and tilt pelvis forward. Stretches iliopsoas, relieving anterior hip tightness linked to prolonged sitting.",
         "video": {
-          "title": "Warrior Pose Flow",
-          "description": "Complete warrior sequence for strength"
+          "title": "Half-Kneeling Hip-Flexor Stretch",
+          "description": "Hip flexor stretch and mobility"
         }
       },
-      "chatupranga": {
-        "title": "Chaturanga Flow",
-        "description": "Yoga push-up sequence that builds upper body and core strength.",
+      "warrior2": {
+        "title": "Warrior II",
+        "description": "Start with feet wide; turn the right toes forward, bend the right knee and extend arms to sides. Strengthens legs and opens hips, great for building knee and hip stability.",
         "video": {
-          "title": "Chaturanga Technique",
-          "description": "Proper form for yoga push-up flow"
+          "title": "Warrior II Pose",
+          "description": "Standing strength and hip opening"
         }
       },
-      "armBalance": {
-        "title": "Arm Balance Introduction",
-        "description": "Beginning arm balance poses to develop strength and coordination.",
+      "triangle": {
+        "title": "Triangle Pose",
+        "description": "From Warrior II, straighten the front leg; hinge at the hip to lower the front hand to shin/ankle and reach the other arm upward. Stretches hamstrings and groin.",
         "video": {
-          "title": "Beginner Arm Balances",
-          "description": "Introduction to yoga arm balances"
+          "title": "Triangle Pose",
+          "description": "Side body stretch and hamstring opening"
+        }
+      },
+      "hamstringStretch": {
+        "title": "Standing Hamstring Stretch",
+        "description": "Step one foot forward, hinge at hips and reach toward the toes. A gentle stretch indicates tight musculature.",
+        "video": {
+          "title": "Standing Hamstring Stretch",
+          "description": "Hamstring flexibility and stretch"
+        }
+      },
+      "pigeonStretch": {
+        "title": "Pigeon/Figure-Four Stretch",
+        "description": "Stretches deep gluteal muscles and piriformis; helpful for buttock pain.",
+        "video": {
+          "title": "Pigeon/Figure-Four Stretch",
+          "description": "Deep hip and glute stretch"
+        }
+      },
+      "downwardDog": {
+        "title": "Downward-Facing Dog",
+        "description": "Comprehensive posterior-chain stretch, useful for calf tightness and plantar fascia symptoms.",
+        "video": {
+          "title": "Downward-Facing Dog",
+          "description": "Posterior chain stretch"
         }
       }
     }
