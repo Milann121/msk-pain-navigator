@@ -54,6 +54,12 @@
       "description": "Full-body strength and conditioning with kettlebell movements",
       "description2": "Intermediate",
       "time": "40 min"
+    },
+    "full_body_strength": {
+      "title": "Full-Body Strength",
+      "description": "Complete strength training targeting all major muscle groups",
+      "description2": "All levels",
+      "time": "25 min"
     }
   },
   "recommendation": {

@@ -4,6 +4,7 @@ import { bodyweightCircuitProgram } from "./bodyweightCircuit";
 import { pullUpsProgram } from "./pullUps";
 import { deadliftsProgram } from "./deadlifts";
 import { outdoorCalisthenicsProgram } from "./outdoorCalisthenics";
+import { fullBodyStrengthProgram } from "./fullBodyStrength";
 
 export const strengthPrograms = {
   "push-ups": pushUpsProgram,
@@ -12,6 +13,7 @@ export const strengthPrograms = {
   "pull-ups": pullUpsProgram,
   "deadlifts": deadliftsProgram,
   "outdoor-calisthenics": outdoorCalisthenicsProgram,
+  "full-body-strength": fullBodyStrengthProgram,
 };
 
-export { pushUpsProgram, squatsProgram, bodyweightCircuitProgram, pullUpsProgram, deadliftsProgram, outdoorCalisthenicsProgram };
+export { pushUpsProgram, squatsProgram, bodyweightCircuitProgram, pullUpsProgram, deadliftsProgram, outdoorCalisthenicsProgram, fullBodyStrengthProgram };

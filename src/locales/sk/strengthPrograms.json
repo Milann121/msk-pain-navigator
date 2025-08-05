@@ -222,5 +222,73 @@
         }
       }
     }
+  },
+  "fullBodyStrength": {
+    "title": "Sila celého tela",
+    "description": "Kompletný posilovací program zameraný na všetky hlavné svalové skupiny pre vyvážený rozvoj.",
+    "listDescription": {
+      "0": "Drepy s vlastnou váhou pre silu nôh",
+      "1": "Kliky pre silu hornej časti tela",
+      "2": "Posilňovanie jadra tela",
+      "3": "Celotělové funkčné vzorce"
+    },
+    "exercises": {
+      "bodyweightSquats": {
+        "title": "Drepy s vlastnou váhou",
+        "description": "Stojte s nohami mierne širšie ako šírka ramien; znížte sa ohnutím v kyčliach, kolenách a členkoch, zastavte sa keď sú stehná približne rovnobežne so zemou.",
+        "video": {
+          "title": "Perfektná forma drepu",
+          "description": "Zvládnite drep s vlastnou váhou so správnou technikou"
+        }
+      },
+      "pushUps": {
+        "title": "Kliky",
+        "description": "Z pozície planku, ruky mierne širšie ako ramená, zapojte jadro a znížte hrudník, kyčle a hlavu spoločne; zatlačte nahor pri udržiavaní neutrálnej chrbtice.",
+        "video": {
+          "title": "Majstrovstvo v klikoch",
+          "description": "Perfektná technika a forma kliku"
+        }
+      },
+      "reverseLunges": {
+        "title": "Spätné výpady",
+        "description": "Stojte vzpriamene, vystúpte jednou nohou späť na špičku a ohnite predné koleno na 90° pri udržaní nad kotníkom.",
+        "video": {
+          "title": "Technika spätného výpadu",
+          "description": "Správna forma a prevedenie spätného výpadu"
+        }
+      },
+      "gluteBridge": {
+        "title": "Sedací mostík",
+        "description": "Ľahnite si na chrbát s pokrčenými kolenami. Zapojte brušné svaly a sedacie svaly, potom zdvihnite kyčle pre vytvorenie priamej línie od ramien ku kolenám.",
+        "video": {
+          "title": "Tutoriál sedacieho mostíka",
+          "description": "Efektívna aktivácia a posilnenie sedacích svalov"
+        }
+      },
+      "calfRaises": {
+        "title": "Výpony lýtok",
+        "description": "Stojte s nohami v šírke kyčlí. Zatlačte cez špičky nôh pre zdvihnutie pät zo zeme, stlačte lýtkové svaly.",
+        "video": {
+          "title": "Technika výponov lýtok",
+          "description": "Správna forma cvičenia pre posilnenie lýtok"
+        }
+      },
+      "superman": {
+        "title": "Superman",
+        "description": "Ľahnite si na brucho s natiahnutými rukami a nohami; súčasne zdvihnite ruky, hrudník a nohy zo zeme, stlačte sedacie a chrbtové svaly.",
+        "video": {
+          "title": "Cvičenie Superman",
+          "description": "Posilnenie chrbta a zlepšenie držania tela"
+        }
+      },
+      "sideLunges": {
+        "title": "Bočné výpady",
+        "description": "Stojte s nohami široko; preneste váhu na jednu stranu a ohnite to koleno pri udržaní druhej nohy rovnej a sedadlá vzadu.",
+        "video": {
+          "title": "Forma bočného výpadu",
+          "description": "Laterálny pohyb a posilnenie kyčlí"
+        }
+      }
+    }
   }
 }

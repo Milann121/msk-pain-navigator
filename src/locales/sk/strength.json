@@ -54,6 +54,12 @@
       "description": "Posilňovanie a kondícia s kettlebell cvikmi",
       "description2": "Pokročilý",
       "time": "40 min"
+    },
+    "full_body_strength": {
+      "title": "Sila celého tela",
+      "description": "Kompletný posilňovací tréning zameraný na všetky hlavné svalové skupiny",
+      "description2": "Všetky úrovne",
+      "time": "25 min"
     }
   },
   "recommendation": {

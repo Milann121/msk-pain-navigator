@@ -222,5 +222,73 @@
         }
       }
     }
+  },
+  "fullBodyStrength": {
+    "title": "Síla celého těla",
+    "description": "Kompletní posilovací program zaměřený na všechny hlavní svalové skupiny pro vyváženský rozvoj.",
+    "listDescription": {
+      "0": "Dřepy s vlastní váhou pro sílu nohou",
+      "1": "Kliky pro sílu horní části těla",
+      "2": "Posilování jádra těla",
+      "3": "Celotělové funkční vzorce"
+    },
+    "exercises": {
+      "bodyweightSquats": {
+        "title": "Dřepy s vlastní váhou",
+        "description": "Stůjte s nohama mírně šířeji než šířka ramen; snižte se ohnutím v kyčlích, kolenou a kotnících, zastavte se když jsou stehna přibližně rovnoběžně se zemí.",
+        "video": {
+          "title": "Perfektní forma dřepu",
+          "description": "Zvládněte dřep s vlastní váhou se správnou technikou"
+        }
+      },
+      "pushUps": {
+        "title": "Kliky",
+        "description": "Z pozice planku, ruce mírně šířeji než ramena, zapojte jádro a snižte hrudník, kyčle a hlavu společně; zatlačte nahoru při udržování neutrální páteře.",
+        "video": {
+          "title": "Mistrovství v klicích",
+          "description": "Perfektní technika a forma kliku"
+        }
+      },
+      "reverseLunges": {
+        "title": "Zpětné výpady",
+        "description": "Stůjte vzpřímeně, vystupte jednou nohou zpět na špičku a ohněte přední koleno na 90° při udržení nad kotníkem.",
+        "video": {
+          "title": "Technika zpětného výpadu",
+          "description": "Správná forma a provedení zpětného výpadu"
+        }
+      },
+      "gluteBridge": {
+        "title": "Hýžďový můstek",
+        "description": "Lehněte si na záda s pokrčenými koleny. Zapojte břišní svaly a hýžďové svaly, poté zvedněte kyčle pro vytvoření přímé linie od ramen ke kolenům.",
+        "video": {
+          "title": "Tutoriál hýžďového můstku",
+          "description": "Efektivní aktivace a posílení hýžďových svalů"
+        }
+      },
+      "calfRaises": {
+        "title": "Výpony lýtek",
+        "description": "Stůjte s nohama v šířce kyčlí. Zatlačte přes špičky nohou pro zvednutí pat ze země, stiskněte lýtkové svaly.",
+        "video": {
+          "title": "Technika výponů lýtek",
+          "description": "Správná forma cvičení pro posílení lýtek"
+        }
+      },
+      "superman": {
+        "title": "Superman",
+        "description": "Lehněte si na břicho s nataženýma rukama a nohama; současně zvedněte ruce, hrudník a nohy ze země, stiskněte hýžďové a zádové svaly.",
+        "video": {
+          "title": "Cvičení Superman",
+          "description": "Posílení zad a zlepšení držení těla"
+        }
+      },
+      "sideLunges": {
+        "title": "Boční výpady",
+        "description": "Stůjte s nohama široce; přeneste váhu na jednu stranu a ohněte to koleno při udržení druhé nohy rovné a hýždí vzadu.",
+        "video": {
+          "title": "Forma bočního výpadu",
+          "description": "Laterální pohyb a posílení kyčlí"
+        }
+      }
+    }
   }
 }

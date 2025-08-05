@@ -54,5 +54,14 @@ export const getStrengthCards = (t: (key: string) => string): StrengthCard[] => 
     description2: t('strength.cards.bodyweight_circuit.description2'),
     time: t('strength.cards.bodyweight_circuit.time'),
     strength_group: ["home", "outside"]
+  },
+  {
+    id: "full-body-strength",
+    image: "/lovable-uploads/38240b28-cfec-4471-866b-e9508ac0e092.png",
+    title: t('strength.cards.full_body_strength.title'),
+    description: t('strength.cards.full_body_strength.description'),
+    description2: t('strength.cards.full_body_strength.description2'),
+    time: t('strength.cards.full_body_strength.time'),
+    strength_group: ["home"]
   }
 ];

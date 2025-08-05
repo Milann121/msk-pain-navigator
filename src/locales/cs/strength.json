@@ -54,6 +54,12 @@
       "description": "Posilování a kondice s kettlebell cviky",
       "description2": "Pokročilý",
       "time": "40 min"
+    },
+    "full_body_strength": {
+      "title": "Síla celého těla",
+      "description": "Kompletní posilovací trénink zaměřený na všechny hlavní svalové skupiny",
+      "description2": "Všechny úrovně",
+      "time": "25 min"
     }
   },
   "recommendation": {

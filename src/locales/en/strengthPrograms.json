@@ -222,5 +222,73 @@
         }
       }
     }
+  },
+  "fullBodyStrength": {
+    "title": "Full-Body Strength",
+    "description": "Complete strength training program targeting all major muscle groups for balanced development.",
+    "listDescription": {
+      "0": "Bodyweight squats for leg strength",
+      "1": "Push-ups for upper body power",
+      "2": "Core strengthening movements",
+      "3": "Full-body functional patterns"
+    },
+    "exercises": {
+      "bodyweightSquats": {
+        "title": "Bodyweight Squats",
+        "description": "Stand with feet slightly wider than shoulder width; lower by bending at hips, knees and ankles, stopping when thighs are about parallel to the floor.",
+        "video": {
+          "title": "Perfect Squat Form",
+          "description": "Master the bodyweight squat with proper technique"
+        }
+      },
+      "pushUps": {
+        "title": "Push-Ups",
+        "description": "From a plank position, hands slightly wider than shoulders, engage core and lower chest, hips and head together; push up while maintaining a neutral spine.",
+        "video": {
+          "title": "Push-Up Mastery",
+          "description": "Perfect push-up technique and form"
+        }
+      },
+      "reverseLunges": {
+        "title": "Reverse Lunges",
+        "description": "Stand tall, step one leg back onto the ball of the foot and bend the front knee to 90° while keeping it over the ankle.",
+        "video": {
+          "title": "Reverse Lunge Technique",
+          "description": "Proper reverse lunge form and execution"
+        }
+      },
+      "gluteBridge": {
+        "title": "Glute Bridge",
+        "description": "Lie on your back with knees bent. Engage your abdominals and glutes, then lift hips to create a straight line from shoulders to knees.",
+        "video": {
+          "title": "Glute Bridge Tutorial",
+          "description": "Effective glute activation and strengthening"
+        }
+      },
+      "calfRaises": {
+        "title": "Calf Raises",
+        "description": "Stand with feet hip-width apart. Push through the balls of your feet to lift heels off the ground, squeezing calf muscles.",
+        "video": {
+          "title": "Calf Raise Technique",
+          "description": "Proper calf strengthening exercise form"
+        }
+      },
+      "superman": {
+        "title": "Superman",
+        "description": "Lie prone with arms and legs extended; simultaneously lift arms, chest and legs off the floor, squeezing glute and back muscles.",
+        "video": {
+          "title": "Superman Exercise",
+          "description": "Back strengthening and postural improvement"
+        }
+      },
+      "sideLunges": {
+        "title": "Side Lunges",
+        "description": "Stand with feet wide; shift weight to one side and bend that knee while keeping the other leg straight and buttocks back.",
+        "video": {
+          "title": "Side Lunge Form",
+          "description": "Lateral movement and hip strengthening"
+        }
+      }
+    }
   }
 }
