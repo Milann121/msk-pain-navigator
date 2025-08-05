@@ -189,38 +189,63 @@
       }
     }
   },
-  "armBalance": {
-    "title": "Arm Balance Mastery",
-    "description": "Advanced poses focusing on upper body strength, balance, and concentration.",
+  "eveningCalming": {
+    "title": "Evening Calming Yoga",
+    "description": "Gentle evening yoga sequence to relax body and mind before sleep.",
     "listDescription": {
-      "1": "Crow pose foundation",
-      "2": "Side crow advanced variation",
-      "3": "Firefly pose challenge",
-      "4": "Balance and core integration"
+      "1": "Releases back tension and muscle spasm",
+      "2": "Calms nervous system naturally",
+      "3": "Stretches hips and improves spinal mobility",
+      "4": "Relieves piriformis-related tension",
+      "5": "Provides full-body traction and decompression"
     },
     "exercises": {
-      "crowPose": {
-        "title": "Crow Pose",
-        "description": "Classic arm balance that builds wrist, arm, and core strength.",
+      "childsPose": {
+        "title": "Child's Pose",
+        "description": "From hands and knees, spread knees, sit hips back onto heels and rest torso between thighs. Stretches lower back, hips, shoulders and neck.",
         "video": {
-          "title": "Crow Pose Tutorial",
-          "description": "Step-by-step guide to crow pose"
+          "title": "Child's Pose Tutorial",
+          "description": "Restorative pose for back and hip relief"
         }
       },
-      "sideCrow": {
-        "title": "Side Crow",
-        "description": "Advanced arm balance variation that challenges oblique strength and balance.",
+      "happyBaby": {
+        "title": "Happy Baby Pose",
+        "description": "Calming posture that gently stretches hips, inner thighs and spine. Helpful for pelvic-floor relaxation.",
         "video": {
-          "title": "Side Crow Technique",
-          "description": "Advanced side crow arm balance"
+          "title": "Happy Baby Pose",
+          "description": "Gentle hip opening and spinal stretch"
         }
       },
-      "firefly": {
-        "title": "Firefly Pose",
-        "description": "Challenging arm balance that requires significant strength and flexibility.",
+      "spinalTwist": {
+        "title": "Supine Spinal Twist",
+        "description": "Lie on back, draw one knee across the body and extend arms to the sides. Stretches glutes, chest and obliques and improves spinal mobility.",
         "video": {
-          "title": "Firefly Pose Guide",
-          "description": "Advanced firefly arm balance pose"
+          "title": "Supine Spinal Twist",
+          "description": "Gentle spinal mobility and release"
+        }
+      },
+      "figureFour": {
+        "title": "Figure-Four Stretch",
+        "description": "Deep gluteal stretch. Use to relieve piriformis-related buttock pain and hip tension.",
+        "video": {
+          "title": "Figure-Four Hip Stretch",
+          "description": "Deep gluteal and piriformis release"
+        }
+      },
+      "catCow": {
+        "title": "Cat-Cow",
+        "description": "Gentle spinal mobilization that calms the nervous system and helps differentiate inflammatory from mechanical stiffness.",
+        "video": {
+          "title": "Cat-Cow Flow",
+          "description": "Gentle spinal mobility for nervous system"
+        }
+      },
+      "downwardDog": {
+        "title": "Downward-Facing Dog",
+        "description": "Slow, sustained hold provides full-body traction; good before bed to relieve postural compression.",
+        "video": {
+          "title": "Restorative Downward Dog",
+          "description": "Full-body decompression and traction"
         }
       }
     }

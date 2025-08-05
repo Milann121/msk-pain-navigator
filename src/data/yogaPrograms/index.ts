@@ -1,13 +1,13 @@
 import { morningEnergizerProgram } from "./morningEnergizer";
 import { lowerBodyProgram } from "./lowerBody";
 import { upperBodyProgram } from "./upperBody";
-import { armBalanceProgram } from "./armBalance";
+import { eveningCalmingProgram } from "./eveningCalming";
 
 export const yogaPrograms = {
   "morning-energizer": morningEnergizerProgram,
   "lower-body": lowerBodyProgram,
   "upper-body": upperBodyProgram,
-  "arm-balance": armBalanceProgram,
+  "evening-calming": eveningCalmingProgram,
 };
 
-export { morningEnergizerProgram, lowerBodyProgram, upperBodyProgram, armBalanceProgram };
+export { morningEnergizerProgram, lowerBodyProgram, upperBodyProgram, eveningCalmingProgram };

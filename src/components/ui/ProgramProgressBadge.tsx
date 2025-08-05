@@ -33,7 +33,7 @@ const PROGRAM_TYPE_MAPPING = {
     "morning-energizer": "yogaPrograms.morningEnergizer.title",
     "lower-body": "yogaPrograms.lowerBody.title",
     "upper-body": "yogaPrograms.upperBody.title",
-    "arm-balance": "yogaPrograms.armBalance.title"
+    "evening-calming": "yogaPrograms.eveningCalming.title"
   }
 };
 

@@ -139,14 +139,65 @@
       }
     }
   },
-  "armBalance": {
-    "title": "Mistrovství v armbalance",
-    "description": "Pokročilé pozice zaměřené na sílu horní části těla, rovnováhu a koncentraci.",
+  "eveningCalming": {
+    "title": "Večerní uklidňující jóga",
+    "description": "Jemná večerní jógová sekvence pro relaxaci těla a mysli před spánkem.",
     "listDescription": {
-      "1": "Základy pozice vrána",
-      "2": "Pokročilá variace boční vrána",
-      "3": "Výzva pozice světluška",
-      "4": "Integrace rovnováhy a jádra"
+      "1": "Uvolňuje napětí zad a svalové křeče",
+      "2": "Přirozeně uklidňuje nervový systém",
+      "3": "Protahuje kyčle a zlepšuje mobilitu páteře",
+      "4": "Ulevuje od napětí piriformis",
+      "5": "Poskytuje celotělovou trakci a dekompresi"
+    },
+    "exercises": {
+      "childsPose": {
+        "title": "Pozice dítěte",
+        "description": "Z pozice na rukou a kolenou roztáhněte kolena, posaďte kyčle zpět na paty a položte trup mezi stehna. Protahuje dolní část zad, kyčle, ramena a krk.",
+        "video": {
+          "title": "Pozice dítěte - návod",
+          "description": "Regenerační pozice pro úlevu zad a kyčlí"
+        }
+      },
+      "happyBaby": {
+        "title": "Pozice šťastného dítěte",
+        "description": "Uklidňující pozice, která jemně protahuje kyčle, vnitřní stranu stehen a páteř. Pomáhá při relaxaci pánevního dna.",
+        "video": {
+          "title": "Pozice šťastného dítěte",
+          "description": "Jemné otevření kyčlí a protažení páteře"
+        }
+      },
+      "spinalTwist": {
+        "title": "Točení páteře vleže",
+        "description": "Lehněte si na záda, přitáhněte jedno koleno přes tělo a natáhněte paže do stran. Protahuje hýžďové svaly, hrudník a šikmé břišní svaly a zlepšuje mobilitu páteře.",
+        "video": {
+          "title": "Točení páteře vleže",
+          "description": "Jemná mobilita a uvolnění páteře"
+        }
+      },
+      "figureFour": {
+        "title": "Protažení do čtyřky",
+        "description": "Hluboké protažení hýžďových svalů. Používá se k úlevě od bolesti hýždí související s piriformis a napětí kyčlí.",
+        "video": {
+          "title": "Protažení kyčlí do čtyřky",
+          "description": "Hluboké uvolnění hýžďových svalů a piriformis"
+        }
+      },
+      "catCow": {
+        "title": "Kočka-kráva",
+        "description": "Jemná mobilizace páteře, která uklidňuje nervový systém a pomáhá rozlišit zánětlivou od mechanické ztuhlosti.",
+        "video": {
+          "title": "Sekvence kočka-kráva",
+          "description": "Jemná mobilita páteře pro nervový systém"
+        }
+      },
+      "downwardDog": {
+        "title": "Pes hlavou dolů",
+        "description": "Pomalé, dlouhé držení poskytuje celotělovou trakci; dobré před spaním pro úlevu od posturální komprese.",
+        "video": {
+          "title": "Regenerační pes hlavou dolů",
+          "description": "Celotělová dekomprese a trakce"
+        }
+      }
     }
   }
 }

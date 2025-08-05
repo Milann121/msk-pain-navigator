@@ -40,10 +40,10 @@
       "description": "Targeted yoga sequence to strengthen and stretch the upper body, chest, and shoulders",
       "description2": "Upper Body"
     },
-    "arm_balance": {
-      "title": "Arm Balance Mastery",
-      "description": "Advanced poses focusing on upper body strength and balance",
-      "description2": "Challenge"
+    "evening_calming": {
+      "title": "Evening Calming Yoga",
+      "description": "Gentle evening yoga sequence to relax body and mind before sleep",
+      "description2": "Calming"
     }
   },
   "no_results": "No yoga programs found for the selected filters."

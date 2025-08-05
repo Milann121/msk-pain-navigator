@@ -139,14 +139,65 @@
       }
     }
   },
-  "armBalance": {
-    "title": "Majstrovstvo v armbalance",
-    "description": "Pokročilé pozície zamerané na silu hornej časti tela, rovnováhu a koncentráciu.",
+  "eveningCalming": {
+    "title": "Večerná upokojujúca jóga",
+    "description": "Jemná večerná jógová sekvencia na relaxáciu tela a mysle pred spánkom.",
     "listDescription": {
-      "1": "Základy pozície vrana",
-      "2": "Pokročilá variácia bočný vrana",
-      "3": "Výzva pozície svetluška",
-      "4": "Integrácia rovnováhy a jadra"
+      "1": "Uvoľňuje napätie chrbta a svalové kŕče",
+      "2": "Prirodzene upokojuje nervový systém",
+      "3": "Natiahuje boky a zlepšuje mobilitu chrbtice",
+      "4": "Uľavuje od napätia piriformis",
+      "5": "Poskytuje celotelnú trakciu a dekompresiu"
+    },
+    "exercises": {
+      "childsPose": {
+        "title": "Pozícia dieťaťa",
+        "description": "Z pozície na rukách a kolenách roztiahnite kolená, posaďte boky späť na päty a položte trup medzi stehná. Natiahuje dolnú časť chrbta, boky, ramená a krk.",
+        "video": {
+          "title": "Pozícia dieťaťa - návod",
+          "description": "Regeneračná pozícia na úľavu chrbta a bokov"
+        }
+      },
+      "happyBaby": {
+        "title": "Pozícia šťastného dieťaťa",
+        "description": "Upokojujúca pozícia, ktorá jemne natiahuje boky, vnútornú stranu stehien a chrbticu. Pomáha pri relaxácii panvového dna.",
+        "video": {
+          "title": "Pozícia šťastného dieťaťa",
+          "description": "Jemné otvorenie bokov a natiahnutie chrbtice"
+        }
+      },
+      "spinalTwist": {
+        "title": "Točenie chrbtice vležiačky",
+        "description": "Ľahnite si na chrbát, pritiahnite jedno koleno cez telo a natiahnite ruky do strán. Natiahuje sedacie svaly, hrudník a šikmé brušné svaly a zlepšuje mobilitu chrbtice.",
+        "video": {
+          "title": "Točenie chrbtice vležiačky",
+          "description": "Jemná mobilita a uvoľnenie chrbtice"
+        }
+      },
+      "figureFour": {
+        "title": "Natiahnutie do štvorky",
+        "description": "Hlboké natiahnutie sedacích svalov. Používa sa na úľavu od bolesti sedadiel súvisiacej s piriformis a napätím bokov.",
+        "video": {
+          "title": "Natiahnutie bokov do štvorky",
+          "description": "Hlboké uvoľnenie sedacích svalov a piriformis"
+        }
+      },
+      "catCow": {
+        "title": "Mačka-krava",
+        "description": "Jemná mobilizácia chrbtice, ktorá upokojuje nervový systém a pomáha rozlíšiť zápalovú od mechanickej stuhnutosti.",
+        "video": {
+          "title": "Sekvencia mačka-krava",
+          "description": "Jemná mobilita chrbtice pre nervový systém"
+        }
+      },
+      "downwardDog": {
+        "title": "Pes hlavou dole",
+        "description": "Pomalé, dlhé držanie poskytuje celotelnú trakciu; dobré pred spánkom na úľavu od posturálnej kompresie.",
+        "video": {
+          "title": "Regeneračný pes hlavou dole",
+          "description": "Celotelná dekompresoa a trakcia"
+        }
+      }
     }
   }
 }
