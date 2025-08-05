@@ -342,5 +342,65 @@
         }
       }
     }
+  },
+  "lowerBodyStrength": {
+    "title": "Síla dolní části těla",
+    "description": "Komplexní posilování dolní části těla zaměřené na nohy, hýžďové svaly a stabilitu kotníků.",
+    "listDescription": {
+      "0": "Dřepy a výpady pro sílu nohou",
+      "1": "Jednostranné pohyby pro rovnováhu",
+      "2": "Aktivace hýžďových svalů a extenze kyčlí",
+      "3": "Posílení lýtek a kotníků"
+    },
+    "exercises": {
+      "bodyweightSquats": {
+        "title": "Dřepy s vlastní váhou",
+        "description": "Zdůrazňuje čtyřhlavý sval, hýžďové svaly a hamstringy. Sledujte správné postavení kolen pro prevenci zranění.",
+        "video": {
+          "title": "Perfektní forma dřepu",
+          "description": "Zvládněte správné postavení kolen a hloubku dřepu"
+        }
+      },
+      "reverseLunges": {
+        "title": "Zpětné výpady",
+        "description": "Skvělé pro jednostrannou sílu nohou a rovnováhu. Nadměrný náklon dopředu nebo pohyb kolene může zatěžovat patelární šlachu.",
+        "video": {
+          "title": "Technika zpětného výpadu",
+          "description": "Budujte jednostrannou sílu a rovnováhu"
+        }
+      },
+      "sideLunges": {
+        "title": "Boční výpady",
+        "description": "Pracuje s adduktory a abduktory. Prospěšné pro běžce a ty s mediální bolestí kolene.",
+        "video": {
+          "title": "Forma bočního výpadu",
+          "description": "Posilte vnitřní a vnější stehenní svaly"
+        }
+      },
+      "gluteBridge": {
+        "title": "Hýžďový můstek",
+        "description": "Vynikající pro sílu extenze kyčlí. Sledujte křeče hamstringů, které naznačují inhibici hýžďových svalů.",
+        "video": {
+          "title": "Tutoriál hýžďového můstku",
+          "description": "Aktivujte hýžďové svaly a posilte extenzory kyčlí"
+        }
+      },
+      "calfRaises": {
+        "title": "Výpony lýtek",
+        "description": "Posiluje lýtka a zlepšuje stabilitu kotníků. Ideální pro ty s problémy Achillovy šlachy nebo plantární fascie při kontrolovaném pohybu.",
+        "video": {
+          "title": "Technika výponů lýtek",
+          "description": "Budujte sílu lýtek a stabilitu kotníků"
+        }
+      },
+      "superman": {
+        "title": "Superman",
+        "description": "Zaměřuje hýžďové svaly a hamstringy spolu s extenzory zad. Pomáhá identifikovat slabost zadního řetězce přispívající k bolesti kyčlí nebo kolen.",
+        "video": {
+          "title": "Cvičení Superman",
+          "description": "Posílení zadního řetězce pro podporu dolní části těla"
+        }
+      }
+    }
   }
 }

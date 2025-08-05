@@ -18,5 +18,14 @@ export const getStrengthCards = (t: (key: string) => string): StrengthCard[] => 
     description2: t('strength.cards.upper_body_strength.description2'),
     time: t('strength.cards.upper_body_strength.time'),
     strength_group: ["home"]
+  },
+  {
+    id: "lower-body-strength",
+    image: "https://images.unsplash.com/photo-1566241142559-40e1dab266c6?w=500&h=500&fit=crop",
+    title: t('strength.cards.lower_body_strength.title'),
+    description: t('strength.cards.lower_body_strength.description'),
+    description2: t('strength.cards.lower_body_strength.description2'),
+    time: t('strength.cards.lower_body_strength.time'),
+    strength_group: ["home"]
   }
 ];

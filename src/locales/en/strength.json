@@ -66,6 +66,12 @@
       "description": "Targeted upper body strengthening for chest, shoulders, and arms",
       "description2": "Intermediate",
       "time": "20 min"
+    },
+    "lower_body_strength": {
+      "title": "Lower-Body Strength",
+      "description": "Comprehensive lower body strengthening for legs and glutes",
+      "description2": "Intermediate",
+      "time": "22 min"
     }
   },
   "recommendation": {

@@ -342,5 +342,65 @@
         }
       }
     }
+  },
+  "lowerBodyStrength": {
+    "title": "Sila dolnej časti tela",
+    "description": "Komplexné posilňovanie dolnej časti tela zamerané na nohy, sedacie svaly a stabilitu kotníkov.",
+    "listDescription": {
+      "0": "Drepy a výpady pre silu nôh",
+      "1": "Jednostranné pohyby pre rovnováhu",
+      "2": "Aktivácia sedacích svalov a extenzia kyčlí",
+      "3": "Posilnenie lýtok a kotníkov"
+    },
+    "exercises": {
+      "bodyweightSquats": {
+        "title": "Drepy s vlastnou váhou",
+        "description": "Zdôrazňuje štvorhlavý sval, sedacie svaly a hamstringy. Sledujte správne postavenie kolien pre prevenciu zranení.",
+        "video": {
+          "title": "Perfektná forma drepu",
+          "description": "Zvládnite správne postavenie kolien a hĺbku drepu"
+        }
+      },
+      "reverseLunges": {
+        "title": "Spätné výpady",
+        "description": "Skvelé pre jednostrannú silu nôh a rovnováhu. Nadmerný náklon dopredu alebo pohyb kolena môže zaťažovať patelárnú šľachu.",
+        "video": {
+          "title": "Technika spätného výpadu",
+          "description": "Budujte jednostrannú silu a rovnováhu"
+        }
+      },
+      "sideLunges": {
+        "title": "Bočné výpady",
+        "description": "Pracuje s adduktormi a abduktormi. Prospešné pre bežcov a tých s mediálnou bolesťou kolena.",
+        "video": {
+          "title": "Forma bočného výpadu",
+          "description": "Posilnite vnútorné a vonkajšie stehenné svaly"
+        }
+      },
+      "gluteBridge": {
+        "title": "Sedací mostík",
+        "description": "Vynikajúce pre silu extencie kyčlí. Sledujte kŕče hamstringov, ktoré naznačujú inhibíciu sedacích svalov.",
+        "video": {
+          "title": "Tutoriál sedacieho mostíka",
+          "description": "Aktivujte sedacie svaly a posilnite extenzory kyčlí"
+        }
+      },
+      "calfRaises": {
+        "title": "Výpony lýtok",
+        "description": "Posilňuje lýtka a zlepšuje stabilitu kotníkov. Ideálne pre tých s problémami Achillovej šľachy alebo plantárnej fascie pri kontrolovanom pohybe.",
+        "video": {
+          "title": "Technika výponov lýtok",
+          "description": "Budujte silu lýtok a stabilitu kotníkov"
+        }
+      },
+      "superman": {
+        "title": "Superman",
+        "description": "Zameriava sedacie svaly a hamstringy spolu s extenzormi chrbta. Pomáha identifikovať slabosť zadného reťazca prispievajúcu k bolesti kyčlí alebo kolien.",
+        "video": {
+          "title": "Cvičenie Superman",
+          "description": "Posilnenie zadného reťazca pre podporu dolnej časti tela"
+        }
+      }
+    }
   }
 }

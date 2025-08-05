@@ -66,6 +66,12 @@
       "description": "Cílené posilování horní části těla pro hrudník, ramena a paže",
       "description2": "Pokročilý",
       "time": "20 min"
+    },
+    "lower_body_strength": {
+      "title": "Síla dolní části těla",
+      "description": "Komplexní posilování dolní části těla pro nohy a hýžďové svaly",
+      "description2": "Pokročilý",
+      "time": "22 min"
     }
   },
   "recommendation": {

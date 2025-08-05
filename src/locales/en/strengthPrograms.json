@@ -342,5 +342,65 @@
         }
       }
     }
+  },
+  "lowerBodyStrength": {
+    "title": "Lower-Body Strength",
+    "description": "Comprehensive lower body strengthening focusing on legs, glutes, and ankle stability.",
+    "listDescription": {
+      "0": "Squats and lunges for leg strength",
+      "1": "Unilateral movements for balance",
+      "2": "Glute activation and hip extension",
+      "3": "Calf and ankle strengthening"
+    },
+    "exercises": {
+      "bodyweightSquats": {
+        "title": "Bodyweight Squats",
+        "description": "Emphasizes quadriceps, glutes and hamstrings. Watch for proper knee alignment to prevent injury.",
+        "video": {
+          "title": "Perfect Squat Form",
+          "description": "Master proper knee alignment and squat depth"
+        }
+      },
+      "reverseLunges": {
+        "title": "Reverse Lunges",
+        "description": "Great for unilateral leg strength and balance. Excessive forward lean or knee travel may strain patellar tendon.",
+        "video": {
+          "title": "Reverse Lunge Technique",
+          "description": "Build unilateral strength and balance"
+        }
+      },
+      "sideLunges": {
+        "title": "Side Lunges",
+        "description": "Works adductors and abductors. Beneficial for runners and those with medial knee pain.",
+        "video": {
+          "title": "Side Lunge Form",
+          "description": "Strengthen inner and outer thigh muscles"
+        }
+      },
+      "gluteBridge": {
+        "title": "Glute Bridge",
+        "description": "Excellent for hip-extension strength. Monitor for hamstring cramps, which indicate glute inhibition.",
+        "video": {
+          "title": "Glute Bridge Tutorial",
+          "description": "Activate glutes and strengthen hip extensors"
+        }
+      },
+      "calfRaises": {
+        "title": "Calf Raises",
+        "description": "Strengthens calves and improves ankle stability. Ideal for those with Achilles or plantar-fascia issues when controlled.",
+        "video": {
+          "title": "Calf Raise Technique",
+          "description": "Build calf strength and ankle stability"
+        }
+      },
+      "superman": {
+        "title": "Superman",
+        "description": "Targets glutes and hamstrings along with back extensors. Helps identify posterior-chain weakness contributing to hip or knee pain.",
+        "video": {
+          "title": "Superman Exercise",
+          "description": "Strengthen posterior chain for lower body support"
+        }
+      }
+    }
   }
 }

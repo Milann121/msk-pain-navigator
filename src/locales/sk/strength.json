@@ -66,6 +66,12 @@
       "description": "Cielené posilňovanie hornej časti tela pre hrudník, ramená a paže",
       "description2": "Pokročilý",
       "time": "20 min"
+    },
+    "lower_body_strength": {
+      "title": "Sila dolnej časti tela",
+      "description": "Komplexné posilňovanie dolnej časti tela pre nohy a sedacie svaly",
+      "description2": "Pokročilý",
+      "time": "22 min"
     }
   },
   "recommendation": {
