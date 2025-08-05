@@ -25,9 +25,9 @@
     }
   },
   "cards": {
-    "morning_flow": {
-      "title": "Ranní probouzení",
-      "description": "Jemná jógová sekvence na začátek dne s energií a soustředěním",
+    "morning_energizer": {
+      "title": "Ranní jógová energie",
+      "description": "Energizující jógová sekvence pro probuzení těla a mysli do nového dne",
       "description2": "Energizující"
     },
     "power_flow": {

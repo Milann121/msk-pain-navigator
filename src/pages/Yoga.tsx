@@ -45,12 +45,12 @@ const Yoga = () => {
   // Sample data - replace with real data from backend
   const yogaCards: YogaCard[] = [
     {
-      id: "morning-flow",
+      id: "morning-energizer",
       image: "/lovable-uploads/stretchingCard_images/1.png",
-      title: t('yoga.cards.morning_flow.title'),
-      description: t('yoga.cards.morning_flow.description'),
-      description2: t('yoga.cards.morning_flow.description2'),
-      time: "20 min",
+      title: t('yoga.cards.morning_energizer.title'),
+      description: t('yoga.cards.morning_energizer.description'),
+      description2: t('yoga.cards.morning_energizer.description2'),
+      time: "18 min",
       yoga_group: ["full_body"],
       yoga_level: ["beginner"]
     },
