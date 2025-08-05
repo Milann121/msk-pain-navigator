@@ -10,7 +10,9 @@ import { uploadRecording } from '@/services/speechService';
 import { SiriRecordingAnimation } from '@/components/speech/SiriRecordingAnimation';
 export const NotificationArea = () => {
   const navigate = useNavigate();
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [isWhatsAppExpanded, setIsWhatsAppExpanded] = useState(false);
   const [isRecording, setIsRecording] = useState(false);
   const [showRecordingActions, setShowRecordingActions] = useState(false);
@@ -23,7 +25,6 @@ export const NotificationArea = () => {
   const recorderRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<Blob[]>([]);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
-  
   const {
     isGoalMet,
     hasActivePrograms
@@ -40,29 +41,27 @@ export const NotificationArea = () => {
       const scrollContainer = scrollAreaRef.current;
       const buttonRect = whatsAppButtonRef.current.getBoundingClientRect();
       const containerRect = scrollContainer.getBoundingClientRect();
-      
+
       // Calculate the position to center the expanded icon with its children
-      const buttonCenter = buttonRect.left - containerRect.left + (buttonRect.width / 2);
+      const buttonCenter = buttonRect.left - containerRect.left + buttonRect.width / 2;
       const containerCenter = containerRect.width / 2;
       const scrollLeft = scrollContainer.scrollLeft + buttonCenter - containerCenter;
-      
-      scrollContainer.scrollTo({ 
-        left: Math.max(0, scrollLeft), 
-        behavior: 'smooth' 
+      scrollContainer.scrollTo({
+        left: Math.max(0, scrollLeft),
+        behavior: 'smooth'
       });
     }
-    
+
     // For desktop/tablet, calculate safe shift or use scroll when content would overflow
     if (!isMobile && isWhatsAppExpanded && containerRef.current && iconsContainerRef.current) {
       const container = containerRef.current;
       const iconsContainer = iconsContainerRef.current;
       const containerWidth = container.offsetWidth - 16; // Account for padding
       const expandedWidth = 120; // Approximate width of expanded WhatsApp buttons
-      
+
       // Calculate total content width when expanded
       const iconsWidth = iconsContainer.scrollWidth;
       const totalExpandedWidth = iconsWidth + expandedWidth;
-      
       if (totalExpandedWidth > containerWidth) {
         // Content would overflow, so we limit shift to prevent icons going outside banner
         const maxShift = Math.min(0, containerWidth - totalExpandedWidth);
@@ -87,9 +86,7 @@ export const NotificationArea = () => {
       }
     };
   }, []);
-
   if (loading) return null;
-
   const handleProgressClick = () => {
     navigate('/my-exercises');
   };
@@ -99,77 +96,64 @@ export const NotificationArea = () => {
   const handlePsfsClick = () => {
     navigate('/psfs-questionnaire');
   };
-
   const handleWhatsAppClick = () => {
     setIsWhatsAppExpanded(!isWhatsAppExpanded);
   };
-
   const handleWhatsAppChat = () => {
     // Add WhatsApp chat logic here
     window.open('https://wa.me/your-number', '_blank');
   };
-
   const handleWhatsAppVideo = () => {
     // Add WhatsApp video call logic here
     window.open('https://wa.me/your-number?text=Video%20call%20request', '_blank');
   };
-
   const startRecording = async () => {
     chunksRef.current = [];
-    
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ 
+      const stream = await navigator.mediaDevices.getUserMedia({
         audio: {
           echoCancellation: true,
           noiseSuppression: true,
           sampleRate: 16000
         }
       });
-      
       const recorder = new MediaRecorder(stream, {
         mimeType: 'audio/webm;codecs=opus'
       });
-      
       recorderRef.current = recorder;
-      
-      recorder.ondataavailable = (event) => {
+      recorder.ondataavailable = event => {
         if (event.data.size > 0) {
           chunksRef.current.push(event.data);
         }
       };
-      
       recorder.onstop = async () => {
-        const recordingBlob = new Blob(chunksRef.current, { 
-          type: 'audio/webm;codecs=opus' 
+        const recordingBlob = new Blob(chunksRef.current, {
+          type: 'audio/webm;codecs=opus'
         });
-        
+
         // Show action buttons instead of auto-saving
         setShowRecordingActions(true);
-        
+
         // Store the blob for later use
         chunksRef.current = [recordingBlob];
-        
         stream.getTracks().forEach(track => track.stop());
       };
-      
       recorder.start();
       setIsRecording(true);
-      
+
       // Auto-stop after 30 seconds
       timerRef.current = setTimeout(() => {
         stopRecording();
       }, 30000);
-      
     } catch (err) {
       console.error('Error starting recording:', err);
       toast({
         title: 'Recording failed',
         description: 'Could not access microphone. Please check permissions.',
-        variant: 'destructive',
+        variant: 'destructive'
       });
     }
   };
-
   const stopRecording = () => {
     if (recorderRef.current && recorderRef.current.state === 'recording') {
       recorderRef.current.stop();
@@ -180,38 +164,33 @@ export const NotificationArea = () => {
       timerRef.current = null;
     }
   };
-
   const handleSaveRecording = async () => {
     if (chunksRef.current.length === 0) return;
-    
     try {
       const recordingBlob = chunksRef.current[0] as Blob;
       await uploadRecording(recordingBlob, 30);
       toast({
         title: 'Recording saved successfully',
-        description: 'Your recording has been saved to your history.',
+        description: 'Your recording has been saved to your history.'
       });
     } catch (err) {
       console.error('Upload error:', err);
       toast({
         title: 'Upload failed',
         description: 'Could not save your recording. Please try again.',
-        variant: 'destructive',
+        variant: 'destructive'
       });
     }
-    
     setShowRecordingActions(false);
     chunksRef.current = [];
   };
-
   const handleDiscardRecording = () => {
     setShowRecordingActions(false);
     chunksRef.current = [];
   };
-
   const handleSpeechRecordingClick = () => {
     if (showRecordingActions) return; // Disable button when actions are shown
-    
+
     if (isRecording) {
       stopRecording();
     } else {
@@ -221,140 +200,78 @@ export const NotificationArea = () => {
 
   // Don't show progress icon if no active programs
   const showProgressIcon = hasActivePrograms;
-  const iconContainer = (
-    <div 
-      className="flex items-center justify-center gap-6 min-w-max px-2 touch-pan-x transition-transform duration-300 ease-out"
-      ref={iconsContainerRef}
-      style={{ transform: `translateX(${iconShift}px)` }}
-    >
+  const iconContainer = <div className="flex items-center justify-center gap-6 min-w-max px-2 touch-pan-x transition-transform duration-300 ease-out" ref={iconsContainerRef} style={{
+    transform: `translateX(${iconShift}px)`
+  }}>
       {/* Weekly Progress Icon */}
-      {showProgressIcon && (
-        <button 
-          onClick={handleProgressClick} 
-          className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100 ${!isGoalMet ? 'breathing-icon' : ''}`} 
-          aria-label="Weekly Progress"
-        >
+      {showProgressIcon && <button onClick={handleProgressClick} className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100 ${!isGoalMet ? 'breathing-icon' : ''}`} aria-label="Weekly Progress">
           <TrendingUp className="w-5 h-5 text-black" />
-        </button>
-      )}
+        </button>}
 
       {/* OREBRO Brain Icon */}
-      <button 
-        onClick={handleOrebroClick} 
-        className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100 ${isOrebroReminderDue ? 'breathing-icon' : ''}`} 
-        aria-label="OREBRO Questionnaire"
-      >
+      <button onClick={handleOrebroClick} className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100 ${isOrebroReminderDue ? 'breathing-icon' : ''}`} aria-label="OREBRO Questionnaire">
         <Brain className="w-5 h-5 text-blue-600" />
       </button>
 
       {/* PSFS Heartbeat Icon */}
-      <button 
-        onClick={handlePsfsClick} 
-        className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100 ${isPsfsReminderDue ? 'breathing-icon' : ''}`} 
-        aria-label="PSFS Assessment"
-      >
+      <button onClick={handlePsfsClick} className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100 ${isPsfsReminderDue ? 'breathing-icon' : ''}`} aria-label="PSFS Assessment">
         <Activity className="w-5 h-5 text-green-600" />
       </button>
 
       {/* Light vertical divider */}
-      <div className="w-px h-6 bg-border/50" />
+      <div className="w-px h-6 bg-black" />
 
       {/* Speech Recording Icon */}
       <div className="relative flex flex-col items-center">
-        <button 
-          onClick={handleSpeechRecordingClick} 
-          className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100 ${isRecording ? 'bg-red-100 breathing-icon' : ''} ${showRecordingActions ? 'opacity-50 cursor-not-allowed' : ''}`} 
-          aria-label="Voice Recording"
-          disabled={showRecordingActions}
-        >
+        <button onClick={handleSpeechRecordingClick} className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100 ${isRecording ? 'bg-red-100 breathing-icon' : ''} ${showRecordingActions ? 'opacity-50 cursor-not-allowed' : ''}`} aria-label="Voice Recording" disabled={showRecordingActions}>
           <Mic className={`w-5 h-5 ${isRecording ? 'text-red-500' : 'text-blue-500'}`} />
         </button>
         
         {/* Siri-like animation overlay */}
-        {isRecording && (
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        {isRecording && <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <SiriRecordingAnimation isRecording={isRecording} size="small" />
-          </div>
-        )}
+          </div>}
         
         {/* Recording action buttons */}
-        {showRecordingActions && (
-          <div className="flex items-center gap-2 mt-1">
-            <button
-              onClick={handleDiscardRecording}
-              className="flex items-center justify-center w-6 h-6 rounded-full bg-red-500 hover:bg-red-600 transition-colors duration-200"
-              aria-label="Cancel Recording"
-            >
+        {showRecordingActions && <div className="flex items-center gap-2 mt-1">
+            <button onClick={handleDiscardRecording} className="flex items-center justify-center w-6 h-6 rounded-full bg-red-500 hover:bg-red-600 transition-colors duration-200" aria-label="Cancel Recording">
               <X className="w-3 h-3 text-white" />
             </button>
-            <button
-              onClick={handleSaveRecording}
-              className="flex items-center justify-center w-6 h-6 rounded-full bg-green-500 hover:bg-green-600 transition-colors duration-200"
-              aria-label="Save Recording"
-            >
+            <button onClick={handleSaveRecording} className="flex items-center justify-center w-6 h-6 rounded-full bg-green-500 hover:bg-green-600 transition-colors duration-200" aria-label="Save Recording">
               <Check className="w-3 h-3 text-white" />
             </button>
-          </div>
-        )}
+          </div>}
       </div>
 
       {/* WhatsApp Contact Icon */}
       <div className="relative flex items-center" ref={whatsAppButtonRef}>
-        <button 
-          onClick={handleWhatsAppClick} 
-          className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100"
-          aria-label="WhatsApp Contact"
-        >
+        <button onClick={handleWhatsAppClick} className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100" aria-label="WhatsApp Contact">
           <MessageSquare className="w-5 h-5 text-green-500" />
         </button>
 
         {/* Expandable Contact Options */}
-        <div className={`absolute left-full ml-2 flex items-center gap-2 transition-all duration-300 ease-out ${
-          isWhatsAppExpanded 
-            ? 'translate-x-0 opacity-100 pointer-events-auto' 
-            : 'translate-x-[-20px] opacity-0 pointer-events-none'
-        }`}>
-          <button 
-            onClick={handleWhatsAppChat}
-            className="flex items-center justify-center w-8 h-8 rounded-full bg-green-500 hover:bg-green-600 transition-colors duration-200"
-            aria-label="WhatsApp Chat"
-          >
+        <div className={`absolute left-full ml-2 flex items-center gap-2 transition-all duration-300 ease-out ${isWhatsAppExpanded ? 'translate-x-0 opacity-100 pointer-events-auto' : 'translate-x-[-20px] opacity-0 pointer-events-none'}`}>
+          <button onClick={handleWhatsAppChat} className="flex items-center justify-center w-8 h-8 rounded-full bg-green-500 hover:bg-green-600 transition-colors duration-200" aria-label="WhatsApp Chat">
             <MessageCircle className="w-4 h-4 text-white" />
           </button>
-          <button 
-            onClick={handleWhatsAppVideo}
-            className="flex items-center justify-center w-8 h-8 rounded-full bg-green-500 hover:bg-green-600 transition-colors duration-200"
-            aria-label="WhatsApp Video Call"
-          >
+          <button onClick={handleWhatsAppVideo} className="flex items-center justify-center w-8 h-8 rounded-full bg-green-500 hover:bg-green-600 transition-colors duration-200" aria-label="WhatsApp Video Call">
             <Video className="w-4 h-4 text-white" />
           </button>
         </div>
       </div>
-    </div>
-  );
-
-  return (
-    <div className="py-px px-px rounded-none bg-slate-50">
+    </div>;
+  return <div className="py-px px-px rounded-none bg-slate-50">
       <div className="rounded-lg border border-gray-200 p-2 shadow-sm bg-blue-100 py-0 px-[8px] my-px w-full md:w-[370px] overflow-hidden" ref={containerRef}>
-        {isMobile ? (
-          <div 
-            className="overflow-x-auto overflow-y-hidden scrollbar-hide"
-            style={{ 
-              scrollbarWidth: 'none', 
-              msOverflowStyle: 'none',
-              WebkitOverflowScrolling: 'touch',
-              touchAction: 'pan-x'
-            }}
-            ref={scrollAreaRef}
-          >
+        {isMobile ? <div className="overflow-x-auto overflow-y-hidden scrollbar-hide" style={{
+        scrollbarWidth: 'none',
+        msOverflowStyle: 'none',
+        WebkitOverflowScrolling: 'touch',
+        touchAction: 'pan-x'
+      }} ref={scrollAreaRef}>
             {iconContainer}
-          </div>
-        ) : (
-          <div className="overflow-hidden">
+          </div> : <div className="overflow-hidden">
             {iconContainer}
-          </div>
-        )}
+          </div>}
       </div>
-    </div>
-  );
+    </div>;
 };
