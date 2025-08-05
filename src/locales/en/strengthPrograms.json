@@ -290,5 +290,58 @@
         }
       }
     }
+  },
+  "upperBodyStrength": {
+    "title": "Upper-Body Strength",
+    "description": "Targeted upper body strengthening focusing on chest, shoulders, triceps, and core stability.",
+    "listDescription": {
+      "0": "Push-ups for chest and shoulder strength",
+      "1": "Tricep dips for arm development",
+      "2": "Plank variations for core stability",
+      "3": "Posterior chain strengthening"
+    },
+    "exercises": {
+      "pushUps": {
+        "title": "Push-Ups",
+        "description": "Excellent compound movement targeting chest, shoulders and triceps. Keep elbows at ~45° to torso to prevent shoulder pain.",
+        "video": {
+          "title": "Perfect Push-Up Form",
+          "description": "Master proper push-up technique with correct elbow positioning"
+        }
+      },
+      "tricepDips": {
+        "title": "Tricep Dips",
+        "description": "Sit on a stable chair or bench with hands by hips. Lower body by bending elbows to about 90°, keep shoulders depressed.",
+        "video": {
+          "title": "Bench Tricep Dips Tutorial",
+          "description": "Learn proper dip technique to avoid shoulder discomfort"
+        }
+      },
+      "plankShoulderTaps": {
+        "title": "Plank Shoulder Taps",
+        "description": "Start in high plank, tap opposite hand to shoulder without rocking hips. Maintains stable core and builds anti-rotation strength.",
+        "video": {
+          "title": "Plank Shoulder Taps Guide",
+          "description": "Core stability exercise with shoulder engagement"
+        }
+      },
+      "plank": {
+        "title": "Plank",
+        "description": "Hold a forearm plank with elbows under shoulders, engage core, and maintain a straight line from head to heels.",
+        "video": {
+          "title": "Perfect Plank Form",
+          "description": "Build isometric core and shoulder strength"
+        }
+      },
+      "superman": {
+        "title": "Superman",
+        "description": "Strengthens posterior chain muscles often neglected in upper-body training. Essential for balanced muscle development.",
+        "video": {
+          "title": "Superman Exercise",
+          "description": "Posterior chain strengthening for upper body balance"
+        }
+      }
+    }
   }
+}
 }

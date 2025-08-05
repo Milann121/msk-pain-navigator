@@ -60,6 +60,12 @@
       "description": "Complete strength training targeting all major muscle groups",
       "description2": "All levels",
       "time": "25 min"
+    },
+    "upper_body_strength": {
+      "title": "Upper-Body Strength",
+      "description": "Targeted upper body strengthening for chest, shoulders, and arms",
+      "description2": "Intermediate",
+      "time": "20 min"
     }
   },
   "recommendation": {
