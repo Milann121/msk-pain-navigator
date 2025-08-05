@@ -94,44 +94,6 @@ export const useProfileEditing = (
     if (!user) return;
 
     console.log('🔄 [useProfileEditing] Starting save for field:', field);
-
-    // CRITICAL: Ensure user_profiles record exists before allowing edits
-    try {
-      const { data: existingProfile, error: checkError } = await supabase
-        .from('user_profiles')
-        .select('id')
-        .eq('user_id', user.id)
-        .single();
-
-      if (checkError && checkError.code === 'PGRST116') {
-        console.log('⚠️ [useProfileEditing] No user_profiles record found, creating one first');
-        
-        // Create basic profile record first
-        const { error: createError } = await supabase
-          .from('user_profiles')
-          .insert({
-            user_id: user.id,
-            email: user.email,
-            first_name: user.user_metadata?.first_name || 'User',
-            updated_at: new Date().toISOString()
-          });
-
-        if (createError) {
-          console.error('❌ [useProfileEditing] Failed to create profile record:', createError);
-          toast({
-            title: 'Error',
-            description: 'Failed to create profile. Please try again.',
-            variant: 'destructive',
-          });
-          return;
-        }
-        
-        console.log('✅ [useProfileEditing] Created profile record successfully');
-      }
-    } catch (error) {
-      console.error('❌ [useProfileEditing] Error checking profile existence:', error);
-      return;
-    }
     console.log('🔄 [useProfileEditing] Current temp values:', {
       tempDepartmentId,
       tempJobType,
@@ -227,25 +189,9 @@ export const useProfileEditing = (
       
       console.log('💾 [useProfileEditing] Final data to save:', finalData);
 
-      // First, get existing profile data to preserve it
-      const { data: existingProfile } = await supabase
-        .from('user_profiles')
-        .select('*')
-        .eq('user_id', user.id)
-        .single();
-
-      // Merge existing data with new data to prevent overwriting
-      const mergedData = {
-        ...existingProfile,
-        ...finalData,
-        updated_at: new Date().toISOString()
-      };
-
-      console.log('💾 [useProfileEditing] Merged data for save:', mergedData);
-
       const { data: savedData, error } = await supabase
         .from('user_profiles')
-        .upsert(mergedData, { onConflict: 'user_id' })
+        .upsert(finalData, { onConflict: 'user_id' })
         .select();
 
       if (error) {
@@ -255,34 +201,17 @@ export const useProfileEditing = (
 
       console.log('✅ [useProfileEditing] Successfully saved to database, returned data:', savedData);
       
-      // CRITICAL: Verify all saves in database to ensure data persistence
-      const { data: verifyData, error: verifyError } = await supabase
-        .from('user_profiles')
-        .select('*')
-        .eq('user_id', user.id)
-        .single();
-
-      if (verifyError) {
-        console.error('❌ [useProfileEditing] Failed to verify data save:', verifyError);
-        throw new Error('Failed to verify data was saved');
-      }
-
-      console.log('✅ [useProfileEditing] Data verification successful:', verifyData);
-
-      // Specific verification for critical fields
+      // Verify critical saves in database
       if (field === 'yearOfBirth') {
-        const expectedValue = !tempValue || tempValue === '' ? null : Number(tempValue);
-        if (verifyData.year_birth !== expectedValue) {
-          throw new Error(`Year of birth verification failed. Expected: ${expectedValue}, Got: ${verifyData.year_birth}`);
+        const { data: verifyData } = await supabase
+          .from('user_profiles')
+          .select('year_birth')
+          .eq('user_id', user.id)
+          .single();
+          
+        if (verifyData?.year_birth !== Number(tempValue)) {
+          throw new Error('Year of birth was not saved correctly');
         }
-      }
-
-      if (field === 'firstName' && verifyData.first_name !== String(tempValue)) {
-        throw new Error(`First name verification failed. Expected: ${tempValue}, Got: ${verifyData.first_name}`);
-      }
-
-      if (field === 'lastName' && verifyData.last_name !== String(tempValue)) {
-        throw new Error(`Last name verification failed. Expected: ${tempValue}, Got: ${verifyData.last_name}`);
       }
       
       // Verify the save by querying the database
