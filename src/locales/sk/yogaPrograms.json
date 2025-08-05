@@ -6,38 +6,63 @@
     "focusAreas": "Oblasti zamerania:",
     "avoidIf": "Vyhnite sa ak máte:"
   },
-  "morningFlow": {
-    "title": "Ranný prebúdzací flow",
-    "description": "Jemná jógová sekvencia pre začiatok dňa s energiou a uvedomelým pohybom.",
+  "morningEnergizer": {
+    "title": "Ranná jógová energia",
+    "description": "Energizujúca jógová sekvencia na prebúdzanie tela a mysle do nového dňa.",
     "listDescription": {
-      "1": "Sekvencia pozdrav slnku na rozohriatie",
-      "2": "Mobilita chrbtice mačka-krava",
-      "3": "Natiahnutie v pozícii pes hlavou dole",
-      "4": "Praktizovanie uvedomelého dýchania"
+      "1": "Mobilizuje celú chrbticu",
+      "2": "Natiahuje svaly zadnej strany tela",
+      "3": "Posilňuje stred tela a nohy",
+      "4": "Otvára hrudník a boky",
+      "5": "Zlepšuje rannú stuhnutosť"
     },
     "exercises": {
-      "sunSalutation": {
-        "title": "Pozdrav slnku",
-        "description": "Klasická plynúca sekvencia, ktorá zohrieva celé telo a spája dych s pohybom.",
-        "video": {
-          "title": "Pozdrav slnku A",
-          "description": "Tradičný ranný jógový flow"
-        }
-      },
       "catCow": {
-        "title": "Pozícia mačka-krava",
-        "description": "Jemné cvičenie mobility chrbtice, ktoré prebúdza chrbát a zlepšuje flexibilitu.",
+        "title": "Mačka-krava",
+        "description": "Zo vzporu kľačmo striedajte zakulenie a prehnutie chrbtice. Pozícia mobilizuje celú chrbticu a natiahuje brušné svaly, ramená, krk, sedacie svaly a flexory bokov, čo môže zmierniť rannú stuhnutosť spojenú s mechanickou bolesťou chrbta.",
         "video": {
-          "title": "Spinálny flow mačka-krava",
-          "description": "Mobilita chrbtice a rozohriavací pohyb"
+          "title": "Pozícia mačka-krava",
+          "description": "Cvičenie mobility chrbtice"
         }
       },
       "downwardDog": {
         "title": "Pes hlavou dole",
-        "description": "Základná jógová pozícia, ktorá posilňuje ruky a natiahuje zadnú stranu tela.",
+        "description": "Z kliku zdvihnite boky do tvaru obráteného 'V', tlačte päty k podlahe. Toto globálne natiahnutie zadnej strany tela mobilizuje lýtka, hamstringy, sedacie svaly a ramená.",
         "video": {
-          "title": "Správne postavenie psa hlavou dole",
-          "description": "Správna forma a postavenie v pozícii pes hlavou dole"
+          "title": "Pes hlavou dole",
+          "description": "Natiahnutie zadnej strany tela"
+        }
+      },
+      "cobra": {
+        "title": "Pozícia kobry",
+        "description": "Ľahnite si na brucho, položte ruky pod ramená a so zovretými lakťami zdvihnite hrudník. Kobra posilňuje vzpriamovače chrbtice a otvára hrudník—pomáha pri riešení bolesti chrbta úľavnej ohnutím po dlhom sedení.",
+        "video": {
+          "title": "Pozícia kobry",
+          "description": "Otvorenie hrudníka a extenzia chrbta"
+        }
+      },
+      "warrior2": {
+        "title": "Válečník II",
+        "description": "Začnite s nohami široko, otočte pravé prsty dopredu, pokrčte pravé koleno a natiahnite ruky do strán. Udržujte boky a ramená v rovine a klesajte do výpadu, pritom predlžujte chrbticu. Táto pozícia posilňuje štvorhlavé svaly a sedacie svaly a zároveň otvára boky a hrudník.",
+        "video": {
+          "title": "Pozícia válečník II",
+          "description": "Stojaca sila a otvorenie bokov"
+        }
+      },
+      "triangle": {
+        "title": "Pozícia trojuholník",
+        "description": "Z pozície válečník II narovnajte prednú nohu; naklonite sa v boku, spustite prednú ruku k holeni alebo kotníku a natiahnite druhú ruku nahor. Natiahuje hamstringy, slabiny a hrudník.",
+        "video": {
+          "title": "Pozícia trojuholník",
+          "description": "Natiahnutie boku a otvorenie hamstringov"
+        }
+      },
+      "forwardFold": {
+        "title": "Stojaci predklon",
+        "description": "Naklonite sa v bokoch dopredu, nechajte hlavu klesať a kolená mierne pokrčte. Cieli na hamstringy, lýtka a dolnú časť chrbta.",
+        "video": {
+          "title": "Stojaci predklon",
+          "description": "Natiahnutie hamstringov a lýtok"
         }
       }
     }

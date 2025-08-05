@@ -6,38 +6,63 @@
     "focusAreas": "Oblasti zaměření:",
     "avoidIf": "Vyhněte se pokud máte:"
   },
-  "morningFlow": {
-    "title": "Ranní probouzecí flow",
-    "description": "Jemná jógová sekvence pro začátek dne s energií a vědomým pohybem.",
+  "morningEnergizer": {
+    "title": "Ranní jógová energie",
+    "description": "Energizující jógová sekvence pro probuzení těla a mysli do nového dne.",
     "listDescription": {
-      "1": "Sekvence pozdrav slunci na rozehřátí",
-      "2": "Mobilita páteře kočka-kráva",
-      "3": "Protažení v pozici pes hlavou dolů",
-      "4": "Praktikování vědomého dýchání"
+      "1": "Mobilizuje celou páteř",
+      "2": "Protahuje svaly zadní strany těla",
+      "3": "Posiluje střed těla a nohy",
+      "4": "Otevírá hrudník a kyčle",
+      "5": "Zlepšuje ranní ztuhlost"
     },
     "exercises": {
-      "sunSalutation": {
-        "title": "Pozdrav slunci",
-        "description": "Klasická plynoucí sekvence, která zahřívá celé tělo a spojuje dech s pohybem.",
-        "video": {
-          "title": "Pozdrav slunci A",
-          "description": "Tradiční ranní jógový flow"
-        }
-      },
       "catCow": {
-        "title": "Pozice kočka-kráva",
-        "description": "Jemné cvičení mobility páteře, které probouzí záda a zlepšuje flexibilitu.",
+        "title": "Kočka-kráva",
+        "description": "Ze vzporu klečmo střídejte zakulacení a prohnutí páteře. Pozice mobilizuje celou páteř a protahuje břišní svaly, ramena, krk, hýžďové svaly a flexory kyčlí, což může zmírnit ranní ztuhlost spojenou s mechanickou bolestí zad.",
         "video": {
-          "title": "Spinální flow kočka-kráva",
-          "description": "Mobilita páteře a rozehřívací pohyb"
+          "title": "Pozice kočka-kráva",
+          "description": "Cvičení mobility páteře"
         }
       },
       "downwardDog": {
         "title": "Pes hlavou dolů",
-        "description": "Základní jógová pozice, která posiluje paže a protahuje zadní stranu těla.",
+        "description": "Z kliku zvedněte kyčle do tvaru obráceného 'V', tlačte paty k podlaze. Toto globální protažení zadní strany těla mobilizuje lýtka, hamstringy, hýžďové svaly a ramena.",
         "video": {
-          "title": "Správné postavení psa hlavou dolů",
-          "description": "Správná forma a postavení v pozici pes hlavou dolů"
+          "title": "Pes hlavou dolů",
+          "description": "Protažení zadní strany těla"
+        }
+      },
+      "cobra": {
+        "title": "Pozice kobry",
+        "description": "Lehněte si na břicho, položte ruce pod ramena a se sevřenými lokty zvedněte hrudník. Kobra posiluje vzpřimovače páteře a otevírá hrudník—pomáhá při řešení bolesti zad ulevené ohnutím po dlouhém sezení.",
+        "video": {
+          "title": "Pozice kobry",
+          "description": "Otevření hrudníku a extenze zad"
+        }
+      },
+      "warrior2": {
+        "title": "Válečník II",
+        "description": "Začněte s nohama široce, otočte pravé prsty dopředu, pokrčte pravé koleno a natáhněte paže do stran. Udržujte kyčle a ramena v rovině a klesněte do výpadu, přitom prodlužujte páteř. Tato pozice posiluje čtyřhlavé svaly a hýžďové svaly a zároveň otevírá kyčle a hrudník.",
+        "video": {
+          "title": "Pozice válečník II",
+          "description": "Stojící síla a otevření kyčlí"
+        }
+      },
+      "triangle": {
+        "title": "Pozice trojúhelník",
+        "description": "Z pozice válečník II natáhněte přední nohu; nakloňte se v kyčli, spusťte přední ruku k holeninli nebo kotníku a natáhněte druhou paži nahoru. Protahuje hamstringy, třísla a hrudník.",
+        "video": {
+          "title": "Pozice trojúhelník",
+          "description": "Protažení boku a otevření hamstringů"
+        }
+      },
+      "forwardFold": {
+        "title": "Stojící předklon",
+        "description": "Nakloňte se v kyčlích dopředu, nechte hlavu klesat a kolena mírně pokrčte. Cílí na hamstringy, lýtka a dolní část zad.",
+        "video": {
+          "title": "Stojící předklon",
+          "description": "Protažení hamstringů a lýtek"
         }
       }
     }

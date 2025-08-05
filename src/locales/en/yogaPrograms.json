@@ -6,38 +6,63 @@
     "focusAreas": "Focus Areas:",
     "avoidIf": "Avoid if you have:"
   },
-  "morningFlow": {
-    "title": "Morning Awakening Flow",
-    "description": "Gentle yoga sequence to start your day with energy and mindful movement.",
+  "morningEnergizer": {
+    "title": "Morning Yoga Energizer",
+    "description": "Energizing yoga sequence to awaken your body and mind for the day ahead.",
     "listDescription": {
-      "1": "Sun salutation warm-up sequence",
-      "2": "Cat-cow spinal mobility",
-      "3": "Downward dog stretching",
-      "4": "Mindful breathing practice"
+      "1": "Mobilizes the entire spine",
+      "2": "Stretches posterior chain muscles",
+      "3": "Strengthens core and legs",
+      "4": "Opens chest and hips",
+      "5": "Improves morning stiffness"
     },
     "exercises": {
-      "sunSalutation": {
-        "title": "Sun Salutation",
-        "description": "Classic flowing sequence that warms up the entire body and connects breath with movement.",
-        "video": {
-          "title": "Sun Salutation A",
-          "description": "Traditional morning yoga flow sequence"
-        }
-      },
       "catCow": {
-        "title": "Cat-Cow Pose",
-        "description": "Gentle spinal mobility exercise that awakens the back and improves flexibility.",
+        "title": "Cat-Cow",
+        "description": "From hands and knees, alternate rounding and arching the spine. The pose mobilizes the whole spine and stretches abdominals, shoulders, neck, glutes and hip-flexors, which can relieve morning stiffness associated with mechanical back pain.",
         "video": {
-          "title": "Cat-Cow Spinal Flow",
-          "description": "Spinal mobility and warm-up movement"
+          "title": "Cat-Cow Pose",
+          "description": "Spinal mobility exercise"
         }
       },
       "downwardDog": {
-        "title": "Downward Facing Dog",
-        "description": "Foundation yoga pose that strengthens arms and stretches the posterior chain.",
+        "title": "Downward-Facing Dog",
+        "description": "From plank, lift hips to form an inverted 'V,' pressing heels toward the floor. This global posterior-chain stretch mobilizes calves, hamstrings, glutes and shoulders.",
         "video": {
-          "title": "Downward Dog Alignment",
-          "description": "Proper form and alignment for downward dog"
+          "title": "Downward-Facing Dog",
+          "description": "Posterior chain stretch"
+        }
+      },
+      "cobra": {
+        "title": "Cobra Pose",
+        "description": "Lie prone, place hands under shoulders and, keeping elbows hugged in, lift your chest. Cobra strengthens spinal extensors and opens the chest—helpful for addressing flexion-relieved back pain from prolonged sitting.",
+        "video": {
+          "title": "Cobra Pose",
+          "description": "Chest opening and back extension"
+        }
+      },
+      "warrior2": {
+        "title": "Warrior II",
+        "description": "Start with feet wide; turn the right toes forward, bend the right knee and extend arms to sides. Keep hips and shoulders square and sink into the lunge while lengthening the spine. This pose strengthens quads and glutes while opening hips and chest.",
+        "video": {
+          "title": "Warrior II Pose",
+          "description": "Standing strength and hip opening"
+        }
+      },
+      "triangle": {
+        "title": "Triangle Pose",
+        "description": "From Warrior II, straighten the front leg; hinge at the hip to lower the front hand to shin/ankle and reach the other arm upward. Stretches hamstrings, groin and chest.",
+        "video": {
+          "title": "Triangle Pose",
+          "description": "Side body stretch and hamstring opening"
+        }
+      },
+      "forwardFold": {
+        "title": "Standing Forward Fold",
+        "description": "Hinge at the hips to fold forward, letting the head drop and knees softly bend. Targets hamstrings, calves and lower back.",
+        "video": {
+          "title": "Standing Forward Fold",
+          "description": "Hamstring and calf stretch"
         }
       }
     }
