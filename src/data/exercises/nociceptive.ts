@@ -8,7 +8,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
       title: 'exercises.nociceptive.discHerniationNeckWeek03.title',
       description: 'exercises.nociceptive.discHerniationNeckWeek03.description',
       advices: [1, 3], // Reference to advice IDs
-      timeline: undefined,
+      timeline: 3,
       videos: [
         {
           videoId: 'eL5KxSe3c1g', // Neck retraction w/ extension & rotation
@@ -46,7 +46,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
       title: 'exercises.nociceptive.discHerniationNeckWeek46.title',
       description: 'exercises.nociceptive.discHerniationNeckWeek46.description',
       advices: [3], // Reference to advice IDs
-      timeline: undefined,
+      timeline: 3,
       videos: [
         {
           videoId: 'PK62xMsZfG0', //Praying stretch

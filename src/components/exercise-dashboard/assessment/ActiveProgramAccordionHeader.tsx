@@ -2,6 +2,7 @@ import { UserAssessment } from '@/components/follow-up/types';
 import { formatPainAreaWithSubArea } from '@/utils/formatHelpers';
 import { useTranslation } from 'react-i18next';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { TimelineProgressBar } from '../TimelineProgressBar';
 
 interface ActiveProgramAccordionHeaderProps {
   assessment: UserAssessment & { pain_area_display?: string };
@@ -45,7 +46,7 @@ export const ActiveProgramAccordionHeader = ({ assessment }: ActiveProgramAccord
   const bodyImage = getBodyAreaImage(assessment.pain_area);
   
   return (
-    <div className={isMobile ? "w-full" : "w-1/2"}>
+    <div className={`flex ${isMobile ? "flex-col w-full" : "items-center w-1/2"}`}>
       <div className="relative overflow-hidden rounded-lg border-2 border-gray-200 bg-white transition-all duration-200 hover:shadow-md">
         <div className={`flex items-center ${isMobile ? "h-12" : "h-16"}`}>
           <div className="w-1/2 h-full overflow-hidden rounded-l-lg">
@@ -62,6 +63,9 @@ export const ActiveProgramAccordionHeader = ({ assessment }: ActiveProgramAccord
           </div>
         </div>
       </div>
+      
+      {/* Timeline Progress Bar */}
+      <TimelineProgressBar assessment={assessment} />
     </div>
   );
 };
