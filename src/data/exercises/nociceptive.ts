@@ -455,7 +455,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
     {
       title: 'exercises.nociceptive.defaultLowerBack.title',
       description: 'exercises.nociceptive.defaultLowerBack.description',
-      advices: [1, 3, 4], // Reference to advice IDs
+      advices: [1, 3, 4, 5], // Reference to advice IDs
       videos: [
         {
           videoId: 'PMJsVceAnnY', // Glute stretches
