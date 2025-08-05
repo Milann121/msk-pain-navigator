@@ -17,24 +17,25 @@ export const TimelineProgressBar: React.FC<TimelineProgressBarProps> = ({ assess
   // Calculate ball position along the curved path
   const ballPosition = Math.min(progressPercentage, 100);
   
-  // Create SVG path for simple left-to-right curved journey
+  // Create SVG path for downward sloping curved journey
   const svgWidth = isMobile ? 200 : 160;
   const svgHeight = isMobile ? 40 : 48;
   const pathStartX = 10;
   const pathEndX = svgWidth - 10;
-  const pathY = svgHeight / 2;
-  const controlY = pathY - 12; // Control point for gentle curve
+  const pathStartY = svgHeight * 0.35; // Start higher on the left
+  const pathEndY = svgHeight * 0.65;   // End lower on the right
+  const controlX = svgWidth / 2;
+  const controlY = svgHeight * 0.45;   // Control point for gentle downward curve
   
-  // Create simple curved path from left to right
-  const curvePath = `M ${pathStartX} ${pathY} Q ${svgWidth / 2} ${controlY} ${pathEndX} ${pathY}`;
+  // Create downward sloping curved path
+  const curvePath = `M ${pathStartX} ${pathStartY} Q ${controlX} ${controlY} ${pathEndX} ${pathEndY}`;
   
-  // Calculate ball position along the curved path
+  // Calculate ball position along the downward curved path
   const progress = ballPosition / 100;
-  // Simple linear interpolation for X position
-  const ballX = pathStartX + (pathEndX - pathStartX) * progress;
-  // Quadratic curve calculation for Y position
+  // Quadratic bezier curve calculation for both X and Y positions
   const t = progress;
-  const ballY = pathY + (controlY - pathY) * 4 * t * (1 - t);
+  const ballX = Math.pow(1 - t, 2) * pathStartX + 2 * (1 - t) * t * controlX + Math.pow(t, 2) * pathEndX;
+  const ballY = Math.pow(1 - t, 2) * pathStartY + 2 * (1 - t) * t * controlY + Math.pow(t, 2) * pathEndY;
 
   return (
     <div className={`flex flex-col items-center ${isMobile ? 'w-full mt-3' : 'flex-1 mx-4'}`}>
@@ -64,10 +65,10 @@ export const TimelineProgressBar: React.FC<TimelineProgressBarProps> = ({ assess
           {/* Phase markers */}
           {phases.map((phase, index) => {
             const phaseProgress = phase.weeksEnd / totalWeeks;
-            // Calculate marker position along the simple curved path
-            const markerX = pathStartX + (pathEndX - pathStartX) * phaseProgress;
+            // Calculate marker position along the downward curved path
             const t = phaseProgress;
-            const markerY = pathY + (controlY - pathY) * 4 * t * (1 - t);
+            const markerX = Math.pow(1 - t, 2) * pathStartX + 2 * (1 - t) * t * controlX + Math.pow(t, 2) * pathEndX;
+            const markerY = Math.pow(1 - t, 2) * pathStartY + 2 * (1 - t) * t * controlY + Math.pow(t, 2) * pathEndY;
             
             return (
               <circle
