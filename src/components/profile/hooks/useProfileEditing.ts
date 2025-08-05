@@ -189,9 +189,25 @@ export const useProfileEditing = (
       
       console.log('💾 [useProfileEditing] Final data to save:', finalData);
 
+      // First, get existing profile data to preserve it
+      const { data: existingProfile } = await supabase
+        .from('user_profiles')
+        .select('*')
+        .eq('user_id', user.id)
+        .single();
+
+      // Merge existing data with new data to prevent overwriting
+      const mergedData = {
+        ...existingProfile,
+        ...finalData,
+        updated_at: new Date().toISOString()
+      };
+
+      console.log('💾 [useProfileEditing] Merged data for save:', mergedData);
+
       const { data: savedData, error } = await supabase
         .from('user_profiles')
-        .upsert(finalData, { onConflict: 'user_id' })
+        .upsert(mergedData, { onConflict: 'user_id' })
         .select();
 
       if (error) {

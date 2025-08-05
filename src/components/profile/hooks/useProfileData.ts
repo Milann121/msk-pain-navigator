@@ -114,28 +114,79 @@ export const useProfileData = () => {
       }
 
       if (b2bEmployee) {
-        setUserData(prev => ({
-          ...prev,
+        const profileData = {
           firstName: b2bEmployee.first_name || user.user_metadata?.first_name || 'Používateľ',
           lastName: b2bEmployee.last_name || '',
           email: user.email || '',
           employerName: b2bEmployee.b2b_partner_name || ''
-        }));
-      } else {
-        // No B2B data found, use defaults
+        };
+
+        // Update local state
         setUserData(prev => ({
           ...prev,
+          ...profileData
+        }));
+
+        // Save B2B data to user_profiles table for consistency
+        try {
+          const { error: saveError } = await supabase
+            .from('user_profiles')
+            .upsert({
+              user_id: user.id,
+              first_name: profileData.firstName,
+              last_name: profileData.lastName,
+              email: profileData.email,
+              b2b_partner_name: profileData.employerName
+            }, { onConflict: 'user_id' });
+
+          if (saveError) {
+            console.error('Error saving B2B data to user_profiles:', saveError);
+          } else {
+            console.log('Successfully saved B2B data to user_profiles');
+          }
+        } catch (saveError) {
+          console.error('Error during B2B data save:', saveError);
+        }
+      } else {
+        // No B2B data found, use defaults
+        const defaultData = {
           firstName: user.user_metadata?.first_name || 'Používateľ',
           email: user.email || ''
+        };
+
+        setUserData(prev => ({
+          ...prev,
+          ...defaultData
         }));
+
+        // Save default data to user_profiles
+        try {
+          const { error: saveError } = await supabase
+            .from('user_profiles')
+            .upsert({
+              user_id: user.id,
+              first_name: defaultData.firstName,
+              email: defaultData.email
+            }, { onConflict: 'user_id' });
+
+          if (saveError) {
+            console.error('Error saving default data to user_profiles:', saveError);
+          }
+        } catch (saveError) {
+          console.error('Error during default data save:', saveError);
+        }
       }
     } catch (error) {
       console.error('Error populating from B2B data:', error);
       // Fallback to defaults
-      setUserData(prev => ({
-        ...prev,
+      const fallbackData = {
         firstName: user.user_metadata?.first_name || 'Používateľ',
         email: user.email || ''
+      };
+
+      setUserData(prev => ({
+        ...prev,
+        ...fallbackData
       }));
     }
   };
