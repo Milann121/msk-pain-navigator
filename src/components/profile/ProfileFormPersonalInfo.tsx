@@ -29,7 +29,9 @@ export const ProfileFormPersonalInfo: React.FC<ProfileFormPersonalInfoProps> = (
       
       <div className="grid grid-cols-2 gap-4 mb-4">
         <div className="space-y-2">
-          <Label htmlFor="firstName">{t('profile.profileForm.firstName')}</Label>
+          <Label htmlFor="firstName">
+            {t('profile.profileForm.firstName')} <span className="text-red-500">*</span>
+          </Label>
           <Input
             id="firstName"
             value={data.firstName}
@@ -40,7 +42,9 @@ export const ProfileFormPersonalInfo: React.FC<ProfileFormPersonalInfoProps> = (
         </div>
         
         <div className="space-y-2">
-          <Label htmlFor="lastName">{t('profile.profileForm.lastName')}</Label>
+          <Label htmlFor="lastName">
+            {t('profile.profileForm.lastName')} <span className="text-red-500">*</span>
+          </Label>
           <Input
             id="lastName"
             value={data.lastName}
@@ -52,7 +56,9 @@ export const ProfileFormPersonalInfo: React.FC<ProfileFormPersonalInfoProps> = (
       </div>
 
       <div className="space-y-3 mb-4">
-        <Label>{t('profile.profileForm.gender')}</Label>
+        <Label>
+          {t('profile.profileForm.gender')} <span className="text-red-500">*</span>
+        </Label>
         <RadioGroup 
           value={data.gender}
           onValueChange={(value) => onChange('gender', value)}
@@ -70,7 +76,9 @@ export const ProfileFormPersonalInfo: React.FC<ProfileFormPersonalInfoProps> = (
       </div>
 
       <div className="space-y-2 mb-4">
-        <Label htmlFor="yearOfBirth">{t('profile.profileForm.yearOfBirth')}</Label>
+        <Label htmlFor="yearOfBirth">
+          {t('profile.profileForm.yearOfBirth')} <span className="text-red-500">*</span>
+        </Label>
         <Input
           id="yearOfBirth"
           type="text"

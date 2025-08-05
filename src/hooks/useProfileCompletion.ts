@@ -12,6 +12,7 @@ export const useProfileCompletion = () => {
 
   useEffect(() => {
     if (!authLoading && user) {
+      // Check if user just signed up (no profile completion shown before)
       const alreadyShown = localStorage.getItem(PROFILE_POPUP_SHOWN_KEY);
       if (!alreadyShown) {
         checkProfileCompletion();
@@ -28,37 +29,35 @@ export const useProfileCompletion = () => {
     try {
       const { data, error } = await supabase
         .from('user_profiles')
-        .select('first_name, last_name, year_birth, job_type')
+        .select('first_name, last_name, gender, year_birth, job_type')
         .eq('user_id', user.id)
         .single();
-
-      if (data) {
-        // Profile already exists, remember completion
-        localStorage.setItem(PROFILE_POPUP_SHOWN_KEY, 'true');
-      }
 
       // If no profile exists or error (profile not found), show popup
       if (error && error.code === 'PGRST116') {
         console.log('No profile found, showing popup');
         setShowProfilePopup(true);
       } else if (data) {
-        // Check if required fields are filled
-        const hasRequiredFields = data.first_name && 
-                                 data.last_name && 
-                                 data.year_birth && 
-                                 data.job_type;
+        // Check if required personal fields are filled (first_name, last_name, gender, year_birth)
+        const hasRequiredPersonalFields = data.first_name && 
+                                         data.last_name && 
+                                         data.gender &&
+                                         data.year_birth;
         
-        console.log('Profile exists, required fields check:', {
+        console.log('Profile exists, required personal fields check:', {
           first_name: !!data.first_name,
           last_name: !!data.last_name,
+          gender: !!data.gender,
           year_birth: !!data.year_birth,
-          job_type: !!data.job_type,
-          hasRequiredFields
+          hasRequiredPersonalFields
         });
 
-        if (!hasRequiredFields) {
-          console.log('Required fields missing, showing popup');
+        if (!hasRequiredPersonalFields) {
+          console.log('Required personal fields missing, showing popup');
           setShowProfilePopup(true);
+        } else {
+          // Profile already complete, remember completion
+          localStorage.setItem(PROFILE_POPUP_SHOWN_KEY, 'true');
         }
       }
     } catch (error) {

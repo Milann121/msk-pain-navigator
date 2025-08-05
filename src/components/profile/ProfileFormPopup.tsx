@@ -10,6 +10,7 @@ import { ProfileFormPersonalInfo } from './ProfileFormPersonalInfo';
 import { ProfileFormJobSection } from './ProfileFormJobSection';
 import { ProfileFormGoals } from './ProfileFormGoals';
 import { ProfileFormButtons } from './ProfileFormButtons';
+import therapyImage from '@/assets/therapy-illustration.jpg';
 
 interface ProfileFormPopupProps {
   isOpen: boolean;
@@ -336,7 +337,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
       yearOfBirthType: typeof profileData.yearOfBirth
     });
     
-    // Validate required fields before saving
+    // Validate required personal fields before saving
     if (!profileData.firstName.trim()) {
       console.error('❌ [ProfileFormPopup] First name is required');
       toast({
@@ -356,8 +357,28 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
       });
       return;
     }
+
+    if (!profileData.gender) {
+      console.error('❌ [ProfileFormPopup] Gender is required');
+      toast({
+        title: t('profile.goals.errorTitle'),
+        description: 'Gender is required',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    if (!profileData.yearOfBirth || profileData.yearOfBirth === '') {
+      console.error('❌ [ProfileFormPopup] Year of birth is required');
+      toast({
+        title: t('profile.goals.errorTitle'),
+        description: 'Year of birth is required',
+        variant: 'destructive',
+      });
+      return;
+    }
     
-    if (profileData.yearOfBirth && profileData.yearOfBirth !== '' && (isNaN(Number(profileData.yearOfBirth)) || Number(profileData.yearOfBirth) < 1900 || Number(profileData.yearOfBirth) > new Date().getFullYear())) {
+    if (isNaN(Number(profileData.yearOfBirth)) || Number(profileData.yearOfBirth) < 1900 || Number(profileData.yearOfBirth) > new Date().getFullYear()) {
       toast({
         title: t('profile.goals.errorTitle'),
         description: `Please enter a valid year between 1900 and ${new Date().getFullYear()}`,
@@ -583,30 +604,39 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     }
   };
 
-  // Check if all required profile fields are filled
+  // Check if all required personal fields are filled (for post-signup)
   const isProfileValid = profileData.firstName.trim() !== '' && 
                         profileData.lastName.trim() !== '' && 
+                        profileData.gender !== '' &&
                         profileData.yearOfBirth && 
                         profileData.yearOfBirth !== '' && 
-                        Number(profileData.yearOfBirth) > 0 &&
-                        profileData.jobType.trim() !== '';
+                        Number(profileData.yearOfBirth) > 0;
 
   console.log('Profile validation state:', {
     firstName: profileData.firstName.trim() !== '',
     lastName: profileData.lastName.trim() !== '',
+    gender: profileData.gender !== '',
     yearOfBirth: profileData.yearOfBirth && profileData.yearOfBirth !== '' && Number(profileData.yearOfBirth) > 0,
-    jobType: profileData.jobType.trim() !== '',
     isValid: isProfileValid
   });
 
   return (
     <Dialog open={isOpen} onOpenChange={() => {}}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
-        <DialogHeader>
-          <DialogTitle>{t('profile.profileForm.title')}</DialogTitle>
+      <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
+        <DialogHeader className="text-center">
+          <DialogTitle className="text-xl font-semibold">{t('profile.profileForm.title')}</DialogTitle>
         </DialogHeader>
         
         <div className="space-y-6 py-4">
+          {/* Therapy Illustration Image */}
+          <div className="flex justify-center mb-6">
+            <img 
+              src={therapyImage} 
+              alt="Therapy illustration" 
+              className="w-64 h-40 object-cover rounded-lg shadow-md"
+            />
+          </div>
+
           {/* Show B2B Employee Info if applicable */}
           {b2bEmployeeData && (
             <div className="bg-blue-50 p-4 rounded-lg mb-4">
