@@ -243,7 +243,6 @@ export const NotificationArea = () => {
           <div className="flex">
             {iconContainer}
           </div>
-          <ScrollBar orientation="horizontal" />
         </ScrollArea>
       </div>
     </div>;
