@@ -239,7 +239,7 @@ export const NotificationArea = () => {
     </div>;
   return <div className="py-px px-px rounded-none bg-slate-50">
       <div className="rounded-lg border border-gray-200 p-2 shadow-sm bg-blue-100 py-0 px-[8px] my-px w-full md:w-[370px]" ref={containerRef}>
-        <ScrollArea className="w-full [&>div[data-radix-scroll-area-viewport]]:!overflow-scroll [&_[data-radix-scroll-area-scrollbar]]:hidden" ref={scrollAreaRef}>
+        <ScrollArea className="w-full [&>div[data-radix-scroll-area-viewport]]:!overflow-x-auto [&>div[data-radix-scroll-area-viewport]]:!overflow-y-hidden [&_[data-radix-scroll-area-scrollbar]]:hidden" ref={scrollAreaRef}>
           <div className="flex">
             {iconContainer}
           </div>
