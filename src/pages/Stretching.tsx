@@ -63,7 +63,7 @@ const Stretching = () => {
     stretch_group: ["at_desk", "at_work", "mid_day"]
   }, {
     id: "morning-routine",
-    image: "/lovable-uploads/stretchingCard_images/2.png",
+    image: "public/lovable-uploads/stretchingCard_images/1.png",
     title: t('stretching.cards.morning_routine.title'),
     description: t('stretching.cards.morning_routine.description'),
     description2: t('stretching.cards.morning_routine.description2'),
