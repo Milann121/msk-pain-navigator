@@ -10,16 +10,16 @@ import { cn } from "@/lib/utils";
 
 // Activities data with images and translation keys
 const ACTIVITIES = [
-  { key: "careOfFamily", image: "public/lovable-uploads/psfsImages/psfsCareFamilyImage.png" },
-  { key: "carryItems", image: "public/lovable-uploads/psfsImages/psfsHeavyLoadsImage.png" },
-  { key: "householdWorks", image: "public/lovable-uploads/psfsImages/psfsHouseHoldImage.png" },
-  { key: "hiking", image: "public/lovable-uploads/psfsImages/psfsManHikingImage.png" },
-  { key: "jogging", image: "public/lovable-uploads/psfsImages/psfsManJoggingImage.png" },
-  { key: "walking", image: "public/lovable-uploads/psfsImages/psfsPairStrollImage.png" },
-  { key: "walkingStairs", image: "public/lovable-uploads/psfsImages/psfsWalkingStairsImage.png" },
-  { key: "cycling", image: "public/lovable-uploads/psfsImages/psfsWomanCyclingImage.png" },
-  { key: "weightlifting", image: "public/lovable-uploads/psfsImages/psfsWomanDeadLiftImage.png" },
-  { key: "swimming", image: "public/lovable-uploads/psfsImages/psfsWomanSwimImage.png" },
+  { key: "careOfFamily", image: "/lovable-uploads/psfsImages/psfsCareFamilyImage.png" },
+  { key: "carryItems", image: "/lovable-uploads/psfsImages/psfsHeavyLoadsImage.png" },
+  { key: "householdWorks", image: "/lovable-uploads/psfsImages/psfsHouseHoldImage.png" },
+  { key: "hiking", image: "/lovable-uploads/psfsImages/psfsManHikingImage.png" },
+  { key: "jogging", image: "/lovable-uploads/psfsImages/psfsManJoggingImage.png" },
+  { key: "walking", image: "/lovable-uploads/psfsImages/psfsPairStrollImage.png" },
+  { key: "walkingStairs", image: "/lovable-uploads/psfsImages/psfsWalkingStairsImage.png" },
+  { key: "cycling", image: "/lovable-uploads/psfsImages/psfsWomanCyclingImage.png" },
+  { key: "weightlifting", image: "/lovable-uploads/psfsImages/psfsWomanDeadLiftImage.png" },
+  { key: "swimming", image: "/lovable-uploads/psfsImages/psfsWomanSwimImage.png" },
 ];
 
 interface ActivityCardProps {
