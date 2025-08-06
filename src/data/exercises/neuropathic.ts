@@ -8,7 +8,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
       title: 'exercises.neuropathic.radicularPainNeckWeek03.title',
       description: 'exercises.neuropathic.radicularPainNeckWeek03.description',
       advices: [1, 3], // Reference to advice IDs
-      timeline: undefined,
+      timeline: 4,
       videos: [
         {
           videoId: 'oaB4o_qeMdQ', // Neck retraction
@@ -45,7 +45,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
       title: 'exercises.neuropathic.radicularPainNeckWeek46.title',
       description: 'exercises.neuropathic.radicularPainNeckWeek46.description',
       advices: [1, 3], // Reference to advice IDs
-      timeline: undefined,
+      timeline: 4,
       videos: [
         {
           videoId: 'PK62xMsZfG0', // Praying stretch
@@ -76,7 +76,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
       title: 'exercises.neuropathic.defaultNeck.title',
       description: 'exercises.neuropathic.defaultNeck.description',
       advices: [1, 3], // Reference to advice IDs
-      timeline: undefined,
+      timeline: 4,
       videos: [
         {
           videoId: 'oaB4o_qeMdQ', // Neck retraction
@@ -118,7 +118,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
       title: 'exercises.neuropathic.radicularPainLowerBackWeek03.title',
       description: 'exercises.neuropathic.radicularPainLowerBackWeek03.description',
       advices: [1, 3], // Reference to advice IDs
-      timeline: undefined,
+      timeline: 4,
       videos: [
         {
           videoId: 'RZ4mP4mOKxg', // Sciatic neurodynamics
@@ -153,7 +153,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
       title: 'exercises.neuropathic.radicularPainLowerBackWeek46.title',
       description: 'exercises.neuropathic.radicularPainLowerBackWeek46.description',
       advices: [1, 3], // Reference to advice IDs
-      timeline: undefined,
+      timeline: 4,
       videos: [
         {
           videoId: 'Xp33YgPZgns', // Glute bridges
@@ -183,7 +183,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
       title: 'exercises.neuropathic.defaultLowerBack.title',
       description: 'exercises.neuropathic.defaultLowerBack.description',
       advices: [1, 3], // Reference to advice IDs
-      timeline: undefined,
+      timeline: 4,
       videos: [
         {
           videoId: 'RZ4mP4mOKxg', // Sciatic neurodynamics
@@ -222,7 +222,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
       title: 'exercises.neuropathic.cervicalRadiculopathyNeck.title',
       description: 'exercises.neuropathic.cervicalRadiculopathyNeck.description',
       advices: [1, 3], // Reference to advice IDs
-      timeline: undefined,
+      timeline: 4,
       videos: [
         {
           videoId: 'oaB4o_qeMdQ', // Neck retraction
@@ -263,7 +263,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
       title: 'exercises.neuropathic.radicularPainNeck.title',
       description: 'exercises.neuropathic.radicularPainNeck.description',
       advices: [1, 3], // Reference to advice IDs
-      timeline: undefined,
+      timeline: 4,
       videos: [
         {
           videoId: 'oaB4o_qeMdQ', // Neck retraction
@@ -304,7 +304,7 @@ export const neuropathicExercises: Record<string, Exercise[]> = {
       title: 'exercises.neuropathic.radiculopathyNeck.title',
       description: 'exercises.neuropathic.radiculopathyNeck.description',
       advices: [1, 3], // Reference to advice IDs
-      timeline: undefined,
+      timeline: 4,
       videos: [
         {
           videoId: 'oaB4o_qeMdQ', // Neck retraction

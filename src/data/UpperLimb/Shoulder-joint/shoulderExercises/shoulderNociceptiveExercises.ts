@@ -7,7 +7,7 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
       title: 'exercises.shoulderNociceptive.frozenShoulderPhase1.title',
       description: 'exercises.shoulderNociceptive.frozenShoulderPhase1.description',
       advices: [6, 3], // Reference to advice IDs
-      timeline: undefined,
+      timeline: 3,
       videos: [
         {
           videoId: 'Ak0QVHhwkQg',
@@ -53,7 +53,7 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
       title: 'exercises.shoulderNociceptive.frozenShoulderPhase2.title',
       description: 'exercises.shoulderNociceptive.frozenShoulderPhase2.description',
       advices: [6, 3], // Reference to advice IDs
-      timeline: undefined,
+      timeline: 3,
       videos: [
         {
           videoId: 'ldMl3J7MzXE',
@@ -93,7 +93,7 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
       title: 'exercises.shoulderNociceptive.subacromialImpingement.title',
       description: 'exercises.shoulderNociceptive.subacromialImpingement.description',
       advices: [6, 3], // Reference to advice IDs
-      timeline: undefined,
+      timeline: 4,
       videos: [
         {
           videoId: 'oVJqu0FEw-Y',
@@ -133,7 +133,7 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
       title: 'exercises.shoulderNociceptive.rotatorCuffTear.title',
       description: 'exercises.shoulderNociceptive.rotatorCuffTear.description',
       advices: [6, 3], // Reference to advice IDs
-      timeline: undefined,
+      timeline: 4,
       videos: [
         {
           videoId: '1uz4DoaSY2M',
@@ -164,7 +164,7 @@ export const shoulderNociceptiveExercises: Record<string, Exercise[]> = {
       title: 'exercises.shoulderNociceptive.defaultNociceptive.title',
       description: 'exercises.shoulderNociceptive.defaultNociceptive.description',
       advices: [6, 3], // Reference to advice IDs
-      timeline: undefined,
+      timeline: 4,
       videos: [
         {
           videoId: 'Ak0QVHhwkQg',
