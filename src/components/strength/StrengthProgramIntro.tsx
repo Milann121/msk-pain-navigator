@@ -94,8 +94,8 @@ export const StrengthProgramIntro: React.FC<StrengthProgramIntroProps> = ({ prog
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-background to-muted/20">
-      <div className="flex-1 py-6 px-4">
-        <div className="container mx-auto max-w-4xl">
+      <div className="flex-1 py-6 px-4 md:px-4">
+        <div className="container mx-auto max-w-4xl px-0 md:px-4">
           {/* Header */}
           <div className="flex items-center justify-between mb-8">
             <h1 className="text-3xl font-bold text-primary">

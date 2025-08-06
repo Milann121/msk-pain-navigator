@@ -357,7 +357,7 @@ export const nociceptiveExercises: Record<string, Exercise[]> = {
           videoId: 'dVjfUlXK93k', // 90 degree squats
           title: 'exercises.nociceptive.sijSyndromeWeek02.squats90.title',
           description: 'exercises.nociceptive.sijSyndromeWeek02.squats90.description',
-          importance: 4,
+          importance: 3,
           mainGroup: ["stability"],
           bodyPart:["lower-back"],
           repetitions: "10-12x"
