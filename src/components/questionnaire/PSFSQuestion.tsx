@@ -58,6 +58,17 @@ const PSFSQuestion = ({ question, values, onChange }: PSFSQuestionProps) => {
                 </div>
               )}
               
+              {/* Add yoga image above the second question */}
+              {index === 1 && (
+                <div className="w-full mb-6">
+                  <img 
+                    src="/lovable-uploads/psfsImages/psfsYogaAtHomeImage.png" 
+                    alt="Yoga and sports activities"
+                    className="w-full h-auto rounded-lg"
+                  />
+                </div>
+              )}
+              
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-medium flex-shrink-0">
                   {index + 1}
