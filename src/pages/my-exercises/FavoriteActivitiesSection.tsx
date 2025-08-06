@@ -6,12 +6,18 @@ import { useTranslation } from "react-i18next";
 import { useFavoriteActivities } from "@/hooks/useFavoriteActivities";
 import { cn } from "@/lib/utils";
 
-// Sample activities data (images will be added later)
+// Activities data with images
 const ACTIVITIES = [
-  { name: "Walking", image: null },
-  { name: "Swimming", image: null },
-  { name: "Cycling", image: null },
-  { name: "Yoga", image: null },
+  { name: "Care of Family", image: "public/lovable-uploads/psfsImages/psfsCareFamilyImage.png" },
+  { name: "Carry Items", image: "public/lovable-uploads/psfsImages/psfsHeavyLoadsImage.png" },
+  { name: "Household Works", image: "public/lovable-uploads/psfsImages/psfsHouseHoldImage.png" },
+  { name: "Hiking", image: "public/lovable-uploads/psfsImages/psfsManHikingImage.png" },
+  { name: "Jogging", image: "public/lovable-uploads/psfsImages/psfsManJoggingImage.png" },
+  { name: "Walking", image: "public/lovable-uploads/psfsImages/psfsPairStrollImage.png" },
+  { name: "Walking Stairs", image: "public/lovable-uploads/psfsImages/psfsWalkingStairsImage.png" },
+  { name: "Cycling", image: "public/lovable-uploads/psfsImages/psfsWomanCyclingImage.png" },
+  { name: "Weightlifting", image: "public/lovable-uploads/psfsImages/psfsWomanDeadLiftImage.png" },
+  { name: "Swimming", image: "public/lovable-uploads/psfsImages/psfsWomanSwimImage.png" },
 ];
 
 interface ActivityCardProps {
@@ -25,23 +31,36 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, isSelected, onCli
     <div
       onClick={onClick}
       className={cn(
-        "border rounded-lg p-4 cursor-pointer transition-all duration-200 hover:shadow-md",
+        "border rounded-lg cursor-pointer transition-all duration-200 hover:shadow-md overflow-hidden h-20",
         isSelected 
           ? "border-primary bg-primary/10 shadow-md" 
           : "border-border hover:border-primary/50"
       )}
     >
-      <div className="flex flex-col items-center space-y-2">
-        {/* Placeholder for image */}
-        <div className="w-16 h-16 bg-muted rounded-lg flex items-center justify-center">
-          <span className="text-2xl text-muted-foreground">📋</span>
+      <div className="flex h-full">
+        {/* Image on the left - fills full left side */}
+        <div className="w-20 h-full bg-muted flex-shrink-0">
+          {activity.image ? (
+            <img
+              src={activity.image}
+              alt={activity.name}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center">
+              <span className="text-xl text-muted-foreground">📋</span>
+            </div>
+          )}
         </div>
-        <span className={cn(
-          "text-sm font-medium text-center",
-          isSelected ? "text-primary" : "text-foreground"
-        )}>
-          {activity.name}
-        </span>
+        {/* Text on the right */}
+        <div className="flex-1 p-3 flex items-center justify-center">
+          <span className={cn(
+            "text-sm font-medium text-center",
+            isSelected ? "text-primary" : "text-foreground"
+          )}>
+            {activity.name}
+          </span>
+        </div>
       </div>
     </div>
   );
@@ -94,7 +113,7 @@ export const FavoriteActivitiesSection: React.FC = () => {
               </div>
             </AccordionTrigger>
             <AccordionContent className="pt-4">
-              {/* Activities Grid - 2x2 layout */}
+              {/* Activities Grid - 2 columns layout */}
               <div className="grid grid-cols-2 gap-4 mb-6">
                 {ACTIVITIES.map((activity) => (
                   <ActivityCard
