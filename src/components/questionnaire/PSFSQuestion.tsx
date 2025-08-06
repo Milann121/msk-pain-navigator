@@ -40,23 +40,6 @@ const PSFSQuestion = ({ question, values, onChange }: PSFSQuestionProps) => {
         )}
       </div>
       
-      {/* Scale Legend */}
-      <div className="bg-muted/30 p-4 rounded-lg mb-6">
-        <div className="flex justify-between items-center text-sm text-muted-foreground">
-          <div className="text-left">
-            <span className="block font-medium">
-              {t(firstQuestion.scale.minLabel)}
-            </span>
-            <span className="text-xs">({firstQuestion.scale.min})</span>
-          </div>
-          <div className="text-right">
-            <span className="block font-medium">
-              {t(firstQuestion.scale.maxLabel)}
-            </span>
-            <span className="text-xs">({firstQuestion.scale.max})</span>
-          </div>
-        </div>
-      </div>
       
       <div className="space-y-6">
         {question.psfs.questions.map((subQuestion, index) => {
