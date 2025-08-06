@@ -36,10 +36,10 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, isSelected, onCli
     <div
       onClick={onClick}
       className={cn(
-        "rounded-lg cursor-pointer transition-all duration-200 hover:shadow-md overflow-hidden",
+        "rounded-lg cursor-pointer transition-all duration-200 hover:shadow-md overflow-hidden border-2",
         isSelected 
-          ? "bg-primary/10 shadow-md" 
-          : "hover:shadow-sm"
+          ? "bg-primary/20 shadow-lg border-primary" 
+          : "hover:shadow-sm border-transparent hover:border-primary/20"
       )}
     >
       <div className={cn(
@@ -69,7 +69,7 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, isSelected, onCli
         )}>
           <span className={cn(
             "text-sm font-medium text-center",
-            isSelected ? "text-primary" : "text-foreground"
+            isSelected ? "text-primary font-semibold" : "text-foreground"
           )}>
             {t(`myExercises.favoriteActivities.activities.${activity.key}`)}
           </span>
@@ -212,7 +212,7 @@ export const FavoriteActivitiesSection: React.FC = () => {
                        return (
                          <div key={favoriteActivity.id} className="space-y-3">
                            {/* Full-size Activity Card */}
-                           <div className="rounded-lg overflow-hidden bg-primary/10 shadow-md">
+                           <div className="rounded-lg overflow-hidden bg-primary/20 shadow-lg border-2 border-primary">
                              <ActivityCard
                                activity={activity || { key: 'unknown', image: null }}
                                isSelected={true}
