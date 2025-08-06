@@ -139,7 +139,7 @@ export const FavoriteActivitiesSection: React.FC = () => {
               </div>
               
               {/* Next Button */}
-              <div className="flex justify-end">
+              <div className="flex justify-center">
                 <Button onClick={handleNextClick} className="px-8">
                   {t("myExercises.favoriteActivities.next")}
                 </Button>
