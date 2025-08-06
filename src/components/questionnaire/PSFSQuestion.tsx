@@ -95,7 +95,19 @@ const PSFSQuestion = ({ question, values, onChange }: PSFSQuestionProps) => {
                       <SelectContent>
                         {Array.from({ length: 11 }, (_, i) => (
                           <SelectItem key={i} value={i.toString()}>
-                            {i}
+                            <div className="flex items-center gap-2">
+                              <span>{i}</span>
+                              {i === 0 && (
+                                <span className="text-muted-foreground text-sm">
+                                  - {t(subQuestion.scale.minLabel)}
+                                </span>
+                              )}
+                              {i === 10 && (
+                                <span className="text-muted-foreground text-sm">
+                                  - {t(subQuestion.scale.maxLabel)}
+                                </span>
+                              )}
+                            </div>
                           </SelectItem>
                         ))}
                       </SelectContent>
