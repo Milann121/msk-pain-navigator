@@ -8,7 +8,19 @@
     "description": "Choose up to 3 activities you are not able to enjoy or accomplish and select which body area restricts you to do these activities again",
     "expand": "Expand to select activities",
     "collapse": "Collapse activities",
-    "next": "Next"
+    "next": "Next",
+    "activities": {
+      "careOfFamily": "Care of Family",
+      "carryItems": "Carry Items",
+      "householdWorks": "Household Works",
+      "hiking": "Hiking",
+      "jogging": "Jogging",
+      "walking": "Walking",
+      "walkingStairs": "Walking Stairs",
+      "cycling": "Cycling",
+      "weightlifting": "Weightlifting",
+      "swimming": "Swimming"
+    }
   },
   "backHome": "Back to Home",
   "newAssessment": "New Assessment"

@@ -7,27 +7,28 @@ import { useFavoriteActivities } from "@/hooks/useFavoriteActivities";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 
-// Activities data with images
+// Activities data with images and translation keys
 const ACTIVITIES = [
-  { name: "Care of Family", image: "public/lovable-uploads/psfsImages/psfsCareFamilyImage.png" },
-  { name: "Carry Items", image: "public/lovable-uploads/psfsImages/psfsHeavyLoadsImage.png" },
-  { name: "Household Works", image: "public/lovable-uploads/psfsImages/psfsHouseHoldImage.png" },
-  { name: "Hiking", image: "public/lovable-uploads/psfsImages/psfsManHikingImage.png" },
-  { name: "Jogging", image: "public/lovable-uploads/psfsImages/psfsManJoggingImage.png" },
-  { name: "Walking", image: "public/lovable-uploads/psfsImages/psfsPairStrollImage.png" },
-  { name: "Walking Stairs", image: "public/lovable-uploads/psfsImages/psfsWalkingStairsImage.png" },
-  { name: "Cycling", image: "public/lovable-uploads/psfsImages/psfsWomanCyclingImage.png" },
-  { name: "Weightlifting", image: "public/lovable-uploads/psfsImages/psfsWomanDeadLiftImage.png" },
-  { name: "Swimming", image: "public/lovable-uploads/psfsImages/psfsWomanSwimImage.png" },
+  { key: "careOfFamily", image: "public/lovable-uploads/psfsImages/psfsCareFamilyImage.png" },
+  { key: "carryItems", image: "public/lovable-uploads/psfsImages/psfsHeavyLoadsImage.png" },
+  { key: "householdWorks", image: "public/lovable-uploads/psfsImages/psfsHouseHoldImage.png" },
+  { key: "hiking", image: "public/lovable-uploads/psfsImages/psfsManHikingImage.png" },
+  { key: "jogging", image: "public/lovable-uploads/psfsImages/psfsManJoggingImage.png" },
+  { key: "walking", image: "public/lovable-uploads/psfsImages/psfsPairStrollImage.png" },
+  { key: "walkingStairs", image: "public/lovable-uploads/psfsImages/psfsWalkingStairsImage.png" },
+  { key: "cycling", image: "public/lovable-uploads/psfsImages/psfsWomanCyclingImage.png" },
+  { key: "weightlifting", image: "public/lovable-uploads/psfsImages/psfsWomanDeadLiftImage.png" },
+  { key: "swimming", image: "public/lovable-uploads/psfsImages/psfsWomanSwimImage.png" },
 ];
 
 interface ActivityCardProps {
-  activity: { name: string; image: string | null };
+  activity: { key: string; image: string | null };
   isSelected: boolean;
   onClick: () => void;
 }
 
 const ActivityCard: React.FC<ActivityCardProps> = ({ activity, isSelected, onClick }) => {
+  const { t } = useTranslation();
   const isMobile = useIsMobile();
   
   return (
@@ -51,7 +52,7 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, isSelected, onCli
           {activity.image ? (
             <img
               src={activity.image}
-              alt={activity.name}
+              alt={t(`myExercises.favoriteActivities.activities.${activity.key}`)}
               className="w-full h-full object-cover"
             />
           ) : (
@@ -69,7 +70,7 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, isSelected, onCli
             "text-sm font-medium text-center",
             isSelected ? "text-primary" : "text-foreground"
           )}>
-            {activity.name}
+            {t(`myExercises.favoriteActivities.activities.${activity.key}`)}
           </span>
         </div>
       </div>
@@ -82,7 +83,8 @@ export const FavoriteActivitiesSection: React.FC = () => {
   const { isActivityFavorite, addFavoriteActivity, removeFavoriteActivity, favoriteActivities } = useFavoriteActivities();
   const [accordionValue, setAccordionValue] = useState<string>("");
 
-  const handleActivityClick = async (activityName: string) => {
+  const handleActivityClick = async (activityKey: string) => {
+    const activityName = t(`myExercises.favoriteActivities.activities.${activityKey}`);
     if (isActivityFavorite(activityName)) {
       await removeFavoriteActivity(activityName);
     } else {
@@ -123,14 +125,17 @@ export const FavoriteActivitiesSection: React.FC = () => {
               
               {/* Activities Grid - 2 columns layout */}
               <div className="grid grid-cols-2 gap-4 mb-6">
-                {ACTIVITIES.map((activity) => (
-                  <ActivityCard
-                    key={activity.name}
-                    activity={activity}
-                    isSelected={isActivityFavorite(activity.name)}
-                    onClick={() => handleActivityClick(activity.name)}
-                  />
-                ))}
+                {ACTIVITIES.map((activity) => {
+                  const activityName = t(`myExercises.favoriteActivities.activities.${activity.key}`);
+                  return (
+                    <ActivityCard
+                      key={activity.key}
+                      activity={activity}
+                      isSelected={isActivityFavorite(activityName)}
+                      onClick={() => handleActivityClick(activity.key)}
+                    />
+                  );
+                })}
               </div>
               
               {/* Next Button */}

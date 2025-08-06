@@ -8,7 +8,19 @@
     "description": "Vyberte max. 3 aktivity, ktoré si nemôžete užívať naplno alebo ich vykonať a označte, ktorá časť tela vám bráni znovu tieto aktivity vykonávať",
     "expand": "Rozšíriť pre výber aktivít",
     "collapse": "Zbaliť aktivity",
-    "next": "Ďalej"
+    "next": "Ďalej",
+    "activities": {
+      "careOfFamily": "Starostlivosť o rodinu",
+      "carryItems": "Nosenie predmetov",
+      "householdWorks": "Domáce práce",
+      "hiking": "Turistika",
+      "jogging": "Beh",
+      "walking": "Chôdza",
+      "walkingStairs": "Chôdza po schodoch",
+      "cycling": "Cyklistika",
+      "weightlifting": "Posilňovanie",
+      "swimming": "Plávanie"
+    }
   },
   "backHome": "Späť Domov",
   "newAssessment": "Nové Hodnotenie"
