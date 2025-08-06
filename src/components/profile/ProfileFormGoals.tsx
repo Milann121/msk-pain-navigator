@@ -33,12 +33,12 @@ export const ProfileFormGoals: React.FC<ProfileFormGoalsProps> = ({
 
   return (
     <div>
-      <h3 className="text-base font-medium mb-3 text-blue-800">{t('profile.profileForm.goalsTitle')}</h3>
-      <p className="text-base text-gray-600 mb-4">{t('profile.profileForm.goalsSubtitle')}</p>
+      <h3 className="text-sm font-medium mb-3 text-blue-800">{t('profile.profileForm.goalsTitle')}</h3>
+      <p className="text-sm text-gray-600 mb-4">{t('profile.profileForm.goalsSubtitle')}</p>
       
       <div className="space-y-4">
         <div className="flex items-center gap-2">
-          <span className="text-base">{t('profile.profileForm.weeklyExercise')}</span>
+          <span className="text-sm">{t('profile.profileForm.weeklyExercise')}</span>
           <Select 
             value={data.weeklyExerciseGoal?.toString() || ""} 
             onValueChange={(value) => onChange('weeklyExerciseGoal', parseInt(value))}
@@ -54,11 +54,11 @@ export const ProfileFormGoals: React.FC<ProfileFormGoalsProps> = ({
               ))}
             </SelectContent>
           </Select>
-          <span className="text-base">{t('profile.profileForm.times')}</span>
+          <span className="text-sm">{t('profile.profileForm.times')}</span>
         </div>
 
         <div className="flex items-center gap-2">
-          <span className="text-base">{t('profile.profileForm.weeklyBlog')}</span>
+          <span className="text-sm">{t('profile.profileForm.weeklyBlog')}</span>
           <Select 
             value={data.weeklyBlogGoal?.toString() || ""} 
             onValueChange={(value) => onChange('weeklyBlogGoal', parseInt(value))}
@@ -74,7 +74,7 @@ export const ProfileFormGoals: React.FC<ProfileFormGoalsProps> = ({
               ))}
             </SelectContent>
           </Select>
-          <span className="text-base">{getBlogWord(data.weeklyBlogGoal)}</span>
+          <span className="text-sm">{getBlogWord(data.weeklyBlogGoal)}</span>
         </div>
       </div>
     </div>

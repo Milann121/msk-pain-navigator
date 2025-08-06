@@ -90,7 +90,7 @@ export const ProfileFormJobSection: React.FC<ProfileFormJobSectionProps> = ({
   };
 
   if (loading) {
-    return <div className="text-base text-muted-foreground">{t('loading')}...</div>;
+    return <div className="text-sm text-muted-foreground">{t('loading')}...</div>;
   }
 
   return (
@@ -98,7 +98,7 @@ export const ProfileFormJobSection: React.FC<ProfileFormJobSectionProps> = ({
       {/* Department Selection */}
       {departments.length > 0 && (
         <div className="space-y-2">
-          <Label className="text-base font-medium">
+          <Label className="text-sm font-medium">
             {t('profile.jobSection.department')} <span className="text-red-500">*</span>
           </Label>
           <Select
@@ -121,7 +121,7 @@ export const ProfileFormJobSection: React.FC<ProfileFormJobSectionProps> = ({
 
       {/* Job Type Selection */}
       <div className="space-y-2">
-        <Label className="text-base font-medium">{t('profile.jobSection.jobType')}</Label>
+        <Label className="text-sm font-medium">{t('profile.jobSection.jobType')}</Label>
         <RadioGroup 
           value={data.jobType}
           onValueChange={(value) => onChange('jobType', value)}
@@ -129,11 +129,11 @@ export const ProfileFormJobSection: React.FC<ProfileFormJobSectionProps> = ({
         >
           <div className="flex items-center space-x-2">
             <RadioGroupItem value="office work" id="office-work" />
-            <Label htmlFor="office-work" className="cursor-pointer text-base">{t('profile.jobSection.jobTypes.officeWork')}</Label>
+            <Label htmlFor="office-work" className="cursor-pointer text-sm">{t('profile.jobSection.jobTypes.officeWork')}</Label>
           </div>
           <div className="flex items-center space-x-2">
             <RadioGroupItem value="manual work" id="manual-work" />
-            <Label htmlFor="manual-work" className="cursor-pointer text-base">{t('profile.jobSection.jobTypes.manualWork')}</Label>
+            <Label htmlFor="manual-work" className="cursor-pointer text-sm">{t('profile.jobSection.jobTypes.manualWork')}</Label>
           </div>
         </RadioGroup>
       </div>
@@ -141,7 +141,7 @@ export const ProfileFormJobSection: React.FC<ProfileFormJobSectionProps> = ({
       {/* Job Properties Selection */}
       {jobProperties.length > 0 && (
         <div className="space-y-2">
-          <Label className="text-base font-medium">{t('profile.jobSection.jobProperties')}</Label>
+          <Label className="text-sm font-medium">{t('profile.jobSection.jobProperties')}</Label>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             {jobProperties.map((property) => (
               <div key={property.id} className="flex items-center space-x-2">
@@ -154,7 +154,7 @@ export const ProfileFormJobSection: React.FC<ProfileFormJobSectionProps> = ({
                 />
                 <Label 
                   htmlFor={`property-${property.id}`} 
-                  className="cursor-pointer text-base"
+                  className="cursor-pointer text-sm"
                 >
                   {t(`profile.jobSection.jobPropertyNames.${property.property_name}`, property.property_name)}
                 </Label>
