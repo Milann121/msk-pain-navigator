@@ -38,8 +38,8 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, isSelected, onCli
       )}
     >
       <div className="flex h-full">
-        {/* Image on the left - fills full left side */}
-        <div className="w-20 h-full bg-muted flex-shrink-0">
+        {/* Image on the left - fills left half */}
+        <div className="w-1/2 h-full bg-muted flex-shrink-0">
           {activity.image ? (
             <img
               src={activity.image}
