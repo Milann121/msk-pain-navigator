@@ -6,9 +6,12 @@
   "favoriteActivities": {
     "title": "Obľúbené Aktivity",
     "description": "Vyberte max. 3 aktivity, ktoré si nemôžete užívať naplno alebo ich vykonať a označte, ktorá časť tela vám bráni znovu tieto aktivity vykonávať",
+    "selectBodyAreas": "Vyberte, ktorá časť tela vám bráni vykonávať každú aktivitu",
+    "selectBodyArea": "Vyberte časť tela",
     "expand": "Rozšíriť pre výber aktivít",
     "collapse": "Zbaliť aktivity",
     "next": "Ďalej",
+    "previous": "Predchádzajúci",
     "activities": {
       "careOfFamily": "Starostlivosť o rodinu",
       "carryItems": "Nosenie predmetov",

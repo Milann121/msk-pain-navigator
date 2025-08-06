@@ -92,6 +92,33 @@ export const useFavoriteActivities = () => {
     }
   };
 
+  const updateFavoriteActivity = async (activityName: string, painArea: string) => {
+    if (!user) return;
+
+    try {
+      const { error } = await supabase
+        .from('favorite_activities')
+        .update({ pain_area: painArea, updated_at: new Date().toISOString() })
+        .eq('user_id', user.id)
+        .eq('activity', activityName);
+
+      if (error) {
+        console.error('Error updating favorite activity:', error);
+        return;
+      }
+
+      setFavoriteActivities(prev => 
+        prev.map(item => 
+          item.activity === activityName 
+            ? { ...item, pain_area: painArea, updated_at: new Date().toISOString() }
+            : item
+        )
+      );
+    } catch (error) {
+      console.error('Error updating favorite activity:', error);
+    }
+  };
+
   const isActivityFavorite = (activityName: string) => {
     return favoriteActivities.some(item => item.activity === activityName);
   };
@@ -126,6 +153,7 @@ export const useFavoriteActivities = () => {
     loading,
     addFavoriteActivity,
     removeFavoriteActivity,
+    updateFavoriteActivity,
     isActivityFavorite,
     refreshFavoriteActivities: fetchFavoriteActivities,
   };

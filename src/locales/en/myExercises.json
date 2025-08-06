@@ -6,9 +6,12 @@
   "favoriteActivities": {
     "title": "Favorite Activities",
     "description": "Choose up to 3 activities you are not able to enjoy or accomplish and select which body area restricts you to do these activities again",
+    "selectBodyAreas": "Select which body area restricts you from doing each activity",
+    "selectBodyArea": "Select body area",
     "expand": "Expand to select activities",
     "collapse": "Collapse activities",
     "next": "Next",
+    "previous": "Previous",
     "activities": {
       "careOfFamily": "Care of Family",
       "carryItems": "Carry Items",

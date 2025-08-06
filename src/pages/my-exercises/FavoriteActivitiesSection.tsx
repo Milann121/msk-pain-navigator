@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useTranslation } from "react-i18next";
 import { useFavoriteActivities } from "@/hooks/useFavoriteActivities";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -80,8 +81,11 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, isSelected, onCli
 
 export const FavoriteActivitiesSection: React.FC = () => {
   const { t } = useTranslation();
-  const { isActivityFavorite, addFavoriteActivity, removeFavoriteActivity, favoriteActivities } = useFavoriteActivities();
+  const { isActivityFavorite, addFavoriteActivity, removeFavoriteActivity, favoriteActivities, updateFavoriteActivity } = useFavoriteActivities();
   const [accordionValue, setAccordionValue] = useState<string>("");
+  const [currentStep, setCurrentStep] = useState<1 | 2>(1);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [bodyAreaSelections, setBodyAreaSelections] = useState<Record<string, string>>({});
 
   const handleActivityClick = async (activityKey: string) => {
     const activityName = t(`myExercises.favoriteActivities.activities.${activityKey}`);
@@ -95,10 +99,43 @@ export const FavoriteActivitiesSection: React.FC = () => {
     }
   };
 
-  const handleNextClick = () => {
-    // Placeholder for future functionality
-    console.log("Next button clicked");
+  const handleNextClick = async () => {
+    if (currentStep === 1) {
+      if (favoriteActivities.length === 3) {
+        setIsAnimating(true);
+        setTimeout(() => {
+          setCurrentStep(2);
+          setIsAnimating(false);
+        }, 300);
+      }
+    } else {
+      // Step 2 logic will be implemented later
+      console.log("Step 2 next clicked", bodyAreaSelections);
+    }
   };
+
+  const handlePreviousClick = () => {
+    if (currentStep === 2) {
+      setIsAnimating(true);
+      setTimeout(() => {
+        setCurrentStep(1);
+        setIsAnimating(false);
+      }, 300);
+    }
+  };
+
+  const handleBodyAreaSelection = async (activityName: string, bodyArea: string) => {
+    setBodyAreaSelections(prev => ({ ...prev, [activityName]: bodyArea }));
+    
+    // Update the favorite activity with the selected body area
+    await updateFavoriteActivity(activityName, bodyArea);
+  };
+
+  // Get body parts options from translations
+  const bodyParts = [
+    'neck', 'shoulders', 'upper-back', 'middle-back', 'lower-back', 
+    'spine', 'hips', 'glutes', 'legs', 'chest', 'core', 'arms'
+  ];
 
   return (
     <Card className="mb-6 px-0">
@@ -118,31 +155,113 @@ export const FavoriteActivitiesSection: React.FC = () => {
             </div>
             
             <AccordionContent className="pt-0">
-              {/* Description - only shown when expanded */}
-              <CardDescription className="mb-6">
-                {t("myExercises.favoriteActivities.description")}
-              </CardDescription>
-              
-              {/* Activities Grid - 2 columns layout */}
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                {ACTIVITIES.map((activity) => {
-                  const activityName = t(`myExercises.favoriteActivities.activities.${activity.key}`);
-                  return (
-                    <ActivityCard
-                      key={activity.key}
-                      activity={activity}
-                      isSelected={isActivityFavorite(activityName)}
-                      onClick={() => handleActivityClick(activity.key)}
-                    />
-                  );
-                })}
-              </div>
-              
-              {/* Next Button */}
-              <div className="flex justify-center">
-                <Button onClick={handleNextClick} className="px-8">
-                  {t("myExercises.favoriteActivities.next")}
-                </Button>
+              <div className="relative overflow-hidden">
+                {/* Step 1: Activity Selection */}
+                <div className={cn(
+                  "transition-transform duration-300 ease-in-out",
+                  currentStep === 1 ? "translate-x-0" : "-translate-x-full",
+                  isAnimating && "transition-transform"
+                )}>
+                  {/* Description - only shown when expanded */}
+                  <CardDescription className="mb-6">
+                    {t("myExercises.favoriteActivities.description")}
+                  </CardDescription>
+                  
+                  {/* Activities Grid - 2 columns layout */}
+                  <div className="grid grid-cols-2 gap-4 mb-6">
+                    {ACTIVITIES.map((activity) => {
+                      const activityName = t(`myExercises.favoriteActivities.activities.${activity.key}`);
+                      return (
+                        <ActivityCard
+                          key={activity.key}
+                          activity={activity}
+                          isSelected={isActivityFavorite(activityName)}
+                          onClick={() => handleActivityClick(activity.key)}
+                        />
+                      );
+                    })}
+                  </div>
+                  
+                  {/* Next Button */}
+                  <div className="flex justify-center">
+                    <Button 
+                      onClick={handleNextClick} 
+                      className="px-8"
+                      disabled={favoriteActivities.length !== 3}
+                    >
+                      {t("myExercises.favoriteActivities.next")}
+                    </Button>
+                  </div>
+                </div>
+
+                {/* Step 2: Body Area Selection */}
+                <div className={cn(
+                  "absolute top-0 left-0 w-full transition-transform duration-300 ease-in-out",
+                  currentStep === 2 ? "translate-x-0" : "translate-x-full",
+                  isAnimating && "transition-transform"
+                )}>
+                  <CardDescription className="mb-6">
+                    {t("myExercises.favoriteActivities.selectBodyAreas")}
+                  </CardDescription>
+                  
+                  {/* Selected Activities with Body Area Dropdowns */}
+                  <div className="space-y-6 mb-6">
+                    {favoriteActivities.map((favoriteActivity) => {
+                      const activity = ACTIVITIES.find(a => 
+                        t(`myExercises.favoriteActivities.activities.${a.key}`) === favoriteActivity.activity
+                      );
+                      
+                      return (
+                        <div key={favoriteActivity.id} className="space-y-3">
+                          {/* Activity Display */}
+                          <div className="flex items-center gap-4">
+                            <div className="w-16 h-16 bg-muted rounded-lg flex-shrink-0">
+                              {activity?.image ? (
+                                <img
+                                  src={activity.image}
+                                  alt={favoriteActivity.activity}
+                                  className="w-full h-full object-cover rounded-lg"
+                                />
+                              ) : (
+                                <div className="w-full h-full flex items-center justify-center">
+                                  <span className="text-lg">📋</span>
+                                </div>
+                              )}
+                            </div>
+                            <span className="font-medium">{favoriteActivity.activity}</span>
+                          </div>
+                          
+                          {/* Body Area Dropdown */}
+                          <Select
+                            value={bodyAreaSelections[favoriteActivity.activity] || favoriteActivity.pain_area || ""}
+                            onValueChange={(value) => handleBodyAreaSelection(favoriteActivity.activity, value)}
+                          >
+                            <SelectTrigger className="w-full">
+                              <SelectValue placeholder={t("myExercises.favoriteActivities.selectBodyArea")} />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {bodyParts.map((bodyPart) => (
+                                <SelectItem key={bodyPart} value={bodyPart}>
+                                  {t(`bodyParts.${bodyPart}`)}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        </div>
+                      );
+                    })}
+                  </div>
+                  
+                  {/* Navigation Buttons */}
+                  <div className="flex justify-center gap-4">
+                    <Button variant="outline" onClick={handlePreviousClick} className="px-8">
+                      {t("myExercises.favoriteActivities.previous")}
+                    </Button>
+                    <Button onClick={handleNextClick} className="px-8">
+                      {t("myExercises.favoriteActivities.next")}
+                    </Button>
+                  </div>
+                </div>
               </div>
             </AccordionContent>
           </AccordionItem>
