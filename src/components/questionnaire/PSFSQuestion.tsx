@@ -97,7 +97,10 @@ const PSFSQuestion = ({ question, values, onChange }: PSFSQuestionProps) => {
   // Image configurations
   const imageConfigs = [
     { src: "/lovable-uploads/psfsImages/psfsHouseHoldImage.png", alt: "Household activities" },
-    { src: "/lovable-uploads/psfsImages/psfsYogaAtHomeImage.png", alt: "Yoga and sports activities" }
+    { src: "/lovable-uploads/psfsImages/psfsYogaAtHomeImage.png", alt: "Yoga and sports activities" },
+    { src: "/lovable-uploads/psfsImages/psfsHeavyLoadsImage.png", alt: "Heavy loads activities" },
+    { src: "/lovable-uploads/psfsImages/psfsWalkingStairsImage.png", alt: "Walking stairs activities" },
+    { src: "/lovable-uploads/psfsImages/psfsCareFamilyImage.png", alt: "Family care activities" }
   ];
   
   return (
