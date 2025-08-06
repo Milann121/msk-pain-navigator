@@ -890,6 +890,7 @@ export type Database = {
           b2b_partner_id: number | null
           b2b_partner_name: string | null
           created_at: string | null
+          default_language: string | null
           department_id: string | null
           email: string | null
           employee_id: string | null
@@ -908,6 +909,7 @@ export type Database = {
           b2b_partner_id?: number | null
           b2b_partner_name?: string | null
           created_at?: string | null
+          default_language?: string | null
           department_id?: string | null
           email?: string | null
           employee_id?: string | null
@@ -926,6 +928,7 @@ export type Database = {
           b2b_partner_id?: number | null
           b2b_partner_name?: string | null
           created_at?: string | null
+          default_language?: string | null
           department_id?: string | null
           email?: string | null
           employee_id?: string | null

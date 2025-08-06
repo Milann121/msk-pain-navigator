@@ -10,6 +10,7 @@ import { ProfileFormPersonalInfo } from './ProfileFormPersonalInfo';
 import { ProfileFormJobSection } from './ProfileFormJobSection';
 import { ProfileFormGoals } from './ProfileFormGoals';
 import { ProfileFormButtons } from './ProfileFormButtons';
+import { LanguageSelector } from './LanguageSelector';
 import therapyImage from '@/assets/therapy-illustration.jpg';
 
 interface ProfileFormPopupProps {
@@ -31,6 +32,7 @@ interface ProfileData {
   departmentId: string;
   jobType: string;
   jobProperties: string[];
+  defaultLanguage: string;
 }
 
 interface GoalsData {
@@ -57,7 +59,8 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     yearOfBirth: null,
     departmentId: '',
     jobType: '',
-    jobProperties: []
+    jobProperties: [],
+    defaultLanguage: 'sk'
   });
   
   const [goalsData, setGoalsData] = useState<GoalsData>({
@@ -168,7 +171,8 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
           yearOfBirth: data.year_birth ? String(data.year_birth) : null,
           departmentId: data.department_id || '',
           jobType: data.job_type || '',
-          jobProperties: Array.isArray(data.job_properties) ? data.job_properties : (data.job_properties ? data.job_properties.split(',').map(p => p.trim()) : [])
+          jobProperties: Array.isArray(data.job_properties) ? data.job_properties : (data.job_properties ? data.job_properties.split(',').map(p => p.trim()) : []),
+          defaultLanguage: data.default_language || 'sk'
         });
       } else {
         // No existing profile, use defaults
@@ -179,7 +183,8 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
           yearOfBirth: null,
           departmentId: '',
           jobType: '',
-          jobProperties: []
+          jobProperties: [],
+          defaultLanguage: 'sk'
         });
       }
     } catch (error) {
@@ -192,7 +197,8 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         yearOfBirth: null,
         departmentId: '',
         jobType: '',
-        jobProperties: []
+        jobProperties: [],
+        defaultLanguage: 'sk'
       });
     }
   };
@@ -377,6 +383,26 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
       });
       return;
     }
+
+    if (!profileData.departmentId) {
+      console.error('❌ [ProfileFormPopup] Department is required');
+      toast({
+        title: t('profile.goals.errorTitle'),
+        description: 'Department is required',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    if (!profileData.defaultLanguage) {
+      console.error('❌ [ProfileFormPopup] Default language is required');
+      toast({
+        title: t('profile.goals.errorTitle'),
+        description: 'Default language is required',
+        variant: 'destructive',
+      });
+      return;
+    }
     
     if (isNaN(Number(profileData.yearOfBirth)) || Number(profileData.yearOfBirth) < 1900 || Number(profileData.yearOfBirth) > new Date().getFullYear()) {
       toast({
@@ -402,6 +428,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         department_id: profileData.departmentId || null,
         job_type: profileData.jobType || null,
         job_properties: profileData.jobProperties.length > 0 ? profileData.jobProperties.join(',') : null,
+        default_language: profileData.defaultLanguage,
         b2b_partner_name: b2bEmployeeData?.employerName || null,
         b2b_partner_id: b2bEmployeeData?.b2bPartnerId || null,
         employee_id: b2bEmployeeData?.employeeId || null
@@ -526,6 +553,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         department_id: profileData.departmentId || null, // Save department ID
         job_type: profileData.jobType || null,
         job_properties: profileData.jobProperties.length > 0 ? profileData.jobProperties.join(',') : null,
+        default_language: profileData.defaultLanguage, // Save default language
         b2b_partner_name: b2bEmployeeData?.employerName || null,
         b2b_partner_id: b2bEmployeeData?.b2bPartnerId || null,
         employee_id: b2bEmployeeData?.employeeId || null
@@ -610,13 +638,17 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
                         profileData.gender !== '' &&
                         profileData.yearOfBirth && 
                         profileData.yearOfBirth !== '' && 
-                        Number(profileData.yearOfBirth) > 0;
+                        Number(profileData.yearOfBirth) > 0 &&
+                        profileData.departmentId !== '' &&
+                        profileData.defaultLanguage !== '';
 
   console.log('Profile validation state:', {
     firstName: profileData.firstName.trim() !== '',
     lastName: profileData.lastName.trim() !== '',
     gender: profileData.gender !== '',
     yearOfBirth: profileData.yearOfBirth && profileData.yearOfBirth !== '' && Number(profileData.yearOfBirth) > 0,
+    departmentId: profileData.departmentId !== '',
+    defaultLanguage: profileData.defaultLanguage !== '',
     isValid: isProfileValid
   });
 
@@ -628,12 +660,12 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         </DialogHeader>
         
         <div className="space-y-6 py-4">
-          {/* Therapy Illustration Image */}
-          <div className="flex justify-center mb-6">
+          {/* Therapy Illustration Image - Full Width Banner */}
+          <div className="w-full mb-6 -mx-6 -mt-4">
             <img 
               src={therapyImage} 
               alt="Therapy illustration" 
-              className="w-64 h-40 object-cover rounded-lg shadow-md"
+              className="w-full h-48 object-cover"
             />
           </div>
 
@@ -661,6 +693,13 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
               yearOfBirth: profileData.yearOfBirth
             }}
             onChange={handleInputChange}
+          />
+
+          {/* Language Selection */}
+          <LanguageSelector
+            selectedLanguage={profileData.defaultLanguage}
+            onLanguageChange={(language) => handleInputChange('defaultLanguage', language)}
+            showAsRequired={true}
           />
 
           {/* Job Section */}

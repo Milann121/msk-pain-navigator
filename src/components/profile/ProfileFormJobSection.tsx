@@ -98,7 +98,9 @@ export const ProfileFormJobSection: React.FC<ProfileFormJobSectionProps> = ({
       {/* Department Selection */}
       {departments.length > 0 && (
         <div className="space-y-2">
-          <Label className="text-base font-medium">{t('profile.jobSection.department')}</Label>
+          <Label className="text-base font-medium">
+            {t('profile.jobSection.department')} <span className="text-red-500">*</span>
+          </Label>
           <Select
             value={data.departmentId}
             onValueChange={(value) => onChange('departmentId', value)}
