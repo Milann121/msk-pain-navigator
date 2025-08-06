@@ -1,5 +1,7 @@
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Skeleton } from '@/components/ui/skeleton';
 import { useTranslation } from 'react-i18next';
+import { useState, useEffect } from 'react';
 
 interface PSFSQuestionProps {
   question: {
@@ -23,6 +25,67 @@ interface PSFSQuestionProps {
   onChange: (questionId: string, value: number) => void;
 }
 
+// Image component with error handling
+const PSFSImage = ({ src, alt, index }: { src: string; alt: string; index: number }) => {
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  
+  useEffect(() => {
+    // Preload image
+    const img = new Image();
+    img.onload = () => {
+      setLoading(false);
+      console.log(`✅ PSFS Image ${index + 1} loaded successfully:`, src);
+    };
+    img.onerror = () => {
+      setLoading(false);
+      setError(true);
+      console.error(`❌ PSFS Image ${index + 1} failed to load:`, src);
+    };
+    img.src = src;
+  }, [src, index]);
+
+  if (loading) {
+    return (
+      <div className="w-full mb-6">
+        <Skeleton className="w-full h-48 rounded-lg" />
+        <p className="text-xs text-muted-foreground mt-2 text-center">Loading image...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="w-full mb-6 p-6 bg-muted rounded-lg border-2 border-dashed border-muted-foreground/30">
+        <div className="text-center">
+          <p className="text-muted-foreground mb-2">📷 {alt}</p>
+          <p className="text-xs text-muted-foreground">Image unavailable</p>
+          {process.env.NODE_ENV === 'development' && (
+            <p className="text-xs text-destructive mt-1">Path: {src}</p>
+          )}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="w-full mb-6">
+      <img 
+        src={src}
+        alt={alt}
+        className="w-full h-auto rounded-lg"
+        onError={() => {
+          setError(true);
+          console.error(`❌ PSFS Image ${index + 1} failed to display after loading:`, src);
+        }}
+        onLoad={() => {
+          console.log(`✅ PSFS Image ${index + 1} displayed successfully:`, src);
+        }}
+      />
+    </div>
+  );
+};
+
 const PSFSQuestion = ({ question, values, onChange }: PSFSQuestionProps) => {
   const { t } = useTranslation();
   
@@ -30,6 +93,12 @@ const PSFSQuestion = ({ question, values, onChange }: PSFSQuestionProps) => {
   
   // Get the first question to extract scale labels for the legend
   const firstQuestion = question.psfs.questions[0];
+  
+  // Image configurations
+  const imageConfigs = [
+    { src: "/lovable-uploads/psfsImages/houseHoldImage.png", alt: "Household activities" },
+    { src: "/lovable-uploads/psfsImages/psfsYogaAtHomeImage.png", alt: "Yoga and sports activities" }
+  ];
   
   return (
     <div className="space-y-8">
@@ -47,26 +116,13 @@ const PSFSQuestion = ({ question, values, onChange }: PSFSQuestionProps) => {
           
           return (
             <div key={subQuestion.id} className="space-y-4">
-              {/* Add image above the first question */}
-              {index === 0 && (
-                <div className="w-full mb-6">
-                  <img 
-                    src="/lovable-uploads/psfsImages/houseHoldImage.png" 
-                    alt="Household activities"
-                    className="w-full h-auto rounded-lg"
-                  />
-                </div>
-              )}
-              
-              {/* Add yoga image above the second question */}
-              {index === 1 && (
-                <div className="w-full mb-6">
-                  <img 
-                    src="/lovable-uploads/psfsImages/psfsYogaAtHomeImage.png" 
-                    alt="Yoga and sports activities"
-                    className="w-full h-auto rounded-lg"
-                  />
-                </div>
+              {/* Display images with error handling */}
+              {index < imageConfigs.length && (
+                <PSFSImage 
+                  src={imageConfigs[index].src}
+                  alt={imageConfigs[index].alt}
+                  index={index}
+                />
               )}
               
               <div className="flex items-start gap-3">
