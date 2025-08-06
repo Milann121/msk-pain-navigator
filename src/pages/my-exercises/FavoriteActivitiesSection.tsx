@@ -31,15 +31,15 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, isSelected, onCli
     <div
       onClick={onClick}
       className={cn(
-        "border rounded-lg cursor-pointer transition-all duration-200 hover:shadow-md overflow-hidden h-20",
+        "border rounded-lg cursor-pointer transition-all duration-200 hover:shadow-md overflow-hidden",
         isSelected 
           ? "border-primary bg-primary/10 shadow-md" 
           : "border-border hover:border-primary/50"
       )}
     >
-      <div className="flex h-full">
+      <div className="flex">
         {/* Image on the left - fills left half */}
-        <div className="w-1/2 h-full bg-muted flex-shrink-0">
+        <div className="w-1/2 bg-muted flex-shrink-0 aspect-square">
           {activity.image ? (
             <img
               src={activity.image}
