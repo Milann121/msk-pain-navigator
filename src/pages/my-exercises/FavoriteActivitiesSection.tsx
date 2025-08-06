@@ -101,7 +101,7 @@ export const FavoriteActivitiesSection: React.FC = () => {
 
   const handleNextClick = async () => {
     if (currentStep === 1) {
-      if (favoriteActivities.length >= 1 && favoriteActivities.length <= 3) {
+      if (favoriteActivities.length === 3) {
         setIsAnimating(true);
         setTimeout(() => {
           setCurrentStep(2);
@@ -157,7 +157,7 @@ export const FavoriteActivitiesSection: React.FC = () => {
             </div>
             
             <AccordionContent className="pt-0">
-              <div className="relative overflow-hidden min-h-fit pb-8">
+              <div className="relative overflow-hidden pb-64 lg:pb-32">
                 {/* Step 1: Activity Selection */}
                 <div className={cn(
                   "transition-transform duration-300 ease-in-out",
@@ -189,7 +189,7 @@ export const FavoriteActivitiesSection: React.FC = () => {
                     <Button 
                       onClick={handleNextClick} 
                       className="px-8"
-                      disabled={favoriteActivities.length === 0}
+                      disabled={favoriteActivities.length !== 3}
                     >
                       {t("myExercises.favoriteActivities.next")}
                     </Button>
