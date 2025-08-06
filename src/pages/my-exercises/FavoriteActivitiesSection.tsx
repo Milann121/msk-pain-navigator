@@ -131,10 +131,12 @@ export const FavoriteActivitiesSection: React.FC = () => {
     await updateFavoriteActivity(activityName, bodyArea);
   };
 
-  // Get body parts options from translations
+  // Get body parts options from assessment (only 4 main areas)
   const bodyParts = [
-    'neck', 'shoulders', 'upper-back', 'middle-back', 'lower-back', 
-    'spine', 'hips', 'glutes', 'legs', 'chest', 'core', 'arms'
+    'neck', 
+    'middle back', 
+    'lower back', 
+    'upper limb'
   ];
 
   return (
@@ -204,8 +206,8 @@ export const FavoriteActivitiesSection: React.FC = () => {
                     {t("myExercises.favoriteActivities.selectBodyAreas")}
                   </CardDescription>
                   
-                  {/* Selected Activities with Body Area Dropdowns */}
-                  <div className="space-y-6 mb-6">
+                  {/* Selected Activities Grid - Same design as Step 1 */}
+                  <div className="grid grid-cols-2 gap-6 mb-6">
                     {favoriteActivities.map((favoriteActivity) => {
                       const activity = ACTIVITIES.find(a => 
                         t(`myExercises.favoriteActivities.activities.${a.key}`) === favoriteActivity.activity
@@ -213,22 +215,13 @@ export const FavoriteActivitiesSection: React.FC = () => {
                       
                       return (
                         <div key={favoriteActivity.id} className="space-y-3">
-                          {/* Activity Display */}
-                          <div className="flex items-center gap-4">
-                            <div className="w-16 h-16 bg-muted rounded-lg flex-shrink-0">
-                              {activity?.image ? (
-                                <img
-                                  src={activity.image}
-                                  alt={favoriteActivity.activity}
-                                  className="w-full h-full object-cover rounded-lg"
-                                />
-                              ) : (
-                                <div className="w-full h-full flex items-center justify-center">
-                                  <span className="text-lg">📋</span>
-                                </div>
-                              )}
-                            </div>
-                            <span className="font-medium">{favoriteActivity.activity}</span>
+                          {/* Full-size Activity Card */}
+                          <div className="rounded-lg overflow-hidden bg-primary/10 shadow-md">
+                            <ActivityCard
+                              activity={activity || { key: 'unknown', image: null }}
+                              isSelected={true}
+                              onClick={() => {}} // No click action needed in step 2
+                            />
                           </div>
                           
                           {/* Body Area Dropdown */}
