@@ -37,11 +37,11 @@ export const GeneralProgram = () => {
   if (!isMyExercisesPage) {
     if (!hasGeneralProgram) {
       return (
-        <div className="w-full h-full">
+        <div className="relative w-full h-full overflow-hidden rounded-lg">
           <img 
-            src={generalProgramPlaceholder} 
+            src="/lovable-uploads/e49683d8-efc0-47f0-a1e1-97c3af9ed0e7.png" 
             alt="General Program Placeholder"
-            className="w-full h-full object-cover rounded-lg"
+            className="absolute inset-0 w-full h-full object-cover"
           />
         </div>
       );
