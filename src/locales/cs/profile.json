@@ -111,5 +111,7 @@
   "downloadError": "Nepodařilo se stáhnout osobní údaje",
   "exportedAt": "Exportováno",
   "jobInfo": "Informace o práci",
-  "emailAddress": "Email"
+  "emailAddress": "Email",
+  "language": "Jazyk",
+  "defaultLanguage": "Výchozí jazyk"
 }

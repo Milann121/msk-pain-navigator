@@ -113,5 +113,7 @@
   "downloadError": "Failed to download personal data",
   "exportedAt": "Exported at",
   "jobInfo": "Job Information",
-  "emailAddress": "Email Address"
+  "emailAddress": "Email Address",
+  "language": "Language",
+  "defaultLanguage": "Default Language"
 }

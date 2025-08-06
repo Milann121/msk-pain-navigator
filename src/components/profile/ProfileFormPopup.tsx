@@ -700,6 +700,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
             selectedLanguage={profileData.defaultLanguage}
             onLanguageChange={(language) => handleInputChange('defaultLanguage', language)}
             showAsRequired={true}
+            label={t('profile.defaultLanguage')}
           />
 
           {/* Job Section */}

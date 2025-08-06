@@ -7,14 +7,16 @@ interface LanguageSelectorProps {
   selectedLanguage: string;
   onLanguageChange: (language: string) => void;
   showAsRequired?: boolean;
+  label?: string;
 }
 
 export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   selectedLanguage,
   onLanguageChange,
-  showAsRequired = false
+  showAsRequired = false,
+  label
 }) => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
 
   const languages = [
     { code: 'sk', label: 'Slovenčina' },
@@ -30,7 +32,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   return (
     <div className="space-y-2">
       <Label className="text-base font-medium">
-        Language {showAsRequired && <span className="text-red-500">*</span>}
+        {label || t('profile.language')} {showAsRequired && <span className="text-red-500">*</span>}
       </Label>
       <Select value={selectedLanguage} onValueChange={handleLanguageChange}>
         <SelectTrigger className="bg-background border-border">
