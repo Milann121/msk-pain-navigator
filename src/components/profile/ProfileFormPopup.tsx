@@ -684,6 +684,14 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
             </div>
           )}
 
+          {/* Language Selection - moved above Personal Information */}
+          <LanguageSelector
+            selectedLanguage={profileData.defaultLanguage}
+            onLanguageChange={(language) => handleInputChange('defaultLanguage', language)}
+            showAsRequired={true}
+            label={t('profile.defaultLanguage')}
+          />
+
           {/* Personal Information Section */}
           <ProfileFormPersonalInfo
             data={{
@@ -693,14 +701,6 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
               yearOfBirth: profileData.yearOfBirth
             }}
             onChange={handleInputChange}
-          />
-
-          {/* Language Selection */}
-          <LanguageSelector
-            selectedLanguage={profileData.defaultLanguage}
-            onLanguageChange={(language) => handleInputChange('defaultLanguage', language)}
-            showAsRequired={true}
-            label={t('profile.defaultLanguage')}
           />
 
           {/* Job Section */}

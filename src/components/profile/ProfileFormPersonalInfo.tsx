@@ -25,7 +25,7 @@ export const ProfileFormPersonalInfo: React.FC<ProfileFormPersonalInfoProps> = (
 
   return (
     <div>
-      <h3 className="text-lg font-semibold mb-3 text-blue-800">{t('profile.profileForm.personalInfo')}</h3>
+      <h3 className="text-base font-medium mb-3 text-blue-800">{t('profile.profileForm.personalInfo')}</h3>
       
       <div className="grid grid-cols-2 gap-4 mb-4">
         <div className="space-y-2">
