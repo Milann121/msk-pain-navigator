@@ -142,7 +142,7 @@
     }
   },
   "slider": {
-    "selected": "Vybrané"
+    "selected": "{{value}}"
   },
   "questionExplanation": {
     "title": "Vysvetlenie otázky",

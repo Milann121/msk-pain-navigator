@@ -142,7 +142,7 @@
     }
   },
   "slider": {
-    "selected": "Selected"
+    "selected": "{{value}}"
   },
   "questionExplanation": {
     "title": "Question Explanation",
