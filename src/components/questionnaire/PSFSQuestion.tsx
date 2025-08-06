@@ -1,4 +1,4 @@
-import { Slider } from '@/components/ui/slider';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useTranslation } from 'react-i18next';
 
 interface PSFSQuestionProps {
@@ -64,6 +64,17 @@ const PSFSQuestion = ({ question, values, onChange }: PSFSQuestionProps) => {
           
           return (
             <div key={subQuestion.id} className="space-y-4">
+              {/* Add image above the first question */}
+              {index === 0 && (
+                <div className="w-full mb-6">
+                  <img 
+                    src="/lovable-uploads/psfsImages/houseHoldImage.png" 
+                    alt="Household activities"
+                    className="w-full h-auto rounded-lg"
+                  />
+                </div>
+              )}
+              
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-medium flex-shrink-0">
                   {index + 1}
@@ -74,22 +85,21 @@ const PSFSQuestion = ({ question, values, onChange }: PSFSQuestionProps) => {
                   </h4>
                   
                   <div className="space-y-4">
-                    <Slider
-                      value={[value]}
-                      onValueChange={(values) => onChange(subQuestion.id, values[0])}
-                      max={subQuestion.scale.max}
-                      min={subQuestion.scale.min}
-                      step={1}
-                      className="w-full"
-                    />
-                    
-                    <div className="text-center">
-                      <div className="inline-flex px-3 py-1 bg-primary/10 rounded-md">
-                        <span className="text-primary font-medium">
-                          {value}
-                        </span>
-                      </div>
-                    </div>
+                    <Select 
+                      value={value.toString()} 
+                      onValueChange={(val) => onChange(subQuestion.id, parseInt(val))}
+                    >
+                      <SelectTrigger className="w-full">
+                        <SelectValue placeholder="Select a value" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {Array.from({ length: 11 }, (_, i) => (
+                          <SelectItem key={i} value={i.toString()}>
+                            {i}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </div>
                 </div>
               </div>
