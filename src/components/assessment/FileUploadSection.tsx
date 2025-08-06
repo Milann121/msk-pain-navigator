@@ -132,8 +132,8 @@ export const FileUploadSection: React.FC = () => {
           {t('assessment.fileUpload.title')}
         </CardTitle>
       </CardHeader>
-      <CardContent className="grid grid-cols-2 gap-6">
-        {/* Upload Documents Section - Left Half */}
+      <CardContent className="md:grid md:grid-cols-2 gap-6 space-y-6 md:space-y-0">
+        {/* Upload Documents Section */}
         <div className="space-y-4">
           <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-gray-400 transition-colors">
             <Upload className="mx-auto h-12 w-12 text-gray-400 mb-4" />
@@ -191,6 +191,40 @@ export const FileUploadSection: React.FC = () => {
             </div>
           )}
 
+          {/* History Section - Moved inside Upload Documents for mobile */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold">{t('assessment.fileUpload.history.title')}</h3>
+            <div className="border rounded-lg overflow-hidden">
+              <div className="bg-gray-50 p-3 border-b">
+                <div className="grid grid-cols-3 gap-4 text-sm font-medium text-gray-600">
+                  <span>{t('assessment.fileUpload.history.uploadDate')}</span>
+                  <span>{t('assessment.fileUpload.history.fileName')}</span>
+                  <span>{t('assessment.fileUpload.history.password')}</span>
+                </div>
+              </div>
+              <div className="divide-y">
+                {/* Example row - will be replaced with actual data */}
+                <div className="grid grid-cols-3 gap-4 p-3 text-sm">
+                  <span className="text-gray-500">2024-01-15</span>
+                  <span className="text-gray-700">medical_report.pdf</span>
+                  <Input type="password" placeholder={t('assessment.fileUpload.history.passwordPlaceholder')} className="h-8" />
+                </div>
+                <div className="grid grid-cols-3 gap-4 p-3 text-sm">
+                  <span className="text-gray-500">2024-01-10</span>
+                  <span className="text-gray-700">xray_image.jpg</span>
+                  <Input type="password" placeholder={t('assessment.fileUpload.history.passwordPlaceholder')} className="h-8" />
+                </div>
+                {/* Empty state when no history */}
+                {uploadedFiles.length === 0 && (
+                  <div className="p-6 text-center text-gray-500">
+                    <p className="text-sm">{t('assessment.fileUpload.history.noHistory')}</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* Data Protection moved below History */}
           <div className="flex items-start gap-2 p-3 bg-blue-50 rounded-lg">
             <AlertCircle className="h-4 w-4 text-blue-500 mt-0.5 flex-shrink-0" />
             <div className="text-sm text-blue-700">
@@ -200,8 +234,8 @@ export const FileUploadSection: React.FC = () => {
           </div>
         </div>
 
-        {/* History Section - Right Half */}
-        <div className="space-y-4">
+        {/* History Section - Desktop Right Half - Hidden on mobile since it's moved inside */}
+        <div className="hidden md:block space-y-4">
           <h3 className="text-lg font-semibold">{t('assessment.fileUpload.history.title')}</h3>
           <div className="border rounded-lg overflow-hidden">
             <div className="bg-gray-50 p-3 border-b">
