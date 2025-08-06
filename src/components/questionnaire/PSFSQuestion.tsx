@@ -51,7 +51,7 @@ const PSFSQuestion = ({ question, values, onChange }: PSFSQuestionProps) => {
               {index === 0 && (
                 <div className="w-full mb-6">
                   <img 
-                    src="public/lovable-uploads/psfsImages/houseHoldImage.png" 
+                    src="/lovable-uploads/psfsImages/houseHoldImage.png" 
                     alt="Household activities"
                     className="w-full h-auto rounded-lg"
                   />
