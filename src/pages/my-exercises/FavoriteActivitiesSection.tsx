@@ -99,7 +99,11 @@ export const FavoriteActivitiesSection: React.FC = () => {
   return (
     <Card className="mb-6 px-0">
       <CardHeader>
-        <CardTitle>{t("myExercises.favoriteActivities.title")}</CardTitle>
+        <div className="flex items-center justify-between">
+          <CardTitle>{t("myExercises.favoriteActivities.title")}</CardTitle>
+          <AccordionTrigger className="hover:no-underline p-0 border-0">
+          </AccordionTrigger>
+        </div>
       </CardHeader>
       <CardContent>
         <Accordion 
@@ -110,8 +114,6 @@ export const FavoriteActivitiesSection: React.FC = () => {
           onValueChange={setAccordionValue}
         >
           <AccordionItem value="activities" className="border-b-0">
-            <AccordionTrigger className="hover:no-underline py-3">
-            </AccordionTrigger>
             <AccordionContent className="pt-4">
               {/* Description - only shown when expanded */}
               <CardDescription className="mb-6">
