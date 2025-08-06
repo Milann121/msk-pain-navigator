@@ -79,15 +79,17 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, isSelected, onCli
 
 export const FavoriteActivitiesSection: React.FC = () => {
   const { t } = useTranslation();
-  const { isActivityFavorite, addFavoriteActivity, removeFavoriteActivity } = useFavoriteActivities();
+  const { isActivityFavorite, addFavoriteActivity, removeFavoriteActivity, favoriteActivities } = useFavoriteActivities();
   const [accordionValue, setAccordionValue] = useState<string>("");
 
   const handleActivityClick = async (activityName: string) => {
     if (isActivityFavorite(activityName)) {
       await removeFavoriteActivity(activityName);
     } else {
-      // For now, we'll use null for pain_area, it will be updated based on user selection in future
-      await addFavoriteActivity(activityName, null);
+      // Only allow adding if less than 3 activities are selected
+      if (favoriteActivities.length < 3) {
+        await addFavoriteActivity(activityName, null);
+      }
     }
   };
 
