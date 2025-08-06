@@ -157,7 +157,7 @@ export const FavoriteActivitiesSection: React.FC = () => {
             </div>
             
             <AccordionContent className="pt-0">
-              <div className="relative overflow-hidden min-h-[600px] md:min-h-[400px]">
+              <div className="relative overflow-hidden pb-8">
                 {/* Step 1: Activity Selection */}
                 <div className={cn(
                   "transition-transform duration-300 ease-in-out",
@@ -246,7 +246,7 @@ export const FavoriteActivitiesSection: React.FC = () => {
                   </div>
                   
                   {/* Navigation Buttons */}
-                  <div className="flex justify-center gap-4">
+                  <div className="flex justify-center gap-4 mb-8">
                     <Button variant="outline" onClick={handlePreviousClick} className="px-8">
                       {t("myExercises.favoriteActivities.previous")}
                     </Button>
