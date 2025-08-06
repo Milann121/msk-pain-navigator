@@ -28,7 +28,7 @@ const PsfsQuestionnaire = () => {
       const { data: { user } } = await supabase.auth.getUser();
       
       if (!user) {
-        toast.error(t('common.error'));
+        toast.error(t('error'));
         return;
       }
 
@@ -42,15 +42,15 @@ const PsfsQuestionnaire = () => {
 
       if (error) {
         console.error('Error saving PSFS responses:', error);
-        toast.error(t('common.error'));
+        toast.error(t('error'));
         return;
       }
 
-      toast.success(t('common.success'));
+      toast.success(t('success'));
       navigate('/domov');
     } catch (error) {
       console.error('Error submitting PSFS:', error);
-      toast.error(t('common.error'));
+      toast.error(t('error'));
     }
   };
 
@@ -96,7 +96,7 @@ const PsfsQuestionnaire = () => {
                 className="bg-green-600 hover:bg-green-700 text-white"
               >
                 <Send className="h-4 w-4 mr-2" />
-                {t('common.submit')}
+                {t('submit')}
               </Button>
             </div>
           </CardContent>
