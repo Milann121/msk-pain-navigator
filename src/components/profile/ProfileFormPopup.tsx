@@ -10,7 +10,7 @@ import { ProfileFormJobSection } from './ProfileFormJobSection';
 import { ProfileFormGoals } from './ProfileFormGoals';
 import { ProfileFormButtons } from './ProfileFormButtons';
 import { LanguageSelector } from './LanguageSelector';
-import therapyImage from '@/lovable-uploads/profilePopUpImages/receptionImage.png;
+import therapyImage from '@/assets/therapy-illustration.jpg';
 interface ProfileFormPopupProps {
   isOpen: boolean;
   onClose: () => void;
@@ -602,7 +602,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         <div className="space-y-6 py-4">
           {/* Therapy Illustration Image - Full Width Banner */}
           <div className="w-full mb-6 -mx-6 -mt-4">
-            <img src={therapyImage} alt="receptionImage" className="w-full h-48 object-cover" />
+            <img src={therapyImage} alt="Therapy illustration" className="w-full h-48 object-cover" />
           </div>
 
           {/* Show B2B Employee Info if applicable */}
