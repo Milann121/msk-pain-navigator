@@ -57,10 +57,10 @@ const PsfsQuestionnaire = () => {
   const isComplete = psfsQuestion.psfs?.questions.every(q => values[q.id] !== undefined) || false;
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background flex flex-col">
       <Header />
       
-      <div className="container max-w-4xl mx-auto px-4 py-8">
+      <div className="flex-1 container max-w-4xl mx-auto px-4 py-8">
         <div className="mb-6">
           <Button 
             variant="ghost" 
