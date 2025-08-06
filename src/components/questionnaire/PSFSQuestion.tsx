@@ -35,9 +35,6 @@ const PSFSQuestion = ({ question, values, onChange }: PSFSQuestionProps) => {
     <div className="space-y-8">
       <div className="text-center mb-6">
         <h3 className="text-lg font-semibold mb-2">{t(question.text)}</h3>
-        {question.description && (
-          <p className="text-muted-foreground text-sm">{t(question.description)}</p>
-        )}
       </div>
       
       {/* Scale Legend */}
