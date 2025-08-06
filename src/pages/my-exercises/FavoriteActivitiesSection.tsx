@@ -101,7 +101,7 @@ export const FavoriteActivitiesSection: React.FC = () => {
 
   const handleNextClick = async () => {
     if (currentStep === 1) {
-      if (favoriteActivities.length === 3) {
+      if (favoriteActivities.length >= 1 && favoriteActivities.length <= 3) {
         setIsAnimating(true);
         setTimeout(() => {
           setCurrentStep(2);
@@ -189,7 +189,7 @@ export const FavoriteActivitiesSection: React.FC = () => {
                     <Button 
                       onClick={handleNextClick} 
                       className="px-8"
-                      disabled={favoriteActivities.length !== 3}
+                      disabled={favoriteActivities.length === 0}
                     >
                       {t("myExercises.favoriteActivities.next")}
                     </Button>
