@@ -12,11 +12,8 @@ export const useProfileCompletion = () => {
 
   useEffect(() => {
     if (!authLoading && user) {
-      // Check if user just signed up (no profile completion shown before)
-      const alreadyShown = localStorage.getItem(PROFILE_POPUP_SHOWN_KEY);
-      if (!alreadyShown) {
-        checkProfileCompletion();
-      }
+      // Always check profile completion for required fields
+      checkProfileCompletion();
     }
   }, [user, authLoading]);
 
@@ -56,8 +53,9 @@ export const useProfileCompletion = () => {
           console.log('Required personal fields missing, showing popup');
           setShowProfilePopup(true);
         } else {
-          // Profile already complete, remember completion
+          // Profile already complete, remember completion and don't show popup
           localStorage.setItem(PROFILE_POPUP_SHOWN_KEY, 'true');
+          console.log('All required personal fields complete, popup will not show');
         }
       }
     } catch (error) {
