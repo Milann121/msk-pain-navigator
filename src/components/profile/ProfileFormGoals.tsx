@@ -34,7 +34,7 @@ export const ProfileFormGoals: React.FC<ProfileFormGoalsProps> = ({
   return (
     <div>
       <h3 className="text-base font-medium mb-3 text-blue-800">{t('profile.profileForm.goalsTitle')}</h3>
-      <p className="text-sm text-gray-600 mb-4">{t('profile.profileForm.goalsSubtitle')}</p>
+      <p className="text-base text-gray-600 mb-4">{t('profile.profileForm.goalsSubtitle')}</p>
       
       <div className="space-y-4">
         <div className="flex items-center gap-2">

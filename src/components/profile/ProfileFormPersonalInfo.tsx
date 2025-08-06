@@ -29,7 +29,7 @@ export const ProfileFormPersonalInfo: React.FC<ProfileFormPersonalInfoProps> = (
       
       <div className="grid grid-cols-2 gap-4 mb-4">
         <div className="space-y-2">
-          <Label htmlFor="firstName">
+          <Label htmlFor="firstName" className="text-base font-medium">
             {t('profile.profileForm.firstName')} <span className="text-red-500">*</span>
           </Label>
           <Input
@@ -42,7 +42,7 @@ export const ProfileFormPersonalInfo: React.FC<ProfileFormPersonalInfoProps> = (
         </div>
         
         <div className="space-y-2">
-          <Label htmlFor="lastName">
+          <Label htmlFor="lastName" className="text-base font-medium">
             {t('profile.profileForm.lastName')} <span className="text-red-500">*</span>
           </Label>
           <Input
@@ -56,7 +56,7 @@ export const ProfileFormPersonalInfo: React.FC<ProfileFormPersonalInfoProps> = (
       </div>
 
       <div className="space-y-3 mb-4">
-        <Label>
+        <Label className="text-base font-medium">
           {t('profile.profileForm.gender')} <span className="text-red-500">*</span>
         </Label>
         <RadioGroup 
@@ -66,17 +66,17 @@ export const ProfileFormPersonalInfo: React.FC<ProfileFormPersonalInfoProps> = (
         >
           <div className="flex items-center space-x-2">
             <RadioGroupItem value="Muž" id="muz" />
-            <Label htmlFor="muz" className="cursor-pointer">{t('profile.profileForm.male')}</Label>
+            <Label htmlFor="muz" className="cursor-pointer text-base">{t('profile.profileForm.male')}</Label>
           </div>
           <div className="flex items-center space-x-2">
             <RadioGroupItem value="Žena" id="zena" />
-            <Label htmlFor="zena" className="cursor-pointer">{t('profile.profileForm.female')}</Label>
+            <Label htmlFor="zena" className="cursor-pointer text-base">{t('profile.profileForm.female')}</Label>
           </div>
         </RadioGroup>
       </div>
 
       <div className="space-y-2 mb-4">
-        <Label htmlFor="yearOfBirth">
+        <Label htmlFor="yearOfBirth" className="text-base font-medium">
           {t('profile.profileForm.yearOfBirth')} <span className="text-red-500">*</span>
         </Label>
         <Input
