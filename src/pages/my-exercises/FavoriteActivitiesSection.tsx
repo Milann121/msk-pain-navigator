@@ -206,8 +206,8 @@ export const FavoriteActivitiesSection: React.FC = () => {
                     {t("myExercises.favoriteActivities.selectBodyAreas")}
                   </CardDescription>
                   
-                  {/* Selected Activities Grid - Same design as Step 1 */}
-                  <div className="grid grid-cols-2 gap-6 mb-6">
+                  {/* Selected Activities Grid - Single column on mobile, 2 columns on larger screens */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     {favoriteActivities.map((favoriteActivity) => {
                       const activity = ACTIVITIES.find(a => 
                         t(`myExercises.favoriteActivities.activities.${a.key}`) === favoriteActivity.activity
