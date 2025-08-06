@@ -14,28 +14,23 @@ export const TimelineProgressBar: React.FC<TimelineProgressBarProps> = ({ assess
   // Don't render if no timeline data
   if (totalWeeks === 0) return null;
 
-  // Calculate ball position along the curved path
+  // Calculate ball position along the straight line
   const ballPosition = Math.min(progressPercentage, 100);
   
-  // Create SVG path for downward sloping curved journey
+  // Create SVG dimensions for straight line
   const svgWidth = isMobile ? 200 : 160;
   const svgHeight = isMobile ? 40 : 48;
-  const pathStartX = 10;
-  const pathEndX = svgWidth - 10;
-  const pathStartY = svgHeight * 0.35; // Start higher on the left
-  const pathEndY = svgHeight * 0.65;   // End lower on the right
-  const controlX = svgWidth / 2;
-  const controlY = svgHeight * 0.45;   // Control point for gentle downward curve
+  const lineStartX = 10;
+  const lineEndX = svgWidth - 10;
+  const lineY = svgHeight / 2; // Center the line vertically
   
-  // Create downward sloping curved path
-  const curvePath = `M ${pathStartX} ${pathStartY} Q ${controlX} ${controlY} ${pathEndX} ${pathEndY}`;
+  // Create straight horizontal path
+  const straightPath = `M ${lineStartX} ${lineY} L ${lineEndX} ${lineY}`;
   
-  // Calculate ball position along the downward curved path
+  // Calculate ball position along the straight line
   const progress = ballPosition / 100;
-  // Quadratic bezier curve calculation for both X and Y positions
-  const t = progress;
-  const ballX = Math.pow(1 - t, 2) * pathStartX + 2 * (1 - t) * t * controlX + Math.pow(t, 2) * pathEndX;
-  const ballY = Math.pow(1 - t, 2) * pathStartY + 2 * (1 - t) * t * controlY + Math.pow(t, 2) * pathEndY;
+  const ballX = lineStartX + (lineEndX - lineStartX) * progress;
+  const ballY = lineY;
 
   return (
     <div className={`flex flex-col items-center ${isMobile ? 'w-full mt-3' : 'flex-1 mx-4'}`}>
@@ -44,7 +39,7 @@ export const TimelineProgressBar: React.FC<TimelineProgressBarProps> = ({ assess
         <svg width={svgWidth} height={svgHeight} className="overflow-visible">
           {/* Background path */}
           <path
-            d={curvePath}
+            d={straightPath}
             stroke="#e5e7eb"
             strokeWidth="3"
             fill="none"
@@ -53,7 +48,7 @@ export const TimelineProgressBar: React.FC<TimelineProgressBarProps> = ({ assess
           
           {/* Progress path */}
           <path
-            d={curvePath}
+            d={straightPath}
             stroke="#3b82f6"
             strokeWidth="3"
             fill="none"
@@ -65,18 +60,17 @@ export const TimelineProgressBar: React.FC<TimelineProgressBarProps> = ({ assess
           {/* Phase markers */}
           {phases.map((phase, index) => {
             const phaseProgress = phase.weeksEnd / totalWeeks;
-            // Calculate marker position along the downward curved path
-            const t = phaseProgress;
-            const markerX = Math.pow(1 - t, 2) * pathStartX + 2 * (1 - t) * t * controlX + Math.pow(t, 2) * pathEndX;
-            const markerY = Math.pow(1 - t, 2) * pathStartY + 2 * (1 - t) * t * controlY + Math.pow(t, 2) * pathEndY;
+            // Calculate marker position along the straight line
+            const markerX = lineStartX + (lineEndX - lineStartX) * phaseProgress;
+            const markerY = lineY;
             
             return (
               <circle
                 key={index}
                 cx={markerX}
                 cy={markerY}
-                r="4"
-                fill={phase.isComplete ? "#10b981" : "#e5e7eb"}
+                r="5"
+                fill={phase.isComplete ? "#10b981" : "#94a3b8"}
                 stroke="#ffffff"
                 strokeWidth="2"
                 className="transition-colors duration-300"
