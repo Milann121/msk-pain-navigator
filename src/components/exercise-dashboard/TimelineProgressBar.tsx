@@ -18,7 +18,7 @@ export const TimelineProgressBar: React.FC<TimelineProgressBarProps> = ({ assess
   const ballPosition = Math.min(progressPercentage, 100);
   
   // Create SVG dimensions for straight line
-  const svgWidth = isMobile ? 200 : 160;
+  const svgWidth = isMobile ? 300 : 240;
   const svgHeight = isMobile ? 40 : 48;
   const lineStartX = 10;
   const lineEndX = svgWidth - 10;
