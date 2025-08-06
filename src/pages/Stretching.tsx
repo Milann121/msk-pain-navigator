@@ -150,23 +150,23 @@ const Stretching = () => {
                        <img src={card.image} alt={card.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                        <ProgramProgressBadge programId={card.id} programType="stretching" />
                      </div>
-                    <div className="p-4">
-                      <h3 className="font-semibold text-sm mb-2 line-clamp-2">
-                        {card.title}
-                      </h3>
-                      <p className="text-xs text-muted-foreground mb-3 line-clamp-2">
-                        {card.description}
-                      </p>
-                      <div className="flex justify-between items-end">
-                        <span className="text-xs text-muted-foreground underline">
-                          {getFilterLabels(card.stretch_group)}
-                        </span>
-                        <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                          <Clock className="w-3 h-3" />
-                          {card.time}
-                        </div>
-                      </div>
-                    </div>
+                     <div className="p-4">
+                       <h3 className="font-semibold text-sm mb-2 line-clamp-2">
+                         {card.title}
+                       </h3>
+                       <p className="text-xs text-muted-foreground mb-3 line-clamp-2">
+                         {card.description}
+                       </p>
+                       <div className="space-y-2">
+                         <span className="text-xs text-muted-foreground underline block">
+                           {getFilterLabels(card.stretch_group)}
+                         </span>
+                         <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                           <Clock className="w-3 h-3" />
+                           {card.time}
+                         </div>
+                       </div>
+                     </div>
                   </CardContent>
                 </Card>
               </Link>
