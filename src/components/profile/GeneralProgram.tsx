@@ -7,6 +7,7 @@ import { useAssessments } from '@/hooks/useAssessments';
 import { generateGeneralProgram } from '@/utils/generalProgramGenerator';
 import { GeneralProgramCollapsedView } from './general-program/GeneralProgramCollapsedView';
 import { GeneralProgramExpandedView } from './general-program/GeneralProgramExpandedView';
+import generalProgramPlaceholder from '@/assets/general-program-placeholder.png';
 
 export const GeneralProgram = () => {
   const location = useLocation();
@@ -34,6 +35,18 @@ export const GeneralProgram = () => {
 
   // If not on /my-exercises page, render the original expanded version
   if (!isMyExercisesPage) {
+    if (!hasGeneralProgram) {
+      return (
+        <div className="w-full h-full">
+          <img 
+            src={generalProgramPlaceholder} 
+            alt="General Program Placeholder"
+            className="w-full h-full object-cover rounded-lg"
+          />
+        </div>
+      );
+    }
+
     return (
       <div className="px-6 pb-6">
         <div className="flex items-center gap-3 mb-3">
@@ -44,21 +57,17 @@ export const GeneralProgram = () => {
         </div>
         
         <p className="text-gray-600 mb-4 text-base">
-          {hasGeneralProgram ? t('exercises.generalProgram.description') : t('exercises.generalProgram.noDataDescription')}
+          {t('exercises.generalProgram.description')}
         </p>
         
-        {hasGeneralProgram && (
-          <>
-            <p className="text-sm text-blue-600 mb-4">
-              {exerciseCount} {t('home.generalProgram.exerciseCount')}
-            </p>
-            
-            <Button onClick={handleShowGeneral} className="w-full bg-blue-600 hover:bg-blue-700 text-white">
-              <PlayCircle className="h-4 w-4 mr-2" />
-              {t('home.generalProgram.view')}
-            </Button>
-          </>
-        )}
+        <p className="text-sm text-blue-600 mb-4">
+          {exerciseCount} {t('home.generalProgram.exerciseCount')}
+        </p>
+        
+        <Button onClick={handleShowGeneral} className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+          <PlayCircle className="h-4 w-4 mr-2" />
+          {t('home.generalProgram.view')}
+        </Button>
       </div>
     );
   }
