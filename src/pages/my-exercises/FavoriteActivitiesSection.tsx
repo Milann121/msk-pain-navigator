@@ -157,7 +157,7 @@ export const FavoriteActivitiesSection: React.FC = () => {
             </div>
             
             <AccordionContent className="pt-0">
-              <div className="relative overflow-hidden pb-20">
+              <div className="relative overflow-hidden pb-32">
                 {/* Step 1: Activity Selection */}
                 <div className={cn(
                   "transition-transform duration-300 ease-in-out",
