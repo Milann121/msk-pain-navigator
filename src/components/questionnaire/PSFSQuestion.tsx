@@ -96,7 +96,7 @@ const PSFSQuestion = ({ question, values, onChange }: PSFSQuestionProps) => {
   
   // Image configurations
   const imageConfigs = [
-    { src: "/lovable-uploads/psfsImages/houseHoldImage.png", alt: "Household activities" },
+    { src: "/lovable-uploads/psfsImages/psfsHouseHoldImage.png", alt: "Household activities" },
     { src: "/lovable-uploads/psfsImages/psfsYogaAtHomeImage.png", alt: "Yoga and sports activities" }
   ];
   
