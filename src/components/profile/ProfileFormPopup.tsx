@@ -11,7 +11,7 @@ import { ProfileFormJobSection } from './ProfileFormJobSection';
 import { ProfileFormGoals } from './ProfileFormGoals';
 import { ProfileFormButtons } from './ProfileFormButtons';
 import { LanguageSelector } from './LanguageSelector';
-import therapyImage from '@/assets/therapy-illustration.jpg';
+import therapyImage from '@/assets/therapy-illustration.png';
 
 interface ProfileFormPopupProps {
   isOpen: boolean;
