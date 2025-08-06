@@ -10,7 +10,8 @@ import { ProfileFormJobSection } from './ProfileFormJobSection';
 import { ProfileFormGoals } from './ProfileFormGoals';
 import { ProfileFormButtons } from './ProfileFormButtons';
 import { LanguageSelector } from './LanguageSelector';
-import therapyImage from '@/assets/therapy-illustration.jpg';
+import therapyImage from '@/assets/receptionImage.png;
+
 interface ProfileFormPopupProps {
   isOpen: boolean;
   onClose: () => void;
