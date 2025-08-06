@@ -30,6 +30,7 @@ import enPainMechanisms from './locales/en/painMechanisms.json';
 import enSpeech from './locales/en/speech.json';
 import enFooter from './locales/en/footer.json';
 import enPrivacy from './locales/en/privacy.json';
+import enMyExercises from './locales/en/myExercises.json';
 
 // Slovak translations
 import skWelcome from './locales/sk/welcome.json';
@@ -58,6 +59,7 @@ import skPainMechanisms from './locales/sk/painMechanisms.json';
 import skSpeech from './locales/sk/speech.json';
 import skFooter from './locales/sk/footer.json';
 import skPrivacy from './locales/sk/privacy.json';
+import skMyExercises from './locales/sk/myExercises.json';
 
 // Czech translations
 import csWelcome from './locales/cs/welcome.json';
@@ -86,6 +88,7 @@ import csPainMechanisms from './locales/cs/painMechanisms.json';
 import csSpeech from './locales/cs/speech.json';
 import csFooter from './locales/cs/footer.json';
 import csPrivacy from './locales/cs/privacy.json';
+import csMyExercises from './locales/cs/myExercises.json';
 
 // Combine all translations
 const enTranslations = {
@@ -115,7 +118,8 @@ const enTranslations = {
   painMechanisms: enPainMechanisms,
   ...enSpeech,
   footer: enFooter,
-  privacy: enPrivacy
+  privacy: enPrivacy,
+  myExercises: enMyExercises
 };
 
 const skTranslations = {
@@ -145,7 +149,8 @@ const skTranslations = {
   painMechanisms: skPainMechanisms,
   ...skSpeech,
   footer: skFooter,
-  privacy: skPrivacy
+  privacy: skPrivacy,
+  myExercises: skMyExercises
 };
 
 const csTranslations = {
@@ -175,7 +180,8 @@ const csTranslations = {
   painMechanisms: csPainMechanisms,
   ...csSpeech,
   footer: csFooter,
-  privacy: csPrivacy
+  privacy: csPrivacy,
+  myExercises: csMyExercises
 };
 
 void i18n
