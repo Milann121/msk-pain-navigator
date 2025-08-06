@@ -12,6 +12,7 @@ import { ExerciseCalendar } from "@/components/exercise-dashboard/ExerciseCalend
 import { useAssessments } from "@/hooks/useAssessments";
 import { UserAssessment } from "@/components/follow-up/types";
 import { MyExercisesHeader } from "./MyExercisesHeader";
+import { FavoriteActivitiesSection } from "./FavoriteActivitiesSection";
 import { ActiveProgramsSection } from "./ActiveProgramsSection";
 import { EndedProgramsSection } from "./EndedProgramsSection";
 import { OrebroEntry } from "@/components/profile/OrebroEntry";
@@ -115,6 +116,10 @@ export const MyExercisesPage = () => {
             />
             <GeneralProgram />
           </div>
+          
+          {/* Favorite Activities Section */}
+          <FavoriteActivitiesSection />
+          
           {/* Sections */}
           <ActiveProgramsSection
             loading={loading}

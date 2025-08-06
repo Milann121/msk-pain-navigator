@@ -1,0 +1,15 @@
+{
+  "activeProgramsTitle": "Aktívne Programy",
+  "activeProgramsDescription": "Vaše aktuálne aktívne cvičebné programy a hodnotenia",
+  "endedProgramsTitle": "Ukončené Programy", 
+  "endedProgramsDescription": "Vaše dokončené cvičebné programy a hodnotenia",
+  "favoriteActivities": {
+    "title": "Obľúbené Aktivity",
+    "description": "Vyberte si svoje preferované aktivity pre personalizované odporúčania",
+    "expand": "Rozšíriť pre výber aktivít",
+    "collapse": "Zbaliť aktivity",
+    "next": "Ďalej"
+  },
+  "backHome": "Späť Domov",
+  "newAssessment": "Nové Hodnotenie"
+}

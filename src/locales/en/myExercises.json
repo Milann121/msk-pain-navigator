@@ -1,0 +1,15 @@
+{
+  "activeProgramsTitle": "Active Programs",
+  "activeProgramsDescription": "Your currently active exercise programs and assessments",
+  "endedProgramsTitle": "Ended Programs", 
+  "endedProgramsDescription": "Your completed exercise programs and assessments",
+  "favoriteActivities": {
+    "title": "Favorite Activities",
+    "description": "Choose your preferred activities for personalized recommendations",
+    "expand": "Expand to select activities",
+    "collapse": "Collapse activities",
+    "next": "Next"
+  },
+  "backHome": "Back to Home",
+  "newAssessment": "New Assessment"
+}

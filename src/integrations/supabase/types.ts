@@ -16,7 +16,7 @@ export type Database = {
     Tables: {
       b2b_employees: {
         Row: {
-          b2b_partner_id: number | null
+          b2b_partner_id: number
           b2b_partner_name: string
           created_at: string
           email: string | null
@@ -29,7 +29,7 @@ export type Database = {
           user_id: string | null
         }
         Insert: {
-          b2b_partner_id?: number | null
+          b2b_partner_id: number
           b2b_partner_name: string
           created_at?: string
           email?: string | null
@@ -42,7 +42,7 @@ export type Database = {
           user_id?: string | null
         }
         Update: {
-          b2b_partner_id?: number | null
+          b2b_partner_id?: number
           b2b_partner_name?: string
           created_at?: string
           email?: string | null
@@ -348,6 +348,33 @@ export type Database = {
           id?: string
           original_video_id?: string
           replacement_video_id?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      favorite_activities: {
+        Row: {
+          activity: string
+          created_at: string
+          id: string
+          pain_area: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          activity: string
+          created_at?: string
+          id?: string
+          pain_area?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          activity?: string
+          created_at?: string
+          id?: string
+          pain_area?: string | null
           updated_at?: string
           user_id?: string
         }
