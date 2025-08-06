@@ -88,13 +88,12 @@ export const FavoriteActivitiesSection: React.FC = () => {
   const [bodyAreaSelections, setBodyAreaSelections] = useState<Record<string, string>>({});
 
   const handleActivityClick = async (activityKey: string) => {
-    const activityName = t(`myExercises.favoriteActivities.activities.${activityKey}`);
-    if (isActivityFavorite(activityName)) {
-      await removeFavoriteActivity(activityName);
+    if (isActivityFavorite(activityKey)) {
+      await removeFavoriteActivity(activityKey);
     } else {
       // Only allow adding if less than 3 activities are selected
       if (favoriteActivities.length < 3) {
-        await addFavoriteActivity(activityName, null);
+        await addFavoriteActivity(activityKey, null);
       }
     }
   };
@@ -124,11 +123,11 @@ export const FavoriteActivitiesSection: React.FC = () => {
     }
   };
 
-  const handleBodyAreaSelection = async (activityName: string, bodyArea: string) => {
-    setBodyAreaSelections(prev => ({ ...prev, [activityName]: bodyArea }));
+  const handleBodyAreaSelection = async (activityKey: string, bodyArea: string) => {
+    setBodyAreaSelections(prev => ({ ...prev, [activityKey]: bodyArea }));
     
     // Update the favorite activity with the selected body area
-    await updateFavoriteActivity(activityName, bodyArea);
+    await updateFavoriteActivity(activityKey, bodyArea);
   };
 
   // Get body parts options from assessment (only 4 main areas)
@@ -172,12 +171,11 @@ export const FavoriteActivitiesSection: React.FC = () => {
                   {/* Activities Grid - 2 columns layout */}
                   <div className="grid grid-cols-2 gap-4 mb-6">
                     {ACTIVITIES.map((activity) => {
-                      const activityName = t(`myExercises.favoriteActivities.activities.${activity.key}`);
                       return (
                         <ActivityCard
                           key={activity.key}
                           activity={activity}
-                          isSelected={isActivityFavorite(activityName)}
+                          isSelected={isActivityFavorite(activity.key)}
                           onClick={() => handleActivityClick(activity.key)}
                         />
                       );
@@ -206,43 +204,41 @@ export const FavoriteActivitiesSection: React.FC = () => {
                     {t("myExercises.favoriteActivities.selectBodyAreas")}
                   </CardDescription>
                   
-                  {/* Selected Activities Grid - Single column on mobile, 2 columns on larger screens */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                    {favoriteActivities.map((favoriteActivity) => {
-                      const activity = ACTIVITIES.find(a => 
-                        t(`myExercises.favoriteActivities.activities.${a.key}`) === favoriteActivity.activity
-                      );
-                      
-                      return (
-                        <div key={favoriteActivity.id} className="space-y-3">
-                          {/* Full-size Activity Card */}
-                          <div className="rounded-lg overflow-hidden bg-primary/10 shadow-md">
-                            <ActivityCard
-                              activity={activity || { key: 'unknown', image: null }}
-                              isSelected={true}
-                              onClick={() => {}} // No click action needed in step 2
-                            />
-                          </div>
-                          
-                          {/* Body Area Dropdown */}
-                          <Select
-                            value={bodyAreaSelections[favoriteActivity.activity] || favoriteActivity.pain_area || ""}
-                            onValueChange={(value) => handleBodyAreaSelection(favoriteActivity.activity, value)}
-                          >
-                            <SelectTrigger className="w-full">
-                              <SelectValue placeholder={t("myExercises.favoriteActivities.selectBodyArea")} />
-                            </SelectTrigger>
-                            <SelectContent>
-                              {bodyParts.map((bodyPart) => (
-                                <SelectItem key={bodyPart} value={bodyPart}>
-                                  {t(`bodyParts.${bodyPart}`)}
-                                </SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
-                        </div>
-                      );
-                    })}
+                   {/* Selected Activities Grid - Single column on mobile, 2 columns on larger screens */}
+                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                     {favoriteActivities.map((favoriteActivity) => {
+                       const activity = ACTIVITIES.find(a => a.key === favoriteActivity.activity);
+                       
+                       return (
+                         <div key={favoriteActivity.id} className="space-y-3">
+                           {/* Full-size Activity Card */}
+                           <div className="rounded-lg overflow-hidden bg-primary/10 shadow-md">
+                             <ActivityCard
+                               activity={activity || { key: 'unknown', image: null }}
+                               isSelected={true}
+                               onClick={() => {}} // No click action needed in step 2
+                             />
+                           </div>
+                           
+                           {/* Body Area Dropdown */}
+                           <Select
+                             value={bodyAreaSelections[favoriteActivity.activity] || favoriteActivity.pain_area || ""}
+                             onValueChange={(value) => handleBodyAreaSelection(favoriteActivity.activity, value)}
+                           >
+                             <SelectTrigger className="w-full">
+                               <SelectValue placeholder={t("myExercises.favoriteActivities.selectBodyArea")} />
+                             </SelectTrigger>
+                             <SelectContent>
+                               {bodyParts.map((bodyPart) => (
+                                 <SelectItem key={bodyPart} value={bodyPart}>
+                                   {t(`bodyParts.${bodyPart}`)}
+                                 </SelectItem>
+                               ))}
+                             </SelectContent>
+                           </Select>
+                         </div>
+                       );
+                     })}
                   </div>
                   
                   {/* Navigation Buttons */}
