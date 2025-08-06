@@ -5,7 +5,7 @@
   "endedProgramsDescription": "Your completed exercise programs and assessments",
   "favoriteActivities": {
     "title": "Favorite Activities",
-    "description": "Choose favorite activities you are not able to enjoy and select which body area restricts you to do these activities again",
+    "description": "Choose up to 3 favorite activities you are not able to enjoy and select which body area restricts you to do these activities again",
     "expand": "Expand to select activities",
     "collapse": "Collapse activities",
     "next": "Next"
