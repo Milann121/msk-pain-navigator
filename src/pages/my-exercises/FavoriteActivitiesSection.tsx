@@ -100,9 +100,6 @@ export const FavoriteActivitiesSection: React.FC = () => {
     <Card className="mb-6 px-0">
       <CardHeader>
         <CardTitle>{t("myExercises.favoriteActivities.title")}</CardTitle>
-        <CardDescription>
-          {t("myExercises.favoriteActivities.description")}
-        </CardDescription>
       </CardHeader>
       <CardContent>
         <Accordion 
@@ -114,16 +111,13 @@ export const FavoriteActivitiesSection: React.FC = () => {
         >
           <AccordionItem value="activities" className="border-b-0">
             <AccordionTrigger className="hover:no-underline py-3">
-              <div className="flex items-center justify-center w-full">
-                <span className="text-sm font-medium">
-                  {accordionValue === "activities" 
-                    ? t("myExercises.favoriteActivities.collapse")
-                    : t("myExercises.favoriteActivities.expand")
-                  }
-                </span>
-              </div>
             </AccordionTrigger>
             <AccordionContent className="pt-4">
+              {/* Description - only shown when expanded */}
+              <CardDescription className="mb-6">
+                {t("myExercises.favoriteActivities.description")}
+              </CardDescription>
+              
               {/* Activities Grid - 2 columns layout */}
               <div className="grid grid-cols-2 gap-4 mb-6">
                 {ACTIVITIES.map((activity) => (
