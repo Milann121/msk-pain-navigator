@@ -157,7 +157,7 @@ export const FavoriteActivitiesSection: React.FC = () => {
             </div>
             
             <AccordionContent className="pt-0">
-              <div className="relative overflow-hidden">
+              <div className="relative overflow-hidden min-h-[600px] md:min-h-[400px]">
                 {/* Step 1: Activity Selection */}
                 <div className={cn(
                   "transition-transform duration-300 ease-in-out",
