@@ -4,6 +4,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
 import { useFavoriteActivities } from "@/hooks/useFavoriteActivities";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 
 // Activities data with images
@@ -27,19 +28,26 @@ interface ActivityCardProps {
 }
 
 const ActivityCard: React.FC<ActivityCardProps> = ({ activity, isSelected, onClick }) => {
+  const isMobile = useIsMobile();
+  
   return (
     <div
       onClick={onClick}
       className={cn(
-        "border rounded-lg cursor-pointer transition-all duration-200 hover:shadow-md overflow-hidden",
+        "rounded-lg cursor-pointer transition-all duration-200 hover:shadow-md overflow-hidden",
         isSelected 
-          ? "border-primary bg-primary/10 shadow-md" 
-          : "border-border hover:border-primary/50"
+          ? "bg-primary/10 shadow-md" 
+          : "hover:shadow-sm"
       )}
     >
-      <div className="flex">
-        {/* Image on the left - fills left half */}
-        <div className="w-1/2 bg-muted flex-shrink-0 aspect-square">
+      <div className={cn(
+        isMobile ? "flex-col" : "flex"
+      )}>
+        {/* Image */}
+        <div className={cn(
+          "bg-muted flex-shrink-0 aspect-square",
+          isMobile ? "w-full" : "w-1/2"
+        )}>
           {activity.image ? (
             <img
               src={activity.image}
@@ -52,8 +60,11 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, isSelected, onCli
             </div>
           )}
         </div>
-        {/* Text on the right */}
-        <div className="flex-1 p-3 flex items-center justify-center">
+        {/* Text */}
+        <div className={cn(
+          "flex items-center justify-center",
+          isMobile ? "p-2" : "flex-1 p-3"
+        )}>
           <span className={cn(
             "text-sm font-medium text-center",
             isSelected ? "text-primary" : "text-foreground"
