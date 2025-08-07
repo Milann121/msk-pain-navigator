@@ -207,14 +207,25 @@ export const FavoriteActivitiesSection: React.FC = () => {
                   {/* Selected Activities Grid - Single column on mobile, 2 columns on larger screens */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     {favoriteActivities.map((favoriteActivity) => {
-                      const activity = ACTIVITIES.find(a => a.key === favoriteActivity.activity);
+                      // Try to find activity by key first
+                      let activity = ACTIVITIES.find(a => a.key === favoriteActivity.activity);
+                      
+                      // If not found, try to find by translated name (for backward compatibility)
+                      if (!activity) {
+                        activity = ACTIVITIES.find(a => 
+                          t(`myExercises.favoriteActivities.activities.${a.key}`) === favoriteActivity.activity
+                        );
+                      }
+                      
+                      // Ensure we always have a valid activity with image
+                      const finalActivity = activity || ACTIVITIES[0]; // Fallback to first activity if none found
                       
                       return (
                         <div key={favoriteActivity.id} className="space-y-3">
                           {/* Full-size Activity Card */}
                           <div className="rounded-lg overflow-hidden bg-primary/10 shadow-md">
                             <ActivityCard
-                              activity={activity || { key: 'unknown', image: null }}
+                              activity={finalActivity}
                               isSelected={true}
                               onClick={() => {}} // No click action needed in step 2
                             />
