@@ -208,7 +208,7 @@ export const FavoriteActivitiesSection: React.FC = () => {
                     className="w-full h-full object-cover absolute inset-0"
                   />
                 </div>
-                <div className="w-1/2 bg-background"></div>
+                <div className="w-1/2"></div>
               </div>
             </div>
             
