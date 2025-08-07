@@ -93,20 +93,29 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, isSelected, onCli
 
 export const FavoriteActivitiesSection: React.FC = () => {
   const { t } = useTranslation();
-  const { isActivityFavorite, addFavoriteActivity, removeFavoriteActivity, favoriteActivities, updateFavoriteActivity } = useFavoriteActivities();
+  const { addFavoriteActivity, removeFavoriteActivity, favoriteActivities, updateFavoriteActivity } = useFavoriteActivities();
   const [accordionValue, setAccordionValue] = useState<string>("");
   const [currentStep, setCurrentStep] = useState<1 | 2>(1);
   const [isAnimating, setIsAnimating] = useState(false);
   const [bodyAreaSelections, setBodyAreaSelections] = useState<Record<string, string>>({});
 
+  const isCardSelected = (activityKey: string) => {
+    const translatedName = t(`myExercises.favoriteActivities.activities.${activityKey}`);
+    return favoriteActivities.some(
+      (item) => item.activity === activityKey || item.activity === translatedName
+    );
+  };
+
   const handleActivityClick = async (activityKey: string) => {
-    if (isActivityFavorite(activityKey)) {
-      await removeFavoriteActivity(activityKey);
-    } else {
-      // Only allow adding if less than 3 activities are selected
-      if (favoriteActivities.length < 3) {
-        await addFavoriteActivity(activityKey, null);
-      }
+    const translatedName = t(`myExercises.favoriteActivities.activities.${activityKey}`);
+    const existingActivity = favoriteActivities.find(
+      (item) => item.activity === activityKey || item.activity === translatedName
+    );
+
+    if (existingActivity) {
+      await removeFavoriteActivity(existingActivity.activity);
+    } else if (favoriteActivities.length < 3) {
+      await addFavoriteActivity(activityKey, null);
     }
   };
 
@@ -187,7 +196,7 @@ export const FavoriteActivitiesSection: React.FC = () => {
                         <ActivityCard
                           key={activity.key}
                           activity={activity}
-                          isSelected={isActivityFavorite(activity.key)}
+                          isSelected={isCardSelected(activity.key)}
                           onClick={() => handleActivityClick(activity.key)}
                         />
                       );
