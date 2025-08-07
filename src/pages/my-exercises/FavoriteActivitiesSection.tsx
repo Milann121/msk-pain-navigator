@@ -147,15 +147,9 @@ export const FavoriteActivitiesSection: React.FC = () => {
       );
       
       if (allHaveBodyAreas) {
-        setIsAnimating(true);
-        setTimeout(() => {
-          setCurrentStep(3);
-          setIsAnimating(false);
-        }, 300);
+        // Go directly to assessment (skip Step 3)
+        await startPsfsAssessment(favoriteActivities);
       }
-    } else {
-      // Step 3 - launch PSFS assessment
-      await startPsfsAssessment(favoriteActivities);
     }
   };
 
