@@ -36,25 +36,35 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, isSelected, onCli
     <div
       onClick={onClick}
       className={cn(
-        "rounded-lg cursor-pointer transition-all duration-200 hover:shadow-md overflow-hidden",
+        "rounded-lg cursor-pointer transition-all duration-200 hover:shadow-md overflow-hidden relative",
         isSelected 
-          ? "bg-primary/10 shadow-md" 
-          : "hover:shadow-sm"
+          ? "bg-primary/20 shadow-lg border-2 border-primary ring-2 ring-primary/20" 
+          : "hover:shadow-sm border-2 border-transparent"
       )}
     >
+      {/* Selection indicator */}
+      {isSelected && (
+        <div className="absolute top-2 right-2 bg-primary text-primary-foreground rounded-full w-6 h-6 flex items-center justify-center z-10">
+          <span className="text-xs font-bold">✓</span>
+        </div>
+      )}
+      
       <div className={cn(
         isMobile ? "flex-col" : "flex"
       )}>
         {/* Image */}
         <div className={cn(
-          "bg-muted flex-shrink-0 aspect-square",
+          "bg-muted flex-shrink-0 aspect-square relative",
           isMobile ? "w-full" : "w-1/2"
         )}>
           {activity.image ? (
             <img
               src={activity.image}
               alt={t(`myExercises.favoriteActivities.activities.${activity.key}`)}
-              className="w-full h-full object-cover"
+              className={cn(
+                "w-full h-full object-cover",
+                isSelected && "brightness-110"
+              )}
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center">
@@ -68,8 +78,10 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, isSelected, onCli
           isMobile ? "p-2" : "flex-1 p-3"
         )}>
           <span className={cn(
-            "text-sm font-medium text-center",
-            isSelected ? "text-primary" : "text-foreground"
+            "text-sm text-center transition-all duration-200",
+            isSelected 
+              ? "text-primary font-bold text-base" 
+              : "text-foreground font-medium"
           )}>
             {t(`myExercises.favoriteActivities.activities.${activity.key}`)}
           </span>
