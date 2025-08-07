@@ -23,6 +23,19 @@
       "cycling": "Cyklistika",
       "weightlifting": "Posilování",
       "swimming": "Plavání"
+    },
+    "step3": {
+      "title": "Vyhodnocení cvičebního programu",
+      "description": "Na základě vašich oblíbených aktivit a vybraných částí těla jsme připravili personalizovaný hodnotící dotazník.",
+      "analysisTitle": "Analýza vybraných aktivit",
+      "selectedActivities": "Vybrané aktivity",
+      "targetArea": "Cílová oblast",
+      "questionnaire": "Dotazník",
+      "generalQuestionnaire": "Obecný pohybový",
+      "upperLimbQuestionnaire": "Horní končetina",
+      "startAssessment": "Spustit hodnocení",
+      "launching": "Spouštím...",
+      "analyzing": "Analyzuji vybrané aktivity..."
     }
   },
   "backHome": "Zpět Domů",

@@ -3,10 +3,14 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/com
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Badge } from "@/components/ui/badge";
 import { useTranslation } from "react-i18next";
 import { useFavoriteActivities } from "@/hooks/useFavoriteActivities";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
+import { usePsfsAssessment } from "@/hooks/usePsfsAssessment";
+import { PsfsAssessmentLauncher } from "@/components/psfs/PsfsAssessmentLauncher";
+import { analyzeBodyAreas } from "@/utils/psfs-helpers";
 
 // Activities data with images and translation keys
 const ACTIVITIES = [
@@ -95,9 +99,17 @@ export const FavoriteActivitiesSection: React.FC = () => {
   const { t } = useTranslation();
   const { addFavoriteActivity, removeFavoriteActivity, favoriteActivities, updateFavoriteActivity } = useFavoriteActivities();
   const [accordionValue, setAccordionValue] = useState<string>("");
-  const [currentStep, setCurrentStep] = useState<1 | 2>(1);
+  const [currentStep, setCurrentStep] = useState<1 | 2 | 3>(1);
   const [isAnimating, setIsAnimating] = useState(false);
   const [bodyAreaSelections, setBodyAreaSelections] = useState<Record<string, string>>({});
+  const { startPsfsAssessment, bodyAreaAnalysis, isAnalyzing, analyzeActivities } = usePsfsAssessment();
+
+  // Analyze body areas when moving to step 3
+  React.useEffect(() => {
+    if (currentStep === 3 && favoriteActivities.length === 3) {
+      analyzeActivities(favoriteActivities);
+    }
+  }, [currentStep, favoriteActivities, analyzeActivities]);
 
   const isCardSelected = (activityKey: string) => {
     const translatedName = t(`myExercises.favoriteActivities.activities.${activityKey}`);
@@ -128,9 +140,22 @@ export const FavoriteActivitiesSection: React.FC = () => {
           setIsAnimating(false);
         }, 300);
       }
+    } else if (currentStep === 2) {
+      // Check if all activities have body areas selected
+      const allHaveBodyAreas = favoriteActivities.every(activity => 
+        activity.pain_area || bodyAreaSelections[activity.activity]
+      );
+      
+      if (allHaveBodyAreas) {
+        setIsAnimating(true);
+        setTimeout(() => {
+          setCurrentStep(3);
+          setIsAnimating(false);
+        }, 300);
+      }
     } else {
-      // Step 2 logic will be implemented later
-      console.log("Step 2 next clicked", bodyAreaSelections);
+      // Step 3 - launch PSFS assessment
+      await startPsfsAssessment(favoriteActivities);
     }
   };
 
@@ -139,6 +164,12 @@ export const FavoriteActivitiesSection: React.FC = () => {
       setIsAnimating(true);
       setTimeout(() => {
         setCurrentStep(1);
+        setIsAnimating(false);
+      }, 300);
+    } else if (currentStep === 3) {
+      setIsAnimating(true);
+      setTimeout(() => {
+        setCurrentStep(2);
         setIsAnimating(false);
       }, 300);
     }
@@ -177,7 +208,8 @@ export const FavoriteActivitiesSection: React.FC = () => {
             </div>
             
             <AccordionContent className="pt-0">
-              <div className="relative overflow-hidden pb-64 lg:pb-32">
+              <div className="relative overflow-hidden pb-64 lg:pb-32"
+                   style={{ paddingBottom: currentStep === 3 ? '0' : '' }}>
                 {/* Step 1: Activity Selection */}
                 <div className={cn(
                   "transition-transform duration-300 ease-in-out",
@@ -278,10 +310,40 @@ export const FavoriteActivitiesSection: React.FC = () => {
                     <Button variant="outline" onClick={handlePreviousClick} className="px-8">
                       {t("myExercises.favoriteActivities.previous")}
                     </Button>
-                    <Button onClick={handleNextClick} className="px-8">
+                    <Button 
+                      onClick={handleNextClick} 
+                      className="px-8"
+                      disabled={!favoriteActivities.every(activity => 
+                        activity.pain_area || bodyAreaSelections[activity.activity]
+                      )}
+                    >
                       {t("myExercises.favoriteActivities.next")}
                     </Button>
                   </div>
+                </div>
+
+                {/* Step 3: PSFS Assessment Launcher */}
+                <div className={cn(
+                  "absolute top-0 left-0 w-full transition-transform duration-300 ease-in-out",
+                  currentStep === 3 ? "translate-x-0" : "translate-x-full",
+                  isAnimating && "transition-transform"
+                )}>
+                  {currentStep === 3 && bodyAreaAnalysis && (
+                    <PsfsAssessmentLauncher
+                      favoriteActivities={favoriteActivities}
+                      bodyAreaAnalysis={bodyAreaAnalysis}
+                      onLaunchAssessment={() => handleNextClick()}
+                      onGoBack={handlePreviousClick}
+                      isLoading={isAnalyzing}
+                    />
+                  )}
+                  {currentStep === 3 && !bodyAreaAnalysis && (
+                    <div className="text-center py-8">
+                      <p className="text-muted-foreground">
+                        {t('myExercises.favoriteActivities.step3.analyzing')}
+                      </p>
+                    </div>
+                  )}
                 </div>
               </div>
             </AccordionContent>

@@ -17,12 +17,26 @@ export function usePsfsAssessment() {
     isAnalyzing: false
   });
 
+  const analyzeActivities = useCallback((favoriteActivities: FavoriteActivity[]) => {
+    if (favoriteActivities.length === 3) {
+      const analysis = analyzeBodyAreas(favoriteActivities);
+      setState(prev => ({
+        ...prev,
+        favoriteActivities,
+        bodyAreaAnalysis: analysis
+      }));
+    }
+  }, []);
+
   const startPsfsAssessment = useCallback(async (favoriteActivities: FavoriteActivity[]) => {
     setState(prev => ({ ...prev, isAnalyzing: true }));
     
     try {
-      // Analyze body areas
-      const analysis = analyzeBodyAreas(favoriteActivities);
+      // Analyze body areas if not done yet
+      let analysis = state.bodyAreaAnalysis;
+      if (!analysis) {
+        analysis = analyzeBodyAreas(favoriteActivities);
+      }
       
       setState(prev => ({
         ...prev,
@@ -47,7 +61,7 @@ export function usePsfsAssessment() {
       console.error('Error starting PSFS assessment:', error);
       setState(prev => ({ ...prev, isAnalyzing: false }));
     }
-  }, [navigate]);
+  }, [navigate, state.bodyAreaAnalysis]);
 
   const clearPsfsAssessment = useCallback(() => {
     setState({
@@ -60,6 +74,7 @@ export function usePsfsAssessment() {
 
   return {
     ...state,
+    analyzeActivities,
     startPsfsAssessment,
     clearPsfsAssessment
   };

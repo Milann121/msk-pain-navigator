@@ -23,6 +23,19 @@
       "cycling": "Cycling",
       "weightlifting": "Weightlifting",
       "swimming": "Swimming"
+    },
+    "step3": {
+      "title": "Exercise Program Assessment",
+      "description": "Based on your favorite activities and selected body areas, we've prepared a personalized assessment questionnaire.",
+      "analysisTitle": "Selected Activities Analysis",
+      "selectedActivities": "Selected activities",
+      "targetArea": "Target area",
+      "questionnaire": "Questionnaire",
+      "generalQuestionnaire": "General Movement",
+      "upperLimbQuestionnaire": "Upper Limb",
+      "startAssessment": "Start Assessment",
+      "launching": "Launching...",
+      "analyzing": "Analyzing selected activities..."
     }
   },
   "backHome": "Back to Home",

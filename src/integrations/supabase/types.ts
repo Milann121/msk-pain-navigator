@@ -848,6 +848,8 @@ export type Database = {
       }
       user_assessments: {
         Row: {
+          body_area_analysis: Json | null
+          favorite_activities: Json | null
           id: string
           intial_pain_intensity: number | null
           pain_area: string
@@ -855,11 +857,14 @@ export type Database = {
           primary_mechanism: string
           program_ended_at: string | null
           program_start_date: string | null
+          psfs_source: boolean | null
           sin_group: string
           timestamp: string
           user_id: string
         }
         Insert: {
+          body_area_analysis?: Json | null
+          favorite_activities?: Json | null
           id?: string
           intial_pain_intensity?: number | null
           pain_area: string
@@ -867,11 +872,14 @@ export type Database = {
           primary_mechanism: string
           program_ended_at?: string | null
           program_start_date?: string | null
+          psfs_source?: boolean | null
           sin_group: string
           timestamp?: string
           user_id: string
         }
         Update: {
+          body_area_analysis?: Json | null
+          favorite_activities?: Json | null
           id?: string
           intial_pain_intensity?: number | null
           pain_area?: string
@@ -879,6 +887,7 @@ export type Database = {
           primary_mechanism?: string
           program_ended_at?: string | null
           program_start_date?: string | null
+          psfs_source?: boolean | null
           sin_group?: string
           timestamp?: string
           user_id?: string
