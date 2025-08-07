@@ -89,6 +89,9 @@ const Domov = () => {
       </div>
       <div className="flex-1 bg-gradient-to-b from-blue-50 to-white py-4 md:py-10 px-2 md:px-4">
         <div className="container mx-auto w-full max-w-full md:max-w-3xl px-2 md:px-0">
+          {/* Favorite Activities - placed above speech recorder */}
+          <HomeFavoriteActivitiesOverview />
+
           {/* Mood Calendar with inline NotificationArea */}
           <MoodCalendar />
           
@@ -137,8 +140,6 @@ const Domov = () => {
             weeklyBlogGoal={weeklyBlogGoal}
           />
           
-          {/* Home Favorite Activities Overview - moved above speech recorder */}
-          <HomeFavoriteActivitiesOverview />
           
           {/* Favorite Exercises */}
           <FavoriteExercises />
