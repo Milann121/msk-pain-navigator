@@ -185,19 +185,32 @@ export const FavoriteActivitiesSection: React.FC = () => {
   ];
 
   return (
-    <Card className="mb-6 px-0">
-      <CardContent className="p-6">
+    <Card className="mb-6 px-0 relative overflow-hidden">
+      <CardContent className="p-6 relative z-10">
+        {/* Background Image - positioned on left half */}
+        <div className={cn(
+          "absolute inset-0 left-0 w-1/2 bg-cover bg-center bg-no-repeat transition-transform duration-500 ease-in-out",
+          accordionValue === "activities" ? "translate-y-0" : "-translate-y-full"
+        )} 
+        style={{ backgroundImage: "url('/lovable-uploads/psfsImages/psfsPairKidImage.png')" }} />
+        
+        {/* Overlay for better text readability when expanded */}
+        <div className={cn(
+          "absolute inset-0 left-0 w-1/2 bg-background/60 transition-opacity duration-500",
+          accordionValue === "activities" ? "opacity-100" : "opacity-0"
+        )} />
+
         <Accordion 
           type="single" 
           collapsible 
-          className="w-full"
+          className="w-full relative z-20"
           value={accordionValue}
           onValueChange={setAccordionValue}
         >
           <AccordionItem value="activities" className="border-b-0">
             <div className="flex items-center justify-between mb-4">
-              <CardTitle>{t("myExercises.favoriteActivities.title")}</CardTitle>
-              <AccordionTrigger className="hover:no-underline p-0 border-0">
+              <CardTitle className="relative z-30">{t("myExercises.favoriteActivities.title")}</CardTitle>
+              <AccordionTrigger className="hover:no-underline p-0 border-0 relative z-30">
               </AccordionTrigger>
             </div>
             
