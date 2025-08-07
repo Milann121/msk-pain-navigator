@@ -14,6 +14,7 @@ import { SavedBlogs } from '@/components/profile/SavedBlogs';
 import { ProfileFormPopup } from '@/components/profile/ProfileFormPopup';
 import { NotificationArea } from '@/components/profile/NotificationArea';
 import { useProfileCompletion } from '@/hooks/useProfileCompletion';
+import { HomeFavoriteActivitiesOverview } from '@/components/home/HomeFavoriteActivitiesOverview';
 import { supabase } from '@/integrations/supabase/client';
 
 const Domov = () => {
@@ -135,6 +136,9 @@ const Domov = () => {
             weeklyExerciseGoal={weeklyExerciseGoal} 
             weeklyBlogGoal={weeklyBlogGoal}
           />
+          
+          {/* Home Favorite Activities Overview */}
+          <HomeFavoriteActivitiesOverview />
           
           {/* Favorite Exercises */}
           <FavoriteExercises />

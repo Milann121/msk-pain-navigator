@@ -72,5 +72,10 @@
     "viewResults": "Zobrazit výsledky",
     "completedMessage": "Funkční hodnocení jsi dokončil {{date}}.",
     "functionalAssessment": "Funkční hodnocení"
+  },
+  "favoriteActivitiesOverview": {
+    "title": "Oblíbené aktivity",
+    "completed": "Program připraven",
+    "openProgram": "Otevřít program"
   }
 }

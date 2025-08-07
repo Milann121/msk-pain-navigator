@@ -72,5 +72,10 @@
     "viewResults": "View Results",
     "completedMessage": "You completed the functional assessment on {{date}}.",
     "functionalAssessment": "Functional Assessment"
+  },
+  "favoriteActivitiesOverview": {
+    "title": "Favorite Activities",
+    "completed": "Program Ready",
+    "openProgram": "Open Program"
   }
 }
