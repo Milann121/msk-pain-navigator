@@ -194,11 +194,30 @@ export const FavoriteActivitiesSection: React.FC = () => {
           value={accordionValue}
           onValueChange={setAccordionValue}
         >
-          <AccordionItem value="activities" className="border-b-0">
-            <div className="flex items-center justify-between mb-4">
-              <CardTitle>{t("myExercises.favoriteActivities.title")}</CardTitle>
-              <AccordionTrigger className="hover:no-underline p-0 border-0">
-              </AccordionTrigger>
+          <AccordionItem value="activities" className="border-b-0 relative overflow-hidden">
+            {/* Background image for collapsed state */}
+            <div className={cn(
+              "absolute inset-0 transition-transform duration-300 ease-in-out",
+              accordionValue === "activities" ? "-translate-y-full opacity-0" : "translate-y-0 opacity-100"
+            )}>
+              <div className="flex h-full">
+                <div className="w-1/2 relative">
+                  <img
+                    src="/lovable-uploads/psfsImages/psfsPairKidImage.png"
+                    alt="Family activities"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="w-1/2"></div>
+              </div>
+            </div>
+            
+            <div className="relative z-10 bg-background">
+              <div className="flex items-center justify-between mb-4">
+                <CardTitle>{t("myExercises.favoriteActivities.title")}</CardTitle>
+                <AccordionTrigger className="hover:no-underline p-0 border-0">
+                </AccordionTrigger>
+              </div>
             </div>
             
             <AccordionContent className="pt-0">
