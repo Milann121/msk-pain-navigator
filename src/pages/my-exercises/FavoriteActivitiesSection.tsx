@@ -197,7 +197,7 @@ export const FavoriteActivitiesSection: React.FC = () => {
               <div className="flex h-full min-h-[4rem]">
                 <div className="w-1/2"></div>
                 <div className="w-1/2 relative h-full">
-                  <img src={psfsPairKidImage} alt="Family activities" className="w-full h-full object-cover object-top absolute inset-0" />
+                  <img src="/lovable-uploads/psfsImages/psfsPairKidImage.png" alt="Family activities" className="w-full h-full object-cover object-top absolute inset-0" />
                 </div>
               </div>
             </div>
