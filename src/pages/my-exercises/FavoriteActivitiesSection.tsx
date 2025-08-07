@@ -201,6 +201,7 @@ export const FavoriteActivitiesSection: React.FC = () => {
               accordionValue === "activities" ? "-translate-y-full opacity-0" : "translate-y-0 opacity-100"
             )}>
               <div className="flex h-full min-h-[4rem]">
+                <div className="w-1/2"></div>
                 <div className="w-1/2 relative h-full">
                   <img
                     src="/lovable-uploads/psfsImages/psfsPairKidImage.png"
@@ -208,7 +209,6 @@ export const FavoriteActivitiesSection: React.FC = () => {
                     className="w-full h-full object-cover absolute inset-0"
                   />
                 </div>
-                <div className="w-1/2"></div>
               </div>
             </div>
             
