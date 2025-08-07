@@ -186,10 +186,10 @@ export const FavoriteActivitiesSection: React.FC = () => {
 
   return (
     <Card className="mb-6 px-0">
-      <CardContent className="p-6">
-        <Accordion 
-          type="single" 
-          collapsible 
+      <CardContent className="p-0">
+        <Accordion
+          type="single"
+          collapsible
           className="w-full"
           value={accordionValue}
           onValueChange={setAccordionValue}
@@ -213,14 +213,14 @@ export const FavoriteActivitiesSection: React.FC = () => {
             </div>
             
             <div className="relative z-10">
-              <div className="flex items-center justify-between mb-4 px-0 py-4 min-h-[4rem]">
-                <CardTitle className="relative z-20 pl-4">{t("myExercises.favoriteActivities.title")}</CardTitle>
-                <AccordionTrigger className="hover:no-underline p-0 border-0 relative z-20 pr-4">
+              <div className="flex items-center justify-between mb-4 px-4 md:px-6 py-4 min-h-[4rem]">
+                <CardTitle className="relative z-20">{t("myExercises.favoriteActivities.title")}</CardTitle>
+                <AccordionTrigger className="hover:no-underline p-0 border-0 relative z-20">
                 </AccordionTrigger>
               </div>
             </div>
-            
-            <AccordionContent className="pt-0">
+
+            <AccordionContent className="pt-0 px-4 pb-4 md:px-6">
               <div className="relative overflow-hidden pb-64 lg:pb-32"
                    style={{ paddingBottom: currentStep === 3 ? '0' : '' }}>
                 {/* Step 1: Activity Selection */}
