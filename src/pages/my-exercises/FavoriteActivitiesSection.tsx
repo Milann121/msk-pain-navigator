@@ -38,8 +38,8 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, isSelected, onCli
       className={cn(
         "rounded-lg cursor-pointer transition-all duration-200 hover:shadow-md overflow-hidden",
         isSelected 
-          ? "bg-primary/10 shadow-md border-2 border-primary/30" 
-          : "hover:shadow-sm border-2 border-transparent"
+          ? "bg-primary/10 shadow-md" 
+          : "hover:shadow-sm"
       )}
     >
       <div className={cn(
@@ -67,10 +67,10 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, isSelected, onCli
           "flex items-center justify-center",
           isMobile ? "p-2" : "flex-1 p-3"
         )}>
-           <span className={cn(
-             "text-sm text-center",
-             isSelected ? "text-primary font-semibold" : "text-foreground font-medium"
-           )}>
+          <span className={cn(
+            "text-sm font-medium text-center",
+            isSelected ? "text-primary" : "text-foreground"
+          )}>
             {t(`myExercises.favoriteActivities.activities.${activity.key}`)}
           </span>
         </div>
@@ -88,12 +88,13 @@ export const FavoriteActivitiesSection: React.FC = () => {
   const [bodyAreaSelections, setBodyAreaSelections] = useState<Record<string, string>>({});
 
   const handleActivityClick = async (activityKey: string) => {
-    if (isActivityFavorite(activityKey)) {
-      await removeFavoriteActivity(activityKey);
+    const activityName = t(`myExercises.favoriteActivities.activities.${activityKey}`);
+    if (isActivityFavorite(activityName)) {
+      await removeFavoriteActivity(activityName);
     } else {
       // Only allow adding if less than 3 activities are selected
       if (favoriteActivities.length < 3) {
-        await addFavoriteActivity(activityKey, null);
+        await addFavoriteActivity(activityName, null);
       }
     }
   };
@@ -123,11 +124,11 @@ export const FavoriteActivitiesSection: React.FC = () => {
     }
   };
 
-  const handleBodyAreaSelection = async (activityKey: string, bodyArea: string) => {
-    setBodyAreaSelections(prev => ({ ...prev, [activityKey]: bodyArea }));
+  const handleBodyAreaSelection = async (activityName: string, bodyArea: string) => {
+    setBodyAreaSelections(prev => ({ ...prev, [activityName]: bodyArea }));
     
     // Update the favorite activity with the selected body area
-    await updateFavoriteActivity(activityKey, bodyArea);
+    await updateFavoriteActivity(activityName, bodyArea);
   };
 
   // Get body parts options from assessment (only 4 main areas)
@@ -171,11 +172,12 @@ export const FavoriteActivitiesSection: React.FC = () => {
                   {/* Activities Grid - 2 columns layout */}
                   <div className="grid grid-cols-2 gap-4 mb-6">
                     {ACTIVITIES.map((activity) => {
+                      const activityName = t(`myExercises.favoriteActivities.activities.${activity.key}`);
                       return (
                         <ActivityCard
                           key={activity.key}
                           activity={activity}
-                          isSelected={isActivityFavorite(activity.key)}
+                          isSelected={isActivityFavorite(activityName)}
                           onClick={() => handleActivityClick(activity.key)}
                         />
                       );
@@ -207,12 +209,14 @@ export const FavoriteActivitiesSection: React.FC = () => {
                   {/* Selected Activities Grid - Single column on mobile, 2 columns on larger screens */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     {favoriteActivities.map((favoriteActivity) => {
-                      const activity = ACTIVITIES.find(a => a.key === favoriteActivity.activity);
+                      const activity = ACTIVITIES.find(a => 
+                        t(`myExercises.favoriteActivities.activities.${a.key}`) === favoriteActivity.activity
+                      );
                       
                       return (
                         <div key={favoriteActivity.id} className="space-y-3">
                           {/* Full-size Activity Card */}
-                          <div className="rounded-lg overflow-hidden bg-primary/10 shadow-md border-2 border-primary/20">
+                          <div className="rounded-lg overflow-hidden bg-primary/10 shadow-md">
                             <ActivityCard
                               activity={activity || { key: 'unknown', image: null }}
                               isSelected={true}

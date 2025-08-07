@@ -42,7 +42,7 @@ export const useFavoriteActivities = () => {
     }
   };
 
-  const addFavoriteActivity = async (activityKey: string, painArea?: string) => {
+  const addFavoriteActivity = async (activity: string, painArea?: string) => {
     if (!user) return;
 
     try {
@@ -51,7 +51,7 @@ export const useFavoriteActivities = () => {
         .insert([
           {
             user_id: user.id,
-            activity: activityKey,
+            activity,
             pain_area: painArea || null,
           }
         ])
@@ -71,7 +71,7 @@ export const useFavoriteActivities = () => {
     }
   };
 
-  const removeFavoriteActivity = async (activityKey: string) => {
+  const removeFavoriteActivity = async (activityName: string) => {
     if (!user) return;
 
     try {
@@ -79,20 +79,20 @@ export const useFavoriteActivities = () => {
         .from('favorite_activities')
         .delete()
         .eq('user_id', user.id)
-        .eq('activity', activityKey);
+        .eq('activity', activityName);
 
       if (error) {
         console.error('Error removing favorite activity:', error);
         return;
       }
 
-      setFavoriteActivities(prev => prev.filter(item => item.activity !== activityKey));
+      setFavoriteActivities(prev => prev.filter(item => item.activity !== activityName));
     } catch (error) {
       console.error('Error removing favorite activity:', error);
     }
   };
 
-  const updateFavoriteActivity = async (activityKey: string, painArea: string) => {
+  const updateFavoriteActivity = async (activityName: string, painArea: string) => {
     if (!user) return;
 
     try {
@@ -100,7 +100,7 @@ export const useFavoriteActivities = () => {
         .from('favorite_activities')
         .update({ pain_area: painArea, updated_at: new Date().toISOString() })
         .eq('user_id', user.id)
-        .eq('activity', activityKey);
+        .eq('activity', activityName);
 
       if (error) {
         console.error('Error updating favorite activity:', error);
@@ -109,7 +109,7 @@ export const useFavoriteActivities = () => {
 
       setFavoriteActivities(prev => 
         prev.map(item => 
-          item.activity === activityKey 
+          item.activity === activityName 
             ? { ...item, pain_area: painArea, updated_at: new Date().toISOString() }
             : item
         )
@@ -119,8 +119,8 @@ export const useFavoriteActivities = () => {
     }
   };
 
-  const isActivityFavorite = (activityKey: string) => {
-    return favoriteActivities.some(item => item.activity === activityKey);
+  const isActivityFavorite = (activityName: string) => {
+    return favoriteActivities.some(item => item.activity === activityName);
   };
 
   useEffect(() => {
