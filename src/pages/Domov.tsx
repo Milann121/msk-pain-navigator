@@ -89,11 +89,11 @@ const Domov = () => {
       </div>
       <div className="flex-1 bg-gradient-to-b from-blue-50 to-white py-4 md:py-10 px-2 md:px-4">
         <div className="container mx-auto w-full max-w-full md:max-w-3xl px-2 md:px-0">
-          {/* Favorite Activities - placed above speech recorder */}
-          <HomeFavoriteActivitiesOverview />
-
           {/* Mood Calendar with inline NotificationArea */}
           <MoodCalendar />
+          
+          {/* Favorite Activities - placed below greeting */}
+          <HomeFavoriteActivitiesOverview />
           
           {/* OREBRO and PSFS Questionnaires */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
