@@ -93,20 +93,48 @@ export const useFavoriteActivities = () => {
   };
 
   const updateFavoriteActivity = async (activityKey: string, painArea: string) => {
-    if (!user) return;
+    if (!user) {
+      console.error('❌ No user found when trying to update favorite activity');
+      return;
+    }
 
     try {
-      console.log('🔄 Updating favorite activity:', { activityKey, painArea });
+      console.log('🔄 Updating favorite activity:', { activityKey, painArea, userId: user.id });
       
-      // Try both direct activity key and translated name for broader compatibility
+      // First, let's check what activities exist in the database
+      const { data: existingActivities, error: fetchError } = await supabase
+        .from('favorite_activities')
+        .select('*')
+        .eq('user_id', user.id);
+        
+      if (fetchError) {
+        console.error('❌ Error fetching existing activities:', fetchError);
+        return;
+      }
+      
+      console.log('📋 Existing activities:', existingActivities);
+      
+      // Find the matching activity (try both activity key and any existing name)
+      const matchingActivity = existingActivities?.find(activity => 
+        activity.activity === activityKey
+      );
+      
+      if (!matchingActivity) {
+        console.error('❌ No matching activity found for key:', activityKey);
+        console.log('Available activities:', existingActivities?.map(a => a.activity));
+        return;
+      }
+      
+      console.log('🎯 Found matching activity:', matchingActivity);
+      
+      // Update the specific activity by ID for precision
       const { data, error } = await supabase
         .from('favorite_activities')
         .update({ 
           pain_area: painArea, 
           updated_at: new Date().toISOString() 
         })
-        .eq('user_id', user.id)
-        .eq('activity', activityKey)
+        .eq('id', matchingActivity.id)
         .select();
 
       if (error) {
@@ -119,7 +147,7 @@ export const useFavoriteActivities = () => {
       // Update local state
       setFavoriteActivities(prev => 
         prev.map(item => 
-          item.activity === activityKey 
+          item.id === matchingActivity.id 
             ? { ...item, pain_area: painArea, updated_at: new Date().toISOString() }
             : item
         )
@@ -128,7 +156,7 @@ export const useFavoriteActivities = () => {
       // Refresh from database to ensure consistency
       await fetchFavoriteActivities();
     } catch (error) {
-      console.error('Error updating favorite activity:', error);
+      console.error('❌ Error updating favorite activity:', error);
     }
   };
 

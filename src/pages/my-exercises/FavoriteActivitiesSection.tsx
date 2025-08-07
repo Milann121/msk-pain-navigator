@@ -168,13 +168,21 @@ export const FavoriteActivitiesSection: React.FC = () => {
     }
   };
   const handleBodyAreaSelection = async (activityKey: string, bodyArea: string) => {
+    console.log('🎯 Body area selection:', { activityKey, bodyArea });
+    
     setBodyAreaSelections(prev => ({
       ...prev,
       [activityKey]: bodyArea
     }));
 
-    // Update the favorite activity with the selected body area
-    await updateFavoriteActivity(activityKey, bodyArea);
+    // Update the favorite activity with the selected body area immediately
+    try {
+      console.log('💾 Saving body area to database...');
+      await updateFavoriteActivity(activityKey, bodyArea);
+      console.log('✅ Body area saved successfully');
+    } catch (error) {
+      console.error('❌ Failed to save body area:', error);
+    }
   };
 
   // Get body parts options from assessment (only 4 main areas)
