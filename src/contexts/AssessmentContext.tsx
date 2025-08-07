@@ -55,8 +55,32 @@ export const useAssessment = () => {
 };
 
 export const AssessmentProvider = ({ children }: { children: ReactNode }) => {
-  const [stage, setStage] = useState<AssessmentStage>(AssessmentStage.UserInfo);
-  const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
+  // Check for PSFS context on initialization
+  const initializePsfsAssessment = () => {
+    const psfsContextStr = sessionStorage.getItem('psfsAssessmentContext');
+    if (psfsContextStr) {
+      try {
+        const psfsContext = JSON.parse(psfsContextStr);
+        if (psfsContext.isPsfsAssessment && psfsContext.userInfo) {
+          return {
+            stage: AssessmentStage.GeneralQuestionnaire,
+            userInfo: psfsContext.userInfo
+          };
+        }
+      } catch (error) {
+        console.error('Error parsing PSFS context:', error);
+      }
+    }
+    return {
+      stage: AssessmentStage.UserInfo,
+      userInfo: null
+    };
+  };
+
+  const { stage: initialStage, userInfo: initialUserInfo } = initializePsfsAssessment();
+  
+  const [stage, setStage] = useState<AssessmentStage>(initialStage);
+  const [userInfo, setUserInfo] = useState<UserInfo | null>(initialUserInfo);
   const [generalAnswers, setGeneralAnswers] = useState<Record<string, any>>({});
   const [followUpAnswers, setFollowUpAnswers] = useState<Record<string, any>>({});
   const [primaryMechanism, setPrimaryMechanism] = useState<PainMechanism>('none');

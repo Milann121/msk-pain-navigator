@@ -32,6 +32,22 @@ const GeneralQuestionnaireHandler = () => {
   } = useAssessment();
   
   const [currentQuestionnaire, setCurrentQuestionnaire] = useState(() => {
+    // Check for PSFS context to determine questionnaire
+    const psfsContextStr = sessionStorage.getItem('psfsAssessmentContext');
+    if (psfsContextStr) {
+      try {
+        const psfsContext = JSON.parse(psfsContextStr);
+        if (psfsContext.isPsfsAssessment && psfsContext.bodyAreaAnalysis) {
+          const { selectedBodyArea } = psfsContext.bodyAreaAnalysis;
+          if (selectedBodyArea === 'upper limb') {
+            return upperLimbQuestionnaires.general;
+          }
+        }
+      } catch (error) {
+        console.error('Error parsing PSFS context for questionnaire selection:', error);
+      }
+    }
+    
     return userInfo?.painArea === 'upper limb' 
       ? upperLimbQuestionnaires.general 
       : questionnaires.general;
@@ -155,6 +171,20 @@ const GeneralQuestionnaireHandler = () => {
   const handleGeneralQuestionnaireComplete = async (answers: Record<string, any>) => {
     console.log('🚀 GeneralQuestionnaireHandler: Starting completion with answers:', answers);
     setGeneralAnswers(answers);
+    
+    // Check if this is a PSFS assessment
+    const psfsContextStr = sessionStorage.getItem('psfsAssessmentContext');
+    let isPsfsAssessment = false;
+    let psfsContext = null;
+    
+    if (psfsContextStr) {
+      try {
+        psfsContext = JSON.parse(psfsContextStr);
+        isPsfsAssessment = psfsContext.isPsfsAssessment;
+      } catch (error) {
+        console.error('Error parsing PSFS context:', error);
+      }
+    }
     
     // If this is the neck questionnaire, set mechanism to neuropathic and redirect to neck program
     if (currentQuestionnaire.id === 'upper-limb-neck-questions') {
@@ -404,17 +434,27 @@ const GeneralQuestionnaireHandler = () => {
         
         // Only create the assessment if it hasn't been created already
         if (!assessmentId) {
+          // Prepare assessment data
+          const assessmentData = {
+            user_id: user.id,
+            pain_area: userInfo?.painArea || '',
+            primary_mechanism: newMechanism,
+            sin_group: newSinGroup,
+            primary_differential: 'none', // Will be updated later
+            intial_pain_intensity: painIntensity // Save pain intensity to the new column
+          };
+          
+          // Add PSFS-specific data if this is a PSFS assessment
+          if (isPsfsAssessment && psfsContext) {
+            (assessmentData as any).favorite_activities = psfsContext.favoriteActivities;
+            (assessmentData as any).body_area_analysis = psfsContext.bodyAreaAnalysis;
+            (assessmentData as any).is_psfs_assessment = true;
+          }
+          
           // Create assessment record first with pain intensity value
-          const { data: assessmentData, error: assessmentError } = await supabase
+          const { data: newAssessmentData, error: assessmentError } = await supabase
             .from('user_assessments')
-            .insert({
-              user_id: user.id,
-              pain_area: userInfo?.painArea || '',
-              primary_mechanism: newMechanism,
-              sin_group: newSinGroup,
-              primary_differential: 'none', // Will be updated later
-              intial_pain_intensity: painIntensity // Save pain intensity to the new column
-            })
+            .insert(assessmentData)
             .select('id')
             .single();
 
@@ -423,15 +463,21 @@ const GeneralQuestionnaireHandler = () => {
             throw assessmentError;
           }
           
-          if (assessmentData?.id) {
-            console.log('✅ GeneralQuestionnaireHandler: Assessment created with ID:', assessmentData.id);
-            setAssessmentId(assessmentData.id);
+          if (newAssessmentData?.id) {
+            console.log('✅ GeneralQuestionnaireHandler: Assessment created with ID:', newAssessmentData.id);
+            setAssessmentId(newAssessmentData.id);
             setAssessmentSaved(true);
+            
+            // Clean up PSFS context after successful assessment creation
+            if (isPsfsAssessment) {
+              sessionStorage.removeItem('psfsAssessmentContext');
+              console.log('🧹 Cleaned up PSFS context after assessment creation');
+            }
             
             // Store the general questionnaire results
             const { error: questionnaireError } = await safeDatabase.generalQuestionnaire.insert({
               user_id: user.id,
-              assessment_id: assessmentData.id,
+              assessment_id: newAssessmentData.id,
               answers: answers
             });
               
