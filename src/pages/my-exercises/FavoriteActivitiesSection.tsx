@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 import { usePsfsAssessment } from "@/hooks/usePsfsAssessment";
 import { PsfsAssessmentLauncher } from "@/components/psfs/PsfsAssessmentLauncher";
 import { analyzeBodyAreas } from "@/utils/psfs-helpers";
-import psfsPairKidImage from "@/assets/psfsImages/psfsPairKidImage.png";
+import psfsPairKidImage from "@/assets/psfsPairKidImage.png";
 
 // Activities data with images and translation keys
 const ACTIVITIES = [{
