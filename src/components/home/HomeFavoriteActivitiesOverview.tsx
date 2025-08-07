@@ -35,7 +35,7 @@ export const HomeFavoriteActivitiesOverview = () => {
               </Badge>
             </div>
             
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 gap-3">
               {favoriteActivities.map((activity, index) => (
                 <div 
                   key={activity.id} 

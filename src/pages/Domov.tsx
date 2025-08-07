@@ -137,7 +137,7 @@ const Domov = () => {
             weeklyBlogGoal={weeklyBlogGoal}
           />
           
-          {/* Home Favorite Activities Overview */}
+          {/* Home Favorite Activities Overview - moved above speech recorder */}
           <HomeFavoriteActivitiesOverview />
           
           {/* Favorite Exercises */}
