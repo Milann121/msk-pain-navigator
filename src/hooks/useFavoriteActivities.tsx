@@ -96,17 +96,27 @@ export const useFavoriteActivities = () => {
     if (!user) return;
 
     try {
-      const { error } = await supabase
+      console.log('🔄 Updating favorite activity:', { activityKey, painArea });
+      
+      // Try both direct activity key and translated name for broader compatibility
+      const { data, error } = await supabase
         .from('favorite_activities')
-        .update({ pain_area: painArea, updated_at: new Date().toISOString() })
+        .update({ 
+          pain_area: painArea, 
+          updated_at: new Date().toISOString() 
+        })
         .eq('user_id', user.id)
-        .eq('activity', activityKey);
+        .eq('activity', activityKey)
+        .select();
 
       if (error) {
-        console.error('Error updating favorite activity:', error);
+        console.error('❌ Error updating favorite activity:', error);
         return;
       }
 
+      console.log('✅ Successfully updated favorite activity:', data);
+
+      // Update local state
       setFavoriteActivities(prev => 
         prev.map(item => 
           item.activity === activityKey 
@@ -114,6 +124,9 @@ export const useFavoriteActivities = () => {
             : item
         )
       );
+      
+      // Refresh from database to ensure consistency
+      await fetchFavoriteActivities();
     } catch (error) {
       console.error('Error updating favorite activity:', error);
     }

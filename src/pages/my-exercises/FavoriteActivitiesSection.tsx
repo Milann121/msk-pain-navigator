@@ -136,6 +136,17 @@ export const FavoriteActivitiesSection: React.FC = () => {
       // Check if all activities have body areas selected
       const allHaveBodyAreas = favoriteActivities.every(activity => activity.pain_area || bodyAreaSelections[activity.activity]);
       if (allHaveBodyAreas) {
+        // Save any pending body area selections before proceeding
+        for (const activity of favoriteActivities) {
+          const pendingBodyArea = bodyAreaSelections[activity.activity];
+          if (pendingBodyArea && !activity.pain_area) {
+            await updateFavoriteActivity(activity.activity, pendingBodyArea);
+          }
+        }
+        
+        // Refresh favorite activities to get updated data
+        await new Promise(resolve => setTimeout(resolve, 500)); // Small delay to ensure DB update
+        
         // Go directly to assessment (skip Step 3)
         await startPsfsAssessment(favoriteActivities);
       }

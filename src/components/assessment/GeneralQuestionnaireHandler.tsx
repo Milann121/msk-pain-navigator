@@ -434,6 +434,29 @@ const GeneralQuestionnaireHandler = () => {
         
         // Only create the assessment if it hasn't been created already
         if (!assessmentId) {
+          // Check for existing active programs to prevent duplication
+          const { data: existingPrograms, error: checkError } = await supabase
+            .from('user_program_tracking')
+            .select('id')
+            .eq('user_id', user.id)
+            .eq('program_status', 'active')
+            .eq('pain_area', userInfo?.painArea || '');
+
+          if (checkError) {
+            console.error('Error checking existing programs:', checkError);
+          }
+
+          // If user already has an active program for this pain area, prevent duplication
+          if (existingPrograms && existingPrograms.length > 0 && !isPsfsAssessment) {
+            console.log('⚠️ User already has active program for this pain area');
+            toast({
+              title: 'Upozornenie',
+              description: 'Už máte aktívny program pre túto oblasť.',
+              variant: 'default'
+            });
+            setStage(AssessmentStage.Results);
+            return;
+          }
           // Prepare assessment data
           const assessmentData = {
             user_id: user.id,
@@ -448,7 +471,7 @@ const GeneralQuestionnaireHandler = () => {
           if (isPsfsAssessment && psfsContext) {
             (assessmentData as any).favorite_activities = psfsContext.favoriteActivities;
             (assessmentData as any).body_area_analysis = psfsContext.bodyAreaAnalysis;
-            (assessmentData as any).is_psfs_assessment = true;
+            (assessmentData as any).psfs_source = true;
           }
           
           // Create assessment record first with pain intensity value
