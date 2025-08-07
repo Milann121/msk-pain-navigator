@@ -200,7 +200,7 @@ export const FavoriteActivitiesSection: React.FC = () => {
               "absolute inset-0 transition-transform duration-300 ease-in-out",
               accordionValue === "activities" ? "-translate-y-full opacity-0" : "translate-y-0 opacity-100"
             )}>
-              <div className="flex h-full">
+              <div className="flex h-full min-h-[4rem]">
                 <div className="w-1/2 relative">
                   <img
                     src="/lovable-uploads/psfsImages/psfsPairKidImage.png"
@@ -208,14 +208,14 @@ export const FavoriteActivitiesSection: React.FC = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="w-1/2"></div>
+                <div className="w-1/2 bg-background"></div>
               </div>
             </div>
             
-            <div className="relative z-10 bg-background">
-              <div className="flex items-center justify-between mb-4">
-                <CardTitle>{t("myExercises.favoriteActivities.title")}</CardTitle>
-                <AccordionTrigger className="hover:no-underline p-0 border-0">
+            <div className="relative z-10">
+              <div className="flex items-center justify-between mb-4 px-0 py-4">
+                <CardTitle className="relative z-20">{t("myExercises.favoriteActivities.title")}</CardTitle>
+                <AccordionTrigger className="hover:no-underline p-0 border-0 relative z-20">
                 </AccordionTrigger>
               </div>
             </div>
