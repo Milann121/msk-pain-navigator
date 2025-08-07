@@ -39,15 +39,20 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, isSelected, onCli
       className={cn(
         "rounded-lg cursor-pointer transition-all duration-200 hover:shadow-md overflow-hidden relative",
         isSelected 
-          ? "bg-primary/20 shadow-lg border-2 border-primary ring-2 ring-primary/20" 
-          : "hover:shadow-sm border-2 border-transparent"
+          ? "bg-primary/30 shadow-xl border-4 border-primary ring-4 ring-primary/30 transform scale-[1.02]" 
+          : "hover:shadow-sm border-2 border-muted-foreground/20 hover:border-primary/50"
       )}
     >
-      {/* Selection indicator */}
+      {/* Selection indicator - More prominent */}
       {isSelected && (
-        <div className="absolute top-2 right-2 bg-primary text-primary-foreground rounded-full w-6 h-6 flex items-center justify-center z-10">
-          <span className="text-xs font-bold">✓</span>
-        </div>
+        <>
+          {/* Checkmark indicator */}
+          <div className="absolute top-2 right-2 bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center z-10 shadow-lg">
+            <span className="text-sm font-bold">✓</span>
+          </div>
+          {/* Selected overlay */}
+          <div className="absolute inset-0 bg-primary/10 z-[1] pointer-events-none" />
+        </>
       )}
       
       <div className={cn(
@@ -63,8 +68,8 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, isSelected, onCli
               src={activity.image}
               alt={t(`myExercises.favoriteActivities.activities.${activity.key}`)}
               className={cn(
-                "w-full h-full object-cover",
-                isSelected && "brightness-110"
+                "w-full h-full object-cover transition-all duration-200 relative z-[2]",
+                isSelected && "brightness-110 contrast-110 saturate-110"
               )}
             />
           ) : (
@@ -75,14 +80,14 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, isSelected, onCli
         </div>
         {/* Text */}
         <div className={cn(
-          "flex items-center justify-center",
+          "flex items-center justify-center relative z-[2]",
           isMobile ? "p-2" : "flex-1 p-3"
         )}>
           <span className={cn(
-            "text-sm text-center transition-all duration-200",
+            "text-sm text-center transition-all duration-200 font-medium",
             isSelected 
-              ? "text-primary font-bold text-base" 
-              : "text-foreground font-medium"
+              ? "text-primary font-bold text-base drop-shadow-sm" 
+              : "text-foreground"
           )}>
             {t(`myExercises.favoriteActivities.activities.${activity.key}`)}
           </span>
