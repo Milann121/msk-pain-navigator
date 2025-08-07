@@ -79,22 +79,24 @@ const AssessmentContent = () => {
             </>
           )}
           
-          {/* Ask Pebee Section - Available for all stages */}
-          <div className="mt-12 space-y-6">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold text-blue-800 mb-2">
-                {t('assessment.askPebee.title')}
-              </h2>
-              <p className="text-blue-600">
-                {t('assessment.askPebee.subtitle')}
-              </p>
+          {/* Ask Pebee Section - Hidden during questionnaires */}
+          {stage === AssessmentStage.UserInfo && (
+            <div className="mt-12 space-y-6">
+              <div className="text-center mb-8">
+                <h2 className="text-2xl font-bold text-blue-800 mb-2">
+                  {t('assessment.askPebee.title')}
+                </h2>
+                <p className="text-blue-600">
+                  {t('assessment.askPebee.subtitle')}
+                </p>
+              </div>
+              
+              <div className="space-y-6">
+                <AskPebeeChat />
+                <FileUploadSection />
+              </div>
             </div>
-            
-            <div className="space-y-6">
-              <AskPebeeChat />
-              <FileUploadSection />
-            </div>
-          </div>
+          )}
           
           {isSubmitting && (
             <>
