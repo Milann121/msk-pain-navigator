@@ -276,14 +276,14 @@ export const FavoriteActivitiesSection: React.FC = () => {
                       return (
                         <div key={favoriteActivity.id} className="space-y-3">
                           {/* Full-size Activity Card */}
-                          <div className="rounded-lg overflow-hidden bg-primary/10 shadow-md">
+                          <div className="rounded-lg overflow-hidden">
                             <ActivityCard
                               activity={finalActivity}
-                              isSelected={true}
+                              isSelected={false}
                               onClick={() => {}} // No click action needed in step 2
                             />
                           </div>
-                          
+
                           {/* Body Area Dropdown */}
                           <Select
                             value={bodyAreaSelections[favoriteActivity.activity] || favoriteActivity.pain_area || ""}
