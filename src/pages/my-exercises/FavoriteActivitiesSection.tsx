@@ -6,7 +6,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useTranslation } from "react-i18next";
 import { useFavoriteActivities } from "@/hooks/useFavoriteActivities";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 
 // Activities data with images and translation keys
@@ -39,20 +38,15 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, isSelected, onCli
       className={cn(
         "rounded-lg cursor-pointer transition-all duration-200 hover:shadow-md overflow-hidden relative",
         isSelected 
-          ? "bg-primary/30 shadow-xl border-4 border-primary ring-4 ring-primary/30 transform scale-[1.02]" 
-          : "hover:shadow-sm border-2 border-muted-foreground/20 hover:border-primary/50"
+          ? "bg-primary/20 shadow-lg border-2 border-primary ring-2 ring-primary/20" 
+          : "hover:shadow-sm border-2 border-transparent"
       )}
     >
-      {/* Selection indicator - More prominent */}
+      {/* Selection indicator */}
       {isSelected && (
-        <>
-          {/* Checkmark indicator */}
-          <div className="absolute top-2 right-2 bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center z-10 shadow-lg">
-            <span className="text-sm font-bold">✓</span>
-          </div>
-          {/* Selected overlay */}
-          <div className="absolute inset-0 bg-primary/10 z-[1] pointer-events-none" />
-        </>
+        <div className="absolute top-2 right-2 bg-primary text-primary-foreground rounded-full w-6 h-6 flex items-center justify-center z-10">
+          <span className="text-xs font-bold">✓</span>
+        </div>
       )}
       
       <div className={cn(
@@ -68,8 +62,8 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, isSelected, onCli
               src={activity.image}
               alt={t(`myExercises.favoriteActivities.activities.${activity.key}`)}
               className={cn(
-                "w-full h-full object-cover transition-all duration-200 relative z-[2]",
-                isSelected && "brightness-110 contrast-110 saturate-110"
+                "w-full h-full object-cover",
+                isSelected && "brightness-110"
               )}
             />
           ) : (
@@ -80,14 +74,14 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, isSelected, onCli
         </div>
         {/* Text */}
         <div className={cn(
-          "flex items-center justify-center relative z-[2]",
+          "flex items-center justify-center",
           isMobile ? "p-2" : "flex-1 p-3"
         )}>
           <span className={cn(
-            "text-sm text-center transition-all duration-200 font-medium",
+            "text-sm text-center transition-all duration-200",
             isSelected 
-              ? "text-primary font-bold text-base drop-shadow-sm" 
-              : "text-foreground"
+              ? "text-primary font-bold text-base" 
+              : "text-foreground font-medium"
           )}>
             {t(`myExercises.favoriteActivities.activities.${activity.key}`)}
           </span>
@@ -99,7 +93,6 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, isSelected, onCli
 
 export const FavoriteActivitiesSection: React.FC = () => {
   const { t } = useTranslation();
-  const { toast } = useToast();
   const { isActivityFavorite, addFavoriteActivity, removeFavoriteActivity, favoriteActivities, updateFavoriteActivity } = useFavoriteActivities();
   const [accordionValue, setAccordionValue] = useState<string>("");
   const [currentStep, setCurrentStep] = useState<1 | 2>(1);
@@ -108,21 +101,12 @@ export const FavoriteActivitiesSection: React.FC = () => {
 
   const handleActivityClick = async (activityKey: string) => {
     if (isActivityFavorite(activityKey)) {
-      // Always allow unselecting
       await removeFavoriteActivity(activityKey);
     } else {
-      // Check if we already have 3 activities selected
-      if (favoriteActivities.length >= 3) {
-        // Show toast message to inform user they need to unselect first
-        toast({
-          title: "Maximum activities selected",
-          description: "Please unselect an activity first before selecting a new one. You can select up to 3 activities.",
-          variant: "destructive",
-        });
-        return;
+      // Only allow adding if less than 3 activities are selected
+      if (favoriteActivities.length < 3) {
+        await addFavoriteActivity(activityKey, null);
       }
-      // Add the new activity
-      await addFavoriteActivity(activityKey, null);
     }
   };
 
@@ -191,22 +175,10 @@ export const FavoriteActivitiesSection: React.FC = () => {
                   currentStep === 1 ? "translate-x-0" : "-translate-x-full",
                   isAnimating && "transition-transform"
                 )}>
-                  {/* Description and Selection Counter */}
-                  <CardDescription className="mb-4">
+                  {/* Description - only shown when expanded */}
+                  <CardDescription className="mb-6">
                     {t("myExercises.favoriteActivities.description")}
                   </CardDescription>
-                  
-                  {/* Selection Counter */}
-                  <div className="mb-6 text-center">
-                    <span className={cn(
-                      "text-sm font-medium px-3 py-1 rounded-full",
-                      favoriteActivities.length === 3 
-                        ? "bg-primary text-primary-foreground" 
-                        : "bg-muted text-muted-foreground"
-                    )}>
-                      {favoriteActivities.length}/3 selected
-                    </span>
-                  </div>
                   
                   {/* Activities Grid - 2 columns layout */}
                   <div className="grid grid-cols-2 gap-4 mb-6">
@@ -244,25 +216,31 @@ export const FavoriteActivitiesSection: React.FC = () => {
                     {t("myExercises.favoriteActivities.selectBodyAreas")}
                   </CardDescription>
                   
-                   {/* Selected Activities Grid - Single column on mobile, 2 columns on larger screens */}
-                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                     {favoriteActivities.map((favoriteActivity) => {
-                       // Find activity by key (prioritize key-based lookup for consistency)
-                       const activity = ACTIVITIES.find(a => a.key === favoriteActivity.activity) || 
-                                       ACTIVITIES.find(a => 
-                                         t(`myExercises.favoriteActivities.activities.${a.key}`) === favoriteActivity.activity
-                                       ) || 
-                                       ACTIVITIES[0]; // Fallback to first activity
+                  {/* Selected Activities Grid - Single column on mobile, 2 columns on larger screens */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    {favoriteActivities.map((favoriteActivity) => {
+                      // Try to find activity by key first
+                      let activity = ACTIVITIES.find(a => a.key === favoriteActivity.activity);
+                      
+                      // If not found, try to find by translated name (for backward compatibility)
+                      if (!activity) {
+                        activity = ACTIVITIES.find(a => 
+                          t(`myExercises.favoriteActivities.activities.${a.key}`) === favoriteActivity.activity
+                        );
+                      }
+                      
+                      // Ensure we always have a valid activity with image
+                      const finalActivity = activity || ACTIVITIES[0]; // Fallback to first activity if none found
                       
                       return (
                         <div key={favoriteActivity.id} className="space-y-3">
                           {/* Full-size Activity Card */}
                           <div className="rounded-lg overflow-hidden bg-primary/10 shadow-md">
-                             <ActivityCard
-                               activity={activity}
-                               isSelected={true}
-                               onClick={() => {}} // No click action needed in step 2
-                             />
+                            <ActivityCard
+                              activity={finalActivity}
+                              isSelected={true}
+                              onClick={() => {}} // No click action needed in step 2
+                            />
                           </div>
                           
                           {/* Body Area Dropdown */}
