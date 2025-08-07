@@ -10,16 +10,16 @@ import { cn } from "@/lib/utils";
 
 // Activities data with images and translation keys
 const ACTIVITIES = [
-  { key: "careOfFamily", image: "public/lovable-uploads/psfsImages/psfsCareFamilyImage.png" },
-  { key: "carryItems", image: "public/lovable-uploads/psfsImages/psfsHeavyLoadsImage.png" },
-  { key: "householdWorks", image: "public/lovable-uploads/psfsImages/psfsHouseHoldImage.png" },
-  { key: "hiking", image: "public/lovable-uploads/psfsImages/psfsManHikingImage.png" },
-  { key: "jogging", image: "public/lovable-uploads/psfsImages/psfsManJoggingImage.png" },
-  { key: "walking", image: "public/lovable-uploads/psfsImages/psfsPairStrollImage.png" },
-  { key: "walkingStairs", image: "public/lovable-uploads/psfsImages/psfsWalkingStairsImage.png" },
-  { key: "cycling", image: "public/lovable-uploads/psfsImages/psfsWomanCyclingImage.png" },
-  { key: "weightlifting", image: "public/lovable-uploads/psfsImages/psfsWomanDeadLiftImage.png" },
-  { key: "swimming", image: "public/lovable-uploads/psfsImages/psfsWomanSwimImage.png" },
+  { key: "careOfFamily", image: "/lovable-uploads/psfsImages/psfsCareFamilyImage.png" },
+  { key: "carryItems", image: "/lovable-uploads/psfsImages/psfsHeavyLoadsImage.png" },
+  { key: "householdWorks", image: "/lovable-uploads/psfsImages/psfsHouseHoldImage.png" },
+  { key: "hiking", image: "/lovable-uploads/psfsImages/psfsManHikingImage.png" },
+  { key: "jogging", image: "/lovable-uploads/psfsImages/psfsManJoggingImage.png" },
+  { key: "walking", image: "/lovable-uploads/psfsImages/psfsPairStrollImage.png" },
+  { key: "walkingStairs", image: "/lovable-uploads/psfsImages/psfsWalkingStairsImage.png" },
+  { key: "cycling", image: "/lovable-uploads/psfsImages/psfsWomanCyclingImage.png" },
+  { key: "weightlifting", image: "/lovable-uploads/psfsImages/psfsWomanDeadLiftImage.png" },
+  { key: "swimming", image: "/lovable-uploads/psfsImages/psfsWomanSwimImage.png" },
 ];
 
 interface ActivityCardProps {
@@ -88,13 +88,12 @@ export const FavoriteActivitiesSection: React.FC = () => {
   const [bodyAreaSelections, setBodyAreaSelections] = useState<Record<string, string>>({});
 
   const handleActivityClick = async (activityKey: string) => {
-    const activityName = t(`myExercises.favoriteActivities.activities.${activityKey}`);
-    if (isActivityFavorite(activityName)) {
-      await removeFavoriteActivity(activityName);
+    if (isActivityFavorite(activityKey)) {
+      await removeFavoriteActivity(activityKey);
     } else {
       // Only allow adding if less than 3 activities are selected
       if (favoriteActivities.length < 3) {
-        await addFavoriteActivity(activityName, null);
+        await addFavoriteActivity(activityKey, null);
       }
     }
   };
@@ -124,11 +123,11 @@ export const FavoriteActivitiesSection: React.FC = () => {
     }
   };
 
-  const handleBodyAreaSelection = async (activityName: string, bodyArea: string) => {
-    setBodyAreaSelections(prev => ({ ...prev, [activityName]: bodyArea }));
+  const handleBodyAreaSelection = async (activityKey: string, bodyArea: string) => {
+    setBodyAreaSelections(prev => ({ ...prev, [activityKey]: bodyArea }));
     
     // Update the favorite activity with the selected body area
-    await updateFavoriteActivity(activityName, bodyArea);
+    await updateFavoriteActivity(activityKey, bodyArea);
   };
 
   // Get body parts options from assessment (only 4 main areas)
@@ -172,12 +171,11 @@ export const FavoriteActivitiesSection: React.FC = () => {
                   {/* Activities Grid - 2 columns layout */}
                   <div className="grid grid-cols-2 gap-4 mb-6">
                     {ACTIVITIES.map((activity) => {
-                      const activityName = t(`myExercises.favoriteActivities.activities.${activity.key}`);
                       return (
                         <ActivityCard
                           key={activity.key}
                           activity={activity}
-                          isSelected={isActivityFavorite(activityName)}
+                          isSelected={isActivityFavorite(activity.key)}
                           onClick={() => handleActivityClick(activity.key)}
                         />
                       );
@@ -209,9 +207,7 @@ export const FavoriteActivitiesSection: React.FC = () => {
                   {/* Selected Activities Grid - Single column on mobile, 2 columns on larger screens */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     {favoriteActivities.map((favoriteActivity) => {
-                      const activity = ACTIVITIES.find(a => 
-                        t(`myExercises.favoriteActivities.activities.${a.key}`) === favoriteActivity.activity
-                      );
+                      const activity = ACTIVITIES.find(a => a.key === favoriteActivity.activity);
                       
                       return (
                         <div key={favoriteActivity.id} className="space-y-3">
