@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils";
 import { usePsfsAssessment } from "@/hooks/usePsfsAssessment";
 import { PsfsAssessmentLauncher } from "@/components/psfs/PsfsAssessmentLauncher";
 import { analyzeBodyAreas } from "@/utils/psfs-helpers";
+import { Family activities } from "@/lovable-uploads/psfsImages/psfsPairKidImage.png";
 
 // Activities data with images and translation keys
 const ACTIVITIES = [{
@@ -196,7 +197,7 @@ export const FavoriteActivitiesSection: React.FC = () => {
               <div className="flex h-full min-h-[4rem]">
                 <div className="w-1/2"></div>
                 <div className="w-1/2 relative h-full">
-                  <img src="/lovable-uploads/psfsImages/psfsCareFamilyImage.png" alt="Family activities" className="w-full h-full object-cover object-top absolute inset-0" />
+                  <img src="/lovable-uploads/psfsImages/psfsPairKidImage.png" alt="Family activities" className="w-full h-full object-cover object-top absolute inset-0" />
                 </div>
               </div>
             </div>
