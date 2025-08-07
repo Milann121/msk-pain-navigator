@@ -6,6 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useTranslation } from "react-i18next";
 import { useFavoriteActivities } from "@/hooks/useFavoriteActivities";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 
 // Activities data with images and translation keys
@@ -93,6 +94,7 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, isSelected, onCli
 
 export const FavoriteActivitiesSection: React.FC = () => {
   const { t } = useTranslation();
+  const { toast } = useToast();
   const { isActivityFavorite, addFavoriteActivity, removeFavoriteActivity, favoriteActivities, updateFavoriteActivity } = useFavoriteActivities();
   const [accordionValue, setAccordionValue] = useState<string>("");
   const [currentStep, setCurrentStep] = useState<1 | 2>(1);
@@ -101,12 +103,21 @@ export const FavoriteActivitiesSection: React.FC = () => {
 
   const handleActivityClick = async (activityKey: string) => {
     if (isActivityFavorite(activityKey)) {
+      // Always allow unselecting
       await removeFavoriteActivity(activityKey);
     } else {
-      // Only allow adding if less than 3 activities are selected
-      if (favoriteActivities.length < 3) {
-        await addFavoriteActivity(activityKey, null);
+      // Check if we already have 3 activities selected
+      if (favoriteActivities.length >= 3) {
+        // Show toast message to inform user they need to unselect first
+        toast({
+          title: "Maximum activities selected",
+          description: "Please unselect an activity first before selecting a new one. You can select up to 3 activities.",
+          variant: "destructive",
+        });
+        return;
       }
+      // Add the new activity
+      await addFavoriteActivity(activityKey, null);
     }
   };
 
@@ -175,10 +186,22 @@ export const FavoriteActivitiesSection: React.FC = () => {
                   currentStep === 1 ? "translate-x-0" : "-translate-x-full",
                   isAnimating && "transition-transform"
                 )}>
-                  {/* Description - only shown when expanded */}
-                  <CardDescription className="mb-6">
+                  {/* Description and Selection Counter */}
+                  <CardDescription className="mb-4">
                     {t("myExercises.favoriteActivities.description")}
                   </CardDescription>
+                  
+                  {/* Selection Counter */}
+                  <div className="mb-6 text-center">
+                    <span className={cn(
+                      "text-sm font-medium px-3 py-1 rounded-full",
+                      favoriteActivities.length === 3 
+                        ? "bg-primary text-primary-foreground" 
+                        : "bg-muted text-muted-foreground"
+                    )}>
+                      {favoriteActivities.length}/3 selected
+                    </span>
+                  </div>
                   
                   {/* Activities Grid - 2 columns layout */}
                   <div className="grid grid-cols-2 gap-4 mb-6">
@@ -216,31 +239,25 @@ export const FavoriteActivitiesSection: React.FC = () => {
                     {t("myExercises.favoriteActivities.selectBodyAreas")}
                   </CardDescription>
                   
-                  {/* Selected Activities Grid - Single column on mobile, 2 columns on larger screens */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                    {favoriteActivities.map((favoriteActivity) => {
-                      // Try to find activity by key first
-                      let activity = ACTIVITIES.find(a => a.key === favoriteActivity.activity);
-                      
-                      // If not found, try to find by translated name (for backward compatibility)
-                      if (!activity) {
-                        activity = ACTIVITIES.find(a => 
-                          t(`myExercises.favoriteActivities.activities.${a.key}`) === favoriteActivity.activity
-                        );
-                      }
-                      
-                      // Ensure we always have a valid activity with image
-                      const finalActivity = activity || ACTIVITIES[0]; // Fallback to first activity if none found
+                   {/* Selected Activities Grid - Single column on mobile, 2 columns on larger screens */}
+                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                     {favoriteActivities.map((favoriteActivity) => {
+                       // Find activity by key (prioritize key-based lookup for consistency)
+                       const activity = ACTIVITIES.find(a => a.key === favoriteActivity.activity) || 
+                                       ACTIVITIES.find(a => 
+                                         t(`myExercises.favoriteActivities.activities.${a.key}`) === favoriteActivity.activity
+                                       ) || 
+                                       ACTIVITIES[0]; // Fallback to first activity
                       
                       return (
                         <div key={favoriteActivity.id} className="space-y-3">
                           {/* Full-size Activity Card */}
                           <div className="rounded-lg overflow-hidden bg-primary/10 shadow-md">
-                            <ActivityCard
-                              activity={finalActivity}
-                              isSelected={true}
-                              onClick={() => {}} // No click action needed in step 2
-                            />
+                             <ActivityCard
+                               activity={activity}
+                               isSelected={true}
+                               onClick={() => {}} // No click action needed in step 2
+                             />
                           </div>
                           
                           {/* Body Area Dropdown */}
