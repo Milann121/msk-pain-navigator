@@ -183,7 +183,7 @@ export const FavoriteActivitiesSection: React.FC = () => {
             </div>
             
             <div className="relative z-10">
-              <div className="flex items-center justify-between mb-4 px-4 md:px-6 min-h-[4rem] my-[26px] py-[66px]">
+              <div className="flex items-center justify-between mb-4 px-4 md:px-6 min-h-[4rem] my-[26px] py-[30px]">
                 <CardTitle className="relative z-20">{t("myExercises.favoriteActivities.title")}</CardTitle>
                 <AccordionTrigger className="hover:no-underline p-0 border-0 relative z-20">
                 </AccordionTrigger>
