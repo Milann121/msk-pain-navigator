@@ -189,14 +189,14 @@ export const FavoriteActivitiesSection: React.FC = () => {
       <CardContent className="p-6 relative z-10">
         {/* Background Image - positioned on left half */}
         <div className={cn(
-          "absolute inset-0 left-0 w-1/2 bg-cover bg-center bg-no-repeat transition-transform duration-500 ease-in-out",
+          "absolute top-0 left-0 w-1/2 h-full bg-cover bg-center bg-no-repeat transition-transform duration-500 ease-in-out",
           accordionValue === "activities" ? "translate-y-0" : "-translate-y-full"
         )} 
         style={{ backgroundImage: "url('/lovable-uploads/psfsImages/psfsPairKidImage.png')" }} />
         
         {/* Overlay for better text readability when expanded */}
         <div className={cn(
-          "absolute inset-0 left-0 w-1/2 bg-background/60 transition-opacity duration-500",
+          "absolute top-0 left-0 w-1/2 h-full bg-background/60 transition-opacity duration-500",
           accordionValue === "activities" ? "opacity-100" : "opacity-0"
         )} />
 
