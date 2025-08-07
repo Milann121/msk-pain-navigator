@@ -89,7 +89,12 @@ const Domov = () => {
       </div>
       <div className="flex-1 bg-gradient-to-b from-blue-50 to-white py-4 md:py-10 px-2 md:px-4">
         <div className="container mx-auto w-full max-w-full md:max-w-3xl px-2 md:px-0">
-          {/* Favorite Activities - above mood calendar and general program */}
+          {/* Speech Recorder */}
+          <div className="mb-6">
+            <SpeechRecorder />
+          </div>
+
+          {/* Favorite Activities - between speech recorder and mood calendar */}
           <HomeFavoriteActivitiesOverview />
 
           {/* Mood Calendar with inline NotificationArea */}
