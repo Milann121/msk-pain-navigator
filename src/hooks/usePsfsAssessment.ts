@@ -55,8 +55,12 @@ export function usePsfsAssessment() {
       
       sessionStorage.setItem('psfsAssessmentContext', JSON.stringify(psfsContext));
       
-      // Navigate to assessment page
-      navigate('/assessment');
+      // Navigate directly to questionnaire based on body area analysis
+      if (analysis.selectedBodyArea === 'upper limb') {
+        navigate('/questionnaire/upper-limb');
+      } else {
+        navigate('/questionnaire/general');
+      }
     } catch (error) {
       console.error('Error starting PSFS assessment:', error);
       setState(prev => ({ ...prev, isAnalyzing: false }));
