@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
 import { FavoriteActivity } from '@/hooks/useFavoriteActivities';
@@ -13,6 +14,13 @@ interface HomeFavoriteActivitiesState {
   loading: boolean;
   hasActiveProgram: boolean;
   assessmentId: string | null;
+  assessmentData: {
+    primary_mechanism?: string;
+    pain_area?: string;
+    primary_differential?: string;
+    intial_pain_intensity?: number;
+    program_start_date?: string;
+  } | null;
 }
 
 // Activities data with images - matching FavoriteActivitiesSection
@@ -31,12 +39,14 @@ const ACTIVITIES = [
 
 export const useHomeFavoriteActivities = () => {
   const { user } = useAuth();
+  const navigate = useNavigate();
   const [state, setState] = useState<HomeFavoriteActivitiesState>({
     favoriteActivities: [],
     isEligible: false,
     loading: true,
     hasActiveProgram: false,
-    assessmentId: null
+    assessmentId: null,
+    assessmentData: null
   });
 
   useEffect(() => {
@@ -68,7 +78,7 @@ export const useHomeFavoriteActivities = () => {
         // 2. Check if the active program was created from PSFS assessment (psfs_source: true)
         const { data: assessmentData, error: assessmentError } = await supabase
           .from('user_assessments')
-          .select('psfs_source')
+          .select('psfs_source, primary_mechanism, pain_area, primary_differential, intial_pain_intensity, program_start_date')
           .eq('id', assessmentId)
           .single();
 
@@ -125,7 +135,8 @@ export const useHomeFavoriteActivities = () => {
           isEligible,
           loading: false,
           hasActiveProgram: programData && programData.length > 0,
-          assessmentId: programData?.[0]?.assessment_id || null
+          assessmentId: programData?.[0]?.assessment_id || null,
+          assessmentData: assessmentData || null
         });
 
       } catch (error) {
@@ -138,9 +149,25 @@ export const useHomeFavoriteActivities = () => {
   }, [user]);
 
   const openProgram = () => {
-    // Navigate to PSFS program - for now redirect to my-exercises
-    // This could be enhanced to navigate to a specific program page
-    window.location.href = '/my-exercises';
+    if (!state.assessmentId || !state.assessmentData) {
+      // Fallback to my-exercises if no assessment data
+      navigate('/my-exercises');
+      return;
+    }
+
+    // Navigate to exercise plan with assessment details
+    navigate('/exercise-plan', {
+      state: {
+        mechanism: state.assessmentData.primary_mechanism,
+        painArea: state.assessmentData.pain_area,
+        differential: state.assessmentData.primary_differential,
+        assessmentId: state.assessmentId,
+        painLevel: state.assessmentData.intial_pain_intensity,
+        programStartDate: state.assessmentData.program_start_date 
+          ? new Date(state.assessmentData.program_start_date) 
+          : new Date()
+      }
+    });
   };
 
   return {
