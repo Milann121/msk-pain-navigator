@@ -47,16 +47,49 @@ export const useHomeFavoriteActivities = () => {
       }
 
       try {
-        // 1. Check if user has exactly 3 favorite activities with pain areas
+        // 1. Check if user has active program tracking
+        const { data: programData, error: programError } = await supabase
+          .from('user_program_tracking')
+          .select('assessment_id')
+          .eq('user_id', user.id)
+          .eq('program_status', 'active')
+          .order('created_at', { ascending: false })
+          .limit(1);
+
+        if (programError) throw programError;
+
+        if (!programData || programData.length === 0) {
+          setState(prev => ({ ...prev, loading: false, isEligible: false }));
+          return;
+        }
+
+        const assessmentId = programData[0].assessment_id;
+
+        // 2. Check if the active program was created from PSFS assessment (psfs_source: true)
+        const { data: assessmentData, error: assessmentError } = await supabase
+          .from('user_assessments')
+          .select('psfs_source')
+          .eq('id', assessmentId)
+          .single();
+
+        if (assessmentError) throw assessmentError;
+
+        // Only proceed if this program came from PSFS assessment
+        if (!assessmentData?.psfs_source) {
+          setState(prev => ({ ...prev, loading: false, isEligible: false }));
+          return;
+        }
+
+        // 3. Get favorite activities (can be with or without pain areas for PSFS-sourced programs)
         const { data: favActivities, error: favError } = await supabase
           .from('favorite_activities')
           .select('*')
           .eq('user_id', user.id)
-          .not('pain_area', 'is', null);
+          .limit(3);
 
         if (favError) throw favError;
 
-        // 2. Check if user has completed PSFS assessment
+        // 4. Check if user has completed PSFS assessment
         const { data: psfsData, error: psfsError } = await supabase
           .from('psfs_assessment')
           .select('*')
@@ -66,25 +99,13 @@ export const useHomeFavoriteActivities = () => {
 
         if (psfsError) throw psfsError;
 
-        // 3. Check if user has active program tracking
-        const { data: programData, error: programError } = await supabase
-          .from('user_program_tracking')
-          .select('*')
-          .eq('user_id', user.id)
-          .eq('program_status', 'active')
-          .order('created_at', { ascending: false })
-          .limit(1);
-
-        if (programError) throw programError;
-
         // User is eligible if:
-        // - Has exactly 3 favorite activities with pain areas
+        // - Has active program from PSFS assessment (psfs_source: true)
+        // - Has at least 1 favorite activity
         // - Has completed PSFS assessment
-        // - Has active program tracking
         const isEligible = 
-          favActivities && favActivities.length === 3 &&
-          psfsData && psfsData.length > 0 &&
-          programData && programData.length > 0;
+          favActivities && favActivities.length > 0 &&
+          psfsData && psfsData.length > 0;
 
         // Prepare activities with images for display
         const activitiesWithImages = favActivities?.slice(0, 3).map(activity => {
