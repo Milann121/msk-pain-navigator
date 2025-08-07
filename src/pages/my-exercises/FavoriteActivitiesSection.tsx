@@ -38,14 +38,14 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, isSelected, onCli
       className={cn(
         "rounded-lg cursor-pointer transition-all duration-200 hover:shadow-md overflow-hidden relative",
         isSelected 
-          ? "bg-blue-500 shadow-lg border-2 border-blue-500" 
-          : "hover:shadow-sm border-2 border-transparent bg-background"
+          ? "bg-primary/20 shadow-lg border-2 border-primary ring-2 ring-primary/20" 
+          : "hover:shadow-sm border-2 border-transparent"
       )}
     >
       {/* Selection indicator */}
       {isSelected && (
-        <div className="absolute top-3 right-3 bg-white text-blue-500 rounded-full w-8 h-8 flex items-center justify-center z-10 shadow-md">
-          <span className="text-sm font-bold">✓</span>
+        <div className="absolute top-2 right-2 bg-primary text-primary-foreground rounded-full w-6 h-6 flex items-center justify-center z-10">
+          <span className="text-xs font-bold">✓</span>
         </div>
       )}
       
@@ -61,7 +61,10 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, isSelected, onCli
             <img
               src={activity.image}
               alt={t(`myExercises.favoriteActivities.activities.${activity.key}`)}
-              className="w-full h-full object-cover"
+              className={cn(
+                "w-full h-full object-cover",
+                isSelected && "brightness-110"
+              )}
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center">
@@ -72,14 +75,13 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, isSelected, onCli
         {/* Text */}
         <div className={cn(
           "flex items-center justify-center",
-          isMobile ? "p-3" : "flex-1 p-4",
-          isSelected ? "bg-blue-500" : "bg-background"
+          isMobile ? "p-2" : "flex-1 p-3"
         )}>
           <span className={cn(
-            "text-center font-semibold transition-all duration-200",
+            "text-sm text-center transition-all duration-200",
             isSelected 
-              ? "text-white text-base" 
-              : "text-foreground text-sm"
+              ? "text-primary font-bold text-base" 
+              : "text-foreground font-medium"
           )}>
             {t(`myExercises.favoriteActivities.activities.${activity.key}`)}
           </span>
