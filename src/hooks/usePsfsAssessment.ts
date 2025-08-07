@@ -55,8 +55,8 @@ export function usePsfsAssessment() {
       
       sessionStorage.setItem('psfsAssessmentContext', JSON.stringify(psfsContext));
       
-      // Navigate directly to general questionnaire
-      navigate('/questionnaire/general');
+      // Navigate to assessment page
+      navigate('/assessment');
     } catch (error) {
       console.error('Error starting PSFS assessment:', error);
       setState(prev => ({ ...prev, isAnalyzing: false }));
