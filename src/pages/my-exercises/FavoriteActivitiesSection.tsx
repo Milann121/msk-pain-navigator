@@ -201,11 +201,11 @@ export const FavoriteActivitiesSection: React.FC = () => {
               accordionValue === "activities" ? "-translate-y-full opacity-0" : "translate-y-0 opacity-100"
             )}>
               <div className="flex h-full min-h-[4rem]">
-                <div className="w-1/2 relative">
+                <div className="w-1/2 relative h-full">
                   <img
                     src="/lovable-uploads/psfsImages/psfsPairKidImage.png"
                     alt="Family activities"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover absolute inset-0"
                   />
                 </div>
                 <div className="w-1/2 bg-background"></div>
@@ -213,9 +213,9 @@ export const FavoriteActivitiesSection: React.FC = () => {
             </div>
             
             <div className="relative z-10">
-              <div className="flex items-center justify-between mb-4 px-0 py-4">
-                <CardTitle className="relative z-20">{t("myExercises.favoriteActivities.title")}</CardTitle>
-                <AccordionTrigger className="hover:no-underline p-0 border-0 relative z-20">
+              <div className="flex items-center justify-between mb-4 px-0 py-4 min-h-[4rem]">
+                <CardTitle className="relative z-20 pl-4">{t("myExercises.favoriteActivities.title")}</CardTitle>
+                <AccordionTrigger className="hover:no-underline p-0 border-0 relative z-20 pr-4">
                 </AccordionTrigger>
               </div>
             </div>
