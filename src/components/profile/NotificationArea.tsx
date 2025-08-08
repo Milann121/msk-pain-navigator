@@ -188,7 +188,7 @@ export const NotificationArea = () => {
 
       {/* Functional Activities Icon */}
       <button onClick={handleFunctionalActivitiesClick} className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100" aria-label="Functional Activities">
-        <ListChecks className="w-5 h-5 text-black" />
+        <ListChecks className="w-5 h-5 text-blue-600" />
       </button>
 
       {/* OREBRO Brain Icon */}
