@@ -224,11 +224,9 @@ export const FavoriteActivitiesSection: React.FC = () => {
             </div>
 
             <AccordionContent className="pt-0 px-4 pb-4 md:px-6">
-              <div className="relative overflow-hidden pb-64 lg:pb-32" style={{
-              paddingBottom: currentStep === 3 ? '0' : ''
-            }}>
+              <div className="relative overflow-hidden pb-6">
                 {/* Step 1: Activity Selection */}
-                <div className={cn("transition-transform duration-300 ease-in-out", currentStep === 1 ? "translate-x-0" : "-translate-x-full", isAnimating && "transition-transform")}>
+                <div className={cn(currentStep !== 1 && "absolute top-0 left-0 w-full", "transition-transform duration-300 ease-in-out", currentStep === 1 ? "translate-x-0" : "-translate-x-full", isAnimating && "transition-transform")}>
                   {/* Description - only shown when expanded */}
                   <CardDescription className="mb-6">
                     {t("myExercises.favoriteActivities.description")}
@@ -250,7 +248,7 @@ export const FavoriteActivitiesSection: React.FC = () => {
                 </div>
 
                 {/* Step 2: Body Area Selection */}
-                <div className={cn("absolute top-0 left-0 w-full transition-transform duration-300 ease-in-out", currentStep === 2 ? "translate-x-0" : "translate-x-full", isAnimating && "transition-transform")}>
+                <div className={cn(currentStep !== 2 ? "absolute top-0 left-0 w-full" : "", "transition-transform duration-300 ease-in-out", currentStep === 2 ? "translate-x-0" : "translate-x-full", isAnimating && "transition-transform")}>
                   <CardDescription className="mb-6">
                     {t("myExercises.favoriteActivities.selectBodyAreas")}
                   </CardDescription>
@@ -292,7 +290,7 @@ export const FavoriteActivitiesSection: React.FC = () => {
                   </div>
                   
                   {/* Navigation Buttons */}
-                  <div className="flex justify-center gap-4 mb-8">
+                  <div className="flex justify-center gap-4">
                     <Button variant="outline" onClick={handlePreviousClick} className="px-8">
                       {t("myExercises.favoriteActivities.previous")}
                     </Button>
@@ -303,7 +301,7 @@ export const FavoriteActivitiesSection: React.FC = () => {
                 </div>
 
                 {/* Step 3: PSFS Assessment Launcher */}
-                <div className={cn("absolute top-0 left-0 w-full transition-transform duration-300 ease-in-out", currentStep === 3 ? "translate-x-0" : "translate-x-full", isAnimating && "transition-transform")}>
+                <div className={cn(currentStep !== 3 ? "absolute top-0 left-0 w-full" : "", "transition-transform duration-300 ease-in-out", currentStep === 3 ? "translate-x-0" : "translate-x-full", isAnimating && "transition-transform")}>
                   {currentStep === 3 && bodyAreaAnalysis && <PsfsAssessmentLauncher favoriteActivities={favoriteActivities} bodyAreaAnalysis={bodyAreaAnalysis} onLaunchAssessment={() => handleNextClick()} onGoBack={handlePreviousClick} isLoading={isAnalyzing} />}
                   {currentStep === 3 && !bodyAreaAnalysis && <div className="text-center py-8">
                       <p className="text-muted-foreground">
