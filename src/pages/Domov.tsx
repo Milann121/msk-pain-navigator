@@ -91,8 +91,6 @@ const Domov = () => {
         <div className="container mx-auto w-full max-w-full md:max-w-3xl px-2 md:px-0">
           <HomeFavoriteActivitiesOverview />
           <SpeechRecorder />
-
-          {/* Mood Calendar */}
           <MoodCalendar />
           
           {/* OREBRO and PSFS Questionnaires */}
@@ -139,6 +137,9 @@ const Domov = () => {
             weeklyExerciseGoal={weeklyExerciseGoal} 
             weeklyBlogGoal={weeklyBlogGoal}
           />
+          
+          {/* Home Favorite Activities Overview - moved above speech recorder */}
+          <HomeFavoriteActivitiesOverview />
           
           {/* Favorite Exercises */}
           <FavoriteExercises />
