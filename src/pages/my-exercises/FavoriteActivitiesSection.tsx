@@ -138,15 +138,15 @@ export const FavoriteActivitiesSection: React.FC = () => {
     }
   };
   const handleNextClick = async () => {
-    if (currentStep === 1) {
-      if (favoriteActivities.length === 3) {
-        setIsAnimating(true);
-        setTimeout(() => {
-          setCurrentStep(2);
-          setIsAnimating(false);
-        }, 300);
-      }
-    } else if (currentStep === 2) {
+      if (currentStep === 1) {
+        if (favoriteActivities.length >= 1) {
+          setIsAnimating(true);
+          setTimeout(() => {
+            setCurrentStep(2);
+            setIsAnimating(false);
+          }, 300);
+        }
+      } else if (currentStep === 2) {
       // Check if all activities have body areas selected
       const allHaveBodyAreas = favoriteActivities.every(activity => activity.pain_area || bodyAreaSelections[activity.activity]);
       if (allHaveBodyAreas) {
@@ -243,7 +243,7 @@ export const FavoriteActivitiesSection: React.FC = () => {
                   
                   {/* Next Button */}
                   <div className="flex justify-center">
-                    <Button onClick={handleNextClick} className="px-8" disabled={favoriteActivities.length !== 3}>
+                    <Button onClick={handleNextClick} className="px-8" disabled={favoriteActivities.length === 0}>
                       {t("myExercises.favoriteActivities.next")}
                     </Button>
                   </div>
