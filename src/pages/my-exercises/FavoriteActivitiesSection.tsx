@@ -12,6 +12,7 @@ import { usePsfsAssessment } from "@/hooks/usePsfsAssessment";
 import { PsfsAssessmentLauncher } from "@/components/psfs/PsfsAssessmentLauncher";
 import { analyzeBodyAreas } from "@/utils/psfs-helpers";
 import psfsPairKidImage from "@/assets/psfsImages/psfsPairKidImage.png";
+import { useLocation } from "react-router-dom";
 
 // Activities data with images and translation keys
 const ACTIVITIES = [{
@@ -95,6 +96,18 @@ export const FavoriteActivitiesSection: React.FC = () => {
     updateFavoriteActivity
   } = useFavoriteActivities();
   const [accordionValue, setAccordionValue] = useState<string>("");
+  const location = useLocation();
+
+  // Auto-open and scroll to Favorite Activities when navigated with #favorite-activities
+  React.useEffect(() => {
+    if (location.hash === '#favorite-activities') {
+      setAccordionValue('activities');
+      // Smooth scroll after render
+      setTimeout(() => {
+        document.getElementById('favorite-activities')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 0);
+    }
+  }, [location.hash]);
   const [currentStep, setCurrentStep] = useState<1 | 2 | 3>(1);
   const [isAnimating, setIsAnimating] = useState(false);
   const [bodyAreaSelections, setBodyAreaSelections] = useState<Record<string, string>>({});
