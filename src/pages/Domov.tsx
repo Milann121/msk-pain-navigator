@@ -131,14 +131,14 @@ const Domov = () => {
             </div>
           </div>
           
+          {/* Home Favorite Activities Overview */}
+          <HomeFavoriteActivitiesOverview />
+          
           {/* Progress Container */}
           <ProgressContainer 
             weeklyExerciseGoal={weeklyExerciseGoal} 
             weeklyBlogGoal={weeklyBlogGoal}
           />
-          
-          {/* Home Favorite Activities Overview - moved above speech recorder */}
-          <HomeFavoriteActivitiesOverview />
           
           {/* Favorite Exercises */}
           <FavoriteExercises />
