@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { MoodCalendar } from '@/components/profile/MoodCalendar';
-import { SpeechRecorder } from '@/components/speech/SpeechRecorder';
+
 import { OrebroEntry } from '@/components/profile/OrebroEntry';
 import { PsfsEntry } from '@/components/profile/PsfsEntry';
 import { ProgressContainer } from '@/components/profile/ProgressContainer';
@@ -90,7 +90,7 @@ const Domov = () => {
       <div className="flex-1 bg-gradient-to-b from-blue-50 to-white py-4 md:py-10 px-2 md:px-4">
         <div className="container mx-auto w-full max-w-full md:max-w-3xl px-2 md:px-0">
           {/* Mood Calendar with inline NotificationArea */}
-          <MoodCalendar />
+          <MoodCalendar showSpeechRecorder={false} />
           
           {/* OREBRO and PSFS Questionnaires */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">

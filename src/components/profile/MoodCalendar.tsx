@@ -24,7 +24,7 @@ const moodValueMap = {
   sad: 1 // "Zle"
 };
 
-export const MoodCalendar = () => {
+export const MoodCalendar = ({ showSpeechRecorder = true }: { showSpeechRecorder?: boolean }) => {
   const [date, setDate] = useState<Date>(new Date());
   const [timePeriod, setTimePeriod] = useState<'week' | 'month'>('week');
   const [infoPopoverOpen, setInfoPopoverOpen] = useState(false);
@@ -106,10 +106,11 @@ export const MoodCalendar = () => {
         </div>
       </div>
 
-      {/* Speech Recorder */}
-      <div className="mb-6">
-        <SpeechRecorder />
-      </div>
+      {showSpeechRecorder && (
+        <div className="mb-6">
+          <SpeechRecorder />
+        </div>
+      )}
 
       {/* Two containers side by side */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
