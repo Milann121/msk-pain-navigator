@@ -188,7 +188,7 @@ export const FavoriteActivitiesSection: React.FC = () => {
 
   // Get body parts options from assessment (only 4 main areas)
   const bodyParts = ['neck', 'middle back', 'lower back', 'upper limb'];
-  return <Card className="mb-6 px-0">
+  return <Card id="favorite-activities" className="mb-6 px-0">
       <CardContent className="p-0">
         <Accordion type="single" collapsible className="w-full" value={accordionValue} onValueChange={setAccordionValue}>
           <AccordionItem value="activities" className="border-b-0 relative overflow-hidden">

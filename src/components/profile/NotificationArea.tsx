@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { TrendingUp, Brain, Activity, MessageSquare, MessageCircle, Video, Mic, X, Check } from 'lucide-react';
+import { TrendingUp, Brain, Activity, MessageSquare, MessageCircle, Video, Mic, X, Check, ListChecks } from 'lucide-react';
 import { useWeeklyGoalStatus } from '@/hooks/useWeeklyGoalStatus';
 import { useNotificationReminders } from '@/hooks/useNotificationReminders';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -74,6 +74,9 @@ export const NotificationArea = () => {
   };
   const handlePsfsClick = () => {
     navigate('/psfs-questionnaire');
+  };
+  const handleFunctionalActivitiesClick = () => {
+    navigate('/my-exercises#favorite-activities');
   };
   const handleWhatsAppClick = () => {
     setIsWhatsAppExpanded(!isWhatsAppExpanded);
@@ -182,6 +185,11 @@ export const NotificationArea = () => {
       {showProgressIcon && <button onClick={handleProgressClick} className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100 ${!isGoalMet ? 'breathing-icon' : ''}`} aria-label="Weekly Progress">
           <TrendingUp className="w-5 h-5 text-black" />
         </button>}
+
+      {/* Functional Activities Icon */}
+      <button onClick={handleFunctionalActivitiesClick} className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100" aria-label="Functional Activities">
+        <ListChecks className="w-5 h-5 text-black" />
+      </button>
 
       {/* OREBRO Brain Icon */}
       <button onClick={handleOrebroClick} className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100 ${isOrebroReminderDue ? 'breathing-icon' : ''}`} aria-label="OREBRO Questionnaire">
