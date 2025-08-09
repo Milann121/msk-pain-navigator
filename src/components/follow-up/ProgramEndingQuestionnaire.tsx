@@ -109,6 +109,10 @@ const ProgramEndingQuestionnaire = ({ assessment, onComplete }: ProgramEndingQue
         description: t('questionnaire.programEnding.responsesSaved'),
       });
 
+      // Notify app to refresh assessments and related stats
+      window.dispatchEvent(new CustomEvent('program-ended', { detail: { assessmentId: assessment.id } }));
+      window.dispatchEvent(new CustomEvent('exercise-completed'));
+
       onComplete();
     } catch (error) {
       console.error('Error saving program ending questionnaire:', error);

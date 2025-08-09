@@ -43,6 +43,9 @@ export function useProgramEndRenew(
     const now = new Date();
     // Optimistically set programEndedAt for UI logic (so isEnded works instantly)
     setProgramEndedAt(now);
+    // Optimistically move item in UI immediately
+    if (onEndProgram) onEndProgram();
+
     const { error } = await supabase
       .from('user_assessments')
       .update({ program_ended_at: now.toISOString() })
@@ -50,7 +53,9 @@ export function useProgramEndRenew(
     if (!error) {
       // Sync MSK profile after program end
       await syncMskProfile();
-      if (onEndProgram) onEndProgram();
+      // Emit events so other parts of the app refresh
+      window.dispatchEvent(new CustomEvent('program-ended', { detail: { assessmentId: assessment.id } }));
+      window.dispatchEvent(new CustomEvent('exercise-completed'));
     }
     setLoadingEnd(false);
     setShowEndingQuestionnaire(false);

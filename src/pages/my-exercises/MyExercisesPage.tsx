@@ -51,6 +51,17 @@ export const MyExercisesPage = () => {
     }
   }, [user, refreshAssessments]);
 
+  // Also refresh when a program is ended elsewhere in the app
+  React.useEffect(() => {
+    const handleProgramEnded = () => {
+      refreshAssessments();
+    };
+    window.addEventListener('program-ended', handleProgramEnded as unknown as EventListener);
+    return () => {
+      window.removeEventListener('program-ended', handleProgramEnded as unknown as EventListener);
+    };
+  }, [refreshAssessments]);
+
   const handleOpenFollowUp = (assessment: UserAssessment) => {
     setSelectedAssessment(assessment);
   };
