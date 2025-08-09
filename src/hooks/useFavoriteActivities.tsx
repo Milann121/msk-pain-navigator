@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
@@ -92,6 +93,7 @@ export const useFavoriteActivities = () => {
     }
   };
 
+  // Refactored to robustly persist pain_area selected in Step 2
   const updateFavoriteActivity = async (activityKey: string, painArea: string) => {
     if (!user) {
       console.error('❌ No user found when trying to update favorite activity');
@@ -99,64 +101,67 @@ export const useFavoriteActivities = () => {
     }
 
     try {
-      console.log('🔄 Updating favorite activity:', { activityKey, painArea, userId: user.id });
-      
-      // First, let's check what activities exist in the database
-      const { data: existingActivities, error: fetchError } = await supabase
-        .from('favorite_activities')
-        .select('*')
-        .eq('user_id', user.id);
-        
-      if (fetchError) {
-        console.error('❌ Error fetching existing activities:', fetchError);
-        return;
-      }
-      
-      console.log('📋 Existing activities:', existingActivities);
-      
-      // Find the matching activity (try both activity key and any existing name)
-      const matchingActivity = existingActivities?.find(activity => 
-        activity.activity === activityKey
-      );
-      
-      if (!matchingActivity) {
-        console.error('❌ No matching activity found for key:', activityKey);
-        console.log('Available activities:', existingActivities?.map(a => a.activity));
-        return;
-      }
-      
-      console.log('🎯 Found matching activity:', matchingActivity);
-      
-      // Update the specific activity by ID for precision
-      const { data, error } = await supabase
+      console.log('🔄 Updating favorite activity pain_area:', { activityKey, painArea, userId: user.id });
+
+      // 1) Try to update by user_id + activity (no pre-fetch)
+      const { data: updatedRows, error: updateError } = await supabase
         .from('favorite_activities')
         .update({ 
           pain_area: painArea, 
-          updated_at: new Date().toISOString() 
+          updated_at: new Date().toISOString()
         })
-        .eq('id', matchingActivity.id)
+        .eq('user_id', user.id)
+        .eq('activity', activityKey)
         .select();
 
-      if (error) {
-        console.error('❌ Error updating favorite activity:', error);
+      if (updateError) {
+        console.error('❌ Error updating favorite activity:', updateError);
         return;
       }
 
-      console.log('✅ Successfully updated favorite activity:', data);
+      if (updatedRows && updatedRows.length > 0) {
+        console.log('✅ Updated existing favorite activity rows:', updatedRows.map(r => r.id));
 
-      // Update local state
-      setFavoriteActivities(prev => 
-        prev.map(item => 
-          item.id === matchingActivity.id 
-            ? { ...item, pain_area: painArea, updated_at: new Date().toISOString() }
-            : item
-        )
-      );
-      
-      // Refresh from database to ensure consistency
+        // Update local state for any matching ids
+        setFavoriteActivities(prev => 
+          prev.map(item => {
+            const match = updatedRows.find(u => u.id === item.id);
+            return match 
+              ? { ...item, pain_area: match.pain_area, updated_at: match.updated_at }
+              : item;
+          })
+        );
+
+        // Refresh from DB to ensure consistency
+        await fetchFavoriteActivities();
+        return;
+      }
+
+      console.log('ℹ️ No existing rows updated; inserting a new favorite activity with pain_area');
+
+      // 2) If no rows updated, insert a new row with the given pain area
+      const { data: inserted, error: insertError } = await supabase
+        .from('favorite_activities')
+        .insert({
+          user_id: user.id,
+          activity: activityKey,
+          pain_area: painArea
+        })
+        .select()
+        .single();
+
+      if (insertError) {
+        console.error('❌ Error inserting favorite activity (fallback):', insertError);
+        return;
+      }
+
+      console.log('✅ Inserted new favorite activity with pain_area:', inserted);
+      setFavoriteActivities(prev => [inserted, ...prev]);
+
+      // Final sync
       await fetchFavoriteActivities();
     } catch (error) {
-      console.error('❌ Error updating favorite activity:', error);
+      console.error('❌ Error in updateFavoriteActivity:', error);
     }
   };
 
