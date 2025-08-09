@@ -451,10 +451,10 @@ const GeneralQuestionnaireHandler = () => {
             console.log('⚠️ User already has active program for this pain area');
             toast({
               title: 'Upozornenie',
-              description: 'Už máte aktívny program pre túto oblasť.',
+              description: 'Už máte aktívny program pre túto oblasť. Pokračujeme na následný dotazník.',
               variant: 'default'
             });
-            setStage(AssessmentStage.Results);
+            setStage(AssessmentStage.FollowUpQuestionnaire);
             return;
           }
           // Prepare assessment data
