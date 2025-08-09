@@ -150,11 +150,11 @@ export const FavoriteActivitiesSection: React.FC = () => {
       // Check if all activities have body areas selected
       const allHaveBodyAreas = favoriteActivities.every(activity => activity.pain_area || bodyAreaSelections[activity.activity]);
       if (allHaveBodyAreas) {
-        // Save any pending body area selections before proceeding
+        // Save any pending body area selections before proceeding (update by id for reliability)
         for (const activity of favoriteActivities) {
           const pendingBodyArea = bodyAreaSelections[activity.activity];
           if (pendingBodyArea && !activity.pain_area) {
-            await updateFavoriteActivity(activity.activity, pendingBodyArea);
+            await updateFavoriteActivity(activity.activity, pendingBodyArea, activity.id);
           }
         }
         
@@ -181,18 +181,18 @@ export const FavoriteActivitiesSection: React.FC = () => {
       }, 300);
     }
   };
-  const handleBodyAreaSelection = async (activityKey: string, bodyArea: string) => {
-    console.log('🎯 Body area selection:', { activityKey, bodyArea });
+  const handleBodyAreaSelection = async (activityKey: string, bodyArea: string, activityId?: string) => {
+    console.log('🎯 Body area selection:', { activityKey, bodyArea, activityId });
     
     setBodyAreaSelections(prev => ({
       ...prev,
       [activityKey]: bodyArea
     }));
 
-    // Update the favorite activity with the selected body area immediately
+    // Update the favorite activity with the selected body area immediately (use id if available)
     try {
       console.log('💾 Saving body area to database...');
-      await updateFavoriteActivity(activityKey, bodyArea);
+      await updateFavoriteActivity(activityKey, bodyArea, activityId);
       console.log('✅ Body area saved successfully');
     } catch (error) {
       console.error('❌ Failed to save body area:', error);
@@ -275,7 +275,7 @@ export const FavoriteActivitiesSection: React.FC = () => {
                           </div>
 
                           {/* Body Area Dropdown */}
-                          <Select value={bodyAreaSelections[favoriteActivity.activity] || favoriteActivity.pain_area || ""} onValueChange={value => handleBodyAreaSelection(favoriteActivity.activity, value)}>
+                          <Select value={bodyAreaSelections[favoriteActivity.activity] || favoriteActivity.pain_area || ""} onValueChange={value => handleBodyAreaSelection(favoriteActivity.activity, value, favoriteActivity.id)}>
                             <SelectTrigger className="w-full">
                               <SelectValue placeholder={t("myExercises.favoriteActivities.selectBodyArea")} />
                             </SelectTrigger>

@@ -93,23 +93,44 @@ export const useFavoriteActivities = () => {
     }
   };
 
-  // Refactored to robustly persist pain_area selected in Step 2
-  const updateFavoriteActivity = async (activityKey: string, painArea: string) => {
+  // Persist pain_area selected in Step 2 (robust: updates by id when available)
+  const updateFavoriteActivity = async (activityKey: string, painArea: string, id?: string) => {
     if (!user) {
       console.error('❌ No user found when trying to update favorite activity');
       return;
     }
 
     try {
-      console.log('🔄 Updating favorite activity pain_area:', { activityKey, painArea, userId: user.id });
+      console.log('🔄 Updating favorite activity pain_area:', { activityKey, painArea, id, userId: user.id });
 
-      // 1) Try to update by user_id + activity (no pre-fetch)
+      // Prefer updating by explicit row id if provided (most reliable)
+      if (id) {
+        const { data: updatedById, error: updateByIdError } = await supabase
+          .from('favorite_activities')
+          .update({ pain_area: painArea, updated_at: new Date().toISOString() })
+          .eq('id', id)
+          .eq('user_id', user.id)
+          .select();
+
+        if (updateByIdError) {
+          console.error('❌ Error updating favorite activity by id:', updateByIdError);
+          return;
+        }
+
+        if (updatedById && updatedById.length > 0) {
+          setFavoriteActivities(prev =>
+            prev.map(item => (item.id === id ? { ...item, pain_area: painArea, updated_at: updatedById[0].updated_at } : item))
+          );
+          await fetchFavoriteActivities();
+          return;
+        }
+        // If for some reason no row matched by id, fall through to activity-based update
+      }
+
+      // 1) Try to update by user_id + activity (backward compatibility)
       const { data: updatedRows, error: updateError } = await supabase
         .from('favorite_activities')
-        .update({ 
-          pain_area: painArea, 
-          updated_at: new Date().toISOString()
-        })
+        .update({ pain_area: painArea, updated_at: new Date().toISOString() })
         .eq('user_id', user.id)
         .eq('activity', activityKey)
         .select();
@@ -120,33 +141,20 @@ export const useFavoriteActivities = () => {
       }
 
       if (updatedRows && updatedRows.length > 0) {
-        console.log('✅ Updated existing favorite activity rows:', updatedRows.map(r => r.id));
-
-        // Update local state for any matching ids
-        setFavoriteActivities(prev => 
+        setFavoriteActivities(prev =>
           prev.map(item => {
             const match = updatedRows.find(u => u.id === item.id);
-            return match 
-              ? { ...item, pain_area: match.pain_area, updated_at: match.updated_at }
-              : item;
+            return match ? { ...item, pain_area: match.pain_area, updated_at: match.updated_at } : item;
           })
         );
-
-        // Refresh from DB to ensure consistency
         await fetchFavoriteActivities();
         return;
       }
 
-      console.log('ℹ️ No existing rows updated; inserting a new favorite activity with pain_area');
-
       // 2) If no rows updated, insert a new row with the given pain area
       const { data: inserted, error: insertError } = await supabase
         .from('favorite_activities')
-        .insert({
-          user_id: user.id,
-          activity: activityKey,
-          pain_area: painArea
-        })
+        .insert({ user_id: user.id, activity: activityKey, pain_area: painArea })
         .select()
         .single();
 
@@ -155,10 +163,7 @@ export const useFavoriteActivities = () => {
         return;
       }
 
-      console.log('✅ Inserted new favorite activity with pain_area:', inserted);
       setFavoriteActivities(prev => [inserted, ...prev]);
-
-      // Final sync
       await fetchFavoriteActivities();
     } catch (error) {
       console.error('❌ Error in updateFavoriteActivity:', error);
