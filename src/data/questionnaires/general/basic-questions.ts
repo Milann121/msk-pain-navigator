@@ -53,7 +53,7 @@ export const reflexesQuestion: Question = {
     {
       id: 'no-reflexes',
       text: 'questionnaire.general.options.yesNo.no',
-      mechanisms: ['neuropathic']
+      mechanisms: ['nociceptive']
     },
     {
       id: 'not-visited',
