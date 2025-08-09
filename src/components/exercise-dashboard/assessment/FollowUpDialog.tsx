@@ -23,8 +23,8 @@ export const FollowUpDialog = ({
   
   const handleComplete = () => {
     toast({
-      title: t('followUp.progressRecorded'),
-      description: t('followUp.responsesSaved'),
+      title: t('questionnaire.followUp.progressRecorded'),
+      description: t('questionnaire.followUp.responsesSaved'),
     });
     onComplete();
     
@@ -35,9 +35,9 @@ export const FollowUpDialog = ({
   
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
-      <DialogContent className="w-full max-w-3xl max-h-[90vh] overflow-y-auto">
-        <DialogHeader>
-          <DialogTitle>{t('followUp.title')}</DialogTitle>
+      <DialogContent className="w-[calc(100vw-1rem)] sm:w-full sm:max-w-3xl p-0 max-h-[90vh] overflow-y-auto">
+        <DialogHeader className="px-6 pt-6 pb-0">
+          <DialogTitle>{t('questionnaire.followUp.title')}</DialogTitle>
         </DialogHeader>
         {selectedAssessment && (
           <FollowUpQuestionnaire

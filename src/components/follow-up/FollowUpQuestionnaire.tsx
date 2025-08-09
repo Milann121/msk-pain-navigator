@@ -145,7 +145,7 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
           />
         </div>
       </CardContent>
-      <CardFooter className="flex justify-between">
+      <CardFooter className="flex justify-between sticky bottom-0 bg-card/90 backdrop-blur supports-[backdrop-filter]:bg-card/70 px-6 py-4">
         <Button
           variant="outline"
           onClick={handleBack}
@@ -156,7 +156,6 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
         <Button
           onClick={handleNext}
           disabled={!canProceed || isSubmitting}
-          className="bg-blue-600 hover:bg-blue-700"
         >
           {currentQuestionIndex < questions.length - 1
             ? t('misc.navigation.next')
