@@ -269,38 +269,40 @@ const FollowUpQuestionnaire = ({ assessment, onComplete }: FollowUpQuestionnaire
   const canProceed = answers[currentQuestion?.id] !== undefined;
   
   return (
-    <Card>
-      <CardContent className="pt-6">
-        <div className="mb-6">
-          <Progress value={progress} className="h-2" />
-          <p className="text-sm text-gray-500 mt-1">
-            Otázka {currentQuestionIndex + 1} z {questions.length}
-          </p>
-        </div>
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" aria-hidden="true" />
+      <Card role="dialog" aria-modal="true" className="relative z-10 w-full max-w-xl max-h-[90vh] overflow-y-auto bg-card shadow-lg">
+        <CardContent className="pt-6">
+          <div className="mb-6">
+            <Progress value={progress} className="h-2" />
+            <p className="text-sm text-muted-foreground mt-1">
+              Otázka {currentQuestionIndex + 1} z {questions.length}
+            </p>
+          </div>
+          
+          <div className="space-y-6">
+            <h3 className="text-lg font-medium text-foreground">{currentQuestion?.text}</h3>
+            {renderQuestion()}
+          </div>
+        </CardContent>
         
-        <div className="space-y-6">
-          <h3 className="text-lg font-medium text-blue-700">{currentQuestion?.text}</h3>
-          {renderQuestion()}
-        </div>
-      </CardContent>
-      
-      <CardFooter className="flex justify-between">
-        <Button 
-          variant="outline" 
-          onClick={handleBack}
-          disabled={currentQuestionIndex === 0 || isSubmitting}
-        >
-          Späť
-        </Button>
-        <Button 
-          onClick={handleNext}
-          disabled={!canProceed || isSubmitting}
-          className="bg-blue-600 hover:bg-blue-700"
-        >
-          {currentQuestionIndex < questions.length - 1 ? 'Ďalej' : 'Dokončiť'}
-        </Button>
-      </CardFooter>
-    </Card>
+        <CardFooter className="flex justify-between sticky bottom-0 bg-card/90 backdrop-blur supports-[backdrop-filter]:bg-card/70">
+          <Button 
+            variant="outline" 
+            onClick={handleBack}
+            disabled={currentQuestionIndex === 0 || isSubmitting}
+          >
+            Späť
+          </Button>
+          <Button 
+            onClick={handleNext}
+            disabled={!canProceed || isSubmitting}
+          >
+            {currentQuestionIndex < questions.length - 1 ? 'Ďalej' : 'Dokončiť'}
+          </Button>
+        </CardFooter>
+      </Card>
+    </div>
   );
 };
 
