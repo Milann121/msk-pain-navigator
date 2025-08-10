@@ -76,7 +76,7 @@ const Header = () => {
   );
 
   return (
-    <header className="bg-gradient-to-r from-blue-700 to-blue-500 text-white py-4 px-3 md:px-6 shadow-md">
+    <header className="sticky top-0 z-50 lg:static bg-gradient-to-r from-blue-700 to-blue-500 text-white py-4 px-3 md:px-6 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
         <div 
           className="flex items-center space-x-2 md:space-x-4" 
