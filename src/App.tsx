@@ -27,6 +27,7 @@ import Yoga from "./pages/Yoga";
 import YogaProgram from "./pages/YogaProgram";
 import CookieConsent from "./components/CookieConsent";
 import PrototypeNotification from "./components/PrototypeNotification";
+import GaPageViews from "@/components/analytics/GaPageViews";
 
 // Create QueryClient instance outside of component to prevent recreation
 const queryClient = new QueryClient({
@@ -45,6 +46,7 @@ const App: React.FC = () => (
         <PrototypeNotification />
         <Toaster />
         <Sonner />
+        <GaPageViews />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/auth" element={<Auth />} />
