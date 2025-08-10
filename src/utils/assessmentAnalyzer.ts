@@ -162,19 +162,81 @@ export const createAssessmentResults = (
   };
 };
 
+export const computeDifferentialCounts = (
+  questionnaire: Questionnaire,
+  answers: Record<string, any>
+): Record<string, number> => {
+  const counts: Record<string, number> = {};
+
+  const processQuestion = (question: Question) => {
+    const answer = answers[question.id];
+    if (answer === undefined || !question.options) return;
+
+    const handleOption = (optionId: string) => {
+      const option = question.options!.find(o => o.id === optionId);
+      if (!option) return;
+      if (option.differentials && option.differentials.length) {
+        option.differentials.forEach(d => {
+          if (d !== 'none') {
+            counts[d] = (counts[d] || 0) + 1;
+          }
+        });
+      }
+      if (option.followUp) {
+        option.followUp.forEach(fq => processQuestion(fq));
+      }
+    };
+
+    if (Array.isArray(answer)) {
+      answer.forEach((id: string) => handleOption(id));
+    } else if (typeof answer === 'string') {
+      handleOption(answer);
+    }
+  };
+
+  questionnaire.questions.forEach(q => processQuestion(q));
+  return counts;
+};
+
 export const processFollowUpQuestionnaire = (
   primaryMechanism: 'nociceptive' | 'neuropathic' | 'central',
   answers: Record<string, any>,
-  scores: ScoreTracker
+  scores: ScoreTracker,
+  questionnaire: Questionnaire
 ): { scores: ScoreTracker; primaryDifferential: Differential } => {
   const updatedScores = { ...scores };
   let primaryDifferential: Differential = 'none';
 
   console.log('Processing follow-up questionnaire:', { primaryMechanism, answers });
 
+  // 1) Generic tally: count differentials from selected options in the provided questionnaire
+  const diffCounts = computeDifferentialCounts(questionnaire, answers);
+
+  // Update cumulative scores for transparency/history
+  Object.entries(diffCounts).forEach(([diff, count]) => {
+    updatedScores.differentials[diff] = (updatedScores.differentials[diff] || 0) + (count as number);
+  });
+
+  // Pick the most frequent differential from this questionnaire only
+  let maxCount = 0;
+  let topDifferential: Differential = 'none';
+  Object.entries(diffCounts).forEach(([diff, count]) => {
+    if (diff !== 'none' && (count as number) > maxCount) {
+      maxCount = count as number;
+      topDifferential = diff as Differential;
+    }
+  });
+
+  // If we found a clear winner by counts, use it and return early
+  if (maxCount > 0) {
+    console.log('Primary differential determined by tally:', topDifferential, diffCounts);
+    return { scores: updatedScores, primaryDifferential: topDifferential };
+  }
+
+  // 2) Fallback to legacy mechanism-specific logic when questionnaire lacks differentials
   if (primaryMechanism === 'nociceptive') {
     // Handle shoulder nociceptive questionnaires with correct question IDs
-    console.log('Processing shoulder nociceptive questions...');
+    console.log('Processing shoulder nociceptive questions (fallback)...');
     
     // Pain location assessment - using correct question ID from the questionnaire
     const painLocation = answers['shoulder-pain-location'];
@@ -376,41 +438,40 @@ export const processFollowUpQuestionnaire = (
       'muscle pain'
     ];
     
-    let maxScore = 0;
-    let topDifferential: Differential = 'none';
+    let legacyMax = 0;
+    let legacyTop: Differential = 'none';
     
     // Check shoulder differentials first
     shoulderDifferentials.forEach(diff => {
       const score = updatedScores.differentials[diff] || 0;
-      if (score > maxScore) {
-        maxScore = score;
-        topDifferential = diff as Differential;
+      if (score > legacyMax) {
+        legacyMax = score;
+        legacyTop = diff as Differential;
       }
     });
     
     // If no shoulder differential scored, check spine differentials
-    if (maxScore === 0) {
+    if (legacyMax === 0) {
       spineDifferentials.forEach(diff => {
         const score = updatedScores.differentials[diff] || 0;
-        if (score > maxScore) {
-          maxScore = score;
-          topDifferential = diff as Differential;
+        if (score > legacyMax) {
+          legacyMax = score;
+          legacyTop = diff as Differential;
         }
       });
     }
     
     // Only use fallback if absolutely no scores were recorded
-    if (maxScore === 0) {
-      // Balanced fallback based on common presentations
+    if (legacyMax === 0) {
       const hasShoulderQuestions = answers['shoulder-pain-location'] || answers['aggravating-movements'];
       if (hasShoulderQuestions) {
-        topDifferential = 'subacromional-impingement-syndrome'; // Most common shoulder issue
+        legacyTop = 'subacromional-impingement-syndrome';
       } else {
-        topDifferential = 'muscle pain'; // Conservative fallback for spine
+        legacyTop = 'muscle pain';
       }
     }
     
-    primaryDifferential = topDifferential;
+    primaryDifferential = legacyTop;
     
   } else if (primaryMechanism === 'neuropathic') {
     // Handle neuropathic cases - mostly neck/cervical
@@ -452,7 +513,7 @@ export const processFollowUpQuestionnaire = (
     }
   }
 
-  console.log('Final differential determined:', primaryDifferential);
+  console.log('Final differential determined (fallback):', primaryDifferential);
   console.log('Updated scores:', updatedScores.differentials);
   return { scores: updatedScores, primaryDifferential };
 };

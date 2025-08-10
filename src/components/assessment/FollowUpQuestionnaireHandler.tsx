@@ -53,7 +53,8 @@ const FollowUpQuestionnaireHandler = () => {
       processFollowUpQuestionnaire(
         primaryMechanism as 'nociceptive' | 'neuropathic' | 'central',
         answers,
-        scores
+        scores,
+        selectedQuestionnaire
       );
     
     console.log('✅ FollowUpQuestionnaireHandler: Processing completed:', {
