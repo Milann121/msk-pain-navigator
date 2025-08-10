@@ -31,6 +31,8 @@ export const NotificationArea = () => {
   const {
     isOrebroReminderDue,
     isPsfsReminderDue,
+    hasCompletedOrebro,
+    hasCompletedPsfs,
     loading
   } = useNotificationReminders();
   const { favoriteActivities, loading: favLoading } = useFavoriteActivities();
@@ -196,12 +198,12 @@ export const NotificationArea = () => {
       </button>
 
       {/* OREBRO Brain Icon */}
-      <button onClick={handleOrebroClick} className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100 ${isOrebroReminderDue ? 'breathing-icon' : ''}`} aria-label="OREBRO Questionnaire">
+      <button onClick={handleOrebroClick} className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100 ${!hasCompletedOrebro ? 'breathing-icon' : ''}`} aria-label="OREBRO Questionnaire">
         <Brain className="w-5 h-5 text-blue-600" />
       </button>
 
       {/* PSFS Heartbeat Icon */}
-      <button onClick={handlePsfsClick} className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100 ${isPsfsReminderDue ? 'breathing-icon' : ''}`} aria-label="PSFS Assessment">
+      <button onClick={handlePsfsClick} className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100 ${!hasCompletedPsfs ? 'breathing-icon' : ''}`} aria-label="PSFS Assessment">
         <Activity className="w-5 h-5 text-green-600" />
       </button>
 

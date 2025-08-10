@@ -6,6 +6,8 @@ export const useNotificationReminders = () => {
   const { user } = useAuth();
   const [isOrebroReminderDue, setIsOrebroReminderDue] = useState(false);
   const [isPsfsReminderDue, setIsPsfsReminderDue] = useState(false);
+  const [hasCompletedOrebro, setHasCompletedOrebro] = useState(false);
+  const [hasCompletedPsfs, setHasCompletedPsfs] = useState(false);
   const [loading, setLoading] = useState(true);
 
   const checkReminders = async () => {
@@ -26,6 +28,25 @@ export const useNotificationReminders = () => {
 
       if (!psfsError) {
         setIsPsfsReminderDue(psfsReminder || false);
+      }
+
+      // Check completion status (any record exists)
+      const { data: orebroCompletedRows, error: orebroCompletedErr } = await supabase
+        .from('orebro_responses')
+        .select('id', { count: 'exact', head: false })
+        .eq('user_id', user.id)
+        .limit(1);
+      if (!orebroCompletedErr) {
+        setHasCompletedOrebro((orebroCompletedRows?.length ?? 0) > 0);
+      }
+
+      const { data: psfsCompletedRows, error: psfsCompletedErr } = await supabase
+        .from('psfs_assessment')
+        .select('id', { count: 'exact', head: false })
+        .eq('user_id', user.id)
+        .limit(1);
+      if (!psfsCompletedErr) {
+        setHasCompletedPsfs((psfsCompletedRows?.length ?? 0) > 0);
       }
     } catch (error) {
       console.error('Error checking reminders:', error);
@@ -99,6 +120,8 @@ export const useNotificationReminders = () => {
   return {
     isOrebroReminderDue,
     isPsfsReminderDue,
+    hasCompletedOrebro,
+    hasCompletedPsfs,
     loading
   };
 };
