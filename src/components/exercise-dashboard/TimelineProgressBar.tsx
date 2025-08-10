@@ -11,7 +11,7 @@ interface TimelineProgressBarProps {
 export const TimelineProgressBar: React.FC<TimelineProgressBarProps> = ({ assessment }) => {
   const { totalWeeks, currentWeek, progressPercentage, isComplete, phases } = useTimelineProgress(assessment);
   const isMobile = useIsMobile();
-  const { t } = useTranslation('myExercises');
+  const { t } = useTranslation();
 
   // Don't render if no timeline data
   if (totalWeeks === 0) return null;
@@ -96,11 +96,11 @@ export const TimelineProgressBar: React.FC<TimelineProgressBarProps> = ({ assess
       {/* Progress text */}
       <div className={`text-center mt-1 ${isMobile ? 'text-xs' : 'text-xs'}`}>
         <div className="text-muted-foreground">
-          {t('timeline.weeksProgress', { current: Math.round(currentWeek * 10) / 10, total: totalWeeks })}
+          {t('myExercises.timeline.weeksProgress', { current: Math.round(currentWeek * 10) / 10, total: totalWeeks })}
         </div>
         {isComplete && (
           <div className="text-green-600 font-medium text-xs">
-            ✓ {t('timeline.completed')}
+            ✓ {t('myExercises.timeline.completed')}
           </div>
         )}
       </div>
