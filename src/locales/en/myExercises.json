@@ -40,5 +40,9 @@
     }
   },
   "backHome": "Back to Home",
-  "newAssessment": "New Assessment"
+  "newAssessment": "New Assessment",
+  "timeline": {
+    "weeksProgress": "{{current}} / {{total}} weeks",
+    "completed": "Completed"
+  }
 }

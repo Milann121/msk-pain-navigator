@@ -40,5 +40,9 @@
     }
   },
   "backHome": "Zpět Domů",
-  "newAssessment": "Nové Hodnocení"
+  "newAssessment": "Nové Hodnocení",
+  "timeline": {
+    "weeksProgress": "{{current}} / {{total}} týdnů",
+    "completed": "Dokončeno"
+  }
 }

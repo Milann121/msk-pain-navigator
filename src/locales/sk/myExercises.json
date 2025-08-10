@@ -40,5 +40,9 @@
     }
   },
   "backHome": "Späť Domov",
-  "newAssessment": "Nové Hodnotenie"
+  "newAssessment": "Nové Hodnotenie",
+  "timeline": {
+    "weeksProgress": "{{current}} / {{total}} týždne",
+    "completed": "Dokončené"
+  }
 }
