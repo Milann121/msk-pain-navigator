@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -14,6 +14,21 @@ export const HomeFavoriteActivitiesOverview = () => {
     loading, 
     openProgram 
   } = useHomeFavoriteActivities();
+
+  // Visibility signal for Favorite Activities container
+  useEffect(() => {
+    const visible = !loading && isEligible;
+    window.__favContainerVisible = visible;
+    window.dispatchEvent(new CustomEvent('favActivitiesContainerVisibility', { detail: { visible } }));
+  }, [loading, isEligible]);
+
+  useEffect(() => {
+    return () => {
+      
+      window.__favContainerVisible = false;
+      window.dispatchEvent(new CustomEvent('favActivitiesContainerVisibility', { detail: { visible: false } }));
+    };
+  }, []);
 
   // Don't render if not eligible or still loading
   if (loading || !isEligible) {
