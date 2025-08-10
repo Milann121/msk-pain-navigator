@@ -40,21 +40,21 @@ export const TimelineProgressBar: React.FC<TimelineProgressBarProps> = ({ assess
           {/* Background path */}
           <path
             d={straightPath}
-            stroke="#e5e7eb"
+            stroke="currentColor"
             strokeWidth="3"
             fill="none"
             strokeLinecap="round"
+            className="text-muted-foreground/30"
           />
           
           {/* Progress path */}
           <path
-            d={straightPath}
-            stroke="#3b82f6"
+            d={`M ${lineStartX} ${lineY} L ${ballX} ${lineY}`}
+            stroke="currentColor"
             strokeWidth="3"
             fill="none"
             strokeLinecap="round"
-            strokeDasharray={`${ballPosition}% ${100 - ballPosition}%`}
-            className="transition-all duration-500 ease-out"
+            className="text-primary transition-all duration-500 ease-out"
           />
           
           {/* Phase markers */}
