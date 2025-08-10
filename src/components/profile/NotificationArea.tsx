@@ -8,6 +8,7 @@ import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import { useToast } from '@/hooks/use-toast';
 import { uploadRecording } from '@/services/speechService';
 import { SiriRecordingAnimation } from '@/components/speech/SiriRecordingAnimation';
+import { useFavoriteActivities } from '@/hooks/useFavoriteActivities';
 export const NotificationArea = () => {
   const navigate = useNavigate();
   const {
@@ -32,6 +33,9 @@ export const NotificationArea = () => {
     isPsfsReminderDue,
     loading
   } = useNotificationReminders();
+  const { favoriteActivities, loading: favLoading } = useFavoriteActivities();
+  const isFavoriteActivitiesIncomplete = !favLoading && favoriteActivities.length === 0;
+
 
   // Auto-scroll to center expanded icon
   useEffect(() => {
@@ -187,7 +191,7 @@ export const NotificationArea = () => {
         </button>}
 
       {/* Functional Activities Icon */}
-      <button onClick={handleFunctionalActivitiesClick} className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100" aria-label="Functional Activities">
+      <button onClick={handleFunctionalActivitiesClick} className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100 ${isFavoriteActivitiesIncomplete ? 'breathing-icon' : ''}`} aria-label="Functional Activities">
         <ListChecks className="w-5 h-5 text-blue-600" />
       </button>
 
