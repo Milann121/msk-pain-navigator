@@ -11,6 +11,8 @@ import { Trash2, ArrowUp, ArrowDown } from "lucide-react";
 import ReactionsBar, { ReactionType } from "@/components/community/ReactionsBar";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useTranslation } from 'react-i18next';
+import RankMedal from "@/components/community/RankMedal";
+import RankSquare from "@/components/community/RankSquare";
 interface LeaderboardRow {
   user_id: string;
   first_name: string | null;
@@ -322,9 +324,7 @@ const Community: React.FC = () => {
             {t('community.description')}
           </p>
           <div className="flex items-center gap-3">
-            <div className="w-20 h-20 rounded-md border flex items-center justify-center bg-yellow-400">
-              <span className="text-3xl font-bold leading-none text-blue-600">{myRank ?? "–"}</span>
-            </div>
+            <RankSquare rank={myRank} />
             {rankTrend === "up" && <ArrowUp className="h-6 w-6 text-primary" aria-label="Rank up" />}
             {rankTrend === "down" && <ArrowDown className="h-6 w-6 text-destructive" aria-label="Rank down" />}
           </div>
@@ -408,7 +408,7 @@ const Community: React.FC = () => {
                 const post = posts.find(p => p.user_id === r.user_id) || null;
                 return <React.Fragment key={r.user_id}>
                       <TableRow className="border-b-0">
-                        <TableCell>{r.rank}</TableCell>
+                        <TableCell><RankMedal rank={r.rank} /></TableCell>
                         <TableCell>{r.first_name || "–"}</TableCell>
                         <TableCell>{r.company_name || "–"}</TableCell>
                         <TableCell>{jobTypeLabel(r.job_type)}</TableCell>
