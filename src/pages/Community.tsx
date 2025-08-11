@@ -346,8 +346,8 @@ const Community: React.FC = () => {
         </div>
 
         {loading ? <div className="py-10">{t('community.loading')}</div> : <div className="space-y-6">
-            <section className="rounded-lg border bg-muted/30 p-4">
-              <h2 className="text-sm font-medium mb-2">{t('community.weeklyPostTitle')}</h2>
+            <section className="rounded-lg border bg-muted/30 p-4 py-[35px]">
+              <h2 className="mb-2 text-lg font-semibold">{t('community.weeklyPostTitle')}</h2>
               {!user ? <p className="text-muted-foreground text-sm">{t('community.signInPrompt')}</p> : editMode || !myPost ? isMobile ? <div className="space-y-2">
                       <Input placeholder={t('community.weeklyPostPlaceholder')} value={postDraft} onChange={e => setPostDraft(e.target.value.slice(0, 280))} />
                       <div className="flex items-center gap-2">
