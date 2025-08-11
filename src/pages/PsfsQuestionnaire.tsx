@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -10,11 +10,28 @@ import { psfsQuestion } from '@/data/questionnaires/general/psfs';
 import { ArrowLeft, Send } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
+import { loadDraft, saveDraft, clearDraft } from '@/lib/drafts';
 
 const PsfsQuestionnaire = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [values, setValues] = useState<Record<string, number>>({});
+
+  const DRAFT_KEY = 'pebee:draft:psfs';
+
+  // Load draft on mount
+  useEffect(() => {
+    const draft = loadDraft<Record<string, number>>(DRAFT_KEY);
+    if (draft && typeof draft === 'object') {
+      setValues(draft);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Autosave on changes
+  useEffect(() => {
+    saveDraft(DRAFT_KEY, values);
+  }, [values]);
 
   const handleValueChange = (questionId: string, value: number) => {
     setValues(prev => ({
@@ -47,6 +64,7 @@ const PsfsQuestionnaire = () => {
       }
 
       toast.success(t('success'));
+      clearDraft(DRAFT_KEY);
       navigate('/domov');
     } catch (error) {
       console.error('Error submitting PSFS:', error);

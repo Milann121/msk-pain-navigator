@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
@@ -13,6 +13,7 @@ import { OrebroAnswers } from '@/types/orebro';
 import { calculateOrebroScore } from '@/utils/orebro-scoring';
 import { isCurrentQuestionAnswered } from '@/utils/orebro-validation';
 import { OrebroQuestionRenderer } from '@/components/orebro/OrebroQuestionRenderer';
+import { loadDraft, saveDraft, clearDraft } from '@/lib/drafts';
 
 const OrebroQuestionnaire = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -24,6 +25,26 @@ const OrebroQuestionnaire = () => {
 
   const totalQuestions = 21;
   const progress = ((currentQuestion + 1) / totalQuestions) * 100;
+
+  const DRAFT_KEY = 'pebee:draft:orebro';
+
+  // Load draft on mount
+  useEffect(() => {
+    const draft = loadDraft<{ answers: Partial<OrebroAnswers>; currentQuestion: number }>(DRAFT_KEY);
+    if (draft) {
+      if (draft.answers) setAnswers(draft.answers);
+      if (typeof draft.currentQuestion === 'number') {
+        const idx = Math.min(Math.max(0, draft.currentQuestion), totalQuestions - 1);
+        setCurrentQuestion(idx);
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Autosave on change
+  useEffect(() => {
+    saveDraft(DRAFT_KEY, { answers, currentQuestion });
+  }, [answers, currentQuestion]);
 
   const handleSliderChange = (field: keyof OrebroAnswers, value: number[]) => {
     setAnswers(prev => ({ ...prev, [field]: value[0] }));
@@ -90,6 +111,9 @@ const OrebroQuestionnaire = () => {
         title: t('orebro.submitted.title'),
         description: t('orebro.submitted.description'),
       });
+
+      // Clear draft on successful submit
+      clearDraft(DRAFT_KEY);
 
       // Navigate to result page with data
       navigate('/orebro-result', { 
