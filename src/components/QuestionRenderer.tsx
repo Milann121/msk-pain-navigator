@@ -177,7 +177,7 @@ const QuestionRenderer = ({ question, onAnswer }: QuestionRendererProps) => {
             </div>
             <div className="text-center flex-shrink-0 px-3 py-1 bg-blue-50 rounded-md">
               <span className="text-blue-600 font-medium">
-                {t('slider.selected', { value: sliderValue[0] })}
+                {t('misc.slider.selected', { value: sliderValue[0] })}
               </span>
             </div>
             <div className="text-right flex-1">
