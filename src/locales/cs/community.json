@@ -1,0 +1,30 @@
+{
+  "title": "Komunita",
+  "description": "Sdílej, jak se cítíš, své úspěchy nebo podpoř komunitu svým týdenním statusem.",
+  "aboutButton": "O komunitě",
+  "aboutPurposeTitle": "Jaký je účel Komunity?",
+  "aboutPurposeBody": "Zdravotnictví je těžké, získat dobrou péči ještě těžší a dostat to, co si zasloužíš: často nedosažitelné! Ale máme jeden druhého, proto se podporujme příspěvky a reakcemi na nápady a pocity ostatních. Účelem je podporovat se navzájem.",
+  "aboutRankTitle": "Jak se umístit výš?",
+  "aboutRankBody": "Zapoj se do našich fitness nebo terapeutických programů. Toto zapojení vytváří záznamy, které se sčítají a posouvají tě v žebříčku výš!",
+  "weeklyPostTitle": "Týdenní příspěvek",
+  "weeklyPostPlaceholder": "Sdílej svůj týdenní status (max 280)",
+  "signInPrompt": "Přihlas se a sdílej svůj týdenní status.",
+  "post": "Přidat",
+  "cancel": "Zrušit",
+  "edit": "Upravit",
+  "deleteAria": "Smazat příspěvek",
+  "signInToPost": "Pro přidání příspěvku se prosím přihlas",
+  "emptyPostError": "Příspěvek nesmí být prázdný",
+  "postedSuccess": "Příspěvek přidán",
+  "postDeleted": "Příspěvek smazán",
+  "signInToReact": "Pro reakci se prosím přihlas",
+  "boardCaption": "Týdenní nástěnka komunity",
+  "table": {
+    "rank": "Pořadí",
+    "firstName": "Jméno",
+    "company": "Společnost",
+    "jobType": "Typ práce",
+    "exercises": "Cvičení",
+    "programs": "Programy"
+  }
+}

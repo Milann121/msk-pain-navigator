@@ -10,6 +10,7 @@ import { toast } from "sonner";
 import { Trash2, ArrowUp, ArrowDown } from "lucide-react";
 import ReactionsBar, { ReactionType } from "@/components/community/ReactionsBar";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useTranslation } from 'react-i18next';
 
 interface LeaderboardRow {
   user_id: string;
@@ -41,6 +42,7 @@ function getWeekStartISO(): string {
 
 const Community: React.FC = () => {
   const { user } = useAuth();
+  const { t } = useTranslation();
   const [loading, setLoading] = useState(true);
   const [rows, setRows] = useState<LeaderboardRow[]>([]);
   const [posts, setPosts] = useState<CommunityPost[]>([]);
@@ -71,10 +73,10 @@ const Community: React.FC = () => {
   };
 
   useEffect(() => {
-    document.title = "Community | Pebee";
+    document.title = `${t('community.title')} | Pebee`;
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", "Share how you feel, achievements, and support the community with your weekly status.");
-  }, []);
+    if (meta) meta.setAttribute("content", t('community.description'));
+  }, [t]);
 
   useEffect(() => {
     const fetchAll = async () => {
@@ -125,12 +127,12 @@ const Community: React.FC = () => {
 
   const handlePost = async () => {
     if (!me) {
-      toast.error("Please sign in to post");
+      toast.error(t('community.signInToPost'));
       return;
     }
     const content = postDraft.trim();
     if (!content) {
-      toast.error("Post cannot be empty");
+      toast.error(t('community.emptyPostError'));
       return;
     }
 
@@ -142,7 +144,7 @@ const Community: React.FC = () => {
       toast.error(error.message);
       return;
     }
-  toast.success("Posted");
+  toast.success(t('community.postedSuccess'));
   setEditMode(false);
   await refreshPosts();
 };
@@ -157,7 +159,7 @@ const handleDelete = async () => {
     toast.error(error.message);
     return;
   }
-  toast.success("Post deleted");
+  toast.success(t('community.postDeleted'));
   setPostDraft("");
   setEditMode(false);
   await refreshPosts();
@@ -226,7 +228,7 @@ const handleDelete = async () => {
 
   const handleReact = async (postId: string, type: ReactionType) => {
     if (!me) {
-      toast.error("Please sign in to react");
+      toast.error(t('community.signInToReact'));
       return;
     }
     const current = myReactions[postId] || null;
@@ -263,10 +265,10 @@ const handleDelete = async () => {
     <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-1 container mx-auto px-4 py-8">
-        <h1 className="text-2xl font-semibold mb-4">Community</h1>
+        <h1 className="text-2xl font-semibold mb-4">{t('community.title')}</h1>
         <div className="mb-4 md:mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <p className="text-muted-foreground">
-            Share how do you feel, your achievements or support the community with your weekly status.
+            {t('community.description')}
           </p>
           <div className="flex items-center gap-3">
             <div className="w-20 h-20 rounded-md border bg-muted/30 flex items-center justify-center">
@@ -278,44 +280,44 @@ const handleDelete = async () => {
         </div>
         <div className="mb-6">
           <Button size="sm" variant="outline" onClick={() => setShowAbout((v) => !v)}>
-            About Community
+            {t('community.aboutButton')}
           </Button>
           {showAbout && (
             <div className="mt-2 rounded-md border bg-muted/30 p-3 text-sm space-y-3">
               <div>
-                <h3 className="font-medium">What is the purpose of the Community?</h3>
-                <p>Healthcare is hard, to receive a good care even harder and to get what you deserve: unattainable! But we have each other, so let's support each other with posts, reactions to each others ideas and feelings. The purpose is to support each other.</p>
+                <h3 className="font-medium">{t('community.aboutPurposeTitle')}</h3>
+                <p>{t('community.aboutPurposeBody')}</p>
               </div>
               <div>
-                <h3 className="font-medium">How to rank higher?</h3>
-                <p>Engage with our fitness programs or your therapeutic programs. This engagement will creates records which sums together and ranks you higher!</p>
+                <h3 className="font-medium">{t('community.aboutRankTitle')}</h3>
+                <p>{t('community.aboutRankBody')}</p>
               </div>
             </div>
           )}
         </div>
 
         {loading ? (
-          <div className="py-10">Loading...</div>
+          <div className="py-10">{t('community.loading')}</div>
         ) : (
           <div className="space-y-6">
             <section className="rounded-lg border bg-muted/30 p-4">
-              <h2 className="text-sm font-medium mb-2">This week’s post</h2>
+              <h2 className="text-sm font-medium mb-2">{t('community.weeklyPostTitle')}</h2>
               {!user ? (
-                <p className="text-muted-foreground text-sm">Sign in to share your weekly update.</p>
+                <p className="text-muted-foreground text-sm">{t('community.signInPrompt')}</p>
               ) : (
                 editMode || !myPost ? (
                   isMobile ? (
                     <div className="space-y-2">
                       <Input
-                        placeholder="Share your weekly update (max 280)"
+                        placeholder={t('community.weeklyPostPlaceholder')}
                         value={postDraft}
                         onChange={(e) => setPostDraft(e.target.value.slice(0, 280))}
                       />
                       <div className="flex items-center gap-2">
-                        <Button size="sm" onClick={handlePost}>Post</Button>
-                        <Button size="sm" variant="secondary" onClick={() => { setEditMode(false); setPostDraft(myPost?.content || ""); }}>Cancel</Button>
+                        <Button size="sm" onClick={handlePost}>{t('community.post')}</Button>
+                        <Button size="sm" variant="secondary" onClick={() => { setEditMode(false); setPostDraft(myPost?.content || ""); }}>{t('community.cancel')}</Button>
                         {myPost ? (
-                          <Button size="icon" variant="ghost" onClick={handleDelete} aria-label="Delete post">
+                          <Button size="icon" variant="ghost" onClick={handleDelete} aria-label={t('community.deleteAria')}>
                             <Trash2 className="w-4 h-4" />
                           </Button>
                         ) : null}
@@ -324,14 +326,14 @@ const handleDelete = async () => {
                   ) : (
                     <div className="flex items-center gap-2">
                       <Input
-                        placeholder="Share your weekly update (max 280)"
+                        placeholder={t('community.weeklyPostPlaceholder')}
                         value={postDraft}
                         onChange={(e) => setPostDraft(e.target.value.slice(0, 280))}
                       />
-                      <Button size="sm" onClick={handlePost}>Post</Button>
-                      <Button size="sm" variant="secondary" onClick={() => { setEditMode(false); setPostDraft(myPost?.content || ""); }}>Cancel</Button>
+                      <Button size="sm" onClick={handlePost}>{t('community.post')}</Button>
+                      <Button size="sm" variant="secondary" onClick={() => { setEditMode(false); setPostDraft(myPost?.content || ""); }}>{t('community.cancel')}</Button>
                       {myPost ? (
-                        <Button size="icon" variant="ghost" onClick={handleDelete} aria-label="Delete post">
+                        <Button size="icon" variant="ghost" onClick={handleDelete} aria-label={t('community.deleteAria')}>
                           <Trash2 className="w-4 h-4" />
                         </Button>
                       ) : null}
@@ -344,8 +346,8 @@ const handleDelete = async () => {
                         <span className="text-sm">{myPost.content}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Button size="sm" variant="outline" onClick={() => setEditMode(true)}>Edit</Button>
-                        <Button size="icon" variant="ghost" onClick={handleDelete} aria-label="Delete post">
+                        <Button size="sm" variant="outline" onClick={() => setEditMode(true)}>{t('community.edit')}</Button>
+                        <Button size="icon" variant="ghost" onClick={handleDelete} aria-label={t('community.deleteAria')}>
                           <Trash2 className="w-4 h-4" />
                         </Button>
                       </div>
@@ -355,8 +357,8 @@ const handleDelete = async () => {
                       <div className={`px-3 py-2 rounded-md border ${colorFor(myPost.user_id)}`}>
                         <span className="text-sm">{myPost.content}</span>
                       </div>
-                      <Button size="sm" variant="outline" onClick={() => setEditMode(true)}>Edit</Button>
-                      <Button size="icon" variant="ghost" onClick={handleDelete} aria-label="Delete post">
+                      <Button size="sm" variant="outline" onClick={() => setEditMode(true)}>{t('community.edit')}</Button>
+                      <Button size="icon" variant="ghost" onClick={handleDelete} aria-label={t('community.deleteAria')}>
                         <Trash2 className="w-4 h-4" />
                       </Button>
                     </div>
@@ -366,15 +368,15 @@ const handleDelete = async () => {
             </section>
             <div className="w-full overflow-x-auto">
               <Table>
-              <TableCaption>This week’s community board</TableCaption>
+              <TableCaption>{t('community.boardCaption')}</TableCaption>
               <TableHeader>
                 <TableRow>
-                  <TableHead className="w-20">Rank</TableHead>
-                  <TableHead>First name</TableHead>
-                  <TableHead>Company</TableHead>
-                  <TableHead>Job type</TableHead>
-                  <TableHead className="text-right">Exercises</TableHead>
-                  <TableHead className="text-right">Programs</TableHead>
+                  <TableHead className="w-20">{t('community.table.rank')}</TableHead>
+                  <TableHead>{t('community.table.firstName')}</TableHead>
+                  <TableHead>{t('community.table.company')}</TableHead>
+                  <TableHead>{t('community.table.jobType')}</TableHead>
+                  <TableHead className="text-right">{t('community.table.exercises')}</TableHead>
+                  <TableHead className="text-right">{t('community.table.programs')}</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>

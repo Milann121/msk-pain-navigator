@@ -31,6 +31,7 @@ import enSpeech from './locales/en/speech.json';
 import enFooter from './locales/en/footer.json';
 import enPrivacy from './locales/en/privacy.json';
 import enMyExercises from './locales/en/myExercises.json';
+import enCommunity from './locales/en/community.json';
 
 // Slovak translations
 import skWelcome from './locales/sk/welcome.json';
@@ -60,6 +61,7 @@ import skSpeech from './locales/sk/speech.json';
 import skFooter from './locales/sk/footer.json';
 import skPrivacy from './locales/sk/privacy.json';
 import skMyExercises from './locales/sk/myExercises.json';
+import skCommunity from './locales/sk/community.json';
 
 // Czech translations
 import csWelcome from './locales/cs/welcome.json';
@@ -89,6 +91,7 @@ import csSpeech from './locales/cs/speech.json';
 import csFooter from './locales/cs/footer.json';
 import csPrivacy from './locales/cs/privacy.json';
 import csMyExercises from './locales/cs/myExercises.json';
+import csCommunity from './locales/cs/community.json';
 
 // Combine all translations
 const enTranslations = {
@@ -119,7 +122,8 @@ const enTranslations = {
   ...enSpeech,
   footer: enFooter,
   privacy: enPrivacy,
-  myExercises: enMyExercises
+  myExercises: enMyExercises,
+  community: enCommunity
 };
 
 const skTranslations = {
@@ -150,7 +154,8 @@ const skTranslations = {
   ...skSpeech,
   footer: skFooter,
   privacy: skPrivacy,
-  myExercises: skMyExercises
+  myExercises: skMyExercises,
+  community: skCommunity
 };
 
 const csTranslations = {
@@ -181,7 +186,8 @@ const csTranslations = {
   ...csSpeech,
   footer: csFooter,
   privacy: csPrivacy,
-  myExercises: csMyExercises
+  myExercises: csMyExercises,
+  community: csCommunity
 };
 
 void i18n
