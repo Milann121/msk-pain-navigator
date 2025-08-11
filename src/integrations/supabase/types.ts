@@ -1371,7 +1371,7 @@ export type Database = {
         Args: {
           _b2b_partner_name: string
           _employee_id: string
-          _email: string
+          _email?: string
           _user_id?: string
         }
         Returns: boolean
@@ -1388,7 +1388,7 @@ export type Database = {
         Args: {
           _b2b_partner_name: string
           _employee_id: string
-          _email: string
+          _email?: string
           _user_id?: string
         }
         Returns: boolean
