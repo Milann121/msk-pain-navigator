@@ -1,4 +1,5 @@
 
+import { useEffect, useRef } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import Header from '@/components/Header';
@@ -19,6 +20,12 @@ const AssessmentContent = () => {
   const { user, isLoading } = useAuth();
   const { stage, isSubmitting } = useAssessment();
   const { t } = useTranslation();
+  const focusRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    // Ensure view starts at questionnaire section on open
+    window.scrollTo(0, 0);
+    focusRef.current?.scrollIntoView({ behavior: 'auto', block: 'start' });
+  }, []);
   
   console.log('🔍 AssessmentContent rendered with stage:', stage, 'isSubmitting:', isSubmitting);
   
@@ -47,6 +54,8 @@ const AssessmentContent = () => {
               {t('assessment.subtitle')}
             </p>
           </header>
+          
+          <div ref={focusRef} />
           
           {/* Body Model Section - hidden for now, keeping code for later use */}
           {/* <BodyModelSection /> */}
