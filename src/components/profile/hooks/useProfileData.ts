@@ -209,23 +209,19 @@ export const useProfileData = () => {
       if (profileData && !profileError) {
         const targetTable = table || b2bData.sourceTable || 'b2b_employees';
         if (targetTable === 'test_2_employees') {
-          const { error: updateError } = await supabase
+          const { error: updateError } = await (supabase as any)
             .rpc('update_test2_employee_contact', {
               _b2b_partner_name: b2bData.employerName,
               _employee_id: b2bData.employeeId,
-              _email: user.email,
-              _user_id: user.id,
             });
           if (updateError) {
             console.error('Error updating B2B employee state:', updateError);
           }
         } else {
-          const { error: updateError } = await supabase
+          const { error: updateError } = await (supabase as any)
             .rpc('update_b2b_employee_contact', {
               _b2b_partner_name: b2bData.employerName,
               _employee_id: b2bData.employeeId,
-              _email: user.email,
-              _user_id: user.id,
             });
           if (updateError) {
             console.error('Error updating B2B employee state:', updateError);

@@ -189,21 +189,17 @@ export const useB2BEmployeeVerification = () => {
       }
       
       if (table === 'test_2_employees') {
-        const { error } = await supabase.rpc('update_test2_employee_contact', {
+        const { error } = await (supabase as any).rpc('update_test2_employee_contact', {
           _b2b_partner_name: (verifiedEmployeeRecord as any).b2b_partner_name || (verifiedEmployeeRecord as any).employerName,
           _employee_id: (verifiedEmployeeRecord as any).employee_id || (verifiedEmployeeRecord as any).employeeId,
-          _email: userEmail,
-          _user_id: userId || null,
         });
         if (error) {
           console.error('Error updating employee email and status via RPC:', error);
         }
       } else {
-        const { error } = await supabase.rpc('update_b2b_employee_contact', {
+        const { error } = await (supabase as any).rpc('update_b2b_employee_contact', {
           _b2b_partner_name: (verifiedEmployeeRecord as any).b2b_partner_name || (verifiedEmployeeRecord as any).employerName,
           _employee_id: (verifiedEmployeeRecord as any).employee_id || (verifiedEmployeeRecord as any).employeeId,
-          _email: userEmail,
-          _user_id: userId || null,
         });
         if (error) {
           console.error('Error updating employee email and status via RPC:', error);
