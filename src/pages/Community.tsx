@@ -407,7 +407,7 @@ const Community: React.FC = () => {
                 {rows.map(r => {
                 const post = posts.find(p => p.user_id === r.user_id) || null;
                 return <React.Fragment key={r.user_id}>
-                      <TableRow className="border-b-0">
+                      <TableRow className={post?.content ? "border-b-0" : undefined}>
                         <TableCell><RankMedal rank={r.rank} /></TableCell>
                         <TableCell>{r.first_name || "–"}</TableCell>
                         <TableCell>{r.company_name || "–"}</TableCell>
