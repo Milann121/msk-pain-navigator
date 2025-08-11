@@ -238,10 +238,11 @@ const Community: React.FC = () => {
                   );
                 })}
               </TableBody>
-            </Table>
-          </div>
-        )}
-      </main>
+              </Table>
+            </div>
+            </div>
+          )}
+        </main>
       <Footer />
     </div>
   );
