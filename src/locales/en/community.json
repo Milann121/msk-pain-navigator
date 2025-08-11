@@ -19,6 +19,7 @@
   "postDeleted": "Post deleted",
   "signInToReact": "Please sign in to react",
   "boardCaption": "This week’s community board",
+  "loading": "Loading...",
   "table": {
     "rank": "Rank",
     "firstName": "First name",
@@ -26,5 +27,9 @@
     "jobType": "Job type",
     "exercises": "Exercises",
     "programs": "Programs"
+  },
+  "jobTypes": {
+    "office": "office work",
+    "manual": "manual work"
   }
 }

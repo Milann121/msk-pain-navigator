@@ -72,6 +72,14 @@ const Community: React.FC = () => {
     return colorVariants[idx % colorVariants.length];
   };
 
+  // Translate job type labels from stored values
+  const jobTypeLabel = (s: string | null) => {
+    if (!s) return "–";
+    const key = s.toLowerCase();
+    if (key.includes('office')) return t('community.jobTypes.office');
+    if (key.includes('manual')) return t('community.jobTypes.manual');
+    return s;
+  };
   useEffect(() => {
     document.title = `${t('community.title')} | Pebee`;
     const meta = document.querySelector('meta[name="description"]');
@@ -388,7 +396,7 @@ const handleDelete = async () => {
                         <TableCell>{r.rank}</TableCell>
                         <TableCell>{r.first_name || "–"}</TableCell>
                         <TableCell>{r.company_name || "–"}</TableCell>
-                        <TableCell>{r.job_type || "–"}</TableCell>
+                        <TableCell>{jobTypeLabel(r.job_type)}</TableCell>
                         <TableCell className="text-right">{r.exercises_completed_count}</TableCell>
                         <TableCell className="text-right">{r.programs_completed_count}</TableCell>
                       </TableRow>

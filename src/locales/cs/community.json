@@ -19,6 +19,7 @@
   "postDeleted": "Příspěvek smazán",
   "signInToReact": "Pro reakci se prosím přihlas",
   "boardCaption": "Týdenní nástěnka komunity",
+  "loading": "Načítám...",
   "table": {
     "rank": "Pořadí",
     "firstName": "Jméno",
@@ -26,5 +27,9 @@
     "jobType": "Typ práce",
     "exercises": "Cvičení",
     "programs": "Programy"
+  },
+  "jobTypes": {
+    "office": "kancelářská práce",
+    "manual": "manuální práce"
   }
 }
