@@ -2,6 +2,8 @@
 {
   "exerciseDisclaimer": "Tento cvičebný plán nenahrádza profesionálnu zdravotnú starostlivosť. Táto verzia je len prototyp a pre úplné posúdenie vášho stavu a liečebný plán sa prosím poraďte so zdravotníckym odborníkom.",
   "back": "Späť",
+  "next": "Ďalej",
+  "backToHome": "Späť na domov",
   "repetitions": "opakovania",
   "assessmentAccordion": {
     "painMechanismLabel": "Mechanismus bolesti:",
