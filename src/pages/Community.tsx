@@ -49,6 +49,17 @@ const Community: React.FC = () => {
   const myPost = posts.find((p) => p.user_id === me);
   const [postDraft, setPostDraft] = useState("");
 
+  // Color variants for week posts using design tokens
+  const colorVariants = [
+    "bg-primary/10 border-primary/20",
+    "bg-secondary/10 border-secondary/20",
+    "bg-accent/10 border-accent/20",
+  ];
+  const colorFor = (seed: number | string) => {
+    const idx = typeof seed === 'number' ? seed : seed.length;
+    return colorVariants[idx % colorVariants.length];
+  };
+
   useEffect(() => {
     document.title = "Community Leaderboard | Pebee";
     const meta = document.querySelector('meta[name="description"]');
@@ -152,8 +163,42 @@ const Community: React.FC = () => {
         {loading ? (
           <div className="py-10">Loading...</div>
         ) : (
-          <div className="w-full overflow-x-auto">
-            <Table>
+          <div className="space-y-6">
+            <section className="rounded-lg border bg-muted/30 p-4">
+              <h2 className="text-sm font-medium mb-2">This week’s post</h2>
+              {!user ? (
+                <p className="text-muted-foreground text-sm">Sign in to share your weekly update.</p>
+              ) : (
+                editMode || !myPost ? (
+                  <div className="flex items-center gap-2">
+                    <Input
+                      placeholder="Share your weekly update (max 280)"
+                      value={postDraft}
+                      onChange={(e) => setPostDraft(e.target.value.slice(0, 280))}
+                    />
+                    <Button size="sm" onClick={handlePost}>Post</Button>
+                    <Button size="sm" variant="secondary" onClick={() => { setEditMode(false); setPostDraft(myPost?.content || ""); }}>Cancel</Button>
+                    {myPost ? (
+                      <Button size="icon" variant="ghost" onClick={handleDelete} aria-label="Delete post">
+                        <Trash2 className="w-4 h-4" />
+                      </Button>
+                    ) : null}
+                  </div>
+                ) : (
+                  <div className="flex items-center gap-2">
+                    <div className={`px-3 py-2 rounded-md border ${colorFor(myPost.user_id)}`}>
+                      <span className="text-sm">{myPost.content}</span>
+                    </div>
+                    <Button size="sm" variant="outline" onClick={() => setEditMode(true)}>Edit</Button>
+                    <Button size="icon" variant="ghost" onClick={handleDelete} aria-label="Delete post">
+                      <Trash2 className="w-4 h-4" />
+                    </Button>
+                  </div>
+                )
+              )}
+            </section>
+            <div className="w-full overflow-x-auto">
+              <Table>
               <TableCaption>This week’s community board</TableCaption>
               <TableHeader>
                 <TableRow>
@@ -169,50 +214,27 @@ const Community: React.FC = () => {
               <TableBody>
                 {rows.map((r) => {
                   const post = posts.find((p) => p.user_id === r.user_id) || null;
-                  const isMe = me === r.user_id;
                   return (
-                    <TableRow key={`${r.user_id}-${r.rank}`}>
-                      <TableCell>{r.rank}</TableCell>
-                      <TableCell>{r.first_name || "–"}</TableCell>
-                      <TableCell>{r.company_name || "–"}</TableCell>
-                      <TableCell>{r.job_type || "–"}</TableCell>
-                      <TableCell className="text-right">{r.exercises_completed_count}</TableCell>
-                      <TableCell className="text-right">{r.programs_completed_count}</TableCell>
-                      <TableCell>
-                        {isMe ? (
-                          <div className="flex items-center gap-2">
-                            {editMode || !post ? (
-                              <>
-                                <Input
-                                  placeholder="Share your weekly update (max 280)"
-                                  value={postDraft}
-                                  onChange={(e) => setPostDraft(e.target.value.slice(0, 280))}
-                                />
-                                <Button size="sm" onClick={handlePost}>Post</Button>
-                                <Button size="sm" variant="secondary" onClick={() => { setEditMode(false); setPostDraft(post?.content || ""); }}>Cancel</Button>
-                                {post ? (
-                                  <Button size="icon" variant="ghost" onClick={handleDelete} aria-label="Delete post">
-                                    <Trash2 className="w-4 h-4" />
-                                  </Button>
-                                ) : null}
-                              </>
-                            ) : (
-                              <div className="flex items-center gap-2">
-                                <span>{post?.content || ""}</span>
-                                <Button size="sm" variant="outline" onClick={() => setEditMode(true)}>Edit</Button>
-                                {post ? (
-                                  <Button size="icon" variant="ghost" onClick={handleDelete} aria-label="Delete post">
-                                    <Trash2 className="w-4 h-4" />
-                                  </Button>
-                                ) : null}
-                              </div>
-                            )}
-                          </div>
-                        ) : (
-                          <span className="text-sm text-muted-foreground">{post?.content || ""}</span>
-                        )}
-                      </TableCell>
-                    </TableRow>
+                    <React.Fragment key={r.user_id}>
+                      <TableRow>
+                        <TableCell>{r.rank}</TableCell>
+                        <TableCell>{r.first_name || "–"}</TableCell>
+                        <TableCell>{r.company_name || "–"}</TableCell>
+                        <TableCell>{r.job_type || "–"}</TableCell>
+                        <TableCell className="text-right">{r.exercises_completed_count}</TableCell>
+                        <TableCell className="text-right">{r.programs_completed_count}</TableCell>
+                        <TableCell>—</TableCell>
+                      </TableRow>
+                      {post?.content ? (
+                        <TableRow>
+                          <TableCell colSpan={7}>
+                            <div className={`rounded-md border p-3 ${colorFor(r.rank)}`}>
+                              <p className="text-sm whitespace-pre-wrap">{post.content}</p>
+                            </div>
+                          </TableCell>
+                        </TableRow>
+                      ) : null}
+                    </React.Fragment>
                   );
                 })}
               </TableBody>
