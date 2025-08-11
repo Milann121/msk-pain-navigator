@@ -8,6 +8,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 import { Trash2 } from "lucide-react";
+import ReactionsBar, { ReactionType } from "@/components/community/ReactionsBar";
 
 interface LeaderboardRow {
   user_id: string;
@@ -48,6 +49,11 @@ const Community: React.FC = () => {
   const me = user?.id ?? null;
   const myPost = posts.find((p) => p.user_id === me);
   const [postDraft, setPostDraft] = useState("");
+
+  // Reactions state
+  const [expandedPostId, setExpandedPostId] = useState<string | null>(null);
+  const [reactionCounts, setReactionCounts] = useState<Record<string, { like: number; feel: number; angry: number }>>({});
+  const [myReactions, setMyReactions] = useState<Record<string, ReactionType | null>>({});
 
   // Color variants for week posts using design tokens
   const colorVariants = [
@@ -132,25 +138,89 @@ const Community: React.FC = () => {
       toast.error(error.message);
       return;
     }
-    toast.success("Posted");
-    setEditMode(false);
-    await refreshPosts();
-  };
+  toast.success("Posted");
+  setEditMode(false);
+  await refreshPosts();
+};
 
-  const handleDelete = async () => {
-    if (!me || !myPost) return;
-    const { error } = await (supabase as any)
-      .from("community_posts")
-      .delete()
-      .eq("id", myPost.id);
-    if (error) {
-      toast.error(error.message);
+const handleDelete = async () => {
+  if (!me || !myPost) return;
+  const { error } = await (supabase as any)
+    .from("community_posts")
+    .delete()
+    .eq("id", myPost.id);
+  if (error) {
+    toast.error(error.message);
+    return;
+  }
+  toast.success("Post deleted");
+  setPostDraft("");
+  setEditMode(false);
+  await refreshPosts();
+};
+
+// Load reactions for current posts
+  useEffect(() => {
+    const load = async () => {
+      const ids = posts.map((p) => p.id);
+      if (!ids.length) {
+        setReactionCounts({});
+        setMyReactions({});
+        return;
+      }
+      const { data, error } = await (supabase as any)
+        .from("community_post_reactions")
+        .select("post_id,user_id,reaction_type")
+        .in("post_id", ids);
+      if (error) return;
+      const counts: Record<string, { like: number; feel: number; angry: number }> = {};
+      const mine: Record<string, ReactionType | null> = {};
+      for (const row of data as Array<{post_id:string; user_id:string; reaction_type:ReactionType}>) {
+        if (!counts[row.post_id]) counts[row.post_id] = { like: 0, feel: 0, angry: 0 };
+        counts[row.post_id][row.reaction_type] += 1;
+        if (me && row.user_id === me) {
+          mine[row.post_id] = row.reaction_type;
+        }
+      }
+      setReactionCounts(counts);
+      setMyReactions(mine);
+    };
+    load();
+  }, [posts, me]);
+
+  const handleReact = async (postId: string, type: ReactionType) => {
+    if (!me) {
+      toast.error("Please sign in to react");
       return;
     }
-    toast.success("Post deleted");
-    setPostDraft("");
-    setEditMode(false);
-    await refreshPosts();
+    const current = myReactions[postId] || null;
+    if (current === type) {
+      const { error } = await (supabase as any)
+        .from("community_post_reactions")
+        .delete()
+        .eq("post_id", postId)
+        .eq("user_id", me);
+      if (error) { toast.error(error.message); return; }
+      setMyReactions((prev) => ({ ...prev, [postId]: null }));
+      setReactionCounts((prev) => {
+        const base = prev[postId] || { like: 0, feel: 0, angry: 0 };
+        const updated = { ...base, [type]: Math.max(0, base[type] - 1) };
+        return { ...prev, [postId]: updated };
+      });
+    } else {
+      const { error } = await (supabase as any)
+        .from("community_post_reactions")
+        .upsert({ post_id: postId, user_id: me, reaction_type: type }, { onConflict: "post_id,user_id" });
+      if (error) { toast.error(error.message); return; }
+      setReactionCounts((prev) => {
+        const base = prev[postId] || { like: 0, feel: 0, angry: 0 };
+        const updated = { ...base } as any;
+        if (current) updated[current] = Math.max(0, updated[current] - 1);
+        updated[type] = (updated[type] || 0) + 1;
+        return { ...prev, [postId]: updated };
+      });
+      setMyReactions((prev) => ({ ...prev, [postId]: type }));
+    }
   };
 
   return (
@@ -228,9 +298,19 @@ const Community: React.FC = () => {
                       {post?.content ? (
                         <TableRow>
                           <TableCell colSpan={7}>
-                            <div className={`rounded-md border p-3 ${colorFor(r.rank)}`}>
+                            <div
+                              className={`rounded-md border p-3 cursor-pointer ${colorFor(r.rank)}`}
+                              onClick={() => setExpandedPostId(expandedPostId === post.id ? null : post.id)}
+                            >
                               <p className="text-sm whitespace-pre-wrap">{post.content}</p>
                             </div>
+                            {expandedPostId === post.id && (
+                              <ReactionsBar
+                                counts={reactionCounts[post.id] || { like: 0, feel: 0, angry: 0 }}
+                                myReaction={myReactions[post.id] || null}
+                                onReact={(t) => handleReact(post.id, t)}
+                              />
+                            )}
                           </TableCell>
                         </TableRow>
                       ) : null}
