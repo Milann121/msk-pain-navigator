@@ -445,12 +445,12 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
       if (b2bEmployeeData && user.email) {
         console.log('Updating B2B employee state to active');
         if (b2bEmployeeData.sourceTable === 'test_2_employees') {
-          const {
-            error: b2bUpdateError
-          } = await supabase.from('test_2_employees').update({
-            state: 'active',
-            email: user.email // Ensure email is set
-          }).eq('employee_id', b2bEmployeeData.employeeId).eq('b2b_partner_name', b2bEmployeeData.employerName);
+          const { error: b2bUpdateError } = await supabase.rpc('update_test2_employee_contact', {
+            _b2b_partner_name: b2bEmployeeData.employerName,
+            _employee_id: b2bEmployeeData.employeeId,
+            _email: user.email,
+            _user_id: user.id,
+          });
           if (b2bUpdateError) {
             console.error('Error updating B2B employee state:', b2bUpdateError);
             // Don't throw error here as the main profile save was successful
@@ -536,12 +536,12 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
       if (b2bEmployeeData && user.email) {
         console.log('Updating B2B employee state to active (skip goals)');
         if (b2bEmployeeData.sourceTable === 'test_2_employees') {
-          const {
-            error: b2bUpdateError
-          } = await supabase.from('test_2_employees').update({
-            state: 'active',
-            email: user.email // Ensure email is set
-          }).eq('employee_id', b2bEmployeeData.employeeId).eq('b2b_partner_name', b2bEmployeeData.employerName);
+          const { error: b2bUpdateError } = await supabase.rpc('update_test2_employee_contact', {
+            _b2b_partner_name: b2bEmployeeData.employerName,
+            _employee_id: b2bEmployeeData.employeeId,
+            _email: user.email,
+            _user_id: user.id,
+          });
           if (b2bUpdateError) {
             console.error('Error updating B2B employee state:', b2bUpdateError);
             // Don't throw error here as the main profile save was successful

@@ -1347,6 +1347,12 @@ export type Database = {
         }
         Returns: undefined
       }
+      search_test2_employer_names: {
+        Args: { _query: string; _limit?: number }
+        Returns: {
+          name: string
+        }[]
+      }
       update_all_exercise_goal_completions: {
         Args: { target_month?: string }
         Returns: undefined
@@ -1363,6 +1369,15 @@ export type Database = {
         Args: { target_user_id: string; target_month?: string }
         Returns: undefined
       }
+      update_test2_employee_contact: {
+        Args: {
+          _b2b_partner_name: string
+          _employee_id: string
+          _email: string
+          _user_id?: string
+        }
+        Returns: boolean
+      }
       update_weekly_exercise_goals_for_month: {
         Args: { target_user_id: string; target_month_year: string }
         Returns: undefined
@@ -1374,6 +1389,10 @@ export type Database = {
           target_week_end: string
         }
         Returns: undefined
+      }
+      verify_test2_employee: {
+        Args: { _b2b_partner_name: string; _employee_id: string }
+        Returns: boolean
       }
     }
     Enums: {

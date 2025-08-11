@@ -23,38 +23,28 @@ export const useB2BEmployeeVerification = () => {
     try {
       console.log('Searching for employers with query:', query);
       
-      const { data: partners, error: partnersError } = await supabase
-        .from('B2B_partners')
-        .select('name')
-        .ilike('name', `%${query}%`)
-        .limit(10);
+      const [
+        { data: employees, error: employeesError },
+        { data: testNames, error: rpcError }
+      ] = await Promise.all([
+        supabase
+          .from('b2b_employees')
+          .select('b2b_partner_name')
+          .ilike('b2b_partner_name', `%${query}%`)
+          .limit(10),
+        supabase.rpc('search_test2_employer_names', { _query: query, _limit: 10 })
+      ]);
 
-      const { data: employees, error: employeesError } = await supabase
-        .from('b2b_employees')
-        .select('b2b_partner_name')
-        .ilike('b2b_partner_name', `%${query}%`)
-        .limit(10);
-
-      const { data: testEmployees, error: testEmployeesError } = await supabase
-        .from('test_2_employees')
-        .select('b2b_partner_name')
-        .ilike('b2b_partner_name', `%${query}%`)
-        .limit(10);
-
-      if (partnersError) {
-        console.error('Error searching partners:', partnersError);
-      }
       if (employeesError) {
         console.error('Error searching employees:', employeesError);
       }
-      if (testEmployeesError) {
-        console.error('Error searching test employees:', testEmployeesError);
+      if (rpcError) {
+        console.error('Error searching test employer names:', rpcError);
       }
 
-      const partnerNames = partners?.map(p => p.name) || [];
       const employeePartnerNames = employees?.map(e => e.b2b_partner_name) || [];
-      const testEmployeeNames = testEmployees?.map((e: any) => e.b2b_partner_name) || [];
-      const allNames = [...new Set([...partnerNames, ...employeePartnerNames, ...testEmployeeNames])];
+      const testEmployeeNames = (Array.isArray(testNames) ? testNames : []).map((r: any) => r.name) || [];
+      const allNames = [...new Set([...employeePartnerNames, ...testEmployeeNames])];
       
       console.log('Found employers:', allNames);
       setEmployers(allNames);
@@ -102,21 +92,20 @@ export const useB2BEmployeeVerification = () => {
         employee_id: idToVerify
       });
 
-      const [{ data, error }, { data: testData, error: testError }] = await Promise.all([
+      const [{ data, error }, { data: testVerified, error: testError }] = await Promise.all([
         supabase
           .from('b2b_employees')
           .select('*')
           .eq('b2b_partner_name', nameToVerify)
           .eq('employee_id', idToVerify),
-        supabase
-          .from('test_2_employees')
-          .select('*')
-          .eq('b2b_partner_name', nameToVerify)
-          .eq('employee_id', idToVerify)
+        supabase.rpc('verify_test2_employee', {
+          _b2b_partner_name: nameToVerify,
+          _employee_id: idToVerify,
+        })
       ]);
 
       console.log('Verification query executed');
-      console.log('Query result data:', data, testData);
+      console.log('Query result data:', data, testVerified);
       console.log('Query result error:', error, testError);
 
       if (error && testError) {
@@ -130,8 +119,13 @@ export const useB2BEmployeeVerification = () => {
         });
         return;
       }
-      const record = data && data.length > 0 ? { entry: data[0], table: 'b2b_employees' } :
-        testData && testData.length > 0 ? { entry: testData[0], table: 'test_2_employees' } : null;
+
+      let record: any = null;
+      if (data && data.length > 0) {
+        record = { entry: data[0], table: 'b2b_employees' };
+      } else if (testVerified === true) {
+        record = { entry: { b2b_partner_name: nameToVerify, employee_id: idToVerify }, table: 'test_2_employees' };
+      }
 
       if (!record) {
         console.log('=== VERIFICATION FAILED ===');
@@ -151,7 +145,10 @@ export const useB2BEmployeeVerification = () => {
         setVerifiedEmployeeRecord({ ...(employeeRecord as any), sourceTable: record.table });
         toast({
           title: "Overenie úspešné",
-          description: `Údaje boli úspešne overené pre ${(employeeRecord as any).first_name} ${(employeeRecord as any).last_name}`,
+          description:
+            (employeeRecord as any).first_name && (employeeRecord as any).last_name
+              ? `Údaje boli úspešne overené pre ${(employeeRecord as any).first_name} ${(employeeRecord as any).last_name}`
+              : "Údaje boli úspešne overené",
         });
       }
     } catch (error) {
@@ -197,12 +194,14 @@ export const useB2BEmployeeVerification = () => {
       }
       
       if (table === 'test_2_employees') {
-        const { error } = await supabase
-          .from('test_2_employees')
-          .update(updateData)
-          .eq('id', verifiedEmployeeRecord.id);
+        const { error } = await supabase.rpc('update_test2_employee_contact', {
+          _b2b_partner_name: (verifiedEmployeeRecord as any).b2b_partner_name || (verifiedEmployeeRecord as any).employerName,
+          _employee_id: (verifiedEmployeeRecord as any).employee_id || (verifiedEmployeeRecord as any).employeeId,
+          _email: userEmail,
+          _user_id: userId || null,
+        });
         if (error) {
-          console.error('Error updating employee email and status:', error);
+          console.error('Error updating employee email and status via RPC:', error);
         }
       } else {
         const { error } = await supabase

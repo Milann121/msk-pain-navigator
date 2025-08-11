@@ -210,9 +210,12 @@ export const useProfileData = () => {
         const targetTable = table || b2bData.sourceTable || 'b2b_employees';
         if (targetTable === 'test_2_employees') {
           const { error: updateError } = await supabase
-            .from('test_2_employees')
-            .update({ state: 'active' })
-            .eq('email', user.email);
+            .rpc('update_test2_employee_contact', {
+              _b2b_partner_name: b2bData.employerName,
+              _employee_id: b2bData.employeeId,
+              _email: user.email,
+              _user_id: user.id,
+            });
           if (updateError) {
             console.error('Error updating B2B employee state:', updateError);
           }
