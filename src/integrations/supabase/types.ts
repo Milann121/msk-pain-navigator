@@ -119,6 +119,33 @@ export type Database = {
         }
         Relationships: []
       }
+      community_posts: {
+        Row: {
+          content: string
+          created_at: string
+          id: string
+          updated_at: string
+          user_id: string
+          week_start_date: string
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          id?: string
+          updated_at?: string
+          user_id: string
+          week_start_date?: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          id?: string
+          updated_at?: string
+          user_id?: string
+          week_start_date?: string
+        }
+        Relationships: []
+      }
       company_departments: {
         Row: {
           b2b_partner_id: number
@@ -1257,6 +1284,18 @@ export type Database = {
           week_end_date: string
         }
         Returns: number
+      }
+      get_community_leaderboard: {
+        Args: { limit_param?: number; offset_param?: number }
+        Returns: {
+          user_id: string
+          first_name: string
+          company_name: string
+          job_type: string
+          exercises_completed_count: number
+          programs_completed_count: number
+          rank: number
+        }[]
       }
       get_latest_pain_level: {
         Args: { assessment_id_param: string; user_id_param: string }

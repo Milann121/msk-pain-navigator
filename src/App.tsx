@@ -28,7 +28,7 @@ import YogaProgram from "./pages/YogaProgram";
 import CookieConsent from "./components/CookieConsent";
 import PrototypeNotification from "./components/PrototypeNotification";
 import GaPageViews from "@/components/analytics/GaPageViews";
-
+import Community from "./pages/Community";
 // Create QueryClient instance outside of component to prevent recreation
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -66,6 +66,7 @@ const App: React.FC = () => (
           <Route path="/orebro-questionnaire" element={<OrebroQuestionnaire />} />
           <Route path="/orebro-result" element={<OrebroResult />} />
           <Route path="/psfs-questionnaire" element={<PsfsQuestionnaire />} />
+          <Route path="/community" element={<Community />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
