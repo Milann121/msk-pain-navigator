@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
-import { Trash2 } from "lucide-react";
+import { Trash2, ArrowUp, ArrowDown } from "lucide-react";
 import ReactionsBar, { ReactionType } from "@/components/community/ReactionsBar";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -55,6 +55,9 @@ const Community: React.FC = () => {
   // Reactions state
   const [reactionCounts, setReactionCounts] = useState<Record<string, { like: number; feel: number; angry: number }>>({});
   const [myReactions, setMyReactions] = useState<Record<string, ReactionType | null>>({});
+  const [showAbout, setShowAbout] = useState(false);
+  const [myRank, setMyRank] = useState<number | null>(null);
+  const [rankTrend, setRankTrend] = useState<"up" | "down" | null>(null);
 
   // Color variants for week posts using design tokens
   const colorVariants = [
@@ -68,9 +71,9 @@ const Community: React.FC = () => {
   };
 
   useEffect(() => {
-    document.title = "Community Leaderboard | Pebee";
+    document.title = "Community | Pebee";
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", "Community leaderboard across companies with weekly posts");
+    if (meta) meta.setAttribute("content", "Share how you feel, achievements, and support the community with your weekly status.");
   }, []);
 
   useEffect(() => {
@@ -189,6 +192,38 @@ const handleDelete = async () => {
     load();
   }, [posts, me]);
 
+  // Compute my rank and daily movement (from yesterday)
+  useEffect(() => {
+    if (!me) {
+      setMyRank(null);
+      setRankTrend(null);
+      return;
+    }
+    const current = rows.find((r) => r.user_id === me)?.rank ?? null;
+    setMyRank(current ?? null);
+    try {
+      const today = new Date();
+      const yesterday = new Date(today);
+      yesterday.setDate(today.getDate() - 1);
+      const prevKey = `community_rank_${yesterday.toISOString().slice(0, 10)}`;
+      const prevRankStr = typeof window !== 'undefined' ? localStorage.getItem(prevKey) : null;
+      const prevRank = prevRankStr ? parseInt(prevRankStr, 10) : null;
+
+      if (current && prevRank) {
+        if (current < prevRank) setRankTrend("up");
+        else if (current > prevRank) setRankTrend("down");
+        else setRankTrend(null);
+      } else {
+        setRankTrend(null);
+      }
+
+      const todayKey = `community_rank_${today.toISOString().slice(0, 10)}`;
+      if (current && typeof window !== 'undefined') localStorage.setItem(todayKey, String(current));
+    } catch (e) {
+      // ignore storage errors
+    }
+  }, [rows, me]);
+
   const handleReact = async (postId: string, type: ReactionType) => {
     if (!me) {
       toast.error("Please sign in to react");
@@ -229,7 +264,35 @@ const handleDelete = async () => {
       <Header />
       <main className="flex-1 container mx-auto px-4 py-8">
         <h1 className="text-2xl font-semibold mb-4">Community</h1>
-        <p className="text-muted-foreground mb-6">Global leaderboard across all companies. Share your weekly status with everyone.</p>
+        <div className="mb-4 md:mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <p className="text-muted-foreground">
+            Share how do you feel, your achievements or support the community with your weekly status.
+          </p>
+          <div className="flex items-center gap-3">
+            <div className="w-20 h-20 rounded-md border bg-muted/30 flex items-center justify-center">
+              <span className="text-3xl font-bold leading-none">{myRank ?? "–"}</span>
+            </div>
+            {rankTrend === "up" && <ArrowUp className="h-6 w-6 text-primary" aria-label="Rank up" />}
+            {rankTrend === "down" && <ArrowDown className="h-6 w-6 text-destructive" aria-label="Rank down" />}
+          </div>
+        </div>
+        <div className="mb-6">
+          <Button size="sm" variant="outline" onClick={() => setShowAbout((v) => !v)}>
+            About Community
+          </Button>
+          {showAbout && (
+            <div className="mt-2 rounded-md border bg-muted/30 p-3 text-sm space-y-3">
+              <div>
+                <h3 className="font-medium">What is the purpose of the Community?</h3>
+                <p>Healthcare is hard, to receive a good care even harder and to get what you deserve: unattainable! But we have each other, so let's support each other with posts, reactions to each others ideas and feelings. The purpose is to support each other.</p>
+              </div>
+              <div>
+                <h3 className="font-medium">How to rank higher?</h3>
+                <p>Engage with our fitness programs or your therapeutic programs. This engagement will creates records which sums together and ranks you higher!</p>
+              </div>
+            </div>
+          )}
+        </div>
 
         {loading ? (
           <div className="py-10">Loading...</div>
