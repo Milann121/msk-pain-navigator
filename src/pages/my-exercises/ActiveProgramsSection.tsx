@@ -32,7 +32,7 @@ export const ActiveProgramsSection: React.FC<ActiveProgramsSectionProps> = ({
   const {
     t
   } = useTranslation();
-  return <Card className="mb-6 px-0">
+  return <Card id="active-programs" className="mb-6 px-0">
       <CardHeader>
         <div className="flex items-center gap-2">
           <span className="relative flex items-center">

@@ -73,7 +73,7 @@ export const NotificationArea = () => {
   }, []);
   if (loading) return null;
   const handleProgressClick = () => {
-    navigate('/my-exercises');
+    navigate('/my-exercises#active-programs');
   };
   const handleOrebroClick = () => {
     navigate('/orebro-questionnaire');

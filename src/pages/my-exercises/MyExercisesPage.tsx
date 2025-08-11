@@ -2,7 +2,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "@/contexts/AuthContext";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useNavigate, useLocation } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
@@ -21,6 +21,7 @@ import { SectionCards } from "@/components/SectionCards";
 export const MyExercisesPage = () => {
   const { user, isLoading } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
   const { t } = useTranslation();
   const { assessments, loading, handleDeleteAssessment, refreshAssessments } = useAssessments();
   const [selectedAssessment, setSelectedAssessment] = React.useState<UserAssessment | null>(null);
@@ -61,6 +62,18 @@ export const MyExercisesPage = () => {
       window.removeEventListener('program-ended', handleProgramEnded as unknown as EventListener);
     };
   }, [refreshAssessments]);
+
+  // Scroll to Active Programs when navigated with hash
+  React.useEffect(() => {
+    if (location.hash === '#active-programs') {
+      const el = document.getElementById('active-programs');
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 0);
+      }
+    }
+  }, [location]);
 
   const handleOpenFollowUp = (assessment: UserAssessment) => {
     setSelectedAssessment(assessment);
