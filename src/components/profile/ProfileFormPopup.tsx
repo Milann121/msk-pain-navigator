@@ -458,12 +458,12 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
             console.log('B2B employee state updated to active');
           }
         } else {
-          const {
-            error: b2bUpdateError
-          } = await supabase.from('b2b_employees').update({
-            state: 'active',
-            email: user.email // Ensure email is set
-          }).eq('employee_id', b2bEmployeeData.employeeId).eq('b2b_partner_name', b2bEmployeeData.employerName);
+          const { error: b2bUpdateError } = await supabase.rpc('update_b2b_employee_contact', {
+            _b2b_partner_name: b2bEmployeeData.employerName,
+            _employee_id: b2bEmployeeData.employeeId,
+            _email: user.email,
+            _user_id: user.id,
+          });
           if (b2bUpdateError) {
             console.error('Error updating B2B employee state:', b2bUpdateError);
             // Don't throw error here as the main profile save was successful
@@ -549,12 +549,12 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
             console.log('B2B employee state updated to active (skip goals)');
           }
         } else {
-          const {
-            error: b2bUpdateError
-          } = await supabase.from('b2b_employees').update({
-            state: 'active',
-            email: user.email // Ensure email is set
-          }).eq('employee_id', b2bEmployeeData.employeeId).eq('b2b_partner_name', b2bEmployeeData.employerName);
+          const { error: b2bUpdateError } = await supabase.rpc('update_b2b_employee_contact', {
+            _b2b_partner_name: b2bEmployeeData.employerName,
+            _employee_id: b2bEmployeeData.employeeId,
+            _email: user.email,
+            _user_id: user.id,
+          });
           if (b2bUpdateError) {
             console.error('Error updating B2B employee state:', b2bUpdateError);
             // Don't throw error here as the main profile save was successful

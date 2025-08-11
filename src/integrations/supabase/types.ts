@@ -1347,6 +1347,12 @@ export type Database = {
         }
         Returns: undefined
       }
+      search_b2b_employer_names: {
+        Args: { _query: string; _limit?: number }
+        Returns: {
+          name: string
+        }[]
+      }
       search_test2_employer_names: {
         Args: { _query: string; _limit?: number }
         Returns: {
@@ -1360,6 +1366,15 @@ export type Database = {
       update_all_weekly_goal_completions: {
         Args: { target_week_start?: string }
         Returns: undefined
+      }
+      update_b2b_employee_contact: {
+        Args: {
+          _b2b_partner_name: string
+          _employee_id: string
+          _email: string
+          _user_id?: string
+        }
+        Returns: boolean
       }
       update_department_pain_trends: {
         Args: Record<PropertyKey, never>
@@ -1389,6 +1404,10 @@ export type Database = {
           target_week_end: string
         }
         Returns: undefined
+      }
+      verify_b2b_employee: {
+        Args: { _b2b_partner_name: string; _employee_id: string }
+        Returns: boolean
       }
       verify_test2_employee: {
         Args: { _b2b_partner_name: string; _employee_id: string }
