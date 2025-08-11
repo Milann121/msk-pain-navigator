@@ -241,7 +241,7 @@ const handleDelete = async () => {
                 <p className="text-muted-foreground text-sm">Sign in to share your weekly update.</p>
               ) : (
                 editMode || !myPost ? (
-                  {isMobile ? (
+                  isMobile ? (
                     <div className="space-y-2">
                       <Input
                         placeholder="Share your weekly update (max 280)"
@@ -275,7 +275,7 @@ const handleDelete = async () => {
                     </div>
                   )
                 ) : (
-                  {isMobile ? (
+                  isMobile ? (
                     <div className="space-y-2">
                       <div className={`px-3 py-2 rounded-md border ${colorFor(myPost.user_id)}`}>
                         <span className="text-sm">{myPost.content}</span>
