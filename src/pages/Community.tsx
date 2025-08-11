@@ -216,7 +216,7 @@ const Community: React.FC = () => {
                   const post = posts.find((p) => p.user_id === r.user_id) || null;
                   return (
                     <React.Fragment key={r.user_id}>
-                      <TableRow>
+                      <TableRow className="border-b-0">
                         <TableCell>{r.rank}</TableCell>
                         <TableCell>{r.first_name || "–"}</TableCell>
                         <TableCell>{r.company_name || "–"}</TableCell>
