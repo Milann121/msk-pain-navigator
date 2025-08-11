@@ -9,6 +9,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 import { Trash2 } from "lucide-react";
 import ReactionsBar, { ReactionType } from "@/components/community/ReactionsBar";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface LeaderboardRow {
   user_id: string;
@@ -45,13 +46,13 @@ const Community: React.FC = () => {
   const [posts, setPosts] = useState<CommunityPost[]>([]);
   const [editMode, setEditMode] = useState(false);
   const weekStart = useMemo(() => getWeekStartISO(), []);
+  const isMobile = useIsMobile();
 
   const me = user?.id ?? null;
   const myPost = posts.find((p) => p.user_id === me);
   const [postDraft, setPostDraft] = useState("");
 
   // Reactions state
-  const [expandedPostId, setExpandedPostId] = useState<string | null>(null);
   const [reactionCounts, setReactionCounts] = useState<Record<string, { like: number; feel: number; angry: number }>>({});
   const [myReactions, setMyReactions] = useState<Record<string, ReactionType | null>>({});
 
@@ -240,30 +241,63 @@ const handleDelete = async () => {
                 <p className="text-muted-foreground text-sm">Sign in to share your weekly update.</p>
               ) : (
                 editMode || !myPost ? (
-                  <div className="flex items-center gap-2">
-                    <Input
-                      placeholder="Share your weekly update (max 280)"
-                      value={postDraft}
-                      onChange={(e) => setPostDraft(e.target.value.slice(0, 280))}
-                    />
-                    <Button size="sm" onClick={handlePost}>Post</Button>
-                    <Button size="sm" variant="secondary" onClick={() => { setEditMode(false); setPostDraft(myPost?.content || ""); }}>Cancel</Button>
-                    {myPost ? (
+                  {isMobile ? (
+                    <div className="space-y-2">
+                      <Input
+                        placeholder="Share your weekly update (max 280)"
+                        value={postDraft}
+                        onChange={(e) => setPostDraft(e.target.value.slice(0, 280))}
+                      />
+                      <div className="flex items-center gap-2">
+                        <Button size="sm" onClick={handlePost}>Post</Button>
+                        <Button size="sm" variant="secondary" onClick={() => { setEditMode(false); setPostDraft(myPost?.content || ""); }}>Cancel</Button>
+                        {myPost ? (
+                          <Button size="icon" variant="ghost" onClick={handleDelete} aria-label="Delete post">
+                            <Trash2 className="w-4 h-4" />
+                          </Button>
+                        ) : null}
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="flex items-center gap-2">
+                      <Input
+                        placeholder="Share your weekly update (max 280)"
+                        value={postDraft}
+                        onChange={(e) => setPostDraft(e.target.value.slice(0, 280))}
+                      />
+                      <Button size="sm" onClick={handlePost}>Post</Button>
+                      <Button size="sm" variant="secondary" onClick={() => { setEditMode(false); setPostDraft(myPost?.content || ""); }}>Cancel</Button>
+                      {myPost ? (
+                        <Button size="icon" variant="ghost" onClick={handleDelete} aria-label="Delete post">
+                          <Trash2 className="w-4 h-4" />
+                        </Button>
+                      ) : null}
+                    </div>
+                  )
+                ) : (
+                  {isMobile ? (
+                    <div className="space-y-2">
+                      <div className={`px-3 py-2 rounded-md border ${colorFor(myPost.user_id)}`}>
+                        <span className="text-sm">{myPost.content}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Button size="sm" variant="outline" onClick={() => setEditMode(true)}>Edit</Button>
+                        <Button size="icon" variant="ghost" onClick={handleDelete} aria-label="Delete post">
+                          <Trash2 className="w-4 h-4" />
+                        </Button>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="flex items-center gap-2">
+                      <div className={`px-3 py-2 rounded-md border ${colorFor(myPost.user_id)}`}>
+                        <span className="text-sm">{myPost.content}</span>
+                      </div>
+                      <Button size="sm" variant="outline" onClick={() => setEditMode(true)}>Edit</Button>
                       <Button size="icon" variant="ghost" onClick={handleDelete} aria-label="Delete post">
                         <Trash2 className="w-4 h-4" />
                       </Button>
-                    ) : null}
-                  </div>
-                ) : (
-                  <div className="flex items-center gap-2">
-                    <div className={`px-3 py-2 rounded-md border ${colorFor(myPost.user_id)}`}>
-                      <span className="text-sm">{myPost.content}</span>
                     </div>
-                    <Button size="sm" variant="outline" onClick={() => setEditMode(true)}>Edit</Button>
-                    <Button size="icon" variant="ghost" onClick={handleDelete} aria-label="Delete post">
-                      <Trash2 className="w-4 h-4" />
-                    </Button>
-                  </div>
+                  )
                 )
               )}
             </section>
@@ -278,7 +312,6 @@ const handleDelete = async () => {
                   <TableHead>Job type</TableHead>
                   <TableHead className="text-right">Exercises</TableHead>
                   <TableHead className="text-right">Programs</TableHead>
-                  <TableHead>Week post</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -293,24 +326,20 @@ const handleDelete = async () => {
                         <TableCell>{r.job_type || "–"}</TableCell>
                         <TableCell className="text-right">{r.exercises_completed_count}</TableCell>
                         <TableCell className="text-right">{r.programs_completed_count}</TableCell>
-                        <TableCell>—</TableCell>
                       </TableRow>
                       {post?.content ? (
                         <TableRow>
-                          <TableCell colSpan={7}>
+                          <TableCell colSpan={6}>
                             <div
-                              className={`rounded-md border p-3 cursor-pointer ${colorFor(r.rank)}`}
-                              onClick={() => setExpandedPostId(expandedPostId === post.id ? null : post.id)}
+                              className={`rounded-md border p-3 ${colorFor(r.rank)}`}
                             >
                               <p className="text-sm whitespace-pre-wrap">{post.content}</p>
                             </div>
-                            {expandedPostId === post.id && (
-                              <ReactionsBar
-                                counts={reactionCounts[post.id] || { like: 0, feel: 0, angry: 0 }}
-                                myReaction={myReactions[post.id] || null}
-                                onReact={(t) => handleReact(post.id, t)}
-                              />
-                            )}
+                            <ReactionsBar
+                              counts={reactionCounts[post.id] || { like: 0, feel: 0, angry: 0 }}
+                              myReaction={myReactions[post.id] || null}
+                              onReact={(t) => handleReact(post.id, t)}
+                            />
                           </TableCell>
                         </TableRow>
                       ) : null}
