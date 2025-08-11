@@ -1409,6 +1409,10 @@ export type Database = {
         Args: { _b2b_partner_name: string; _employee_id: string }
         Returns: boolean
       }
+      verify_hr_manager: {
+        Args: { _email: string; _manager_id: string }
+        Returns: boolean
+      }
       verify_test2_employee: {
         Args: { _b2b_partner_name: string; _employee_id: string }
         Returns: boolean
