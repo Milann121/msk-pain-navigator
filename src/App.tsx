@@ -42,43 +42,66 @@ const queryClient = new QueryClient({
   },
 });
 
-const App: React.FC = () => (
-  <QueryClientProvider client={queryClient}>
-    <BrowserRouter>
-      <AuthProvider>
-        <Suspense fallback={null}>
-          <PrototypeNotification />
-          <Toaster />
-          <Sonner />
-          <GaPageViews />
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/auth" element={<Auth />} />
-            <Route path="/domov" element={<Domov />} />
-            <Route path="/speech-history" element={<SpeechHistoryPage />} />
-            <Route path="/assessment" element={<Assessment />} />
-            <Route path="/exercise-plan" element={<ExercisePlan />} />
-            <Route path="/my-exercises" element={<MyExercises />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/stretching" element={<Stretching />} />
-            <Route path="/stretching/:programId" element={<StretchingProgram />} />
-            <Route path="/strength" element={<Strength />} />
-            <Route path="/strength/:programId" element={<StrengthProgram />} />
-            <Route path="/yoga" element={<Yoga />} />
-            <Route path="/yoga/:programId" element={<YogaProgram />} />
-            <Route path="/orebro-questionnaire" element={<OrebroQuestionnaire />} />
-            <Route path="/orebro-result" element={<OrebroResult />} />
-            <Route path="/psfs-questionnaire" element={<PsfsQuestionnaire />} />
-            <Route path="/community" element={<Community />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <CookieConsent />
-        </Suspense>
-      </AuthProvider>
-    </BrowserRouter>
-  </QueryClientProvider>
-);
+const App: React.FC = () => {
+  const [idle, setIdle] = React.useState(false);
+
+  React.useEffect(() => {
+    const onIdle = () => setIdle(true);
+    // @ts-ignore - requestIdleCallback is not in TS lib by default
+    if (typeof window !== 'undefined' && typeof window.requestIdleCallback === 'function') {
+      // @ts-ignore
+      const id = window.requestIdleCallback(onIdle, { timeout: 2000 });
+      return () => {
+        // @ts-ignore
+        if (typeof window.cancelIdleCallback === 'function') {
+          // @ts-ignore
+          window.cancelIdleCallback(id);
+        }
+      };
+    } else {
+      const timeout = window.setTimeout(onIdle, 1500);
+      return () => window.clearTimeout(timeout);
+    }
+  }, []);
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <AuthProvider>
+          <Suspense fallback={null}>
+            {idle && <PrototypeNotification />}
+            <Toaster />
+            <Sonner />
+            {idle && <GaPageViews />}
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/auth" element={<Auth />} />
+              <Route path="/domov" element={<Domov />} />
+              <Route path="/speech-history" element={<SpeechHistoryPage />} />
+              <Route path="/assessment" element={<Assessment />} />
+              <Route path="/exercise-plan" element={<ExercisePlan />} />
+              <Route path="/my-exercises" element={<MyExercises />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/stretching" element={<Stretching />} />
+              <Route path="/stretching/:programId" element={<StretchingProgram />} />
+              <Route path="/strength" element={<Strength />} />
+              <Route path="/strength/:programId" element={<StrengthProgram />} />
+              <Route path="/yoga" element={<Yoga />} />
+              <Route path="/yoga/:programId" element={<YogaProgram />} />
+              <Route path="/orebro-questionnaire" element={<OrebroQuestionnaire />} />
+              <Route path="/orebro-result" element={<OrebroResult />} />
+              <Route path="/psfs-questionnaire" element={<PsfsQuestionnaire />} />
+              <Route path="/community" element={<Community />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+            {idle && <CookieConsent />}
+          </Suspense>
+        </AuthProvider>
+      </BrowserRouter>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
