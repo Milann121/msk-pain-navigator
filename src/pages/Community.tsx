@@ -324,7 +324,10 @@ const Community: React.FC = () => {
             {t('community.description')}
           </p>
           <div className="flex items-center gap-3">
-            <RankSquare rank={myRank} />
+            <div className="flex flex-col items-center">
+              <span className="text-xs text-muted-foreground mb-1">Your rank:</span>
+              <RankSquare rank={myRank} />
+            </div>
             {rankTrend === "up" && <ArrowUp className="h-6 w-6 text-primary" aria-label="Rank up" />}
             {rankTrend === "down" && <ArrowDown className="h-6 w-6 text-destructive" aria-label="Rank down" />}
           </div>
