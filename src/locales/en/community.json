@@ -20,6 +20,7 @@
   "signInToReact": "Please sign in to react",
   "boardCaption": "This week’s community board",
   "loading": "Loading...",
+  "yourRank": "Your rank:",
   "table": {
     "rank": "Rank",
     "firstName": "First name",

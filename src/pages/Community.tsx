@@ -325,7 +325,7 @@ const Community: React.FC = () => {
           </p>
           <div className="flex items-center gap-3">
             <div className="flex flex-col items-center">
-              <span className="text-xs text-muted-foreground mb-1">Your rank:</span>
+              <span className="text-xs text-muted-foreground mb-1">{t('community.yourRank')}</span>
               <RankSquare rank={myRank} />
             </div>
             {rankTrend === "up" && <ArrowUp className="h-6 w-6 text-primary" aria-label="Rank up" />}
