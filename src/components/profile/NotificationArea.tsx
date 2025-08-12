@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { TrendingUp, Brain, Activity, MessageSquare, MessageCircle, Video, Mic, X, Check, ListChecks } from 'lucide-react';
+import { TrendingUp, Brain, Activity, MessageSquare, MessageCircle, Video, Mic, X, Check, ListChecks, Medal } from 'lucide-react';
 import { useWeeklyGoalStatus } from '@/hooks/useWeeklyGoalStatus';
 import { useNotificationReminders } from '@/hooks/useNotificationReminders';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -83,6 +83,9 @@ export const NotificationArea = () => {
   };
   const handleFunctionalActivitiesClick = () => {
     navigate('/my-exercises#favorite-activities');
+  };
+  const handleCommunityClick = () => {
+    navigate('/community');
   };
   const handleWhatsAppClick = () => {
     setIsWhatsAppExpanded(!isWhatsAppExpanded);
@@ -210,6 +213,28 @@ export const NotificationArea = () => {
       {/* Light vertical divider */}
       <div className="w-px h-6 bg-black" />
 
+      {/* Community Icon */}
+      <button onClick={handleCommunityClick} className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100" aria-label="Community">
+        <Medal className="w-5 h-5 text-blue-600" />
+      </button>
+
+      {/* WhatsApp Contact Icon */}
+      <div className="relative flex items-center" ref={whatsAppButtonRef}>
+        <button onClick={handleWhatsAppClick} className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100" aria-label="WhatsApp Contact">
+          <MessageSquare className="w-5 h-5 text-green-500" />
+        </button>
+
+        {/* Expandable Contact Options */}
+        <div className={`absolute left-full ml-2 flex items-center gap-2 transition-all duration-300 ease-out ${isWhatsAppExpanded ? 'translate-x-0 opacity-100 pointer-events-auto' : 'translate-x-[-20px] opacity-0 pointer-events-none'}`}>
+          <button onClick={handleWhatsAppChat} className="flex items-center justify-center w-8 h-8 rounded-full bg-green-500 hover:bg-green-600 transition-colors duration-200" aria-label="WhatsApp Chat">
+            <MessageCircle className="w-4 h-4 text-white" />
+          </button>
+          <button onClick={handleWhatsAppVideo} className="flex items-center justify-center w-8 h-8 rounded-full bg-green-500 hover:bg-green-600 transition-colors duration-200" aria-label="WhatsApp Video Call">
+            <Video className="w-4 h-4 text-white" />
+          </button>
+        </div>
+      </div>
+
       {/* Speech Recording Icon */}
       <div className="relative flex flex-col items-center">
         <button onClick={handleSpeechRecordingClick} className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100 ${isRecording ? 'bg-red-100 breathing-icon' : ''} ${showRecordingActions ? 'opacity-50 cursor-not-allowed' : ''}`} aria-label="Voice Recording" disabled={showRecordingActions}>
@@ -230,23 +255,6 @@ export const NotificationArea = () => {
               <Check className="w-3 h-3 text-white" />
             </button>
           </div>}
-      </div>
-
-      {/* WhatsApp Contact Icon */}
-      <div className="relative flex items-center" ref={whatsAppButtonRef}>
-        <button onClick={handleWhatsAppClick} className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100" aria-label="WhatsApp Contact">
-          <MessageSquare className="w-5 h-5 text-green-500" />
-        </button>
-
-        {/* Expandable Contact Options */}
-        <div className={`absolute left-full ml-2 flex items-center gap-2 transition-all duration-300 ease-out ${isWhatsAppExpanded ? 'translate-x-0 opacity-100 pointer-events-auto' : 'translate-x-[-20px] opacity-0 pointer-events-none'}`}>
-          <button onClick={handleWhatsAppChat} className="flex items-center justify-center w-8 h-8 rounded-full bg-green-500 hover:bg-green-600 transition-colors duration-200" aria-label="WhatsApp Chat">
-            <MessageCircle className="w-4 h-4 text-white" />
-          </button>
-          <button onClick={handleWhatsAppVideo} className="flex items-center justify-center w-8 h-8 rounded-full bg-green-500 hover:bg-green-600 transition-colors duration-200" aria-label="WhatsApp Video Call">
-            <Video className="w-4 h-4 text-white" />
-          </button>
-        </div>
       </div>
     </div>;
   return <div className="py-px px-px rounded-none bg-slate-50">
