@@ -22,7 +22,6 @@ export const useB2BEmployeeVerification = () => {
 
     try {
       console.log('Searching for employers with query:', query);
-      
       const [
         { data: b2bNames, error: b2bRpcError },
         { data: testNames, error: testRpcError }
@@ -31,22 +30,31 @@ export const useB2BEmployeeVerification = () => {
         supabase.rpc('search_test2_employer_names', { _query: query, _limit: 10 })
       ]);
 
-      if (b2bRpcError) {
-        console.error('Error searching b2b employer names:', b2bRpcError);
-      }
-      if (testRpcError) {
-        console.error('Error searching test employer names:', testRpcError);
+      if (b2bRpcError || testRpcError) {
+        console.error('Employer search RPC error(s):', b2bRpcError, testRpcError);
+        const msg = (b2bRpcError?.message || testRpcError?.message || '').toLowerCase();
+        if (msg.includes('permission') || msg.includes('execute')) {
+          toast({
+            title: 'Chyba oprávnení',
+            description: 'Vyhľadávanie zamestnávateľov nie je momentálne dostupné.',
+            variant: 'destructive',
+          });
+          setEmployers([]);
+          setShowEmployerDropdown(false);
+          return;
+        }
       }
 
       const b2bPartnerNames = (Array.isArray(b2bNames) ? b2bNames : []).map((r: any) => r.name) || [];
       const testEmployeeNames = (Array.isArray(testNames) ? testNames : []).map((r: any) => r.name) || [];
       const allNames = [...new Set([...b2bPartnerNames, ...testEmployeeNames])];
-      
+
       console.log('Found employers:', allNames);
       setEmployers(allNames);
       setShowEmployerDropdown(allNames.length > 0);
     } catch (error) {
       console.error('Error searching employers:', error);
+      toast({ title: 'Chyba', description: 'Vyhľadávanie zlyhalo.', variant: 'destructive' });
     }
   };
 
@@ -79,9 +87,9 @@ export const useB2BEmployeeVerification = () => {
     console.log('Starting verification for:', { nameToVerify, idToVerify });
     setIsVerifyingEmployee(true);
     
+    const normalizeBool = (v: any) => v === true || v === 'true' || v === 1;
+    
     try {
-      // Now perform the actual verification query
-      // The new policies allow anonymous access for verification
       console.log('=== PERFORMING VERIFICATION QUERY ===');
       console.log('Query parameters:', {
         b2b_partner_name: nameToVerify,
@@ -106,22 +114,34 @@ export const useB2BEmployeeVerification = () => {
       console.log('Query result data:', b2bVerified, testVerified);
       console.log('Query result error:', b2bError, testError);
 
+      const errMsg = (b2bError?.message || testError?.message || '').toLowerCase();
+      if (errMsg.includes('permission') || errMsg.includes('execute')) {
+        toast({
+          title: 'Chyba oprávnení',
+          description: 'Overenie nie je momentálne dostupné. Skúste to prosím neskôr.',
+          variant: 'destructive',
+        });
+        setIsEmployeeVerified(false);
+        setVerifiedEmployeeRecord(null);
+        return;
+      }
+
       if (b2bError && testError) {
         console.error('Database error during verification:', b2bError, testError);
         setIsEmployeeVerified(false);
         setVerifiedEmployeeRecord(null);
         toast({
-          title: "Databázová chyba",
-          description: "Vyskytla sa chyba pri overovaní údajov",
-          variant: "destructive",
+          title: 'Databázová chyba',
+          description: 'Vyskytla sa chyba pri overovaní údajov',
+          variant: 'destructive',
         });
         return;
       }
 
       let record: any = null;
-      if (b2bVerified === true) {
+      if (normalizeBool(b2bVerified)) {
         record = { entry: { b2b_partner_name: nameToVerify, employee_id: idToVerify }, table: 'b2b_employees' };
-      } else if (testVerified === true) {
+      } else if (normalizeBool(testVerified)) {
         record = { entry: { b2b_partner_name: nameToVerify, employee_id: idToVerify }, table: 'test_2_employees' };
       }
 
@@ -131,9 +151,9 @@ export const useB2BEmployeeVerification = () => {
         setIsEmployeeVerified(false);
         setVerifiedEmployeeRecord(null);
         toast({
-          title: "Overenie neúspešné",
-          description: "Údaje sa nezhodujú so záznamami v databáze. Skontrolujte názov zamestnávateľa a ID zamestnanca.",
-          variant: "destructive",
+          title: 'Overenie neúspešné',
+          description: 'Údaje sa nezhodujú so záznamami v databáze. Skontrolujte názov zamestnávateľa a ID zamestnanca.',
+          variant: 'destructive',
         });
       } else {
         const employeeRecord = record.entry;
@@ -142,8 +162,8 @@ export const useB2BEmployeeVerification = () => {
         setIsEmployeeVerified(true);
         setVerifiedEmployeeRecord({ ...(employeeRecord as any), sourceTable: record.table });
         toast({
-          title: "Overenie úspešné",
-          description: "Údaje boli úspešne overené",
+          title: 'Overenie úspešné',
+          description: 'Údaje boli úspešne overené',
         });
       }
     } catch (error) {
@@ -152,9 +172,9 @@ export const useB2BEmployeeVerification = () => {
       setIsEmployeeVerified(false);
       setVerifiedEmployeeRecord(null);
       toast({
-        title: "Chyba overenia",
-        description: "Vyskytla sa neočakávaná chyba pri overovaní",
-        variant: "destructive",
+        title: 'Chyba overenia',
+        description: 'Vyskytla sa neočakávaná chyba pri overovaní',
+        variant: 'destructive',
       });
     } finally {
       setIsVerifyingEmployee(false);
