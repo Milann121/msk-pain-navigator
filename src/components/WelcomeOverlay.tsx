@@ -34,11 +34,16 @@ const WelcomeOverlay = () => {
       {/* Current overlay image */}
       <div className="w-full">
         <div className="w-full h-full min-h-[400px] relative">
-          <img
-            src="/lovable-uploads/2nd-overlay.png"
-            alt={t('welcome.alt.mobileApps')}
-            className="w-full h-full object-cover object-center"
-          />
+          <picture>
+            <source srcSet="/lovable-uploads/2nd-overlay.webp" type="image/webp" />
+            <img
+              src="/lovable-uploads/2nd-overlay.png"
+              alt={t('welcome.alt.mobileApps')}
+              className="w-full h-full object-cover object-center"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
         </div>
       </div>
 
@@ -57,11 +62,16 @@ const WelcomeOverlay = () => {
       {/* Third image with full width and text overlay on the right */}
       <div className="w-full bg-blue-50 relative">
         <div className="w-full h-full min-h-[400px] relative">
-          <img
-            src="/lovable-uploads/16d5e659-d4bc-4980-b090-fc7512bd2ace.png"
-            alt={t('welcome.alt.calendar')}
-            className="w-full h-full object-cover object-center"
-          />
+          <picture>
+            <source srcSet="/lovable-uploads/16d5e659-d4bc-4980-b090-fc7512bd2ace.webp" type="image/webp" />
+            <img
+              src="/lovable-uploads/16d5e659-d4bc-4980-b090-fc7512bd2ace.png"
+              alt={t('welcome.alt.calendar')}
+              className="w-full h-full object-cover object-center"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
           {/* Text overlay positioned on the right */}
           <div className="absolute inset-0 flex items-center justify-end px-4 md:px-8">
             <div className="bg-white/90 backdrop-blur-sm p-6 md:p-8 rounded-lg shadow-lg max-w-md md:max-w-lg space-y-4 mr-4 md:mr-8">
@@ -77,11 +87,16 @@ const WelcomeOverlay = () => {
       {/* Fourth image with full width and text overlay on the left */}
       <div className="w-full relative">
         <div className="w-full h-full min-h-[400px] relative">
-          <img
-            src="/lovable-uploads/133826c0-fff0-4a91-91fe-4e633b6f23ae.png"
-            alt={t('welcome.alt.programs')}
-            className="w-full h-full object-cover object-center"
-          />
+          <picture>
+            <source srcSet="/lovable-uploads/133826c0-fff0-4a91-91fe-4e633b6f23ae.webp" type="image/webp" />
+            <img
+              src="/lovable-uploads/133826c0-fff0-4a91-91fe-4e633b6f23ae.png"
+              alt={t('welcome.alt.programs')}
+              className="w-full h-full object-cover object-center"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
           {/* Text overlay positioned on the left */}
           <div className="absolute inset-0 flex items-center justify-start px-4 md:px-8">
             <div className="bg-white/90 backdrop-blur-sm p-6 md:p-8 rounded-lg shadow-lg max-w-md md:max-w-lg space-y-4 ml-4 md:ml-8">
@@ -97,11 +112,16 @@ const WelcomeOverlay = () => {
       {/* Fifth image with full width and text overlay on the right */}
       <div className="w-full bg-blue-50 relative">
         <div className="w-full h-full min-h-[400px] relative">
-          <img
-            src="/lovable-uploads/a78217f7-b4cf-44a8-932b-c3bb5b7ad2a0.png"
-            alt={t('welcome.alt.assessment')}
-            className="w-full h-full object-cover object-center"
-          />
+          <picture>
+            <source srcSet="/lovable-uploads/a78217f7-b4cf-44a8-932b-c3bb5b7ad2a0.webp" type="image/webp" />
+            <img
+              src="/lovable-uploads/a78217f7-b4cf-44a8-932b-c3bb5b7ad2a0.png"
+              alt={t('welcome.alt.assessment')}
+              className="w-full h-full object-cover object-center"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
           {/* Text overlay positioned on the right */}
           <div className="absolute inset-0 flex items-center justify-end px-4 md:px-8">
             <div className="bg-white/90 backdrop-blur-sm p-6 md:p-8 rounded-lg shadow-lg max-w-md md:max-w-lg space-y-4 mr-4 md:mr-8">

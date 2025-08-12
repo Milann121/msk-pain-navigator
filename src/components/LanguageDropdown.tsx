@@ -49,11 +49,15 @@ const LanguageDropdown = () => {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className={buttonClasses}>
-          <img 
-            src={currentLanguage.flag} 
-            alt={currentLanguage.name}
-            className="w-5 h-4 object-cover rounded-sm"
-          />
+          <picture>
+            <source srcSet={currentLanguage.flag.replace('.png', '.webp')} type="image/webp" />
+            <img 
+              src={currentLanguage.flag} 
+              alt={currentLanguage.name}
+              className="w-5 h-4 object-cover rounded-sm"
+              decoding="async"
+            />
+          </picture>
           <span>{currentLanguage.name}</span>
           <ChevronDown className={`h-4 w-4 ${iconColor}`} />
         </Button>
@@ -65,11 +69,15 @@ const LanguageDropdown = () => {
             onClick={() => handleLanguageChange(language.code)}
             className="flex items-center gap-3 px-3 py-2 hover:bg-gray-100 cursor-pointer"
           >
-            <img 
-              src={language.flag} 
-              alt={language.name}
-              className="w-5 h-4 object-cover rounded-sm flex-shrink-0"
-            />
+            <picture>
+              <source srcSet={language.flag.replace('.png', '.webp')} type="image/webp" />
+              <img 
+                src={language.flag} 
+                alt={language.name}
+                className="w-5 h-4 object-cover rounded-sm flex-shrink-0"
+                decoding="async"
+              />
+            </picture>
             <span className="text-sm font-medium">{language.name}</span>
           </DropdownMenuItem>
         ))}
