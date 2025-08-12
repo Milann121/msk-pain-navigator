@@ -2,26 +2,33 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Hotjar Tracking Code for https://www.pebeetherapist.com/ -->
+    <!-- Delay non-critical analytics to improve TTI -->
     <script>
-        (function(h,o,t,j,a,r){
-            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-            h._hjSettings={hjid:6473333,hjsv:6};
-            a=o.getElementsByTagName('head')[0];
-            r=o.createElement('script');r.async=1;
-            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-            a.appendChild(r);
-        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-    </script>
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z9CDCPTGQ6"></script>
-    <script>
+      // Setup dataLayer and gtag function placeholder
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-Z9CDCPTGQ6', { send_page_view: false });
+      function gtag(){ dataLayer.push(arguments); }
+
+      // Load GA and Hotjar after the page is fully loaded to avoid blocking interactivity
+      window.addEventListener('load', () => {
+        // Google Analytics
+        const ga = document.createElement('script');
+        ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-Z9CDCPTGQ6';
+        ga.async = true;
+        document.head.appendChild(ga);
+
+        gtag('js', new Date());
+        gtag('config', 'G-Z9CDCPTGQ6', { send_page_view: false });
+
+        // Hotjar
+        (function(h,o,t,j,a,r){
+          h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+          h._hjSettings={hjid:6473333,hjsv:6};
+          a=o.getElementsByTagName('head')[0];
+          r=o.createElement('script');r.async=1;
+          r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+          a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+      });
     </script>
       
     <meta charset="UTF-8" />
