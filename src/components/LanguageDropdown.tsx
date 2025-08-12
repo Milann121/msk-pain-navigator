@@ -16,21 +16,9 @@ const LanguageDropdown = () => {
   const isAuthPage = location.pathname === '/auth';
 
   const languages = [
-    {
-      code: 'sk',
-      name: 'SK',
-      flag: '/lovable-uploads/603332be-d99c-428d-af60-0062a83a4b91.png'
-    },
-    {
-      code: 'cs', 
-      name: 'CZ',
-      flag: '/lovable-uploads/2b0f850b-8374-47d7-bc43-d873e567633c.png'
-    },
-    {
-      code: 'en',
-      name: 'EN', 
-      flag: '/lovable-uploads/91a2e77e-23cc-4f3f-86b1-80408efea7ad.png'
-    }
+    { code: 'sk', name: 'SK' },
+    { code: 'cs', name: 'CZ', flag: '/lovable-uploads/languageImages/czech-republic-flag-icon.svg' },
+    { code: 'en', name: 'EN', flag: '/lovable-uploads/languageImages/united-kingdom-flag-icon.svg' },
   ];
 
   const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
@@ -49,15 +37,14 @@ const LanguageDropdown = () => {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className={buttonClasses}>
-          <picture>
-            <source srcSet={currentLanguage.flag.replace('.png', '.webp')} type="image/webp" />
-            <img 
-              src={currentLanguage.flag} 
-              alt={currentLanguage.name}
+          {currentLanguage.flag && (
+            <img
+              src={currentLanguage.flag}
+              alt={`${currentLanguage.name} flag`}
               className="w-5 h-4 object-cover rounded-sm"
               decoding="async"
             />
-          </picture>
+          )}
           <span>{currentLanguage.name}</span>
           <ChevronDown className={`h-4 w-4 ${iconColor}`} />
         </Button>
@@ -69,15 +56,14 @@ const LanguageDropdown = () => {
             onClick={() => handleLanguageChange(language.code)}
             className="flex items-center gap-3 px-3 py-2 hover:bg-gray-100 cursor-pointer"
           >
-            <picture>
-              <source srcSet={language.flag.replace('.png', '.webp')} type="image/webp" />
+            {language.flag && (
               <img 
                 src={language.flag} 
-                alt={language.name}
+                alt={`${language.name} flag`}
                 className="w-5 h-4 object-cover rounded-sm flex-shrink-0"
                 decoding="async"
               />
-            </picture>
+            )}
             <span className="text-sm font-medium">{language.name}</span>
           </DropdownMenuItem>
         ))}
