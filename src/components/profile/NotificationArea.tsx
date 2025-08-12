@@ -192,12 +192,12 @@ export const NotificationArea = () => {
   const iconContainer = <div className="flex items-center justify-center gap-6 min-w-max px-2 touch-pan-x">
       {/* Weekly Progress Icon */}
       {showProgressIcon && <button onClick={handleProgressClick} className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100 ${!isGoalMet ? 'breathing-icon' : ''}`} aria-label="Weekly Progress">
-          <TrendingUp className="w-5 h-5 text-black" />
+          <TrendingUp className="w-5 h-5 text-teal-600" />
         </button>}
 
       {/* Functional Activities Icon */}
       <button onClick={handleFunctionalActivitiesClick} className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:bg-gray-100 ${shouldBreatheFavorite ? 'breathing-icon' : ''}`} aria-label="Functional Activities">
-        <ListChecks className="w-5 h-5 text-orange-600" />
+        <ListChecks className="w-5 h-5 text-orange-500" />
       </button>
 
       {/* OREBRO Brain Icon */}
