@@ -1358,6 +1358,26 @@ export type Database = {
         Args: { target_date: string; target_month_year: string }
         Returns: number
       }
+      hr_get_msk_summary: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          department_id: string
+          department_name: string
+          employee_count: number
+          avg_initial_pain: number
+          avg_pain_improvement: number
+        }[]
+      }
+      hr_get_orebro_summary: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          department_id: string
+          department_name: string
+          responses_count: number
+          avg_total_score: number
+          risk_counts: Json
+        }[]
+      }
       is_hr_manager: {
         Args: { user_id: string }
         Returns: boolean
