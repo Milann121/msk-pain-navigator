@@ -1,6 +1,6 @@
 
 import { useEffect, useRef } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -122,9 +122,11 @@ const AssessmentContent = () => {
 
 const Assessment = () => {
   console.log('🚀 Assessment component mounted');
+  const [searchParams] = useSearchParams();
+  const shouldInitFromPsfs = searchParams.get('psfs') === '1';
   
   return (
-    <AssessmentProvider>
+    <AssessmentProvider shouldInitFromPsfs={shouldInitFromPsfs}>
       <AssessmentContent />
     </AssessmentProvider>
   );

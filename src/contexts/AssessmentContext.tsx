@@ -54,11 +54,11 @@ export const useAssessment = () => {
   return context;
 };
 
-export const AssessmentProvider = ({ children }: { children: ReactNode }) => {
-  // Check for PSFS context on initialization
+export const AssessmentProvider = ({ children, shouldInitFromPsfs = false }: { children: ReactNode; shouldInitFromPsfs?: boolean }) => {
+  // Check for PSFS context on initialization, gated by URL flag
   const initializePsfsAssessment = () => {
     const psfsContextStr = sessionStorage.getItem('psfsAssessmentContext');
-    if (psfsContextStr) {
+    if (shouldInitFromPsfs && psfsContextStr) {
       try {
         const psfsContext = JSON.parse(psfsContextStr);
         if (psfsContext.isPsfsAssessment && psfsContext.userInfo) {
@@ -70,6 +70,9 @@ export const AssessmentProvider = ({ children }: { children: ReactNode }) => {
       } catch (error) {
         console.error('Error parsing PSFS context:', error);
       }
+    } else if (psfsContextStr && !shouldInitFromPsfs) {
+      // Clear stale PSFS context if user navigated here without the flag
+      sessionStorage.removeItem('psfsAssessmentContext');
     }
     return {
       stage: AssessmentStage.UserInfo,
@@ -104,6 +107,8 @@ export const AssessmentProvider = ({ children }: { children: ReactNode }) => {
     setResults(null);
     setAssessmentId(null);
     setAssessmentSaved(false);
+    // Clear any PSFS context on restart to avoid unintended auto-skip
+    sessionStorage.removeItem('psfsAssessmentContext');
   };
 
   return (
