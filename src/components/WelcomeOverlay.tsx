@@ -36,8 +36,8 @@ const WelcomeOverlay = () => {
       <div className="w-full">
         <div className="w-full h-full min-h-[420px] md:min-h-[560px] relative">
           <ImageWithFallback
-            webpSrc="/lovable-uploads/2nd-overlay.webp"
-            fallbackSrc="/lovable-uploads/2nd-overlay.png"
+            webpSrc="/lovable-uploads/WelcomePageImages/mainOverlayImage.svg"
+            fallbackSrc="/lovable-uploads/WelcomePageImages/mainOverlayImage.svg"
             alt={t('welcome.alt.mobileApps')}
             className="w-full h-full object-cover object-center"
             loading="eager"
@@ -62,8 +62,8 @@ const WelcomeOverlay = () => {
       <div className="w-full bg-blue-50 relative">
         <div className="w-full h-full min-h-[420px] md:min-h-[560px] relative">
           <ImageWithFallback
-            webpSrc="/lovable-uploads/16d5e659-d4bc-4980-b090-fc7512bd2ace.webp"
-            fallbackSrc="/lovable-uploads/16d5e659-d4bc-4980-b090-fc7512bd2ace.png"
+            webpSrc="/lovable-uploads/WelcomePageImages/9.svg"
+            fallbackSrc="/lovable-uploads/WelcomePageImages/9.svg"
             alt={t('welcome.alt.calendar')}
             className="w-full h-full object-cover object-center"
             loading="lazy"
@@ -85,8 +85,8 @@ const WelcomeOverlay = () => {
       <div className="w-full relative">
         <div className="w-full h-full min-h-[420px] md:min-h-[560px] relative">
           <ImageWithFallback
-            webpSrc="/lovable-uploads/133826c0-fff0-4a91-91fe-4e633b6f23ae.webp"
-            fallbackSrc="/lovable-uploads/133826c0-fff0-4a91-91fe-4e633b6f23ae.png"
+            webpSrc="/lovable-uploads/WelcomePageImages/10.svg"
+            fallbackSrc="/lovable-uploads/WelcomePageImages/10.svg"
             alt={t('welcome.alt.programs')}
             className="w-full h-full object-cover object-center"
             loading="lazy"
@@ -108,8 +108,8 @@ const WelcomeOverlay = () => {
       <div className="w-full bg-blue-50 relative">
         <div className="w-full h-full min-h-[420px] md:min-h-[560px] relative">
           <ImageWithFallback
-            webpSrc="/lovable-uploads/a78217f7-b4cf-44a8-932b-c3bb5b7ad2a0.webp"
-            fallbackSrc="/lovable-uploads/a78217f7-b4cf-44a8-932b-c3bb5b7ad2a0.png"
+            webpSrc="/lovable-uploads/WelcomePageImages/11.svg"
+            fallbackSrc="/lovable-uploads/WelcomePageImages/11.svg"
             alt={t('welcome.alt.assessment')}
             className="w-full h-full object-cover object-center"
             loading="lazy"
