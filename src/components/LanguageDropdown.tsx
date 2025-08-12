@@ -16,7 +16,7 @@ const LanguageDropdown = () => {
   const isAuthPage = location.pathname === '/auth';
 
   const languages = [
-    { code: 'sk', name: 'SK' },
+    { code: 'sk', name: 'SK', flag: '/lovable-uploads/languageImages/slovakia-flag-icon.svg' },
     { code: 'cs', name: 'CZ', flag: '/lovable-uploads/languageImages/czech-republic-flag-icon.svg' },
     { code: 'en', name: 'EN', flag: '/lovable-uploads/languageImages/united-kingdom-flag-icon.svg' },
   ];
