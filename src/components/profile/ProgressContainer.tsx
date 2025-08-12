@@ -26,7 +26,7 @@ export const ProgressContainer = ({ weeklyExerciseGoal, weeklyBlogGoal, onGoalUp
     <Card className="mb-6">
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
-          <TrendingUp className="h-5 w-5" />
+          <TrendingUp className="h-5 w-5 text-teal-600" />
           {t('home.progressTitle')}
         </CardTitle>
       </CardHeader>
