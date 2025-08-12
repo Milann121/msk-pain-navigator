@@ -192,7 +192,7 @@ export const FileUploadSection: React.FC = () => {
           )}
 
           {/* History Section - Moved inside Upload Documents for mobile */}
-          <div className="space-y-4">
+            <div className="space-y-4 md:hidden">
             <h3 className="text-lg font-semibold">{t('assessment.fileUpload.history.title')}</h3>
             <div className="border rounded-lg overflow-hidden">
               <div className="bg-gray-50 p-3 border-b">
