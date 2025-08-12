@@ -13,6 +13,7 @@
     "delete-user": "ts-node scripts/deleteUser.ts"
   },
   "dependencies": {
+    "@emoji-mart/data": "^1.2.1",
     "@hookform/resolvers": "^3.9.0",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-alert-dialog": "^1.1.1",
@@ -51,6 +52,7 @@
     "cmdk": "^1.0.0",
     "date-fns": "^3.6.0",
     "embla-carousel-react": "^8.3.0",
+    "emoji-picker-react": "^4.13.2",
     "google-spreadsheet": "^3.3.0",
     "i18next": "^23.7.4",
     "i18next-browser-languagedetector": "^7.0.1",

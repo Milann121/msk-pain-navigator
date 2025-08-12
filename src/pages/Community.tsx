@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -13,6 +13,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { useTranslation } from 'react-i18next';
 import RankMedal from "@/components/community/RankMedal";
 import RankSquare from "@/components/community/RankSquare";
+import { EmojiPickerButton } from "@/components/community/EmojiPicker";
 interface LeaderboardRow {
   user_id: string;
   first_name: string | null;
@@ -54,6 +55,8 @@ const Community: React.FC = () => {
   const me = user?.id ?? null;
   const myPost = posts.find(p => p.user_id === me);
   const [postDraft, setPostDraft] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [cursorPos, setCursorPos] = useState<number | null>(null);
 
   // Reactions state
   const [reactionCounts, setReactionCounts] = useState<Record<string, {
@@ -176,6 +179,27 @@ const Community: React.FC = () => {
     setPostDraft("");
     setEditMode(false);
     await refreshPosts();
+  };
+
+  const handleCursorUpdate = () => {
+    const input = inputRef.current;
+    setCursorPos(input?.selectionStart ?? null);
+  };
+
+  const handleEmojiInsert = (emoji: string) => {
+    const input = inputRef.current;
+    const pos = (cursorPos ?? input?.selectionStart ?? postDraft.length) as number;
+    const before = postDraft.slice(0, pos);
+    const after = postDraft.slice(pos);
+    const next = (before + emoji + after).slice(0, 280);
+    setPostDraft(next);
+    requestAnimationFrame(() => {
+      input?.focus();
+      try {
+        const newPos = Math.min(pos + emoji.length, next.length);
+        input?.setSelectionRange(newPos, newPos);
+      } catch {}
+    });
   };
 
   // Load reactions for current posts
@@ -352,8 +376,18 @@ const Community: React.FC = () => {
             <section className="rounded-lg border bg-muted/30 p-4 py-[35px]">
               <h2 className="mb-2 text-lg font-semibold">{t('community.weeklyPostTitle')}</h2>
               {!user ? <p className="text-muted-foreground text-sm">{t('community.signInPrompt')}</p> : editMode || !myPost ? isMobile ? <div className="space-y-2">
-                      <Input placeholder={t('community.weeklyPostPlaceholder')} value={postDraft} onChange={e => setPostDraft(e.target.value.slice(0, 280))} />
+                      <Input 
+                        ref={inputRef}
+                        placeholder={t('community.weeklyPostPlaceholder')}
+                        value={postDraft}
+                        onChange={e => setPostDraft(e.target.value.slice(0, 280))}
+                        onClick={handleCursorUpdate}
+                        onKeyUp={handleCursorUpdate}
+                        onSelect={handleCursorUpdate}
+                        onFocus={handleCursorUpdate}
+                      />
                       <div className="flex items-center gap-2">
+                        <EmojiPickerButton onSelect={handleEmojiInsert} ariaLabel="Insert emoji" />
                         <Button size="sm" onClick={handlePost}>{t('community.post')}</Button>
                         <Button size="sm" variant="secondary" onClick={() => {
                 setEditMode(false);
@@ -364,7 +398,17 @@ const Community: React.FC = () => {
                           </Button> : null}
                       </div>
                     </div> : <div className="flex items-center gap-2">
-                      <Input placeholder={t('community.weeklyPostPlaceholder')} value={postDraft} onChange={e => setPostDraft(e.target.value.slice(0, 280))} />
+                      <Input 
+                        ref={inputRef}
+                        placeholder={t('community.weeklyPostPlaceholder')}
+                        value={postDraft}
+                        onChange={e => setPostDraft(e.target.value.slice(0, 280))}
+                        onClick={handleCursorUpdate}
+                        onKeyUp={handleCursorUpdate}
+                        onSelect={handleCursorUpdate}
+                        onFocus={handleCursorUpdate}
+                      />
+                      <EmojiPickerButton onSelect={handleEmojiInsert} ariaLabel="Insert emoji" />
                       <Button size="sm" onClick={handlePost}>{t('community.post')}</Button>
                       <Button size="sm" variant="secondary" onClick={() => {
               setEditMode(false);
