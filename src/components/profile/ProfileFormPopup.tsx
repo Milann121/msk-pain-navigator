@@ -625,10 +625,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     defaultLanguage: profileData.defaultLanguage !== '',
     isValid: isProfileValid
   });
-  // Use a non-modal dialog so portaled components like Select remain interactive
-  // inside the profile form. Without this, the Select content is rendered outside
-  // the dialog and becomes inert, preventing the Department dropdown from opening.
-  return <Dialog open={isOpen} onOpenChange={() => {}} modal={false}>
+  return <Dialog open={isOpen} onOpenChange={() => {}}>
       <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
         <DialogHeader className="text-center">
           <DialogTitle className="text-xl font-semibold">{t('profile.profileForm.title')}</DialogTitle>
