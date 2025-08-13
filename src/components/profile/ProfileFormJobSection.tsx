@@ -39,7 +39,7 @@ export const ProfileFormJobSection: React.FC<ProfileFormJobSectionProps> = ({
   const [jobProperties, setJobProperties] = useState<JobProperty[]>([]);
 const [loading, setLoading] = useState(true);
 const shouldUsePassedDepartments = passedDepartments !== undefined;
-const availableDepartments = shouldUsePassedDepartments ? passedDepartments : departments;
+const availableDepartments = shouldUsePassedDepartments ? (passedDepartments || []) : departments;
   useEffect(() => {
     const loadData = async () => {
       if (!user) return;
