@@ -34,7 +34,7 @@ const WelcomeOverlay = () => {
       
       {/* Current overlay image */}
       <div className="w-full">
-        <div className="w-full h-full min-h-[420px] md:min-h-[560px] relative">
+        <div className="w-full h-full min-h-[420px] md:min-h-[280px] relative">
           <ImageWithFallback
             webpSrc="/lovable-uploads/WelcomePageImages/mainOverlayImage.svg"
             fallbackSrc="/lovable-uploads/WelcomePageImages/mainOverlayImage.svg"
