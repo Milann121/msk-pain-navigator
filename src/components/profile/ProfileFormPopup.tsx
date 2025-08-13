@@ -10,6 +10,7 @@ import { ProfileFormJobSection } from './ProfileFormJobSection';
 import { ProfileFormGoals } from './ProfileFormGoals';
 import { ProfileFormButtons } from './ProfileFormButtons';
 import { LanguageSelector } from './LanguageSelector';
+import { ProfileFavoriteActivitiesAccordion } from './ProfileFavoriteActivitiesAccordion';
 import therapyImage from '@/assets/receptionImage.png';
 
 interface ProfileFormPopupProps {
@@ -629,6 +630,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
           jobProperties: profileData.jobProperties
         }} onChange={handleJobSectionChange} />
 
+          <ProfileFavoriteActivitiesAccordion />
           {/* Goals Section */}
           <ProfileFormGoals data={goalsData} onChange={handleGoalChange} />
 
