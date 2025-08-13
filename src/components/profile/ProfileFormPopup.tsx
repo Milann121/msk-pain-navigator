@@ -684,13 +684,13 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
   });
   return <Dialog open={isOpen} onOpenChange={() => {}}>
       <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto [&>button]:hidden">
-        <DialogHeader className="text-center relative">
-          <DialogTitle className="text-xl font-semibold">{t('profile.profileForm.title')}</DialogTitle>
+        <DialogHeader className="flex flex-row items-center justify-between sm:text-center sm:relative sm:block">
+          <DialogTitle className="text-xl font-semibold text-left sm:text-center">{t('profile.profileForm.title')}</DialogTitle>
           <Button 
             variant="ghost" 
             size="sm"
             onClick={handleSignOut}
-            className="absolute right-0 top-0 text-sm"
+            className="text-sm sm:absolute sm:right-0 sm:top-0"
           >
             {t('navigation.header.signOut')}
           </Button>
