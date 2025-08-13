@@ -38,8 +38,7 @@ export const ProfileFormJobSection: React.FC<ProfileFormJobSectionProps> = ({
   const [departments, setDepartments] = useState<Department[]>([]);
   const [jobProperties, setJobProperties] = useState<JobProperty[]>([]);
 const [loading, setLoading] = useState(true);
-const shouldUsePassedDepartments = passedDepartments !== undefined;
-const availableDepartments = shouldUsePassedDepartments ? passedDepartments : departments;
+const availableDepartments = (passedDepartments && passedDepartments.length > 0) ? passedDepartments : departments;
   useEffect(() => {
     const loadData = async () => {
       if (!user) return;
@@ -48,44 +47,26 @@ const availableDepartments = shouldUsePassedDepartments ? passedDepartments : de
         console.log('🔍 [ProfileFormJobSection] Loading job properties...');
 
         // Only fetch departments if not passed from parent
-        if (!shouldUsePassedDepartments) {
+        if (!passedDepartments || passedDepartments.length === 0) {
           console.log('🏬 [ProfileFormJobSection] No departments passed from parent, fetching locally...');
           
-          // First get user's b2b_partner_id from their profile
-          const { data: userProfile } = await supabase
-            .from('user_profiles')
-            .select('b2b_partner_id')
-            .eq('user_id', user.id)
-            .single();
+          const {
+            data: companyDepartments,
+            error: deptError
+          } = await supabase.from('company_departments').select('id, department_name').order('department_name');
           
-          if (userProfile?.b2b_partner_id) {
-            console.log('🔍 [ProfileFormJobSection] Found user b2b_partner_id:', userProfile.b2b_partner_id);
-            
-            const {
-              data: companyDepartments,
-              error: deptError
-            } = await supabase
-              .from('company_departments')
-              .select('id, department_name')
-              .eq('b2b_partner_id', userProfile.b2b_partner_id)
-              .order('department_name');
-            
-            console.log('🏬 [ProfileFormJobSection] Department query result:', {
-              data: companyDepartments,
-              error: deptError,
-              count: companyDepartments?.length || 0
-            });
-            
-            if (deptError) {
-              console.error('❌ [ProfileFormJobSection] Department query error:', deptError);
-            }
-            setDepartments(companyDepartments || []);
-          } else {
-            console.log('⚠️ [ProfileFormJobSection] No b2b_partner_id found for user, cannot fetch departments');
-            setDepartments([]);
+          console.log('🏬 [ProfileFormJobSection] Department query result:', {
+            data: companyDepartments,
+            error: deptError,
+            count: companyDepartments?.length || 0
+          });
+          
+          if (deptError) {
+            console.error('❌ [ProfileFormJobSection] Department query error:', deptError);
           }
+          setDepartments(companyDepartments || []);
         } else {
-          console.log('✅ [ProfileFormJobSection] Using departments passed from parent:', passedDepartments?.length || 0, 'departments');
+          console.log('✅ [ProfileFormJobSection] Using departments passed from parent:', passedDepartments.length, 'departments');
         }
 
         // Load all job properties
@@ -124,7 +105,7 @@ const availableDepartments = shouldUsePassedDepartments ? passedDepartments : de
               <SelectValue placeholder={t('profile.jobSection.departmentPlaceholder')} />
             </SelectTrigger>
             <SelectContent className="z-[100] bg-background">{(availableDepartments || []).length === 0 ? (
-                <SelectItem value="no-departments" disabled>
+                <SelectItem value="" disabled>
                   {t('profile.jobSection.noDepartments', 'No departments available for your company. Contact HR.')}
                 </SelectItem>
               ) : (
