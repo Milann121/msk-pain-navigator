@@ -1390,6 +1390,10 @@ export type Database = {
         Args: { user_id_param: string }
         Returns: boolean
       }
+      is_valid_b2b_employee: {
+        Args: { target_user_id: string }
+        Returns: number
+      }
       populate_all_weekly_exercise_goals: {
         Args: Record<PropertyKey, never>
         Returns: undefined
