@@ -38,7 +38,8 @@ export const ProfileFormJobSection: React.FC<ProfileFormJobSectionProps> = ({
   const [departments, setDepartments] = useState<Department[]>([]);
   const [jobProperties, setJobProperties] = useState<JobProperty[]>([]);
 const [loading, setLoading] = useState(true);
-const availableDepartments = (passedDepartments && passedDepartments.length > 0) ? passedDepartments : departments;
+const shouldUsePassedDepartments = passedDepartments !== undefined;
+const availableDepartments = shouldUsePassedDepartments ? passedDepartments : departments;
   useEffect(() => {
     const loadData = async () => {
       if (!user) return;
@@ -47,7 +48,7 @@ const availableDepartments = (passedDepartments && passedDepartments.length > 0)
         console.log('🔍 [ProfileFormJobSection] Loading job properties...');
 
         // Only fetch departments if not passed from parent
-        if (!passedDepartments || passedDepartments.length === 0) {
+        if (!shouldUsePassedDepartments) {
           console.log('🏬 [ProfileFormJobSection] No departments passed from parent, fetching locally...');
           
           const {
@@ -66,7 +67,7 @@ const availableDepartments = (passedDepartments && passedDepartments.length > 0)
           }
           setDepartments(companyDepartments || []);
         } else {
-          console.log('✅ [ProfileFormJobSection] Using departments passed from parent:', passedDepartments.length, 'departments');
+          console.log('✅ [ProfileFormJobSection] Using departments passed from parent:', passedDepartments?.length || 0, 'departments');
         }
 
         // Load all job properties
