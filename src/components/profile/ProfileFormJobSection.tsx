@@ -128,11 +128,13 @@ const availableDepartments = shouldUsePassedDepartments ? passedDepartments : de
                   {t('profile.jobSection.noDepartments', 'No departments available for your company. Contact HR.')}
                 </SelectItem>
               ) : (
-                (availableDepartments || []).map(dept => (
-                  <SelectItem key={dept.id} value={dept.id}>
-                    {dept.department_name}
-                  </SelectItem>
-                ))
+                (availableDepartments || [])
+                  .filter(dept => dept.id && dept.id.trim() !== '') // Filter out empty IDs
+                  .map(dept => (
+                    <SelectItem key={dept.id} value={dept.id}>
+                      {dept.department_name}
+                    </SelectItem>
+                  ))
               )}
             </SelectContent>
           </Select>
