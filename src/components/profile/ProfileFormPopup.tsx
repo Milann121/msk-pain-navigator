@@ -692,7 +692,7 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
             onClick={handleSignOut}
             className="text-sm sm:absolute sm:right-0 sm:top-0"
           >
-            {t('navigation.header.signOut')}
+            {t('header.signOut')}
           </Button>
         </DialogHeader>
         
