@@ -8,19 +8,19 @@ export const SectionCards = () => {
   const sections = [{
     title: t('sections.blog'),
     route: "/blog",
-    imageUrl: "/lovable-uploads/my_exercisePage_containers/13.png"
+    imageUrl: "/lovable-uploads/fitnessProgramsImages/blogReadingImage.svg"
   }, {
     title: t('sections.stretching'),
     route: "/stretching",
-    imageUrl: "/lovable-uploads/my_exercisePage_containers/1.png"
+    imageUrl: "/lovable-uploads/fitnessProgramsImages/stretchingImage.svg"
   }, {
     title: t('sections.strength'),
     route: "/strength",
-    imageUrl: "/lovable-uploads/my_exercisePage_containers/5.png"
+    imageUrl: "/lovable-uploads/fitnessProgramsImages/strengthImage.svg"
   }, {
     title: t('sections.yoga'),
     route: "/yoga",
-    imageUrl: "/lovable-uploads/my_exercisePage_containers/11.png"
+    imageUrl: "/lovable-uploads/fitnessProgramsImages/yogaImage.svg"
   }];
   return <div className="mb-6">
       {/* Desktop view */}
