@@ -14,6 +14,7 @@ interface JobSectionData {
 interface ProfileFormJobSectionProps {
   data: JobSectionData;
   onChange: (field: keyof JobSectionData, value: string | string[]) => void;
+  departments?: Department[];
 }
 interface Department {
   id: string;
@@ -25,7 +26,8 @@ interface JobProperty {
 }
 export const ProfileFormJobSection: React.FC<ProfileFormJobSectionProps> = ({
   data,
-  onChange
+  onChange,
+  departments: passedDepartments
 }) => {
   const {
     t
@@ -35,7 +37,8 @@ export const ProfileFormJobSection: React.FC<ProfileFormJobSectionProps> = ({
   } = useAuth();
   const [departments, setDepartments] = useState<Department[]>([]);
   const [jobProperties, setJobProperties] = useState<JobProperty[]>([]);
-  const [loading, setLoading] = useState(true);
+const [loading, setLoading] = useState(true);
+const availableDepartments = (passedDepartments && passedDepartments.length > 0) ? passedDepartments : departments;
   useEffect(() => {
     const loadData = async () => {
       if (!user) return;
@@ -80,21 +83,27 @@ export const ProfileFormJobSection: React.FC<ProfileFormJobSectionProps> = ({
   }
   return <div className="space-y-6">
       {/* Department Selection */}
-      {departments.length > 0 && <div className="space-y-2">
+      <div className="space-y-2">
           <Label className="text-base font-medium rounded-md">
             {t('profile.jobSection.department')} <span className="text-red-500">*</span>
           </Label>
-          <Select value={data.departmentId} onValueChange={value => onChange('departmentId', value)}>
+          <Select 
+            value={data.departmentId} 
+            onValueChange={value => onChange('departmentId', value)}
+            disabled={(availableDepartments?.length || 0) === 0}
+          >
             <SelectTrigger>
               <SelectValue placeholder={t('profile.jobSection.departmentPlaceholder')} />
             </SelectTrigger>
-            <SelectContent>
-              {departments.map(dept => <SelectItem key={dept.id} value={dept.id}>
+            <SelectContent className="z-50">
+              {(availableDepartments || []).map(dept => (
+                <SelectItem key={dept.id} value={dept.id}>
                   {dept.department_name}
-                </SelectItem>)}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
-        </div>}
+        </div>
 
       {/* Job Type Selection */}
       <div className="space-y-2">

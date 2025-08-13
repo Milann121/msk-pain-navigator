@@ -623,11 +623,15 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         }} onChange={handleInputChange} />
 
           {/* Job Section */}
-          <ProfileFormJobSection data={{
-          departmentId: profileData.departmentId,
-          jobType: profileData.jobType,
-          jobProperties: profileData.jobProperties
-        }} onChange={handleJobSectionChange} />
+          <ProfileFormJobSection 
+            data={{
+              departmentId: profileData.departmentId,
+              jobType: profileData.jobType,
+              jobProperties: profileData.jobProperties
+            }} 
+            onChange={handleJobSectionChange}
+            departments={departments}
+          />
 
           {/* Goals Section */}
           <ProfileFormGoals data={goalsData} onChange={handleGoalChange} />
