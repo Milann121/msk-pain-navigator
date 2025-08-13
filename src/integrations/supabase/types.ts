@@ -1403,6 +1403,15 @@ export type Database = {
         }
         Returns: boolean
       }
+      link_verified_employee_to_user: {
+        Args: {
+          _employee_record_id: string
+          _source_table: string
+          _user_id?: string
+          _user_email?: string
+        }
+        Returns: boolean
+      }
       populate_all_weekly_exercise_goals: {
         Args: Record<PropertyKey, never>
         Returns: undefined
@@ -1476,6 +1485,21 @@ export type Database = {
       verify_b2b_employee: {
         Args: { _b2b_partner_name: string; _employee_id: string }
         Returns: boolean
+      }
+      verify_employee_by_name_and_id: {
+        Args: {
+          _first_name: string
+          _last_name: string
+          _employee_id: string
+          _b2b_partner_name: string
+        }
+        Returns: {
+          employee_record_id: string
+          b2b_partner_id: number
+          b2b_partner_name: string
+          employee_id: string
+          source_table: string
+        }[]
       }
       verify_employee_data: {
         Args: {

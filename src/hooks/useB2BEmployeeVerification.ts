@@ -58,7 +58,14 @@ export const useB2BEmployeeVerification = () => {
     }
   };
 
-  const verifyEmployeeCredentials = async (companyName?: string, empId?: string, employerName?: string, employeeId?: string) => {
+  const verifyEmployeeCredentials = async (
+    companyName?: string, 
+    empId?: string, 
+    employerName?: string, 
+    employeeId?: string,
+    firstName?: string,
+    lastName?: string
+  ) => {
     const nameToVerify = companyName || employerName;
     const idToVerify = empId || employeeId;
     
@@ -68,6 +75,8 @@ export const useB2BEmployeeVerification = () => {
       empId,
       employerName,
       employeeId,
+      firstName,
+      lastName,
       nameToVerify,
       idToVerify
     });
@@ -84,83 +93,74 @@ export const useB2BEmployeeVerification = () => {
       return;
     }
 
-    console.log('Starting verification for:', { nameToVerify, idToVerify });
+    console.log('Starting verification for:', { nameToVerify, idToVerify, firstName, lastName });
     setIsVerifyingEmployee(true);
     
-    const normalizeBool = (v: any) => v === true || v === 'true' || v === 1;
-    
     try {
-      console.log('=== PERFORMING VERIFICATION QUERY ===');
+      console.log('=== PERFORMING ENHANCED VERIFICATION QUERY ===');
       console.log('Query parameters:', {
-        b2b_partner_name: nameToVerify,
-        employee_id: idToVerify
+        first_name: firstName,
+        last_name: lastName,
+        employee_id: idToVerify,
+        b2b_partner_name: nameToVerify
       });
 
-      const [
-        { data: b2bVerified, error: b2bError },
-        { data: testVerified, error: testError }
-      ] = await Promise.all([
-        supabase.rpc('verify_b2b_employee', {
-          _b2b_partner_name: nameToVerify,
-          _employee_id: idToVerify,
-        }),
-        supabase.rpc('verify_test2_employee', {
-          _b2b_partner_name: nameToVerify,
-          _employee_id: idToVerify,
-        })
-      ]);
+      // Use the new enhanced verification function
+      const { data: verificationResult, error: verificationError } = await supabase.rpc('verify_employee_by_name_and_id', {
+        _first_name: firstName || '',
+        _last_name: lastName || '',
+        _employee_id: idToVerify,
+        _b2b_partner_name: nameToVerify,
+      });
 
-      console.log('Verification query executed');
-      console.log('Query result data:', b2bVerified, testVerified);
-      console.log('Query result error:', b2bError, testError);
+      console.log('Enhanced verification query executed');
+      console.log('Query result data:', verificationResult);
+      console.log('Query result error:', verificationError);
 
-      const errMsg = (b2bError?.message || testError?.message || '').toLowerCase();
-      if (errMsg.includes('permission') || errMsg.includes('execute')) {
-        toast({
-          title: 'Chyba oprávnení',
-          description: 'Overenie nie je momentálne dostupné. Skúste to prosím neskôr.',
-          variant: 'destructive',
-        });
+      if (verificationError) {
+        const errMsg = verificationError.message?.toLowerCase() || '';
+        if (errMsg.includes('permission') || errMsg.includes('execute')) {
+          toast({
+            title: 'Chyba oprávnení',
+            description: 'Overenie nie je momentálne dostupné. Skúste to prosím neskôr.',
+            variant: 'destructive',
+          });
+        } else {
+          toast({
+            title: 'Databázová chyba',
+            description: 'Vyskytla sa chyba pri overovaní údajov',
+            variant: 'destructive',
+          });
+        }
         setIsEmployeeVerified(false);
         setVerifiedEmployeeRecord(null);
         return;
       }
 
-      if (b2bError && testError) {
-        console.error('Database error during verification:', b2bError, testError);
-        setIsEmployeeVerified(false);
-        setVerifiedEmployeeRecord(null);
-        toast({
-          title: 'Databázová chyba',
-          description: 'Vyskytla sa chyba pri overovaní údajov',
-          variant: 'destructive',
-        });
-        return;
-      }
-
-      let record: any = null;
-      if (normalizeBool(b2bVerified)) {
-        record = { entry: { b2b_partner_name: nameToVerify, employee_id: idToVerify }, table: 'b2b_employees' };
-      } else if (normalizeBool(testVerified)) {
-        record = { entry: { b2b_partner_name: nameToVerify, employee_id: idToVerify }, table: 'test_2_employees' };
-      }
-
-      if (!record) {
+      if (!verificationResult || verificationResult.length === 0) {
         console.log('=== VERIFICATION FAILED ===');
-        console.log('No matching employee found for:', { nameToVerify, idToVerify });
+        console.log('No matching employee found for:', { firstName, lastName, idToVerify, nameToVerify });
         setIsEmployeeVerified(false);
         setVerifiedEmployeeRecord(null);
         toast({
           title: 'Overenie neúspešné',
-          description: 'Údaje sa nezhodujú so záznamami v databáze. Skontrolujte názov zamestnávateľa a ID zamestnanca.',
+          description: 'Údaje sa nezhodujú so záznamami v databáze. Skontrolujte meno, priezvisko, názov zamestnávateľa a ID zamestnanca.',
           variant: 'destructive',
         });
       } else {
-        const employeeRecord = record.entry;
+        const employeeRecord = verificationResult[0];
         console.log('=== VERIFICATION SUCCESSFUL ===');
         console.log('Employee verified successfully:', employeeRecord);
         setIsEmployeeVerified(true);
-        setVerifiedEmployeeRecord({ ...(employeeRecord as any), sourceTable: record.table });
+        setVerifiedEmployeeRecord({
+          employee_record_id: employeeRecord.employee_record_id,
+          b2b_partner_id: employeeRecord.b2b_partner_id,
+          b2b_partner_name: employeeRecord.b2b_partner_name,
+          employee_id: employeeRecord.employee_id,
+          sourceTable: employeeRecord.source_table,
+          firstName,
+          lastName
+        });
         toast({
           title: 'Overenie úspešné',
           description: 'Údaje boli úspešne overené',
@@ -185,57 +185,49 @@ export const useB2BEmployeeVerification = () => {
   const updateEmployeeEmail = async (userEmail: string, userId?: string) => {
     if (!verifiedEmployeeRecord) {
       console.log('No verified employee record found for email update');
-      return;
+      return false;
     }
 
     console.log('=== UPDATING EMPLOYEE STATUS ===');
     console.log('Updating employee email, status, and user_id:', { 
       userEmail, 
       userId,
-      recordId: verifiedEmployeeRecord.id,
-      currentState: verifiedEmployeeRecord.state 
+      recordId: verifiedEmployeeRecord.employee_record_id,
+      sourceTable: verifiedEmployeeRecord.sourceTable
     });
     
     try {
-      const table = (verifiedEmployeeRecord as any).sourceTable || 'b2b_employees';
-      const updateData: any = {
-        email: userEmail,
-        state: 'active'
-      };
-      
-      // Add user_id if provided
-      if (userId) {
-        updateData.user_id = userId;
-      }
-      
-      if (table === 'test_2_employees') {
-        const { error } = await (supabase as any).rpc('update_test2_employee_contact', {
-          _b2b_partner_name: (verifiedEmployeeRecord as any).b2b_partner_name || (verifiedEmployeeRecord as any).employerName,
-          _employee_id: (verifiedEmployeeRecord as any).employee_id || (verifiedEmployeeRecord as any).employeeId,
-        });
-        if (error) {
-          console.error('Error updating employee email and status via RPC:', error);
-        }
-      } else {
-        const { error } = await (supabase as any).rpc('update_b2b_employee_contact', {
-          _b2b_partner_name: (verifiedEmployeeRecord as any).b2b_partner_name || (verifiedEmployeeRecord as any).employerName,
-          _employee_id: (verifiedEmployeeRecord as any).employee_id || (verifiedEmployeeRecord as any).employeeId,
-        });
-        if (error) {
-          console.error('Error updating employee email and status via RPC:', error);
-        }
+      // Use the new link function
+      const { data: linkResult, error: linkError } = await supabase.rpc('link_verified_employee_to_user', {
+        _employee_record_id: verifiedEmployeeRecord.employee_record_id,
+        _source_table: verifiedEmployeeRecord.sourceTable,
+        _user_id: userId,
+        _user_email: userEmail
+      });
+
+      if (linkError) {
+        console.error('Error linking employee to user:', linkError);
+        return false;
       }
 
-      console.log('Employee email, status, and user_id updated successfully');
-      // Update the local state to reflect the change
-      setVerifiedEmployeeRecord(prev => prev ? { 
-        ...prev, 
-        email: userEmail, 
-        state: 'active',
-        ...(userId && { user_id: userId })
-      } : null);
+      if (linkResult) {
+        console.log('Employee linked to user successfully');
+        // Update the local state to reflect the change
+        setVerifiedEmployeeRecord(prev => prev ? { 
+          ...prev, 
+          email: userEmail, 
+          state: 'active',
+          user_id: userId,
+          isLinked: true
+        } : null);
+        return true;
+      } else {
+        console.log('Employee linking failed - no rows updated');
+        return false;
+      }
     } catch (error) {
       console.error('Error updating employee record:', error);
+      return false;
     }
   };
 

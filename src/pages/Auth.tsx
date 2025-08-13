@@ -96,7 +96,7 @@ const Auth = () => {
   };
 
   const handleVerifyEmployee = () => {
-    console.log('handleVerifyEmployee called with:', { employerName, employeeId });
+    console.log('handleVerifyEmployee called with:', { employerName, employeeId, firstName });
     if (!employerName.trim() || !employeeId.trim()) {
       toast({
         title: "Chyba",
@@ -105,7 +105,20 @@ const Auth = () => {
       });
       return;
     }
-    verifyEmployeeCredentials(undefined, undefined, employerName, employeeId);
+    if (!firstName.trim()) {
+      toast({
+        title: "Chyba", 
+        description: "Zadajte meno pre overenie",
+        variant: "destructive",
+      });
+      return;
+    }
+    // Extract first and last name from the firstName field (assuming format "FirstName LastName")
+    const nameParts = firstName.trim().split(' ');
+    const first = nameParts[0] || '';
+    const last = nameParts.slice(1).join(' ') || '';
+    
+    verifyEmployeeCredentials(undefined, undefined, employerName, employeeId, first, last);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {

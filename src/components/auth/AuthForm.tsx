@@ -78,12 +78,13 @@ const AuthForm = ({
 
       {isSignUp && (
         <div className="space-y-1">
-          <Label htmlFor="firstName">{t('auth.firstName')}</Label>
+          <Label htmlFor="firstName">{t('auth.firstName')} (Meno Priezvisko)</Label>
           <Input
             id="firstName"
             type="text"
             value={firstName}
             onChange={(e) => onFirstNameChange(e.target.value)}
+            placeholder="napr. Peter Novák"
             required
           />
         </div>
