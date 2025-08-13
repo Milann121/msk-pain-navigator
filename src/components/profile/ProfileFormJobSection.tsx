@@ -42,23 +42,32 @@ const availableDepartments = (passedDepartments && passedDepartments.length > 0)
   useEffect(() => {
     const loadData = async () => {
       if (!user) return;
+      
       try {
-        console.log('🔍 [ProfileFormJobSection] Loading departments and job properties...');
+        console.log('🔍 [ProfileFormJobSection] Loading job properties...');
 
-        // Load departments - rely on RLS policy to filter by user's b2b_partner_id
-        const {
-          data: companyDepartments,
-          error: deptError
-        } = await supabase.from('company_departments').select('id, department_name').order('department_name');
-        console.log('🏬 [ProfileFormJobSection] Department query result:', {
-          data: companyDepartments,
-          error: deptError,
-          count: companyDepartments?.length || 0
-        });
-        if (deptError) {
-          console.error('❌ [ProfileFormJobSection] Department query error:', deptError);
+        // Only fetch departments if not passed from parent
+        if (!passedDepartments || passedDepartments.length === 0) {
+          console.log('🏬 [ProfileFormJobSection] No departments passed from parent, fetching locally...');
+          
+          const {
+            data: companyDepartments,
+            error: deptError
+          } = await supabase.from('company_departments').select('id, department_name').order('department_name');
+          
+          console.log('🏬 [ProfileFormJobSection] Department query result:', {
+            data: companyDepartments,
+            error: deptError,
+            count: companyDepartments?.length || 0
+          });
+          
+          if (deptError) {
+            console.error('❌ [ProfileFormJobSection] Department query error:', deptError);
+          }
+          setDepartments(companyDepartments || []);
+        } else {
+          console.log('✅ [ProfileFormJobSection] Using departments passed from parent:', passedDepartments.length, 'departments');
         }
-        setDepartments(companyDepartments || []);
 
         // Load all job properties
         const {
@@ -66,13 +75,13 @@ const availableDepartments = (passedDepartments && passedDepartments.length > 0)
         } = await supabase.from('job_properties').select('id, property_name').order('property_name');
         setJobProperties(allJobProperties || []);
       } catch (error) {
-        console.error('Error loading job data:', error);
+        console.error('❌ [ProfileFormJobSection] Error loading job data:', error);
       } finally {
         setLoading(false);
       }
     };
     loadData();
-  }, [user]);
+  }, [user, passedDepartments]);
   const handleJobPropertyChange = (propertyName: string, checked: boolean) => {
     const currentProperties = data.jobProperties || [];
     const updatedProperties = checked ? [...currentProperties, propertyName] : currentProperties.filter(prop => prop !== propertyName);
@@ -95,12 +104,17 @@ const availableDepartments = (passedDepartments && passedDepartments.length > 0)
             <SelectTrigger>
               <SelectValue placeholder={t('profile.jobSection.departmentPlaceholder')} />
             </SelectTrigger>
-            <SelectContent className="z-50">
-              {(availableDepartments || []).map(dept => (
-                <SelectItem key={dept.id} value={dept.id}>
-                  {dept.department_name}
+            <SelectContent className="z-[100] bg-background">{(availableDepartments || []).length === 0 ? (
+                <SelectItem value="" disabled>
+                  {t('profile.jobSection.noDepartments', 'No departments available for your company. Contact HR.')}
                 </SelectItem>
-              ))}
+              ) : (
+                (availableDepartments || []).map(dept => (
+                  <SelectItem key={dept.id} value={dept.id}>
+                    {dept.department_name}
+                  </SelectItem>
+                ))
+              )}
             </SelectContent>
           </Select>
         </div>

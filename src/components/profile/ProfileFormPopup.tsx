@@ -87,13 +87,9 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     const loadB2BEmployeeData = async () => {
       if (!user?.email) return;
       try {
-        console.log('Loading B2B employee data for email:', user.email);
+        console.log('🔍 [ProfileFormPopup] Loading B2B employee data for email:', user.email);
 
-        // Load departments first
-        const {
-          data: deptData
-        } = await supabase.from('company_departments').select('id, department_name').order('department_name');
-        setDepartments(deptData || []);
+        // First, get B2B employee data
         const {
           data,
           error
@@ -121,15 +117,56 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
           return;
         }
         if (record) {
-          console.log('B2B employee data found:', record.entry);
+          console.log('🏢 [ProfileFormPopup] B2B employee data found:', record.entry);
+          
+          // Set B2B employee data
           setB2bEmployeeData({
             employerName: record.entry.b2b_partner_name || '',
             employeeId: record.entry.employee_id || '',
             b2bPartnerId: record.entry.b2b_partner_id || null,
             sourceTable: record.table
           });
+
+          // Immediately update user_profiles with b2b_partner_id to enable department RLS access
+          if (record.entry.b2b_partner_id) {
+            console.log('🔄 [ProfileFormPopup] Updating user_profiles with b2b_partner_id:', record.entry.b2b_partner_id);
+            
+            const { error: profileUpdateError } = await supabase
+              .from('user_profiles')
+              .upsert({
+                user_id: user.id,
+                email: user.email,
+                b2b_partner_id: record.entry.b2b_partner_id,
+                b2b_partner_name: record.entry.b2b_partner_name,
+                employee_id: record.entry.employee_id,
+                updated_at: new Date().toISOString()
+              });
+            
+            if (profileUpdateError) {
+              console.error('❌ [ProfileFormPopup] Error updating user profile with B2B data:', profileUpdateError);
+            } else {
+              console.log('✅ [ProfileFormPopup] User profile updated with B2B data successfully');
+            }
+
+            // Now fetch departments for this specific B2B partner
+            console.log('🏬 [ProfileFormPopup] Fetching departments for b2b_partner_id:', record.entry.b2b_partner_id);
+            
+            const { data: deptData, error: deptError } = await supabase
+              .from('company_departments')
+              .select('id, department_name')
+              .eq('b2b_partner_id', record.entry.b2b_partner_id)
+              .order('department_name');
+            
+            if (deptError) {
+              console.error('❌ [ProfileFormPopup] Error loading departments:', deptError);
+            } else {
+              console.log('🏢 [ProfileFormPopup] Departments loaded:', deptData?.length || 0, 'departments');
+              setDepartments(deptData || []);
+            }
+          }
         } else {
-          console.log('No B2B employee data found for user');
+          console.log('❌ [ProfileFormPopup] No B2B employee data found for user');
+          setDepartments([]); // Clear departments if no B2B data
         }
       } catch (error) {
         console.error('Error loading B2B employee data:', error);
