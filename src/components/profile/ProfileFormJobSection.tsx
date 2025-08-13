@@ -105,7 +105,7 @@ const availableDepartments = (passedDepartments && passedDepartments.length > 0)
               <SelectValue placeholder={t('profile.jobSection.departmentPlaceholder')} />
             </SelectTrigger>
             <SelectContent className="z-[100] bg-background">{(availableDepartments || []).length === 0 ? (
-                <SelectItem value="" disabled>
+                <SelectItem value="no-departments" disabled>
                   {t('profile.jobSection.noDepartments', 'No departments available for your company. Contact HR.')}
                 </SelectItem>
               ) : (
