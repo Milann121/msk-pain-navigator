@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
+import { fetchDepartments } from '@/services/departmentService';
 import { UserProfileData } from '../UserProfileData';
 import { useToast } from '@/hooks/use-toast';
 import { useTranslation } from 'react-i18next';
@@ -17,7 +18,7 @@ export const useProfileEditing = (
   const [tempDepartmentId, setTempDepartmentId] = useState<string>('');
   const [tempJobType, setTempJobType] = useState<string>('');
   const [tempJobProperties, setTempJobProperties] = useState<string[]>([]);
-  const [departments, setDepartments] = useState<Array<{id: string, department_name: string}>>([]);
+  const [departments, setDepartments] = useState<Array<{ id: string; department_name: string }>>([]);
 
   // Load departments when hook initializes
   useEffect(() => {
@@ -25,12 +26,8 @@ export const useProfileEditing = (
       if (!user) return;
       
       try {
-        const { data: deptData } = await supabase
-          .from('company_departments')
-          .select('id, department_name')
-          .order('department_name');
-        
-        setDepartments(deptData || []);
+        const deptData = await fetchDepartments();
+        setDepartments(deptData);
       } catch (error) {
         console.error('Error loading departments:', error);
       }

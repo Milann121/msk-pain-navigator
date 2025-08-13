@@ -6,6 +6,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/contexts/AuthContext';
+import { fetchDepartments } from '@/services/departmentService';
 interface JobSectionData {
   departmentId: string;
   jobType: string;
@@ -49,41 +50,13 @@ const availableDepartments = shouldUsePassedDepartments ? (passedDepartments || 
 
         // Only fetch departments if not passed from parent
         if (!shouldUsePassedDepartments) {
-          console.log('🏬 [ProfileFormJobSection] No departments passed from parent, fetching locally...');
-          
-          // First get user's b2b_partner_id from their profile
-          const { data: userProfile } = await supabase
-            .from('user_profiles')
-            .select('b2b_partner_id')
-            .eq('user_id', user.id)
-            .single();
-          
-          if (userProfile?.b2b_partner_id) {
-            console.log('🔍 [ProfileFormJobSection] Found user b2b_partner_id:', userProfile.b2b_partner_id);
-            
-            const {
-              data: companyDepartments,
-              error: deptError
-            } = await supabase
-              .from('company_departments')
-              .select('id, department_name')
-              .eq('b2b_partner_id', userProfile.b2b_partner_id)
-              .order('department_name');
-            
-            console.log('🏬 [ProfileFormJobSection] Department query result:', {
-              data: companyDepartments,
-              error: deptError,
-              count: companyDepartments?.length || 0
-            });
-            
-            if (deptError) {
-              console.error('❌ [ProfileFormJobSection] Department query error:', deptError);
-            }
-            setDepartments(companyDepartments || []);
-          } else {
-            console.log('⚠️ [ProfileFormJobSection] No b2b_partner_id found for user, cannot fetch departments');
-            setDepartments([]);
-          }
+          console.log('🏬 [ProfileFormJobSection] No departments passed from parent, fetching via service...');
+          const companyDepartments = await fetchDepartments();
+          console.log('🏬 [ProfileFormJobSection] Department query result:', {
+            data: companyDepartments,
+            count: companyDepartments?.length || 0
+          });
+          setDepartments(companyDepartments);
         } else {
           console.log('✅ [ProfileFormJobSection] Using departments passed from parent:', passedDepartments?.length || 0, 'departments');
         }

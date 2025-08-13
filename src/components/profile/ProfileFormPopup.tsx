@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { supabase } from '@/integrations/supabase/client';
+import { fetchDepartments } from '@/services/departmentService';
 import { useToast } from '@/hooks/use-toast';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
@@ -148,21 +149,11 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
               console.log('✅ [ProfileFormPopup] User profile updated with B2B data successfully');
             }
 
-            // Now fetch departments for this specific B2B partner
-            console.log('🏬 [ProfileFormPopup] Fetching departments for b2b_partner_id:', record.entry.b2b_partner_id);
-            
-            const { data: deptData, error: deptError } = await supabase
-              .from('company_departments')
-              .select('id, department_name')
-              .eq('b2b_partner_id', record.entry.b2b_partner_id)
-              .order('department_name');
-            
-            if (deptError) {
-              console.error('❌ [ProfileFormPopup] Error loading departments:', deptError);
-            } else {
-              console.log('🏢 [ProfileFormPopup] Departments loaded:', deptData?.length || 0, 'departments');
-              setDepartments(deptData || []);
-            }
+            // Now fetch departments using authenticated token
+            console.log('🏬 [ProfileFormPopup] Fetching departments via service');
+            const deptData = await fetchDepartments();
+            console.log('🏢 [ProfileFormPopup] Departments loaded:', deptData?.length || 0, 'departments');
+            setDepartments(deptData);
           }
         } else {
           console.log('❌ [ProfileFormPopup] No B2B employee data found for user');
