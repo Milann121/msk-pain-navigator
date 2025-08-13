@@ -41,6 +41,7 @@
   },
   "backHome": "Späť Domov",
   "newAssessment": "Nové Hodnotenie",
+  "noEndedPrograms": "Zatiaľ nemáte žiadne ukončené programy.",
   "timeline": {
     "weeksProgress": "{{current}} / {{total}} týždne",
     "completed": "Dokončené"

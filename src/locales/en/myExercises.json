@@ -41,6 +41,7 @@
   },
   "backHome": "Back to Home",
   "newAssessment": "New Assessment",
+  "noEndedPrograms": "You don't have any ended programs yet.",
   "timeline": {
     "weeksProgress": "{{current}} / {{total}} weeks",
     "completed": "Completed"
