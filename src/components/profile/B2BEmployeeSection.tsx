@@ -13,15 +13,15 @@ export const B2BEmployeeSection: React.FC<B2BEmployeeSectionProps> = ({ b2bData 
 
   return (
     <>
-      {/* B2B Employee fields - Read only */}
+      {/* B2B Employee fields - Always displayed */}
       <div className="grid grid-cols-2 gap-4">
         <ReadOnlyField
           label={t('profile.employerName')}
-          value={b2bData.employerName}
+          value={b2bData.employerName || ''}
         />
         <ReadOnlyField
           label={t('profile.employeeId')}
-          value={b2bData.employeeId}
+          value={b2bData.employeeId || ''}
         />
       </div>
     </>

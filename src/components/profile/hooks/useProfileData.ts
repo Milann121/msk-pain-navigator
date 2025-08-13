@@ -33,9 +33,15 @@ export const useProfileData = () => {
   useEffect(() => {
     if (user) {
       loadUserProfile();
-      loadB2BEmployeeData();
     }
   }, [user]);
+
+  // Load B2B data after user profile is loaded
+  useEffect(() => {
+    if (user && userData.firstName) {
+      loadB2BEmployeeData();
+    }
+  }, [user, userData.firstName]);
 
   const loadUserProfile = async () => {
     if (!user) return;
@@ -101,49 +107,115 @@ export const useProfileData = () => {
     if (!user?.email) return;
 
     try {
-      const { data, error } = await supabase
-        .from('b2b_employees')
-        .select('b2b_partner_name, employee_id, state, first_name, last_name')
-        .eq('email', user.email)
+      // First, check if B2B data is already in user_profiles (which should be the case after our enhanced verification)
+      const { data: profileData, error: profileError } = await supabase
+        .from('user_profiles')
+        .select('b2b_partner_name, employee_id, b2b_partner_id')
+        .eq('user_id', user.id)
         .single();
 
-      let record = data ? { entry: data, table: 'b2b_employees' } : null;
-
-      if ((!data || error?.code === 'PGRST116') && !error) {
-        const { data: testData, error: testError } = await supabase
-          .from('test_2_employees')
-          .select('b2b_partner_name, employee_id, state, first_name, last_name')
-          .eq('email', user.email)
-          .single();
-
-        if (!testError && testData) {
-          record = { entry: testData as any, table: 'test_2_employees' };
-        } else if (testError && testError.code !== 'PGRST116') {
-          console.error('Error loading B2B employee data:', testError);
-          return;
-        }
-      } else if (error && error.code !== 'PGRST116') {
-        console.error('Error loading B2B employee data:', error);
+      if (!profileError && profileData && profileData.b2b_partner_name && profileData.employee_id) {
+        console.log('✅ B2B data found in user_profiles:', profileData);
+        setB2bData({
+          employerName: profileData.b2b_partner_name || '',
+          employeeId: profileData.employee_id || '',
+          state: 'active', // If it's in user_profiles, it should be active
+          sourceTable: 'user_profile'
+        });
+        setIsLoading(false);
         return;
       }
 
-      if (record) {
-        setB2bData({
-          employerName: (record.entry as any).b2b_partner_name || '',
-          employeeId: (record.entry as any).employee_id || '',
-          state: (record.entry as any).state || 'inactive',
-          sourceTable: record.table
+      console.log('🔍 B2B data not found in user_profiles, attempting to find and link employee record...');
+
+      // If no B2B data in user_profiles, try to find by user's name and link the employee
+      // Get user's name from existing profile or auth metadata
+      const firstName = userData.firstName || user.user_metadata?.first_name || '';
+      const lastName = userData.lastName || user.user_metadata?.last_name || '';
+
+      if (firstName && lastName) {
+        console.log('🔍 Attempting to find B2B employee by name:', { firstName, lastName });
+
+        // Use the enhanced verification function to find employee by name
+        const { data: verificationResult, error: verificationError } = await supabase.rpc('verify_employee_by_name_and_id', {
+          _first_name: firstName,
+          _last_name: lastName,
+          _employee_id: '', // Search without specific employee ID
+          _b2b_partner_name: '' // Search without specific company name
         });
 
-        // If employee is active, ensure their data is synced to user_profiles
-        if ((record.entry as any).state === 'active') {
-          await syncB2BDataToUserProfiles(record.entry as any, record.table);
+        if (!verificationError && verificationResult && verificationResult.length > 0) {
+          const employeeRecord = verificationResult[0];
+          console.log('🏢 B2B employee found by name:', employeeRecord);
+          
+          // Link the employee to the user
+          const { data: linkResult, error: linkError } = await supabase.rpc('link_verified_employee_to_user', {
+            _employee_record_id: employeeRecord.employee_record_id,
+            _source_table: employeeRecord.source_table,
+            _user_id: user.id,
+            _user_email: user.email
+          });
+
+          if (!linkError && linkResult) {
+            console.log('🔗 Employee successfully linked to user');
+            
+            setB2bData({
+              employerName: employeeRecord.b2b_partner_name || '',
+              employeeId: employeeRecord.employee_id || '',
+              state: 'active',
+              sourceTable: employeeRecord.source_table
+            });
+
+            // Update user_profiles with B2B data
+            await supabase
+              .from('user_profiles')
+              .upsert({
+                user_id: user.id,
+                email: user.email,
+                first_name: firstName,
+                last_name: lastName,
+                b2b_partner_id: employeeRecord.b2b_partner_id,
+                b2b_partner_name: employeeRecord.b2b_partner_name,
+                employee_id: employeeRecord.employee_id,
+                updated_at: new Date().toISOString()
+              });
+            
+            console.log('✅ User profile updated with B2B data');
+          } else {
+            console.log('❌ Failed to link employee to user');
+            setB2bData({
+              employerName: '',
+              employeeId: '',
+              state: 'inactive',
+              sourceTable: undefined
+            });
+          }
         } else {
-          await checkAndUpdateB2BEmployeeState(record.table);
+          console.log('❌ No B2B employee found by name');
+          setB2bData({
+            employerName: '',
+            employeeId: '',
+            state: 'inactive',
+            sourceTable: undefined
+          });
         }
+      } else {
+        console.log('❌ Missing user name data for B2B employee lookup');
+        setB2bData({
+          employerName: '',
+          employeeId: '',
+          state: 'inactive',
+          sourceTable: undefined
+        });
       }
     } catch (error) {
       console.error('Error loading B2B employee data:', error);
+      setB2bData({
+        employerName: '',
+        employeeId: '',
+        state: 'inactive',
+        sourceTable: undefined
+      });
     } finally {
       setIsLoading(false);
     }
