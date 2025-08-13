@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
+import { fetchDepartments } from '@/services/departmentService';
 import { useToast } from '@/hooks/use-toast';
 import * as XLSX from 'xlsx';
 
@@ -38,13 +39,8 @@ export const useDownloadPersonalData = () => {
       // Fetch department data if available
       let departmentName = '';
       if (profileData?.department_id) {
-        const { data: deptData } = await supabase
-          .from('company_departments')
-          .select('department_name')
-          .eq('id', profileData.department_id)
-          .single();
-        
-        departmentName = deptData?.department_name || '';
+        const departments = await fetchDepartments();
+        departmentName = departments.find(d => d.id === profileData.department_id)?.department_name || '';
       }
 
       // Fetch B2B employee data if available
