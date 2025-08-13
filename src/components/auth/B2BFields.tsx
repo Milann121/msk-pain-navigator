@@ -46,7 +46,7 @@ const B2BFields = ({
   onEmployerSelect,
   onDropdownClose
 }: B2BFieldsProps) => {
-  const { t } = useTranslation('auth');
+  const { t } = useTranslation();
 
   const handleVerifyClick = () => {
     console.log('=== B2BFields: Verify button clicked ===');
@@ -72,7 +72,7 @@ const B2BFields = ({
     <div className="space-y-4">
       {/* First Name Field */}
       <div className="space-y-1">
-        <Label htmlFor="firstName">{t('firstName')} *</Label>
+        <Label htmlFor="firstName">{t('auth.firstName')} *</Label>
         <div className="relative">
           <Input
             id="firstName"
@@ -94,7 +94,7 @@ const B2BFields = ({
 
       {/* Last Name Field */}
       <div className="space-y-1">
-        <Label htmlFor="lastName">{t('lastName')} *</Label>
+        <Label htmlFor="lastName">{t('auth.lastName')} *</Label>
         <div className="relative">
           <Input
             id="lastName"
@@ -116,14 +116,14 @@ const B2BFields = ({
 
       {/* Employer Name Field */}
       <div className="space-y-1 relative">
-        <Label htmlFor="employerName">{t('employerName')} *</Label>
+        <Label htmlFor="employerName">{t('auth.employerName')} *</Label>
         <div className="relative">
           <Input
             id="employerName"
             type="text"
             value={employerName}
             onChange={(e) => onEmployerNameChange(e.target.value)}
-            placeholder={t('employerNamePlaceholder')}
+            placeholder={t('auth.employerNamePlaceholder')}
             required
             className={isEmployeeVerified ? "border-green-500 bg-green-50" : ""}
             disabled={isEmployeeVerified}
@@ -160,14 +160,14 @@ const B2BFields = ({
 
       {/* Employee ID Field */}
       <div className="space-y-1">
-        <Label htmlFor="employeeId">{t('employeeId')} *</Label>
+        <Label htmlFor="employeeId">{t('auth.employeeId')} *</Label>
         <div className="relative">
           <Input
             id="employeeId"
             type="text"
             value={employeeId}
             onChange={(e) => onEmployeeIdChange(e.target.value)}
-            placeholder={t('employeeIdPlaceholder')}
+            placeholder={t('auth.employeeIdPlaceholder')}
             required
             className={isEmployeeVerified ? "border-green-500 bg-green-50" : ""}
             disabled={isEmployeeVerified}
@@ -189,7 +189,7 @@ const B2BFields = ({
           disabled={!firstName.trim() || !lastName.trim() || !employerName.trim() || !employeeId.trim() || isVerifyingEmployee}
           className={`w-full ${isEmployeeVerified ? 'bg-green-600 hover:bg-green-700' : ''}`}
         >
-          {isVerifyingEmployee ? t('verifying') : isEmployeeVerified ? t('verifiedButton') : t('verify')}
+          {isVerifyingEmployee ? t('auth.verifying') : isEmployeeVerified ? t('auth.verifiedButton') : t('auth.verify')}
         </Button>
       </div>
 
