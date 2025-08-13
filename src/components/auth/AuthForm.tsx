@@ -12,6 +12,7 @@ interface AuthFormProps {
   email: string;
   password: string;
   firstName: string;
+  lastName: string;
   employerName: string;
   employeeId: string;
   isEmployeeVerified: boolean;
@@ -24,6 +25,7 @@ interface AuthFormProps {
   onEmailChange: (value: string) => void;
   onPasswordChange: (value: string) => void;
   onFirstNameChange: (value: string) => void;
+  onLastNameChange: (value: string) => void;
   onEmployerNameChange: (value: string) => void;
   onEmployeeIdChange: (value: string) => void;
   onVerifyEmployee: () => void;
@@ -37,6 +39,7 @@ const AuthForm = ({
   email,
   password,
   firstName,
+  lastName,
   employerName,
   employeeId,
   isEmployeeVerified,
@@ -49,6 +52,7 @@ const AuthForm = ({
   onEmailChange,
   onPasswordChange,
   onFirstNameChange,
+  onLastNameChange,
   onEmployerNameChange,
   onEmployeeIdChange,
   onVerifyEmployee,
@@ -62,32 +66,22 @@ const AuthForm = ({
     <form onSubmit={onSubmit} className="space-y-4">
       {isSignUp && (
         <B2BFields
+          firstName={firstName}
+          lastName={lastName}
           employerName={employerName}
           employeeId={employeeId}
           isEmployeeVerified={isEmployeeVerified}
           isVerifyingEmployee={isVerifyingEmployee}
           employers={employers}
           showEmployerDropdown={showEmployerDropdown}
+          onFirstNameChange={onFirstNameChange}
+          onLastNameChange={onLastNameChange}
           onEmployerNameChange={onEmployerNameChange}
           onEmployeeIdChange={onEmployeeIdChange}
           onVerifyEmployee={onVerifyEmployee}
           onEmployerSelect={onEmployerSelect}
           onDropdownClose={onDropdownClose}
         />
-      )}
-
-      {isSignUp && (
-        <div className="space-y-1">
-          <Label htmlFor="firstName">{t('auth.firstName')} (Meno Priezvisko)</Label>
-          <Input
-            id="firstName"
-            type="text"
-            value={firstName}
-            onChange={(e) => onFirstNameChange(e.target.value)}
-            placeholder="napr. Peter Novák"
-            required
-          />
-        </div>
       )}
       
       <div className="space-y-1">

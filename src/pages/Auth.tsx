@@ -26,6 +26,7 @@ const Auth = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [privacyConsent, setPrivacyConsent] = useState(false);
   const [showEmailNotConfirmed, setShowEmailNotConfirmed] = useState(false);
@@ -95,8 +96,18 @@ const Auth = () => {
     setShowEmployerDropdown(false);
   };
 
+  const handleFirstNameChange = (value: string) => {
+    setFirstName(value);
+    resetVerification();
+  };
+
+  const handleLastNameChange = (value: string) => {
+    setLastName(value);
+    resetVerification();
+  };
+
   const handleVerifyEmployee = () => {
-    console.log('handleVerifyEmployee called with:', { employerName, employeeId, firstName });
+    console.log('handleVerifyEmployee called with:', { employerName, employeeId, firstName, lastName });
     if (!employerName.trim() || !employeeId.trim()) {
       toast({
         title: "Chyba",
@@ -105,20 +116,16 @@ const Auth = () => {
       });
       return;
     }
-    if (!firstName.trim()) {
+    if (!firstName.trim() || !lastName.trim()) {
       toast({
         title: "Chyba", 
-        description: "Zadajte meno pre overenie",
+        description: "Zadajte meno a priezvisko pre overenie",
         variant: "destructive",
       });
       return;
     }
-    // Extract first and last name from the firstName field (assuming format "FirstName LastName")
-    const nameParts = firstName.trim().split(' ');
-    const first = nameParts[0] || '';
-    const last = nameParts.slice(1).join(' ') || '';
     
-    verifyEmployeeCredentials(undefined, undefined, employerName, employeeId, first, last);
+    verifyEmployeeCredentials(undefined, undefined, employerName, employeeId, firstName.trim(), lastName.trim());
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -179,6 +186,7 @@ const Auth = () => {
         setEmail('');
         setPassword('');
         setFirstName('');
+        setLastName('');
       } else {
         console.log('Starting user sign-in...');
         await signIn(email, password);
@@ -347,6 +355,7 @@ const Auth = () => {
               email={email}
               password={password}
               firstName={firstName}
+              lastName={lastName}
               employerName={employerName}
               employeeId={employeeId}
               isEmployeeVerified={isEmployeeVerified}
@@ -358,7 +367,8 @@ const Auth = () => {
               onSubmit={handleSubmit}
               onEmailChange={setEmail}
               onPasswordChange={setPassword}
-              onFirstNameChange={setFirstName}
+              onFirstNameChange={handleFirstNameChange}
+              onLastNameChange={handleLastNameChange}
               onEmployerNameChange={handleEmployerNameChange}
               onEmployeeIdChange={handleEmployeeIdChange}
               onVerifyEmployee={handleVerifyEmployee}
