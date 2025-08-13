@@ -83,6 +83,12 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     id: string;
     department_name: string;
   }>>([]);
+  const [employeeVerification, setEmployeeVerification] = useState({
+    employeeId: '',
+    isVerified: false,
+    isVerifying: false,
+    verificationError: ''
+  });
 
   // Load B2B employee data if user email matches
   useEffect(() => {
@@ -310,6 +316,111 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     } catch (error) {
       console.error('Error saving goal:', error);
       throw error;
+    }
+  };
+  
+  // Handle employee verification
+  const handleEmployeeVerification = async () => {
+    if (!employeeVerification.employeeId.trim() || !profileData.firstName.trim() || !profileData.lastName.trim()) {
+      setEmployeeVerification(prev => ({
+        ...prev,
+        verificationError: 'Please fill in your name and employee ID'
+      }));
+      return;
+    }
+
+    setEmployeeVerification(prev => ({
+      ...prev,
+      isVerifying: true,
+      verificationError: ''
+    }));
+
+    try {
+      // Verify employee data using the new function
+      const { data, error } = await supabase
+        .rpc('verify_employee_data', {
+          employee_first_name: profileData.firstName.trim(),
+          employee_last_name: profileData.lastName.trim(),
+          employee_id_param: employeeVerification.employeeId.trim()
+        });
+
+      if (error) {
+        console.error('Verification error:', error);
+        setEmployeeVerification(prev => ({
+          ...prev,
+          isVerifying: false,
+          verificationError: 'Verification failed. Please check your data and try again.'
+        }));
+        return;
+      }
+
+      if (data && data.length > 0) {
+        const employeeData = data[0];
+        
+        // Link the user to the B2B employee record
+        const { data: linkSuccess, error: linkError } = await supabase
+          .rpc('link_user_to_b2b_employee', {
+            target_user_id: user?.id,
+            employee_first_name: profileData.firstName.trim(),
+            employee_last_name: profileData.lastName.trim(),
+            employee_id_param: employeeVerification.employeeId.trim()
+          });
+
+        if (linkError || !linkSuccess) {
+          console.error('Linking error:', linkError);
+          setEmployeeVerification(prev => ({
+            ...prev,
+            isVerifying: false,
+            verificationError: 'Failed to link your account. Please try again.'
+          }));
+          return;
+        }
+
+        // Update B2B employee data state
+        setB2bEmployeeData({
+          employerName: employeeData.b2b_partner_name,
+          employeeId: employeeData.employee_id,
+          b2bPartnerId: employeeData.b2b_partner_id,
+          sourceTable: 'b2b_employees'
+        });
+
+        // Load departments for this company
+        const { data: deptData, error: deptError } = await supabase
+          .from('company_departments')
+          .select('id, department_name')
+          .eq('b2b_partner_id', employeeData.b2b_partner_id)
+          .order('department_name');
+
+        if (!deptError && deptData) {
+          setDepartments(deptData);
+        }
+
+        setEmployeeVerification(prev => ({
+          ...prev,
+          isVerifying: false,
+          isVerified: true,
+          verificationError: ''
+        }));
+
+        toast({
+          title: 'Success',
+          description: 'Employee verification successful! You can now select your department.',
+        });
+
+      } else {
+        setEmployeeVerification(prev => ({
+          ...prev,
+          isVerifying: false,
+          verificationError: 'No matching employee record found. Please check your name and employee ID.'
+        }));
+      }
+    } catch (error) {
+      console.error('Verification error:', error);
+      setEmployeeVerification(prev => ({
+        ...prev,
+        isVerifying: false,
+        verificationError: 'Verification failed. Please try again.'
+      }));
     }
   };
   const updatePainAreasFromAssessments = async () => {
@@ -677,6 +788,71 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
 
           {/* Language Selection - moved above Personal Information */}
           <LanguageSelector selectedLanguage={profileData.defaultLanguage} onLanguageChange={language => handleInputChange('defaultLanguage', language)} showAsRequired={true} label={t('profile.defaultLanguage')} />
+
+          {/* Employee Verification Section - show if not already verified/linked */}
+          {!b2bEmployeeData && !employeeVerification.isVerified && (
+            <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+              <h3 className="text-sm font-semibold text-yellow-800 mb-3">
+                Employee Verification Required
+              </h3>
+              <p className="text-sm text-yellow-700 mb-4">
+                To access your company's departments, please verify your employee ID along with your name.
+              </p>
+              
+              <div className="space-y-3">
+                <div>
+                  <label className="block text-sm font-medium text-yellow-800 mb-1">
+                    Employee ID *
+                  </label>
+                  <input
+                    type="text"
+                    value={employeeVerification.employeeId}
+                    onChange={(e) => setEmployeeVerification(prev => ({ ...prev, employeeId: e.target.value, verificationError: '' }))}
+                    className="w-full px-3 py-2 border border-yellow-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                    placeholder="Enter your employee ID"
+                    disabled={employeeVerification.isVerifying}
+                  />
+                </div>
+                
+                {employeeVerification.verificationError && (
+                  <div className="text-sm text-red-600 bg-red-50 p-2 rounded">
+                    {employeeVerification.verificationError}
+                  </div>
+                )}
+                
+                <Button 
+                  onClick={handleEmployeeVerification}
+                  disabled={employeeVerification.isVerifying || !employeeVerification.employeeId.trim() || !profileData.firstName.trim() || !profileData.lastName.trim()}
+                  className="w-full"
+                >
+                  {employeeVerification.isVerifying ? (
+                    <>
+                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                      Verifying...
+                    </>
+                  ) : (
+                    'Verify Employee ID'
+                  )}
+                </Button>
+                
+                <p className="text-xs text-yellow-600">
+                  Make sure your name matches exactly as it appears in your company records.
+                </p>
+              </div>
+            </div>
+          )}
+
+          {/* Success message for verified employees */}
+          {employeeVerification.isVerified && b2bEmployeeData && (
+            <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+              <h3 className="text-sm font-semibold text-green-800 mb-2">
+                ✓ Employee Verification Successful
+              </h3>
+              <p className="text-sm text-green-700">
+                You are now linked to <strong>{b2bEmployeeData.employerName}</strong> and can select your department.
+              </p>
+            </div>
+          )}
 
           {/* Personal Information Section */}
           <ProfileFormPersonalInfo data={{
