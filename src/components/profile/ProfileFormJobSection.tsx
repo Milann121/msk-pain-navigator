@@ -51,21 +51,39 @@ const availableDepartments = shouldUsePassedDepartments ? passedDepartments : de
         if (!shouldUsePassedDepartments) {
           console.log('🏬 [ProfileFormJobSection] No departments passed from parent, fetching locally...');
           
-          const {
-            data: companyDepartments,
-            error: deptError
-          } = await supabase.from('company_departments').select('id, department_name').order('department_name');
+          // First get user's b2b_partner_id from their profile
+          const { data: userProfile } = await supabase
+            .from('user_profiles')
+            .select('b2b_partner_id')
+            .eq('user_id', user.id)
+            .single();
           
-          console.log('🏬 [ProfileFormJobSection] Department query result:', {
-            data: companyDepartments,
-            error: deptError,
-            count: companyDepartments?.length || 0
-          });
-          
-          if (deptError) {
-            console.error('❌ [ProfileFormJobSection] Department query error:', deptError);
+          if (userProfile?.b2b_partner_id) {
+            console.log('🔍 [ProfileFormJobSection] Found user b2b_partner_id:', userProfile.b2b_partner_id);
+            
+            const {
+              data: companyDepartments,
+              error: deptError
+            } = await supabase
+              .from('company_departments')
+              .select('id, department_name')
+              .eq('b2b_partner_id', userProfile.b2b_partner_id)
+              .order('department_name');
+            
+            console.log('🏬 [ProfileFormJobSection] Department query result:', {
+              data: companyDepartments,
+              error: deptError,
+              count: companyDepartments?.length || 0
+            });
+            
+            if (deptError) {
+              console.error('❌ [ProfileFormJobSection] Department query error:', deptError);
+            }
+            setDepartments(companyDepartments || []);
+          } else {
+            console.log('⚠️ [ProfileFormJobSection] No b2b_partner_id found for user, cannot fetch departments');
+            setDepartments([]);
           }
-          setDepartments(companyDepartments || []);
         } else {
           console.log('✅ [ProfileFormJobSection] Using departments passed from parent:', passedDepartments?.length || 0, 'departments');
         }
