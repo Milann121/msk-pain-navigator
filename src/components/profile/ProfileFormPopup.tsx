@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { useTranslation } from 'react-i18next';
@@ -47,7 +48,8 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
   onGoalsChange
 }) => {
   const {
-    user
+    user,
+    signOut
   } = useAuth();
   const {
     toast
@@ -614,6 +616,21 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     }
   };
 
+  // Handle sign out
+  const handleSignOut = async () => {
+    try {
+      await signOut();
+      onClose();
+    } catch (error) {
+      console.error('Error signing out:', error);
+      toast({
+        title: 'Error',
+        description: 'Failed to sign out. Please try again.',
+        variant: 'destructive'
+      });
+    }
+  };
+
   // Check if all required personal fields are filled (for post-signup)
   const isProfileValid = profileData.firstName.trim() !== '' && profileData.lastName.trim() !== '' && profileData.gender !== '' && profileData.yearOfBirth && profileData.yearOfBirth !== '' && Number(profileData.yearOfBirth) > 0 && profileData.departmentId !== '' && profileData.defaultLanguage !== '';
   console.log('Profile validation state:', {
@@ -626,9 +643,17 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
     isValid: isProfileValid
   });
   return <Dialog open={isOpen} onOpenChange={() => {}}>
-      <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
-        <DialogHeader className="text-center">
+      <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto [&>button]:hidden">
+        <DialogHeader className="text-center relative">
           <DialogTitle className="text-xl font-semibold">{t('profile.profileForm.title')}</DialogTitle>
+          <Button 
+            variant="ghost" 
+            size="sm"
+            onClick={handleSignOut}
+            className="absolute right-0 top-0 text-sm"
+          >
+            {t('navigation.header.signOut')}
+          </Button>
         </DialogHeader>
         
         <div className="space-y-6 py-4">
