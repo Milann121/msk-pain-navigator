@@ -75,7 +75,7 @@ export const PersonalInfoSection: React.FC<PersonalInfoSectionProps> = ({
         />
       </div>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="w-full">
         <ReadOnlyField
           label={t('profile.email')}
           value={userData.email}

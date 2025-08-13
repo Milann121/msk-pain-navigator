@@ -14,7 +14,7 @@ export const B2BEmployeeSection: React.FC<B2BEmployeeSectionProps> = ({ b2bData 
   return (
     <>
       {/* B2B Employee fields - Always displayed */}
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <ReadOnlyField
           label={t('profile.employerName')}
           value={b2bData.employerName || ''}
