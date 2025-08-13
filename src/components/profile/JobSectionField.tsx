@@ -8,7 +8,6 @@ import { Edit, Trash2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/contexts/AuthContext';
-import { fetchDepartments } from '@/services/departmentService';
 
 interface JobSectionFieldProps {
   departmentId: string;
@@ -67,14 +66,23 @@ export const JobSectionField: React.FC<JobSectionFieldProps> = ({
       try {
         console.log('🔍 [JobSectionField] Loading departments and job properties...');
         
-        // Load departments with authenticated token
-        const companyDepartments = await fetchDepartments();
+        // Load departments - rely on RLS policy to filter by user's b2b_partner_id
+        const { data: companyDepartments, error: deptError } = await supabase
+          .from('company_departments')
+          .select('id, department_name')
+          .order('department_name');
+
         console.log('🏬 [JobSectionField] Department query result:', {
           data: companyDepartments,
+          error: deptError,
           count: companyDepartments?.length || 0
         });
 
-        setDepartments(companyDepartments);
+        if (deptError) {
+          console.error('❌ [JobSectionField] Department query error:', deptError);
+        }
+
+        setDepartments(companyDepartments || []);
 
         // Get current department name
         if (departmentId && companyDepartments) {
