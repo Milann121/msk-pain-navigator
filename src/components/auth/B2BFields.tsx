@@ -189,18 +189,10 @@ const B2BFields = ({
           disabled={!firstName.trim() || !lastName.trim() || !employerName.trim() || !employeeId.trim() || isVerifyingEmployee}
           className={`w-full ${isEmployeeVerified ? 'bg-green-600 hover:bg-green-700' : ''}`}
         >
-          {isVerifyingEmployee ? t('auth.verifying') : isEmployeeVerified ? '✓ Overené' : t('auth.verify')}
+          {isVerifyingEmployee ? t('auth.verifying') : isEmployeeVerified ? t('auth.verifiedButton') : t('auth.verify')}
         </Button>
       </div>
 
-      {/* Success Message */}
-      {isEmployeeVerified && (
-        <div className="text-center p-3 bg-green-50 border border-green-200 rounded-md">
-          <p className="text-sm text-green-700 font-medium">
-            ✓ {t('auth.dataVerified')}
-          </p>
-        </div>
-      )}
     </div>
   );
 };
