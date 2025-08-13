@@ -437,9 +437,12 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         job_type: profileData.jobType || null,
         job_properties: profileData.jobProperties.length > 0 ? profileData.jobProperties.join(',') : null,
         default_language: profileData.defaultLanguage,
-        b2b_partner_name: b2bEmployeeData?.employerName || null,
-        b2b_partner_id: b2bEmployeeData?.b2bPartnerId || null,
-        employee_id: b2bEmployeeData?.employeeId || null
+        // Only include B2B data if we have a valid employee_id
+        ...(b2bEmployeeData?.employeeId ? {
+          b2b_partner_name: b2bEmployeeData.employerName,
+          b2b_partner_id: b2bEmployeeData.b2bPartnerId,
+          employee_id: b2bEmployeeData.employeeId
+        } : {})
       };
       const {
         data: savedData,
@@ -537,19 +540,18 @@ export const ProfileFormPopup: React.FC<ProfileFormPopupProps> = ({
         first_name: profileData.firstName.trim(),
         last_name: profileData.lastName.trim(),
         email: user.email,
-        // Always ensure email is saved
         gender: profileData.gender,
-        // Ensure gender is saved
         year_birth: !profileData.yearOfBirth || profileData.yearOfBirth === '' ? null : Number(profileData.yearOfBirth),
         department_id: profileData.departmentId || null,
-        // Save department ID
         job_type: profileData.jobType || null,
         job_properties: profileData.jobProperties.length > 0 ? profileData.jobProperties.join(',') : null,
         default_language: profileData.defaultLanguage,
-        // Save default language
-        b2b_partner_name: b2bEmployeeData?.employerName || null,
-        b2b_partner_id: b2bEmployeeData?.b2bPartnerId || null,
-        employee_id: b2bEmployeeData?.employeeId || null
+        // Only include B2B data if we have a valid employee_id
+        ...(b2bEmployeeData?.employeeId ? {
+          b2b_partner_name: b2bEmployeeData.employerName,
+          b2b_partner_id: b2bEmployeeData.b2bPartnerId,
+          employee_id: b2bEmployeeData.employeeId
+        } : {})
       };
       console.log('Saving profile data (skip goals):', profileUpdateData);
       const {
