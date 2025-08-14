@@ -39,7 +39,7 @@ export const advices: Advice[] = [
     advicePriority: "medium",
     adviceRule: "increaseIntensityWeekly",
     adviceDescription: "gradualLoadIncreaseDescription",
-    adviceImageUrl: "",
+    adviceImageUrl: "public/lovable-uploads/adviceImages/adviceImage2.svg",
     adviceLink: "",
     bodyParts: ['lower-back'],
     mechanisms: ['nociceptive'],
