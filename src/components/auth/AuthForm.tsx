@@ -129,22 +129,20 @@ const AuthForm = ({
         </div>
       )}
 
-      <div className="relative">
-        <Button 
-          type="submit" 
-          className="w-full" 
-          disabled={isLoading || (isSignUp && (!privacyConsent || !isEmployeeVerified))}
-        >
-          {isLoading
-            ? t('loading')
-            : isSignUp
-            ? t('auth.signUp')
-            : t('auth.signIn')}
-        </Button>
-        {showLastUsed && (
-          <LastUsedIndicator className="absolute -top-2 -right-2" />
+      <Button 
+        type="submit" 
+        className="w-full flex items-center justify-center gap-2" 
+        disabled={isLoading || (isSignUp && (!privacyConsent || !isEmployeeVerified))}
+      >
+        {isLoading
+          ? t('loading')
+          : isSignUp
+          ? t('auth.signUp')
+          : t('auth.signIn')}
+        {showLastUsed && !isSignUp && (
+          <LastUsedIndicator />
         )}
-      </div>
+      </Button>
     </form>
   );
 };

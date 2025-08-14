@@ -40,10 +40,10 @@ const GoogleSignInButton = ({ onClick, disabled, showLastUsed }: GoogleSignInBut
         />
       </svg>
       {t('auth.google')}
+      {showLastUsed && (
+        <LastUsedIndicator className="ml-2" />
+      )}
     </Button>
-    {showLastUsed && (
-      <LastUsedIndicator className="absolute -top-2 -right-2" />
-    )}
     </div>
   );
 };
