@@ -87,8 +87,9 @@ const AuthForm = ({
         />
       )}
       
+      {showLastUsed && !isSignUp && <LastUsedIndicator />}
+      
       <div className="space-y-1">
-        {showLastUsed && !isSignUp && <LastUsedIndicator />}
         <Label htmlFor="email">{t('auth.email')}</Label>
         <Input
           id="email"
