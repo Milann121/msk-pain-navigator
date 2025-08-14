@@ -70,9 +70,9 @@ const Auth = () => {
       }
     }
     
-    // Load last used auth method
+    // Load last used auth method (for testing, default to 'google' if none exists)
     const lastMethod = localStorage.getItem('lastAuthMethod') as 'email' | 'google' | null;
-    setLastUsedMethod(lastMethod);
+    setLastUsedMethod(lastMethod || 'google'); // Set to 'google' for demo purposes
   }, []);
 
   if (user) {
