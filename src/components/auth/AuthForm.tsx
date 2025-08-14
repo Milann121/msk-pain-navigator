@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import B2BFields from './B2BFields';
+import LastUsedIndicator from './LastUsedIndicator';
 
 interface AuthFormProps {
   isSignUp: boolean;
@@ -21,6 +22,7 @@ interface AuthFormProps {
   employers: string[];
   showEmployerDropdown: boolean;
   isLoading: boolean;
+  showLastUsed?: boolean;
   onSubmit: (e: React.FormEvent) => void;
   onEmailChange: (value: string) => void;
   onPasswordChange: (value: string) => void;
@@ -48,6 +50,7 @@ const AuthForm = ({
   employers,
   showEmployerDropdown,
   isLoading,
+  showLastUsed,
   onSubmit,
   onEmailChange,
   onPasswordChange,
@@ -126,17 +129,22 @@ const AuthForm = ({
         </div>
       )}
 
-      <Button 
-        type="submit" 
-        className="w-full" 
-        disabled={isLoading || (isSignUp && (!privacyConsent || !isEmployeeVerified))}
-      >
-        {isLoading
-          ? t('loading')
-          : isSignUp
-          ? t('auth.signUp')
-          : t('auth.signIn')}
-      </Button>
+      <div className="relative">
+        <Button 
+          type="submit" 
+          className="w-full" 
+          disabled={isLoading || (isSignUp && (!privacyConsent || !isEmployeeVerified))}
+        >
+          {isLoading
+            ? t('loading')
+            : isSignUp
+            ? t('auth.signUp')
+            : t('auth.signIn')}
+        </Button>
+        {showLastUsed && (
+          <LastUsedIndicator className="absolute -top-2 -right-2" />
+        )}
+      </div>
     </form>
   );
 };

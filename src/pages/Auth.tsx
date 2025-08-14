@@ -31,6 +31,7 @@ const Auth = () => {
   const [privacyConsent, setPrivacyConsent] = useState(false);
   const [showEmailNotConfirmed, setShowEmailNotConfirmed] = useState(false);
   const [emailNotConfirmedAddress, setEmailNotConfirmedAddress] = useState('');
+  const [lastUsedMethod, setLastUsedMethod] = useState<'email' | 'google' | null>(null);
   
   // B2B registration fields
   const [employerName, setEmployerName] = useState('');
@@ -53,7 +54,7 @@ const Auth = () => {
     setShowEmployerDropdown
   } = useB2BEmployeeVerification();
 
-  // Check for pre-filled B2B data from localStorage
+  // Check for pre-filled B2B data and last used auth method from localStorage
   useEffect(() => {
     const b2bData = localStorage.getItem('b2b_employee_data');
     if (b2bData) {
@@ -68,6 +69,10 @@ const Auth = () => {
         console.error('Error parsing B2B data:', error);
       }
     }
+    
+    // Load last used auth method
+    const lastMethod = localStorage.getItem('lastAuthMethod') as 'email' | 'google' | null;
+    setLastUsedMethod(lastMethod);
   }, []);
 
   if (user) {
@@ -338,6 +343,7 @@ const Auth = () => {
               <GoogleSignInButton
                 onClick={handleGoogleSignIn}
                 disabled={isSignUp && !isEmployeeVerified}
+                showLastUsed={lastUsedMethod === 'google'}
               />
             </div>
             
@@ -364,6 +370,7 @@ const Auth = () => {
               employers={employers}
               showEmployerDropdown={showEmployerDropdown}
               isLoading={isLoading}
+              showLastUsed={lastUsedMethod === 'email'}
               onSubmit={handleSubmit}
               onEmailChange={setEmail}
               onPasswordChange={setPassword}

@@ -50,6 +50,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const signIn = async (email: string, password: string) => {
     const { error } = await supabase.auth.signInWithPassword({ email, password });
     if (error) throw error;
+    localStorage.setItem('lastAuthMethod', 'email');
   };
 
   const signUp = async (email: string, password: string, firstName: string) => {
@@ -79,6 +80,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       }
     });
     if (error) throw error;
+    localStorage.setItem('lastAuthMethod', 'google');
   };
 
   return (

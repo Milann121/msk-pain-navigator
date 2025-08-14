@@ -1,23 +1,26 @@
 
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
+import LastUsedIndicator from './LastUsedIndicator';
 
 interface GoogleSignInButtonProps {
   onClick: () => void;
   disabled?: boolean;
+  showLastUsed?: boolean;
 }
 
-const GoogleSignInButton = ({ onClick, disabled }: GoogleSignInButtonProps) => {
+const GoogleSignInButton = ({ onClick, disabled, showLastUsed }: GoogleSignInButtonProps) => {
   const { t } = useTranslation();
 
   return (
-    <Button 
-      type="button" 
-      variant="outline" 
-      className="w-full flex items-center justify-center gap-2"
-      onClick={onClick}
-      disabled={disabled}
-    >
+    <div className="relative">
+      <Button 
+        type="button" 
+        variant="outline" 
+        className="w-full flex items-center justify-center gap-2"
+        onClick={onClick}
+        disabled={disabled}
+      >
       <svg width="20" height="20" viewBox="0 0 24 24">
         <path
           d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -38,6 +41,10 @@ const GoogleSignInButton = ({ onClick, disabled }: GoogleSignInButtonProps) => {
       </svg>
       {t('auth.google')}
     </Button>
+    {showLastUsed && (
+      <LastUsedIndicator className="absolute -top-2 -right-2" />
+    )}
+    </div>
   );
 };
 
