@@ -129,9 +129,10 @@ const AuthForm = ({
         </div>
       )}
 
+      {showLastUsed && !isSignUp && <LastUsedIndicator />}
       <Button 
         type="submit" 
-        className="w-full flex items-center justify-center gap-2" 
+        className="w-full" 
         disabled={isLoading || (isSignUp && (!privacyConsent || !isEmployeeVerified))}
       >
         {isLoading
@@ -139,9 +140,6 @@ const AuthForm = ({
           : isSignUp
           ? t('auth.signUp')
           : t('auth.signIn')}
-        {showLastUsed && !isSignUp && (
-          <LastUsedIndicator />
-        )}
       </Button>
     </form>
   );
